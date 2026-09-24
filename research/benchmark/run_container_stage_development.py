@@ -218,7 +218,13 @@ def run_stage(package,harness,output,binary,skip_judge=False,context_policy=None
         from mrhbench.claude_transport import ClaudeJSONTransport
         validate_roles(roles)
         write_json(output/'role_configuration.json',roles,exclusive=True)
-        provider=ClaudeJSONTransport(binary=Path(binary),model=roles['executor']['model'],reasoning_effort=roles['executor']['effort'],ledger=ledger,audit_root=output/'executor_calls',timeout_seconds=view['resources']['execution_budget']['wall_seconds'])
+        spec=roles['executor']
+        if spec.get('transport')=='openai_wrapper':
+            # AGENTS §0.2.14: executor through the claude-code-openai-wrapper reverse proxy (faithful mode).
+            from mrhbench.openai_compat_transport import OpenAICompatTransport
+            provider=OpenAICompatTransport(base_url=spec['base_url'],api_key_file=spec['api_key_file'],model=spec['model'],reasoning_effort=spec['effort'],ledger=ledger,audit_root=output/'executor_calls',timeout_seconds=view['resources']['execution_budget']['wall_seconds'])
+        else:
+            provider=ClaudeJSONTransport(binary=Path(binary),model=spec['model'],reasoning_effort=spec['effort'],ledger=ledger,audit_root=output/'executor_calls',timeout_seconds=view['resources']['execution_budget']['wall_seconds'])
     else:
         provider=CodexJSONTransport(binary=Path(binary),model='gpt-5.6-sol',reasoning_effort='medium',ledger=ledger,audit_root=output/'executor_calls',timeout_seconds=view['resources']['execution_budget']['wall_seconds'],context_policy=context_policy)
     result=run_container_harness(harness=harness,public_root=output/'public',image_id=view['resources']['image_id'],provider=provider,output=output/'execution',literature=literature,max_artifact_bytes=collection['max_total_bytes'],max_artifact_files=collection['max_entries'])

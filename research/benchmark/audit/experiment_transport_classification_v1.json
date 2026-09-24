@@ -1,0 +1,35 @@
+{
+  "schema_version": "experiment-transport-classification-1",
+  "created_at": "2026-09-24",
+  "question": "Which runs so far were affected by the unapproved executor transport (ClaudeJSONTransport: claude -p with tools disabled), and which are unaffected?",
+  "basis": ["User correction 2026-09-24: the executor must reach the model through claude-code-openai-wrapper used like an HTTP API (AGENTS §0.2.14).",
+            "Builder/evolver, judge and constructor/reviewer are Claude Code native agents by the user's §0.2.13 decision; the correction does not concern them.",
+            "Model-purity scan D:/mrhbench-local-pilot/proxy/claude_era_model_scan.json over all 116 Claude-era transcripts before the wrapper work: every builder, judge, constructor, reviewer and executor call was answered by claude-opus-5-5; the only silent fallback (to claude-opus-4-8) was probe 232, whose response the transport rejected."],
+  "ledger_snapshot": {"used": 332, "authorized_maximum": 368},
+  "affected_executor_runs": [
+    {"id": "A1", "calls": [196, 205, 231, 232, 295], "what": "executor-transport probes on the wrong path",
+     "status": "transport development evidence only",
+     "carry_over": "Two platform findings from 231 and 247/248 were re-run on the wrapper (331, 332) and hold: 'reasoning' schema fields are refused (reasoning_extraction); property keys must match ^[a-zA-Z0-9_.-]{1,64}$. Interface v3 disclosure and key aliasing therefore stay valid."},
+    {"id": "A2", "calls": {"executor": "211-213,215-217,219-221,223-225,227-229", "judge": "214,218,222,226,230"}, "what": "integration v1 (frozen H0 v1, interface v2)",
+     "status": "not a measurement: already platform-attributed (reasoning-field refusals) and additionally on the unapproved executor transport",
+     "scores_invalid": {"WRITE_CONTENT": 3.5, "IDEA": 3.6, "LIT": 0.5, "WRITE_EVIDENCE": 0.5, "EXP": 0.25}},
+    {"id": "A3", "calls": {"executor": "239-241,244-248,250-260,262-272,274-287,290-293,296-298", "judge_and_rejudge": "243,249,261,273,288-289,294,299,302"},
+     "what": "integration v2 on frozen H0 v3 + IDEA reruns",
+     "status": "executor outputs produced on the unapproved transport; the per-task scores (WC 3.75, IDEA 3.8, LIT 1.75, WE 3.0, EXP stage_failed) must NOT be used as H0 baselines or evolution signal and must be re-run through the wrapper",
+     "still_valid_from_these_runs": ["judge behaviour evidence (the judge correctly graded the artifacts it was given; v3.2-v3.4 schema/tile/downscale fixes and the trajectory review in claude_integration_v2_review_v1.json)",
+                                     "H0 v3 defect findings that come from reading the H0's own requests (asset path never passed to the executor; only the last 4 observations kept; resources never shown) — these are harness properties independent of transport",
+                                     "platform bugs found and fixed (typed broker errors, collection behaviour, image downscaling by the same CLI)"]},
+    {"id": "A4", "calls": "305-311", "what": "halted new-paper integration (Diffusion EXP stage, 7 executor calls)", "status": "no result; discard"}
+  ],
+  "unaffected": [
+    {"id": "U1", "calls": "1-195", "what": "Codex era (gpt-5.6-sol; executor via codex exec, judge/builder native Codex)",
+     "status": "separate historical configuration; not touched by this correction, but AGENTS already records that the codex exec executor was not a bare-API/HTTP proxy either; keep as historical development evidence only, never mixed with Claude results"},
+    {"id": "U2", "calls": "197-198,200-204,206-210,236-237", "what": "Claude native judge probes and judge re-validation on synthetic fixtures (no executor involved)", "status": "valid"},
+    {"id": "U3", "calls": "199,233", "what": "Claude Code native builder H0 v1 and v3 (zero scientific tasks) plus their fake-client independent reviews", "status": "valid; H0 v3 remains the frozen development H0"},
+    {"id": "U4", "calls": "234-235,238,242,300-301,303-304", "what": "Claude constructor/reviewer material construction, resume review and repair round", "status": "valid"},
+    {"id": "U5", "calls": "none", "what": "all zero-call work: source adjudications (Gaussian, Diffusion), LIT private labels, runtime verification, package compilation, platform code and tests", "status": "valid"}
+  ],
+  "correct_path_runs": {"calls": "312-332", "what": "wrapper setup, conformance (official openai SDK), upstream before/after comparison, debug captures, finding re-checks, transport smoke",
+                        "notes": ["312 and 327 are the upstream wrapper's own startup 'Hello' calls, recorded after the fact", "313-316 predate the no-fallback switches and are superseded; 321/324 were safeguard refusals before the ResultError mapping fix"]},
+  "next": "Re-run the five-type integration of frozen H0 v3 through the wrapper (OpenAICompatTransport, config/role_transport_claude_v2.json); only those results can serve as development measurements of the executor path."
+}

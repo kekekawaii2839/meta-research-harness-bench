@@ -1,0 +1,71 @@
+{
+  "schema_version": "executor-wrapper-conformance-1",
+  "created_at": "2026-09-24",
+  "decision_source": "User 2026-09-24: the executor's reverse-proxy API must be the GitHub project claude-code-openai-wrapper, used exactly like calling an HTTP model API (AGENTS §0.2.14-15).",
+  "wrapper": {
+    "repository": "https://github.com/RichardAtCT/claude-code-openai-wrapper",
+    "commit": "aaad0b96a4cd63833003ac340bbcc37f89418acc",
+    "commit_date": "2026-09-24T11:31:46+04:00",
+    "license": "MIT (pyproject.toml)",
+    "checkout": "D:/mrhbench-local-pilot/proxy/claude-code-openai-wrapper (outside the repository)",
+    "claude_agent_sdk": "0.2.159 (bundled Claude Code CLI 2.1.281, same version as the host CLI)",
+    "install_deviations_from_poetry_lock": ["mcp pin 1.27.2 dropped: lockfile inconsistent with the sdk pin; resolver chose mcp 1.30.0", "uvloop dropped: Linux-only, cannot build on Windows"],
+    "installed_freeze": "research/benchmark/runtime/wrapper/wrapper-venv.freeze.txt",
+    "launcher": "research/benchmark/start_executor_wrapper.py (verifies commit, patch bytes and sdk version; loopback only; strips CLAUDE*/ANTHROPIC* env)"
+  },
+  "upstream_behaviour_found_by_code_review_and_measured": [
+    {"issue": "Client system message silently dropped", "evidence": "wrapper passes system_prompt {type:'text'}; SDK 0.2.159 only emits --system-prompt for str/custom/file/preset, so no flag is sent and the CLI uses its default Claude Code system prompt. Offline _build_command and live call 328: asked 'What is your name?' under system 'Your name is Quillon', upstream answered as a Claude Code agent that can run commands in the workspace."},
+    {"issue": "Full agent context loaded", "evidence": "no --setting-sources flag, so user/project settings, hooks and skills load; tools only denylisted by an outdated list (PowerShell, Agent, ToolSearch etc. not covered)."},
+    {"issue": "Prompt and reply rewritten", "evidence": "filter_content removes <thinking>, <args>, <bash>... blocks, replaces data:image base64 text, collapses blank lines, substitutes a canned sentence for empty replies. Live call 329: the model saw a prompt with the tags removed and reported 0 '<' characters; its <args>ok</args> answer was stripped to an empty code block."},
+    {"issue": "Images discarded", "evidence": "Message.normalize_content keeps only text parts."},
+    {"issue": "Usage fabricated", "evidence": "prompt/completion tokens = len(text)//4 (call 329 reported 75 prompt tokens)."},
+    {"issue": "No response_format / JSON mode", "evidence": "parameter not implemented; replies are plain text."},
+    {"issue": "Unledgered paid startup call", "evidence": "verify_cli sends 'Hello' with the Claude Code preset at every server start (ledger 312, 327 recorded after the fact)."},
+    {"issue": "Silent model substitution by the CLI", "evidence": "without CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK the CLI answers a refused request with another model (call 317: claude-opus-5-5 refused 'cyber', answered by claude-opus-4-8, subtype model_refusal_fallback)."},
+    {"issue": "Server-side advisor tool enabled", "evidence": "CLI debug log call 317: '[AdvisorTool] Server-side tool enabled with claude-opus-5-5 as the advisor model'."}
+  ],
+  "faithful_mode_patch": {
+    "file": "research/benchmark/runtime/wrapper/faithful_mode.patch",
+    "sha256": "355b83b39caa420ca7a7ad7b39a375537d6f00b3d9909e75f919032197c0b2a3",
+    "enabled_by": "WRAPPER_FAITHFUL_API=1 (upstream behaviour unchanged when unset)",
+    "behaviour": [
+      "exactly the client's system message (or none) via --system-prompt; never the Claude Code preset",
+      "--tools \"\", --setting-sources= (none), --strict-mcp-config, --disable-slash-commands, --no-session-persistence",
+      "CLI env: refusal fallback, model fallback, advisor tool, attachments, auto/org memory, CLAUDE.md, git instructions, bundled/policy skills, background tasks, non-essential traffic, telemetry all disabled",
+      "user content passed unchanged; data-URL images as real image blocks; no content filtering",
+      "response_format json_schema -> provider structured output (--json-schema); content = its JSON",
+      "reasoning_effort -> --effort",
+      "real usage from the CLI result; refusals -> 200 with finish_reason content_filter; upstream 4xx -> same 4xx",
+      "any response involving a model other than the requested one -> 502 model_substituted; any declared/used tool other than the structured-output channel -> 502",
+      "unsupported parameters (temperature, tools, multi-turn history, remote image URLs, stream) -> OpenAI-style 400, never approximated",
+      "startup makes no model call"
+    ]
+  },
+  "conformance_runs": {
+    "client": "official openai Python SDK 1.109.1, only base_url/api_key differ from a hosted API",
+    "zero_cost_rejections": ["temperature -> 400 unsupported_parameter", "multi-turn -> 400 unsupported_messages", "remote image URL -> 400 invalid_content", "tools -> 400", "missing key -> 401"],
+    "superseded_runs": "conformance-faithful-d8b6c63e (calls 313-316) and the C2/C5 attempts of conformance-faithful-v2 (321, 324: safeguard refusals then reported as 502 before the ResultError fix) predate the no-fallback switches; its C1 answer was probably produced by the fallback model, so it is not evidence.",
+    "results": [
+      {"case": "C1 system prompt honoured", "call": 320, "result": "pass", "content": "Quillon", "run": "conformance-faithful-v2-346fd6fd"},
+      {"case": "C2 prompt and reply passed through unmodified", "call": 325, "result": "pass", "content": "{lt_count: 4, args_word: keep-me, out: <args>ok</args>}", "run": "conformance-faithful-v3-2adc8d7a"},
+      {"case": "C3 response_format json_schema", "call": 322, "result": "pass", "run": "conformance-faithful-v2-346fd6fd"},
+      {"case": "C4 data-URL image reaches the model", "call": 323, "result": "pass", "content": "{left: red, right: blue}", "run": "conformance-faithful-v2-346fd6fd"},
+      {"case": "C5 refusal surfaced as content_filter by the requested model, no substitution", "call": 326, "result": "pass", "run": "conformance-faithful-v3-2adc8d7a"},
+      {"case": "neutral arithmetic", "call": 319, "result": "42, one turn, served_models [claude-opus-5-5], declared_tools []"},
+      {"case": "executor transport end-to-end (OpenAICompatTransport, action schema + image)", "call": 330, "result": "schema-valid action; image colours correct"}
+    ],
+    "upstream_comparison": {"run": "D:/mrhbench-local-pilot/proxy/conformance-upstream-unpatched-f72ed04f", "calls": [327, 328, 329], "C1": "fail (system message ignored; answered as Claude Code agent)", "C2": "fail (prompt tags and image text filtered; response_format ignored; reply stripped; usage len/4)"}
+  },
+  "transport_findings_rechecked_on_correct_path": [
+    {"finding": "an output_schema with a property named 'reasoning' is refused (reasoning_extraction)", "call": 331, "holds": true},
+    {"finding": "provider structured output rejects property keys outside ^[a-zA-Z0-9_.-]{1,64}$ (API 400)", "call": 332, "holds": true}
+  ],
+  "residual_differences_from_a_bare_api_call": [
+    "Subscription OAuth access goes through Claude Code: the CLI prepends its identity/attribution system blocks and sends the claude-code/oauth beta headers. Measured cost: about 400 extra input tokens per request (neutral request 424 prompt tokens for ~25 tokens of content). This cannot be removed without leaving the supported subscription path.",
+    "Sampling parameters (temperature/top_p/max_tokens) are not settable through the CLI; faithful mode rejects them instead of emulating them.",
+    "One user turn per request (no role-separated history); the benchmark executor sends [system, user] only, so this does not constrain current harness calls, but a harness that sends history gets a 400.",
+    "The CLI downscales images whose long side exceeds 2000 px before the API request (observed earlier on the same CLI; controller tiles already handle this for the judge; executor-side tiling is not yet implemented).",
+    "Opus 5.5 safeguards refuse some benign prompts (instruction-override phrasing, verbatim-copy requests, 'reasoning' schema fields); these are model-level and would also occur on the hosted API."
+  ],
+  "not_yet_done": ["no H0 integration run through the wrapper yet", "no load/concurrency test", "wrapper restart and crash handling not exercised under a running stage"]
+}

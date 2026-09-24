@@ -19,7 +19,7 @@
 | 项目 | 当前状态 |
 |---|---|
 | Builder/evolver | **2026-09-24用户改定：Claude Code原生agent**（claude-opus-5-5，effort medium，订阅登录）；旧gpt-5.6-sol+Codex记录保留为历史配置，不与新配置混算 |
-| Executor | **2026-09-24用户改定：Claude订阅经无原生harness的API式transport**（claude-opus-5-5，medium；`claude -p`关闭全部内置工具/MCP/技能，只返回JSON），替代旧`codex exec`反代；控制循环仍属于被测harness，不用Claude Code原生agent当executor |
+| Executor | **2026-09-24用户再纠正（§0.2.15）：经GitHub claude-code-openai-wrapper反代，按OpenAI chat-completions HTTP API调用**（claude-opus-5-5，reasoning_effort medium，faithful模式补丁）；`OpenAICompatTransport`+`config/role_transport_claude_v2.json`。此前`ClaudeJSONTransport`（`claude -p`关工具）为未获批transport，其executor结果仅作开发证据；控制循环仍属被测harness |
 | Judge | **2026-09-24改为Claude Code原生agent**（claude-opus-5-5/medium，仅受控MCP取证工具）；以下为旧gpt-5.6-sol+原生Codex历史：同次评分/feedback已实现；v2.8新EXP/WRITE_CONTENT配对留出已实际审阅，目标错误可区分，EXP暴露fixture公开配置identity/反馈归属及非目标维度差异；完整T03仍未通过，旧分数/循环均保留 |
 | 材料构造模型 | **2026-09-24用户改定：Claude native runner（constructor角色，opus-5-5/medium）**；以下为旧Luna历史：低消耗模型优先；GPT-6 Luna按2026-09-23所查官方credits速率最便宜，但订阅配额不保证同比例，Luna/medium多轮自主构造仍未通过；维护者另存科学修订并经sol/medium独立审阅，不能把维护者修复算Luna质量通过或冻结批量配置；不改其余已定模型 |
 | 调用授权 | 2026-09-24再新增100次Claude调用，总上限**368**（见§0.2.13）；此前：历史基线68次；用户另授权**本轮新增最多200次**（失败计入、不自动购买额度/兑换reset）。账本和development配置已更新为总上限268，不另加旧剩余32次；当前次数以账本为准。研究协议的限轮次与开发调用上限不同 |
@@ -202,6 +202,17 @@
 - **仍待用户决定：** ①配额违规计分规则（建议：跳过并记录超限文件、收集其余、带违规标记评judge；实现需改沙箱导出助手，未做）；②正式split/样本量/轮次/重复（T14）；③原生OS级隔离环境（Windows提权sandbox或独立Linux；Claude builder/judge已做到启动即无宿主工具，但CLI宿主进程本身未OS隔离）；④Gaussian复用IV镜像是否可接受；⑤Diffusion许可（CC BY-NC-SA论文+代码非商业附加条款）下本项目是否算非商业用途。
 - **已知小问题待修：** `run_claude_integration.py`计划文件中`judge_version_expected`常量仍写v3.1（实际judge版本以各result的`judge_version`为准，应改为导入`CLAUDE_VERSION`）；编辑脚本须用`write_bytes`/`newline=''`保留原换行（Windows下`write_text`会把LF改CRLF，影响按字节hash）。
 - **交接入口：** 本节+§0.2.13为最新工作记忆；git已跟踪（见§0.2.13 Git条，最近提交见`git log`）；D盘`D:/mrhbench-local-pilot/`存放全部运行目录与原始转录（不入git）。最新离线测试：`controller-venv`下325项；交接时第一次运行出现1个error、立即重跑全部通过，疑为时序相关的偶发测试，尚未定位（日志`D:/mrhbench-local-pilot/tests-handoff.log`为通过的那次）。
+
+### 0.2.15 executor反代：claude-code-openai-wrapper faithful模式（2026-09-24，当前接续）
+
+- **账号：** 用户`/login`后CLI登录到新的claude.ai组织；账本延续（上限368），新调用在新账号下。
+- **wrapper与固定版本：** RichardAtCT/claude-code-openai-wrapper commit `aaad0b96a4cd…`（MIT），checkout在`D:/mrhbench-local-pilot/proxy/`（不入git），claude-agent-sdk 0.2.159（内置CLI 2.1.281）。lock不一致：去掉mcp固定（解析为1.30.0）与Windows不可装的uvloop；freeze见`research/benchmark/runtime/wrapper/wrapper-venv.freeze.txt`。
+- **原版不等于API（代码审查+实测）：** 客户端system消息被静默丢弃（`{"type":"text"}`不被SDK识别→CLI用默认Claude Code系统提示；call328问名字答成“能在工作区运行命令的Claude agent”）；不传setting-sources（加载用户设置/hook/技能）；工具只用过时denylist；`filter_content`改写提示与回答（删`<args>`/`<thinking>`等、替换base64文本；call329模型看到被删改的提示，回答里的`<args>ok</args>`被删）；图片丢弃；usage按len/4伪造；无response_format；启动时自带一次“Hello”付费调用（312/327已补记账本）；CLI在safeguard拒绝后**静默换用claude-opus-4-8回答**（call317，model_refusal_fallback），并启用服务端advisor工具。
+- **faithful补丁：** `runtime/wrapper/faithful_mode.patch`（sha `355b83b3…`，`WRAPPER_FAITHFUL_API=1`才生效，原行为可复现）：只用客户端system消息；`--tools ""`、无setting sources、strict MCP、禁slash命令、不持久化session；CLI环境关闭refusal/model fallback、advisor、attachments、memory、CLAUDE.md、git说明、内置/策略技能、后台与非必要流量、遥测；用户内容原样（data-URL图片作真实图像块）；json_schema走结构化输出；reasoning_effort→--effort；真实usage；拒绝→200+`finish_reason: content_filter`；上游4xx原样；出现非请求模型或任何工具即502；不支持的参数（temperature/tools/多轮/远程图片/stream）返回400而不模拟；启动零调用。启动入口`research/benchmark/start_executor_wrapper.py`（校验commit、补丁字节、SDK版本，仅127.0.0.1，剥离CLAUDE*/ANTHROPIC*）。
+- **一致性验证（官方openai SDK 1.109.1，仅base_url不同）：** 零成本拒绝5项全对；C1 system提示生效、C2提示/回答不被改写、C3 json_schema、C4 data-URL图像、C5拒绝以content_filter如实返回且无换模型——全部通过；中性算术只服务claude-opus-5-5、1轮、无工具；executor transport端到端（动作schema+图像）通过。313–316早于关闭fallback、321/324早于ResultError映射修复，均作废。**两条经错误transport得到的平台结论在正确路径复核仍成立**：`reasoning`字段被拒（331）、属性键≤64字符（332）。
+- **残余差异（如实）：** 订阅OAuth必经Claude Code，CLI前置身份/归因system块与oauth beta头，每请求约多400输入token，无法在受支持路径内去除；temperature等采样参数不可设（拒绝而非模拟）；每请求单轮；CLI对长边>2000px图像降采样（executor侧tile未做）；Opus 5.5 safeguard对部分良性写法会拒绝（模型级，托管API同样存在）。
+- **实验分类：** `audit/experiment_transport_classification_v1.json`。受影响（executor走错transport，不得作H0基线/演化信号，须经wrapper重跑）：A1探针196/205/231/232/295；A2集成v1（211–230）；A3集成v2与IDEA重跑（239–302中的executor/judge）；A4中止的新论文集成305–311。仍有效：Codex时代1–195（独立历史配置）；judge合成fixture重验证及探针197–198/200–210/236–237；builder H0 v1/v3（199、233）及其审阅；材料构造/审核（234–304中构造与reviewer）；全部零调用工作与平台修复。A3中judge行为证据与读H0请求得到的H0缺陷仍有效。模型纯度扫描：切换前116份Claude转录全部由claude-opus-5-5作答，仅探针232发生过静默fallback且已被拒收。
+- **审计：** `audit/executor_wrapper_conformance_v1.json`；账本332/368。下一步：经wrapper重跑冻结H0 v3五类集成（上限55次），此前的executor侧分数不再引用。
 
 ### 0.3 协作与文件规则
 

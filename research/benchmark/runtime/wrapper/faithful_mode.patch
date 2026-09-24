@@ -1,0 +1,234 @@
+diff --git a/src/faithful_api.py b/src/faithful_api.py
+new file mode 100644
+index 0000000..13ee6b8
+--- /dev/null
++++ b/src/faithful_api.py
+@@ -0,0 +1,192 @@
++"""Faithful OpenAI-chat-completions mode (mrhbench patch; enabled with WRAPPER_FAITHFUL_API=1).
++
++Upstream behaviour (kept when the flag is unset) runs a Claude Code agent: the client's
++system message is dropped (SDK ignores {"type": "text"}), user/project settings load,
++tools are only denylisted, image parts are discarded, prompt and reply are rewritten by
++filter_content, and token usage is estimated as len/4. This mode instead behaves like a
++plain model endpoint:
++
++* exactly the client's system message (or none) as the system prompt; no Claude Code preset
++* no tools (--tools ""), no setting sources, no MCP, no slash commands, no session persistence
++* the user message content passed through unchanged, including data-URL images
++* response_format json_schema -> provider structured output; content is its JSON
++* no content filtering; real usage from the CLI result; refusals -> finish_reason content_filter
++* anything this mode cannot represent faithfully is rejected with an OpenAI-style 400,
++  never silently approximated
++"""
++from __future__ import annotations
++
++import base64
++import logging
++import json
++import os
++import re
++import tempfile
++import time
++import uuid
++from typing import Any, Dict, List, Optional
++
++from claude_agent_sdk import AssistantMessage, ClaudeAgentOptions, ResultMessage, SystemMessage, query
++from fastapi.responses import JSONResponse
++
++ENABLED = os.environ.get("WRAPPER_FAITHFUL_API") == "1"
++logger = logging.getLogger("faithful_api")
++SUPPORTED_KEYS = {"model", "messages", "response_format", "stream", "n", "user", "reasoning_effort"}
++EFFORTS = {"low", "medium", "high", "xhigh", "max"}
++# CLI behaviours that make a request differ from one plain API call (observed calls 317/318):
++# silent refusal fallback to another model, a server-side advisor tool, memory/attachments,
++# CLAUDE.md, git instructions, bundled skills and background/non-essential traffic.
++CLI_ENV = {k: "1" for k in (
++    "CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK", "CLAUDE_CODE_NO_MODEL_FALLBACK", "CLAUDE_CODE_DISABLE_ADVISOR_TOOL",
++    "CLAUDE_CODE_DISABLE_ADVISOR_TOOLS", "CLAUDE_CODE_DISABLE_ATTACHMENTS", "CLAUDE_CODE_DISABLE_AUTO_MEMORY",
++    "CLAUDE_CODE_DISABLE_CLAUDE_MDS", "CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS", "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
++    "CLAUDE_CODE_DISABLE_BACKGROUND_TASKS", "CLAUDE_CODE_DISABLE_BUNDLED_SKILLS", "CLAUDE_CODE_DISABLE_CLAUDE_API_SKILL",
++    "CLAUDE_CODE_DISABLE_CLAUDE_CODE_SKILL", "CLAUDE_CODE_DISABLE_POLICY_SKILLS", "CLAUDE_CODE_DISABLE_ORG_MEMORY",
++    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS", "CLAUDE_CODE_DISABLE_FILE_CHECKPOINTING", "CLAUDE_CODE_DISABLE_WORKFLOWS",
++    "CLAUDE_CODE_DISABLE_CRON", "DISABLE_TELEMETRY", "DISABLE_ERROR_REPORTING", "DISABLE_AUTOUPDATER")}
++DATA_URL = re.compile(r"^data:(image/(?:png|jpeg|gif|webp));base64,([A-Za-z0-9+/=]+)$")
++
++
++def _error(status: int, message: str, code: str) -> JSONResponse:
++    return JSONResponse(status_code=status, content={"error": {"message": message, "type": "invalid_request_error"
++                                                                if status < 500 else "api_error", "code": code}})
++
++
++def _content_blocks(content: Any) -> List[Dict[str, Any]]:
++    if isinstance(content, str):
++        return [{"type": "text", "text": content}]
++    if not isinstance(content, list):
++        raise ValueError("message content must be a string or a list of parts")
++    blocks = []
++    for part in content:
++        kind = part.get("type") if isinstance(part, dict) else None
++        if kind == "text" and isinstance(part.get("text"), str):
++            blocks.append({"type": "text", "text": part["text"]})
++        elif kind == "image_url":
++            url = (part.get("image_url") or {}).get("url", "")
++            match = DATA_URL.match(url)
++            if not match:
++                raise ValueError("only base64 data-URL images are supported (no remote fetch)")
++            base64.b64decode(match.group(2), validate=True)
++            blocks.append({"type": "image", "source": {"type": "base64", "media_type": match.group(1), "data": match.group(2)}})
++        else:
++            raise ValueError("unsupported content part type: %r" % kind)
++    return blocks
++
++
++async def _user_stream(blocks, session_id):
++    yield {"type": "user", "message": {"role": "user", "content": blocks}, "parent_tool_use_id": None, "session_id": session_id}
++
++
++async def chat_completion(body: Dict[str, Any]) -> JSONResponse:
++    extra = set(body) - SUPPORTED_KEYS
++    if extra:
++        return _error(400, "faithful mode does not emulate these parameters: " + ", ".join(sorted(extra)), "unsupported_parameter")
++    if body.get("stream"):
++        return _error(400, "faithful mode supports stream=false only", "unsupported_parameter")
++    if body.get("n", 1) != 1:
++        return _error(400, "faithful mode supports n=1 only", "unsupported_parameter")
++    messages = body.get("messages")
++    if not isinstance(messages, list) or not messages:
++        return _error(400, "messages must be a non-empty list", "invalid_messages")
++    system = [m for m in messages if m.get("role") == "system"]
++    rest = [m for m in messages if m.get("role") != "system"]
++    if len(system) > 1 or (system and messages[0].get("role") != "system") or len(rest) != 1 or rest[0].get("role") != "user":
++        # A CLI session cannot receive prior assistant turns as real assistant messages;
++        # flattening them into text would not be an API-equivalent conversation.
++        return _error(400, "faithful mode supports [system?, user] only (one user turn)", "unsupported_messages")
++    try:
++        system_text = ""
++        if system:
++            blocks = _content_blocks(system[0].get("content"))
++            if any(b["type"] != "text" for b in blocks):
++                raise ValueError("system message must be text")
++            system_text = "\n".join(b["text"] for b in blocks)
++        user_blocks = _content_blocks(rest[0].get("content"))
++    except (ValueError, TypeError) as exc:
++        return _error(400, str(exc), "invalid_content")
++    schema = None
++    rf = body.get("response_format")
++    if rf is not None:
++        if rf.get("type") == "json_schema" and isinstance((rf.get("json_schema") or {}).get("schema"), dict):
++            schema = rf["json_schema"]["schema"]
++        elif rf.get("type") != "text":
++            return _error(400, "faithful mode supports response_format text or json_schema", "unsupported_parameter")
++
++    effort = body.get("reasoning_effort")
++    if effort is not None and effort not in EFFORTS:
++        return _error(400, "reasoning_effort must be one of " + ", ".join(sorted(EFFORTS)), "unsupported_parameter")
++    workdir = tempfile.mkdtemp(prefix="wrapper-faithful-")
++    session_id = str(uuid.uuid4())
++    options = ClaudeAgentOptions(
++        model=body.get("model"), cwd=workdir, tools=[], setting_sources=[], system_prompt=system_text,
++        max_turns=3 if schema is not None else 1,
++        output_format={"type": "json_schema", "schema": schema} if schema is not None else None,
++        extra_args={"strict-mcp-config": None, "disable-slash-commands": None, "no-session-persistence": None},
++        effort=effort, env=dict(CLI_ENV),
++    )
++    only_text = all(b["type"] == "text" for b in user_blocks) and len(user_blocks) == 1
++    prompt = user_blocks[0]["text"] if only_text else _user_stream(user_blocks, session_id)
++    init, result, assistants, cli_events = None, None, [], []
++    try:
++        async for message in query(prompt=prompt, options=options):
++            if isinstance(message, SystemMessage) and message.subtype == "init":
++                init = message.data
++            elif isinstance(message, SystemMessage):
++                cli_events.append({"subtype": message.subtype, **{k: message.data.get(k) for k in
++                                   ("api_refusal_category", "original_model", "fallback_model", "request_id") if k in message.data}})
++            elif isinstance(message, AssistantMessage):
++                assistants.append(message)
++            elif isinstance(message, ResultMessage):
++                result = message
++    except Exception as exc:  # transport/CLI failure: report, never fabricate a reply
++        logger.error("faithful CLI failure %s: %s", type(exc).__name__, str(exc)[:2000])
++        # The SDK yields the terminal error ResultMessage and then raises ResultError; that
++        # result (e.g. a safeguard refusal) is a model outcome handled below, not a crash.
++        if not (type(exc).__name__ == "ResultError" and result is not None):
++            return _error(502, "claude CLI failure: %s" % type(exc).__name__, "upstream_failure")
++    if result is None:
++        return _error(502, "no result from claude CLI", "upstream_failure")
++    declared = (init or {}).get("tools") or []
++    tool_uses = [b.name for a in assistants for b in a.content if type(b).__name__ == "ToolUseBlock"]
++    allowed = {"StructuredOutput"} if schema is not None else set()
++    if set(declared) - allowed or set(tool_uses) - allowed:
++        return _error(502, "claude CLI exposed or used a tool in faithful mode", "tool_activity")
++    requested = body.get("model")
++    served = sorted({a.model for a in assistants if a.model and a.model != "<synthetic>"} | set((result.model_usage or {}).keys()))
++    if requested and any(m != requested for m in served):
++        return _error(502, "response involved a model other than the requested one: %s" % ", ".join(served), "model_substituted")
++    refusal = (any(a.stop_reason == "refusal" for a in assistants) or result.stop_reason == "refusal"
++               or any(str(e["subtype"]).startswith("model_refusal") for e in cli_events))
++    if result.is_error and not refusal:
++        status = result.api_error_status
++        if isinstance(status, int) and 400 <= status < 500:
++            # Same status class the upstream API returned (e.g. an invalid json_schema).
++            return _error(status, "upstream API rejected the request: %s" % (result.result or "")[:500], "upstream_invalid_request")
++        return _error(502, "claude CLI error (api status %s)" % status, "upstream_error")
++    if refusal:
++        content, finish = "", "content_filter"
++    elif schema is not None:
++        if result.structured_output is None:
++            return _error(502, "no structured output returned", "upstream_error")
++        content, finish = json.dumps(result.structured_output, ensure_ascii=False), "stop"
++    else:
++        content, finish = result.result or "", ("length" if result.stop_reason == "max_tokens" else "stop")
++    usage = result.usage or {}
++    cached = int(usage.get("cache_read_input_tokens") or 0)
++    prompt_tokens = int(usage.get("input_tokens") or 0) + int(usage.get("cache_creation_input_tokens") or 0) + cached
++    completion_tokens = int(usage.get("output_tokens") or 0)
++    return JSONResponse(content={
++        "id": "chatcmpl-" + uuid.uuid4().hex, "object": "chat.completion", "created": int(time.time()),
++        "model": body.get("model"),
++        "choices": [{"index": 0, "message": {"role": "assistant", "content": content, "refusal": None}, "finish_reason": finish}],
++        "usage": {"prompt_tokens": prompt_tokens, "completion_tokens": completion_tokens, "total_tokens": prompt_tokens + completion_tokens,
++                  "prompt_tokens_details": {"cached_tokens": cached}},
++        # Non-standard audit extension; OpenAI clients ignore unknown fields.
++        "x_claude": {"session_id": result.session_id, "declared_tools": declared, "tool_uses": tool_uses,
++                     "stop_reason": result.stop_reason, "num_turns": result.num_turns, "raw_usage": usage,
++                     "cli_version": (init or {}).get("claude_code_version"), "init_model": (init or {}).get("model"),
++                     "skills": (init or {}).get("skills"), "plugins": [p.get("name") for p in (init or {}).get("plugins", [])],
++                     "mcp_servers": (init or {}).get("mcp_servers"), "refusal": refusal,
++                     "served_models": served, "cli_events": cli_events},
++    })
+diff --git a/src/main.py b/src/main.py
+index f03bbb5..cbb7816 100644
+--- a/src/main.py
++++ b/src/main.py
+@@ -344,7 +344,10 @@ async def lifespan(app: FastAPI):
+     try:
+         logger.info("Testing Claude Agent SDK connection...")
+         # Use asyncio.wait_for to enforce timeout (30 seconds)
+-        cli_verified = await asyncio.wait_for(claude_cli.verify_cli(), timeout=30.0)
++        # mrhbench patch: the upstream check sends a real "Hello" model call with the full
++        # Claude Code preset and user settings; faithful mode skips it (no unledgered calls).
++        from src import faithful_api as _faithful
++        cli_verified = True if _faithful.ENABLED else await asyncio.wait_for(claude_cli.verify_cli(), timeout=30.0)
+ 
+         if cli_verified:
+             logger.info("✅ Claude Agent SDK verified successfully")
+@@ -806,6 +809,19 @@ async def generate_streaming_response(
+         yield f"data: {json.dumps(error_chunk)}\n\n"
+ 
+ 
++# --- mrhbench patch: faithful OpenAI mode (WRAPPER_FAITHFUL_API=1); registered first so it takes precedence ---
++from src import faithful_api
++if faithful_api.ENABLED:
++    @app.post("/v1/chat/completions")
++    async def faithful_chat_completions(request: Request, credentials: Optional[HTTPAuthorizationCredentials] = Depends(security)):
++        await verify_api_key(request, credentials)
++        try:
++            body = await request.json()
++        except Exception:
++            return JSONResponse(status_code=400, content={"error": {"message": "invalid JSON body", "type": "invalid_request_error", "code": "invalid_json"}})
++        return await faithful_api.chat_completion(body)
++# --- end mrhbench patch ---
++
+ @app.post("/v1/chat/completions")
+ @rate_limit_endpoint("chat")
+ async def chat_completions(
