@@ -113,6 +113,13 @@ class BrokerTests(unittest.TestCase):
             if category != "budget_exhausted":
                 self.assertNotIn("budget", message.lower())
 
+    def test_public_error_messages_are_frozen_by_interface_version(self):
+        import json
+        from mrhbench.executor_broker import PUBLIC_ERROR_MESSAGES
+        interface = json.loads((Path(__file__).resolve().parents[1] / "runtime/interface_container_v4.json").read_text(encoding="utf8"))
+        # Harnesses may key on these exact texts; changing them requires a new interface version.
+        self.assertEqual(interface["error_categories"], PUBLIC_ERROR_MESSAGES)
+
     def test_mismatch_and_error_redaction(self):
         self.view["resources"]["execution_budget"]["wall_seconds"] = 61
         with self.assertRaises(ProtocolError): ExecutorBroker(view=self.view, session=self.session, provider=self.provider, trace=Trace(), audit_root=Path(self.tmp.name)/"bad")
