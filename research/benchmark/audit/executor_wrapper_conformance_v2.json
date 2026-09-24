@@ -16,7 +16,10 @@
     "controls_found": {
       "userEmail": "added whenever the logged-in claude.ai account has an email; the CLI code skips it only when ANTHROPIC_UNIX_SOCKET is set (a different transport, not an on/off switch). No supported switch found.",
       "environment_block": "assembled by the CLI context builder; CLAUDE_CODE_HIDE_CWD was set and did NOT remove the working directory line. No supported switch found to drop the block.",
-      "identity_and_billing_lines": "part of the subscription (OAuth) Claude Code request; cannot be removed on the supported path."
+      "identity_and_billing_lines": "part of the subscription (OAuth) Claude Code request; cannot be removed on the supported path.",
+      "switch_probe_call_337": "CLAUDE_CODE_SIMPLE=1 (the env form of --bare) disables OAuth login: the CLI answered 'Not logged in' and sent 0 API requests, so it cannot be used with a subscription.",
+      "CLAUDE_CODE_USER_EMAIL": "read-only CLI inspection: it only seeds the account record together with CLAUDE_CODE_ACCOUNT_UUID and CLAUDE_CODE_ORGANIZATION_UUID when no oauthAccount exists; it is not a suppressor.",
+      "conclusion": "no supported switch removes the account-email reminder or the environment block; the only remaining route is rewriting outbound requests in a local proxy (not done; needs explicit user decision)."
     },
     "not_done_by_choice": "Rewriting the CLI's outgoing requests in the local proxy (stripping these blocks or splicing messages) would make Claude Code a tunnel for arbitrary API calls under a subscription login and likely conflicts with the subscription terms; left to the user's decision."
   },
@@ -41,5 +44,5 @@
     "assistant history turns are text only (no replay of thinking or tool-use blocks); the executor path uses no tools",
     "images with a long side over 2000 px are downscaled by the CLI (accepted by the user for now)"
   ],
-  "ledger": {"calls_this_step": "333-336", "used": 336, "authorized_maximum": 368}
+  "ledger": {"calls_this_step": "333-337", "used": 337, "authorized_maximum": 368}
 }
