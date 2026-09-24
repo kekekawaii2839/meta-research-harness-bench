@@ -1,0 +1,17 @@
+{
+  "iv-pilot-v2": [
+    "Complete identification Assumption 1 and exact source locations: source q>=p, rank/shape and relevance/exogeneity conditions versus empirical full-rank conditions must be accurately distinguished. Check original paper directly.",
+    "Define concrete machine-readable conclusion/evidence interface: hypothesis IDs, experiment IDs, configurations/data seeds references, actual results/artifact paths, brief conclusion and uncertainty, untested status. Do NOT fix repetition counts, grids, iteration counts, tolerances or fitting windows. Those remain solver decisions.",
+    "Preserve exact old-state coupled updates, initialization and justified scope; do not weaken hypotheses to trivial assertions merely to pass.",
+    "Clarify upstream MIT notice applicability versus newly authored benchmark assets. Record provenance and pending public release authorization; do not claim every paper or data asset inherits repository license.",
+    "Use a new candidate task ID/version v3 and retain all five coverage reasons. Do not self-certify environment/scientific/judge gates."
+  ],
+  "ssa-pilot-v2": [
+    "WRITE_CONTENT needs complete normalization behavior: target mini-batch moments in S3.SS2.p5 and only normalization affine gamma/beta updates in S3.SS2.p6. Include mean formula exact locator S3.E1 and variance mechanism as required by requested writing scope. Verify directly.",
+    "Clarify Table 4 Oracle condition using target labels for fine-tuning as upper-bound comparator (S4.SS2.p3). SSA best claims must explicitly exclude Oracle and respect actual numeric comparisons.",
+    "Remove render_table4.py and any complete target visualization renderer from ALL public assets. Supply only original numeric data/provenance and generic loader if needed. Solver must design/code plot itself. Environment smoke may load actual data and separately render unrelated synthetic data, not target answer.",
+    "Keep all 140 original Table 4 numeric strings and accurate metric/aggregation context; no invented confidence intervals. Require solver code, actual render, caption and source-linked numeric manifest.",
+    "Clarify upstream repository notice applicability separately from newly authored benchmark asset rights; public release authorization pending.",
+    "Use new candidate task IDs/version v3; retain complete five-type coverage. Do not self-certify any gate."
+  ]
+}

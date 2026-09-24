@@ -1,0 +1,25 @@
+{
+  "schema_version": "role-transport-1",
+  "transport": "claude",
+  "decided": "User 2026-09-24 (AGENTS §0.2.13): builder/evolver and judge = Claude Code native agent; executor = Claude via API-like transport without native harness. Model claude-opus-5-5/medium is confirmed by the user 2026-09-24.",
+  "claude_binary_default": "D:/programming/cluade-code/claude.exe",
+  "builder": {
+    "model": "claude-opus-5-5",
+    "effort": "medium"
+  },
+  "executor": {
+    "model": "claude-opus-5-5",
+    "effort": "medium"
+  },
+  "judge": {
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "timeout_seconds": 600
+  },
+  "constructor": {
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "profile": "material_workspace",
+    "decided": "User 2026-09-24"
+  }
+}

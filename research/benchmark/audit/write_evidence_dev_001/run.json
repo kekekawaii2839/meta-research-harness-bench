@@ -1,0 +1,1 @@
+{"budget":{"cancelled":false,"model_calls":1,"tool_calls":43,"wall_seconds":1774.331801515582},"formal":false,"gpu_used":false,"harness_kind":"handwritten_unified_baseline_not_builder_H0","judge_acceptance":"pending_manual_trajectory_review","task_hash":"75b150f8bd3393b5422e851f022da52896731b394c32fb7a4abd0f2c0ce11378","task_id":"dev-write-evidence-001"}

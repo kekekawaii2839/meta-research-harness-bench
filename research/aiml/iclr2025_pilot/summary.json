@@ -1,0 +1,39 @@
+{
+  "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+  "source_count_field": 4040,
+  "events_received": 4040,
+  "excluded": {
+    "non_main_conference_source": 122,
+    "nonpositive_sourceid_presentation_duplicate": 213
+  },
+  "normalized_candidates": 3705,
+  "github_linked_candidates": 1369,
+  "seed": "iclr2025-material-pilot-v1",
+  "sampling": "round_robin_topic_group_then_sha256_seed_forum_not_population_representative",
+  "pilot_projects": 30,
+  "pilot_topic_counts": {
+    "Applications": 4,
+    "Deep Learning": 4,
+    "Miscellaneous Aspects of Machine Learning": 4,
+    "Optimization": 3,
+    "Probabilistic Methods": 3,
+    "Reinforcement Learning": 3,
+    "Social Aspects": 3,
+    "Theory": 3,
+    "Unknown": 3
+  },
+  "repo_status": {
+    "metadata_fetched": 29,
+    "error": 1
+  },
+  "readmes_downloaded": 28,
+  "runtime_verified_projects": 0,
+  "review_scores_fetched": 0,
+  "limitations": [
+    "Official schedule snapshot is not a certified final accepted-paper census.",
+    "GitHub link extraction misses project websites, PDF-only links and other hosts.",
+    "Source-linked repository is not necessarily complete, licensed or runnable.",
+    "Current branch is not the original paper-time commit.",
+    "OpenReview API returned ChallengeRequiredError; no review scores inferred."
+  ]
+}

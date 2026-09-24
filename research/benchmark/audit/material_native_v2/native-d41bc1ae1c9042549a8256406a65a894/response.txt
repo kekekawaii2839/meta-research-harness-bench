@@ -1,0 +1,7 @@
+Created a fresh development candidate at [output/package.json](D:/mrhbench-local-pilot/batch-20260923-002/iv-pilot-v2/constructor/output/package.json) with one scoped CPU EXP task. Its public specification fixes the synthetic generator, simultaneous old-state updates, step-size selection protocol, hypotheses, metrics, and output requirements. Source results remain private; LIT, IDEA, WRITE_CONTENT, and WRITE_EVIDENCE are explicitly deferred with reasons.
+
+The package schema, asset hashes, public input file parity, and EXP fact-stage eligibility checks passed. I did not run the supplied smoke script or build Docker; runtime remains unverified.
+
+Generated files: `package.json`, `assets/task.md`, `assets/base_resources.py`, `assets/NOTICE.txt`, `environment/smoke.py`, `environment/image/Dockerfile`, and `environment/image/requirements.txt`.
+
+Unresolved blockers: independent review, controller smoke/runtime validation, and confirmation that the proposed CPU limits suffice for the eventual repetition and rate-sweep choices.

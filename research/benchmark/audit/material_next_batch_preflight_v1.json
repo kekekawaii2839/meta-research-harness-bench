@@ -1,0 +1,436 @@
+{
+  "schema_version": "material-next-batch-preflight-1",
+  "created_at_utc": "2026-09-24T01:29:26.590737+00:00",
+  "scope": "Offline source prescreen plus one uninvoked source-only FTCT WRITE job proposal; not construction, material acceptance, benchmark expansion or model reconfiguration.",
+  "selection_status": "The previously mentioned two new papers were not identified/selected. These three candidates are proposed for discussion, not a retroactive selected pair.",
+  "actions": {
+    "network_requests": 0,
+    "model_calls": 0,
+    "containers_started": 0,
+    "source_cache_modified": false,
+    "historical_audits_modified": false,
+    "code_modified": false,
+    "scientific_tasks_generated": 0
+  },
+  "candidate_basis": {
+    "path": "research/aiml/iclr2025_pilot/pilot30.json",
+    "sha256": "566d4aec4b60c929e51c42ab26d5a6d1445ef7757f02c11b05a969fe5c586747",
+    "count": 30,
+    "conference_source": {
+      "path": "research/source_cache/iclr2025_pilot/iclr-2025-orals-posters.json",
+      "sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+      "matches_recorded_hash": true
+    },
+    "selection_limit": "Three bounded CPU-constructability candidates, not an exhaustive ranking or representative sample."
+  },
+  "candidates": [
+    {
+      "paper_id": "iclr2025-tNn6Hskmti",
+      "title": "Asymptotic Analysis of Two-Layer Neural Networks after One Gradient Step under Gaussian Mixtures Data with Structure",
+      "conference_decision": "Accept (Poster)",
+      "source_event_id": 28057,
+      "paper_landing_page": "https://openreview.net/forum?id=tNn6Hskmti",
+      "repository": "https://github.com/KU-MLIP/2-Layer-NNs-with-Gaussian-Mixtures-Data",
+      "repository_link_status": "conference-linked; README self-identifies paper; not independently author-authenticated",
+      "assets": [
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/KU-MLIP__2-Layer-NNs-with-Gaussian-Mixtures-Data/README.txt",
+          "sha256": "f4cda112d50d9902e96540477c5528f51f88c12ee00f48f3544fc3db9621915b",
+          "bytes": 2931,
+          "url": "https://raw.githubusercontent.com/KU-MLIP/2-Layer-NNs-with-Gaussian-Mixtures-Data/main/README.md",
+          "retrieved_at_utc": "2026-09-21T02:39:19.045464+00:00",
+          "provenance_path": "research/source_cache/iclr2025_pilot/repos/KU-MLIP__2-Layer-NNs-with-Gaussian-Mixtures-Data/README.txt.provenance.json",
+          "recorded_hash_matches": true,
+          "version_limit": "Frozen bytes from mutable main/API snapshot; not an immutable repository commit nor paper-time code."
+        },
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/KU-MLIP__2-Layer-NNs-with-Gaussian-Mixtures-Data/repo.json",
+          "sha256": "a2fb851cbba35fe0e8354f4948a0a2ff8d7438b89ed69d480211595e9b45300a",
+          "bytes": 7530,
+          "url": "https://api.github.com/repos/KU-MLIP/2-Layer-NNs-with-Gaussian-Mixtures-Data",
+          "retrieved_at_utc": "2026-09-21T02:39:18.155653+00:00",
+          "provenance_path": "research/source_cache/iclr2025_pilot/repos/KU-MLIP__2-Layer-NNs-with-Gaussian-Mixtures-Data/repo.json.provenance.json",
+          "recorded_hash_matches": true,
+          "version_limit": "Frozen bytes from mutable main/API snapshot; not an immutable repository commit nor paper-time code."
+        }
+      ],
+      "review_score": null,
+      "selected_for_next_batch": false,
+      "status": "source_prescreen_only_not_scientifically_accepted",
+      "full_paper_available_in_inspected_cache": false,
+      "evidence": [
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/KU-MLIP__2-Layer-NNs-with-Gaussian-Mixtures-Data/README.txt",
+          "raw_sha256": "f4cda112d50d9902e96540477c5528f51f88c12ee00f48f3544fc3db9621915b",
+          "line_start": 7,
+          "line_end": 10,
+          "normalized_char_start": 366,
+          "normalized_char_end": 799,
+          "normalization": "UTF-8 text with universal-newline decoding; zero-based, end-exclusive",
+          "paraphrase": "Python notebooks are organized by figure; dependency list includes numerical Python, JAX and torch."
+        },
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/KU-MLIP__2-Layer-NNs-with-Gaussian-Mixtures-Data/README.txt",
+          "raw_sha256": "f4cda112d50d9902e96540477c5528f51f88c12ee00f48f3544fc3db9621915b",
+          "line_start": 13,
+          "line_end": 14,
+          "normalized_char_start": 801,
+          "normalized_char_end": 2209,
+          "normalization": "UTF-8 text with universal-newline decoding; zero-based, end-exclusive",
+          "paraphrase": "One-gradient-step nonlinear versus polynomial equivalence under structured Gaussian mixtures is asymptotic and condition-dependent; data-spread and learning-rate matter."
+        },
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/KU-MLIP__2-Layer-NNs-with-Gaussian-Mixtures-Data/README.txt",
+          "raw_sha256": "f4cda112d50d9902e96540477c5528f51f88c12ee00f48f3544fc3db9621915b",
+          "line_start": 16,
+          "line_end": 29,
+          "normalized_char_start": 2210,
+          "normalized_char_end": 2544,
+          "normalization": "UTF-8 text with universal-newline decoding; zero-based, end-exclusive",
+          "paraphrase": "Synthetic neural-network/Hermite and mixture-property plots are distinct from Fashion-MNIST results."
+        }
+      ],
+      "cpu_coverage_candidate": {
+        "EXP": "Plausible analysis-type numerical study of the stated Gaussian-mixture regime, conditional on obtaining exact method/conditions and actual CPU feasibility. Finite simulations do not establish an asymptotic theorem.",
+        "WRITE_CONTENT": "Not ready without full paper and results.",
+        "WRITE_EVIDENCE": "Not ready: README links figure images, no underlying numeric assets cached.",
+        "LIT": "Not ready: historical disclosure and background corpus absent.",
+        "IDEA": "Not ready: source-grounded fixed background not prepared."
+      },
+      "rights": {
+        "cached_repository_license_spdx": "MIT",
+        "license_text_available": false,
+        "release_clearance": "not established; repository metadata does not establish paper/data/derived-asset rights"
+      },
+      "missing_inputs": [
+        "Versioned full paper including theorem assumptions, definitions and simulation details.",
+        "Pinned repository commit; relevant synthetic notebooks and exact code/license notices.",
+        "Numerical resource profiling and scientific scope review before setting final CPU limits.",
+        "First-disclosure evidence plus background sources if LIT/IDEA is later proposed."
+      ],
+      "priority": "Promising EXP-oriented source-acquisition candidate; not constructor-ready."
+    },
+    {
+      "paper_id": "iclr2025-xVefsBbG2O",
+      "title": "Diffusion Models are Evolutionary Algorithms",
+      "conference_decision": "Accept (Poster)",
+      "source_event_id": 27778,
+      "paper_landing_page": "https://openreview.net/forum?id=xVefsBbG2O",
+      "repository": "https://github.com/Zhangyanbo/diffusion-evolution",
+      "repository_link_status": "conference-linked; README self-identifies paper; not independently author-authenticated",
+      "assets": [
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/Zhangyanbo__diffusion-evolution/README.txt",
+          "sha256": "8cc9487a673352a19082d39e15080321cfb548943b004357cc4800bf9e30db17",
+          "bytes": 4117,
+          "url": "https://raw.githubusercontent.com/Zhangyanbo/diffusion-evolution/main/README.md",
+          "retrieved_at_utc": "2026-09-21T02:39:30.809066+00:00",
+          "provenance_path": "research/source_cache/iclr2025_pilot/repos/Zhangyanbo__diffusion-evolution/README.txt.provenance.json",
+          "recorded_hash_matches": true,
+          "version_limit": "Frozen bytes from mutable main/API snapshot; not an immutable repository commit nor paper-time code."
+        },
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/Zhangyanbo__diffusion-evolution/repo.json",
+          "sha256": "f22b37074300db1e4c68bacc0de8d9f8124af335caef4cc36b1e4f8f170a2570",
+          "bytes": 5710,
+          "url": "https://api.github.com/repos/Zhangyanbo/diffusion-evolution",
+          "retrieved_at_utc": "2026-09-21T02:39:29.891926+00:00",
+          "provenance_path": "research/source_cache/iclr2025_pilot/repos/Zhangyanbo__diffusion-evolution/repo.json.provenance.json",
+          "recorded_hash_matches": true,
+          "version_limit": "Frozen bytes from mutable main/API snapshot; not an immutable repository commit nor paper-time code."
+        }
+      ],
+      "review_score": null,
+      "selected_for_next_batch": false,
+      "status": "source_prescreen_only_not_scientifically_accepted",
+      "full_paper_available_in_inspected_cache": false,
+      "evidence": [
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/Zhangyanbo__diffusion-evolution/README.txt",
+          "raw_sha256": "8cc9487a673352a19082d39e15080321cfb548943b004357cc4800bf9e30db17",
+          "line_start": 3,
+          "line_end": 7,
+          "normalized_char_start": 23,
+          "normalized_char_end": 940,
+          "normalization": "UTF-8 text with universal-newline decoding; zero-based, end-exclusive",
+          "paraphrase": "States diffusion/evolution correspondence and illustrates a two-peak objective."
+        },
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/Zhangyanbo__diffusion-evolution/README.txt",
+          "raw_sha256": "8cc9487a673352a19082d39e15080321cfb548943b004357cc4800bf9e30db17",
+          "line_start": 27,
+          "line_end": 35,
+          "normalized_char_start": 1191,
+          "normalized_char_end": 1479,
+          "normalization": "UTF-8 text with universal-newline decoding; zero-based, end-exclusive",
+          "paraphrase": "Benchmark dependencies and CUDA-wheel installation are documented; neither establishes intrinsic GPU requirement or verified CPU compatibility."
+        },
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/Zhangyanbo__diffusion-evolution/README.txt",
+          "raw_sha256": "8cc9487a673352a19082d39e15080321cfb548943b004357cc4800bf9e30db17",
+          "line_start": 40,
+          "line_end": 60,
+          "normalized_char_start": 1569,
+          "normalized_char_end": 2327,
+          "normalization": "UTF-8 text with universal-newline decoding; zero-based, end-exclusive",
+          "paraphrase": "Example uses 512 two-dimensional particles and 100 steps; fitness must be nonnegative."
+        },
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/Zhangyanbo__diffusion-evolution/README.txt",
+          "raw_sha256": "8cc9487a673352a19082d39e15080321cfb548943b004357cc4800bf9e30db17",
+          "line_start": 112,
+          "line_end": 114,
+          "normalized_char_start": 3943,
+          "normalized_char_end": 4117,
+          "normalization": "UTF-8 text with universal-newline decoding; zero-based, end-exclusive",
+          "paraphrase": "README describes modified Apache 2.0 terms with non-commercial restriction."
+        }
+      ],
+      "cpu_coverage_candidate": {
+        "EXP": "Plausible finite low-dimensional population-optimization study, subject to full method/claim scope, dependency and CPU runtime review; README toy example alone is not scientific acceptance.",
+        "WRITE_CONTENT": "Missing full paper/findings.",
+        "WRITE_EVIDENCE": "Missing numerical assets and result conditions.",
+        "LIT": "Missing historical disclosure/background corpus.",
+        "IDEA": "Missing source-grounded fixed background."
+      },
+      "rights": {
+        "cached_repository_license_spdx": "NOASSERTION",
+        "readme_terms": "Modified Apache 2.0; non-commercial usage restriction described.",
+        "license_text_available": false,
+        "release_clearance": "unresolved; do not relabel as ordinary Apache-2.0 or issue a legal conclusion"
+      },
+      "missing_inputs": [
+        "Versioned full paper, algorithm definitions, scope of equivalence and empirical claims.",
+        "Pinned relevant implementation, dependency metadata and exact modified license/notice.",
+        "CPU-only build and numerical smoke/profiling, including external objective assets if retained.",
+        "Historical disclosure and relevant background corpus if discovery stages are proposed."
+      ],
+      "priority": "Conditional alternate EXP candidate; rights and source completeness should be resolved before copying implementation."
+    },
+    {
+      "paper_id": "iclr2025-1Xg4JPPxJ0",
+      "title": "Are Transformers Able to Reason by Connecting Separated Knowledge in Training Data?",
+      "conference_decision": "Accept (Poster)",
+      "source_event_id": 31196,
+      "paper_landing_page": "https://openreview.net/forum?id=1Xg4JPPxJ0",
+      "repository": "https://github.com/roger-yt/Fragmented-at-Training-Chained-at-Testing",
+      "repository_link_status": "conference-linked; README self-identifies paper; not independently author-authenticated",
+      "assets": [
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/roger-yt__Fragmented-at-Training-Chained-at-Testing/README.txt",
+          "sha256": "0c4366f12afe229bc1b0cbcb1b0f354adc66daf5321eac1fc84bb024932237a2",
+          "bytes": 4197,
+          "url": "https://raw.githubusercontent.com/roger-yt/Fragmented-at-Training-Chained-at-Testing/main/README.md",
+          "retrieved_at_utc": "2026-09-21T02:38:49.522188+00:00",
+          "provenance_path": "research/source_cache/iclr2025_pilot/repos/roger-yt__Fragmented-at-Training-Chained-at-Testing/README.txt.provenance.json",
+          "recorded_hash_matches": true,
+          "version_limit": "Frozen bytes from mutable main/API snapshot; not an immutable repository commit nor paper-time code."
+        },
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/roger-yt__Fragmented-at-Training-Chained-at-Testing/repo.json",
+          "sha256": "8d2edc6071ced9de6d2e46ade1c8db77837994369cdf188e936ea999edee51ce",
+          "bytes": 6418,
+          "url": "https://api.github.com/repos/roger-yt/Fragmented-at-Training-Chained-at-Testing",
+          "retrieved_at_utc": "2026-09-21T02:38:48.751101+00:00",
+          "provenance_path": "research/source_cache/iclr2025_pilot/repos/roger-yt__Fragmented-at-Training-Chained-at-Testing/repo.json.provenance.json",
+          "recorded_hash_matches": true,
+          "version_limit": "Frozen bytes from mutable main/API snapshot; not an immutable repository commit nor paper-time code."
+        },
+        {
+          "path": "research/source_cache/benchmark_materials/first_snapshot/fragmented-paper-v1.source",
+          "sha256": "6544464def8909867ddf1475308b8d2c6d9e08be02e85cfcc2633772ab0ffdae",
+          "bytes": 784954,
+          "url": "https://arxiv.org/html/2501.15857v1",
+          "version": "arxiv-v1",
+          "provenance_path": "research/source_cache/benchmark_materials/first_snapshot/manifest.json",
+          "recorded_hash_matches": true,
+          "redistribution_review": "pending",
+          "role": "maintainer_only_original_source"
+        }
+      ],
+      "review_score": null,
+      "selected_for_next_batch": false,
+      "status": "source_prescreen_only_not_scientifically_accepted",
+      "full_paper_available_in_inspected_cache": true,
+      "evidence": [
+        {
+          "source_id": "fragmented-paper-v1",
+          "raw_sha256": "6544464def8909867ddf1475308b8d2c6d9e08be02e85cfcc2633772ab0ffdae",
+          "html_id": "S3.SS2",
+          "normalized_text_sha256": "1bfdfbee5cd9d7637c2cc379b890c06592afa93cb51a4a7c94aba4a882f4cf11",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "paraphrase": "Defines FTCT data generation, fragmented training and chained testing; data-generation assets alone do not validate trained-model claims."
+        },
+        {
+          "source_id": "fragmented-paper-v1",
+          "raw_sha256": "6544464def8909867ddf1475308b8d2c6d9e08be02e85cfcc2633772ab0ffdae",
+          "html_id": "S4.SS1",
+          "normalized_text_sha256": "7c21a7df8ea6064e9edb0c9a7a2d6be7bb3ff9d355261b4188eb00ab5e506a54",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "paraphrase": "Defines compositional-reasoning performance criteria."
+        },
+        {
+          "source_id": "fragmented-paper-v1",
+          "raw_sha256": "6544464def8909867ddf1475308b8d2c6d9e08be02e85cfcc2633772ab0ffdae",
+          "html_id": "S4.SS3",
+          "normalized_text_sha256": "e855b5388fd49ce264275c57f7682b759887993c24df071e0c48259a352c44cc",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "paraphrase": "Architecture comparison uses causal depth 5 and child-chain upper bound 3; interpretation and metric definitions surround Table 1."
+        },
+        {
+          "source_id": "fragmented-paper-v1",
+          "raw_sha256": "6544464def8909867ddf1475308b8d2c6d9e08be02e85cfcc2633772ab0ffdae",
+          "html_id": "S4.T1",
+          "normalized_text_sha256": "9c1f8e24eb97f711262b5e8dfd1a63f7d2867bd3c3e9e16781d91f83583b2631",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "paraphrase": "Seven model configurations and six reported performance metrics, plus parameter counts; reported performance selects optimal shot count per model. These are author-reported results, not new runs or raw seed-level samples."
+        },
+        {
+          "source_id": "fragmented-paper-v1",
+          "raw_sha256": "6544464def8909867ddf1475308b8d2c6d9e08be02e85cfcc2633772ab0ffdae",
+          "html_id": "A7.SS1",
+          "normalized_text_sha256": "0956d469317b1b8bbc90089de93e05cc43803d111d8479f764d23faee05fe9de",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "paraphrase": "GPT-2-derived model uses 720-dimensional embeddings and 2048-token context. No CPU timing or GPU statement is inferred from absence of a hardware label."
+        },
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/roger-yt__Fragmented-at-Training-Chained-at-Testing/README.txt",
+          "raw_sha256": "0c4366f12afe229bc1b0cbcb1b0f354adc66daf5321eac1fc84bb024932237a2",
+          "line_start": 8,
+          "line_end": 22,
+          "normalized_char_start": 425,
+          "normalized_char_end": 1158,
+          "normalization": "UTF-8 text with universal-newline decoding; zero-based, end-exclusive",
+          "paraphrase": "README data-generation entrypoint and quick-start training settings."
+        },
+        {
+          "path": "research/source_cache/iclr2025_pilot/repos/roger-yt__Fragmented-at-Training-Chained-at-Testing/README.txt",
+          "raw_sha256": "0c4366f12afe229bc1b0cbcb1b0f354adc66daf5321eac1fc84bb024932237a2",
+          "line_start": 50,
+          "line_end": 69,
+          "normalized_char_start": 1938,
+          "normalized_char_end": 3344,
+          "normalization": "UTF-8 text with universal-newline decoding; zero-based, end-exclusive",
+          "paraphrase": "Main experiments train several Transformer depth regimes; attention outputs reference a trained hidden-720 checkpoint."
+        }
+      ],
+      "cpu_coverage_candidate": {
+        "WRITE_CONTENT": "Source-only proposal feasible: compose a scoped evidence-grounded architecture-comparison passage from verified fixed facts, settings and reported findings; not reproduce target prose.",
+        "WRITE_EVIDENCE": "Source-only proposal feasible: render faithful comparisons from Table 1 values after independent transcription/condition audit; no author complete renderer or target chart supplied.",
+        "EXP": "Not proposed. Existing cache does not demonstrate CPU feasibility for 42M-145M parameter learning experiments; do not shrink them and claim original hypothesis tested.",
+        "LIT": "Deferred; existing full paper alone does not establish target cutoff and shared background coverage.",
+        "IDEA": "Deferred; source-grounded fixed background and disclosure audit absent."
+      },
+      "rights": {
+        "cached_repository_license_spdx": null,
+        "repository_license_text_available": false,
+        "paper_license_metadata_available": false,
+        "release_clearance": "pending; restrict originals to maintainer review, establish rights/notices for derived numerical facts and self-authored assets before public release; no legal conclusion"
+      },
+      "missing_inputs": [
+        "Before generated package acceptance: independent transcription/metric/selection-condition audit of Table 1, fixed facts versus withheld target prose separation.",
+        "Paper version/license metadata and exact notices; upstream implementation license only if code is actually reused (not needed to run newly written chart code).",
+        "Task-specific Docker and output collection configuration, actual CPU smoke and resource sufficiency test; no training dependency required by proposed scope.",
+        "Independent material review, raw trajectory review and publication semantic gate.",
+        "Explicit next-paper identity/model strategy decision before launching constructor; first-disclosure remains required before historical LIT/IDEA, not used as an invented barrier to scoped writing-only preparation."
+      ],
+      "priority": "Closest to offline source-only preparation; two WRITE proposals, not evidence of new EXP coverage."
+    }
+  ],
+  "inspected_frozen_source_integrity": {
+    "checked_asset_count": 7,
+    "all_recorded_hashes_match": true,
+    "assets_logical_bytes": 815857,
+    "not_claimed": "Not a new whole-cache integrity audit; only these referenced assets were rehashed. Upstream repository size metadata is not downloaded/local disk size."
+  },
+  "offline_preparation": {
+    "job_path": "research/benchmark/materials/next_batch_proposals_v1/jobs/ftct.json",
+    "job_sha256": "4584f370e7cbab4384594434da29de2bd2fb5910aa980bd18701f6c56098508d",
+    "validate_job": "passed",
+    "prepared_directory": "D:\\mrhbench-local-pilot\\next-material-preflight-aedb6e13f7",
+    "publication_path": "D:\\mrhbench-local-pilot\\next-material-preflight-aedb6e13f7\\publication.json",
+    "publication_sha256": "717b4154e78dac49e3c0ebd266e70e4ff123918bb401ebaff120fad52d883641",
+    "publication": {
+      "job_id": "ftct-write-proposal-v1",
+      "request_hash": "c87402b607d3b3d6b09e47fe5b10b6845d90c951b918a7a0dd3bdc3411de582b",
+      "files": [
+        {
+          "path": "material_constructor.txt",
+          "sha256": "42351b08833eafdddba04c2c02797a9dfe0dd5f76c84871112405c77ce442fd6",
+          "bytes": 8246
+        },
+        {
+          "path": "material_package.schema.json",
+          "sha256": "d1cfec9a17c9ae3b1e648edcebf5de9c3a65cb6b0e2244b4f088e722630e84eb",
+          "bytes": 6174
+        },
+        {
+          "path": "request.json",
+          "sha256": "f71df4625d0e4aab691aa84b0698d12c3d4c4570f637fdee32368fc43fe12baf",
+          "bytes": 2657
+        },
+        {
+          "path": "source_navigation/000.json",
+          "sha256": "579c23dabfcb0d174f8f9cad88540198e7af4773b7a262f10eb7cb60a7d40da0",
+          "bytes": 195251
+        },
+        {
+          "path": "sources/000-fragmented-paper-v1.source",
+          "sha256": "6544464def8909867ddf1475308b8d2c6d9e08be02e85cfcc2633772ab0ffdae",
+          "bytes": 784954
+        }
+      ],
+      "published_bytes": 997282,
+      "model_invoked": false,
+      "not_executor_release": true,
+      "os_isolation_verified": false
+    },
+    "actual_prepared_directory_logical_bytes": 998152,
+    "models_invoked": false,
+    "interpretation": "Source hashes, draft input schema and source navigation generation are operational. No constructor result, scientific validity, rights clearance or resource adequacy has been accepted. Proposal status is metadata, NOT a CLI authorization enforcement mechanism."
+  },
+  "entrypoint_review": {
+    "files": [
+      {
+        "path": "research/benchmark/prepare_material_pilot.py",
+        "sha256": "4b86ef3536105d36bd79825249e13be0a3b3245632d07232012de36fe480f0e0"
+      },
+      {
+        "path": "research/benchmark/run_material_pilot.py",
+        "sha256": "3771fb7fd6470058a687f2a77d3d265e49e49e8eb0144bc057970fdcc22de209"
+      },
+      {
+        "path": "research/benchmark/mrhbench/material_pipeline.py",
+        "sha256": "1de78d272e7842abd200f8d353bfedb6ed1e1a0e6fd966a670001a1d594d0fec"
+      },
+      {
+        "path": "research/benchmark/mrhbench/material_batch.py",
+        "sha256": "45f635d0139a26ca05c10a5b090339787d3aaad6df29c919b2ab4f202981c717"
+      }
+    ],
+    "existing_default_jobs": [
+      "materials/pilot_v2/jobs/ssa.json",
+      "materials/pilot_v2/jobs/iv.json"
+    ],
+    "new_job_cli_behavior": "--job is limited to ssa/iv, but omit --job and pass a dedicated --jobs directory to process arbitrary job IDs; current run_batch max_jobs=2. A directory with this proposal only would have one job, not two.",
+    "constructor_selection": "Actual --constructor-model CLI argument selects model; do not rely on job metadata. Changing Luna to sol requires the pending strategy decision.",
+    "concrete_source_blockers": "Gaussian-mixture and Diffusion Evolution lack cached full papers/exact methods. FTCT source-only writing preparation is operational; release remains gated on material/rights/environment review.",
+    "publication_integrity_work": "Root is independently strengthening binding of source navigation/schema/prompts/reviewer inputs; no code edits or independent completion claim by this audit.",
+    "command_templates_not_executed": {
+      "prepare": "python research/benchmark/prepare_material_pilot.py --jobs research/benchmark/materials/next_batch_proposals_v1/jobs --destination D:/mrhbench-local-pilot/<new-fresh-preparation-dir>",
+      "future_run_after_explicit_selection": "python research/benchmark/run_material_pilot.py --jobs research/benchmark/materials/next_batch_proposals_v1/jobs --codex-binary <verified-current-binary> --output D:/mrhbench-local-pilot/<new-fresh-batch-dir> --constructor-model <explicitly-approved-model> --reviewer-model gpt-5.6-sol --workers 1 --permission-profile <approved-maintainer-profile>"
+    }
+  },
+  "next_inputs_in_order": [
+    "Confirm which new paper identities and constructor strategy to trial; selecting FTCT adds writing coverage, not EXP diversity.",
+    "If selecting either README-only candidate, acquire immutable versioned full paper and exact relevant code/license with provenance; no manifest fabricated from README.",
+    "For FTCT, source-only constructor input is now prepared. Independent review must extract and audit fixed facts/table and preserve optimal-shot/metric conditions without giving original target prose/renderer to executor.",
+    "Before any candidate joins mixed search, validate package resources, CPU environment, rights/public inputs and judge behavior; do not include raw full papers in executor TaskViews."
+  ],
+  "limitations": [
+    "No chronological first-disclosure verification performed.",
+    "No model call, CPU execution or end-to-end construction result.",
+    "Full-paper cache availability refers to known local candidate caches; no external literature retrieval was attempted.",
+    "Finite examples and metadata do not prove a scalable fully automatic construction process."
+  ]
+}

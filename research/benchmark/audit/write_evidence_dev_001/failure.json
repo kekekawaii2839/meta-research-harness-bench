@@ -1,0 +1,1 @@
+{"budget":{"cancelled":false,"model_calls":5,"tool_calls":47,"wall_seconds":2181.0310000000027},"reason":"Model invocation did not produce one auditable complete response; inspect private trace","status":"development_runtime_failure","type":"ProtocolError"}

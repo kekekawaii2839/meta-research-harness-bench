@@ -1,0 +1,7 @@
+Created the candidate package at [package.json](/D:/mrhbench-local-pilot/batch-20260923-001/ssa-pilot-v2/constructor/output/package.json), with two scoped writing tasks: an SSA methods explanation and a Table 4 evidence interpretation. The package includes public prompts, a private Table 4 transcription key, and cited facts.
+
+LIT and IDEA are deferred because no approved shared literature library or adequate independent background was supplied. EXP is deferred because the scoped image-corruption claim lacks working UTKFace resources, and reducing it to a toy CPU experiment would change the claim. Historical disclosure remains unverified.
+
+The package and asset hashes were checked for consistency. Docker was not built or run; runtime remains unverified. Independent review is still pending.
+
+Generated files include the package and task assets under `output/`, plus [Dockerfile](/D:/mrhbench-local-pilot/batch-20260923-001/ssa-pilot-v2/constructor/environment/image/Dockerfile), pinned dependencies, and [smoke.py](/D:/mrhbench-local-pilot/batch-20260923-001/ssa-pilot-v2/constructor/environment/smoke.py). The package helper scripts are also present in `output/`.

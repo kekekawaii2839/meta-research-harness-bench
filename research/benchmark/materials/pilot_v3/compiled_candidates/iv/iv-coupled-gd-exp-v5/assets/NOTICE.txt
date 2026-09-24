@@ -1,0 +1,5 @@
+Provenance and rights review
+
+base_resources.py is newly authored for this development candidate. Its synthetic structural equations and draw order are based on iv-simulation, source SHA256 13492a765bec0b00426851997d335ea5948f8171a6affd108f150a4a4cc6103f, notebook cell 4 (generate_data and setup); no code is copied verbatim. The notebook cell updates beta before Theta, which is equivalent to the source paper's frozen-old-state equations (8a)-(8b), since the Theta update does not depend on beta. The starter supplies only data and least-squares controls to withhold the target implementation; the task accurately specifies the same method equations. No notebook output is used as a verified result.
+
+iv-license, SHA256 0c62244358639b87361d70abf720d79cabb5c4e40a114cb933e1a164d82e513b, is the repository's MIT license, copyright Haodong Liang (2025). Its scope over paper text and benchmark-authored assets is not asserted. Public release authorization and rights scope remain pending independent review.

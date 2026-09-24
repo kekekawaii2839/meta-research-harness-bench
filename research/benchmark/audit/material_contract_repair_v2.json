@@ -1,0 +1,38 @@
+{
+  "schema_version": "material-contract-repair-audit-1",
+  "time_utc": "2026-09-23T21:39:59.272249+00:00",
+  "test_exit_code": 0,
+  "test_output": "test_asset_paths_are_output_relative_never_originals (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_cannot_expose_target_to_idea (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_explicit_repair_copies_only_candidate_not_prior_chat (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_failed_native_receipt_resume_does_not_reinvoke (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_generated_environment_not_input_only_checked (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_no_self_approval (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_package_limits_differ (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_private_only_empty_allowed_stages_is_valid (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_real_source_only_staging_hashes_and_freshness (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_repair_cannot_reuse_old_batch (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_reviewer_refuses_constructor_modified_sources (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_source_mutation_and_gpu_rejected (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_allowed_version_and_newest_selection (test_shared_background_v2.SharedBackgroundTests) ... ok\ntest_exclusion_before_title_snippet_body_pdf (test_shared_background_v2.SharedBackgroundTests) ... ok\ntest_no_task_directed_digest (test_shared_background_v2.SharedBackgroundTests) ... ok\ntest_private_labels_never_exposed (test_shared_background_v2.SharedBackgroundTests) ... ok\ntest_retrieval_stages_no_automatic_penalty (test_shared_background_v2.SharedBackgroundTests) ... ok\ntest_unknown_disclosure_and_unapproved_fail_closed (test_shared_background_v2.SharedBackgroundTests) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.488s\n\nOK\n",
+  "historical_iv_package_sha256": "d92b92684094de71218c85693d2c790c244abf8e62fb99accd9fb90aca4fb9ca",
+  "historical_iv_task_sha256": "4d697cde244446877bcd8199685fd4ec33673619d08a743d1f27495d91cb6cdc",
+  "historical_artifacts_modified": false,
+  "model_calls_by_subagent": 0,
+  "fixes": [
+    "allowed_stages empty list consistently means private-only",
+    "asset/input contract paths canonical output-relative; original sources referenced by IDs only",
+    "single explicit fresh repair with immutable old candidate copy and no inherited reasoning",
+    "generated environment remains CPU-only and runtime-unverified; full benchmark budgets/integration pending"
+  ],
+  "observations": [
+    {
+      "issue": "IV task includes exact old-state update formulas, so absence-of-equations concern not substantiated",
+      "status": "directly_read_actual_asset"
+    },
+    {
+      "issue": "IV identification/rank regime, positiveconstant step conditions and evaluation-only truth access insufficiently explicit",
+      "status": "repair_requested_not_semantically_accepted"
+    },
+    {
+      "issue": "IV H2 empirically unstable range potentially tautological, source rate/bottleneck not tested; H3 maintainer-scope provenance needs review",
+      "status": "independent_scientific_review_needed"
+    },
+    {
+      "issue": "IV smoke tests NumPy algebra not supplied generator/baseline; adapted source license absent",
+      "status": "repair_requested"
+    },
+    {
+      "issue": "SSA WRITE_EVIDENCE requires actual figure/caption/code, WRITE_CONTENT scope must match facts; all accurate source cells permissible",
+      "status": "root_observation_integrated_into_repair_prompt"
+    }
+  ]
+}

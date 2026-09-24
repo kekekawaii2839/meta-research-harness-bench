@@ -1,0 +1,11 @@
+Created `output.txt` successfully.
+
+Actual verification result:
+
+```text
+ASSERTION PASSED
+input=b'permission_probe_173'
+output=b'permission_probe_173_written'
+```
+
+Final command exited with code `0`.

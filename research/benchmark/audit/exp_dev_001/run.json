@@ -1,0 +1,1 @@
+{"budget":{"cancelled":false,"model_calls":0,"tool_calls":31,"wall_seconds":1312.890999999996},"formal":false,"gpu_used":false,"harness_kind":"handwritten_unified_baseline_not_builder_H0","judge_acceptance":"pending_manual_trajectory_review","task_hash":"a9c7205554ea101e29a2cf950e94d98bd6fab403645d36fda815851eaeac081d","task_id":"dev-exp-001"}

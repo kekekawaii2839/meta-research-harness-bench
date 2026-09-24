@@ -1,0 +1,72 @@
+{
+  "schema_version": "failure-artifact-policy-1",
+  "recorded": "2026-09-23T23:15:56.886964+00:00",
+  "new_model_calls": 0,
+  "gpu_used": false,
+  "passed": true,
+  "decision": "G8 bounded local development failure policy accepted; no claim of full filesystem preservation",
+  "chosen_semantics": {
+    "deadline": "Hard deadline kills task container; no time extension for post-deadline reads",
+    "artifact_state_on_failure": "unknown_uncollected_or_incomplete",
+    "no_output_inference": "Missing captured file is not evidence it never existed",
+    "already_captured_evidence": "Host RPC model/tool receipts, platform log, entrypoint snapshots and images retained, individually hash-listed",
+    "score": "null; classification requires evidence review; no automatic scientific zero",
+    "not_promised": "Periodic backups or arbitrary tmpfs recovery; imported dependencies history and full filesystem completeness"
+  },
+  "implementation": "Only failure-record path/helper and cleanup exception handling changed. Successful execution/collection/harness/task budget logic unchanged. Audit failures/cleanup failures cannot replace active primary exception; cleanup error remains separately recorded.",
+  "test_results": {
+    "new_failure_semantics_tests_passed": 3,
+    "existing_broker_tests_passed": 5,
+    "existing_container_runtime_tests_passed": 9
+  },
+  "actual_cpu_diagnostic": {
+    "path": "D:\\mrhbench-local-pilot\\timeout-artifact-policy-948292cf22\\results.json",
+    "sha256": "d310ecc3f54b61f8b18927951cbf2b112470f4d8730ba5378849732ecd06ba54",
+    "checks": {
+      "captured_image_preserved": true,
+      "executed_entrypoints_preserved": true,
+      "failed_instead_of_completed": true,
+      "failure_budget_preserved": true,
+      "fake_model_receipt_preserved": true,
+      "marker_observed_before_deadline": true,
+      "no_fake_complete_inventory": true,
+      "no_scientific_zero": true,
+      "owned_container_removed": true,
+      "unknown_not_empty": true
+    },
+    "diagnostic_resources": {
+      "cpus": 1,
+      "disk_mb": 32,
+      "memory_mb": 256,
+      "pids_limit": 32,
+      "wall_seconds": 40
+    },
+    "elapsed_seconds": 41.34400000000005,
+    "error": {
+      "message": "Container session unavailable or deadline exhausted",
+      "type": "ProtocolError"
+    },
+    "cleanup": [
+      {
+        "absent": true,
+        "container_id": "465f7a83ca1a7a76d5c15be0ddc5169c7b616e123ee666c50e2634f3cf807300",
+        "inspect_returncode": 1
+      }
+    ],
+    "not_a_scientific_budget_change": true,
+    "not_an_evaluated_harness": true,
+    "fake_provider_calls": 1,
+    "subscription_calls": 0
+  },
+  "files": {
+    "research/benchmark/mrhbench/container_executor.py": "b695058606bdf4f2e9c4f22309352f3641245e8a64206a172090ef3484b95e22",
+    "research/benchmark/tests/test_container_failure_semantics.py": "bf4d8c87973a619aae783f249e6765da9950ef7b15439ff16606362f5fa14067",
+    "research/benchmark/audit_timeout_failure.py": "8284039293fd6936552b7a107bf84c9e827ba7873b4a65ea97fcb731c5d85875"
+  },
+  "limitations": [
+    "Task deadline and daemon cleanup have bounded nonzero overhead; observed elapsed is reported, not rounded into an exact zero-latency kill.",
+    "A failure during host audit writing can prevent complete failure.json; original exception survives and carries note where supported.",
+    "No periodic artifact backups; container tmpfs may disappear after timeout.",
+    "This test validates chosen lifecycle semantics; it is not complete scientific, judge, transport or formal security acceptance."
+  ]
+}

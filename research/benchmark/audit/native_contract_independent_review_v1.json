@@ -1,0 +1,68 @@
+{
+  "created_at": "2026-09-24T00:19:11.763819+00:00",
+  "scope": "Independent schema-result and rejected-transport ledger finalization contract review",
+  "new_model_calls": 0,
+  "new_container_or_gpu_runs": 0,
+  "reviewer_changed_files": [
+    "research/benchmark/tests/test_native_contract_regressions.py"
+  ],
+  "implementation_edited_by_reviewer": false,
+  "reviewed_files": {
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\native_codex.py": "e1664e811bd21390b7d591382a59bf95f896e46c4b796d8073accac53a3aec02",
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\evolution_native.py": "906883a1f35db7e033449326d63a1e5c9c1ca3129575bba4ddc032c77d16253c",
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\providers.py": "eb8c7d07f42378ce4659fb802b2c2b11d8fc548024da89c69423f5c3363a36eb",
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\costs.py": "ff6c2f719ed1ba4219e2d7d51727bce2dd4b1bd55661e8b798e1a21bdfa6491a",
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_native_contract_regressions.py": "cffaaf702bd6e118d0d79790c7aa7efd582dbd02b786ceefecbf9cc019151eb0",
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_evolution_native.py": "a8cb1b42c5afad21fb85f8631321ebeb6d9fe8e0d690c48653cad7d98696ec77",
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_providers.py": "ac55f5ef2768d6e9346a9658c628fa18a6705fa55d79949213337e9fd8901d33"
+  },
+  "tests": [
+    {
+      "pattern": "test_native_contract_regressions.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_actual_native_schema_decoder_connects_to_selector (test_native_contract_regressions.NativeContractRegressions) ... ok\ntest_actual_schema_decoded_nonobject_or_blank_reason_rejected (test_native_contract_regressions.NativeContractRegressions) ... ok\ntest_plaintext_native_mode_remains_string (test_native_contract_regressions.NativeContractRegressions) ... ok\ntest_provider_rejection_statuses_and_original_exceptions_preserved (test_native_contract_regressions.NativeContractRegressions) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.398s\n\nOK\n"
+    },
+    {
+      "pattern": "test_evolution_native.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_invalid_configuration_before_native_invocation (test_evolution_native.NativeBuilderTests) ... ok\ntest_missing_candidate_is_not_published (test_evolution_native.NativeBuilderTests) ... ok\ntest_native_edit_publishes_exact_candidate_and_no_retries (test_evolution_native.NativeBuilderTests) ... ok\ntest_native_failure_closes_without_retry_or_zero (test_evolution_native.NativeBuilderTests) ... ok\ntest_releases_only_explicit_staged_public_inputs (test_evolution_native.NativeBuilderTests) ... ok\ntest_selection_has_read_only_tools_and_version_schema (test_evolution_native.NativeBuilderTests) ... ok\ntest_unknown_selection_rejected (test_evolution_native.NativeBuilderTests) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.151s\n\nOK\n"
+    },
+    {
+      "pattern": "test_providers.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_cli_native_actions_fail_closed_and_usage_is_observed (test_providers.ProviderContractTests) ... ok\ntest_known_startup_warning_is_not_native_tool_but_unknown_error_fails (test_providers.ProviderContractTests) ... ok\ntest_ledger_reserves_before_call_counts_failure_and_no_zero_imputation (test_providers.ProviderContractTests) ... ok\ntest_rollout_rejections_finalize_ledger_without_masking_failure (test_providers.ProviderContractTests) ... ok\ntest_unaccepted_cli_transport_not_allowed_for_formal_executor (test_providers.ProviderContractTests) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.166s\n\nOK\n"
+    }
+  ],
+  "counts": {
+    "independent_new": 4,
+    "native_existing": 7,
+    "provider_existing": 5
+  },
+  "schema_contract": {
+    "source_observation": "NativeCodexRunner.run decodes response.txt with read_json whenever output_schema is not None; otherwise response is a string. Selector now deep-copies response and only json.loads strings, then validates exact dict fields/version/nonempty reason.",
+    "independent_path_exercised": "Actual NativeCodexRunner plus NativeDevelopmentBuilder selector, with only process launch and container replaced by fakes. Fake subprocess writes JSON response.txt and actual turn.completed event. This tests real decoding, not a fake runner guessing return types.",
+    "positive": "Decoded dict accepted and selection returned; native ledger finalized completed; fake session closed.",
+    "negative": "Decoded list, null, or blank selection reason rejected as ProtocolError. Native transport success remains completed while application selection fails; no reserved ledger entries or fake claim of scientific zero.",
+    "compatibility": "Plaintext NativeCodexRunner mode remains string; existing fake runner now mirrors actual schema mode dict."
+  },
+  "provider_contract": {
+    "source_observation": "Missing full rollout uses failed with failure_class incomplete_executor_rollout. Tool activity in full rollout or native event stream uses rejected_native_tool_activity. Both enums are legal CallLedger.finish statuses.",
+    "independent_negative_cases": [
+      "Missing capture",
+      "Captured rollout with observed fake tool",
+      "Native tool event in CLI stream"
+    ],
+    "verified": "All raise original ProtocolError messages, finalize the real temporary ledger with finished_at, retain error metadata/failure_class where applicable, and call fake subprocess exactly once. No reserved entries remain.",
+    "cost_semantics": "Only isolated synthetic ledgers are written. Shared subscription ledger and actual native/model/container services were not invoked. Completed transport is not science success."
+  },
+  "limitations": [
+    "These are runtime Python contract tests using synthetic process output, not new native service calls.",
+    "Ledger filesystem failure or a compromised controller may still need separate operational recovery; this bounded review does not claim arbitrary I/O fault immunity.",
+    "Context-policy changes underway are outside this review scope and require their own tests.",
+    "No rollback or relabeling of historical failed calls."
+  ],
+  "verdict": "Both targeted fixes independently verified; four additional tests plus twelve existing tests pass. No further issue found in the scoped interface/finalization paths."
+}

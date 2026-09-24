@@ -1,0 +1,474 @@
+[
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/iclr-2025-orals-posters.json",
+    "bytes": 16535673,
+    "sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "retrieved_at_utc": null,
+    "provenance_note": "initial direct fetch; exact retrieval timestamp not recorded"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/papers.html",
+    "bytes": 524443,
+    "sha256": "d3908a752f61568b86720ed39d3d31d0c1c282c862ebbd32fc458aba7145855b",
+    "url": "https://iclr.cc/virtual/2025/papers.html",
+    "retrieved_at_utc": null,
+    "provenance_note": "initial direct fetch; exact retrieval timestamp not recorded"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/agiresearch__ASB/README.txt",
+    "bytes": 22594,
+    "sha256": "f9d8db1086d3af665d79581a274ff4eccff7272254922db89490291fb6cd6327",
+    "url": "https://raw.githubusercontent.com/agiresearch/ASB/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:17.157370+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/agiresearch__ASB/repo.json",
+    "bytes": 6082,
+    "sha256": "c3b80a6261a044eb96b538f4a02b36d853e279d501fa1f18e994e645583c71d4",
+    "url": "https://api.github.com/repos/agiresearch/ASB",
+    "retrieved_at_utc": "2026-09-21T02:39:16.027164+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/AIF4S__MediConfusion/README.txt",
+    "bytes": 10826,
+    "sha256": "feace06debd52064fe0a61cb992e77602fb808e703d650286f5ac198d680e4cd",
+    "url": "https://raw.githubusercontent.com/AIF4S/MediConfusion/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:41.863637+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/AIF4S__MediConfusion/repo.json",
+    "bytes": 17478,
+    "sha256": "d555a2b9b9575f03026aa191e9c12cc9c88e78b38b31530e70bd14b734d7d60b",
+    "url": "https://api.github.com/repos/AIF4S/MediConfusion",
+    "retrieved_at_utc": "2026-09-21T02:39:40.994089+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/amith-ananthram__see-it-from-my-perspective/README.txt",
+    "bytes": 2074,
+    "sha256": "ac8dfbe9dfbd732f26318eb04ab1398dbe1a32104a06652cf6418cd89358e685",
+    "url": "https://raw.githubusercontent.com/amith-ananthram/see-it-from-my-perspective/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:36.297505+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/amith-ananthram__see-it-from-my-perspective/repo.json",
+    "bytes": 6293,
+    "sha256": "24fb69814e080669190ce43efcbbc7c137e9396c549af4097f702aa0305f0142",
+    "url": "https://api.github.com/repos/amith-ananthram/see-it-from-my-perspective",
+    "retrieved_at_utc": "2026-09-21T02:39:35.409983+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/anthonyzhou-1__ldm_pdes/README.txt",
+    "bytes": 9231,
+    "sha256": "40f3a769883ae0e4d254a73b658c7054aa8f851c5aefae1d614b37571362b233",
+    "url": "https://raw.githubusercontent.com/anthonyzhou-1/ldm_pdes/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:05.192011+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/anthonyzhou-1__ldm_pdes/repo.json",
+    "bytes": 5250,
+    "sha256": "1dbe9d102bab9ab6fdb58425eb38da72ac9cf33123f69aefc3197fa7cd1bc9ea",
+    "url": "https://api.github.com/repos/anthonyzhou-1/ldm_pdes",
+    "retrieved_at_utc": "2026-09-21T02:39:04.298969+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/avysogorets__drop-data-pruning/README.txt",
+    "bytes": 2259,
+    "sha256": "30fda8c36946ce2cc66c7953676c1c41b1999c5b89896893b44346e02f0c2421",
+    "url": "https://raw.githubusercontent.com/avysogorets/drop-data-pruning/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:27.074801+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/avysogorets__drop-data-pruning/repo.json",
+    "bytes": 5651,
+    "sha256": "ba2d0cabf04ddcc5423fdda6556b3e70e1b7f9ed35da1d9bd43aa131966f0291",
+    "url": "https://api.github.com/repos/avysogorets/drop-data-pruning",
+    "retrieved_at_utc": "2026-09-21T02:39:26.111745+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/BU-DEPEND-Lab__CCAC/README.txt",
+    "bytes": 2485,
+    "sha256": "e6f0b49ca21c78e37c469ecb2b8c8f59aefe8f174da945b8bdf8f0dd37f40b56",
+    "url": "https://raw.githubusercontent.com/BU-DEPEND-Lab/CCAC/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:38:58.642168+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/BU-DEPEND-Lab__CCAC/repo.json",
+    "bytes": 6361,
+    "sha256": "6c754e9cc48b216c6d6874294b0e14acc77c4245b06178a0fa1c47caa5472817",
+    "url": "https://api.github.com/repos/BU-DEPEND-Lab/CCAC",
+    "retrieved_at_utc": "2026-09-21T02:38:57.668410+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/EDAPINENUT__CBGBench/repo.json",
+    "bytes": 5442,
+    "sha256": "c64fc68515cf17a3b905db4e0bcf525351757e39f87b247b5a27b77576625ed4",
+    "url": "https://api.github.com/repos/EDAPINENUT/CBGBench",
+    "retrieved_at_utc": "2026-09-21T02:39:20.986152+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/google-research__android_world/README.txt",
+    "bytes": 10849,
+    "sha256": "93201de5e21f2b12283a75b1e2c357781b2e6cc27eab20cc7dd7aa0f5919d839",
+    "url": "https://raw.githubusercontent.com/google-research/android_world/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:39.942756+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/google-research__android_world/repo.json",
+    "bytes": 7116,
+    "sha256": "2b3e859a66e2eb29a3c2849cb6fec4e445e2e493d7beb8ad069f1fdf54c9928c",
+    "url": "https://api.github.com/repos/google-research/android_world",
+    "retrieved_at_utc": "2026-09-21T02:39:39.060429+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/harris-liang__IVTransformer/README.txt",
+    "bytes": 1158,
+    "sha256": "96e357ca19793e130e71b36cd4df0c6a65306da92bd435d5a87cb3eb36a1c687",
+    "url": "https://raw.githubusercontent.com/harris-liang/IVTransformer/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:02.631745+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/harris-liang__IVTransformer/repo.json",
+    "bytes": 5639,
+    "sha256": "6c2f127c5e3e86371b35011555bf4201104d9f5fbd3fd0954a93112c3d90c50f",
+    "url": "https://api.github.com/repos/harris-liang/IVTransformer",
+    "retrieved_at_utc": "2026-09-21T02:39:01.693130+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/jaabmar__RAMEN/README.txt",
+    "bytes": 5753,
+    "sha256": "122e59619e4207991ea6ed41095cfd02c68cd79d4965b34f0b20b88a1a30909b",
+    "url": "https://raw.githubusercontent.com/jaabmar/RAMEN/master/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:45.994527+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/jaabmar__RAMEN/repo.json",
+    "bytes": 5122,
+    "sha256": "74a688bc31cef7f07a2297ca9305cd744021e20f3fb7f1d169c5a0735471f8fb",
+    "url": "https://api.github.com/repos/jaabmar/RAMEN",
+    "retrieved_at_utc": "2026-09-21T02:39:45.143781+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/jliu4ai__CaPo/README.txt",
+    "bytes": 112,
+    "sha256": "4ebcd5a534ab920da626721e1578641652eb4d7d893420a35375406cae9d5517",
+    "url": "https://raw.githubusercontent.com/jliu4ai/CaPo/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:15.000325+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/jliu4ai__CaPo/repo.json",
+    "bytes": 4808,
+    "sha256": "cf4a9922487f607d0026c9792bd79648fafd74a9e3458725056fedf6fbf86017",
+    "url": "https://api.github.com/repos/jliu4ai/CaPo",
+    "retrieved_at_utc": "2026-09-21T02:39:14.082227+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/konstantinhess__SCIP-Net/README.txt",
+    "bytes": 2981,
+    "sha256": "e00a421e389ec51dd84e11c7bcceb73b1c46dee2c253884e238480fbfbed3f1c",
+    "url": "https://raw.githubusercontent.com/konstantinhess/SCIP-Net/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:28.961298+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/konstantinhess__SCIP-Net/repo.json",
+    "bytes": 5387,
+    "sha256": "20f02ad9a6d308887e42c983b85631a51664d7dc027e58a1c8b721b9857e4bb3",
+    "url": "https://api.github.com/repos/konstantinhess/SCIP-Net",
+    "retrieved_at_utc": "2026-09-21T02:39:28.067523+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/KU-MLIP__2-Layer-NNs-with-Gaussian-Mixtures-Data/README.txt",
+    "bytes": 2931,
+    "sha256": "f4cda112d50d9902e96540477c5528f51f88c12ee00f48f3544fc3db9621915b",
+    "url": "https://raw.githubusercontent.com/KU-MLIP/2-Layer-NNs-with-Gaussian-Mixtures-Data/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:19.045464+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/KU-MLIP__2-Layer-NNs-with-Gaussian-Mixtures-Data/repo.json",
+    "bytes": 7530,
+    "sha256": "a2fb851cbba35fe0e8354f4948a0a2ff8d7438b89ed69d480211595e9b45300a",
+    "url": "https://api.github.com/repos/KU-MLIP/2-Layer-NNs-with-Gaussian-Mixtures-Data",
+    "retrieved_at_utc": "2026-09-21T02:39:18.155653+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/kzkadc__regression-tta/README.txt",
+    "bytes": 3701,
+    "sha256": "a8c7ed3c508215392e64a88a13c587f5abbf02f0bd94a0b6eca72972409a5e63",
+    "url": "https://raw.githubusercontent.com/kzkadc/regression-tta/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:38:51.459362+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/kzkadc__regression-tta/repo.json",
+    "bytes": 5387,
+    "sha256": "81e4e4dd126dbafc6e5d0dfcd2798829f0c3047d96ff92a53616ddd7dd7e7d7b",
+    "url": "https://api.github.com/repos/kzkadc/regression-tta",
+    "retrieved_at_utc": "2026-09-21T02:38:50.561132+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/meryusha__midl_tta/README.txt",
+    "bytes": 5639,
+    "sha256": "16c29079b9253def8db8c3b3b8ca8d4c8850779a7cdf4b9165b25bfbc7828506",
+    "url": "https://raw.githubusercontent.com/meryusha/midl_tta/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:09.050652+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/meryusha__midl_tta/repo.json",
+    "bytes": 4987,
+    "sha256": "b941b6270e46d62bb934002d74479b893dc3d1147e8e5e2f6bc06a1e377aeafc",
+    "url": "https://api.github.com/repos/meryusha/midl_tta",
+    "retrieved_at_utc": "2026-09-21T02:39:08.059967+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/ml-jku__SDLG/README.txt",
+    "bytes": 6047,
+    "sha256": "7cd80fc90e2a3836fd3bf386d49d7629f2122111a2d6c38894b81e0eff86678f",
+    "url": "https://raw.githubusercontent.com/ml-jku/SDLG/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:32.614895+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/ml-jku__SDLG/repo.json",
+    "bytes": 5953,
+    "sha256": "0dea2a299ae6fcfaa9e0ce793edc7648562952ed0e2775d91036e8e316d0be3e",
+    "url": "https://api.github.com/repos/ml-jku/SDLG",
+    "retrieved_at_utc": "2026-09-21T02:39:31.745948+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/ML-KULeuven__klay/README.txt",
+    "bytes": 3963,
+    "sha256": "8cce590deced992c819cf396e4112b600e9edd23c3660f1e17ef6def58075a98",
+    "url": "https://raw.githubusercontent.com/ML-KULeuven/klay/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:13.054750+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/ML-KULeuven__klay/repo.json",
+    "bytes": 6371,
+    "sha256": "6da82e025258c6305a149b406a14734e6729923579da81701f186b915ea82509",
+    "url": "https://api.github.com/repos/ML-KULeuven/klay",
+    "retrieved_at_utc": "2026-09-21T02:39:12.147428+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/mmschlk__shapiq/README.txt",
+    "bytes": 10224,
+    "sha256": "ba077bbe15f5e5ef0f6049b6e25baf162ef9b47094d8e07b02a37ab88838d98b",
+    "url": "https://raw.githubusercontent.com/mmschlk/shapiq/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:00.655915+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/mmschlk__shapiq/repo.json",
+    "bytes": 5304,
+    "sha256": "8abd596a53b2217d2784080fee1ea9ff8112ab7a01065d719debdbcbf96079dd",
+    "url": "https://api.github.com/repos/mmschlk/shapiq",
+    "retrieved_at_utc": "2026-09-21T02:38:59.663941+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/Mohammad-Mozaffari__slope/README.txt",
+    "bytes": 19426,
+    "sha256": "96ac9ceeabf9b84ff895e1c23f91f71c49019b6aa3cef72b480f4767cc93359c",
+    "url": "https://raw.githubusercontent.com/Paramathic/slope/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:44.281193+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/Mohammad-Mozaffari__slope/repo.json",
+    "bytes": 6040,
+    "sha256": "c1c6a0f45b8bbf0450959a554e5ceb0368cb52c6731e4a93320a2464b42a938c",
+    "url": "https://api.github.com/repos/Mohammad-Mozaffari/slope",
+    "retrieved_at_utc": "2026-09-21T02:39:43.425837+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/niuffs__FPNN/README.txt",
+    "bytes": 1233,
+    "sha256": "8c46bc6aa1355527c966bda9ba3978309179850f30c15173380d166f587fef2e",
+    "url": "https://raw.githubusercontent.com/niuffs/FPNN/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:38:56.610918+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/niuffs__FPNN/repo.json",
+    "bytes": 4687,
+    "sha256": "23ae4e45cdeade7c825db395794006df5a6c43fa9446c9c0035ac72cfbfe2ec2",
+    "url": "https://api.github.com/repos/niuffs/FPNN",
+    "retrieved_at_utc": "2026-09-21T02:38:55.575197+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/NSAPH-Projects__topological-equivariant-networks/README.txt",
+    "bytes": 5625,
+    "sha256": "006c783a6baf144f9c43c7bdd047a81536b459c5e5e2aeb6e9426009b740aa33",
+    "url": "https://raw.githubusercontent.com/NSAPH-Projects/topological-equivariant-networks/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:07.129009+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/NSAPH-Projects__topological-equivariant-networks/repo.json",
+    "bytes": 7591,
+    "sha256": "c0c970399499990f7805ec64adfe2246de146bac94a6892a365d92491a7c5851",
+    "url": "https://api.github.com/repos/NSAPH-Projects/topological-equivariant-networks",
+    "retrieved_at_utc": "2026-09-21T02:39:06.207290+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/optimization-for-data-driven-science__Addax/README.txt",
+    "bytes": 1843,
+    "sha256": "eb267bf2bc5c0d639a071a5d70674acb421246bebbe1fb9c6e0edf9ef8bb550e",
+    "url": "https://raw.githubusercontent.com/optimization-for-data-driven-science/Addax/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:11.137339+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/optimization-for-data-driven-science__Addax/repo.json",
+    "bytes": 7721,
+    "sha256": "f76331c00677dc4d851205898046036c3e90c8217d78b2e1ccfffc23bceb88f1",
+    "url": "https://api.github.com/repos/optimization-for-data-driven-science/Addax",
+    "retrieved_at_utc": "2026-09-21T02:39:10.070933+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/purewater0901__BSMPC/README.txt",
+    "bytes": 2350,
+    "sha256": "0242064636d6c9406302d60ef1ec86b37dd7f3fd3c888776324ad50f553c3b46",
+    "url": "https://raw.githubusercontent.com/purewater0901/BSMPC/master/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:34.477413+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/purewater0901__BSMPC/repo.json",
+    "bytes": 5139,
+    "sha256": "59fb228362fffe6a5a2e768d496ef885083f06e3c39490c49331d5ae41bd156d",
+    "url": "https://api.github.com/repos/purewater0901/BSMPC",
+    "retrieved_at_utc": "2026-09-21T02:39:33.589289+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/Qualcomm-AI-research__Wi-GATr/README.txt",
+    "bytes": 9191,
+    "sha256": "1c259cb0fa62faea9eee1330ee589a7e2850e7ab4036ddafa94f480274b53520",
+    "url": "https://raw.githubusercontent.com/Qualcomm-AI-research/Wi-GATr/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:38:47.937304+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/Qualcomm-AI-research__Wi-GATr/repo.json",
+    "bytes": 7119,
+    "sha256": "1f13c083fe4ee255425899c8a3301925cd38c19a274059257fd5f1d59936cc41",
+    "url": "https://api.github.com/repos/Qualcomm-AI-research/Wi-GATr",
+    "retrieved_at_utc": "2026-09-21T02:38:47.223466+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/roger-yt__Fragmented-at-Training-Chained-at-Testing/README.txt",
+    "bytes": 4197,
+    "sha256": "0c4366f12afe229bc1b0cbcb1b0f354adc66daf5321eac1fc84bb024932237a2",
+    "url": "https://raw.githubusercontent.com/roger-yt/Fragmented-at-Training-Chained-at-Testing/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:38:49.522188+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/roger-yt__Fragmented-at-Training-Chained-at-Testing/repo.json",
+    "bytes": 6418,
+    "sha256": "8d2edc6071ced9de6d2e46ade1c8db77837994369cdf188e936ea999edee51ce",
+    "url": "https://api.github.com/repos/roger-yt/Fragmented-at-Training-Chained-at-Testing",
+    "retrieved_at_utc": "2026-09-21T02:38:48.751101+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/RTkenny__FLOPS-Forward-Learning-with-OPtimal-Sampling/README.txt",
+    "bytes": 2587,
+    "sha256": "f43b71ef4e3ed3b003f29681647ebbccfe289abbe8dbf991056730cdba9d4eb9",
+    "url": "https://raw.githubusercontent.com/RTkenny/FLOPS-Forward-Learning-with-OPtimal-Sampling/main/readme.md",
+    "retrieved_at_utc": "2026-09-21T02:38:54.495846+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/RTkenny__FLOPS-Forward-Learning-with-OPtimal-Sampling/repo.json",
+    "bytes": 6596,
+    "sha256": "6541c7d7cbd1940341421fe4a24988e496c399436c76c47e009814b59b6b1fb7",
+    "url": "https://api.github.com/repos/RTkenny/FLOPS-Forward-Learning-with-OPtimal-Sampling",
+    "retrieved_at_utc": "2026-09-21T02:38:52.450109+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/WuJH2001__swift4d/README.txt",
+    "bytes": 5281,
+    "sha256": "369e26031a75ba09c12075b5fe9aa1dacc118739d3ffe37831a3bf113db085eb",
+    "url": "https://raw.githubusercontent.com/WuJH2001/Swift4d/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:25.162377+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/WuJH2001__swift4d/repo.json",
+    "bytes": 5061,
+    "sha256": "e5dda00fb74205ae89305e7e3a7d241eaf86e29e9d6deb4c425e3bf5f74b9cad",
+    "url": "https://api.github.com/repos/WuJH2001/swift4d",
+    "retrieved_at_utc": "2026-09-21T02:39:24.234454+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/Yushu-Li__ECALP/README.txt",
+    "bytes": 5515,
+    "sha256": "c1d260354766771307308428559be61c6c7afd3d5c206063a072389db3f7a598",
+    "url": "https://raw.githubusercontent.com/Yushu-Li/ECALP/master/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:38.145228+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/Yushu-Li__ECALP/repo.json",
+    "bytes": 5116,
+    "sha256": "01fa1e7aef5861d084f56e08274ab025ec0f1a391e4e8fcbe8324a529ccfe926",
+    "url": "https://api.github.com/repos/Yushu-Li/ECALP",
+    "retrieved_at_utc": "2026-09-21T02:39:37.194094+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/Zhangyanbo__diffusion-evolution/README.txt",
+    "bytes": 4117,
+    "sha256": "8cc9487a673352a19082d39e15080321cfb548943b004357cc4800bf9e30db17",
+    "url": "https://raw.githubusercontent.com/Zhangyanbo/diffusion-evolution/main/README.md",
+    "retrieved_at_utc": "2026-09-21T02:39:30.809066+00:00",
+    "provenance_note": "per-request timestamp"
+  },
+  {
+    "local_path": "research/source_cache/iclr2025_pilot/repos/Zhangyanbo__diffusion-evolution/repo.json",
+    "bytes": 5710,
+    "sha256": "f22b37074300db1e4c68bacc0de8d9f8124af335caef4cc36b1e4f8f170a2570",
+    "url": "https://api.github.com/repos/Zhangyanbo/diffusion-evolution",
+    "retrieved_at_utc": "2026-09-21T02:39:29.891926+00:00",
+    "provenance_note": "per-request timestamp"
+  }
+]

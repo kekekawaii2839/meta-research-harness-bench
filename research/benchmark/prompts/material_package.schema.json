@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "paper_id",
+    "facts",
+    "coverage",
+    "tasks",
+    "environment"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "material-package-1"
+    },
+    "status": {
+      "const": "candidate"
+    },
+    "paper_id": {
+      "type": "string"
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "fact_id",
+          "kind",
+          "statement",
+          "evidence",
+          "allowed_stages",
+          "discloses_target_contribution"
+        ],
+        "properties": {
+          "fact_id": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "source_fact",
+              "source_result",
+              "maintainer_scope",
+              "unknown"
+            ]
+          },
+          "statement": {
+            "type": "string"
+          },
+          "allowed_stages": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "LIT",
+                "IDEA",
+                "EXP",
+                "WRITE_CONTENT",
+                "WRITE_EVIDENCE"
+              ]
+            },
+            "description": "Public-input stage eligibility; empty list means private-only; may still occur in private_fact_ids."
+          },
+          "discloses_target_contribution": {
+            "type": "boolean"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "source_id",
+                "source_sha256",
+                "locator"
+              ],
+              "properties": {
+                "source_id": {
+                  "type": "string"
+                },
+                "source_sha256": {
+                  "type": "string"
+                },
+                "locator": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "task_type",
+          "status",
+          "reason"
+        ],
+        "properties": {
+          "task_type": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "candidate",
+              "unsupported",
+              "deferred"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "task_id",
+          "task_type",
+          "paper_id",
+          "split",
+          "input_fact_ids",
+          "private_fact_ids",
+          "input_contract",
+          "output_contract",
+          "verification_plan",
+          "assets"
+        ],
+        "properties": {
+          "task_id": {
+            "type": "string"
+          },
+          "task_type": {
+            "enum": [
+              "LIT",
+              "IDEA",
+              "EXP",
+              "WRITE_CONTENT",
+              "WRITE_EVIDENCE"
+            ]
+          },
+          "paper_id": {
+            "type": "string"
+          },
+          "split": {
+            "const": "development"
+          },
+          "input_fact_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "private_fact_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "input_contract": {
+            "type": "object"
+          },
+          "output_contract": {
+            "type": "object"
+          },
+          "verification_plan": {
+            "type": "object"
+          },
+          "assets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "path",
+                "sha256",
+                "visibility"
+              ],
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "pattern": "^(?!output/)(?!sources/)(?!/)(?!.*\\.\\.)[^\\\\]+$",
+                  "description": "Relative to directory containing package.json, namely output/. Example assets/task.md, not output/assets/task.md. Original sources/ not permitted."
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "visibility": {
+                  "enum": [
+                    "public",
+                    "private"
+                  ]
+                }
+              }
+            }
+          },
+          "private_source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Original-source references resolved by controller, never task asset filesystem paths."
+          }
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "required": [
+        "gpu",
+        "network",
+        "dependencies",
+        "resources",
+        "scientific_rationale",
+        "runtime_verified"
+      ],
+      "properties": {
+        "gpu": {
+          "const": false
+        },
+        "network": {
+          "const": "none"
+        },
+        "dependencies": {
+          "type": "array"
+        },
+        "resources": {
+          "type": "object"
+        },
+        "scientific_rationale": {
+          "type": "string"
+        },
+        "runtime_verified": {
+          "const": false
+        },
+        "dockerfile": {
+          "type": "string",
+          "const": "environment/image/Dockerfile"
+        },
+        "smoke_test": {
+          "type": "string",
+          "const": "environment/smoke.py"
+        }
+      }
+    }
+  }
+}

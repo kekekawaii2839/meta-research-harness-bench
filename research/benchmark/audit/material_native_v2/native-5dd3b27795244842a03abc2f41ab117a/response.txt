@@ -1,0 +1,5 @@
+Created the new candidate package at [package.json](/D:/mrhbench-local-pilot/batch-20260923-002/ssa-pilot-v2/constructor/output/package.json). It contains separate WRITE_CONTENT and WRITE_EVIDENCE tasks; LIT, IDEA, and EXP are deferred with reasons. Public task files use output-relative paths and include the Table 4 transcription, provenance manifest, and figure-rendering starter.
+
+**Checks completed:** schema validation passed; task asset hashes and `input_contract.files` references match. Docker build and smoke execution remain unverified.
+
+**Unresolved blockers:** independent review is pending; historical disclosure and literature-library coverage are unknown; Table 4 has no independent-run data.

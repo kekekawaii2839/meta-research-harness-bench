@@ -1,0 +1,599 @@
+{
+  "source_id": "ssa-paper-v1",
+  "source_sha256": "77cbdd9cbe5498f49625dc0c0c269c3d85a8bc18707f581d6ed1b2783c8dad60",
+  "table_locator": "Section 4.3.2, Table 4, HTML id S4.T4",
+  "metric": "Test R² (unitless); higher is better",
+  "aggregation": "Source-reported aggregate strings to three decimal places. Independent-run values and dispersion are not supplied; Mean is a reported aggregate, not an independent run.",
+  "conditions": "UTKFace age prediction; original-image source training; 13 ImageNet-C corruption types at severity 5 (Section 4.1, paragraph S4.SS1.p3).",
+  "oracle": "Oracle fine-tunes using test labels and is described as a performance upper bound (Section 4.2, paragraph S4.SS2.p3).",
+  "columns": [
+    "Defocus blur",
+    "Motion blur",
+    "Zoom blur",
+    "Contrast",
+    "Elastic transform",
+    "JPEG comp.",
+    "Pixelate",
+    "Gaussian noise",
+    "Impulse noise",
+    "Shot noise",
+    "Brightness",
+    "Fog",
+    "Snow",
+    "Mean"
+  ],
+  "methods": [
+    "Source",
+    "DANN",
+    "TTT",
+    "BN-Adapt",
+    "Prototype",
+    "FR",
+    "VM",
+    "RSD",
+    "SSA (ours)",
+    "Oracle"
+  ],
+  "cells": {
+    "Source|Defocus blur": {
+      "value": "0.410",
+      "locator": "S4.T4.6.1.2.2"
+    },
+    "Source|Motion blur": {
+      "value": "0.159",
+      "locator": "S4.T4.6.1.2.3"
+    },
+    "Source|Zoom blur": {
+      "value": "0.658",
+      "locator": "S4.T4.6.1.2.4"
+    },
+    "Source|Contrast": {
+      "value": "-3.906",
+      "locator": "S4.T4.6.1.2.5"
+    },
+    "Source|Elastic transform": {
+      "value": "0.711",
+      "locator": "S4.T4.6.1.2.6"
+    },
+    "Source|JPEG comp.": {
+      "value": "0.069",
+      "locator": "S4.T4.6.1.2.7"
+    },
+    "Source|Pixelate": {
+      "value": "0.595",
+      "locator": "S4.T4.6.1.2.8"
+    },
+    "Source|Gaussian noise": {
+      "value": "-2.536",
+      "locator": "S4.T4.6.1.2.9"
+    },
+    "Source|Impulse noise": {
+      "value": "-2.539",
+      "locator": "S4.T4.6.1.2.10"
+    },
+    "Source|Shot noise": {
+      "value": "-2.522",
+      "locator": "S4.T4.6.1.2.11"
+    },
+    "Source|Brightness": {
+      "value": "0.661",
+      "locator": "S4.T4.6.1.2.12"
+    },
+    "Source|Fog": {
+      "value": "-0.029",
+      "locator": "S4.T4.6.1.2.13"
+    },
+    "Source|Snow": {
+      "value": "-0.544",
+      "locator": "S4.T4.6.1.2.14"
+    },
+    "Source|Mean": {
+      "value": "-0.678",
+      "locator": "S4.T4.6.1.2.15"
+    },
+    "DANN|Defocus blur": {
+      "value": "0.512",
+      "locator": "S4.T4.6.1.3.2"
+    },
+    "DANN|Motion blur": {
+      "value": "0.586",
+      "locator": "S4.T4.6.1.3.3"
+    },
+    "DANN|Zoom blur": {
+      "value": "0.637",
+      "locator": "S4.T4.6.1.3.4"
+    },
+    "DANN|Contrast": {
+      "value": "-0.720",
+      "locator": "S4.T4.6.1.3.5"
+    },
+    "DANN|Elastic transform": {
+      "value": "0.729",
+      "locator": "S4.T4.6.1.3.6"
+    },
+    "DANN|JPEG comp.": {
+      "value": "0.698",
+      "locator": "S4.T4.6.1.3.7"
+    },
+    "DANN|Pixelate": {
+      "value": "0.807",
+      "locator": "S4.T4.6.1.3.8"
+    },
+    "DANN|Gaussian noise": {
+      "value": "-4.341",
+      "locator": "S4.T4.6.1.3.9"
+    },
+    "DANN|Impulse noise": {
+      "value": "-3.114",
+      "locator": "S4.T4.6.1.3.10"
+    },
+    "DANN|Shot noise": {
+      "value": "-3.744",
+      "locator": "S4.T4.6.1.3.11"
+    },
+    "DANN|Brightness": {
+      "value": "0.590",
+      "locator": "S4.T4.6.1.3.12"
+    },
+    "DANN|Fog": {
+      "value": "-0.131",
+      "locator": "S4.T4.6.1.3.13"
+    },
+    "DANN|Snow": {
+      "value": "-0.425",
+      "locator": "S4.T4.6.1.3.14"
+    },
+    "DANN|Mean": {
+      "value": "-0.609",
+      "locator": "S4.T4.6.1.3.15"
+    },
+    "TTT|Defocus blur": {
+      "value": "0.748",
+      "locator": "S4.T4.6.1.4.2"
+    },
+    "TTT|Motion blur": {
+      "value": "0.761",
+      "locator": "S4.T4.6.1.4.3"
+    },
+    "TTT|Zoom blur": {
+      "value": "0.773",
+      "locator": "S4.T4.6.1.4.4"
+    },
+    "TTT|Contrast": {
+      "value": "0.778",
+      "locator": "S4.T4.6.1.4.5"
+    },
+    "TTT|Elastic transform": {
+      "value": "0.826",
+      "locator": "S4.T4.6.1.4.6"
+    },
+    "TTT|JPEG comp.": {
+      "value": "0.772",
+      "locator": "S4.T4.6.1.4.7"
+    },
+    "TTT|Pixelate": {
+      "value": "0.861",
+      "locator": "S4.T4.6.1.4.8"
+    },
+    "TTT|Gaussian noise": {
+      "value": "0.525",
+      "locator": "S4.T4.6.1.4.9"
+    },
+    "TTT|Impulse noise": {
+      "value": "0.532",
+      "locator": "S4.T4.6.1.4.10"
+    },
+    "TTT|Shot noise": {
+      "value": "0.477",
+      "locator": "S4.T4.6.1.4.11"
+    },
+    "TTT|Brightness": {
+      "value": "0.775",
+      "locator": "S4.T4.6.1.4.12"
+    },
+    "TTT|Fog": {
+      "value": "0.397",
+      "locator": "S4.T4.6.1.4.13"
+    },
+    "TTT|Snow": {
+      "value": "0.493",
+      "locator": "S4.T4.6.1.4.14"
+    },
+    "TTT|Mean": {
+      "value": "0.671",
+      "locator": "S4.T4.6.1.4.15"
+    },
+    "BN-Adapt|Defocus blur": {
+      "value": "0.727",
+      "locator": "S4.T4.6.1.5.2"
+    },
+    "BN-Adapt|Motion blur": {
+      "value": "0.759",
+      "locator": "S4.T4.6.1.5.3"
+    },
+    "BN-Adapt|Zoom blur": {
+      "value": "0.763",
+      "locator": "S4.T4.6.1.5.4"
+    },
+    "BN-Adapt|Contrast": {
+      "value": "0.702",
+      "locator": "S4.T4.6.1.5.5"
+    },
+    "BN-Adapt|Elastic transform": {
+      "value": "0.826",
+      "locator": "S4.T4.6.1.5.6"
+    },
+    "BN-Adapt|JPEG comp.": {
+      "value": "0.778",
+      "locator": "S4.T4.6.1.5.7"
+    },
+    "BN-Adapt|Pixelate": {
+      "value": "0.850",
+      "locator": "S4.T4.6.1.5.8"
+    },
+    "BN-Adapt|Gaussian noise": {
+      "value": "0.510",
+      "locator": "S4.T4.6.1.5.9"
+    },
+    "BN-Adapt|Impulse noise": {
+      "value": "0.510",
+      "locator": "S4.T4.6.1.5.10"
+    },
+    "BN-Adapt|Shot noise": {
+      "value": "0.446",
+      "locator": "S4.T4.6.1.5.11"
+    },
+    "BN-Adapt|Brightness": {
+      "value": "0.790",
+      "locator": "S4.T4.6.1.5.12"
+    },
+    "BN-Adapt|Fog": {
+      "value": "0.392",
+      "locator": "S4.T4.6.1.5.13"
+    },
+    "BN-Adapt|Snow": {
+      "value": "0.452",
+      "locator": "S4.T4.6.1.5.14"
+    },
+    "BN-Adapt|Mean": {
+      "value": "0.654",
+      "locator": "S4.T4.6.1.5.15"
+    },
+    "Prototype|Defocus blur": {
+      "value": "-1.003",
+      "locator": "S4.T4.6.1.6.2"
+    },
+    "Prototype|Motion blur": {
+      "value": "-1.020",
+      "locator": "S4.T4.6.1.6.3"
+    },
+    "Prototype|Zoom blur": {
+      "value": "-1.016",
+      "locator": "S4.T4.6.1.6.4"
+    },
+    "Prototype|Contrast": {
+      "value": "-0.719",
+      "locator": "S4.T4.6.1.6.5"
+    },
+    "Prototype|Elastic transform": {
+      "value": "-0.967",
+      "locator": "S4.T4.6.1.6.6"
+    },
+    "Prototype|JPEG comp.": {
+      "value": "-0.908",
+      "locator": "S4.T4.6.1.6.7"
+    },
+    "Prototype|Pixelate": {
+      "value": "-0.974",
+      "locator": "S4.T4.6.1.6.8"
+    },
+    "Prototype|Gaussian noise": {
+      "value": "-0.514",
+      "locator": "S4.T4.6.1.6.9"
+    },
+    "Prototype|Impulse noise": {
+      "value": "-0.512",
+      "locator": "S4.T4.6.1.6.10"
+    },
+    "Prototype|Shot noise": {
+      "value": "-0.512",
+      "locator": "S4.T4.6.1.6.11"
+    },
+    "Prototype|Brightness": {
+      "value": "-1.004",
+      "locator": "S4.T4.6.1.6.12"
+    },
+    "Prototype|Fog": {
+      "value": "-0.823",
+      "locator": "S4.T4.6.1.6.13"
+    },
+    "Prototype|Snow": {
+      "value": "-0.822",
+      "locator": "S4.T4.6.1.6.14"
+    },
+    "Prototype|Mean": {
+      "value": "-0.830",
+      "locator": "S4.T4.6.1.6.15"
+    },
+    "FR|Defocus blur": {
+      "value": "0.794",
+      "locator": "S4.T4.6.1.7.2"
+    },
+    "FR|Motion blur": {
+      "value": "0.839",
+      "locator": "S4.T4.6.1.7.3"
+    },
+    "FR|Zoom blur": {
+      "value": "0.849",
+      "locator": "S4.T4.6.1.7.4"
+    },
+    "FR|Contrast": {
+      "value": "0.756",
+      "locator": "S4.T4.6.1.7.5"
+    },
+    "FR|Elastic transform": {
+      "value": "0.899",
+      "locator": "S4.T4.6.1.7.6"
+    },
+    "FR|JPEG comp.": {
+      "value": "0.825",
+      "locator": "S4.T4.6.1.7.7"
+    },
+    "FR|Pixelate": {
+      "value": "0.946",
+      "locator": "S4.T4.6.1.7.8"
+    },
+    "FR|Gaussian noise": {
+      "value": "0.509",
+      "locator": "S4.T4.6.1.7.9"
+    },
+    "FR|Impulse noise": {
+      "value": "0.522",
+      "locator": "S4.T4.6.1.7.10"
+    },
+    "FR|Shot noise": {
+      "value": "0.458",
+      "locator": "S4.T4.6.1.7.11"
+    },
+    "FR|Brightness": {
+      "value": "0.861",
+      "locator": "S4.T4.6.1.7.12"
+    },
+    "FR|Fog": {
+      "value": "0.408",
+      "locator": "S4.T4.6.1.7.13"
+    },
+    "FR|Snow": {
+      "value": "0.428",
+      "locator": "S4.T4.6.1.7.14"
+    },
+    "FR|Mean": {
+      "value": "0.700",
+      "locator": "S4.T4.6.1.7.15"
+    },
+    "VM|Defocus blur": {
+      "value": "-2.009",
+      "locator": "S4.T4.6.1.8.2"
+    },
+    "VM|Motion blur": {
+      "value": "-1.991",
+      "locator": "S4.T4.6.1.8.3"
+    },
+    "VM|Zoom blur": {
+      "value": "-2.037",
+      "locator": "S4.T4.6.1.8.4"
+    },
+    "VM|Contrast": {
+      "value": "-1.889",
+      "locator": "S4.T4.6.1.8.5"
+    },
+    "VM|Elastic transform": {
+      "value": "-1.918",
+      "locator": "S4.T4.6.1.8.6"
+    },
+    "VM|JPEG comp.": {
+      "value": "-1.918",
+      "locator": "S4.T4.6.1.8.7"
+    },
+    "VM|Pixelate": {
+      "value": "-1.751",
+      "locator": "S4.T4.6.1.8.8"
+    },
+    "VM|Gaussian noise": {
+      "value": "-2.181",
+      "locator": "S4.T4.6.1.8.9"
+    },
+    "VM|Impulse noise": {
+      "value": "-2.207",
+      "locator": "S4.T4.6.1.8.10"
+    },
+    "VM|Shot noise": {
+      "value": "-2.176",
+      "locator": "S4.T4.6.1.8.11"
+    },
+    "VM|Brightness": {
+      "value": "-1.927",
+      "locator": "S4.T4.6.1.8.12"
+    },
+    "VM|Fog": {
+      "value": "-2.250",
+      "locator": "S4.T4.6.1.8.13"
+    },
+    "VM|Snow": {
+      "value": "-2.197",
+      "locator": "S4.T4.6.1.8.14"
+    },
+    "VM|Mean": {
+      "value": "-2.035",
+      "locator": "S4.T4.6.1.8.15"
+    },
+    "RSD|Defocus blur": {
+      "value": "0.789",
+      "locator": "S4.T4.6.1.9.2"
+    },
+    "RSD|Motion blur": {
+      "value": "0.833",
+      "locator": "S4.T4.6.1.9.3"
+    },
+    "RSD|Zoom blur": {
+      "value": "0.851",
+      "locator": "S4.T4.6.1.9.4"
+    },
+    "RSD|Contrast": {
+      "value": "0.749",
+      "locator": "S4.T4.6.1.9.5"
+    },
+    "RSD|Elastic transform": {
+      "value": "0.897",
+      "locator": "S4.T4.6.1.9.6"
+    },
+    "RSD|JPEG comp.": {
+      "value": "0.825",
+      "locator": "S4.T4.6.1.9.7"
+    },
+    "RSD|Pixelate": {
+      "value": "0.941",
+      "locator": "S4.T4.6.1.9.8"
+    },
+    "RSD|Gaussian noise": {
+      "value": "0.502",
+      "locator": "S4.T4.6.1.9.9"
+    },
+    "RSD|Impulse noise": {
+      "value": "0.503",
+      "locator": "S4.T4.6.1.9.10"
+    },
+    "RSD|Shot noise": {
+      "value": "0.445",
+      "locator": "S4.T4.6.1.9.11"
+    },
+    "RSD|Brightness": {
+      "value": "0.862",
+      "locator": "S4.T4.6.1.9.12"
+    },
+    "RSD|Fog": {
+      "value": "0.419",
+      "locator": "S4.T4.6.1.9.13"
+    },
+    "RSD|Snow": {
+      "value": "0.500",
+      "locator": "S4.T4.6.1.9.14"
+    },
+    "RSD|Mean": {
+      "value": "0.701",
+      "locator": "S4.T4.6.1.9.15"
+    },
+    "SSA (ours)|Defocus blur": {
+      "value": "0.803",
+      "locator": "S4.T4.6.1.10.2"
+    },
+    "SSA (ours)|Motion blur": {
+      "value": "0.839",
+      "locator": "S4.T4.6.1.10.3"
+    },
+    "SSA (ours)|Zoom blur": {
+      "value": "0.851",
+      "locator": "S4.T4.6.1.10.4"
+    },
+    "SSA (ours)|Contrast": {
+      "value": "0.792",
+      "locator": "S4.T4.6.1.10.5"
+    },
+    "SSA (ours)|Elastic transform": {
+      "value": "0.899",
+      "locator": "S4.T4.6.1.10.6"
+    },
+    "SSA (ours)|JPEG comp.": {
+      "value": "0.829",
+      "locator": "S4.T4.6.1.10.7"
+    },
+    "SSA (ours)|Pixelate": {
+      "value": "0.943",
+      "locator": "S4.T4.6.1.10.8"
+    },
+    "SSA (ours)|Gaussian noise": {
+      "value": "0.580",
+      "locator": "S4.T4.6.1.10.9"
+    },
+    "SSA (ours)|Impulse noise": {
+      "value": "0.592",
+      "locator": "S4.T4.6.1.10.10"
+    },
+    "SSA (ours)|Shot noise": {
+      "value": "0.560",
+      "locator": "S4.T4.6.1.10.11"
+    },
+    "SSA (ours)|Brightness": {
+      "value": "0.863",
+      "locator": "S4.T4.6.1.10.12"
+    },
+    "SSA (ours)|Fog": {
+      "value": "0.440",
+      "locator": "S4.T4.6.1.10.13"
+    },
+    "SSA (ours)|Snow": {
+      "value": "0.517",
+      "locator": "S4.T4.6.1.10.14"
+    },
+    "SSA (ours)|Mean": {
+      "value": "0.731",
+      "locator": "S4.T4.6.1.10.15"
+    },
+    "Oracle|Defocus blur": {
+      "value": "0.856",
+      "locator": "S4.T4.6.1.11.2"
+    },
+    "Oracle|Motion blur": {
+      "value": "0.890",
+      "locator": "S4.T4.6.1.11.3"
+    },
+    "Oracle|Zoom blur": {
+      "value": "0.889",
+      "locator": "S4.T4.6.1.11.4"
+    },
+    "Oracle|Contrast": {
+      "value": "0.862",
+      "locator": "S4.T4.6.1.11.5"
+    },
+    "Oracle|Elastic transform": {
+      "value": "0.917",
+      "locator": "S4.T4.6.1.11.6"
+    },
+    "Oracle|JPEG comp.": {
+      "value": "0.873",
+      "locator": "S4.T4.6.1.11.7"
+    },
+    "Oracle|Pixelate": {
+      "value": "0.960",
+      "locator": "S4.T4.6.1.11.8"
+    },
+    "Oracle|Gaussian noise": {
+      "value": "0.635",
+      "locator": "S4.T4.6.1.11.9"
+    },
+    "Oracle|Impulse noise": {
+      "value": "0.652",
+      "locator": "S4.T4.6.1.11.10"
+    },
+    "Oracle|Shot noise": {
+      "value": "0.635",
+      "locator": "S4.T4.6.1.11.11"
+    },
+    "Oracle|Brightness": {
+      "value": "0.895",
+      "locator": "S4.T4.6.1.11.12"
+    },
+    "Oracle|Fog": {
+      "value": "0.519",
+      "locator": "S4.T4.6.1.11.13"
+    },
+    "Oracle|Snow": {
+      "value": "0.671",
+      "locator": "S4.T4.6.1.11.14"
+    },
+    "Oracle|Mean": {
+      "value": "0.789",
+      "locator": "S4.T4.6.1.11.15"
+    }
+  }
+}

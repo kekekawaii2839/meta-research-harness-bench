@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1",
+  "purpose": "Bounded primary-source prescreen only; no models, author-code execution or formal task construction. arXiv v2 predates ICLR 2025; not asserted identical to accepted version.",
+  "sources": [
+    {
+      "source_id": "diffusion-paper-v2",
+      "paper_id": "iclr2025-xVefsBbG2O",
+      "url": "https://arxiv.org/html/2410.02543v2",
+      "version": "arxiv-v2",
+      "kind": "paper_html"
+    },
+    {
+      "source_id": "diffusion-abstract-v2",
+      "paper_id": "iclr2025-xVefsBbG2O",
+      "url": "https://arxiv.org/abs/2410.02543v2",
+      "version": "arxiv-v2",
+      "kind": "version_and_license_metadata"
+    },
+    {
+      "source_id": "diffusion-code-commit",
+      "paper_id": "iclr2025-xVefsBbG2O",
+      "url": "https://api.github.com/repos/Zhangyanbo/diffusion-evolution/commits/41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7",
+      "version": "41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7",
+      "kind": "repository_commit_metadata"
+    },
+    {
+      "source_id": "diffusion-license",
+      "paper_id": "iclr2025-xVefsBbG2O",
+      "url": "https://raw.githubusercontent.com/Zhangyanbo/diffusion-evolution/41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7/LICENSE",
+      "version": "41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7",
+      "kind": "repository_license"
+    },
+    {
+      "source_id": "diffusion-setup",
+      "paper_id": "iclr2025-xVefsBbG2O",
+      "url": "https://raw.githubusercontent.com/Zhangyanbo/diffusion-evolution/41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7/setup.py",
+      "version": "41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7",
+      "kind": "package_dependency_metadata"
+    }
+  ]
+}

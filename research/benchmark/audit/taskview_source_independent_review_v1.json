@@ -1,0 +1,1990 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-09-23T23:36:41.461471+00:00",
+  "reviewer": "independent material_pipeline_v3 subagent; readonly code/material review",
+  "new_model_calls": 0,
+  "new_gpu_or_container_runs": 0,
+  "formal_pool_review": false,
+  "source_integrity": {
+    "registered_files": 177,
+    "source_cache_files": 177,
+    "all_match": true,
+    "unregistered": [],
+    "rows": [
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-1502-03167-v1-abstract.source",
+        "expected_sha256": "83a7f32f102e46081f55a2f6f851848d199c1afabdca726c68feafa35cb22f41",
+        "actual_sha256": "83a7f32f102e46081f55a2f6f851848d199c1afabdca726c68feafa35cb22f41",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-1502-03167-v1-paper.source",
+        "expected_sha256": "4591881ed6e7b3815eaa7c13cb8d8cc1c807ca5411150c11d11f718e6ba48949",
+        "actual_sha256": "4591881ed6e7b3815eaa7c13cb8d8cc1c807ca5411150c11d11f718e6ba48949",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-1505-07818-v1-abstract.source",
+        "expected_sha256": "91da97c489a5f0637185361e18903b5f93e3d06c1ddf1cc814fa6a48ceb52dd2",
+        "actual_sha256": "91da97c489a5f0637185361e18903b5f93e3d06c1ddf1cc814fa6a48ceb52dd2",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-1505-07818-v1-paper.source",
+        "expected_sha256": "2b4b59b28a54205544515f604e422fecad43a7f7b9d1db884435180d7c8f1c5d",
+        "actual_sha256": "2b4b59b28a54205544515f604e422fecad43a7f7b9d1db884435180d7c8f1c5d",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-1607-01719-v1-abstract.source",
+        "expected_sha256": "36749c4d5d7d924bb0d66f904702beba8f7662ad44d862b2fee5f7fb2ee3582b",
+        "actual_sha256": "36749c4d5d7d924bb0d66f904702beba8f7662ad44d862b2fee5f7fb2ee3582b",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-1607-01719-v1-paper.source",
+        "expected_sha256": "9691e1d6b20e0d5b75f580076516ff8a2e6a2ea3529eeb3e4ca3dd33b85e1ccc",
+        "actual_sha256": "9691e1d6b20e0d5b75f580076516ff8a2e6a2ea3529eeb3e4ca3dd33b85e1ccc",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-1706-04599-v1-abstract.source",
+        "expected_sha256": "9e98266172515b6e7d4a86302ea9ebd04b5aadf58e7b6f6490951f467e30f4ae",
+        "actual_sha256": "9e98266172515b6e7d4a86302ea9ebd04b5aadf58e7b6f6490951f467e30f4ae",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-1706-04599-v1-paper.source",
+        "expected_sha256": "f0a55abdbea889964f9d908da1baa04448ab3ffbd40f409f3676176f532c9ab1",
+        "actual_sha256": "f0a55abdbea889964f9d908da1baa04448ab3ffbd40f409f3676176f532c9ab1",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-1909-13231-v1-abstract.source",
+        "expected_sha256": "db7462b2ebed10b2dff27225fef700907785c15d15c43f1a7d360d1696cd204f",
+        "actual_sha256": "db7462b2ebed10b2dff27225fef700907785c15d15c43f1a7d360d1696cd204f",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-1909-13231-v1-paper.source",
+        "expected_sha256": "37e966ab281c85b74492ee9da7dfc2675e4b19ec77139718b32fa04b690843cd",
+        "actual_sha256": "37e966ab281c85b74492ee9da7dfc2675e4b19ec77139718b32fa04b690843cd",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-2002-08546-v1-abstract.source",
+        "expected_sha256": "a49df8ef9cd158a4f630f1324ee1d897b0e5da55e3ea720c71cc85f27881fd80",
+        "actual_sha256": "a49df8ef9cd158a4f630f1324ee1d897b0e5da55e3ea720c71cc85f27881fd80",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-2002-08546-v1-paper.source",
+        "expected_sha256": "c63576df482b899698c765e6712a4a76bc8ebcfc1766446e5153ce6944535821",
+        "actual_sha256": "c63576df482b899698c765e6712a4a76bc8ebcfc1766446e5153ce6944535821",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-2006-10726-v1-abstract.source",
+        "expected_sha256": "ef0926eefd9a94296b2b1692f6c450f7b47328489172fe7ef46514bda8cc09e3",
+        "actual_sha256": "ef0926eefd9a94296b2b1692f6c450f7b47328489172fe7ef46514bda8cc09e3",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-2006-10726-v1-paper.source",
+        "expected_sha256": "54394849933b3ff88e001cbf25dc59ded458ea0f259c82951a0912170bc06756",
+        "actual_sha256": "54394849933b3ff88e001cbf25dc59ded458ea0f259c82951a0912170bc06756",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-2006-16971-v1-abstract.source",
+        "expected_sha256": "e479e71a02c24967b9e4c8b4c7a4e82e60523d26a73fd3a46d9e192d373e81cc",
+        "actual_sha256": "e479e71a02c24967b9e4c8b4c7a4e82e60523d26a73fd3a46d9e192d373e81cc",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\background-2006-16971-v1-paper.source",
+        "expected_sha256": "6dd742b604dba03335904a806e2db9648a547efdbccf4767acbfac5bf4c191ca",
+        "actual_sha256": "6dd742b604dba03335904a806e2db9648a547efdbccf4767acbfac5bf4c191ca",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\background_v1\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\background_v1\\manifest.json",
+        "expected_sha256": "60c54b51652e82a3210cb5b35df0dda64d30813da73b14f6e10e2a53be0b89bd",
+        "actual_sha256": "60c54b51652e82a3210cb5b35df0dda64d30813da73b14f6e10e2a53be0b89bd",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\materials\\material_packages.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\first_snapshot\\fragmented-paper-v1.source",
+        "expected_sha256": "6544464def8909867ddf1475308b8d2c6d9e08be02e85cfcc2633772ab0ffdae",
+        "actual_sha256": "6544464def8909867ddf1475308b8d2c6d9e08be02e85cfcc2633772ab0ffdae",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\first_snapshot\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\first_snapshot\\manifest.json",
+        "expected_sha256": "ba2ad619a90637ca149bf2deb25bc2723514967bf7c4af24b8f2de223d375c5c",
+        "actual_sha256": "ba2ad619a90637ca149bf2deb25bc2723514967bf7c4af24b8f2de223d375c5c",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\materials\\material_packages.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\first_snapshot\\ssa-abstract-v1.source",
+        "expected_sha256": "42c74dde1791e2707ad9ec291b2de9afc50f5ad0ed7ecc8f884a282ecdc5c93e",
+        "actual_sha256": "42c74dde1791e2707ad9ec291b2de9afc50f5ad0ed7ecc8f884a282ecdc5c93e",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\first_snapshot\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\first_snapshot\\ssa-paper-v1.source",
+        "expected_sha256": "77cbdd9cbe5498f49625dc0c0c269c3d85a8bc18707f581d6ed1b2783c8dad60",
+        "actual_sha256": "77cbdd9cbe5498f49625dc0c0c269c3d85a8bc18707f581d6ed1b2783c8dad60",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\first_snapshot\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\first_snapshot\\ssa-repo-housing.source",
+        "expected_sha256": "b89292615bd957dd2273c44c3afa269a06caf9a43f4e63eb095ebc56b905bfda",
+        "actual_sha256": "b89292615bd957dd2273c44c3afa269a06caf9a43f4e63eb095ebc56b905bfda",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\first_snapshot\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\first_snapshot\\ssa-repo-license.source",
+        "expected_sha256": "2e224016ff83dee3bba45327495552dd2f81d7b09a293ea5c6f1e1c8956a1280",
+        "actual_sha256": "2e224016ff83dee3bba45327495552dd2f81d7b09a293ea5c6f1e1c8956a1280",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\first_snapshot\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\first_snapshot\\ssa-repo-loss.source",
+        "expected_sha256": "68af0f94405877998a768df4e62129ef36a143c0a73d09c652127fa04cdb6ce6",
+        "actual_sha256": "68af0f94405877998a768df4e62129ef36a143c0a73d09c652127fa04cdb6ce6",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\first_snapshot\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\first_snapshot\\ssa-repo-model.source",
+        "expected_sha256": "ab8ad06909a93eba267873bf65308b9b98b98f71b8755b0ab81c40d6e8189ab3",
+        "actual_sha256": "ab8ad06909a93eba267873bf65308b9b98b98f71b8755b0ab81c40d6e8189ab3",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\first_snapshot\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\iv_snapshot\\iv-abstract-v1.source",
+        "expected_sha256": "be8bd6c83856a22f292a3b3fa476bba525d648d4a2ccba7943b296f363af58bb",
+        "actual_sha256": "be8bd6c83856a22f292a3b3fa476bba525d648d4a2ccba7943b296f363af58bb",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\iv_snapshot\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\iv_snapshot\\iv-license.source",
+        "expected_sha256": "0c62244358639b87361d70abf720d79cabb5c4e40a114cb933e1a164d82e513b",
+        "actual_sha256": "0c62244358639b87361d70abf720d79cabb5c4e40a114cb933e1a164d82e513b",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\iv_snapshot\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\iv_snapshot\\iv-paper-v1.source",
+        "expected_sha256": "3050c1439f169d87435abc53754fd5d4301a8fe3520641358eb88a611067a970",
+        "actual_sha256": "3050c1439f169d87435abc53754fd5d4301a8fe3520641358eb88a611067a970",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\iv_snapshot\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\iv_snapshot\\iv-readme.source",
+        "expected_sha256": "96e357ca19793e130e71b36cd4df0c6a65306da92bd435d5a87cb3eb36a1c687",
+        "actual_sha256": "96e357ca19793e130e71b36cd4df0c6a65306da92bd435d5a87cb3eb36a1c687",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\iv_snapshot\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\iv_snapshot\\iv-simulation.source",
+        "expected_sha256": "13492a765bec0b00426851997d335ea5948f8171a6affd108f150a4a4cc6103f",
+        "actual_sha256": "13492a765bec0b00426851997d335ea5948f8171a6affd108f150a4a4cc6103f",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\iv_snapshot\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\iv_snapshot\\manifest.json",
+        "expected_sha256": "e948cdf5d2c06f635589bdc8e7341dcd1b13d9acd7f4e463be4b80821ace3799",
+        "actual_sha256": "e948cdf5d2c06f635589bdc8e7341dcd1b13d9acd7f4e463be4b80821ace3799",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\materials\\material_packages.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-1607-06450-v1-abstract.source",
+        "expected_sha256": "b794807ce48978023eee40473fca743795e20dc6f533ce23a7712551f046e009",
+        "actual_sha256": "b794807ce48978023eee40473fca743795e20dc6f533ce23a7712551f046e009",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-1607-06450-v1-paper.source",
+        "expected_sha256": "c464f839fb8d59f7fde92f9b4caa67c2d1f2f196b88f93fb60502249df0aaef7",
+        "actual_sha256": "c464f839fb8d59f7fde92f9b4caa67c2d1f2f196b88f93fb60502249df0aaef7",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-1906-00232-v1-abstract.source",
+        "expected_sha256": "e5dea986a685478124b1647ce76b2b78089ec9f5b31e1deba4d17c1de2f426b6",
+        "actual_sha256": "e5dea986a685478124b1647ce76b2b78089ec9f5b31e1deba4d17c1de2f426b6",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-1910-12358-v1-abstract.source",
+        "expected_sha256": "6ee60e8cc2a160a78512104fa7ef3c7b09af349899537da2b6fbad50bd6af6f5",
+        "actual_sha256": "6ee60e8cc2a160a78512104fa7ef3c7b09af349899537da2b6fbad50bd6af6f5",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-1910-12358-v1-paper.source",
+        "expected_sha256": "db48e3419765524ba2cfb79b7fa121fa3f5196802929ed025e5ec9bc4bd8478d",
+        "actual_sha256": "db48e3419765524ba2cfb79b7fa121fa3f5196802929ed025e5ec9bc4bd8478d",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2101-10842-v1-abstract.source",
+        "expected_sha256": "b2777442ed7f6ec7f3f29427dc7bb1c90d24f00ebc994128f4aa2ce6b0ddfd83",
+        "actual_sha256": "b2777442ed7f6ec7f3f29427dc7bb1c90d24f00ebc994128f4aa2ce6b0ddfd83",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2101-10842-v1-paper.source",
+        "expected_sha256": "a15803b06af86bf237c5017f6d80bf533085527479bbd80ef110871cc57c5b06",
+        "actual_sha256": "a15803b06af86bf237c5017f6d80bf533085527479bbd80ef110871cc57c5b06",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2204-13263-v1-abstract.source",
+        "expected_sha256": "ce91ba47c7ffaf012426decb4f1846a2c389c792ec576b49f6f6a2c953e8187e",
+        "actual_sha256": "ce91ba47c7ffaf012426decb4f1846a2c389c792ec576b49f6f6a2c953e8187e",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2204-13263-v1-paper.source",
+        "expected_sha256": "e53c276d033736e04cb7d8ee9e236d863dea4e95564c37782e0302aed1e61b7a",
+        "actual_sha256": "e53c276d033736e04cb7d8ee9e236d863dea4e95564c37782e0302aed1e61b7a",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2208-01066-v1-abstract.source",
+        "expected_sha256": "20b24600f00daf28e8d48d0d9677165b3d508d0efbd2fb1ed08adaec43b632b0",
+        "actual_sha256": "20b24600f00daf28e8d48d0d9677165b3d508d0efbd2fb1ed08adaec43b632b0",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2208-01066-v1-paper.source",
+        "expected_sha256": "3c212dc2df289a3163d14841b08837155bd3234d1dd87477ddad455042e112a7",
+        "actual_sha256": "3c212dc2df289a3163d14841b08837155bd3234d1dd87477ddad455042e112a7",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2211-15661-v1-abstract.source",
+        "expected_sha256": "68e51bbdb60d0c2fabc8692eadb8b7e1d214005b82fec9e7f83fce74091f13a1",
+        "actual_sha256": "68e51bbdb60d0c2fabc8692eadb8b7e1d214005b82fec9e7f83fce74091f13a1",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2211-15661-v1-paper.source",
+        "expected_sha256": "87e19f38c76f134f2248571e077a86e8ef9d2702127e6e32447086a97850f05c",
+        "actual_sha256": "87e19f38c76f134f2248571e077a86e8ef9d2702127e6e32447086a97850f05c",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2212-07677-v1-abstract.source",
+        "expected_sha256": "f863b9c94f9f8489521310ff0a1170c76f28b6e484ee7f27bf9c8d84deca25dd",
+        "actual_sha256": "f863b9c94f9f8489521310ff0a1170c76f28b6e484ee7f27bf9c8d84deca25dd",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2212-07677-v1-paper.source",
+        "expected_sha256": "f4541e1fa479877a0e0552283e15cb5240b243cc67aaa9a404c3135f23e5d9ac",
+        "actual_sha256": "f4541e1fa479877a0e0552283e15cb5240b243cc67aaa9a404c3135f23e5d9ac",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2303-13325-v1-abstract.source",
+        "expected_sha256": "31dc9498608bcf2fcd0e5da2208bb00c33555ac3651d3b918c2468ee3036775e",
+        "actual_sha256": "31dc9498608bcf2fcd0e5da2208bb00c33555ac3651d3b918c2468ee3036775e",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2303-13325-v1-paper.source",
+        "expected_sha256": "0923fb19641850320372db380b4c3f979ed15c6be4c67fd53bd7fa436b418d25",
+        "actual_sha256": "0923fb19641850320372db380b4c3f979ed15c6be4c67fd53bd7fa436b418d25",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2310-17086-v1-abstract.source",
+        "expected_sha256": "32564f17b3c5d219fed7f6725c901e29c88093d29f6471d1dc62c4409af179b5",
+        "actual_sha256": "32564f17b3c5d219fed7f6725c901e29c88093d29f6471d1dc62c4409af179b5",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2310-17086-v1-paper.source",
+        "expected_sha256": "b0e836fc04577ec3c74292b589307dede035d0d23531ea716c92a62490de57a1",
+        "actual_sha256": "b0e836fc04577ec3c74292b589307dede035d0d23531ea716c92a62490de57a1",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2402-05639-v1-abstract.source",
+        "expected_sha256": "b828bf3a72686cfdb06817fac321caacc86c47d76859038ebff8fa44a6371eca",
+        "actual_sha256": "b828bf3a72686cfdb06817fac321caacc86c47d76859038ebff8fa44a6371eca",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2402-05639-v1-paper.source",
+        "expected_sha256": "77a066410c04896107241d38901f01cae9218dce236ed4e2022e941e2b9fa4d5",
+        "actual_sha256": "77a066410c04896107241d38901f01cae9218dce236ed4e2022e941e2b9fa4d5",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2405-19463-v1-abstract.source",
+        "expected_sha256": "47d2033fa00a0443835ce63717bddcb593c481423f17154b8577e48ea96728f9",
+        "actual_sha256": "47d2033fa00a0443835ce63717bddcb593c481423f17154b8577e48ea96728f9",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\arxiv-2405-19463-v1-paper.source",
+        "expected_sha256": "71305197a6d4b485a1b358113b511e0e762438de41b40b55d99eb666dcb0254a",
+        "actual_sha256": "71305197a6d4b485a1b358113b511e0e762438de41b40b55d99eb666dcb0254a",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\iv-repo-commits-first-page.source",
+        "expected_sha256": "302b06f99f24c1f50a9de4d41d68c114676a32d141aa14689030dfaf51976a9a",
+        "actual_sha256": "302b06f99f24c1f50a9de4d41d68c114676a32d141aa14689030dfaf51976a9a",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\iv-repo-metadata.source",
+        "expected_sha256": "6c2f127c5e3e86371b35011555bf4201104d9f5fbd3fd0954a93112c3d90c50f",
+        "actual_sha256": "6c2f127c5e3e86371b35011555bf4201104d9f5fbd3fd0954a93112c3d90c50f",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\iv-repo-oldest-current-branch-commit.source",
+        "expected_sha256": "ebfa0422669c79a0e9cf578f34c38044d6ec9a50f70d3e8a1d8ea17d10865a72",
+        "actual_sha256": "ebfa0422669c79a0e9cf578f34c38044d6ec9a50f70d3e8a1d8ea17d10865a72",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json",
+        "expected_sha256": "a5475385004a1f3f0b7746534fd0a1fc4cb82e1506826b1c0690c9667a192aa8",
+        "actual_sha256": "a5475385004a1f3f0b7746534fd0a1fc4cb82e1506826b1c0690c9667a192aa8",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\shared_background_v3_mechanical_acceptance.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\ssa-repo-commits-first-page.source",
+        "expected_sha256": "55860150237d74acf7afb4da2520af979f32c20e3889248b910b1ae656977f91",
+        "actual_sha256": "55860150237d74acf7afb4da2520af979f32c20e3889248b910b1ae656977f91",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\ssa-repo-metadata.source",
+        "expected_sha256": "81e4e4dd126dbafc6e5d0dfcd2798829f0c3047d96ff92a53616ddd7dd7e7d7b",
+        "actual_sha256": "81e4e4dd126dbafc6e5d0dfcd2798829f0c3047d96ff92a53616ddd7dd7e7d7b",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\benchmark_materials\\r2_v3\\ssa-repo-oldest-current-branch-commit.source",
+        "expected_sha256": "3432d7b15d521b9bb18dd995e500dd8312350020e453cacb7b214df5141c4cba",
+        "actual_sha256": "3432d7b15d521b9bb18dd995e500dd8312350020e453cacb7b214df5141c4cba",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\r2_v3\\manifest.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\iclr-2025-orals-posters.json",
+        "expected_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+        "actual_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\papers.html",
+        "expected_sha256": "d3908a752f61568b86720ed39d3d31d0c1c282c862ebbd32fc458aba7145855b",
+        "actual_sha256": "d3908a752f61568b86720ed39d3d31d0c1c282c862ebbd32fc458aba7145855b",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\agiresearch__ASB\\README.txt",
+        "expected_sha256": "f9d8db1086d3af665d79581a274ff4eccff7272254922db89490291fb6cd6327",
+        "actual_sha256": "f9d8db1086d3af665d79581a274ff4eccff7272254922db89490291fb6cd6327",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\agiresearch__ASB\\README.txt.provenance.json",
+        "expected_sha256": "521559ca573d95cb4ef08b6cd757095483c0c16ac14bf5ce258e4d953805bc80",
+        "actual_sha256": "521559ca573d95cb4ef08b6cd757095483c0c16ac14bf5ce258e4d953805bc80",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\agiresearch__ASB\\repo.json",
+        "expected_sha256": "c3b80a6261a044eb96b538f4a02b36d853e279d501fa1f18e994e645583c71d4",
+        "actual_sha256": "c3b80a6261a044eb96b538f4a02b36d853e279d501fa1f18e994e645583c71d4",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\agiresearch__ASB\\repo.json.provenance.json",
+        "expected_sha256": "1b1cba015ff2c77b257735e7998489ac6b77b71b298f04a9a571ba94b989dda4",
+        "actual_sha256": "1b1cba015ff2c77b257735e7998489ac6b77b71b298f04a9a571ba94b989dda4",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\AIF4S__MediConfusion\\README.txt",
+        "expected_sha256": "feace06debd52064fe0a61cb992e77602fb808e703d650286f5ac198d680e4cd",
+        "actual_sha256": "feace06debd52064fe0a61cb992e77602fb808e703d650286f5ac198d680e4cd",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\AIF4S__MediConfusion\\README.txt.provenance.json",
+        "expected_sha256": "0ad1b540f8c96c115505e412bb57299b5f0fcd8f87d8d3e45126b4f4f4c4d096",
+        "actual_sha256": "0ad1b540f8c96c115505e412bb57299b5f0fcd8f87d8d3e45126b4f4f4c4d096",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\AIF4S__MediConfusion\\repo.json",
+        "expected_sha256": "d555a2b9b9575f03026aa191e9c12cc9c88e78b38b31530e70bd14b734d7d60b",
+        "actual_sha256": "d555a2b9b9575f03026aa191e9c12cc9c88e78b38b31530e70bd14b734d7d60b",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\AIF4S__MediConfusion\\repo.json.provenance.json",
+        "expected_sha256": "42e127bd158682ab655807296e8c25e4a55544a5ca2b53f3ef434ced78d33500",
+        "actual_sha256": "42e127bd158682ab655807296e8c25e4a55544a5ca2b53f3ef434ced78d33500",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\amith-ananthram__see-it-from-my-perspective\\README.txt",
+        "expected_sha256": "ac8dfbe9dfbd732f26318eb04ab1398dbe1a32104a06652cf6418cd89358e685",
+        "actual_sha256": "ac8dfbe9dfbd732f26318eb04ab1398dbe1a32104a06652cf6418cd89358e685",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\amith-ananthram__see-it-from-my-perspective\\README.txt.provenance.json",
+        "expected_sha256": "e350c9a68a7050fa8ac1cbf39a116f16538bc0951191d0777c5939e0a7ac8dbc",
+        "actual_sha256": "e350c9a68a7050fa8ac1cbf39a116f16538bc0951191d0777c5939e0a7ac8dbc",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\amith-ananthram__see-it-from-my-perspective\\repo.json",
+        "expected_sha256": "24fb69814e080669190ce43efcbbc7c137e9396c549af4097f702aa0305f0142",
+        "actual_sha256": "24fb69814e080669190ce43efcbbc7c137e9396c549af4097f702aa0305f0142",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\amith-ananthram__see-it-from-my-perspective\\repo.json.provenance.json",
+        "expected_sha256": "9ea6e58a2dd04eee7ed9fa0b5aafd3cd486a6d9d7de896e997d58b5665ba336e",
+        "actual_sha256": "9ea6e58a2dd04eee7ed9fa0b5aafd3cd486a6d9d7de896e997d58b5665ba336e",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\anthonyzhou-1__ldm_pdes\\README.txt",
+        "expected_sha256": "40f3a769883ae0e4d254a73b658c7054aa8f851c5aefae1d614b37571362b233",
+        "actual_sha256": "40f3a769883ae0e4d254a73b658c7054aa8f851c5aefae1d614b37571362b233",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\anthonyzhou-1__ldm_pdes\\README.txt.provenance.json",
+        "expected_sha256": "e5ddf0fc57a50f6b8986e227ce72f735e9c7c329a1ae4b298de5340948ef7aeb",
+        "actual_sha256": "e5ddf0fc57a50f6b8986e227ce72f735e9c7c329a1ae4b298de5340948ef7aeb",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\anthonyzhou-1__ldm_pdes\\repo.json",
+        "expected_sha256": "1dbe9d102bab9ab6fdb58425eb38da72ac9cf33123f69aefc3197fa7cd1bc9ea",
+        "actual_sha256": "1dbe9d102bab9ab6fdb58425eb38da72ac9cf33123f69aefc3197fa7cd1bc9ea",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\anthonyzhou-1__ldm_pdes\\repo.json.provenance.json",
+        "expected_sha256": "7361067028b55c07d85826da6d9aad77fcc6fd16b512d77782e65e675569eeb8",
+        "actual_sha256": "7361067028b55c07d85826da6d9aad77fcc6fd16b512d77782e65e675569eeb8",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\avysogorets__drop-data-pruning\\README.txt",
+        "expected_sha256": "30fda8c36946ce2cc66c7953676c1c41b1999c5b89896893b44346e02f0c2421",
+        "actual_sha256": "30fda8c36946ce2cc66c7953676c1c41b1999c5b89896893b44346e02f0c2421",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\avysogorets__drop-data-pruning\\README.txt.provenance.json",
+        "expected_sha256": "066e1bd424f78fdce35f43820edecc6637a0bcd2e4b4f2e0ec8814c56db91319",
+        "actual_sha256": "066e1bd424f78fdce35f43820edecc6637a0bcd2e4b4f2e0ec8814c56db91319",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\avysogorets__drop-data-pruning\\repo.json",
+        "expected_sha256": "ba2d0cabf04ddcc5423fdda6556b3e70e1b7f9ed35da1d9bd43aa131966f0291",
+        "actual_sha256": "ba2d0cabf04ddcc5423fdda6556b3e70e1b7f9ed35da1d9bd43aa131966f0291",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\avysogorets__drop-data-pruning\\repo.json.provenance.json",
+        "expected_sha256": "1cdbd094a162a85421a445039d6eb39a78ca74186594feeea5a1b13cad0743ca",
+        "actual_sha256": "1cdbd094a162a85421a445039d6eb39a78ca74186594feeea5a1b13cad0743ca",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\BU-DEPEND-Lab__CCAC\\README.txt",
+        "expected_sha256": "e6f0b49ca21c78e37c469ecb2b8c8f59aefe8f174da945b8bdf8f0dd37f40b56",
+        "actual_sha256": "e6f0b49ca21c78e37c469ecb2b8c8f59aefe8f174da945b8bdf8f0dd37f40b56",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\BU-DEPEND-Lab__CCAC\\README.txt.provenance.json",
+        "expected_sha256": "34d970804c03f7ff5b3cb8e547fa21050e69e20a7cf88c3dfd56af5459950aa9",
+        "actual_sha256": "34d970804c03f7ff5b3cb8e547fa21050e69e20a7cf88c3dfd56af5459950aa9",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\BU-DEPEND-Lab__CCAC\\repo.json",
+        "expected_sha256": "6c754e9cc48b216c6d6874294b0e14acc77c4245b06178a0fa1c47caa5472817",
+        "actual_sha256": "6c754e9cc48b216c6d6874294b0e14acc77c4245b06178a0fa1c47caa5472817",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\BU-DEPEND-Lab__CCAC\\repo.json.provenance.json",
+        "expected_sha256": "f0a64ae13b7b7484dbbe18b8172f3f210a03a1a166480fe498f217c941eb436c",
+        "actual_sha256": "f0a64ae13b7b7484dbbe18b8172f3f210a03a1a166480fe498f217c941eb436c",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\EDAPINENUT__CBGBench\\repo.json",
+        "expected_sha256": "c64fc68515cf17a3b905db4e0bcf525351757e39f87b247b5a27b77576625ed4",
+        "actual_sha256": "c64fc68515cf17a3b905db4e0bcf525351757e39f87b247b5a27b77576625ed4",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\EDAPINENUT__CBGBench\\repo.json.provenance.json",
+        "expected_sha256": "d0a960d1a8c71e430a4251375d17c81031f0fb49dbb30fe5c37178b26a67f826",
+        "actual_sha256": "d0a960d1a8c71e430a4251375d17c81031f0fb49dbb30fe5c37178b26a67f826",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\google-research__android_world\\README.txt",
+        "expected_sha256": "93201de5e21f2b12283a75b1e2c357781b2e6cc27eab20cc7dd7aa0f5919d839",
+        "actual_sha256": "93201de5e21f2b12283a75b1e2c357781b2e6cc27eab20cc7dd7aa0f5919d839",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\google-research__android_world\\README.txt.provenance.json",
+        "expected_sha256": "d8917ba9cea617dab0e313ccff8e370ee021652d3405e6655577caf8a0a19083",
+        "actual_sha256": "d8917ba9cea617dab0e313ccff8e370ee021652d3405e6655577caf8a0a19083",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\google-research__android_world\\repo.json",
+        "expected_sha256": "2b3e859a66e2eb29a3c2849cb6fec4e445e2e493d7beb8ad069f1fdf54c9928c",
+        "actual_sha256": "2b3e859a66e2eb29a3c2849cb6fec4e445e2e493d7beb8ad069f1fdf54c9928c",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\google-research__android_world\\repo.json.provenance.json",
+        "expected_sha256": "587043f20f28be32ac951bf378e0c3a6bbd63fd6459b58a9552146c51c416739",
+        "actual_sha256": "587043f20f28be32ac951bf378e0c3a6bbd63fd6459b58a9552146c51c416739",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\harris-liang__IVTransformer\\README.txt",
+        "expected_sha256": "96e357ca19793e130e71b36cd4df0c6a65306da92bd435d5a87cb3eb36a1c687",
+        "actual_sha256": "96e357ca19793e130e71b36cd4df0c6a65306da92bd435d5a87cb3eb36a1c687",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\harris-liang__IVTransformer\\README.txt.provenance.json",
+        "expected_sha256": "e89933ec42eed16e5fd602a3c0a378ec92cfbcc58d9bf525a8a805469a58c32a",
+        "actual_sha256": "e89933ec42eed16e5fd602a3c0a378ec92cfbcc58d9bf525a8a805469a58c32a",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\harris-liang__IVTransformer\\repo.json",
+        "expected_sha256": "6c2f127c5e3e86371b35011555bf4201104d9f5fbd3fd0954a93112c3d90c50f",
+        "actual_sha256": "6c2f127c5e3e86371b35011555bf4201104d9f5fbd3fd0954a93112c3d90c50f",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\harris-liang__IVTransformer\\repo.json.provenance.json",
+        "expected_sha256": "9c63ffeda90ce18309829578f8090d7ff40c5b86ebed65b2d0d1258006168e65",
+        "actual_sha256": "9c63ffeda90ce18309829578f8090d7ff40c5b86ebed65b2d0d1258006168e65",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\jaabmar__RAMEN\\README.txt",
+        "expected_sha256": "122e59619e4207991ea6ed41095cfd02c68cd79d4965b34f0b20b88a1a30909b",
+        "actual_sha256": "122e59619e4207991ea6ed41095cfd02c68cd79d4965b34f0b20b88a1a30909b",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\jaabmar__RAMEN\\README.txt.provenance.json",
+        "expected_sha256": "bf7fbee960b89b7a597b049129ef713e40292e45e542297e630623457d874018",
+        "actual_sha256": "bf7fbee960b89b7a597b049129ef713e40292e45e542297e630623457d874018",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\jaabmar__RAMEN\\repo.json",
+        "expected_sha256": "74a688bc31cef7f07a2297ca9305cd744021e20f3fb7f1d169c5a0735471f8fb",
+        "actual_sha256": "74a688bc31cef7f07a2297ca9305cd744021e20f3fb7f1d169c5a0735471f8fb",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\jaabmar__RAMEN\\repo.json.provenance.json",
+        "expected_sha256": "a8d9d737735f96284c86f6f6de3671226fdacbcf0efc06b99e6af7303dba74fe",
+        "actual_sha256": "a8d9d737735f96284c86f6f6de3671226fdacbcf0efc06b99e6af7303dba74fe",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\jliu4ai__CaPo\\README.txt",
+        "expected_sha256": "4ebcd5a534ab920da626721e1578641652eb4d7d893420a35375406cae9d5517",
+        "actual_sha256": "4ebcd5a534ab920da626721e1578641652eb4d7d893420a35375406cae9d5517",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\jliu4ai__CaPo\\README.txt.provenance.json",
+        "expected_sha256": "d061bc570343a3c3c582cff598f38eb23f728cd54619995d6c7a0cda60366043",
+        "actual_sha256": "d061bc570343a3c3c582cff598f38eb23f728cd54619995d6c7a0cda60366043",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\jliu4ai__CaPo\\repo.json",
+        "expected_sha256": "cf4a9922487f607d0026c9792bd79648fafd74a9e3458725056fedf6fbf86017",
+        "actual_sha256": "cf4a9922487f607d0026c9792bd79648fafd74a9e3458725056fedf6fbf86017",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\jliu4ai__CaPo\\repo.json.provenance.json",
+        "expected_sha256": "6d4b93b788e7386f2c2359d5c872f588b4dc0794b5412ce337a19b86370ef5c4",
+        "actual_sha256": "6d4b93b788e7386f2c2359d5c872f588b4dc0794b5412ce337a19b86370ef5c4",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\konstantinhess__SCIP-Net\\README.txt",
+        "expected_sha256": "e00a421e389ec51dd84e11c7bcceb73b1c46dee2c253884e238480fbfbed3f1c",
+        "actual_sha256": "e00a421e389ec51dd84e11c7bcceb73b1c46dee2c253884e238480fbfbed3f1c",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\konstantinhess__SCIP-Net\\README.txt.provenance.json",
+        "expected_sha256": "1bab1916c89c0427a75397ec3b0b9ed19e5fddbd867f91c0e4982021e781b8fd",
+        "actual_sha256": "1bab1916c89c0427a75397ec3b0b9ed19e5fddbd867f91c0e4982021e781b8fd",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\konstantinhess__SCIP-Net\\repo.json",
+        "expected_sha256": "20f02ad9a6d308887e42c983b85631a51664d7dc027e58a1c8b721b9857e4bb3",
+        "actual_sha256": "20f02ad9a6d308887e42c983b85631a51664d7dc027e58a1c8b721b9857e4bb3",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\konstantinhess__SCIP-Net\\repo.json.provenance.json",
+        "expected_sha256": "38d5b8f382478ea0efc910736c341ddbb542967bb808561dea75cd3969a3572f",
+        "actual_sha256": "38d5b8f382478ea0efc910736c341ddbb542967bb808561dea75cd3969a3572f",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\KU-MLIP__2-Layer-NNs-with-Gaussian-Mixtures-Data\\README.txt",
+        "expected_sha256": "f4cda112d50d9902e96540477c5528f51f88c12ee00f48f3544fc3db9621915b",
+        "actual_sha256": "f4cda112d50d9902e96540477c5528f51f88c12ee00f48f3544fc3db9621915b",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\KU-MLIP__2-Layer-NNs-with-Gaussian-Mixtures-Data\\README.txt.provenance.json",
+        "expected_sha256": "66d2c04e2fe35197207f0ba9eaf668b39544977226c07bb062da0715ec30c0df",
+        "actual_sha256": "66d2c04e2fe35197207f0ba9eaf668b39544977226c07bb062da0715ec30c0df",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\KU-MLIP__2-Layer-NNs-with-Gaussian-Mixtures-Data\\repo.json",
+        "expected_sha256": "a2fb851cbba35fe0e8354f4948a0a2ff8d7438b89ed69d480211595e9b45300a",
+        "actual_sha256": "a2fb851cbba35fe0e8354f4948a0a2ff8d7438b89ed69d480211595e9b45300a",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\KU-MLIP__2-Layer-NNs-with-Gaussian-Mixtures-Data\\repo.json.provenance.json",
+        "expected_sha256": "c155a4e1330623bc95d41824376891495b6c98391fab8a4b33ed3d3847c6c8fd",
+        "actual_sha256": "c155a4e1330623bc95d41824376891495b6c98391fab8a4b33ed3d3847c6c8fd",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\kzkadc__regression-tta\\README.txt",
+        "expected_sha256": "a8c7ed3c508215392e64a88a13c587f5abbf02f0bd94a0b6eca72972409a5e63",
+        "actual_sha256": "a8c7ed3c508215392e64a88a13c587f5abbf02f0bd94a0b6eca72972409a5e63",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\kzkadc__regression-tta\\README.txt.provenance.json",
+        "expected_sha256": "cdd83f76ae1c35f267e78b7bc4c0b6b833d2ffa0b8c3033d68db29337ca36fdc",
+        "actual_sha256": "cdd83f76ae1c35f267e78b7bc4c0b6b833d2ffa0b8c3033d68db29337ca36fdc",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\kzkadc__regression-tta\\repo.json",
+        "expected_sha256": "81e4e4dd126dbafc6e5d0dfcd2798829f0c3047d96ff92a53616ddd7dd7e7d7b",
+        "actual_sha256": "81e4e4dd126dbafc6e5d0dfcd2798829f0c3047d96ff92a53616ddd7dd7e7d7b",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\kzkadc__regression-tta\\repo.json.provenance.json",
+        "expected_sha256": "8a04775ec8e6f6b77444e6dca0b4c66ecbbf232e99bb2e36d6dd8a6c9ba02a25",
+        "actual_sha256": "8a04775ec8e6f6b77444e6dca0b4c66ecbbf232e99bb2e36d6dd8a6c9ba02a25",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\meryusha__midl_tta\\README.txt",
+        "expected_sha256": "16c29079b9253def8db8c3b3b8ca8d4c8850779a7cdf4b9165b25bfbc7828506",
+        "actual_sha256": "16c29079b9253def8db8c3b3b8ca8d4c8850779a7cdf4b9165b25bfbc7828506",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\meryusha__midl_tta\\README.txt.provenance.json",
+        "expected_sha256": "26ce3f8d3218f2af499210c00a3065897910ae760f4112c0a257dfa8fe150a14",
+        "actual_sha256": "26ce3f8d3218f2af499210c00a3065897910ae760f4112c0a257dfa8fe150a14",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\meryusha__midl_tta\\repo.json",
+        "expected_sha256": "b941b6270e46d62bb934002d74479b893dc3d1147e8e5e2f6bc06a1e377aeafc",
+        "actual_sha256": "b941b6270e46d62bb934002d74479b893dc3d1147e8e5e2f6bc06a1e377aeafc",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\meryusha__midl_tta\\repo.json.provenance.json",
+        "expected_sha256": "3895aacbf73ad44f58c3e9092ba9952dcfdf8dbd3fea113869083951287bb675",
+        "actual_sha256": "3895aacbf73ad44f58c3e9092ba9952dcfdf8dbd3fea113869083951287bb675",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\ml-jku__SDLG\\README.txt",
+        "expected_sha256": "7cd80fc90e2a3836fd3bf386d49d7629f2122111a2d6c38894b81e0eff86678f",
+        "actual_sha256": "7cd80fc90e2a3836fd3bf386d49d7629f2122111a2d6c38894b81e0eff86678f",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\ml-jku__SDLG\\README.txt.provenance.json",
+        "expected_sha256": "23020eb5948d5a1957d9dc0e01b67a3d2031f1392ecd2aeb80177666e2dfec75",
+        "actual_sha256": "23020eb5948d5a1957d9dc0e01b67a3d2031f1392ecd2aeb80177666e2dfec75",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\ml-jku__SDLG\\repo.json",
+        "expected_sha256": "0dea2a299ae6fcfaa9e0ce793edc7648562952ed0e2775d91036e8e316d0be3e",
+        "actual_sha256": "0dea2a299ae6fcfaa9e0ce793edc7648562952ed0e2775d91036e8e316d0be3e",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\ml-jku__SDLG\\repo.json.provenance.json",
+        "expected_sha256": "141a354e209fe416ab4517366466515eb6df5ad070218b4f96978f07c5369171",
+        "actual_sha256": "141a354e209fe416ab4517366466515eb6df5ad070218b4f96978f07c5369171",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\ML-KULeuven__klay\\README.txt",
+        "expected_sha256": "8cce590deced992c819cf396e4112b600e9edd23c3660f1e17ef6def58075a98",
+        "actual_sha256": "8cce590deced992c819cf396e4112b600e9edd23c3660f1e17ef6def58075a98",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\ML-KULeuven__klay\\README.txt.provenance.json",
+        "expected_sha256": "54099148b4b7eae2303366865a74fe143e14a3125c959c8cf28bccb777859fa8",
+        "actual_sha256": "54099148b4b7eae2303366865a74fe143e14a3125c959c8cf28bccb777859fa8",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\ML-KULeuven__klay\\repo.json",
+        "expected_sha256": "6da82e025258c6305a149b406a14734e6729923579da81701f186b915ea82509",
+        "actual_sha256": "6da82e025258c6305a149b406a14734e6729923579da81701f186b915ea82509",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\ML-KULeuven__klay\\repo.json.provenance.json",
+        "expected_sha256": "14097365b3368745a1cfdaaa93b76a0815beb04ee1525542472c59c9bfa4838b",
+        "actual_sha256": "14097365b3368745a1cfdaaa93b76a0815beb04ee1525542472c59c9bfa4838b",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\mmschlk__shapiq\\README.txt",
+        "expected_sha256": "ba077bbe15f5e5ef0f6049b6e25baf162ef9b47094d8e07b02a37ab88838d98b",
+        "actual_sha256": "ba077bbe15f5e5ef0f6049b6e25baf162ef9b47094d8e07b02a37ab88838d98b",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\mmschlk__shapiq\\README.txt.provenance.json",
+        "expected_sha256": "fa562585cd13842c72715f41eb88979076cb57a64f9dfe310ac040ddb87918a7",
+        "actual_sha256": "fa562585cd13842c72715f41eb88979076cb57a64f9dfe310ac040ddb87918a7",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\mmschlk__shapiq\\repo.json",
+        "expected_sha256": "8abd596a53b2217d2784080fee1ea9ff8112ab7a01065d719debdbcbf96079dd",
+        "actual_sha256": "8abd596a53b2217d2784080fee1ea9ff8112ab7a01065d719debdbcbf96079dd",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\mmschlk__shapiq\\repo.json.provenance.json",
+        "expected_sha256": "6480ef1b16d7e8ff5ac37ddfd2eb4870d81fcb9ede8ac1bc419dac8c6f58308b",
+        "actual_sha256": "6480ef1b16d7e8ff5ac37ddfd2eb4870d81fcb9ede8ac1bc419dac8c6f58308b",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Mohammad-Mozaffari__slope\\README.txt",
+        "expected_sha256": "96ac9ceeabf9b84ff895e1c23f91f71c49019b6aa3cef72b480f4767cc93359c",
+        "actual_sha256": "96ac9ceeabf9b84ff895e1c23f91f71c49019b6aa3cef72b480f4767cc93359c",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Mohammad-Mozaffari__slope\\README.txt.provenance.json",
+        "expected_sha256": "ea092db1fcb9045d64bc3e6cc3fe93a18c63b4b13b7609f0b697bb7e1bd40817",
+        "actual_sha256": "ea092db1fcb9045d64bc3e6cc3fe93a18c63b4b13b7609f0b697bb7e1bd40817",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Mohammad-Mozaffari__slope\\repo.json",
+        "expected_sha256": "c1c6a0f45b8bbf0450959a554e5ceb0368cb52c6731e4a93320a2464b42a938c",
+        "actual_sha256": "c1c6a0f45b8bbf0450959a554e5ceb0368cb52c6731e4a93320a2464b42a938c",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Mohammad-Mozaffari__slope\\repo.json.provenance.json",
+        "expected_sha256": "a58373cf24ccf001897cca79cc08a4c8c976835698870c2783f33c6d30ed2c73",
+        "actual_sha256": "a58373cf24ccf001897cca79cc08a4c8c976835698870c2783f33c6d30ed2c73",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\niuffs__FPNN\\README.txt",
+        "expected_sha256": "8c46bc6aa1355527c966bda9ba3978309179850f30c15173380d166f587fef2e",
+        "actual_sha256": "8c46bc6aa1355527c966bda9ba3978309179850f30c15173380d166f587fef2e",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\niuffs__FPNN\\README.txt.provenance.json",
+        "expected_sha256": "27449723422b290a6c3411db0d2b955d8f3fa28693421bb6e87b0e998b077852",
+        "actual_sha256": "27449723422b290a6c3411db0d2b955d8f3fa28693421bb6e87b0e998b077852",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\niuffs__FPNN\\repo.json",
+        "expected_sha256": "23ae4e45cdeade7c825db395794006df5a6c43fa9446c9c0035ac72cfbfe2ec2",
+        "actual_sha256": "23ae4e45cdeade7c825db395794006df5a6c43fa9446c9c0035ac72cfbfe2ec2",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\niuffs__FPNN\\repo.json.provenance.json",
+        "expected_sha256": "70613d929ab16a27c589ea41a2d6651bfc02e407764c445594b62fc4ba43996a",
+        "actual_sha256": "70613d929ab16a27c589ea41a2d6651bfc02e407764c445594b62fc4ba43996a",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\NSAPH-Projects__topological-equivariant-networks\\README.txt",
+        "expected_sha256": "006c783a6baf144f9c43c7bdd047a81536b459c5e5e2aeb6e9426009b740aa33",
+        "actual_sha256": "006c783a6baf144f9c43c7bdd047a81536b459c5e5e2aeb6e9426009b740aa33",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\NSAPH-Projects__topological-equivariant-networks\\README.txt.provenance.json",
+        "expected_sha256": "a53e3bbef8fa5dc6d1a241cfdd6bd25d1931078cc994bf575dea9a75d906eead",
+        "actual_sha256": "a53e3bbef8fa5dc6d1a241cfdd6bd25d1931078cc994bf575dea9a75d906eead",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\NSAPH-Projects__topological-equivariant-networks\\repo.json",
+        "expected_sha256": "c0c970399499990f7805ec64adfe2246de146bac94a6892a365d92491a7c5851",
+        "actual_sha256": "c0c970399499990f7805ec64adfe2246de146bac94a6892a365d92491a7c5851",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\NSAPH-Projects__topological-equivariant-networks\\repo.json.provenance.json",
+        "expected_sha256": "aff8e12f968c188e152ddcc0dbe8e2c391ab92ec700d60be45ec4cc2de34fe2b",
+        "actual_sha256": "aff8e12f968c188e152ddcc0dbe8e2c391ab92ec700d60be45ec4cc2de34fe2b",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\optimization-for-data-driven-science__Addax\\README.txt",
+        "expected_sha256": "eb267bf2bc5c0d639a071a5d70674acb421246bebbe1fb9c6e0edf9ef8bb550e",
+        "actual_sha256": "eb267bf2bc5c0d639a071a5d70674acb421246bebbe1fb9c6e0edf9ef8bb550e",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\optimization-for-data-driven-science__Addax\\README.txt.provenance.json",
+        "expected_sha256": "8b9347009937f6e5882bab5b0c773da2a4daabe9e38d10e76dc97ad837270a84",
+        "actual_sha256": "8b9347009937f6e5882bab5b0c773da2a4daabe9e38d10e76dc97ad837270a84",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\optimization-for-data-driven-science__Addax\\repo.json",
+        "expected_sha256": "f76331c00677dc4d851205898046036c3e90c8217d78b2e1ccfffc23bceb88f1",
+        "actual_sha256": "f76331c00677dc4d851205898046036c3e90c8217d78b2e1ccfffc23bceb88f1",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\optimization-for-data-driven-science__Addax\\repo.json.provenance.json",
+        "expected_sha256": "57e04aa03e97d6b120ad821fcc7882904f87c16d3ba919a53138e7557b8b3684",
+        "actual_sha256": "57e04aa03e97d6b120ad821fcc7882904f87c16d3ba919a53138e7557b8b3684",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\purewater0901__BSMPC\\README.txt",
+        "expected_sha256": "0242064636d6c9406302d60ef1ec86b37dd7f3fd3c888776324ad50f553c3b46",
+        "actual_sha256": "0242064636d6c9406302d60ef1ec86b37dd7f3fd3c888776324ad50f553c3b46",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\purewater0901__BSMPC\\README.txt.provenance.json",
+        "expected_sha256": "3562972da75ef37b679681586dbaf9b2f41fa5727799fab1216facacfb7b63a0",
+        "actual_sha256": "3562972da75ef37b679681586dbaf9b2f41fa5727799fab1216facacfb7b63a0",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\purewater0901__BSMPC\\repo.json",
+        "expected_sha256": "59fb228362fffe6a5a2e768d496ef885083f06e3c39490c49331d5ae41bd156d",
+        "actual_sha256": "59fb228362fffe6a5a2e768d496ef885083f06e3c39490c49331d5ae41bd156d",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\purewater0901__BSMPC\\repo.json.provenance.json",
+        "expected_sha256": "e54d6e9d54571fd734768e1e86e4e7a422d057d84f21f4051833a887f9a2e38c",
+        "actual_sha256": "e54d6e9d54571fd734768e1e86e4e7a422d057d84f21f4051833a887f9a2e38c",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Qualcomm-AI-research__Wi-GATr\\README.txt",
+        "expected_sha256": "1c259cb0fa62faea9eee1330ee589a7e2850e7ab4036ddafa94f480274b53520",
+        "actual_sha256": "1c259cb0fa62faea9eee1330ee589a7e2850e7ab4036ddafa94f480274b53520",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Qualcomm-AI-research__Wi-GATr\\README.txt.provenance.json",
+        "expected_sha256": "b377d43e23a85f3e5e034d0239caa3d7fd3cbe0b8001225eda16a8efca5ac9f0",
+        "actual_sha256": "b377d43e23a85f3e5e034d0239caa3d7fd3cbe0b8001225eda16a8efca5ac9f0",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Qualcomm-AI-research__Wi-GATr\\repo.json",
+        "expected_sha256": "1f13c083fe4ee255425899c8a3301925cd38c19a274059257fd5f1d59936cc41",
+        "actual_sha256": "1f13c083fe4ee255425899c8a3301925cd38c19a274059257fd5f1d59936cc41",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Qualcomm-AI-research__Wi-GATr\\repo.json.provenance.json",
+        "expected_sha256": "3dc9bbac74ca377572717e2941ce81788ae013846827aabda65ab691be885b28",
+        "actual_sha256": "3dc9bbac74ca377572717e2941ce81788ae013846827aabda65ab691be885b28",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\roger-yt__Fragmented-at-Training-Chained-at-Testing\\README.txt",
+        "expected_sha256": "0c4366f12afe229bc1b0cbcb1b0f354adc66daf5321eac1fc84bb024932237a2",
+        "actual_sha256": "0c4366f12afe229bc1b0cbcb1b0f354adc66daf5321eac1fc84bb024932237a2",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\roger-yt__Fragmented-at-Training-Chained-at-Testing\\README.txt.provenance.json",
+        "expected_sha256": "d0a1b483a42be246dbf42a6eea056241e0f59b2520b74ec7eaa552513d8b907d",
+        "actual_sha256": "d0a1b483a42be246dbf42a6eea056241e0f59b2520b74ec7eaa552513d8b907d",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\roger-yt__Fragmented-at-Training-Chained-at-Testing\\repo.json",
+        "expected_sha256": "8d2edc6071ced9de6d2e46ade1c8db77837994369cdf188e936ea999edee51ce",
+        "actual_sha256": "8d2edc6071ced9de6d2e46ade1c8db77837994369cdf188e936ea999edee51ce",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\roger-yt__Fragmented-at-Training-Chained-at-Testing\\repo.json.provenance.json",
+        "expected_sha256": "a3ed65fa85fa3e7889d8c2115b065fe8053f6c493ea1c1247f717110aa814717",
+        "actual_sha256": "a3ed65fa85fa3e7889d8c2115b065fe8053f6c493ea1c1247f717110aa814717",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\RTkenny__FLOPS-Forward-Learning-with-OPtimal-Sampling\\README.txt",
+        "expected_sha256": "f43b71ef4e3ed3b003f29681647ebbccfe289abbe8dbf991056730cdba9d4eb9",
+        "actual_sha256": "f43b71ef4e3ed3b003f29681647ebbccfe289abbe8dbf991056730cdba9d4eb9",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\RTkenny__FLOPS-Forward-Learning-with-OPtimal-Sampling\\README.txt.provenance.json",
+        "expected_sha256": "c1d6a178fbc797c92dabb5252da8d1c6e34862efc2d561813694bca9682184d5",
+        "actual_sha256": "c1d6a178fbc797c92dabb5252da8d1c6e34862efc2d561813694bca9682184d5",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\RTkenny__FLOPS-Forward-Learning-with-OPtimal-Sampling\\repo.json",
+        "expected_sha256": "6541c7d7cbd1940341421fe4a24988e496c399436c76c47e009814b59b6b1fb7",
+        "actual_sha256": "6541c7d7cbd1940341421fe4a24988e496c399436c76c47e009814b59b6b1fb7",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\RTkenny__FLOPS-Forward-Learning-with-OPtimal-Sampling\\repo.json.provenance.json",
+        "expected_sha256": "18464afcdd87823186c27a8d78cf527d5f48f93c6fe173eb712e42fd415af194",
+        "actual_sha256": "18464afcdd87823186c27a8d78cf527d5f48f93c6fe173eb712e42fd415af194",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\WuJH2001__swift4d\\README.txt",
+        "expected_sha256": "369e26031a75ba09c12075b5fe9aa1dacc118739d3ffe37831a3bf113db085eb",
+        "actual_sha256": "369e26031a75ba09c12075b5fe9aa1dacc118739d3ffe37831a3bf113db085eb",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\WuJH2001__swift4d\\README.txt.provenance.json",
+        "expected_sha256": "0dde7c3a3bf09a60d527c46a74214fcae2634f7474ca76ae11c5dbc7eaff7984",
+        "actual_sha256": "0dde7c3a3bf09a60d527c46a74214fcae2634f7474ca76ae11c5dbc7eaff7984",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\WuJH2001__swift4d\\repo.json",
+        "expected_sha256": "e5dda00fb74205ae89305e7e3a7d241eaf86e29e9d6deb4c425e3bf5f74b9cad",
+        "actual_sha256": "e5dda00fb74205ae89305e7e3a7d241eaf86e29e9d6deb4c425e3bf5f74b9cad",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\WuJH2001__swift4d\\repo.json.provenance.json",
+        "expected_sha256": "7ce5f0b513139a333fe56dd5164c01dbba533c0b3d6fa3e2639f67776c292c25",
+        "actual_sha256": "7ce5f0b513139a333fe56dd5164c01dbba533c0b3d6fa3e2639f67776c292c25",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Yushu-Li__ECALP\\README.txt",
+        "expected_sha256": "c1d260354766771307308428559be61c6c7afd3d5c206063a072389db3f7a598",
+        "actual_sha256": "c1d260354766771307308428559be61c6c7afd3d5c206063a072389db3f7a598",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Yushu-Li__ECALP\\README.txt.provenance.json",
+        "expected_sha256": "5c7ff14ac88329f6cc001f680a901aeb201f03fc4651841349864a3427054705",
+        "actual_sha256": "5c7ff14ac88329f6cc001f680a901aeb201f03fc4651841349864a3427054705",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Yushu-Li__ECALP\\repo.json",
+        "expected_sha256": "01fa1e7aef5861d084f56e08274ab025ec0f1a391e4e8fcbe8324a529ccfe926",
+        "actual_sha256": "01fa1e7aef5861d084f56e08274ab025ec0f1a391e4e8fcbe8324a529ccfe926",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Yushu-Li__ECALP\\repo.json.provenance.json",
+        "expected_sha256": "28af28e671d1f956955773790f587cc3415ece39f2bbdf1ff323c2b23c9ae0c8",
+        "actual_sha256": "28af28e671d1f956955773790f587cc3415ece39f2bbdf1ff323c2b23c9ae0c8",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Zhangyanbo__diffusion-evolution\\README.txt",
+        "expected_sha256": "8cc9487a673352a19082d39e15080321cfb548943b004357cc4800bf9e30db17",
+        "actual_sha256": "8cc9487a673352a19082d39e15080321cfb548943b004357cc4800bf9e30db17",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Zhangyanbo__diffusion-evolution\\README.txt.provenance.json",
+        "expected_sha256": "15aaad0bd1cb55a3268d23cffac51c186859ec2fe0c5ac88a58c8411e127e7c5",
+        "actual_sha256": "15aaad0bd1cb55a3268d23cffac51c186859ec2fe0c5ac88a58c8411e127e7c5",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Zhangyanbo__diffusion-evolution\\repo.json",
+        "expected_sha256": "f22b37074300db1e4c68bacc0de8d9f8124af335caef4cc36b1e4f8f170a2570",
+        "actual_sha256": "f22b37074300db1e4c68bacc0de8d9f8124af335caef4cc36b1e4f8f170a2570",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      },
+      {
+        "path": "research\\source_cache\\iclr2025_pilot\\repos\\Zhangyanbo__diffusion-evolution\\repo.json.provenance.json",
+        "expected_sha256": "d835928e3625231b812ac58f560e516acb0a5ad5a007d798bd6961c106225b8b",
+        "actual_sha256": "d835928e3625231b812ac58f560e516acb0a5ad5a007d798bd6961c106225b8b",
+        "matches": true,
+        "registration": [
+          "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\upstream_baseline_hashes.json"
+        ]
+      }
+    ]
+  },
+  "packages": [
+    {
+      "task_type": "LIT",
+      "task_id": "dev-lit-r2-002",
+      "path": "research\\benchmark\\materials\\pilot_v3\\released_stage_candidates\\lit",
+      "task_sha256": "b1f49db0cbb097dc83e16b6001aeebe06e43847de630e480026069b3e4a138b8",
+      "resources": {
+        "budget_status": "explicit_development_configuration_not_formally_frozen",
+        "container": {
+          "cpus": 1,
+          "disk_mb": 512,
+          "memory_mb": 1024,
+          "pids_limit": 64,
+          "wall_seconds": 600
+        },
+        "cutoff": "2024-09-01",
+        "execution_budget": {
+          "model_calls": 12,
+          "tool_calls": 120,
+          "wall_seconds": 600
+        },
+        "gpu_allowed": false,
+        "image_id": "sha256:399341648ce68031cef84e225a8b4985fed3125fd020ec96a8d6c5d6563036d0",
+        "network": "controller_shared_corpus_only",
+        "platform": "linux/amd64",
+        "resource_scope": "Limits govern this task execution; this is not an empirical future-experiment cost estimate.",
+        "tool_call_metric": "controller broker API calls; direct worker CPU/file operations remain bounded by container resources, not counted as API calls"
+      },
+      "all_declared_asset_hashes_valid": true,
+      "cpu_only_declared": true,
+      "wall_limits_equal": true,
+      "public_export": {
+        "private_assets_exported": 0,
+        "files": [
+          "task.json",
+          "assets\\public\\research_setting.json"
+        ]
+      },
+      "all_gates_pending": [
+        "source_semantics",
+        "rights",
+        "input_leakage",
+        "runtime",
+        "judge_behavior"
+      ],
+      "fixed_input_review": "Public setting only; no target SSA solution, source results, target paper or fixed adopted bibliography supplied. Controlled 18-paper shared service is separate from public export.",
+      "assets": [
+        {
+          "asset_id": "setting",
+          "path": "public/research_setting.json",
+          "sha256": "92828f1ed0af91bf4bf1902f77b4f30c8a1eb4a744e6ba7b61ff2b68210d6671",
+          "visibility": "public"
+        },
+        {
+          "asset_id": "evaluation",
+          "path": "private/evaluation.json",
+          "sha256": "87ce18ee83b7d55d5d20cff5024d7b4dc9d1b18fff45b93df0d8f2922db07729",
+          "visibility": "private"
+        }
+      ]
+    },
+    {
+      "task_type": "IDEA",
+      "task_id": "dev-idea-fixed-002",
+      "path": "research\\benchmark\\materials\\pilot_v3\\released_stage_candidates\\idea",
+      "task_sha256": "1919d830f25eaf84acfca58891cd9edf0a2cb1b47624b115b436a2b59c1a90f4",
+      "resources": {
+        "budget_status": "explicit_development_configuration_not_formally_frozen",
+        "container": {
+          "cpus": 1,
+          "disk_mb": 512,
+          "memory_mb": 1024,
+          "pids_limit": 64,
+          "wall_seconds": 600
+        },
+        "cutoff": "2024-09-01",
+        "execution_budget": {
+          "model_calls": 6,
+          "tool_calls": 60,
+          "wall_seconds": 600
+        },
+        "gpu_allowed": false,
+        "image_id": "sha256:399341648ce68031cef84e225a8b4985fed3125fd020ec96a8d6c5d6563036d0",
+        "network": "none",
+        "platform": "linux/amd64",
+        "resource_scope": "Limits govern this task execution; this is not an empirical future-experiment cost estimate.",
+        "tool_call_metric": "controller broker API calls; direct worker CPU/file operations remain bounded by container resources, not counted as API calls"
+      },
+      "all_declared_asset_hashes_valid": true,
+      "cpu_only_declared": true,
+      "wall_limits_equal": true,
+      "public_export": {
+        "private_assets_exported": 0,
+        "files": [
+          "task.json",
+          "assets\\public\\background_report.json",
+          "assets\\public\\research_setting.json"
+        ]
+      },
+      "all_gates_pending": [
+        "source_semantics",
+        "rights",
+        "input_leakage",
+        "runtime",
+        "judge_behavior"
+      ],
+      "fixed_input_review": "Fixed eight-reference LIT-style context, not real solver output. General alignment and normalization prior art is legitimate context. No target weighted PCA/KL method or source-specific result supplied. Context remains hand-selected and may over-scaffold reasoning.",
+      "assets": [
+        {
+          "asset_id": "setting",
+          "path": "public/research_setting.json",
+          "sha256": "7c070096c3959ab98baf0a1e66683909c212f2e6e5fb1f43bf839054d5d636cd",
+          "visibility": "public"
+        },
+        {
+          "asset_id": "background-report",
+          "path": "public/background_report.json",
+          "sha256": "1b26410781315125b3a44c9a9f7320075b8eed67347aa872928f43c27f43369a",
+          "visibility": "public"
+        },
+        {
+          "asset_id": "evaluation",
+          "path": "private/evaluation.json",
+          "sha256": "b43b69b5dbe338c57d54073d2ea22fa56738e9c0de662901c96ab35c6b5a697c",
+          "visibility": "private"
+        }
+      ]
+    },
+    {
+      "task_type": "EXP",
+      "task_id": "iv-coupled-gd-exp-v5-budgetpilot-002",
+      "path": "research\\benchmark\\materials\\pilot_v3\\budget_candidates_v2\\iv-exp",
+      "task_sha256": "9995f3325e2a71c9f75a4e5385fba91f529a93a66fa118241a78fca6e6e6a9a9",
+      "resources": {
+        "budget_status": "explicit_development_candidate_pending_task_feasibility",
+        "container": {
+          "cpus": 2,
+          "disk_mb": 1024,
+          "memory_mb": 2048,
+          "pids_limit": 128,
+          "wall_seconds": 1200
+        },
+        "device": "CPU",
+        "disk_semantics": "per-run total writable tmpfs; dependency image and read-only inputs excluded",
+        "execution_budget": {
+          "model_calls": 16,
+          "tool_calls": 120,
+          "wall_seconds": 1200
+        },
+        "gpu_allowed": false,
+        "image_id": "sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01",
+        "network": "none"
+      },
+      "all_declared_asset_hashes_valid": true,
+      "cpu_only_declared": true,
+      "wall_limits_equal": true,
+      "public_export": {
+        "private_assets_exported": 0,
+        "files": [
+          "task.json",
+          "assets\\assets\\base_resources.py",
+          "assets\\assets\\NOTICE.txt",
+          "assets\\assets\\task.md"
+        ]
+      },
+      "all_gates_pending": [
+        "source_semantics",
+        "rights",
+        "input_leakage",
+        "runtime",
+        "judge_behavior"
+      ],
+      "fixed_input_review": "Fixed equation-defined coupled IV method, assumptions, hypothesis set and synthetic distribution are intended method inputs. Starter gives data/OLS/2SLS but no coupled GD implementation, numerical outcome, source notebook output, or fixed seed/rate/iteration recipe. Source theorem states asymptotic sufficient conditions, not a supplied finite-budget result.",
+      "assets": [
+        {
+          "asset_id": "input-000",
+          "path": "assets/task.md",
+          "sha256": "d716cfa74056e21574bdbcdd377b5456d8242bf9db8ab4e84110329d5fd1f021",
+          "visibility": "public"
+        },
+        {
+          "asset_id": "input-001",
+          "path": "assets/base_resources.py",
+          "sha256": "c720367a63675508b59ad9cd066768e4d958cf9a97f9ce13982201af64067ea2",
+          "visibility": "public"
+        },
+        {
+          "asset_id": "input-002",
+          "path": "assets/NOTICE.txt",
+          "sha256": "3c39fa64e74e782f92f77912ae1e60c352f53a014f0a0625289f78dc86f2690d",
+          "visibility": "public"
+        },
+        {
+          "asset_id": "private-reference",
+          "path": "private/reference.json",
+          "sha256": "a70dfa8ba78f34f55347b696eff3173df8242970a71888fa8cf3a66a2b53763e",
+          "visibility": "private"
+        }
+      ]
+    },
+    {
+      "task_type": "WRITE_EVIDENCE",
+      "task_id": "ssa-write-evidence-utk-v6-budgetpilot-002",
+      "path": "research\\benchmark\\materials\\pilot_v3\\budget_candidates_v2\\ssa-write-evidence",
+      "task_sha256": "2b1e61dfb621cb1c9be59fa4adc026b6d97e27cb30ec1feecada597edfa37dfd",
+      "resources": {
+        "budget_status": "explicit_development_candidate_pending_task_feasibility",
+        "container": {
+          "cpus": 1,
+          "disk_mb": 512,
+          "memory_mb": 1024,
+          "pids_limit": 64,
+          "wall_seconds": 600
+        },
+        "device": "CPU",
+        "disk_semantics": "per-run total writable tmpfs; dependency image and read-only inputs excluded",
+        "execution_budget": {
+          "model_calls": 12,
+          "tool_calls": 60,
+          "wall_seconds": 600
+        },
+        "gpu_allowed": false,
+        "image_id": "sha256:399341648ce68031cef84e225a8b4985fed3125fd020ec96a8d6c5d6563036d0",
+        "network": "none"
+      },
+      "all_declared_asset_hashes_valid": true,
+      "cpu_only_declared": true,
+      "wall_limits_equal": true,
+      "public_export": {
+        "private_assets_exported": 0,
+        "files": [
+          "task.json",
+          "assets\\assets\\table4_manifest.json",
+          "assets\\assets\\table4_utkface.csv",
+          "assets\\assets\\write_evidence_task.md"
+        ]
+      },
+      "all_gates_pending": [
+        "source_semantics",
+        "rights",
+        "input_leakage",
+        "runtime",
+        "judge_behavior"
+      ],
+      "fixed_input_review": "All 140 reported Table4 values and cell locators legitimately supplied for evidence-presentation. No renderer, chosen visual design, or completed target artifact published. Interpretation caveats are explicit fixed constraints, not private-only scoring leaks.",
+      "assets": [
+        {
+          "asset_id": "input-000",
+          "path": "assets/write_evidence_task.md",
+          "sha256": "7e792bc76205c4e30df0ed7d94ad64587b70c2037e2986ea79246f71ca907020",
+          "visibility": "public"
+        },
+        {
+          "asset_id": "input-001",
+          "path": "assets/table4_utkface.csv",
+          "sha256": "209ecee269b8a5cbdc96ac4ddc8332131efa5cd4d8a08835f10fd05a3a31ced6",
+          "visibility": "public"
+        },
+        {
+          "asset_id": "input-002",
+          "path": "assets/table4_manifest.json",
+          "sha256": "d5f036851f80094dde4b3e12da64a60ffb31c12d7519afd3d92c0d23b693ad66",
+          "visibility": "public"
+        },
+        {
+          "asset_id": "private-reference",
+          "path": "private/reference.json",
+          "sha256": "6f396f9271f3a8138e71ffd5d5c752e04f41d019676b6c0baa78a2a9a5e2a215",
+          "visibility": "private"
+        }
+      ]
+    },
+    {
+      "task_type": "WRITE_CONTENT",
+      "task_id": "ssa-write-content-utk-v6",
+      "path": "research\\benchmark\\materials\\pilot_v3\\compiled_candidates_v7\\ssa\\ssa-write-content-utk-v6",
+      "task_sha256": "42f2e655e2c50e1e23c2a9fcd67f037f8ea9b0943e5d8553afc995ff4952b96c",
+      "resources": {
+        "budget_status": "explicit_development_candidate_pending_task_feasibility",
+        "container": {
+          "cpus": 1,
+          "disk_mb": 512,
+          "memory_mb": 1024,
+          "pids_limit": 64,
+          "wall_seconds": 600
+        },
+        "device": "CPU",
+        "disk_semantics": "per-run total writable tmpfs; dependency image and read-only inputs excluded",
+        "execution_budget": {
+          "model_calls": 4,
+          "tool_calls": 60,
+          "wall_seconds": 600
+        },
+        "gpu_allowed": false,
+        "image_id": "sha256:399341648ce68031cef84e225a8b4985fed3125fd020ec96a8d6c5d6563036d0",
+        "network": "none"
+      },
+      "all_declared_asset_hashes_valid": true,
+      "cpu_only_declared": true,
+      "wall_limits_equal": true,
+      "public_export": {
+        "private_assets_exported": 0,
+        "files": [
+          "task.json",
+          "assets\\assets\\write_content_task.md"
+        ]
+      },
+      "all_gates_pending": [
+        "source_semantics",
+        "rights",
+        "input_leakage",
+        "runtime",
+        "judge_behavior"
+      ],
+      "fixed_input_review": "Fixed complete method specification and paper locators are appropriate exposition input; performance values deliberately absent. Not evaluation of rediscovering the method. No ready-written target exposition supplied.",
+      "assets": [
+        {
+          "asset_id": "input-000",
+          "path": "assets/write_content_task.md",
+          "sha256": "153a63d2b802d00edb6d1d835c1155752aa71d8f620c04d56e90eb2472683716",
+          "visibility": "public"
+        },
+        {
+          "asset_id": "private-reference",
+          "path": "private/reference.json",
+          "sha256": "80bb289eb7eeffe0bdb4502120390b617b2999f372628a15ce9dbd25a4519f71",
+          "visibility": "private"
+        }
+      ]
+    }
+  ],
+  "r2": {
+    "corpus_manifest_sha256_matches": true,
+    "total": 18,
+    "eligible_with_declared_versions": 18,
+    "eligible_with_empty_version_allowlist": 0,
+    "eligible_without_version_allowlist": 18,
+    "actual_versions": [
+      "arxiv-v1"
+    ],
+    "driver_path": "research\\benchmark\\run_container_stage_development.py",
+    "driver_sha256": "7216d157984f5f15e10ac9942d7b1eade97ecbe4d4f70c14e8b99ddc18619485",
+    "driver_literature_keywords": [
+      "shared",
+      "excluded_aliases",
+      "allowed_versions"
+    ],
+    "allowed_versions_now_passed": true,
+    "finding_history": "Initial inspected driver omitted allowed_versions; root repaired during this review. Current AST and source pass the declared mapping. Existing corpus only contains the allowed v1 versions, so the old omission does not by itself establish observed future-version leakage.",
+    "not_claimed": "No new model-driven LIT replay. AST wiring plus real SharedCorpusView behavior is not a complete driver integration test."
+  },
+  "resource_assessment": {
+    "cpu_scope_consistent": true,
+    "exp": "Small float64 synthetic matrices, no Transformer training; CPU finite-iteration study properly scoped.",
+    "write": "Method exposition and visualization of reported results; no request to rerun original GPU-trained model.",
+    "lit_idea": "Model/tool reasoning budgets; no assertion that hypothetical future research fits the task runtime.",
+    "enforcement_review": "ExecutorBroker requires exact session resource dict and matching container/model wall deadlines. Container runner checks immutable image ID and resource match. Runtime always creates CPU-only linux/amd64 container with no GPU device request.",
+    "resource_feasibility_not_proven": "Static consistency is not budget sufficiency or research quality. In particular repeated development attempts on two papers cannot establish a general budget policy.",
+    "existing_candidates_vs_new_driver": "Root is adding explicit artifact_collection resources in new versioned packages. These reviewed old candidates lack that new required public configuration and are not directly runnable under the updated collection_policy driver. Do not silently inherit the previous hidden32MiB/1000 cap.",
+    "disk_semantics": "Existing EXP/WRITE resources publish writable tmpfs excluding image/inputs. LIT/IDEA currently omit disk_semantics; runtime actually memory-charges /work80% and /tmp20% tmpfs, not ordinary independent host disk."
+  },
+  "remaining_important_gaps": [
+    {
+      "id": "R1",
+      "action": "Use versioned candidates with explicit artifact collection limits and writable tmpfs semantics; recheck only changed metadata and driver wiring.",
+      "owner": "root current work",
+      "severity": "development_contract"
+    },
+    {
+      "id": "R2",
+      "action": "Before pool expansion independently audit new-paper fixed inputs and background coverage; these two papers and hand-corrected packages do not validate autonomous construction quality or distributional coverage.",
+      "severity": "formal_pool"
+    },
+    {
+      "id": "R3",
+      "action": "Retain pending source/rights/judge/runtime gates and temporal-disclosure caveat; field-complete literature, hidden-split contamination and model memory not resolved by this export check.",
+      "severity": "formal_pool"
+    }
+  ],
+  "manual_review_scope": "All five selected public task prompts/contracts/resources and public input assets read. Compared stage boundaries to previously reviewed private material manifests and development protocol. Recomputed source hashes and exercised fresh public export. Did not claim complete re-derivation of every source-paper fact or new solver/judge trajectory acceptance.",
+  "verdict": "Source bytes fully intact; no direct cross-stage/private-answer leakage observed in five development candidates; CPU resource scope consistent. New public collection contract migration remains root-owned."
+}

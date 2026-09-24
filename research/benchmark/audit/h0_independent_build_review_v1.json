@@ -1,0 +1,776 @@
+{
+  "schema_version": "h0-independent-build-review-1",
+  "reviewed_at": "2026-09-23T23:02:00.999902+00:00",
+  "reviewer": "independent material_pipeline_v3 subagent; not builder",
+  "new_model_calls": 0,
+  "read_only_scope": "No H0/source/AGENTS changes, no new execution; audit artifact only. Existing container execution receipts reviewed.",
+  "candidate_root": "D:\\mrhbench-local-pilot\\h0-bounded-20260923-002",
+  "decision": "accept_bounded_development_ABI_smoke_with_limitations_not_formal_scientific_or_security_acceptance",
+  "reviewed_artifacts": [
+    {
+      "path": "D:\\mrhbench-local-pilot\\h0-bounded-20260923-002\\artifacts\\harness.py",
+      "sha256": "7f7e180bb8c075c270f808ad01e1c1a4ffcb02935265d79045ea3a95f67f5793"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\h0-bounded-20260923-002\\artifacts\\test_harness.py",
+      "sha256": "962809c33f75c549fb72ef2ae18fd7c0d9e302bf9416784b6ec3cc29e945c163"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\h0-bounded-20260923-002\\artifacts\\build_manifest.json",
+      "sha256": "4e1da6dfa1cbba72839ed3245eb8c7bd6432fdc737b3f961a8ad912cd2c5ece4"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\h0-bounded-20260923-002\\calls\\native-48e4a7afe63145f8b25810d0fb38d06d\\session_rollout.redacted.jsonl",
+      "sha256": "18d9ed4654cb9aee10bd33ed6bc5518ca6ff8d737b5c600a4d955dbdc38ee904"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\h0-abi-review-cbfe6efe\\results.json",
+      "sha256": "482eb92934bb8fe43a1f25a87fb2c44146012e4824a0e5f1566d821c4ad794a7"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\h0-abi-review-cbfe6efe\\002\\release\\checks.py",
+      "sha256": "ca82006796ca3cf55e7ab1f8f955f8d619ecb62d309f03a368db0fdaf0867917"
+    }
+  ],
+  "input_boundary": {
+    "released_scientific_tasks": 0,
+    "released_file_hashes_match": true,
+    "interface_matches_current_container_v2_exactly": true,
+    "released_files": {
+      "BUILDER_PROMPT.txt": "269a82a318420acfff0a07de5a5c956ca1637716496f68aa723dd93fbf9a4f0c",
+      "interface.json": "e70fda7b8d7138e23e1fd8a3b6e490c9ab482208369a341edc552adcaabfa155",
+      "previous/build_manifest.json": "5ed4ba2794e78844e6b107702f97443be035c8c9f154de5c35b9f72b1120fe57",
+      "previous/harness.py": "4ee5517b8e218f55778e81bc6174b6bb3e7dea42498276dee735ef3acfb9fdac",
+      "previous/test_harness.py": "c86ec6c853631fdd8b7c971a8acba291ba8176455cf66f2702b71e25bb41e874"
+    },
+    "full_released_prompt_previous_harness_and_tests_reviewed": true,
+    "scientific_material_or_answer_observed": false,
+    "notes": "Public generic module rubrics, public ABI, previous generic code/tests, abstract controller ABI error explanation only. This establishes observed input/action scope, not proof of inaccessible host files."
+  },
+  "repair_scope": {
+    "changed_functions": [
+      "_number",
+      "_safe_path",
+      "_extract_capabilities",
+      "_validate_tool"
+    ],
+    "module_additions": "math import and capability-group map/tool-name union",
+    "research_route_prompts_unchanged": true,
+    "control_loop_unchanged": true,
+    "classification": "ABI-only repair including nearby path/numeric edge cases; not scientific search/evolution",
+    "old_failure_retained": true
+  },
+  "trajectory": {
+    "path": "D:\\mrhbench-local-pilot\\h0-bounded-20260923-002\\calls\\native-48e4a7afe63145f8b25810d0fb38d06d\\session_rollout.redacted.jsonl",
+    "sha256": "18d9ed4654cb9aee10bd33ed6bc5518ca6ff8d737b5c600a4d955dbdc38ee904",
+    "rows": 116,
+    "all_meaningful_tool_actions_and_outputs_reviewed": true,
+    "action_sequence": [
+      {
+        "call_row": 15,
+        "output_row": 17,
+        "call_id": "call_UGgTqvCq8wiiqFE7KVJ9lyDc",
+        "call_input_sha256": "88ddafd63d374915f398b22d52ef53ab989087f85c3ac066d722e4da6c769fdd",
+        "output_payload_sha256": "5ac200be75c9ef4e51670384f45adfcf8611e47523c138e850b666d6c261443a",
+        "assessment": "Discover only mcp__mrhbench container tools; returned four authorized MCP APIs."
+      },
+      {
+        "call_row": 21,
+        "output_row": 25,
+        "call_id": "call_srWcCyr5Sl7tbBTTHAVjLMvn",
+        "call_input_sha256": "e2fd5418acf5c967847351c87c484719ca2fbdba76bc06d60268ff3775208e5b",
+        "output_payload_sha256": "cd29424dc746e1d4b0c26dafc6cd33693f260ff69f5d3464f2907db3df238fe4",
+        "assessment": "Read public builder prompt and interface. Exact returned text matches frozen release files."
+      },
+      {
+        "call_row": 31,
+        "output_row": 34,
+        "call_id": "call_pFMAVqwSZioCHqfcUva84iRj",
+        "call_input_sha256": "665951136f6432d7d21a14c7f372ae03e3bb28664344359045b1af1e00c9b987",
+        "output_payload_sha256": "9486a68f822626c69790b1591006c58129bea3e026b573b4d0e47b1e223f62c0",
+        "assessment": "List previous H0 artifacts only."
+      },
+      {
+        "call_row": 36,
+        "output_row": 41,
+        "call_id": "call_fBuylZHxXJJC16HGc3HtQj29",
+        "call_input_sha256": "d7257c4d6ff5c9d7e9e6b829922c09879e9428a85c502f7439d53f046b286b50",
+        "output_payload_sha256": "1ca195b3420e7dfb6d369d70c2f8b809907dbdaa2a2c6781584151edd777a82a",
+        "assessment": "Attempt previous files reads at max_bytes=500000; all denied Read allowance invalid; no file returned."
+      },
+      {
+        "call_row": 45,
+        "output_row": 50,
+        "call_id": "call_2v0fNxnm539QcR3uOg0set6P",
+        "call_input_sha256": "4ef2840b87714765db77b803fbfac09b3b6c2d9da53c3d11e6e7cfab91efa9c0",
+        "output_payload_sha256": "39a7664ad86330b1ef71b958e6ed39e2da075586f85ea2cb2ae3b80d37290c65",
+        "assessment": "Retry with default read size; exact three previous H0 files returned, no scientific task."
+      },
+      {
+        "call_row": 58,
+        "output_row": 61,
+        "call_id": "call_nlrV1u8UeGzMNV0JZJhWTXmi",
+        "call_input_sha256": "b02aacdd9957dbe9857dfa29668b645d0626126598f98d64e449f2e77e8f6537",
+        "output_payload_sha256": "6452ec42fda4b8f3176a2ba38d884a7be41722307535adbd0012bb10ee610d7c",
+        "assessment": "Copy previous harness inside container to /work."
+      },
+      {
+        "call_row": 65,
+        "output_row": 68,
+        "call_id": "call_9Ud94WYwh6b4jTMmt0Pgbiad",
+        "call_input_sha256": "0eec0a7d11b965375b458a78cade080da6926229d02d73bdb17b16fa5ae75aa9",
+        "output_payload_sha256": "cc46e724a0df524039f6be4a9a90853aeb047134d8ab7e64cf7693ad42d5a839",
+        "assessment": "Python in-container edits capability expansion, finite numeric handling and dot-path rejection. Return 0. Full code diff reviewed."
+      },
+      {
+        "call_row": 74,
+        "output_row": 77,
+        "call_id": "call_DUefICyQQ5cymdPJNueC69Ug",
+        "call_input_sha256": "6342cd5e4b85a47275c4510ab70c710ef6e3f6e17aef0a93c494c72e57048b74",
+        "output_payload_sha256": "e702e88a45784a456d272ad360e896751cc7b7e0039ddd562e6393cc58f32f84",
+        "assessment": "Write abstract fake-client test file; decoded JS template exactly matches reviewed final test file."
+      },
+      {
+        "call_row": 81,
+        "output_row": 84,
+        "call_id": "call_vYaTFewUD3p6196nWAJxDWxd",
+        "call_input_sha256": "b2f78dfdcd8e6f75e4e47287636c244bb50fe6b9184cbf872dd9ec87c8ea9118",
+        "output_payload_sha256": "66e44120c99f86476c1e3f06023521d918fabdbd908bd1637c1cb526d6528431",
+        "assessment": "Run 17 generated tests; all pass with real container receipt."
+      },
+      {
+        "call_row": 90,
+        "output_row": 93,
+        "call_id": "call_5nDpcT5TvemVI4Dhd8EHXSWT",
+        "call_input_sha256": "3668e3077c73436271757450c76fd9b0393d58ba8bf10b4f4f5c802aacd3f233",
+        "output_payload_sha256": "73dd0f201456f0f34a2f03b3703d7fc1f1cf03af200b3356493597ca466f57b0",
+        "assessment": "Write build manifest identifying ABI-debug repair and no science score claims."
+      },
+      {
+        "call_row": 97,
+        "output_row": 100,
+        "call_id": "call_JKXw16mfFBxxjMLWwC9VT8eV",
+        "call_input_sha256": "b2f78dfdcd8e6f75e4e47287636c244bb50fe6b9184cbf872dd9ec87c8ea9118",
+        "output_payload_sha256": "24ee30f930099fa4a236f245939c9497fa39d7f569ddb82b5360e4e5b575d8d7",
+        "assessment": "Rerun 17 generated tests; all pass."
+      },
+      {
+        "call_row": 104,
+        "output_row": 108,
+        "call_id": "call_vN84srVRncnFJ2rYIMd1nuXU",
+        "call_input_sha256": "f5835f1402f695bb1e28bc7379e2db8b4539cc34295b3a928bf013e8c2864625",
+        "output_payload_sha256": "e6168d4c91bfe85766dd9f141fac78b9f2d27ba5137b6aec56ae696caad7c274",
+        "assessment": "Compile syntax/validate manifest/imports and list final artifacts; all stdlib imports and three expected files."
+      }
+    ],
+    "deduplication": "Exact file-read payloads matched released files reviewed separately. Test-write JS decoded to the reviewed output bytes. Repeated event_msg copies and schema/context metadata inventoried by row/hash rather than mistaken for extra actions. No private chain-of-thought interpretation needed.",
+    "non_action_row_inventory": [
+      {
+        "row": 1,
+        "type": "session_meta",
+        "payload_type": null,
+        "sha256": "734b59c274e43c5c1d890680f7d4fa2eaff5105dca45605ba41863c06087c052"
+      },
+      {
+        "row": 2,
+        "type": "event_msg",
+        "payload_type": "task_started",
+        "sha256": "f70ecab2668d71da3cadd6a282e379f51c69b571bb309646dae54398aebab37b"
+      },
+      {
+        "row": 3,
+        "type": "response_item",
+        "payload_type": "message",
+        "sha256": "435f4a38d82cf4ae350a93f309d2c7ae583c0a91c91375d0d26fa15f2439e8f5"
+      },
+      {
+        "row": 4,
+        "type": "response_item",
+        "payload_type": "message",
+        "sha256": "a81feab76c87b771a0f6ad90354ce0cf09f321bdd8ff234cde0f4e3d4424f290"
+      },
+      {
+        "row": 5,
+        "type": "response_item",
+        "payload_type": "message",
+        "sha256": "acaf17dcd225b9aa598b9df939057f2ebba2040fd276f6a3d5daae5eec66f560"
+      },
+      {
+        "row": 6,
+        "type": "response_item",
+        "payload_type": "message",
+        "sha256": "6cdc60e517fe7410342d00a123d583d880602f39a9ff44e6813f06a5ae17acdc"
+      },
+      {
+        "row": 7,
+        "type": "world_state",
+        "payload_type": null,
+        "sha256": "3c56fe68437de6238319b68003f98fff554b56f53252b570696095ba56f4ce08"
+      },
+      {
+        "row": 8,
+        "type": "turn_context",
+        "payload_type": null,
+        "sha256": "2e9a5bba259d28617d7c8da8931af7d89e59b5d42480ecac96d19b79209ced64"
+      },
+      {
+        "row": 9,
+        "type": "response_item",
+        "payload_type": "message",
+        "sha256": "4a79a840c4190d6eb5b3efc2da0df11c778c3b225a0b8b662482711d6332c36e"
+      },
+      {
+        "row": 10,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "e3e69956001aec22c5a983fab97db6008840f1ecac68dbab62189e0f3ac94a7c"
+      },
+      {
+        "row": 11,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "afddae072e65fbca9489864bbec0065d6ad63d1996de6090db0529487ac96c89"
+      },
+      {
+        "row": 12,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "54532e2b6264de68940b580d41b684e0814e42d9d8fc8d09948748f3e6fb8e8c"
+      },
+      {
+        "row": 13,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "efc0ff2880b2a66ef1f9f3987e2415939460ef45bd8bada84089a253ef2e4afc"
+      },
+      {
+        "row": 14,
+        "type": "response_item",
+        "payload_type": "message",
+        "sha256": "28855de34250aec8fdcc914e8850a07b8be2d691018000b531d267fbf67ac93a"
+      },
+      {
+        "row": 16,
+        "type": "token_usage_record",
+        "payload_type": null,
+        "sha256": "8b5f8f361cf60ef3c8ad074e84fe34eee652ca7bd0a1debc479ab62796e74039"
+      },
+      {
+        "row": 18,
+        "type": "event_msg",
+        "payload_type": "token_count",
+        "sha256": "47af6db585381647ecabbb0477c17d2d75a3166bcacb4bab438b04ec7f232128"
+      },
+      {
+        "row": 19,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "ab95b58ce131af82f0e5290cdb187b4800064a41415f9f4a1213f52d37423ecf"
+      },
+      {
+        "row": 20,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "d7bd7e6ad193ec5a59f288aff3253b1075606ff073e0a8286db4c84e5798e48c"
+      },
+      {
+        "row": 22,
+        "type": "token_usage_record",
+        "payload_type": null,
+        "sha256": "94dd59979e7b42be793e632b0f8643e99747247c0cc572b04f44b2b02ee18c95"
+      },
+      {
+        "row": 23,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "d999551f0665ff999bae66924cabced300e8fe1cbe61dc496489079c2e5292ff"
+      },
+      {
+        "row": 24,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "ce22a25fc949ad4f43669aef2c9acd9b6c81b0327719b6f3c6e8a288acb4d144"
+      },
+      {
+        "row": 26,
+        "type": "event_msg",
+        "payload_type": "token_count",
+        "sha256": "ba9e89c1e6b9805178d471af5ae2a8e77824809e119873ff26c66d784e3bcf34"
+      },
+      {
+        "row": 27,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "0e61bf9c59f04da281c69a71aa3973cdbf0b026b75d265a4b397df00aa51c457"
+      },
+      {
+        "row": 28,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "c4f1bf5de14646d4bc4b59e459a8a946de207a672cffdb94ecab1896fb75760a"
+      },
+      {
+        "row": 29,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "cbbad1a19390ae92699bf6f78f578ab3086318d5cc5836f82d7f563026debb33"
+      },
+      {
+        "row": 30,
+        "type": "response_item",
+        "payload_type": "message",
+        "sha256": "f2160d597d7d4e2fc67cb7419871705c8ec96a489807446928d6f90ee3d4a598"
+      },
+      {
+        "row": 32,
+        "type": "token_usage_record",
+        "payload_type": null,
+        "sha256": "7977d5574da821c4eccdd61fe04d1ea041d49256ace30c194b192fb4ccfccfc7"
+      },
+      {
+        "row": 33,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "127d83bd00a349df9f7ce8439f83ba2568fb6c90c86813c50b16e52522fc237b"
+      },
+      {
+        "row": 35,
+        "type": "event_msg",
+        "payload_type": "token_count",
+        "sha256": "eb2db97df4c7043b49a6274aac605423ae8544813ac98617d5a6c1773bc9e228"
+      },
+      {
+        "row": 37,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "0244a18dd4365a9f30b9b5aee1e1fb714ac603cca8b30cff281ae51002131377"
+      },
+      {
+        "row": 38,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "b4dbc65baffdfe43c22c3702a7d51a9aa9cf2a40aaa15728537eca3b99732eee"
+      },
+      {
+        "row": 39,
+        "type": "token_usage_record",
+        "payload_type": null,
+        "sha256": "80e77f7b294c6a7182643793a184740b3508a56a5af22a2df50990321c9a22ee"
+      },
+      {
+        "row": 40,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "f3974c30797c471796a8fc9c24c49bc88eaf21416bf4c0d6f9bc33bb1b80c2e0"
+      },
+      {
+        "row": 42,
+        "type": "event_msg",
+        "payload_type": "token_count",
+        "sha256": "9a1808ba3ae640c2aa4633bc79063ace477cd0637a50b35070442ede091257e7"
+      },
+      {
+        "row": 43,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "9d658022233bb791cda3d1a59609f9ac3072cb2b8230bb4930a3f49ffe8cbc0a"
+      },
+      {
+        "row": 44,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "908271067b237ba995cf3eb1a2f3a6c3d46904c5cc1d1e75a675d283d2221f84"
+      },
+      {
+        "row": 46,
+        "type": "token_usage_record",
+        "payload_type": null,
+        "sha256": "1e0611def032dc8c8ab0b12cd5b3b831c7e75bb9ed170b3e35a1eb17fe3e1c0c"
+      },
+      {
+        "row": 47,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "c7f497158ab021f27cc9ac055b3cf4848dc20307b24817e546464f45586f0fb9"
+      },
+      {
+        "row": 48,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "efbc4421664b9f1c6c803cac144ef3b7aa90072c6f06c04b24224e7723c8b71b"
+      },
+      {
+        "row": 49,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "d2989d87cec629e803a87c2d8d4712cbadd5a92be6f97aee0ed85fe1fdd89e02"
+      },
+      {
+        "row": 51,
+        "type": "event_msg",
+        "payload_type": "token_count",
+        "sha256": "238f705296ef40c911f46fd85c7ad3d2e2a4746bae3a5eb0c647834477ece715"
+      },
+      {
+        "row": 52,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "85b6fd651c1cb2ceee2caffd55fd2384e4fea29a16ccfb2ea353a849b3006602"
+      },
+      {
+        "row": 53,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "2066d599f791dd788fd33c7215760c9dff29bbb7448c914dbb324ef9e52f562d"
+      },
+      {
+        "row": 54,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "6584841cfa322c3f2949f77c329b2ec8565b4ede79fbf2f6bec04f6390b2ae2a"
+      },
+      {
+        "row": 55,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "6abb9a758a6e4d7f84c16f4ebeaf9b476944c3e12a167198d2adc85560621131"
+      },
+      {
+        "row": 56,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "66bc884e21656a8aaa2c1fb404b3dfb504c00e20baea2f8e58b366bf6ca0f634"
+      },
+      {
+        "row": 57,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "3d72faf4c31c0dff87229779cf6085bd5da861312e72fb05573290fcd7481429"
+      },
+      {
+        "row": 59,
+        "type": "token_usage_record",
+        "payload_type": null,
+        "sha256": "71f634fef702dbeeada701248d202ce8e83a0a4c42038b041fd19137073abea4"
+      },
+      {
+        "row": 60,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "3f3da69a7648965913db9bd209fd56e5092c6feadbeae38aa7f43fae86eacd47"
+      },
+      {
+        "row": 62,
+        "type": "event_msg",
+        "payload_type": "token_count",
+        "sha256": "8c06ca2032eae47a47c75f4b58dcb655f205a9647af435eab79fd7fa40e41d7f"
+      },
+      {
+        "row": 63,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "84bd5bd151253884f3897efdaedc936255f86e45484da3f89c84e2250c1df446"
+      },
+      {
+        "row": 64,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "f06eda97830e93a7c6905c21af24d408a28d997f019a2fbb985e73087532b72c"
+      },
+      {
+        "row": 66,
+        "type": "token_usage_record",
+        "payload_type": null,
+        "sha256": "275ca865e126f4b98d73db83560fec6c544d76342c709303583a231dcce81386"
+      },
+      {
+        "row": 67,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "83a5edabc768647185bd8550cfd419ee22f737685e43c12cbea337a424f7af7f"
+      },
+      {
+        "row": 69,
+        "type": "event_msg",
+        "payload_type": "token_count",
+        "sha256": "5c7c2a1dd20602049ca43f2a18384e8eb192e13473351d76ef1527e4ca9dc940"
+      },
+      {
+        "row": 70,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "71c7848c3fa3d2d5965aaa343fbada5e830a2bcc61ac609156715aa6202940ee"
+      },
+      {
+        "row": 71,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "a92be2bf319acf02c50af79d331de7c011360c5d75b9cdaaddec5a8e79dd2dd5"
+      },
+      {
+        "row": 72,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "952877c3c4d5ea4080ca817f3b5a9de900f55cb8c1d45933b0fa44eb324bc896"
+      },
+      {
+        "row": 73,
+        "type": "response_item",
+        "payload_type": "message",
+        "sha256": "52a1aee046136eba37f6db8f8b4b8d4effbb807179c53ce85673f7a7d3e17051"
+      },
+      {
+        "row": 75,
+        "type": "token_usage_record",
+        "payload_type": null,
+        "sha256": "7f728b78d572d83244b4eb85262b517930f49d19b56f08944a0dfc8520d26974"
+      },
+      {
+        "row": 76,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "e1e6d017e6a89e2a0719c28aaaa9c45cdb80045e48e06900de70450d606dddd2"
+      },
+      {
+        "row": 78,
+        "type": "event_msg",
+        "payload_type": "token_count",
+        "sha256": "3d9ac37ffad179bbe2ae17d059416b5a7a25b6626670b2b72ece846c67d0a83b"
+      },
+      {
+        "row": 79,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "7fd5e31d0f7c4c1fa7589fc6645daa794107586c3a6dffc27448650fb99aae8a"
+      },
+      {
+        "row": 80,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "0d8df220e97b787d866a26ed7bbbf1e031d49b65a64a37b1736a5d7bb7d8e321"
+      },
+      {
+        "row": 82,
+        "type": "token_usage_record",
+        "payload_type": null,
+        "sha256": "096d3779870655e399d5942df84bc9d947f9f926c2abde94fe7c7601cdda17a6"
+      },
+      {
+        "row": 83,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "f08411d4169cd72ca57df4236571560b6cbf7ef2cc18f7231d78803164c2a4e9"
+      },
+      {
+        "row": 85,
+        "type": "event_msg",
+        "payload_type": "token_count",
+        "sha256": "944ddab2ca7e1dd83d647db0388e6505163b87e954e5fb11a60ce3648c3d7391"
+      },
+      {
+        "row": 86,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "5c8ad306630590d3a151fd2b7fcf24f03a6339a33b78f47f8e52de76bb9a7eed"
+      },
+      {
+        "row": 87,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "b48653e7691a5166d9f964932f0fbad76430cd5462c490bb1967defc49792fe5"
+      },
+      {
+        "row": 88,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "b50dacce70df11c4401cfabdfc022c854f8fd867e5358144bafccce3b1b4cfed"
+      },
+      {
+        "row": 89,
+        "type": "response_item",
+        "payload_type": "message",
+        "sha256": "49772a2658db0bcaf31345502ecc56c930ccb8fcfbec2a2fb4f227e1a0b5063d"
+      },
+      {
+        "row": 91,
+        "type": "token_usage_record",
+        "payload_type": null,
+        "sha256": "f148829c2105b5e92f856d6cb6539c607d32a6e10880f4e93bf586cdb8d35453"
+      },
+      {
+        "row": 92,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "79e5803d52824b469c18e6baca5907914c0cbace5d858bef4882b31e26d95f23"
+      },
+      {
+        "row": 94,
+        "type": "event_msg",
+        "payload_type": "token_count",
+        "sha256": "7c406ed669ce885edd93bb0d9b896db77afdc99329bf759bf49061c4532629dc"
+      },
+      {
+        "row": 95,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "23b662d3763ccb916abe09c9607a51a6b6578c2af6d10662f0ca9c00056b2756"
+      },
+      {
+        "row": 96,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "096fe4997bf37a7b2e47172145a0de03d1215c6ebe5f8e9f51e4d292bd6175f4"
+      },
+      {
+        "row": 98,
+        "type": "token_usage_record",
+        "payload_type": null,
+        "sha256": "13078ee0b1b1627eeb74f9e93f76ff05598b7867452221a3ad4e2134b6523789"
+      },
+      {
+        "row": 99,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "8d17a6aea6dcc3649284d25c1ddaff045cc61d367098d4e3138d39a6ed4051f6"
+      },
+      {
+        "row": 101,
+        "type": "event_msg",
+        "payload_type": "token_count",
+        "sha256": "be1485471969aeccff49e9165aabf18e10a0d78cacec2f607f9bd752ff3c7303"
+      },
+      {
+        "row": 102,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "9b6bb36fe4972790a1f4db05369cf837395eb33991d1df4fe30ab09b7db90fc4"
+      },
+      {
+        "row": 103,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "28daccec4c767247dd021885c5b11bbf562ff70764022da9a41ed738daf361b4"
+      },
+      {
+        "row": 105,
+        "type": "token_usage_record",
+        "payload_type": null,
+        "sha256": "469eecc4c9c3a3673ee9f807004e92cd6f185f3b9e883c58386fe035969d47c2"
+      },
+      {
+        "row": 106,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "52540820bbfea6d491e4aff809a35ff4448fa29275b5986d2403688df739a78c"
+      },
+      {
+        "row": 107,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "736f7d8f54776e05acc94c79d8e90314073fa3f3618f9479bf25c10102bae326"
+      },
+      {
+        "row": 109,
+        "type": "event_msg",
+        "payload_type": "token_count",
+        "sha256": "c0464eaf27bcd420b78a5950bb7fb5a6236dcfc95e52ff70ddd3d6cf771da604"
+      },
+      {
+        "row": 110,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "5e1b771a3e2ee332b742c9578d1ba1f10853bdc3b24a317dbd736185cf180dc6"
+      },
+      {
+        "row": 111,
+        "type": "response_item",
+        "payload_type": "reasoning",
+        "sha256": "047cf9be08e5d6a4fd22c4902b3cbfb708888982f7a953ced57b62b9ac2f9ff4"
+      },
+      {
+        "row": 112,
+        "type": "event_msg",
+        "payload_type": "item_completed",
+        "sha256": "7f877b61420dd99484d6185dc5dba281c17df6f68decc59e2f6b79358506c883"
+      },
+      {
+        "row": 113,
+        "type": "response_item",
+        "payload_type": "message",
+        "sha256": "75e4f9cd7099ad7460eaf2d4e752b49f17e0c1b53573567e4984e2b8e09af4ba"
+      },
+      {
+        "row": 114,
+        "type": "token_usage_record",
+        "payload_type": null,
+        "sha256": "97c71db0564cf0356c2f247515b4825e6c012a5a88553489d6ba518db4602d19"
+      },
+      {
+        "row": 115,
+        "type": "event_msg",
+        "payload_type": "token_count",
+        "sha256": "633634a4f6184360968b01d4860f0a3aa559b1b1e81136a8810d365062631ec3"
+      },
+      {
+        "row": 116,
+        "type": "event_msg",
+        "payload_type": "task_complete",
+        "sha256": "fc3045df91c9de2a0c1628cd140db1ca3d2fadedf7f7d7a34c0226cd85d8a525"
+      }
+    ],
+    "observed_tools": "functions exec for tool discovery/orchestration, invoking only mcp__mrhbench container_read/write/list/exec; no host shell/apply_patch/network/collaboration use observed",
+    "developer_skill_and_collaboration_descriptions_present": true,
+    "host_access_impossibility_proven": false
+  },
+  "tests": {
+    "builder_self_tests": {
+      "001": 14,
+      "002": 17,
+      "both_passed": true
+    },
+    "controller_independent_tests": {
+      "count_per_version": 6,
+      "001_passed": 2,
+      "001_failed": 4,
+      "002_passed": 6,
+      "002_failed": 0,
+      "checks_bytes_reviewed": true,
+      "tested_candidate_hash_matches": true
+    },
+    "limits": "Fakes test ABI/control flow, not scientific validity, actual pixel understanding, hostile inputs or complete isolation. No fresh tests run by reviewer."
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "limitation",
+      "location": "_find_verified_artifacts and _manifest_from_final",
+      "finding": "Artifact digests are remembered from prior operations. Later cpu.run may modify an already-known file without refreshing its cached hash. Final code skips re-read for a known path and may return a stale digest. Recursive extraction also treats nested tool-return path/hash pairs as verification, not only authoritative broker metadata.",
+      "recommendation": "Controller must rehash actual exported artifacts and reject inconsistencies. Preserve frozen H0; classify failed submissions honestly. Future harness change only through authorized protocol.",
+      "blocks_abstract_ABI_smoke": false
+    },
+    {
+      "id": "F2",
+      "severity": "limitation",
+      "location": "_extract_capabilities",
+      "finding": "Legacy alias capability fields remain accepted in addition to authoritative tools. No bypass observed with actual TaskView shape.",
+      "recommendation": "Broker permissions must remain authoritative; do not rely on harness allowlist as isolation."
+    },
+    {
+      "id": "F3",
+      "severity": "limitation",
+      "location": "_parse_response/_manifest_from_final",
+      "finding": "The harness requests task output schema but performs only partial local shape validation; it does not independently validate arbitrary content against the full output JSONSchema.",
+      "recommendation": "Controller schema validation required; scientific quality judged separately."
+    },
+    {
+      "id": "F4",
+      "severity": "limitation",
+      "location": "native rollout developer metadata and result bounded_profile_caveat",
+      "finding": "Host skill paths, collaboration instructions and residual tool schemas are present. Only approved MCP calls were observed; absence of observed misuse is not hard role containment.",
+      "recommendation": "Keep formal_isolation_verified false pending platform threat-model tests."
+    }
+  ],
+  "scientific_quality_assessed": false,
+  "formal_isolation_verified": false,
+  "classification_note": "Generated H0 is a generic, functional interface-level candidate; 17+6 tests are not an end-to-end research success or benchmark rank."
+}

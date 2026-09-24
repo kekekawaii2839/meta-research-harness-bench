@@ -1,0 +1,376 @@
+{
+  "schema_version": "resumed-goal-independent-readiness-1",
+  "as_of": "2026-09-23T23:08:56.292271+00:00",
+  "reviewer": "independent material_pipeline_v3 subagent",
+  "new_model_calls": 0,
+  "read_only_except_this_audit": true,
+  "overall": "Substantial local development components complete; current integrated acceptance remains open, formal benchmark not ready. Do not mark every T00-T14 complete.",
+  "scope_boundary": "Root actively adding model-action evidence, controller dependency preflight and real judge reruns. Snapshot below does not pre-judge unfinished work; supersede with new immutable evidence.",
+  "todo_assessment": {
+    "T00": {
+      "status": "bounded_component_development_accepted",
+      "sufficient_evidence": "Real CPU/container limit, isolation and lifecycle diagnostics; export/load and captured-byte hash rejection tested.",
+      "remaining": "Publish timeout artifact-loss/checkpoint policy and exercise declared failure lifecycle. No kernel-escape proof or cross-host identity required to close local pilot."
+    },
+    "T01": {
+      "status": "development_transport_implemented_not_formal_executor",
+      "sufficient_evidence": "Fresh subscribed CLI calls, fixed role/model, exact rollout rejection and costs implemented.",
+      "remaining": "Choose and document formal executor service: genuine API or explicitly Codex-JSON service with fixed native overhead. Do not market bare-model equivalence."
+    },
+    "T02": {
+      "status": "native_judge_component_implemented_behavior_partial",
+      "sufficient_evidence": "Real MCP evidence reads, pixel delivery case and single-turn score/feedback demonstrated.",
+      "remaining": "Revalidate new evidence publication and latest policy on actual tasks; retain observed judge failures."
+    },
+    "T03": {
+      "status": "not_accepted",
+      "sufficient_evidence": "Positive/negative calibration has differentiation; repeat IDEA varies 3.4/3.6.",
+      "remaining": "Root actively repairing attribution/evidence; finish each real task trajectory review and small untouched acceptance set after prompt freeze."
+    },
+    "T04": {
+      "status": "bounded_component_development_accepted_budget_feasibility_pending",
+      "sufficient_evidence": "Same published budget checked against broker/session, absolute deadline, OOM/PID/scratch tests and ledger.",
+      "remaining": "Current 4-call WRITE_EVIDENCE cap constrains generated single-tool-per-call H0 below natural minimum read/write/run/view/final. Validate per-task feasible budgets before interpreting quality."
+    },
+    "T05": {
+      "status": "component_smokes_passed_complete_five_stage_acceptance_pending",
+      "sufficient_evidence": "CPU read/write/run and judge actual image smoke exist; R2 service is connected in code.",
+      "remaining": "Need actual current-version LIT retrieval/read and WRITE evidence artifact/pixel chain or independent non-scientific complete feasibility chain."
+    },
+    "T06": {
+      "status": "implemented_classification_not_end_to_end_closed",
+      "sufficient_evidence": "Typed failure helper and stored raw platform failures exist.",
+      "remaining": "Run-specific attribution must feed judge and aggregation; old LIT provider failure scored 0, WE material_failure and IV solver errors need evidence-based adjudication. No silent exclusion or automatic zeros."
+    },
+    "T07": {
+      "status": "observed_boundaries_pass_partial_hard_role_containment_pending",
+      "sufficient_evidence": "H0 released zero scientific tasks; only approved MCP used; worker mount/capability budgets tested.",
+      "remaining": "Residual native schemas require finite allowed/denied action+canary tests or dedicated role execution boundary. Flags/no observed misuse insufficient; absolute security proof not required."
+    },
+    "T08": {
+      "status": "R2_candidate_component_ready_not_dataset_complete",
+      "sufficient_evidence": "18 pinned original documents, cross-package and date/alias/version filters tested.",
+      "remaining": "Two neighborhoods and partial earliest-disclosure audit remain; verify target early disclosure and cross-split target exclusion before formal tasks."
+    },
+    "T09": {
+      "status": "diagnostic_code_ready_not_frozen_metric",
+      "sufficient_evidence": "Returned/read/adopted diagnostics exist and intended private roles maintained.",
+      "remaining": "Audit relevance labels on several real queries; freeze diagnostic formulas and keep outside primary score unless user confirms."
+    },
+    "T10": {
+      "status": "two_paper_maintainer_corrected_dev_inputs_accepted",
+      "sufficient_evidence": "IV independent pass_with_pending_runtime; SSA minor patch root-approved, explicit sources/output/budgets.",
+      "remaining": "Do not extrapolate scientific material validity to LIT/IDEA or formal pool; per-package semantic audit remains needed."
+    },
+    "T11": {
+      "status": "bounded_pilot_completed_automatic_quality_gate_failed",
+      "sufficient_evidence": "Two concurrent Luna packages and independent sol reviews, immutable revisions, actual cost/disk captured.",
+      "remaining": "Luna revisions introduced new science errors; maintainer corrections not autonomous pass. Compare a small fresh-paper batch/alternative explicitly approved constructor before scaling."
+    },
+    "T12": {
+      "status": "bounded_development_ABI_accepted",
+      "sufficient_evidence": "Frozen generated H0 repaired with public ABI-only feedback; 17 self tests plus 6 independent tests and reviewed tool trajectory.",
+      "remaining": "No scientific success or formal isolation claim; frozen H0 changes must be versioned rather than maintainer patched."
+    },
+    "T13": {
+      "status": "real_integration_attempted_not_fully_accepted",
+      "sufficient_evidence": "Five stage executions exist; WRITE_CONTENT completed/scored4; others include model, artifact, evidence and budget issues.",
+      "remaining": "Finish root current repairs/new judges, inspect every executor and judge trajectory, assign failures, verify feasible budgets. H0 need not succeed on every task, but platform/material confounds must be resolved."
+    },
+    "T14": {
+      "status": "not_ready_formal_entry_blocked",
+      "sufficient_evidence": "Offline evolution snapshots/gating/selection/aggregation implemented.",
+      "remaining": "No accepted mixed task pool/split/frozen configs or actual builder-evolution-to-native-judge-to-selection orchestration acceptance. Formal parameters require user approval."
+    }
+  },
+  "important_actionable_gaps": [
+    {
+      "id": "G1",
+      "priority": "P0",
+      "blocks": "closing current integrated development acceptance",
+      "action": "Complete repaired evidence_for_run wiring (all public model actions, harness-local error distinction, trusted provider status/resource timing). Rejudge preserved actual outputs under frozen updated judge policy and review each complete action/feedback trace.",
+      "acceptance": "Provider/controller failure -> infrastructure/unassessable rather than agent zero; missing solver artifact with available inputs -> agent/partial; unsupported material blame rejected; healthy content stays high if justified.",
+      "avoid": "Do not demand all H0 task scores high; honest low score is valid."
+    },
+    {
+      "id": "G2",
+      "priority": "P0",
+      "blocks": "budget validity and formal scores",
+      "action": "Publish bounded per-task feasibility estimates and run a minimal complete WRITE_EVIDENCE delivery chain under a new explicit pilot budget; retain old runs. Review EXP headroom separately.",
+      "evidence": "H0 one action per model call; WE 4-call budget allows at most3 tools plusfinal, while read data/write code/run/view/final generally needs>=5. Old WE used4model/3tool in50.4s; IV used6model in277s of1200s.",
+      "acceptance": "A permitted implementation can complete required artifacts and inspection within the selected budget; budget remains equal across compared harnesses and frozen before formal evaluation.",
+      "avoid": "Do not tune formal task budget from hidden-test success or force a universal budget."
+    },
+    {
+      "id": "G3",
+      "priority": "P0_for_formal",
+      "blocks": "formal transport/role claims",
+      "action": "Decide fixed Codex-JSON executor service vs genuine API. Pin full instructions/tool surface/binary; reject forbidden execution, add a finite host-read/write/network/canary negative test suite or isolate role process.",
+      "acceptance": "Observed required model-only JSON calls and images pass, forbidden routes blocked or response/run rejected with no private access; exact scope disclosed.",
+      "avoid": "No demand to prove subscription CLI identical to raw API or defeat arbitrary kernel exploits."
+    },
+    {
+      "id": "G4",
+      "priority": "P1",
+      "blocks": "reliable dataset expansion",
+      "action": "Freeze repaired construction template, run small fresh-paper construction/review batch before mass production, preserving first-pass and revision failures separately from controller fixes.",
+      "acceptance": "Report independently source-verified accepted yield/cost across more than two repeatedly inspected papers, CPU viability and per-stage coverage.",
+      "avoid": "No autonomous-quality claim from maintainer-corrected output; do not spend all remaining calls chasing pass on same papers."
+    },
+    {
+      "id": "G5",
+      "priority": "P1_for_formal",
+      "blocks": "generalization and judge validity",
+      "action": "Separate judge development fixtures from a new small untouched acceptance set across real papers and natural defects; run at least paired equivalent/order/repeat and semantic-feedback canary checks.",
+      "acceptance": "Predefined rubric behavior and attribution checks pass after prompt freeze; observed sensitivities reported.",
+      "avoid": "Not expert human grading, not arbitrary score depression, not a claim that a few cases statistically certify reliability."
+    },
+    {
+      "id": "G6",
+      "priority": "P1_for_formal",
+      "blocks": "meta-harness benchmark main claim",
+      "action": "Wire bounded real builder/evolver to EvolutionRun and current container/native-judge outputs. Demonstrate one mixed-search round and immutable H0/H1 snapshots, public-only feedback, builder selection before hidden evaluator results, cost join and resume. Use synthetic/nonformal manifests first.",
+      "acceptance": "Actual executable harness edit and native evaluation flow complete with no private-test content in evolver inputs; formal main scale remains separate.",
+      "avoid": "Offline controller unit tests or ABI-only H0 repair do not establish self-improvement pipeline."
+    },
+    {
+      "id": "G7",
+      "priority": "P1_for_formal",
+      "blocks": "formal dataset freeze",
+      "action": "Complete source first-disclosure and target-alias exclusion audit, private relevance/coverage review, rights disposition and paper-level split; propose accepted pool size/repetitions/rounds/error denominator for user approval.",
+      "acceptance": "Frozen versioned inputs, sufficient accepted mixed-stage coverage, declared sampling bias and formal dataset not the two-paper development set.",
+      "avoid": "No need to fully recover historical idea/failed-research trajectories or prove global novelty."
+    },
+    {
+      "id": "G8",
+      "priority": "P1",
+      "blocks": "declared failure lifecycle",
+      "action": "Choose and test bounded checkpoint capture or explicitly document uncheckpointed tmpfs loss at timeout; freeze/quiesce artifacts for capture and keep controller/hash observations distinct from worker claims.",
+      "acceptance": "One real deadline/provider-timeout scenario preserves declared logs/cost/checkpoints and attributes loss correctly; captured hash mismatch rejected.",
+      "avoid": "Do not require recovery of every arbitrary intermediate byte or cross-host bitwise scientific determinism."
+    }
+  ],
+  "observed_integration_snapshot": [
+    {
+      "task": "idea",
+      "run_status": "completed_structural_development_check",
+      "submission_status": "partial",
+      "budget": {
+        "cancelled": false,
+        "expires_at": 1790204991.2175555,
+        "limits": {
+          "model": 6,
+          "tool": 60
+        },
+        "started_at": 1790204391.2175555,
+        "used": {
+          "model": 3,
+          "tool": 2
+        },
+        "wall_limit": 600
+      },
+      "task_elapsed_seconds": 135.2243151664734,
+      "run_sha256": "7505aa270956c69523df9656c1e8bfeee65f21dad224bfdc3053b8c472e204be",
+      "submission_sha256": "eafd8ece11e86d2f8321503f435d76dc6bdd7b2853bb06971ac65662ce58cbf8"
+    },
+    {
+      "task": "iv-exp",
+      "run_status": "completed_structural_development_check",
+      "submission_status": "failed",
+      "budget": {
+        "cancelled": false,
+        "expires_at": 1790205122.855027,
+        "limits": {
+          "model": 6,
+          "tool": 120
+        },
+        "started_at": 1790203922.855027,
+        "used": {
+          "model": 6,
+          "tool": 4
+        },
+        "wall_limit": 1200
+      },
+      "task_elapsed_seconds": 276.97732639312744,
+      "run_sha256": "e74214e4fd9f81cfaa682d5c082536437394e3ed19297ab9bb6b7778580521a3",
+      "submission_sha256": "304500c1185f8ef182eeb34fd58e91646257d039756dd5d8ca74560fe78ce9bf",
+      "judge_status": "scored",
+      "quality": 0.75,
+      "judge_sha256": "cf2973ee50da06756e0a23675e13d1fd0b7dc8c66803f90beb1b4b68cf12ca10"
+    },
+    {
+      "task": "lit",
+      "run_status": "completed_structural_development_check",
+      "submission_status": "failed",
+      "budget": {
+        "cancelled": false,
+        "expires_at": 1790204980.8073826,
+        "limits": {
+          "model": 12,
+          "tool": 120
+        },
+        "started_at": 1790204380.8073826,
+        "used": {
+          "model": 1,
+          "tool": 0
+        },
+        "wall_limit": 600
+      },
+      "task_elapsed_seconds": 4.319019556045532,
+      "run_sha256": "0348d37c6412d18ca4ad1f524fa1df981f13c6e34c7748e55284999d3601cf07",
+      "submission_sha256": "36ffe1482d4334f6d952f0863d125968350dcaa7569cf6ef08836342290831a0",
+      "judge_status": "scored",
+      "quality": 0,
+      "judge_sha256": "c88a59667ab334ffabeca0d30f3646ca8b1876db0fcbf17e30452e312797682b"
+    },
+    {
+      "task": "ssa-write-content",
+      "run_status": "completed_structural_development_check",
+      "submission_status": "completed",
+      "budget": {
+        "cancelled": false,
+        "expires_at": 1790204598.0321157,
+        "limits": {
+          "model": 4,
+          "tool": 60
+        },
+        "started_at": 1790203998.0321157,
+        "used": {
+          "model": 3,
+          "tool": 2
+        },
+        "wall_limit": 600
+      },
+      "task_elapsed_seconds": 90.62095427513123,
+      "run_sha256": "87a721f09d0da8cd6bf82c4e00fccf50a63ccb14ceec2860ad91b6f77fabb247",
+      "submission_sha256": "edce43b81ce3ff9fca46b2c43b271381a93547788e8120dac9d2b4e3c171ea05",
+      "judge_status": "scored",
+      "quality": 4,
+      "judge_sha256": "3f1ce9a24b5fea284e865051f2b3168480ea22e710c968fda23e7ebe862705bd"
+    },
+    {
+      "task": "ssa-write-evidence",
+      "run_status": "completed_structural_development_check",
+      "submission_status": "failed",
+      "budget": {
+        "cancelled": false,
+        "expires_at": 1790204646.4788098,
+        "limits": {
+          "model": 4,
+          "tool": 60
+        },
+        "started_at": 1790204046.4788098,
+        "used": {
+          "model": 4,
+          "tool": 3
+        },
+        "wall_limit": 600
+      },
+      "task_elapsed_seconds": 50.408846378326416,
+      "run_sha256": "519abbaf2413d54ab1d732c91a3232ae47059f84e4cd4029960d00522527f516",
+      "submission_sha256": "818daef52f91db37f6f46780ec69187c3b6ea02fdf33bc2289ed14cc5234f1b1",
+      "judge_status": "material_failure",
+      "quality": null,
+      "judge_sha256": "a474b63e22a1bf4a2dd9799e016d99e9661efc8d46a5ed723f7725364d0f2412"
+    }
+  ],
+  "reviewed_evidence": [
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\container_runtime_acceptance_v1.json",
+      "sha256": "7e7f43f238998be8ecc9547d30db26756ed894bdff2b61cff7ec8185b8971ad5"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\executor_broker_independent_review_v2.json",
+      "sha256": "da3f489e20f577a16c05c2b09d1de6809aa80dbefdd961ccf7f7c10c0f0f4263"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\executor_broker_capacity_retest_v1.json",
+      "sha256": "ac23156ceb8793905e18648e4efa3ca4049e734f8d8e22938ced7e22e686b419"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\native_judge_acceptance_v2.json",
+      "sha256": "dbf81bf6516368ee54dd8b3fe36c235cd136b6c48a3f870091b63c4d41b33e48"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\native_judge_policy_followup_v2_3.json",
+      "sha256": "8fe6273e25d82aa11743ab30b2af12b20860f5ad86db5daa45e4daf2d0e27a4c"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\shared_background_v3_mechanical_acceptance.json",
+      "sha256": "1b759522d5d32d6e7021b7042964d6faf44fcf5e46d66d1da92dd2672424b991"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\stage_migration_v3_semantic_review.json",
+      "sha256": "857942be187f569cf9dcdcbf5f3f5bf14cc33c5d0cd10a870669e1dc52e3140b"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\stage_migration_v3_mechanical_acceptance.json",
+      "sha256": "ee86171fc083f5b43b4dd86686155528ac5d1226cc37aec18da79a1297941e3b"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_pipeline_v3_handoff.json",
+      "sha256": "cee966a5095f350143db54fa45deb0c2e7ef0f6a51e7aed96d5c28cb336f281b"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_v6_root_adjudication.json",
+      "sha256": "063b69f215dedfd50b79d34b52a5daff29609e8e4f7ee5d4745d826bc55f2aed"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\image_portability_v1.json",
+      "sha256": "9d39aece99fd8723bfa927023e7f647a742b143e9b249d5711ebac52df3f8e1f"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\h0_independent_build_review_v1.json",
+      "sha256": "e2587ddd1ab7341392cfdc2b1249ef31e2b51030c438d3847c45bfca85525843"
+    }
+  ],
+  "reviewed_code": [
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\run_container_stage_development.py",
+      "sha256": "2d034bfb8ae5c96300bb637de0261d20269367cb828ca1dff30e492f7bb24451"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\providers.py",
+      "sha256": "4ea890c06b191ae3c3c95746f17a636ae6f5eb0034e9f75a001396ae391cdbdc"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\container_executor.py",
+      "sha256": "8c22d6206ffb8b04a1c5c65b76faffa5e58f25d7f2a5875b05076e25cfd68af8"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\executor_broker.py",
+      "sha256": "c7d60d6e0872096dc88dde3e4520467b7a5b575250540ed05b9d698a4cf5c8a2"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\evolution.py",
+      "sha256": "0bb88e7cb9a33e7590aa0282ab14a8778a72b3d67ba1b1590a5b189b7152e0bf"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\runtime_contracts.py",
+      "sha256": "6e27946ed6b959848d3c67348b14c4624ffa17a09e8f357ec7fa17350ca40993"
+    }
+  ],
+  "reasonable_development_close_condition": "G1 current evidence+judge attribution, G2 feasible task budget, and G8 declared failure behavior have bounded evidence; consolidated acceptance report states which components pass and which formal gates remain pending. If goal literally includes formal T14, it cannot honestly be completed at this local pilot boundary.",
+  "not_blockers_for_local_pilot": [
+    "No GPU setup",
+    "No universal resource budget",
+    "No human expert grading",
+    "No absolute security/kernel escape proof",
+    "No clean-host/server migration until user chooses full-scale host",
+    "No TTS attribution analysis before primary pipeline",
+    "No requirement that weak H0 solves all research tasks"
+  ],
+  "formal_blockers": [
+    "G3",
+    "G4",
+    "G5",
+    "G6",
+    "G7"
+  ],
+  "reporting_cautions": [
+    "Input tokens include cached tokens; subscription transport counts exclude interactive collaboration cost.",
+    "Two-papers frequently debugged are development only; statistical ranking/generalization claims unsupported.",
+    "A schema-valid submission or containers running is not completed scientific research.",
+    "No independent complete audit of every new global file claimed; evidence reviewed is enumerated."
+  ]
+}

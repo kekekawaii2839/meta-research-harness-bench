@@ -1,0 +1,9 @@
+Permission failure; stopped as instructed.
+
+Actual result:
+
+```text
+exec_command failed: CreateProcess rejected: blocked by policy
+```
+
+No assertion ran, and `output.txt` was not created by the command.

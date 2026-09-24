@@ -1,0 +1,12 @@
+Created a fresh development candidate at [package.json](/D:/mrhbench-local-pilot/batch-20260923-004/iv-pilot-v2/constructor/output/package.json). Its single EXP task specifies the coupled updates using frozen iteration-\(t\) states, and keeps the starter resources separate from the target implementation and results.
+
+The package records source evidence and SHA256 values, marks target-method facts private, and includes coverage decisions for all five task types. Package JSON parses, and the declared public asset hashes match the files. I did not build Docker or run the smoke test; runtime remains unverified.
+
+Generated files:
+
+- [task.md](/D:/mrhbench-local-pilot/batch-20260923-004/iv-pilot-v2/constructor/output/assets/task.md)
+- [base_resources.py](/D:/mrhbench-local-pilot/batch-20260923-004/iv-pilot-v2/constructor/output/assets/base_resources.py)
+- [NOTICE.txt](/D:/mrhbench-local-pilot/batch-20260923-004/iv-pilot-v2/constructor/output/assets/NOTICE.txt)
+- [Dockerfile](/D:/mrhbench-local-pilot/batch-20260923-004/iv-pilot-v2/constructor/output/environment/image/Dockerfile), `requirements.txt`, and [smoke.py](/D:/mrhbench-local-pilot/batch-20260923-004/iv-pilot-v2/constructor/output/environment/smoke.py)
+
+Unresolved blockers include independent scientific review, disclosure and literature-library coverage verification, and rights review before any public release.

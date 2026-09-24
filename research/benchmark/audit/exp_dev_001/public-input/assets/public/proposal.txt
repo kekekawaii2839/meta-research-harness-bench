@@ -1,0 +1,56 @@
+Research scope: numerical investigation of a coupled gradient estimator for a
+linear instrumental-variable problem. This task does NOT concern a trained
+Transformer, in-context learning performance, or a proof of a general theorem.
+
+Observed matrices are Z[n,q], X[n,p], Y[n], with n > q >= p. The centered model
+has no intercept. Z is independent of latent U and observation errors. Generate
+X = Z Theta_true + noise U Phi + E2 and
+Y = X beta_true + noise U phi + e1.
+Entries of Z, U, E2, e1 and parameter arrays Theta_true, beta_true, Phi, phi
+are independent standard Gaussian draws before the shared-U terms are formed.
+Sharing U permits endogeneity; it does not guarantee that every small sample
+exhibits the same magnitude of OLS error. Baseline code supplies these draws.
+Truth arrays may be used for evaluation only, not to initialize or fit a method.
+
+Fixed method to implement:
+  Theta_0 = zeros(q,p); b_0 = zeros(p).
+  Theta_(t+1) = Theta_t - eta Z.T (Z Theta_t - X).
+  b_(t+1) = b_t - alpha Theta_t.T Z.T (Z Theta_t b_t - Y).
+Both right-hand sides use OLD states. In particular, do not use Theta_(t+1)
+in the b update. Gradients are unnormalized sums: there is no hidden 1/n or 2
+factor. If using an equivalent normalized implementation, document the exact
+step-size conversion. alpha and eta are positive and constant within a run.
+Do not replace either iterative state by an exact least-squares fit during the
+run. Exact fits are legitimate comparators and step-size diagnostics.
+
+Useful definitions, not empirical conclusions:
+  Theta_hat = argmin_T ||Z T - X||_F^2.
+  b_2sls = argmin_b ||Z Theta_hat b - Y||_2^2.
+  A = (Z Theta_hat).T (Z Theta_hat); B = Z.T Z.
+  gamma(alpha) = spectral_radius(I_p - alpha A).
+  kappa(eta) = spectral_radius(I_q - eta B).
+  Lambda = max(gamma, kappa).
+The candidate stable region is 0 < alpha < 2/sigma_max(Z Theta_hat)^2,
+0 < eta < 2/sigma_max(Z)^2, with full-rank Z and Z Theta_hat. These are
+hypothesis conditions to investigate, not a guarantee that each finite trace
+must decrease monotonically or that a finite simulation proves a theorem.
+
+Hypotheses to address in full:
+H1. For the supplied identified Gaussian regime and steps within the stated
+region, the coupled iteration approaches the sample 2SLS solution; its late
+optimization error is compatible with a geometric-rate description involving
+Lambda. Distinguish finite transients, conditioning and numerical precision
+from asymptotic behavior. Report unsupported cases rather than force a fit.
+H2. Changing the two step sizes changes the bottleneck and finite-iteration
+behavior; the simple Lambda diagnostic is informative about which block limits
+progress. Its limitations and behavior outside the candidate region should be
+investigated, without asserting that every outside-region setting must diverge.
+
+Design your own informative settings, repetitions, diagnostics, comparisons and
+uncertainty analysis. The supplied defaults n=50,p=5,q=10,noise=1 are a starting
+point, not a mandatory full experimental design. You may vary dimensions with
+n>q>=p, noise>=0, random seeds and positive steps, and extend iteration length
+within resources. Keep both hypotheses and the fixed algorithm semantics.
+Do not infer Transformer capabilities, population consistency, or universal
+causal identification from this finite numerical task. The target is sample
+2SLS, not the latent true coefficient; those errors answer different questions.

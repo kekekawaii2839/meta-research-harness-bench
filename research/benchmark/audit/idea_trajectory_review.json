@@ -1,0 +1,376 @@
+{
+  "kind": "development_IDEA_trajectory_engineering_review_not_expert_scientific_score",
+  "reviewed_at_utc": "2026-09-23T05:53:59.433466+00:00",
+  "reviewer": "delegated_write_content_judge_acceptance",
+  "task_id": "dev-idea-001",
+  "status": "single_case_scoring_and_public_boundary_checked_feedback_grade_anchoring_concern_unresolved",
+  "formal_judge_gate_passed": false,
+  "new_model_calls_by_reviewer": 0,
+  "gpu_work": false,
+  "scope": "One actual IDEA solver submission only; no controlled defective IDEA case or repeated scores was generated or reviewed. All observations concern supplied reviewed context, not an independent upstream-paper audit.",
+  "calls": [
+    {
+      "call_id": 22,
+      "role": "executor",
+      "directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-891cb79b8d5d41cf94f812e18fb2c3e9",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 9177,
+        "output_tokens": 70,
+        "reasoning_output_tokens": 14
+      }
+    },
+    {
+      "call_id": 23,
+      "role": "executor",
+      "directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-15cc984661564f56a5c5ad35ccc13eeb",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 11048,
+        "output_tokens": 3683,
+        "reasoning_output_tokens": 1770
+      }
+    },
+    {
+      "call_id": 28,
+      "role": "judge",
+      "directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-dc981030eb4745859c1de2fac8fde893",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 9705,
+        "output_tokens": 181,
+        "reasoning_output_tokens": 46
+      }
+    },
+    {
+      "call_id": 30,
+      "role": "judge",
+      "directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-ad36440508be46559e1ef4db518e6513",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 6016,
+        "input_tokens": 19596,
+        "output_tokens": 1989,
+        "reasoning_output_tokens": 510
+      }
+    },
+    {
+      "call_id": 31,
+      "role": "feedback",
+      "directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-d4507a8f4bf5496a97c5e87db56422f8",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 6016,
+        "input_tokens": 9397,
+        "output_tokens": 150,
+        "reasoning_output_tokens": 34
+      }
+    },
+    {
+      "call_id": 32,
+      "role": "feedback",
+      "directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-1d8fc23ccef1405ba7083dc3c3521da8",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 18347,
+        "output_tokens": 192,
+        "reasoning_output_tokens": 70
+      }
+    }
+  ],
+  "observed_execution": {
+    "solver_model_calls": 2,
+    "solver_tools": [
+      {
+        "name": "asset.read",
+        "asset_id": "setting"
+      },
+      {
+        "name": "asset.read",
+        "asset_id": "background-report"
+      }
+    ],
+    "literature_search_or_page_reads": 0,
+    "research_experiments": 0,
+    "artifacts": [],
+    "remaining_budget_after_solver": {
+      "cancelled": false,
+      "model_calls": 3,
+      "tool_calls": 48,
+      "wall_seconds": 2272.265999999996
+    },
+    "budget_note": "run.json budget contains remaining limits, not consumed resources: 3 model calls/48 tool calls remain from 5/50; real consumption is 2/2. Do not report 2272 seconds as elapsed."
+  },
+  "boundary_and_binding_checks": [
+    "Solver actual request contains only public exported TaskView, harness instruction, remaining counters, and own action/tool history; two returned asset texts and hashes exactly equal exported public files.",
+    "Solver initial history empty; call 23 final payload equals frozen submission. All six calls are separate ephemeral Codex contexts outside workspace with disabled project docs/native tools; recorded native_activity empty. This is development transport evidence, not formal OS sandbox proof.",
+    "Platform, score, and feedback trace hash chains verified. Evidence canonical hashes, exact line deliveries, receipt hashes, receipt allowlists, model request copies and response/event bindings verified.",
+    "Scoring actually reads all six records, including full 9-line platform trace, submission, task, setting, reviewed background and private evaluation. Feedback actually reads all five public records and no private record.",
+    "Feedback receives only numeric dimensions, public rubric and public inventory plus its own read history. Target-paper private ID, private evidence hash/receipt and private scorer rationale are not supplied. Correct issue refs floor is vacuous for an empty issue list; retrieval still directly verified."
+  ],
+  "dimension_review": {
+    "grounding_value": {
+      "observed": "4 with reasons naming deterministic scalar constraint, observable moment signal, sensitivity regularization and fallback.",
+      "review": "Grounded in supplied background, does not invent a probability distribution or claim universal adaptation success. No clear unsupported premise found in the bounded proposal-level evaluation."
+    },
+    "substantive_difference": {
+      "observed": "4 scoped to eight-paper library.",
+      "review": "Distinguishes entropy, auxiliary preparation, classification probabilities, target BN statistics, and source-present CORAL; finite summary plus sensitivity-weighted affine adaptation/gating differs concretely from supplied precedents. Judge does not demand SSA reconstruction or global novelty."
+    },
+    "specificity_coherence": {
+      "observed": "4; exact layer/rank/objective/weights/thresholds recorded as uncertainty.",
+      "review": "Defines mu_s, C_s, G_s, affine adapter, moment-matching plus sensitivity penalty and identity fallback. Missing numerical hyperparameters/full loss norm are legitimate remaining EXP choices under this IDEA contract, not automatic failure. Source-manifold language should be understood within its explicit approximately affine/moment-visible assumptions, not proof covariance identifies arbitrary nonlinear manifolds."
+    },
+    "feasibility": {
+      "observed": "4 referencing finite source preparation, storage scaling, unlabeled target batches and held-out evaluation labels.",
+      "review": "Source examples used only during explicitly allowed extra preparation; no retained examples/labels. Full-matrix O(d^2) and rank-r O(dr+r^2) summaries declared; no numerical memory cap exists, and judge invents none. Evaluation labels are not deployment inputs. CPU statement is a proposal of a credible small-adapter path, not verified full-model runtime. No experiment required."
+    },
+    "hypothesis_quality": {
+      "observed": "4 describing performance, contribution, mechanism and gate/scope.",
+      "review": "Four hypotheses cover central proposal, with conditions/comparators/challenging evidence. H1 permits negative results, H2 contrasts zero/isotropic penalties, H3 uses rotated/placebo transformations and restoration/drift predictions rather than improvement alone, H4 tests always-adapt/never-adapt and gate failure. Exact metrics/thresholds/causal testing details remain EXP choices; no evidence of replacing core claims by trivial safe statements."
+    }
+  },
+  "judgment_limits": "The five 4s have actual requirement-specific rationales and uncertainty, not merely prose praise; this direct review found no concrete rubric contradiction sufficient to require a changed score. It is not an independent scientific endorsement, calibrated maximum-quality truth, or evidence the judge can reject weak ideas.",
+  "findings": [
+    {
+      "id": "IDEA-FB-001",
+      "status": "open_behavioral_concern_not_proven_misdiagnosis",
+      "severity": "feedback_grade_anchoring_risk",
+      "location": "feedback/result.json $.feedback.limitations[0] / model call 32",
+      "observation": "The no-issue explanation explicitly cites all five supplied dimension scores are 4 as a reason, alongside generic coverage of the requested fields. Numeric grades are not evidence that the submission has no publicly diagnosable weakness. Actual public evidence was retrieved, but this wording does not establish diagnostic independence.",
+      "impact": "No concrete missed scientific defect is established by this one positive example; do not force feedback to invent an issue. Public/private isolation passes but feedback behavior acceptance remains limited.",
+      "recommendation": "Clarify that scores justify neither inventing nor suppressing issues; ask no-issue conclusions to rest on inspected public evidence rather than grades. Test a public defect with deliberately high/withheld/changed numeric scores in separately labeled engineering calibration; rerun affected trajectory if prompt changes."
+    }
+  ],
+  "review_notes": [
+    {
+      "scope": "source_reading",
+      "note": "Solver cites paper IDs/version/page numbers copied from reviewed LIT-style input but does not fetch original PDF pages; judge also reviews summaries, not full papers. IDEA contract supplies a fixed reviewed context and does not require repeating LIT, so this is a verification boundary rather than an automatic failure or fabricated source claim. Generic harness instruction to inspect necessary full pages may be clearer if scoped to LIT/unsupported new claims."
+    },
+    {
+      "scope": "hypothesis_granularity",
+      "note": "Broad shift conditions and gate concepts are present but no numeric efficacy threshold, exact norm, layer, batch size or complete experiment/statistical recipe is fixed. No such full EXP plan is required; retain this distinction in later defect construction."
+    },
+    {
+      "scope": "run_metadata",
+      "note": "run.json key budget currently labels remaining quantities ambiguously; use platform trace/ledger to measure consumed calls and time. Do not confuse the budget remaining with provider usage/cost."
+    }
+  ],
+  "limited_acceptance": {
+    "solver_public_boundary": "passed_for_this_case",
+    "score_retrieval_and_protocol": "passed_for_this_case",
+    "score_content_alignment": "no_clear_protocol_violation_found_for_this_case",
+    "feedback_private_boundary": "passed_for_this_case",
+    "feedback_diagnostic_independence": "not_established_grade_anchoring_concern",
+    "controlled_defect_gate": "not_run"
+  },
+  "remaining_acceptance": [
+    "IDEA controlled weak/contradictory proposal, omitted core hypothesis, target-label/source-example deployment violation, false novelty/citation and injection cases",
+    "Same-version repeat ratings and equivalent-expression/style/length perturbations",
+    "Feedback grade-anchoring calibration and affected prompt retest if changed",
+    "Additional source families; novel valid ideas outside source method; first-public-disclosure/corpus adequacy/formal sandbox gates",
+    "Empirical idea feasibility and downstream research outcomes are not tested by this review"
+  ],
+  "artifact_hashes": [
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-15cc984661564f56a5c5ad35ccc13eeb\\events.jsonl",
+      "sha256_file_bytes": "3b85e67cdc35ad09b18e4aef9592e1f1b3e05e22e2dbb68abbfb892f54a197c3"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-15cc984661564f56a5c5ad35ccc13eeb\\invocation.json",
+      "sha256_file_bytes": "c08e65393fd2975b364e5b7d4997943bf6e45d020d35ee64819f8538b8cf081f"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-15cc984661564f56a5c5ad35ccc13eeb\\request.json",
+      "sha256_file_bytes": "0bdc509f0a1e71d0f372c9cc48d3f688fec51ef4539308daabdfb7588caef6d2"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-15cc984661564f56a5c5ad35ccc13eeb\\response.json",
+      "sha256_file_bytes": "ca9eeaf33e14cf2c3f83888c566b6bd1f34443658d05745c0fd5db389a26d2e7"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-15cc984661564f56a5c5ad35ccc13eeb\\result.json",
+      "sha256_file_bytes": "5f659142d9cf7ecf7f5d3800449edf2aea6d6d951c38debd808c711655954f13"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-1d8fc23ccef1405ba7083dc3c3521da8\\events.jsonl",
+      "sha256_file_bytes": "c3d26b7f80ead9d9c35a58d3f453bd0a4116de5c02d5defeecd0a19ffdbdf6e6"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-1d8fc23ccef1405ba7083dc3c3521da8\\invocation.json",
+      "sha256_file_bytes": "5437154859982f271add7725461a1c79d124b94646bcccc40c815bbd975d8d8d"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-1d8fc23ccef1405ba7083dc3c3521da8\\request.json",
+      "sha256_file_bytes": "ec014dd613efad205daa72be18c6be09b6f8a8b5c93d690f82dd87a37f1c2957"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-1d8fc23ccef1405ba7083dc3c3521da8\\response.json",
+      "sha256_file_bytes": "9a421fd76db13f379bd611b1b3e9b2dfdef0517e33a0849cffcf659bea9e9fc2"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-1d8fc23ccef1405ba7083dc3c3521da8\\result.json",
+      "sha256_file_bytes": "fe25b32d9584e64f76262088bcb13a0cdaf1acc25a42785d7e559687e4fa6944"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-891cb79b8d5d41cf94f812e18fb2c3e9\\events.jsonl",
+      "sha256_file_bytes": "d80c5b0e19e31c67a7aa0454bc880e5b9006ceb05751058a7729451a4df477db"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-891cb79b8d5d41cf94f812e18fb2c3e9\\invocation.json",
+      "sha256_file_bytes": "2a3cf3edb6c8450257e3287894069ac1c29e0fb1eda75e49e13e68b92557e59a"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-891cb79b8d5d41cf94f812e18fb2c3e9\\request.json",
+      "sha256_file_bytes": "75ba284274c0782969c700e6d0fd9406d7506a38bae6b2b4a04f1959bdb0e402"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-891cb79b8d5d41cf94f812e18fb2c3e9\\response.json",
+      "sha256_file_bytes": "858a5643e74fedc574ebc4041e5f7d41882abcdca64cab0c4c95134593ac2261"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-891cb79b8d5d41cf94f812e18fb2c3e9\\result.json",
+      "sha256_file_bytes": "42834487397af6d3cc5263627695e3d4c9921cd55a65531b9514b8d18bcf8c51"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-ad36440508be46559e1ef4db518e6513\\events.jsonl",
+      "sha256_file_bytes": "16440b8f1cb329cf427c6f17de029add8e59cfe5d328221afef582a9f42fb3ba"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-ad36440508be46559e1ef4db518e6513\\invocation.json",
+      "sha256_file_bytes": "bc8ee8eb4f72a48f1f3ed3983b47f17cd7d5565d4d8727d6cd9e56145f26af74"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-ad36440508be46559e1ef4db518e6513\\request.json",
+      "sha256_file_bytes": "e37b2f93586db9528d2869021fd762894d7a389a17f16568bbb785a96ae84886"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-ad36440508be46559e1ef4db518e6513\\response.json",
+      "sha256_file_bytes": "1af304f142b9bee52839700ccf99883aecde62c3c8cf0c90e922fc1eb18dfb3a"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-ad36440508be46559e1ef4db518e6513\\result.json",
+      "sha256_file_bytes": "a007dafcb4d1e957844c96abe0261e7aefa736f13ef14e3167976b6cf1b7bc69"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-d4507a8f4bf5496a97c5e87db56422f8\\events.jsonl",
+      "sha256_file_bytes": "4cd4c8198cac7bffb309a356d205fa0171ce8ffbb341cce36353f013276ed8eb"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-d4507a8f4bf5496a97c5e87db56422f8\\invocation.json",
+      "sha256_file_bytes": "83440a0a481ef0e988f52887c1881b48e8ef2c0e3a6b379fe000ff47f3a22b0d"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-d4507a8f4bf5496a97c5e87db56422f8\\request.json",
+      "sha256_file_bytes": "eee15b663af206abee6f66f3d163867f0703ee6cf9947c390a1854e1fc93f09d"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-d4507a8f4bf5496a97c5e87db56422f8\\response.json",
+      "sha256_file_bytes": "0992779395586e323daea33ddefe386cb076eecf9761a570a58c05026be417c1"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-d4507a8f4bf5496a97c5e87db56422f8\\result.json",
+      "sha256_file_bytes": "7456d70c9b8da3313acae2798ab54fa6f759f6c28e264b8103cf3dd1dc3dbced"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-dc981030eb4745859c1de2fac8fde893\\events.jsonl",
+      "sha256_file_bytes": "a0ddf3d9b3b80a84f358f20645394f6ce614ef95952d1b289da7f6d72e90c5a1"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-dc981030eb4745859c1de2fac8fde893\\invocation.json",
+      "sha256_file_bytes": "5672fea342c3ca1ca337ac22142ac10a3b452a20d11475f2455fe49eb954970b"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-dc981030eb4745859c1de2fac8fde893\\request.json",
+      "sha256_file_bytes": "b8af5de73f1f512c8bc59f7eb0973780c9386500ae04e29bad36438a39243dfb"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-dc981030eb4745859c1de2fac8fde893\\response.json",
+      "sha256_file_bytes": "be9e947dddddd0b90e4dcd249f9291556a34be9546b7fdf0815d77d5ebf29573"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\model_calls\\call-dc981030eb4745859c1de2fac8fde893\\result.json",
+      "sha256_file_bytes": "f250b55846a1f51426441f0a4b28464073cf49510892fef8d1d1b122a7bb92cd"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\evidence.json",
+      "sha256_file_bytes": "c5edd2ba183ce09866a500eb09266e79af26516ed4afb0e7e393b0455fe4998c"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\feedback\\evidence.json",
+      "sha256_file_bytes": "7abf7f37171805eef1425b8f9363f5161ec7def10d694172efb1c4977e8bc90a"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\feedback\\request-0.json",
+      "sha256_file_bytes": "0c8abffc7e7efd0ba2ebbc0f8178bd53c11b3a1c6aaacaa5c8e5a733e3887af0"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\feedback\\request-1.json",
+      "sha256_file_bytes": "5c143c960db1d6b43a5c18bc2ff90a70a8362c13ee3d0db69e9540a10109ab61"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\feedback\\result.json",
+      "sha256_file_bytes": "07c6ebf6ce74ac8a95dc667282d00c6696e7758d760153fff6adbfd2331e9a03"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\feedback\\retrieval_events.json",
+      "sha256_file_bytes": "d2b6b2c765e588dc467d9b4191a1ce3b69e63903df02349929d48d9f33eba08f"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\feedback\\trace.jsonl",
+      "sha256_file_bytes": "19909fc26fcd15519b8de26671f203fe2881bd169a907a8b63acb445060941a1"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\platform.jsonl",
+      "sha256_file_bytes": "1c5c43e2def45c0f3ac506fca6f0af1dead076a4777148d48b534b1e112550b0"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\public-input\\assets\\public\\background_report.json",
+      "sha256_file_bytes": "b209dde914c44a5c3a5639e070682a9a7b5bb32688a94ae297535f34be98abbd"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\public-input\\assets\\public\\research_setting.json",
+      "sha256_file_bytes": "c0a0e3797015cc7d2928d76bfed6848d75204231352f3d467d339247d0bc3801"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\public-input\\task.json",
+      "sha256_file_bytes": "21264bd78987f0a8ae54f1086b250d333d7041f809d5b70f380b8fb2503cc0f2"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\run.json",
+      "sha256_file_bytes": "fdc1b1693806fd852c49df50fe670e8351d397d2f012a2100192f98d89e8edf3"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\score\\evidence.json",
+      "sha256_file_bytes": "c5edd2ba183ce09866a500eb09266e79af26516ed4afb0e7e393b0455fe4998c"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\score\\request-0.json",
+      "sha256_file_bytes": "91873bc9dd5d8b472b77692ee68b93c077a1c3f56f193f3c3b4cac3c20928a31"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\score\\request-1.json",
+      "sha256_file_bytes": "172c498325aa67bea992e533c440f1aec331bb03932502730a68f6a3c907dd68"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\score\\result.json",
+      "sha256_file_bytes": "ef6d51aa2cd72c2b6d187962ef793669498779d7ebcf819430bdcc9f9f75368a"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\score\\retrieval_events.json",
+      "sha256_file_bytes": "8bfd1f23c732504a09d686fac7e012eb293f93823ed40c0838a1fadfc36aade6"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\score\\trace.jsonl",
+      "sha256_file_bytes": "e3d5a30a2580554e5fefea2f960fa4b430476de3454c1da36dd31ddb4336689f"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\idea_dev_001\\submission.json",
+      "sha256_file_bytes": "5c974d9fccf6d451cfeca53ab97d727b25bec7550a1e119b6c9877f35daba116"
+    }
+  ]
+}

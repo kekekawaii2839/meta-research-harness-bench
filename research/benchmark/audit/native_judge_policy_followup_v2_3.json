@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "type": "offline_policy_followup",
+  "native_prompt_version": "native-judge-pilot-v2.3",
+  "prior_acceptance": "research/benchmark/audit/native_judge_acceptance_v2.json",
+  "new_model_calls": 0,
+  "subtask_total_model_calls": 17,
+  "policy": {
+    "missing_required_controller_evidence_makes_mandatory_dimension_unassessable": {
+      "status": "infrastructure_failure",
+      "dimensions": {},
+      "quality": null,
+      "resource_score": null,
+      "retain_assessable_observations_in": [
+        "checks",
+        "uncertainty"
+      ],
+      "feedback_issues_about_controller_collection": []
+    },
+    "missing_solver_owned_artifacts": "remain solver failures when tools/materials are available; not automatic infrastructure exclusion",
+    "unchanged_aggregation": true
+  },
+  "regression": {
+    "test": "test_platform_failure_never_becomes_scientific_zero",
+    "command": "python -X utf8 -m unittest discover -s research/benchmark/tests -p 'test_*judg*.py' -v",
+    "passed": 20,
+    "failed": 0,
+    "level": "offline validation and prompt assertions; not new model behavior acceptance"
+  },
+  "files": {
+    "research\\benchmark\\mrhbench\\native_judge.py": "6b6fc88efbe8f72ca18dd31ae2a66b089aa40d265bbdf95d76e5bbae0d037f7f",
+    "research\\benchmark\\tests\\test_native_judge_v2.py": "5f2536b7e6938203c9c193651b3c587bc38db828d48ca9e597c0acb6b1407950"
+  },
+  "retained_case": {
+    "call_id": 111,
+    "decision": "revise_resource_ownership_and_feedback",
+    "historical_scores_unchanged": true,
+    "rerun_after_policy_change": false
+  },
+  "formal_judge_accepted": false,
+  "formal_tool_isolation_verified": false,
+  "next_true_task_check": "Publish trusted blinded per-run configured/enforced resources, session elapsed, per-command durations and entrypoint hash. Verify updated judge distinguishes controller evidence gaps from solver omissions. No additional model call authorized for this subtask."
+}

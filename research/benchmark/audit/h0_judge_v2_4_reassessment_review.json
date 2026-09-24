@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "reviewer": "independent_subagent_native_judge_v2",
+  "new_authorized_model_calls": 2,
+  "calls": [
+    144,
+    147
+  ],
+  "scientific_executor_reruns": 0,
+  "previous_results_preserved": true,
+  "native_protocol": "native-judge-pilot-v2.4",
+  "tests_passed": 22,
+  "formal_acceptance": false,
+  "cases": [
+    {
+      "case": "ssa-write-evidence",
+      "new_result_path": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\ssa-write-evidence\\judge-v2_4\\result.json",
+      "new_result_sha256": "c9704dd5b2ba06fefc56460792e7e3bce2c0b3b7b88d428c0451f1ed48d90add",
+      "status": "scored",
+      "quality": 0,
+      "dimensions": {
+        "completeness": 0,
+        "comprehensibility": 0,
+        "fidelity": 0,
+        "traceability": 0
+      },
+      "same_turn_feedback": {
+        "issues": [
+          {
+            "affected_requirement": "The task required a scientific visual covering all methods and conditions, executable generation code, a caption, cell-level numeric provenance, and a bounded interpretation.",
+            "improvement_concern": "A reviewable evidence package must be delivered so that its values, encodings, explanations, and source mappings can be assessed against the supplied fixed evidence.",
+            "observation": "The submission delivered no visual, generation code, caption, provenance manifest, or interpretation; the controller’s complete collection likewise records every expected output as solver_not_produced.",
+            "refs": [
+              "a6182cdf9942f8e9121592da47996c2300768c67da1e2076ddc72449db6b01ec",
+              "2a49513ec57baf2ea928a0c7153dc013abb83ddf1a6485417883bdb774b1ec87"
+            ],
+            "root_cause": {
+              "explanation": "The submission reports inability to create the required files, but the available public evidence does not prove why production failed.",
+              "status": "unknown"
+            }
+          }
+        ],
+        "limitations": [
+          "No rendered artifact existed to inspect, so no visual properties were inferred.",
+          "No submitted quantities or transformations existed to recompute or verify.",
+          "A schema-valid response does not establish scientific fulfillment; the contract check explicitly covers application structure only."
+        ]
+      },
+      "record_coverage": [
+        {
+          "evidence_id": "task",
+          "source_sha256": "7467131e41af5f732218540ec7e4f32b8ff5580a10a8dff3610ae7991c0d4e38",
+          "chars": 10182,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              10182
+            ]
+          ]
+        },
+        {
+          "evidence_id": "submission",
+          "source_sha256": "0241c279b0365e0769680f022538201cad4ed50227a6dfe75af8cf72a348a575",
+          "chars": 723,
+          "retrieved_ranges": [
+            [
+              0,
+              723
+            ]
+          ]
+        },
+        {
+          "evidence_id": "platform-events",
+          "source_sha256": "6ea03c707283e6b758cb457f678f731b5801d15358c46776570aa8151be9bcf1",
+          "chars": 7672,
+          "retrieved_ranges": []
+        },
+        {
+          "evidence_id": "platform-enforcement",
+          "source_sha256": "3bd45d631b0df4dddfc981d2975168ba075334ccda8196acf57272a64e8b25be",
+          "chars": 1281,
+          "retrieved_ranges": []
+        },
+        {
+          "evidence_id": "platform-rpc-00003",
+          "source_sha256": "1152eac9f914ddaa0d055764e34ed30fe20b05ff7c43005396011360e4e16865",
+          "chars": 3867,
+          "retrieved_ranges": []
+        },
+        {
+          "evidence_id": "platform-rpc-00006",
+          "source_sha256": "a2e44645a79e9275fff0b8a85299a70fc54b7f5d8f7a90d69c5d4fa3eb332680",
+          "chars": 1521,
+          "retrieved_ranges": []
+        },
+        {
+          "evidence_id": "platform-rpc-00009",
+          "source_sha256": "ad814dd97051f78fc67903cb4b56176933ff2121703cf462fb97ee7af208a633",
+          "chars": 12393,
+          "retrieved_ranges": []
+        },
+        {
+          "evidence_id": "reference-0",
+          "source_sha256": "90cc3671e609eb25b781c83d9131725e3e3b109f9667b246975967433b42e598",
+          "chars": 3446,
+          "retrieved_ranges": [
+            [
+              0,
+              3446
+            ]
+          ]
+        },
+        {
+          "evidence_id": "reference-1",
+          "source_sha256": "ea6fe8e7777b137f3e6a39a9a6a85bdcad2544d1f8b880a648099bc6b19b0ca9",
+          "chars": 1115,
+          "retrieved_ranges": [
+            [
+              0,
+              1115
+            ]
+          ]
+        },
+        {
+          "evidence_id": "reference-2",
+          "source_sha256": "bbe9d0c3409975410464d16fe1a0669b5f0587ede7c44a062399a9e12a493eac",
+          "chars": 10503,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              10503
+            ]
+          ]
+        },
+        {
+          "evidence_id": "reference-3",
+          "source_sha256": "a8c1ab52ff6cee26f0e1389d4a22ddf99ec22e691376528eef59552fcbead6e1",
+          "chars": 5052,
+          "retrieved_ranges": [
+            [
+              0,
+              5052
+            ]
+          ]
+        },
+        {
+          "evidence_id": "output-contract-check",
+          "source_sha256": "2a558f5b19f88c2b8a93bb7eb932653cdb8fa4a8122ab89ecb373a6a999055ff",
+          "chars": 98,
+          "retrieved_ranges": [
+            [
+              0,
+              98
+            ]
+          ]
+        },
+        {
+          "evidence_id": "controller-output-inventory",
+          "source_sha256": "ed5f831f31636187d686c8a53a7b50fdb7f61d25c50db86b76ed2294e7d732a0",
+          "chars": 820,
+          "retrieved_ranges": [
+            [
+              0,
+              820
+            ]
+          ]
+        }
+      ],
+      "judge_calls": [
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\ssa-write-evidence\\judge_calls-v2_4\\native-afd178f47e0f40738e348f2d6e5ca1fb",
+          "rollout_sha256": "324c3e62c33923c5d2d6b09f7be2411f53a33290fa70af2520835e4c5a29882c",
+          "final_sha256": "62f6443978feb973436ad4d58248d2ac3efda82e08bd16c7410ff1a6ef7e027b",
+          "all_visible_judge_messages_and_final_reviewed": true,
+          "native_actions": [
+            {
+              "line_zero_based": 14,
+              "name": "exec",
+              "input": "const hits = ALL_TOOLS.filter(x => /evidence_(inventory|read)/.test(x.name));\ntext(hits);\n"
+            },
+            {
+              "line_zero_based": 20,
+              "name": "exec",
+              "input": "const r = await tools.mcp__mrhbench__evidence_read({evidence_id:\"controller-output-inventory\", start_char:0, max_chars:6000});\nfor (const c of (r.content ?? [])) {\n  if (c.type === \"image\") image(c, \"original\");\n  else if (c.type === \"text\") text(c.text);\n  else text(JSON.stringify(c));\n}\n"
+            },
+            {
+              "line_zero_based": 29,
+              "name": "exec",
+              "input": "const reqs = [\n  {evidence_id:\"task\", start_char:0, max_chars:6000},\n  {evidence_id:\"submission\", start_char:0, max_chars:6000},\n  {evidence_id:\"reference-0\", start_char:0, max_chars:6000}\n];\nfor (const q of reqs) {\n  const r = await tools.mcp__mrhbench__evidence_read(q);\n  for (const c of (r.content ?? [])) {\n    if (c.type === \"image\") image(c, \"original\");\n    else if (c.type === \"text\") text(c.text);\n    else text(JSON.stringify(c));\n  }\n}\n"
+            },
+            {
+              "line_zero_based": 38,
+              "name": "exec",
+              "input": "const reqs = [\n  {evidence_id:\"task\", start_char:6000, max_chars:6000},\n  {evidence_id:\"reference-1\", start_char:0, max_chars:6000},\n  {evidence_id:\"reference-2\", start_char:0, max_chars:6000}\n];\nfor (const q of reqs) {\n  const r = await tools.mcp__mrhbench__evidence_read(q);\n  for (const c of (r.content ?? [])) {\n    if (c.type === \"image\") image(c, \"original\");\n    else if (c.type === \"text\") text(c.text);\n    else text(JSON.stringify(c));\n  }\n}\n"
+            },
+            {
+              "line_zero_based": 47,
+              "name": "exec",
+              "input": "const reqs = [\n  {evidence_id:\"reference-2\", start_char:6000, max_chars:6000},\n  {evidence_id:\"reference-3\", start_char:0, max_chars:6000},\n  {evidence_id:\"output-contract-check\", start_char:0, max_chars:6000}\n];\nfor (const q of reqs) {\n  const r = await tools.mcp__mrhbench__evidence_read(q);\n  for (const c of (r.content ?? [])) {\n    if (c.type === \"image\") image(c, \"original\");\n    else if (c.type === \"text\") text(c.text);\n    else text(JSON.stringify(c));\n  }\n}\n"
+            }
+          ],
+          "assistant_message_index": [
+            {
+              "line_zero_based": 13,
+              "phase": "commentary",
+              "content_sha256": "502a9fe850590757c8088cd05f7f844b9611d1eeac10db350f6bfda51624a9bd"
+            },
+            {
+              "line_zero_based": 28,
+              "phase": "commentary",
+              "content_sha256": "8cd43093ea83484eebca91139aae226908538814b587a0cdb78c9fdb2a1c35b1"
+            },
+            {
+              "line_zero_based": 59,
+              "phase": "final_answer",
+              "content_sha256": "a2c9acd4d9f5019e2d7b01630aa1fd0bddc4a71bce6f4f686b39f88e3115f7f5"
+            }
+          ],
+          "actual_native_pages_verified_against_frozen_evidence": 10,
+          "all_mcp_receipts_observed_in_native_rollout": true,
+          "encrypted_reasoning_not_inspectable": true
+        }
+      ],
+      "model_images_received": 0,
+      "review": {
+        "decision": "pass_bounded_solver_absence_attribution_regression",
+        "comparison": "Original v2.3 was material_failure/null; v2.4 independently scored all four dimensions0 with controller-confirmed absence. No historic model score rewritten.",
+        "only_evidence_addition": "Trusted controller-output-inventory from complete zero-file collection and the already-frozen public output contract. Original scientific inputs/submission unchanged.",
+        "score_rationale": "All expected scientific outputs absent, so all affected dimensions are absent. Zero is judge-generated, not an injected score. This is not evidence that an unseen image was inaccurate.",
+        "feedback_review": "Public requirement and public controller/submission evidence only; no private fact, hidden method, scientific answer, architecture prescription, or code fix disclosed. Root cause correctly unknown.",
+        "visual_acceptance": "Not applicable: no solver image existed; zero native image blocks. Does NOT validate real rendering, pixel transport, or visual discrimination.",
+        "coverage": "Full task,submission,allreferences,controllerinventory,schemacheck. Other platform records not read and no specific execution cause claimed.",
+        "remaining": "Four-model-call budget viability and H0 planning are separate development findings. Broader partial-output and actual transport-loss natural cases remain to be tested."
+      }
+    },
+    {
+      "case": "idea",
+      "new_result_path": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\idea\\judge-v2_4\\result.json",
+      "new_result_sha256": "d6ad78886ed1a4183aa6c5f96e4beb52fa0301daaec0e637e241a616ce693833",
+      "status": "scored",
+      "quality": 4,
+      "dimensions": {
+        "feasibility": 4,
+        "grounding_value": 4,
+        "hypothesis_quality": 4,
+        "specificity_coherence": 4,
+        "substantive_difference": 4
+      },
+      "same_turn_feedback": {
+        "issues": [],
+        "limitations": []
+      },
+      "record_coverage": [
+        {
+          "evidence_id": "task",
+          "source_sha256": "e73045b96d6e2bcf5c2cc0860c4a9772d130df8d369fdedde8ba0d4831fd145e",
+          "chars": 6282,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              6282
+            ]
+          ]
+        },
+        {
+          "evidence_id": "submission",
+          "source_sha256": "8aab33cedb1c79070ba470b26cb8d443b36487cf5af03378cd28321235f8f486",
+          "chars": 9502,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              9502
+            ]
+          ]
+        },
+        {
+          "evidence_id": "platform-events",
+          "source_sha256": "2c577aae4661487f32a858b1829b66810c42f149d22151966383b2fef195bf77",
+          "chars": 5649,
+          "retrieved_ranges": []
+        },
+        {
+          "evidence_id": "platform-enforcement",
+          "source_sha256": "500371cf76cc7636d6819296ae03f57a8d7abd4ef18a9866d96d74d8ca31359b",
+          "chars": 1280,
+          "retrieved_ranges": []
+        },
+        {
+          "evidence_id": "platform-rpc-00003",
+          "source_sha256": "fe413f04d6de9adbb83720eceab7324526883866b941e9c88420846c0518b4ee",
+          "chars": 8158,
+          "retrieved_ranges": []
+        },
+        {
+          "evidence_id": "platform-rpc-00006",
+          "source_sha256": "4e20a8ee1de8e5a14cc3eced31f456b891f9c5c986d3d165c40406d6c4f0a0e3",
+          "chars": 1855,
+          "retrieved_ranges": []
+        },
+        {
+          "evidence_id": "reference-0",
+          "source_sha256": "73a1e3c081563049ef23963d9c0d25a4f4ff0d0f0bb1d684276b2f588f9cebfb",
+          "chars": 1451,
+          "retrieved_ranges": [
+            [
+              0,
+              1451
+            ]
+          ]
+        },
+        {
+          "evidence_id": "reference-1",
+          "source_sha256": "1f997932b3444ffa7466bb6453a851c194a45c7ed351cd6949b49b62bb17a2be",
+          "chars": 7596,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              7596
+            ]
+          ]
+        },
+        {
+          "evidence_id": "reference-2",
+          "source_sha256": "2b03baa7b4cfe9fc57b58a2b216028bd9d0683fe5c106eae45de02c17a0be199",
+          "chars": 3170,
+          "retrieved_ranges": [
+            [
+              0,
+              3170
+            ]
+          ]
+        },
+        {
+          "evidence_id": "output-contract-check",
+          "source_sha256": "2a558f5b19f88c2b8a93bb7eb932653cdb8fa4a8122ab89ecb373a6a999055ff",
+          "chars": 98,
+          "retrieved_ranges": []
+        }
+      ],
+      "judge_calls": [
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\idea\\judge_calls-v2_4\\native-04dc5cbe59114464b800afa6656aa9ef",
+          "rollout_sha256": "fa7a4aaad55f7280bcb4443b3d407496fd18f6f2f74a1f8ccc5deeae3b719b35",
+          "final_sha256": "e2d85f2de7af9015a5158b042a299f51fb3f7526f5718bb47d915f40283a0cb8",
+          "all_visible_judge_messages_and_final_reviewed": true,
+          "native_actions": [
+            {
+              "line_zero_based": 14,
+              "name": "exec",
+              "input": "const matches = ALL_TOOLS.filter(x => /evidence_(inventory|read)/.test(x.name));\ntext(matches);\n"
+            },
+            {
+              "line_zero_based": 20,
+              "name": "exec",
+              "input": "const ids = [\"task\", \"submission\", \"reference-0\"];\nconst rs = await Promise.all(ids.map(evidence_id => tools.mcp__mrhbench__evidence_read({evidence_id, start_char: 0, max_chars: 6000})));\nfor (let i = 0; i < rs.length; i++) {\n  text(JSON.stringify({evidence_id: ids[i], result: rs[i]}));\n}\n"
+            },
+            {
+              "line_zero_based": 31,
+              "name": "exec",
+              "input": "const requests = [\n  {evidence_id:\"task\", start_char:6000, max_chars:6000},\n  {evidence_id:\"submission\", start_char:6000, max_chars:6000},\n  {evidence_id:\"reference-1\", start_char:0, max_chars:6000}\n];\nconst rs = await Promise.all(requests.map(r => tools.mcp__mrhbench__evidence_read(r)));\nfor (let i = 0; i < rs.length; i++) text(JSON.stringify({request: requests[i], result: rs[i]}));\n"
+            },
+            {
+              "line_zero_based": 40,
+              "name": "exec",
+              "input": "const inv = await tools.mcp__mrhbench__evidence_inventory({});\ntext(JSON.stringify({inventory: inv}));\nconst requests = [\n  {evidence_id:\"reference-1\", start_char:6000, max_chars:6000},\n  {evidence_id:\"reference-2\", start_char:0, max_chars:6000}\n];\nfor (const request of requests) {\n  const result = await tools.mcp__mrhbench__evidence_read(request);\n  text(JSON.stringify({request, result}));\n}\n"
+            }
+          ],
+          "assistant_message_index": [
+            {
+              "line_zero_based": 13,
+              "phase": "commentary",
+              "content_sha256": "ed85bcc31c72d390d9e8bbc30cc24dd7efb63de7f88832ec447b1d1ecd5eb24f"
+            },
+            {
+              "line_zero_based": 30,
+              "phase": "commentary",
+              "content_sha256": "7087cc94e5034d7a4939a0dc9a7cb8cb9d379b563f1662f29d3ba296ea35bea6"
+            },
+            {
+              "line_zero_based": 52,
+              "phase": "final_answer",
+              "content_sha256": "2a7d8510672c42f38e60d7d1ecab896907f3f730da2e9350fa390c059f7adde3"
+            }
+          ],
+          "actual_native_pages_verified_against_frozen_evidence": 8,
+          "all_mcp_receipts_observed_in_native_rollout": true,
+          "encrypted_reasoning_not_inspectable": true
+        }
+      ],
+      "model_images_received": 0,
+      "review": {
+        "decision": "bounded_quality_supported_not_broad_discrimination_acceptance",
+        "score_rationale": "All4 defensible within intentionally narrow fixed background: concrete source-prepared response atlas, explicit deployment information boundary and finite storage scaling; honest identifiability, mixture and unsupported-shift limits; hypotheses cover performance, response-map contribution, gating, identifiability and sampling. No forced grade reduction for a high-quality proposal.",
+        "limits": "One proposal with one successful judgment does not establish score stability, global novelty, or empirical effectiveness. Gating and shift-family operationalization remain choices for later experiments, not newly imposed IDEA implementation requirements.",
+        "feedback_review": "Empty feedback contains no private leakage. Judge uncertainty internally records no experiments, bounded novelty and unspecified natural domains; absence of invented feedback is appropriate.",
+        "outer_status": "H0 changed completed to partial because artifacts=null despite action schema permitting null and no separate artifact requirement for this task. Judge correctly judged content rather than treating partial tag as missing science.",
+        "coverage": "Complete task, complete submission, complete public and private reference records. No platform record was read; not a required IDEA grading role. No visual required or delivered.",
+        "executor_review": "Three steps: read fixed background, read setting, final complete proposal; no experiment or extra retrieval. Complete final content and both released tool source contents inspected."
+      }
+    }
+  ],
+  "remaining": [
+    "No formal native host-tool isolation proof",
+    "No large-sample score calibration or judge robustness certification",
+    "IV feedback ownership requires controller release of local rejection evidence rather than responsibility transfer",
+    "WRITE_CONTENT equation/citation word-count convention is unfrozen; no retroactive threshold penalty",
+    "Further model calls require separate parent allocation; this supplementary allowance is exhausted"
+  ]
+}

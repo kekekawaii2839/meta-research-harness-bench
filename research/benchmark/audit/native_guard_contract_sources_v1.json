@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "retrieved_at": "2026-09-24T00:58:37.859311+00:00",
+  "official_page": "https://learn.chatgpt.com/docs/hooks",
+  "source_findings_paraphrased": [
+    "Unsupported PreToolUse control fields may produce hook errors while the original tool call continues.",
+    "MCP hook errors, missing servers and unavailable tools do not block the operation.",
+    "PostToolUse cannot undo already executed side effects."
+  ],
+  "engineering_consequence": "Hooks are defense-in-depth guardrails, not an OS isolation boundary. Post-run evidence gating rejects unqualified results but does not retroactively prevent effects.",
+  "local_findings": [
+    "Native judge clone previously did not forward an explicitly supplied guard. Calls189–191 did not configure any guard, so this is not evidence their guard was removed.",
+    "Guard config and script identity were recorded at runner construction but not rechecked at command build. Now rechecked, including Python executable, before reserve. This does not lock them during execution."
+  ],
+  "model_calls": 0,
+  "formal_isolation_verified": false
+}

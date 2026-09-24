@@ -1,0 +1,1 @@
+{"argv":["docker","rm","-f","f8d44ea0d055ebcecda2f3a8d1ad46bd964b91938d1158d5e86f8370e292ae23"],"output_limited":false,"returncode":0,"stderr":"","stderr_bytes":0,"stdout":"f8d44ea0d055ebcecda2f3a8d1ad46bd964b91938d1158d5e86f8370e292ae23\n","stdout_bytes":65,"timed_out":false,"wall_seconds":0.21900000000005093}

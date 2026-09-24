@@ -1,0 +1,265 @@
+{
+  "audit_version": 1,
+  "status": "revise",
+  "call_id": 157,
+  "case": "D:\\mrhbench-local-pilot\\h0-integration-20260923-002\\lit-controller-fixed",
+  "judge_version": "v2.4",
+  "reported_quality": 3.5,
+  "reported_dimensions": {
+    "comparative_synthesis": 3,
+    "evidence_coverage": 3,
+    "factual_citation_accuracy": 4,
+    "gap_grounding": 4
+  },
+  "rollout_sha256": "5d4638445e281092eddef8f3104bdb771335764479f70292e97bbd97cca4b023",
+  "trajectory_review": {
+    "all_meaningful_observable_judge_inputs_outputs_and_final_reviewed": true,
+    "encrypted_reasoning_not_accessible": true,
+    "tool_actions": [
+      {
+        "name": "exec",
+        "input": "const xs = ALL_TOOLS.filter(x => /evidence_(inventory|read)/.test(x.name));\ntext(xs);\n",
+        "call_id": "call_5DVctMXoFy2qEHaUv7kaVxBx"
+      },
+      {
+        "name": "exec",
+        "input": "const ids = [\"task\",\"submission\"];\nfor (const id of ids) {\n  const r = await tools.mcp__mrhbench__evidence_read({evidence_id:id,start_char:0,max_chars:6000});\n  text(JSON.stringify(r));\n}\n",
+        "call_id": "call_9R4Y5Jke8jYo5UG41PlIsD4N"
+      },
+      {
+        "name": "exec",
+        "input": "for (const start of [6000,12000]) {\n  const r = await tools.mcp__mrhbench__evidence_read({evidence_id:\"submission\",start_char:start,max_chars:6000});\n  text(JSON.stringify(r));\n}\n",
+        "call_id": "call_RCeD2S0zpdlU08XHB48BuVl8"
+      },
+      {
+        "name": "exec",
+        "input": "for (const id of [\"platform-events\",\"output-contract-check\",\"reference-0\"]) {\n  const r = await tools.mcp__mrhbench__evidence_read({evidence_id:id,start_char:0,max_chars:6000});\n  text(JSON.stringify(r));\n}\n",
+        "call_id": "call_8aHzV4qBZvnoOy214RfKmmqV"
+      },
+      {
+        "name": "exec",
+        "input": "for (const start of [0,6000,12000]) {\n  const r = await tools.mcp__mrhbench__evidence_read({evidence_id:\"lit-full-doc-2204.13263-arxiv-v1\",start_char:start,max_chars:6000});\n  text(JSON.stringify(r));\n}\n",
+        "call_id": "call_c766noTIqTZDbsCmieVpPbXQ"
+      },
+      {
+        "name": "exec",
+        "input": "for (const id of [\"lit-full-doc-2006.10726-arxiv-v1\",\"lit-full-doc-1909.13231-arxiv-v1\",\"lit-full-doc-2101.10842-arxiv-v1\"]) {\n  const r = await tools.mcp__mrhbench__evidence_read({evidence_id:id,start_char:0,max_chars:6000});\n  text(JSON.stringify(r));\n}\n",
+        "call_id": "call_LNTGJxdIzzywZXdJpH1Ubv6F"
+      },
+      {
+        "name": "exec",
+        "input": "for (const id of [\"lit-full-doc-1607.01719-arxiv-v1\",\"lit-full-doc-1505.07818-arxiv-v1\",\"lit-source-index\"]) {\n  const r = await tools.mcp__mrhbench__evidence_read({evidence_id:id,start_char:0,max_chars:6000});\n  text(JSON.stringify(r));\n}\n",
+        "call_id": "call_PUVCI5Ru1qEtc1WfH5eqPO2v"
+      },
+      {
+        "name": "exec",
+        "input": "for (const id of [\"platform-rpc-00021\",\"platform-rpc-00027\",\"platform-rpc-00033\"]) {\n  const r = await tools.mcp__mrhbench__evidence_read({evidence_id:id,start_char:0,max_chars:6000});\n  text(JSON.stringify(r));\n}\n",
+        "call_id": "call_LUqC6KQ50kwOlDoz0VKpiKdv"
+      },
+      {
+        "name": "exec",
+        "input": "for (const id of [\"platform-rpc-00030\",\"model-action-rpc-00035\",\"platform-enforcement\"]) {\n  const r = await tools.mcp__mrhbench__evidence_read({evidence_id:id,start_char:0,max_chars:6000});\n  text(JSON.stringify(r));\n}\n",
+        "call_id": "call_H6p3oNt6AVBgHqFsHMu7OIcP"
+      }
+    ],
+    "read_receipts": {
+      "062f4e2a581b38c2dbf640ce286ce21a88c70842f8a1ea704a0bd619dfee005c": {
+        "end_char": 5870,
+        "evidence_id": "platform-rpc-00030",
+        "media_type": "text/plain",
+        "source_sha256": "9d13e6f1dd7db75f6ecff67bab63256944457edbd60a603c90095f639ba7c463",
+        "start_char": 0
+      },
+      "0938c51a84465cc8ca27cbc4049b0f972b649168011a1f75c295be60d29cf150": {
+        "end_char": 6000,
+        "evidence_id": "lit-source-index",
+        "media_type": "text/plain",
+        "source_sha256": "4f872c682452fbc6cf6b7fb0a6fac2cc99bf1d80eb12f42bf5d9d1cd5639720c",
+        "start_char": 0
+      },
+      "0f94158e53caa78513165cabadd98f185dca5e78d93201f6f612847e28df550c": {
+        "end_char": 13924,
+        "evidence_id": "submission",
+        "media_type": "text/plain",
+        "source_sha256": "e13bc57694608febd949bbc815ae9bd41b43bfb4fe71d2f87b5356977565b3d4",
+        "start_char": 12000
+      },
+      "10287ead27ac0103423094deeedb5d77e3289ba08c7fcd46efb9b31191225bec": {
+        "end_char": 6000,
+        "evidence_id": "submission",
+        "media_type": "text/plain",
+        "source_sha256": "e13bc57694608febd949bbc815ae9bd41b43bfb4fe71d2f87b5356977565b3d4",
+        "start_char": 0
+      },
+      "11bc396eff391fe0286e0eb514a77f1f11b915b4ac7c8eec1dff2b794b0cd612": {
+        "end_char": 6000,
+        "evidence_id": "platform-events",
+        "media_type": "text/plain",
+        "source_sha256": "9277d579541d60d4740fc4c9c375d9fab7509be53b8ebfa202f3b653feb000e6",
+        "start_char": 0
+      },
+      "1a634d13dbae8c54c32c5151851bcd02fe9aeb9534b67f886235917de89299f3": {
+        "end_char": 6000,
+        "evidence_id": "platform-rpc-00033",
+        "media_type": "text/plain",
+        "source_sha256": "e261b72438f644c59742002f21795106ac162f76b3e9002bb25def57cf024b26",
+        "start_char": 0
+      },
+      "21ab57e5206a3519637c1b63edeea80feade6508635628459d70b8c31f8dd2c0": {
+        "end_char": 6000,
+        "evidence_id": "model-action-rpc-00035",
+        "media_type": "text/plain",
+        "source_sha256": "22f9c1889da6f86fbc4feaef9938af921c19b05354b3289477205784f613baea",
+        "start_char": 0
+      },
+      "336b690f8289b8ce17e70c337609b115a2aa7d777034bf4011164ebbd17de306": {
+        "end_char": 6000,
+        "evidence_id": "platform-rpc-00021",
+        "media_type": "text/plain",
+        "source_sha256": "d2d05243dc5c10485d9712afc1114a9adac9a518d1b99319d6392565e4b981ed",
+        "start_char": 0
+      },
+      "36f055c88caed363c2c75c7f100caef3953279eb1978795297ab37117359c61c": {
+        "end_char": 6000,
+        "evidence_id": "lit-full-doc-1505.07818-arxiv-v1",
+        "media_type": "text/plain",
+        "source_sha256": "26d3ad8b2372a8e54d39748dd6c933cb4fa3803a57b1f7aa92eb3dc8d6f7e914",
+        "start_char": 0
+      },
+      "43d71b060d3d4b1fd8e4049e6e4c1250a1af66d602ccf69f041207ac1d241a36": {
+        "end_char": 1757,
+        "evidence_id": "reference-0",
+        "media_type": "text/plain",
+        "source_sha256": "878ecf20233e9d05436f0100072dee5fbe4dd69786f371eaa9abfc6c2c0b76b1",
+        "start_char": 0
+      },
+      "627490d46ed9c4e23ca903ba1b0301c84f55ee28d4004607e18fb59e432c647d": {
+        "end_char": 12000,
+        "evidence_id": "submission",
+        "media_type": "text/plain",
+        "source_sha256": "e13bc57694608febd949bbc815ae9bd41b43bfb4fe71d2f87b5356977565b3d4",
+        "start_char": 6000
+      },
+      "70e0ea86ac00465943cfab9bf236417bdee02110e70246e03ebfa0ebcfc588f7": {
+        "end_char": 18000,
+        "evidence_id": "lit-full-doc-2204.13263-arxiv-v1",
+        "media_type": "text/plain",
+        "source_sha256": "acaa2311dda728107af54b8f4d7d7eab08596e316fd709e92beb180bd6942e3a",
+        "start_char": 12000
+      },
+      "82ed11f9dd38211bb002ef49c9a3a4e201a71ab1cd6b14da2805b1fc07ca29fc": {
+        "end_char": 6000,
+        "evidence_id": "lit-full-doc-2006.10726-arxiv-v1",
+        "media_type": "text/plain",
+        "source_sha256": "d38b67c6cb3031450e5ff7d2daf9c1d54469de2131c71d39be01d9715109edd2",
+        "start_char": 0
+      },
+      "866b4989d5b388a3cc66222e72bab0eb72da420c96718862036df87380dbd568": {
+        "end_char": 6000,
+        "evidence_id": "lit-full-doc-2204.13263-arxiv-v1",
+        "media_type": "text/plain",
+        "source_sha256": "acaa2311dda728107af54b8f4d7d7eab08596e316fd709e92beb180bd6942e3a",
+        "start_char": 0
+      },
+      "8efe83a8d30ee654ce694256a5d909f5f4f0d500bba9a0eed0c49dd5b444fb45": {
+        "end_char": 12000,
+        "evidence_id": "lit-full-doc-2204.13263-arxiv-v1",
+        "media_type": "text/plain",
+        "source_sha256": "acaa2311dda728107af54b8f4d7d7eab08596e316fd709e92beb180bd6942e3a",
+        "start_char": 6000
+      },
+      "9055c476a78be05427560cb9baa26926d91b96b1ff054ea02d2ba24cc3c8294a": {
+        "end_char": 5706,
+        "evidence_id": "task",
+        "media_type": "text/plain",
+        "source_sha256": "7c6aa8f4e37af1e7cb819d88192fa7c40d60758c8adc60d4a72704a1b672bd3c",
+        "start_char": 0
+      },
+      "be9dcb259765e30a407672e56196ad7f9b066def95a79b3ccd9498722488e588": {
+        "end_char": 98,
+        "evidence_id": "output-contract-check",
+        "media_type": "text/plain",
+        "source_sha256": "2a558f5b19f88c2b8a93bb7eb932653cdb8fa4a8122ab89ecb373a6a999055ff",
+        "start_char": 0
+      },
+      "bf6ef1e3ec95b8eb3cb16d86607170a74a2554c183ebbe8be166070d1b210214": {
+        "end_char": 1283,
+        "evidence_id": "platform-enforcement",
+        "media_type": "text/plain",
+        "source_sha256": "a83b70f45a117c81534d64992e017f70c504ba70595df373f45acac0cfc2cc50",
+        "start_char": 0
+      },
+      "d45bc47c561a06a88b7aa9794a6ecc1f6f28aed60c612bb4fa33088f2d6ad40b": {
+        "end_char": 6000,
+        "evidence_id": "lit-full-doc-1909.13231-arxiv-v1",
+        "media_type": "text/plain",
+        "source_sha256": "00de449595cc1c4dea7a1860ebd17e0730fab7707f4d64968d7f707dec25fb93",
+        "start_char": 0
+      },
+      "d7a927af29fa97d317361c0abae8f6f4f6c4532efaef82d0a29037182328f009": {
+        "end_char": 2054,
+        "evidence_id": "platform-rpc-00027",
+        "media_type": "text/plain",
+        "source_sha256": "5cd60cdba367f2da66882c67c42d78ccbb8a7a2388789d5d113e791081bb7795",
+        "start_char": 0
+      },
+      "e3df5d5441c58f5a3f75f6d4cb61389e9af6e8297d2bcfd535b4fc04c822ffed": {
+        "end_char": 6000,
+        "evidence_id": "lit-full-doc-1607.01719-arxiv-v1",
+        "media_type": "text/plain",
+        "source_sha256": "32572a5806417b63ab146251a004146b5a5979a31b70e563b7d22402eeb335ab",
+        "start_char": 0
+      },
+      "ef4d115e123b48506772caa490776bf0a5aca51ada4191073dba2ed3ed686bf4": {
+        "end_char": 6000,
+        "evidence_id": "lit-full-doc-2101.10842-arxiv-v1",
+        "media_type": "text/plain",
+        "source_sha256": "8ae9fc8f2506b683934c33757bd0ae9be550ff1b1a66c5041b1e32ec70569233",
+        "start_char": 0
+      }
+    },
+    "actual_payloads_match_frozen_ranges": true,
+    "receipt_count": 22,
+    "no_images_expected_or_delivered": true,
+    "no_native_host_execution_observed": true,
+    "formal_isolation_verified": false,
+    "not_all_18_papers_read": true
+  },
+  "specific_missed_check": {
+    "solver_claim": "Entropy-based TTA presumes probabilistic categorical outputs, which are absent in the stated setting.",
+    "solver_location": "grounded_gaps[3].grounding",
+    "second_claim": "Classification confidence methods are less directly transferable because their objectives presume probabilistic categorical outputs.",
+    "private_guidance": "Tent v1 p3 explicitly mentions compatible probabilistic regressors; no categorical claim that entropy cannot concern any regression model.",
+    "private_guidance_evidence_id": "reference-1",
+    "private_guidance_read": false,
+    "original_source": "lit-full-doc-2006.10726-arxiv-v1",
+    "pdf_page": 3,
+    "page_char_range": [
+      7848,
+      11559
+    ],
+    "qualification_char": 8558,
+    "source_sha256": "54394849933b3ff88e001cbf25dc59ded458ea0f259c82951a0912170bc06756",
+    "source_qualification": "The method is not restricted to softmax classifiers; compatible probabilistic regressors can have predictive variance.",
+    "judge_actual_source_read_ranges": [
+      [
+        0,
+        6000
+      ]
+    ],
+    "assessment": "The narrow absence of a predictive distribution in this task is legitimate; the blanket categorical-output premise is overbroad. Strongest accuracy and gap verification missed an explicitly available qualification. Do not retroactively edit scores or prescribe a replacement score."
+  },
+  "feedback_review": {
+    "public_receipts_only": true,
+    "semantic_private_leak_observed": false,
+    "assessment": "Single issue describes openly admitted snippet reliance and lack of regression empirical verification; no Tent private counterfact, reference label, hidden method, threshold, or answer supplied."
+  },
+  "attribution": "judge targeted evidence-verification gap; source page available, not material failure or solver execution failure. Solver independently overgeneralizes a method-family premise.",
+  "change_for_new_version": "Generic source checking of categorical claims and gap premises using evaluation guidance and original passages, plus source-index character offsets; no task-specific forced grade.",
+  "held_out_plan": "Freeze revised prompt after this bounded retry and evaluate additional independent LIT cases/counterclaim fixtures before claiming general calibration; this repeatedly inspected case is development-only.",
+  "limitations": [
+    "PDF extraction reviewed, no visual source inspection; no consequential figure/equation claim here.",
+    "Not all 1.27M source characters independently reviewed.",
+    "H0 executor review also separately recorded in lit_executor_independent_review_v1.json."
+  ]
+}

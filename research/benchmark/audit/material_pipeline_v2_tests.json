@@ -1,0 +1,29 @@
+{
+  "schema_version": "material-pipeline-test-1",
+  "time_utc": "2026-09-23T21:32:45.668561+00:00",
+  "command": [
+    "D:\\programming\\Anaconda3\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "research\\benchmark\\tests",
+    "-p",
+    "test_*v2.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_cannot_expose_target_to_idea (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_failed_native_receipt_resume_does_not_reinvoke (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_generated_environment_not_input_only_checked (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_no_self_approval (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_package_limits_differ (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_real_source_only_staging_hashes_and_freshness (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_reviewer_refuses_constructor_modified_sources (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_source_mutation_and_gpu_rejected (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_allowed_version_and_newest_selection (test_shared_background_v2.SharedBackgroundTests) ... ok\ntest_exclusion_before_title_snippet_body_pdf (test_shared_background_v2.SharedBackgroundTests) ... ok\ntest_no_task_directed_digest (test_shared_background_v2.SharedBackgroundTests) ... ok\ntest_private_labels_never_exposed (test_shared_background_v2.SharedBackgroundTests) ... ok\ntest_retrieval_stages_no_automatic_penalty (test_shared_background_v2.SharedBackgroundTests) ... ok\ntest_unknown_disclosure_and_unapproved_fail_closed (test_shared_background_v2.SharedBackgroundTests) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.494s\n\nOK\n",
+  "model_calls": 0,
+  "source_cache_mutated": false,
+  "formal_accepted": false,
+  "limitations": [
+    "R2 corpus is existing8seed, not expanded field coverage",
+    "Actual model constructor and reviewer not yet invoked by this subagent",
+    "Environment specs remain candidate until root Docker smoke",
+    "Structural gates cannot certify source semantics or rights"
+  ]
+}

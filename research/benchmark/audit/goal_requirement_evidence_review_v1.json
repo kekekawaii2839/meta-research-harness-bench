@@ -1,0 +1,432 @@
+{
+  "schema_version": "goal-requirement-evidence-review-1",
+  "created_at": "2026-09-24T01:10:02.113523+00:00",
+  "scope": "Independent bounded closure audit of current AGENTS T00-T14; no new benchmark design, model calls, environment changes, or historical score edits. Evidence summaries checked against named structured audits; this is not a new rereading of every underlying trajectory.",
+  "protocol_binding": {
+    "path": "AGENTS.md",
+    "sha256": "c356e28459aa631458c1b4e7af49acd6894b22650b3e7ca5bc7db59bf091a84e"
+  },
+  "authorization_snapshot": {
+    "ledger_path": "research/benchmark/audit/development_call_ledger.json",
+    "sha256": "76ef0001ca2cce5fe295448fd61841c77047faec0ffb3f4ef85ef97e575810e9",
+    "used_attempts": 191,
+    "authorized_maximum": 268,
+    "remaining": 77,
+    "reserved": 0,
+    "interpretation": "Original additional200 includes failures, total268. This is a snapshot; root may start concurrent authorized work. No new quota approval needed merely because work is materials rather than judge. Model/scope changes and formal launch remain separate decisions."
+  },
+  "decision": {
+    "whole_T00_T14_complete": false,
+    "useful_authorized_work_remains": true,
+    "must_not_mark_goal_complete": "Software tests and local reviewed cases do not establish full dataset/formal evaluation. Root owns actual goal state; this subagent does not change it.",
+    "not_all_work_blocked": "Environment and pending material strategy block their specific branches, not finite existing-input judge development, source/metadata audits or offline integration.",
+    "no_blanket_invalidation": "Formal role-isolation limitations limit claims and future admission; they do not erase actual observed controlled-container behavior, known solver errors or manually reviewed judge evidence."
+  },
+  "requirements": [
+    {
+      "requirements": [
+        "T00"
+      ],
+      "status": "bounded_development_evidence_exists",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/container_runtime_acceptance_v1.json",
+          "sha256": "7e7f43f238998be8ecc9547d30db26756ed894bdff2b61cff7ec8185b8971ad5"
+        },
+        {
+          "path": "research/benchmark/audit/stream_artifact_hash_acceptance_v1.json",
+          "sha256": "aedf9b3d1a651d21e4116af2f13e0d7a31c6b23e1a49b521c8ee6de812253d1b"
+        },
+        {
+          "path": "research/benchmark/audit/image_portability_v1.json",
+          "sha256": "9d39aece99fd8723bfa927023e7f647a742b143e9b249d5711ebac52df3f8e1f"
+        }
+      ],
+      "proves": "CPU package runtime has actual per-run container, cgroup/resource/failure checks; streaming hash and same-host image transfer were exercised.",
+      "does_not_prove": "Not native host-tool isolation, arbitrary-kernel safety, or cross-host numerical equivalence. Earlier runtime audit gaps must be read with newer timeout/collection audits, not treated as still wholly unimplemented.",
+      "can_continue_without_new_user_decision": "Yes: bounded regressions and package preflight on already-authorized local CPU Docker. No need to acquire server/GPU or prove universal cross-host behavior to close local engineering.",
+      "decision_if_needed": "Only if moving host or installing/altering system environment; those are not current routine development prerequisites."
+    },
+    {
+      "requirements": [
+        "T01"
+      ],
+      "status": "bounded_development_evidence_exists",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/context_policy_real_probes_independent_review_v1.json",
+          "sha256": "e1f0c04c95d828e76ef669741bb15081331b855453c65da1f8f8ac9ce8f7cfde"
+        },
+        {
+          "path": "research/benchmark/audit/native_contract_independent_review_v1.json",
+          "sha256": "b3b1d411373d1ec9fbc18b3c14e3e19a303c10efbf6d66ab32e83995e3ecf9ca"
+        },
+        {
+          "path": "research/benchmark/audit/native_admissibility_root_review_v1.json",
+          "sha256": "c543a07236af9d9f6b537553c04ea90e03ff0a1b6bfd2e2fc4371b77bc92d352"
+        }
+      ],
+      "proves": "Current exact-binary native selector and JSON transport were actually exercised with fixed model/medium and visible skill catalogue suppressed; schema-dict and ledger-error contracts repaired.",
+      "does_not_prove": "Not bare-API equivalence or absence of all system/tool context. Tool-activity auditing does not prevent a host read that already happened.",
+      "can_continue_without_new_user_decision": "Yes: retain explicit subscription-transport naming and observed context; fix finite contract/inheritance defects without claiming bare-model equivalence. Reuse existing evidence rather than repeat model probes without a new hypothesis.",
+      "decision_if_needed": "U1 for OS-isolation environment; changing executor model/transport semantics beyond the established development configuration requires explicit protocol choice."
+    },
+    {
+      "requirements": [
+        "T02"
+      ],
+      "status": "bounded_development_evidence_exists",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/h0_judge_v2_4_reassessment_review.json",
+          "sha256": "e370c057306cb4009db153ccdac1a36e848fcaaddae3129f18e6b947f5c4c57a"
+        },
+        {
+          "path": "research/benchmark/audit/native_judge_v2_8_four_case_holdout_acceptance.json",
+          "sha256": "c430bba4f6c94ee37f75a232f70c45df84bb2798f090f285d9a408ae4dba403d"
+        },
+        {
+          "path": "research/benchmark/audit/native_admissibility_independent_review_v1.json",
+          "sha256": "48f919f5d3a5bd23e4aa49177c5e071514b74ac22bf90cfb0535320d84b53823"
+        }
+      ],
+      "proves": "Native Codex judge actively retrieves evidence and emits internal score plus same-turn public feedback. Complete observable trajectories have been read for concrete cases.",
+      "does_not_prove": "Not merely a prompt-only stub, but also not universal scoring reliability or complete host sandboxing.",
+      "can_continue_without_new_user_decision": "Yes: finish limited fresh-case behavior checks and byte-bound visible-tool review. Existing reviewed development judgments remain useful evidence; do not erase them because formal isolation remains pending.",
+      "decision_if_needed": null
+    },
+    {
+      "requirements": [
+        "T03"
+      ],
+      "status": "bounded_development_evidence_exists",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/judge_t03_evidence_completeness_review_v1.json",
+          "sha256": "caa76ed95cef0b6bc8498b8ff105b631cb4c47fbbe8ff2aa9dff15e6cf3ca68d"
+        },
+        {
+          "path": "research/benchmark/audit/visual_judge_holdout_acceptance_v2_6.json",
+          "sha256": "85ebb7b01997da5b16bcad4379f7b3ca380a9b02f9c504d587c9390ae6f36194"
+        },
+        {
+          "path": "research/benchmark/audit/native_judge_v2_8_four_case_holdout_acceptance.json",
+          "sha256": "c430bba4f6c94ee37f75a232f70c45df84bb2798f090f285d9a408ae4dba403d"
+        },
+        {
+          "path": "research/benchmark/audit/native_judge_v2_8_robustness_diagnostic.json",
+          "sha256": "aa0b6c180256dd524d685a9ba220077c78bbe13750a67263e4fb4428220950ed"
+        }
+      ],
+      "proves": "Five types have case-level native judge evidence. Fresh visual and EXP/WRITE_CONTENT target defects were distinguished; one correct short WRITE_CONTENT case survived a repeat/paraphrase/order diagnostic.",
+      "does_not_prove": "IDEA/LIT latest-policy independent leaveout coverage is limited; EXP platform-provenance attribution and non-target grade variation remain. Local stability is not population reliability. Older completeness audit predates the newer v2.8 tests and must not overwrite them.",
+      "can_continue_without_new_user_decision": "Yes: root is already preparing bounded fresh IDEA/LIT cases. Freeze configuration, prerecord observable acceptance expectations, inspect full visible trajectories and semantic feedback, report pass/partial/fail once. Do not force low scores or endlessly repair the same examples. A finite module-level development acceptance with explicit limitations is sufficient; no extra human experts or global reliability theorem required.",
+      "decision_if_needed": "Only changes to primary aggregation, penalties, acceptance meaning, or model configuration—not ordinary prompt/fixture engineering—need protocol confirmation."
+    },
+    {
+      "requirements": [
+        "T04"
+      ],
+      "status": "bounded_development_evidence_exists",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/approved_budget_pilot_costs_v1.json",
+          "sha256": "1182187aedba3a500df1f9aff38e0382055a030a6b592a38d568ee2f0f091703"
+        },
+        {
+          "path": "research/benchmark/audit/taskview_collection_independent_review_v4.json",
+          "sha256": "f2648159282ea6ab71d54486fa25322c33852ff73a2f11357bbb66f3ff04ad30"
+        },
+        {
+          "path": "research/benchmark/audit/failure_artifact_policy_acceptance_v1.json",
+          "sha256": "615d22d5b701f779976510b51da5472a3a5b9a7419e3aa223b6b7dd6dbcc1e9c"
+        }
+      ],
+      "proves": "Package-specific budgets/collection caps are public and matched by controller. Real increased-budget EXP/WRITE_EVIDENCE produced scientific files within 1200/600-second limits; failures use absolute deadlines.",
+      "does_not_prove": "Those two examples do not fix budgets for new papers. Old and increased-budget runs are not evolution improvements. Costs snapshot181 is historical, not current ledger.",
+      "can_continue_without_new_user_decision": "Yes: each new dev package gets independently justified resource candidates and measurement. Continue cost accounting under shared remaining authorization; no new quota request needed while sufficient.",
+      "decision_if_needed": "Formal package settings and run/retry accounting freeze under U3; do not silently raise already-fixed per-task experimental limits."
+    },
+    {
+      "requirements": [
+        "T05"
+      ],
+      "status": "bounded_development_evidence_exists",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/write_evidence_budget_independent_review_v1.json",
+          "sha256": "055c3239c4ad1e13336c9b9cd19974f43eee37d9d7675eb8625da08fcbff98c5"
+        },
+        {
+          "path": "research/benchmark/audit/lit_judge_fulltext_v2_5_independent_review.json",
+          "sha256": "0fd954a64fc0a529aa7b28b0035ab6cc678fbf574d60ad952eb4cf92a4f1a536"
+        },
+        {
+          "path": "research/benchmark/audit/execution_identity_independent_review_v1.json",
+          "sha256": "6e9fff505bb09759efdfd9b241ae33f914611f9a319c8686ee3135e622e206a5"
+        }
+      ],
+      "proves": "Actual scientific artifact generation/visual delivery and controlled fulltext reading occurred; public-input byte identity and evidence hash-domain distinctions now checked.",
+      "does_not_prove": "Not all future package tools work; old runs did not see later added identity/collection fields. Do not retroactively credit their judges with those checks.",
+      "can_continue_without_new_user_decision": "Yes: bounded preflight for declared tools/new assets, and actual changed-code smoke as needed; avoid rerunning unchanged successful controls solely to increase test counts.",
+      "decision_if_needed": null
+    },
+    {
+      "requirements": [
+        "T06"
+      ],
+      "status": "bounded_development_evidence_exists",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/failure_artifact_policy_acceptance_v1.json",
+          "sha256": "615d22d5b701f779976510b51da5472a3a5b9a7419e3aa223b6b7dd6dbcc1e9c"
+        },
+        {
+          "path": "research/benchmark/audit/native_contract_independent_review_v1.json",
+          "sha256": "b3b1d411373d1ec9fbc18b3c14e3e19a303c10efbf6d66ab32e83995e3ecf9ca"
+        },
+        {
+          "path": "research/benchmark/audit/execution_identity_independent_review_v1.json",
+          "sha256": "6e9fff505bb09759efdfd9b241ae33f914611f9a319c8686ee3135e622e206a5"
+        }
+      ],
+      "proves": "Timeout marks uncaptured products unknown, preserves host receipts, and does not fabricate scientific zero. Ledger missing-rollout/native-activity failures and platform identity errors are distinguishable.",
+      "does_not_prove": "Not a frozen formal denominator/retry policy and not perfect capture of every imported file. Post-timeout no artifacts cannot establish solver never produced them.",
+      "can_continue_without_new_user_decision": "Yes: finite error-attribution regressions and root fixture-provenance repair remain engineering work. Preserve old scores/errors and publish corrected versions separately.",
+      "decision_if_needed": "U3 for formal failure aggregation/retry rules, not for obvious platform-error bookkeeping repairs."
+    },
+    {
+      "requirements": [
+        "T07"
+      ],
+      "status": "actual_backend_blocker_for_formal_native_isolation",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/native_read_boundary_research_v1.json",
+          "sha256": "65eeaddb30602892eee03ae1aff4551eac5b4cd2ad6061a4a7147b889c790b4a"
+        },
+        {
+          "path": "research/benchmark/audit/native_admissibility_root_review_v1.json",
+          "sha256": "c543a07236af9d9f6b537553c04ea90e03ff0a1b6bfd2e2fc4371b77bc92d352"
+        },
+        {
+          "path": "research/benchmark/audit/taskview_collection_independent_review_v4.json",
+          "sha256": "f2648159282ea6ab71d54486fa25322c33852ff73a2f11357bbb66f3ff04ad30"
+        }
+      ],
+      "proves": "Whitelist-based stage exports/container broker checks and post-run native tool review exist. Strict-read profile syntax is accepted, but actual allowed-read probe refuses before child start on unelevated Windows.",
+      "does_not_prove": "No negative-read protection was demonstrated; hook fail-open/post-run rejection is not preventive isolation. Yet this does not make all inspected development science/judge observations nonexistent.",
+      "can_continue_without_new_user_decision": "Yes: offline profile integration design, audit review and input-export checks. No further environment-changing strict-read trial until U1. Historical dev scores may stay labeled nonformal; not all unrelated T03 work must stop.",
+      "decision_if_needed": "U1: continue native Windows with authorized elevated sandbox setup/readiness, or explicitly choose independent Linux/WSL runner. Do not install, elevate, migrate, or silently fall back to full access."
+    },
+    {
+      "requirements": [
+        "T08"
+      ],
+      "status": "bounded_development_evidence_exists",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/shared_background_v3_mechanical_acceptance.json",
+          "sha256": "1b759522d5d32d6e7021b7042964d6faf44fcf5e46d66d1da92dd2672424b991"
+        },
+        {
+          "path": "research/benchmark/audit/lit_judge_fulltext_v2_5_independent_review.json",
+          "sha256": "0fd954a64fc0a529aa7b28b0035ab6cc678fbf574d60ad952eb4cf92a4f1a536"
+        }
+      ],
+      "proves": "18 pinned background documents have shared controlled retrieval; 364/365 pages readable with one explicit failure; version/time/target filters and actual retrieval have evidence.",
+      "does_not_prove": "Not representative whole-field coverage, full earliest-disclosure audit, or complete source rights clearance. Need not label every shared document for every task.",
+      "can_continue_without_new_user_decision": "Yes: current-source metadata/first-disclosure review and bounded extraction failure repair can continue within existing scope. Library expansion should follow approved new materials, not be an indefinite standalone literature collection.",
+      "decision_if_needed": "New whole-corpus scale/host decisions belong with materials/U3, not a new approval for every metadata correction."
+    },
+    {
+      "requirements": [
+        "T09"
+      ],
+      "status": "bounded_development_evidence_exists",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/identity_retrieval_root_review_v1.json",
+          "sha256": "d106fe92532f39c13f68a9f62eea7f9d45aaea7b29f51b13fcab2d72437435ab"
+        },
+        {
+          "path": "research/benchmark/audit/private_ssa_retrieval_diagnostic_v2.json",
+          "sha256": "ab98dddacda4ecd776aef64b5cd7ac194262143f37a74978602db1f5cbaec86b"
+        },
+        {
+          "path": "research/benchmark/audit/private_ssa_lit_existing_three_review_v1.json",
+          "sha256": "60597e5f5fd2b3e1e683b793a53849615a9c1204ca3c3763514bc49de4e7dc57"
+        }
+      ],
+      "proves": "11 SSA task-relative labels have source locators plus root verification. Real H0 returned/read/adopted stages are separately diagnosed; unknown labels are preserved.",
+      "does_not_prove": "Not mandatory citation gold, semantic adoption correctness, or an approved change to LIT quality weights. Seven SSA-unreviewed IV-neighborhood papers need not be forced negative.",
+      "can_continue_without_new_user_decision": "Yes: preserve these as auxiliary private diagnostics and check identity/versions. No need to fill all18 merely to claim software completion.",
+      "decision_if_needed": "User confirmation only if a mechanical metric enters primary scoring or changes weights; diagnostics alone do not require that change."
+    },
+    {
+      "requirements": [
+        "T10"
+      ],
+      "status": "bounded_development_evidence_exists",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/material_pipeline_v3_handoff.json",
+          "sha256": "cee966a5095f350143db54fa45deb0c2e7ef0f6a51e7aed96d5c28cb336f281b"
+        },
+        {
+          "path": "research/benchmark/audit/material_v6_root_adjudication.json",
+          "sha256": "063b69f215dedfd50b79d34b52a5daff29609e8e4f7ee5d4745d826bc55f2aed"
+        },
+        {
+          "path": "research/benchmark/audit/taskview_collection_independent_review_v4.json",
+          "sha256": "f2648159282ea6ab71d54486fa25322c33852ff73a2f11357bbb66f3ff04ad30"
+        },
+        {
+          "path": "research/benchmark/audit/taskview_source_independent_review_v1.json",
+          "sha256": "d50b564130eec11dfc880ef4bb1c8a0eb84698d46a733ae1e8f611393c6ab766"
+        }
+      ],
+      "proves": "Unified TaskView, independent-stage assets, package resources, maintainer-corrected scientific inputs and private/public provenance exist for development; 177 historical sources were hash-checked.",
+      "does_not_prove": "Not unassisted construction quality, formal sample pool or public redistribution rights. Handoff pending-v6 root item is superseded by material_v6_root_adjudication; do not reopen it without new evidence.",
+      "can_continue_without_new_user_decision": "Yes: schema/source preparation, coverage screening, rights inventory and bounded review of already-approved pilot assets. Generic CPU-stage task construction is already authorized; not every material action needs a fresh approval.",
+      "decision_if_needed": "U2 applies specifically to the outstanding proposed two-new-paper sol-constructor trial; do not conflate it with absent authorization for all material work."
+    },
+    {
+      "requirements": [
+        "T11"
+      ],
+      "status": "pilot_engineering_exists_constructor_strategy_pending",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/material_pipeline_v3_handoff.json",
+          "sha256": "cee966a5095f350143db54fa45deb0c2e7ef0f6a51e7aed96d5c28cb336f281b"
+        },
+        {
+          "path": "research/benchmark/audit/local_pilot_batch_summary.json",
+          "sha256": "6a7bd083154c4abdf0c52711284da451fb3a970bf9de99cd14be9794ec08a98b"
+        },
+        {
+          "path": "research/benchmark/audit/identity_robustness_storage_after_v1.json",
+          "sha256": "f81ed62e605792c00ef46cf988ef8dea8652ea36f5a70b3a449862d9ab7afc35"
+        }
+      ],
+      "proves": "Local small-batch construction/review/cost/disk have run; repeated Luna failures and later maintainer corrections are honestly separated.",
+      "does_not_prove": "No evidence Luna autonomous volume construction passed. No user acceptance yet of switching constructor to sol or the proposed next two-paper batch. Disk measurements do not select full-scale host.",
+      "can_continue_without_new_user_decision": "Yes: prepare candidate inputs/quality gate and measure existing local assets without new model choice. The 200-call authorization still covers approved development calls; material expansion is not automatically a request for another200. Do not spend remaining budget on indefinite Luna repair to manufacture a pass.",
+      "decision_if_needed": "U2: answer the already-pending bounded proposal (two additional local papers, sol/medium constructor trial versus alternative). This is model/scope strategy confirmation, not exhausted quota. Full-scale generation/host selection remains separate."
+    },
+    {
+      "requirements": [
+        "T12"
+      ],
+      "status": "bounded_development_evidence_exists",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/h0_independent_build_review_v1.json",
+          "sha256": "e2587ddd1ab7341392cfdc2b1249ef31e2b51030c438d3847c45bfca85525843"
+        },
+        {
+          "path": "research/benchmark/audit/context_policy_real_probes_independent_review_v1.json",
+          "sha256": "e1f0c04c95d828e76ef669741bb15081331b855453c65da1f8f8ac9ce8f7cfde"
+        }
+      ],
+      "proves": "Actual builder produced H0 with no research inputs; ABI-only revision and independent tests reviewed. H0 source frozen, not hand-patched into success.",
+      "does_not_prove": "Not strong scientific performance. New context/runtime policy cannot retrospectively turn original H0 into a controlled comparable run under that new policy.",
+      "can_continue_without_new_user_decision": "Yes: preserve original dev baseline and failures; plan any clean new-config build only when there is a specific integration need and sufficient allowance. Do not rebuild repeatedly merely because old H0 is weak.",
+      "decision_if_needed": "Formal common builder/executor/judge policy freezes with U3; U1 needed before claiming the stronger isolation."
+    },
+    {
+      "requirements": [
+        "T13"
+      ],
+      "status": "bounded_development_evidence_exists",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/h0_write_iv_independent_review_v1.json",
+          "sha256": "a20e8f84e67ea0475081b281772725d22256d7fc247fc9149be07d0818d67a4d"
+        },
+        {
+          "path": "research/benchmark/audit/iv_budget_independent_review_v1.json",
+          "sha256": "e233426023e130d860784a725d08e2d0a4ffd7f932471a7c99c174d39aee6960"
+        },
+        {
+          "path": "research/benchmark/audit/write_evidence_budget_independent_review_v1.json",
+          "sha256": "055c3239c4ad1e13336c9b9cd19974f43eee37d9d7675eb8625da08fcbff98c5"
+        },
+        {
+          "path": "research/benchmark/audit/evolution_cli_independent_review_v1.json",
+          "sha256": "80316cb893fb6f4349baa7cfe96b7b774cebbaac569d5ca20836523e4ff58dfe"
+        },
+        {
+          "path": "research/benchmark/audit/evolution_evaluator_development_acceptance_v1.json",
+          "sha256": "ad63dbf3bf5e28b7e07dec7f7df222ec78eb30204f29b3750b8f8311591e5e6b"
+        }
+      ],
+      "proves": "One frozen H0 has real independent-stage development execution across five types; CPU feasibility/defects examined. Evolution driver/native adapters/review-gated cache are implemented and synthetically integrated; historical results map as pending without fake approval.",
+      "does_not_prove": "No genuine mixed self-evolution or approved hidden split. Current two-paper composition cannot provide both five-type search and five-type paper-disjoint test. Synthetic copies cannot repair scientific sample coverage.",
+      "can_continue_without_new_user_decision": "Yes: finite adapter regression and evidence/review integration. Actual mixed-development demonstration must wait for enough accepted material coverage; no need to preemptively run formal ranking. One-stage bridge smokes already exist and are not a reason for unlimited repeated adapters.",
+      "decision_if_needed": "U2 if more material is built via the pending proposal; U3 before full formal split/scale. U1 before claiming formal native isolation."
+    },
+    {
+      "requirements": [
+        "T14"
+      ],
+      "status": "not_ready_formal_configuration_requires_user",
+      "strongest_evidence": [
+        {
+          "path": "research/benchmark/audit/evolution_cli_independent_review_v1.json",
+          "sha256": "80316cb893fb6f4349baa7cfe96b7b774cebbaac569d5ca20836523e4ff58dfe"
+        },
+        {
+          "path": "research/benchmark/audit/identity_retrieval_root_review_v1.json",
+          "sha256": "d106fe92532f39c13f68a9f62eea7f9d45aaea7b29f51b13fcab2d72437435ab"
+        },
+        {
+          "path": "research/benchmark/audit/native_admissibility_root_review_v1.json",
+          "sha256": "c543a07236af9d9f6b537553c04ea90e03ff0a1b6bfd2e2fc4371b77bc92d352"
+        }
+      ],
+      "proves": "Protocols and software scaffold exist; all cited progress reports explicitly deny formal completion.",
+      "does_not_prove": "No accepted full task pool, finalized statistical configuration, formal split, H0/selected/oracle main results, or evolution curve exists.",
+      "can_continue_without_new_user_decision": "Only prepare a concrete proposal from accepted pilot coverage/costs. Do not start formal model evaluation or mark T14 complete.",
+      "decision_if_needed": "U3: confirm qualified paper/task count and grouped split, per-package resources, evolution rounds, repeats, failure aggregation and statistics, and whether retrieval diagnostic enters main score. Requires upstream evidence first; no immediate request to guess these values."
+    }
+  ],
+  "minimal_remaining_path": [
+    {
+      "order": 1,
+      "work": "Finish root already-planned frozen IDEA/LIT finite leaveout plus relevant current native-tool audit. Record bounded success/failure; stop if criteria met or local limitations are documented.",
+      "new_user_decision": false
+    },
+    {
+      "order": 2,
+      "work": "Resolve U1 before new OS-isolation enforcement claims; while waiting, offline guards/review and current CPU development may continue.",
+      "new_user_decision": "U1"
+    },
+    {
+      "order": 3,
+      "work": "Resolve U2 for the specific constructor/model/new-paper pilot proposal; prepare pipeline inputs now, then audit quality and disk rather than grow a formal pool automatically.",
+      "new_user_decision": "U2 for proposal, not all material preparation"
+    },
+    {
+      "order": 4,
+      "work": "When real accepted coverage exists, run one explicitly developmental mixed evolution integration with review gates and bounded budgets; do not duplicate papers to pretend independent test.",
+      "new_user_decision": "Depends on approved pilot scope/material coverage; not automatically formalT14"
+    },
+    {
+      "order": 5,
+      "work": "Present evidence-based formal configuration to user and obtain U3 before freeze/ranking.",
+      "new_user_decision": "U3"
+    }
+  ],
+  "nonrequirements_for_current_local_development": [
+    "No global proof that LLM judge is scientifically infallible.",
+    "No arbitrary fixed count of papers or judge calls invented by this audit.",
+    "No exhaustive tagging of every shared library paper as distractor/core.",
+    "No universal cross-host determinism, kernel-escape proof, GPU setup, formal attribution/TTS experiment, or end-to-end paper use case required to finish bounded CPU development.",
+    "No new experts or hidden test feedback to tune current judge."
+  ],
+  "new_model_calls": 0,
+  "system_changes": false,
+  "AGENTS_modified": false
+}

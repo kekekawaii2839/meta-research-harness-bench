@@ -1,0 +1,12 @@
+Created [review.json](D:\mrhbench-local-pilot\batch-20260923-003\ssa-pilot-v2\reviewer\review.json) with decision `revise`.
+
+Key defects include:
+
+- SSA’s symmetric two-direction KL objective was incorrectly specified as one-way.
+- The Pixelate comparison incorrectly says RSD exceeds SSA; FR does.
+- Core TTA assumptions were omitted.
+- The evidence task references nonexistent fact `[E4]`.
+- Some normalization claims and evidence locators are unsupported.
+- Redistribution rights remain unresolved.
+
+All 140 Table 4 numeric cells were independently checked and matched exactly. Runtime remains pending fresh-container verification.

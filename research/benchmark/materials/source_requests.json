@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.1",
+  "purpose": "First source-paper material inspection, not a frozen benchmark task pool",
+  "sources": [
+    {"source_id":"ssa-paper-v1","url":"https://arxiv.org/html/2410.03263v1","paper_id":"iclr2025-SXtl7NRyE5","version":"arxiv-v1","kind":"paper_html"},
+    {"source_id":"ssa-abstract-v1","url":"https://arxiv.org/abs/2410.03263v1","paper_id":"iclr2025-SXtl7NRyE5","version":"arxiv-v1","kind":"version_and_license_metadata"},
+    {"source_id":"ssa-repo-license","url":"https://raw.githubusercontent.com/kzkadc/regression-tta/c1c72f19b1018ad76d2e63897d53ea652228ac43/LICENSE","paper_id":"iclr2025-SXtl7NRyE5","version":"c1c72f19b1018ad76d2e63897d53ea652228ac43","kind":"repository_license"},
+    {"source_id":"ssa-repo-model","url":"https://raw.githubusercontent.com/kzkadc/regression-tta/c1c72f19b1018ad76d2e63897d53ea652228ac43/model.py","paper_id":"iclr2025-SXtl7NRyE5","version":"c1c72f19b1018ad76d2e63897d53ea652228ac43","kind":"model_implementation"},
+    {"source_id":"ssa-repo-housing","url":"https://raw.githubusercontent.com/kzkadc/regression-tta/c1c72f19b1018ad76d2e63897d53ea652228ac43/dataset/california_housing.py","paper_id":"iclr2025-SXtl7NRyE5","version":"c1c72f19b1018ad76d2e63897d53ea652228ac43","kind":"dataset_loading"},
+    {"source_id":"ssa-repo-loss","url":"https://raw.githubusercontent.com/kzkadc/regression-tta/c1c72f19b1018ad76d2e63897d53ea652228ac43/utils/loss.py","paper_id":"iclr2025-SXtl7NRyE5","version":"c1c72f19b1018ad76d2e63897d53ea652228ac43","kind":"target_implementation_private_only"},
+    {"source_id":"fragmented-paper-v1","url":"https://arxiv.org/html/2501.15857v1","paper_id":"iclr2025-1Xg4JPPxJ0","version":"arxiv-v1","kind":"paper_html"}
+  ]
+}

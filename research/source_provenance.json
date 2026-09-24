@@ -1,0 +1,590 @@
+{
+  "purpose": "Historical source/version lookup only; not an active dataset, task specification, or progress document. Local snapshots for these retired sources have been removed by user request; remote availability is not guaranteed.",
+  "repositories": [
+    {
+      "repository": "AkariAsai/ScholarQABench",
+      "commit": "95e6fc52b0a8a0ce0a74956029991e3bb00c38b9",
+      "url": "https://github.com/AkariAsai/ScholarQABench/tree/95e6fc52b0a8a0ce0a74956029991e3bb00c38b9",
+      "source_ids": [
+        "scholarqa"
+      ],
+      "sample_assets": []
+    },
+    {
+      "repository": "ByteDance-BandAI/ReportBench",
+      "commit": "ca3d65b9ff3136fd7e6107955eeb711b2a7fd894",
+      "url": "https://github.com/ByteDance-BandAI/ReportBench/tree/ca3d65b9ff3136fd7e6107955eeb711b2a7fd894",
+      "source_ids": [
+        "reportbench"
+      ],
+      "sample_assets": []
+    },
+    {
+      "repository": "allenai/discoverybench",
+      "commit": "c31fcf011e070f021a5f5b906896d0821f6880e8",
+      "url": "https://github.com/allenai/discoverybench/tree/c31fcf011e070f021a5f5b906896d0821f6880e8",
+      "source_ids": [
+        "discoverybench"
+      ],
+      "sample_assets": []
+    },
+    {
+      "repository": "allenai/discoveryworld",
+      "commit": "fd591323920be0d3786ef350955de1945aa571e5",
+      "url": "https://github.com/allenai/discoveryworld/tree/fd591323920be0d3786ef350955de1945aa571e5",
+      "source_ids": [
+        "discoveryworld"
+      ],
+      "sample_assets": []
+    },
+    {
+      "repository": "harbor-framework/terminal-bench-science",
+      "commit": "f81afac4f11048e77a15dfc8fb1dbfb897fea0ce",
+      "url": "https://github.com/harbor-framework/terminal-bench-science/tree/f81afac4f11048e77a15dfc8fb1dbfb897fea0ce",
+      "source_ids": [
+        "tb-science"
+      ],
+      "sample_assets": []
+    },
+    {
+      "repository": "wchnicholas/ProteinGFourMutants",
+      "commit": "dbdd7639187e0b8f22359f404ce4d1d950fcc8a9",
+      "url": "https://github.com/wchnicholas/ProteinGFourMutants/tree/dbdd7639187e0b8f22359f404ce4d1d950fcc8a9",
+      "source_ids": [
+        "gb1-original"
+      ],
+      "sample_assets": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/wchnicholas/ProteinGFourMutants/dbdd7639187e0b8f22359f404ce4d1d950fcc8a9/README.md",
+          "sha256": "4a225a76291129e48850c941ddf53fce501aa81ab4791ea86ea36edaf0ff4093"
+        },
+        {
+          "path": "count/Input.count",
+          "url": "https://raw.githubusercontent.com/wchnicholas/ProteinGFourMutants/dbdd7639187e0b8f22359f404ce4d1d950fcc8a9/count/Input.count",
+          "sha256": "ada8a3741b4547fda7096d938e9cbe5ddd97b4deabff0fe0cb52429f57e15c6c"
+        },
+        {
+          "path": "count/IGG20.count",
+          "url": "https://raw.githubusercontent.com/wchnicholas/ProteinGFourMutants/dbdd7639187e0b8f22359f404ce4d1d950fcc8a9/count/IGG20.count",
+          "sha256": "e0a80fc4ea7a7f6da078cc0afbbac559833446971a22e2bb97ad4dfbddf6b608"
+        },
+        {
+          "path": "result/WTcount",
+          "url": "https://raw.githubusercontent.com/wchnicholas/ProteinGFourMutants/dbdd7639187e0b8f22359f404ce4d1d950fcc8a9/result/WTcount",
+          "sha256": "95e9e3cfcac9b34fd3da35b13412915d2c12af884d33355ef21273e1b006abbd"
+        }
+      ]
+    },
+    {
+      "repository": "doyle-lab-ucla/edboplus",
+      "commit": "db06b8dd592056df03ae604da030b080acd32658",
+      "url": "https://github.com/doyle-lab-ucla/edboplus/tree/db06b8dd592056df03ae604da030b080acd32658",
+      "source_ids": [
+        "edboplus"
+      ],
+      "sample_assets": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/doyle-lab-ucla/edboplus/db06b8dd592056df03ae604da030b080acd32658/README.md",
+          "sha256": "8970df5715d51dccb6f64fde29cd59c34eb847a3ad4fab05c6768ab8e58971fc"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/doyle-lab-ucla/edboplus/db06b8dd592056df03ae604da030b080acd32658/LICENSE",
+          "sha256": "164058383980554fddb387de24e30b8c5319ce607ff72d2f66a85b7acdc59420"
+        },
+        {
+          "path": "examples/publication/Suzuki/data/dataset_B1.csv",
+          "url": "https://raw.githubusercontent.com/doyle-lab-ucla/edboplus/db06b8dd592056df03ae604da030b080acd32658/examples/publication/Suzuki/data/dataset_B1.csv",
+          "sha256": "5fa422e48772adae3fc2ba5b9dd0318d8ab0badd78ab788accc26d5df9ce183e"
+        },
+        {
+          "path": "examples/publication/Crosscoupling/campaigns/crosscoupling_results_challenging_campaign_cvt.csv",
+          "url": "https://raw.githubusercontent.com/doyle-lab-ucla/edboplus/db06b8dd592056df03ae604da030b080acd32658/examples/publication/Crosscoupling/campaigns/crosscoupling_results_challenging_campaign_cvt.csv",
+          "sha256": "a4317890370ccb6a6725f1d0b22f0d9518fe856db9bb19ff506821e558a49cc4"
+        }
+      ]
+    },
+    {
+      "repository": "OATML-Markslab/ProteinGym",
+      "commit": "144fe22b07dfaeec2b366f2346203a9838a55b4c",
+      "url": "https://github.com/OATML-Markslab/ProteinGym/tree/144fe22b07dfaeec2b366f2346203a9838a55b4c",
+      "source_ids": [
+        "proteingym"
+      ],
+      "sample_assets": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/OATML-Markslab/ProteinGym/144fe22b07dfaeec2b366f2346203a9838a55b4c/README.md",
+          "sha256": "321487a8de52c6cfa647a658f61150dd72e0acb0125470524fb94d1f8b23321a"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/OATML-Markslab/ProteinGym/144fe22b07dfaeec2b366f2346203a9838a55b4c/LICENSE",
+          "sha256": "9b0d23df61da60c379c15bef09ba5f5b14ab16bae6df025509dde9e50299393c"
+        },
+        {
+          "path": "reference_files/DMS_substitutions.csv",
+          "url": "https://raw.githubusercontent.com/OATML-Markslab/ProteinGym/144fe22b07dfaeec2b366f2346203a9838a55b4c/reference_files/DMS_substitutions.csv",
+          "sha256": "a8f498011532a74aa9fe556a50555a75e928c5837d19c06a87592ae04049b308"
+        },
+        {
+          "path": "reference_files/reference_files_description.md",
+          "url": "https://raw.githubusercontent.com/OATML-Markslab/ProteinGym/144fe22b07dfaeec2b366f2346203a9838a55b4c/reference_files/reference_files_description.md",
+          "sha256": "7f13d0b02097feebc1dd52e906bbc58fc3cb4efc35059453bd34ad69fb06127c"
+        },
+        {
+          "path": "assays.bib",
+          "url": "https://raw.githubusercontent.com/OATML-Markslab/ProteinGym/144fe22b07dfaeec2b366f2346203a9838a55b4c/assays.bib",
+          "sha256": "452ce2484e72e138adaf1c754efa7167f6e7a4c860347e84bffd8a7aff7a0f20"
+        }
+      ]
+    },
+    {
+      "repository": "samplchallenges/SAMPL6",
+      "commit": "c661d3985af7fa0ba8c64a1774cfb2363cd31bda",
+      "url": "https://github.com/samplchallenges/SAMPL6/tree/c661d3985af7fa0ba8c64a1774cfb2363cd31bda",
+      "source_ids": [
+        "sampl6"
+      ],
+      "sample_assets": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/samplchallenges/SAMPL6/c661d3985af7fa0ba8c64a1774cfb2363cd31bda/README.md",
+          "sha256": "16f807902bb0c8cfc35bad3876eefd4fa6f22e428714655bbb48d6a79e91e54c"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/samplchallenges/SAMPL6/c661d3985af7fa0ba8c64a1774cfb2363cd31bda/LICENSE",
+          "sha256": "010ef73fd30c62c4359f44dac885a9ce7a59b70f9f5f6340ffb1dbea1cfa47ff"
+        },
+        {
+          "path": "physical_properties/logP/experimental_data/README.md",
+          "url": "https://raw.githubusercontent.com/samplchallenges/SAMPL6/c661d3985af7fa0ba8c64a1774cfb2363cd31bda/physical_properties/logP/experimental_data/README.md",
+          "sha256": "200d6ddf2808d87a04766228579cdb4320b674b102a493df7705daa51e6d0404"
+        },
+        {
+          "path": "physical_properties/logP/experimental_data/logP_experimental_values.csv",
+          "url": "https://raw.githubusercontent.com/samplchallenges/SAMPL6/c661d3985af7fa0ba8c64a1774cfb2363cd31bda/physical_properties/logP/experimental_data/logP_experimental_values.csv",
+          "sha256": "142b7bc2a3fbf80cec82cd9b563c7053e05d096546347f94cc0ebe16afdd904d"
+        },
+        {
+          "path": "physical_properties/logP/experimental_data/logP_results_of_replicate_experiments.csv",
+          "url": "https://raw.githubusercontent.com/samplchallenges/SAMPL6/c661d3985af7fa0ba8c64a1774cfb2363cd31bda/physical_properties/logP/experimental_data/logP_results_of_replicate_experiments.csv",
+          "sha256": "08cee99190c80f212be7d26553c646d50073fa0640c72a1b08c5d58f27df2500"
+        }
+      ]
+    },
+    {
+      "repository": "ManyLabsOpenScience/ManyLabs2",
+      "commit": "acef63fc397b8dce7f0b00f863bcea78d324bea8",
+      "url": "https://github.com/ManyLabsOpenScience/ManyLabs2/tree/acef63fc397b8dce7f0b00f863bcea78d324bea8",
+      "source_ids": [
+        "manylabs2"
+      ],
+      "sample_assets": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/ManyLabsOpenScience/ManyLabs2/acef63fc397b8dce7f0b00f863bcea78d324bea8/README.md",
+          "sha256": "41a8d6650128188d9bdfbdbdd9032f0221a3d418133d196290c1731dbdedbae2"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/ManyLabsOpenScience/ManyLabs2/acef63fc397b8dce7f0b00f863bcea78d324bea8/LICENSE",
+          "sha256": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2"
+        },
+        {
+          "path": "Script - Meta analyses/ML2_meta_analyses_simple.R",
+          "url": "https://raw.githubusercontent.com/ManyLabsOpenScience/ManyLabs2/acef63fc397b8dce7f0b00f863bcea78d324bea8/Script%20-%20Meta%20analyses/ML2_meta_analyses_simple.R",
+          "sha256": "23aad30e6c1877c6e9a2575dad351f989777c9bea6cf92a4bd7aed4320d70036"
+        },
+        {
+          "path": "Script - Figures/table5data_RM.csv",
+          "url": "https://raw.githubusercontent.com/ManyLabsOpenScience/ManyLabs2/acef63fc397b8dce7f0b00f863bcea78d324bea8/Script%20-%20Figures/table5data_RM.csv",
+          "sha256": "7c144980be0a5e607e21f58f706388cfbb51509f91eb42d404f68fd88f7a72d1"
+        }
+      ]
+    },
+    {
+      "repository": "NanoComp/meep",
+      "commit": "0a4e71f9f71b523c64a7eea3f57bf6a5a87549e8",
+      "url": "https://github.com/NanoComp/meep/tree/0a4e71f9f71b523c64a7eea3f57bf6a5a87549e8",
+      "source_ids": [
+        "meep"
+      ],
+      "sample_assets": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/NanoComp/meep/0a4e71f9f71b523c64a7eea3f57bf6a5a87549e8/README.md",
+          "sha256": "89a66a9c6e1184a641d80e2458a67de2f39a9c1663fdccc0598f2e41817c4be0"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/NanoComp/meep/0a4e71f9f71b523c64a7eea3f57bf6a5a87549e8/LICENSE",
+          "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+        },
+        {
+          "path": "python/examples/bent-waveguide.py",
+          "url": "https://raw.githubusercontent.com/NanoComp/meep/0a4e71f9f71b523c64a7eea3f57bf6a5a87549e8/python/examples/bent-waveguide.py",
+          "sha256": "12884cabc0ba04caeaf11d2ce49a18b004eb94b6f2fd01e8547d9c4c370f98cc"
+        }
+      ]
+    },
+    {
+      "repository": "DedalusProject/dedalus",
+      "commit": "2a2ad15108f2cd2d24d0b103f8167962562b5cbc",
+      "url": "https://github.com/DedalusProject/dedalus/tree/2a2ad15108f2cd2d24d0b103f8167962562b5cbc",
+      "source_ids": [
+        "dedalus"
+      ],
+      "sample_assets": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/DedalusProject/dedalus/2a2ad15108f2cd2d24d0b103f8167962562b5cbc/README.md",
+          "sha256": "313894abd8b5b1712153f7b8d9e0abaa4fab7fe7c68c0fe4798f853f5e424e8a"
+        },
+        {
+          "path": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/DedalusProject/dedalus/2a2ad15108f2cd2d24d0b103f8167962562b5cbc/LICENSE.txt",
+          "sha256": "ba43a020cc332820987ecdb071b4b46e61e7ed1b76ce5e9b707221f330363409"
+        },
+        {
+          "path": "examples/ivp_2d_rayleigh_benard/rayleigh_benard.py",
+          "url": "https://raw.githubusercontent.com/DedalusProject/dedalus/2a2ad15108f2cd2d24d0b103f8167962562b5cbc/examples/ivp_2d_rayleigh_benard/rayleigh_benard.py",
+          "sha256": "f3f9548e8ef95fd9c46ab48ec66b2fb49ec26c44a926cb95dc2596345517faa0"
+        }
+      ]
+    },
+    {
+      "repository": "NoviScl/AI-Researcher",
+      "commit": "e5dd05a90bcadb436c07283c2f429367c6e525d3",
+      "url": "https://github.com/NoviScl/AI-Researcher/tree/e5dd05a90bcadb436c07283c2f429367c6e525d3",
+      "source_ids": [],
+      "sample_assets": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/NoviScl/AI-Researcher/e5dd05a90bcadb436c07283c2f429367c6e525d3/README.md",
+          "sha256": "e91ec1af6eb40744d6a64cbb7481f9c3b58f7da7cf43db6a4ce36e289629fef7"
+        },
+        {
+          "path": "reviews_ideation/data_points_all_anonymized.json",
+          "url": "https://raw.githubusercontent.com/NoviScl/AI-Researcher/e5dd05a90bcadb436c07283c2f429367c6e525d3/reviews_ideation/data_points_all_anonymized.json",
+          "sha256": "b280081014bc9ebf7efe2e1c31c9ac3b1b2b8a9de4b7e11f9ce4648aa13e4428"
+        },
+        {
+          "path": "reviews_execution/data_points_all_execution.json",
+          "url": "https://raw.githubusercontent.com/NoviScl/AI-Researcher/e5dd05a90bcadb436c07283c2f429367c6e525d3/reviews_execution/data_points_all_execution.json",
+          "sha256": "63a371eddb4cd8792e142128f43726d928c6c62c0e9fea73404411d08b5013d0"
+        },
+        {
+          "path": "reviews_ideation/id_title_mapping.csv",
+          "url": "https://raw.githubusercontent.com/NoviScl/AI-Researcher/e5dd05a90bcadb436c07283c2f429367c6e525d3/reviews_ideation/id_title_mapping.csv",
+          "sha256": "abbb845b096681a07c8b3f23e57db399276ba9e87ea7903839e929b4fe3298fd"
+        }
+      ]
+    },
+    {
+      "repository": "SakanaAI/AI-Scientist",
+      "commit": "1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb",
+      "url": "https://github.com/SakanaAI/AI-Scientist/tree/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb",
+      "source_ids": [],
+      "sample_assets": [
+        {
+          "path": "example_papers/adaptive_dual_scale_denoising/ideas.json",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb/example_papers/adaptive_dual_scale_denoising/ideas.json",
+          "sha256": "9a28a48b5d174b927dd352968185555d93753078db393a62507b74ba07ad7d71"
+        },
+        {
+          "path": "example_papers/adaptive_dual_scale_denoising/notes.txt",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb/example_papers/adaptive_dual_scale_denoising/notes.txt",
+          "sha256": "a4d2ed07ccba089dc48425218d24c465c3c55263031743df4fdff05bd3f6ac3b"
+        },
+        {
+          "path": "example_papers/adaptive_dual_scale_denoising/latex/template.tex",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb/example_papers/adaptive_dual_scale_denoising/latex/template.tex",
+          "sha256": "995c383033ec951fdf00bf8fbe53edde0e55a075975a5362c16c328baa0040c9"
+        },
+        {
+          "path": "example_papers/adaptive_dual_scale_denoising/run_0/final_info.json",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb/example_papers/adaptive_dual_scale_denoising/run_0/final_info.json",
+          "sha256": "7b1e67d8ca5c71f7e6e47af46eec5fb2d00a2c49d74fc8f16bf4e2469d108275"
+        },
+        {
+          "path": "example_papers/adaptive_dual_scale_denoising/run_1/final_info.json",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb/example_papers/adaptive_dual_scale_denoising/run_1/final_info.json",
+          "sha256": "6f3c51eb67f4d10812406ebd69ef92a03ee02e525bf9efd8e2090d3b8412034d"
+        },
+        {
+          "path": "example_papers/adaptive_dual_scale_denoising/run_1.py",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb/example_papers/adaptive_dual_scale_denoising/run_1.py",
+          "sha256": "a3794d771e1c65476814764204aaa039595cff6d5a0a5a90763aed545350947d"
+        },
+        {
+          "path": "example_papers/adaptive_dual_scale_denoising/run_2.py",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb/example_papers/adaptive_dual_scale_denoising/run_2.py",
+          "sha256": "3109081fd7c6297c161cd5f211c9f9a11580e169b19ecdff8f0900f9a267c5c3"
+        },
+        {
+          "path": "example_papers/adaptive_dual_scale_denoising/review.txt",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb/example_papers/adaptive_dual_scale_denoising/review.txt",
+          "sha256": "9b1efd30559f948bd0101db7db94dd398a232fe0bd8740b20e713e0944adde8d"
+        }
+      ]
+    },
+    {
+      "repository": "openai/frontier-evals",
+      "commit": "51052cede8cc608f95bb00346635e03759013e5a",
+      "url": "https://github.com/openai/frontier-evals/tree/51052cede8cc608f95bb00346635e03759013e5a",
+      "source_ids": [],
+      "sample_assets": [
+        {
+          "path": "project/paperbench/data/papers/semantic-self-consistency/config.yaml",
+          "url": "https://raw.githubusercontent.com/openai/frontier-evals/51052cede8cc608f95bb00346635e03759013e5a/project/paperbench/data/papers/semantic-self-consistency/config.yaml",
+          "sha256": "187d7bdb600672ff3f7dd69bd0ac70099404f56a4885352a1c868ba7d4b5dfe9"
+        },
+        {
+          "path": "project/paperbench/data/papers/semantic-self-consistency/blacklist.txt",
+          "url": "https://raw.githubusercontent.com/openai/frontier-evals/51052cede8cc608f95bb00346635e03759013e5a/project/paperbench/data/papers/semantic-self-consistency/blacklist.txt",
+          "sha256": "140bedbf9c3f6d56a9846d2ba7088798683f4da0c248231336e6a05679e4fdfe"
+        }
+      ]
+    },
+    {
+      "repository": "q-hwang/MLAgentBench_logs",
+      "commit": "c64f182c348d85de6eff735eaa21b7e1c4976545",
+      "url": "https://github.com/q-hwang/MLAgentBench_logs/tree/c64f182c348d85de6eff735eaa21b7e1c4976545",
+      "source_ids": [],
+      "sample_assets": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/q-hwang/MLAgentBench_logs/c64f182c348d85de6eff735eaa21b7e1c4976545/README.md",
+          "sha256": "c41e43aefac684fba805d31f27bbb0dfeaa189f71e4a8b03e65a136d7c81e358"
+        },
+        {
+          "path": "final_exp_logs/autogpt/CLRS/1687482379/env_log/trace.json",
+          "url": "https://raw.githubusercontent.com/q-hwang/MLAgentBench_logs/c64f182c348d85de6eff735eaa21b7e1c4976545/final_exp_logs/autogpt/CLRS/1687482379/env_log/trace.json",
+          "sha256": "551411e9208fb2097da666ff0dc02c75c2e9c84384189b69ce0306630e5b6e0c"
+        }
+      ]
+    }
+  ],
+  "source_links": [
+    {
+      "source_id": "codeocean",
+      "name": "Code Ocean / Open Science Library",
+      "evidence_urls": [
+        "https://docs.codeocean.com/osl-guide/user-manual/sharing-and-finding-published-capsules/exporting-capsules-and-reproducing-results-on-your-local-machine",
+        "https://arxiv.org/html/2409.11363v1"
+      ]
+    },
+    {
+      "source_id": "zenodo",
+      "name": "Zenodo：论文配套数据与计算笔记本",
+      "evidence_urls": [
+        "https://zenodo.org/help/versioning",
+        "https://help.zenodo.org/guides/search/",
+        "https://arxiv.org/html/2407.01725v1"
+      ]
+    },
+    {
+      "source_id": "dryad",
+      "name": "Dryad：论文关联研究数据",
+      "evidence_urls": [
+        "https://blog.datadryad.org/2025/02/05/for-researchers-upholding-scientific-research-integrity-with-dryad/",
+        "https://blog.datadryad.org/2023/09/22/for-data-creators-top-5-reasons-we-cant-publish-your-dataset-yet/"
+      ]
+    },
+    {
+      "source_id": "osf",
+      "name": "OSF Registries 与关联研究项目",
+      "evidence_urls": [
+        "https://www.cos.io/products/osf-registries",
+        "https://help.osf.io/article/330-welcome-to-registrations"
+      ]
+    },
+    {
+      "source_id": "manylabs2",
+      "name": "Many Labs 2 原研究材料",
+      "evidence_urls": [
+        "https://github.com/ManyLabsOpenScience/ManyLabs2",
+        "https://manylabsopenscience.github.io/ml2-analysis-how-to.html",
+        "https://osf.io/8cd4r/"
+      ]
+    },
+    {
+      "source_id": "pmc-elife",
+      "name": "PMC OA / eLife：论文全文与source data",
+      "evidence_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/",
+        "https://elifesciences.org/articles/16965/figures"
+      ]
+    },
+    {
+      "source_id": "gb1-original",
+      "name": "Wu 2016 GB1：原论文与测序计数",
+      "evidence_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4985287/",
+        "https://github.com/wchnicholas/ProteinGFourMutants",
+        "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA278685/"
+      ]
+    },
+    {
+      "source_id": "proteingym",
+      "name": "ProteinGym原始assay索引与raw下载入口",
+      "evidence_urls": [
+        "https://github.com/OATML-Markslab/ProteinGym"
+      ]
+    },
+    {
+      "source_id": "edboplus",
+      "name": "EDBO+论文的反应数据与campaign记录",
+      "evidence_urls": [
+        "https://github.com/doyle-lab-ucla/edboplus",
+        "https://lips.cs.princeton.edu/pdfs/torres2022multi.pdf"
+      ]
+    },
+    {
+      "source_id": "sampl6",
+      "name": "SAMPL6：原始实验报告与重复测量",
+      "evidence_urls": [
+        "https://github.com/samplchallenges/SAMPL6",
+        "https://github.com/samplchallenges/SAMPL6/tree/master/physical_properties/logP/experimental_data"
+      ]
+    },
+    {
+      "source_id": "geo",
+      "name": "NCBI GEO / SRA",
+      "evidence_urls": [
+        "https://www.ncbi.nlm.nih.gov/geo/info/seq.html",
+        "https://www.ncbi.nlm.nih.gov/geo/info/geo_paccess.html",
+        "https://bioconductor.org/packages/release/data/experiment/manuals/airway/man/airway.pdf"
+      ]
+    },
+    {
+      "source_id": "openneuro",
+      "name": "OpenNeuro",
+      "evidence_urls": [
+        "https://docs.openneuro.org/user_guide.html"
+      ]
+    },
+    {
+      "source_id": "dandi",
+      "name": "DANDI Archive",
+      "evidence_urls": [
+        "https://docs.dandiarchive.org/user-guide-sharing/creating-dandiset/",
+        "https://registry.opendata.aws/dandiarchive/"
+      ]
+    },
+    {
+      "source_id": "bioimage",
+      "name": "BioImage Archive",
+      "evidence_urls": [
+        "https://www.ebi.ac.uk/bioimage-archive/help-faq/",
+        "https://www.ebi.ac.uk/training/online/courses/bioimage-archive-quick-tour/getting-data-from-bioimage-archive/"
+      ]
+    },
+    {
+      "source_id": "pangaea",
+      "name": "PANGAEA",
+      "evidence_urls": [
+        "https://wiki.pangaea.de/wiki/FAQ",
+        "https://wiki.pangaea.de/wiki/Data_Access_and_Reuse"
+      ]
+    },
+    {
+      "source_id": "camels-us",
+      "name": "CAMELS-US：水文观测与流域属性",
+      "evidence_urls": [
+        "https://ral.ucar.edu/dataset/camels-catchment-attributes-and-meteorology-large-sample-studies-dataset-downloads"
+      ]
+    },
+    {
+      "source_id": "gwosc",
+      "name": "GWOSC：引力波应变与质量标记",
+      "evidence_urls": [
+        "https://gwosc.org/O1/",
+        "https://gwosc.org/bbh_tutorial_notes/"
+      ]
+    },
+    {
+      "source_id": "hepdata",
+      "name": "HEPData：论文相关数值表",
+      "evidence_urls": [
+        "https://hepdata-submission.readthedocs.io/en/latest/submission_yaml.html"
+      ]
+    },
+    {
+      "source_id": "materialscloud",
+      "name": "Materials Cloud / AiiDA provenance",
+      "evidence_urls": [
+        "https://www.materialscloud.org/",
+        "https://www.materialscloud.org/explore",
+        "https://archive.materialscloud.org/help/versioning"
+      ]
+    },
+    {
+      "source_id": "materialsproject",
+      "name": "Materials Project",
+      "evidence_urls": [
+        "https://docs.materialsproject.org/downloading-data/using-the-api/querying-data",
+        "https://docs.materialsproject.org/downloading-data/how-do-i-download-the-materials-project-database"
+      ]
+    },
+    {
+      "source_id": "ord",
+      "name": "Open Reaction Database：原始研究反应记录",
+      "evidence_urls": [
+        "https://github.com/open-reaction-database/ord-data"
+      ]
+    },
+    {
+      "source_id": "meep",
+      "name": "Meep：电磁模拟代码与物理案例",
+      "evidence_urls": [
+        "https://meep.readthedocs.io/en/latest/Python_Tutorials/Basics/",
+        "https://github.com/NanoComp/meep",
+        "https://arxiv.org/html/2609.19134"
+      ]
+    },
+    {
+      "source_id": "dedalus",
+      "name": "Dedalus：PDE案例与数值求解",
+      "evidence_urls": [
+        "https://github.com/DedalusProject/dedalus",
+        "https://dedalus-project.readthedocs.io/en/latest/pages/tutorials.html"
+      ]
+    },
+    {
+      "source_id": "gbif",
+      "name": "GBIF生物多样性观测",
+      "evidence_urls": [
+        "https://techdocs.gbif.org/en/data-use/api-downloads",
+        "https://techdocs.gbif.org/en/data-use/download-formats"
+      ]
+    },
+    {
+      "source_id": "worldbank",
+      "name": "World Bank Open Data / WDI",
+      "evidence_urls": [
+        "https://datahelpdesk.worldbank.org/knowledgebase/articles/889392",
+        "https://data.worldbank.org/summary-terms-of-use"
+      ]
+    },
+    {
+      "source_id": "nls",
+      "name": "National Longitudinal Surveys",
+      "evidence_urls": [
+        "https://nlsinfo.org/content/access-data-investigator",
+        "https://www.nlsinfo.org/content/access-data-investigator/investigator-user-guide/investigator-navigation"
+      ]
+    },
+    {
+      "source_id": "nist-strd",
+      "name": "NIST StRD：数值正确性参考",
+      "evidence_urls": [
+        "https://www.nist.gov/itl/sed/statistical-reference-datasets/strd-background-information/linear-regression"
+      ]
+    }
+  ]
+}

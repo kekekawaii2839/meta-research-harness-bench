@@ -1,0 +1,68 @@
+{
+  "source": {
+    "asset": "numeric-evidence",
+    "sha256": "77cbdd9cbe5498f49625dc0c0c269c3d85a8bc18707f581d6ed1b2783c8dad60",
+    "url": "https://arxiv.org/html/2410.03263v1#S4.T4",
+    "paper_version": "arxiv-v1"
+  },
+  "input_rows": 98,
+  "methods": [
+    "Source",
+    "TTT",
+    "BN-Adapt",
+    "FR",
+    "RSD",
+    "SSA (ours)",
+    "Oracle"
+  ],
+  "conditions": [
+    "Defocus blur",
+    "Motion blur",
+    "Zoom blur",
+    "Contrast",
+    "Elastic transform",
+    "Jpeg comp.",
+    "Pixelate",
+    "Gaussian noise",
+    "Impulse noise",
+    "Shot noise",
+    "Brightness",
+    "Fog",
+    "Snow",
+    "Mean"
+  ],
+  "transformations": {
+    "panel_a": "Direct display of supplied r2 cells and author-reported means; labels use reported_decimal.",
+    "panel_b": "For each non-Mean condition: SSA r2 minus max(TTT, BN-Adapt, FR, RSD) r2.",
+    "ledger": "One numeric value per supplied cell_id, copied from r2."
+  },
+  "derived_checks": {
+    "ssa_reported_mean": 0.731,
+    "best_nonoracle_reported_mean": 0.701,
+    "ssa_mean_margin_over_rsd": 0.030000000000000027,
+    "condition_wins": 9,
+    "condition_ties": 3,
+    "condition_losses": 1,
+    "panel_b_deltas": {
+      "Defocus blur": 0.009000000000000008,
+      "Motion blur": 0.0,
+      "Zoom blur": 0.0,
+      "Contrast": 0.014000000000000012,
+      "Elastic transform": 0.0,
+      "Jpeg comp.": 0.0040000000000000036,
+      "Pixelate": -0.0030000000000000027,
+      "Gaussian noise": 0.05499999999999994,
+      "Impulse noise": 0.05999999999999994,
+      "Shot noise": 0.08300000000000007,
+      "Brightness": 0.0010000000000000009,
+      "Fog": 0.02100000000000002,
+      "Snow": 0.017000000000000015
+    }
+  },
+  "limitations": [
+    "Rounded author-reported aggregates are not independent repetitions.",
+    "No per-run observations or sampling uncertainty were supplied.",
+    "Oracle uses target labels and is not a same-information competitor.",
+    "No new experiment or causal test was performed."
+  ]
+}

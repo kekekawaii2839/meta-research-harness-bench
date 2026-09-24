@@ -1,0 +1,10 @@
+Created [review.json](D:\mrhbench-local-pilot\batch-20260923-005-maintainer\ssa-pilot-v2\reviewer\review.json).
+
+Decision: `revise`
+
+Two minor provenance findings:
+
+- E2 does not adequately source the aggregation interpretation across every method.
+- E1’s locator does not directly establish all claims about R² direction and unitlessness.
+
+All 140 Table 4 values and cell locators were verified against the original HTML. Candidate files were not modified. Runtime, publication rights, first disclosure, and controller integration remain pending.

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "change": "Consolidate historical progress sections only; preserve scientific protocol and current pending decisions",
+  "before_sha256": "1324531954a89b908de7d8bd911f322bafb4b73337e479370bb2c88bd443b79a",
+  "after_sha256": "a98535c139cf39c4cd1b4998b6d4592edb353da82bafca7af73ff0a7b317d908",
+  "before_bytes": 128666,
+  "after_bytes": 118915,
+  "unchanged_prefix": true,
+  "unchanged_suffix": true,
+  "raw_sources_or_old_audits_modified": false
+}

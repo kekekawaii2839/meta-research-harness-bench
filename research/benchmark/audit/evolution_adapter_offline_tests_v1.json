@@ -1,0 +1,66 @@
+{
+  "scope": "Offline software tests, not real autonomous evolution or scientific acceptance",
+  "new_model_calls": 0,
+  "tests": [
+    {
+      "command": [
+        "D:\\mrhbench-local-pilot\\controller-venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "research/benchmark/tests",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 47.71799999999985,
+      "stdout": "",
+      "stderr": "....................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 228 tests in 47.367s\n\nOK\n"
+    },
+    {
+      "command": [
+        "D:\\mrhbench-local-pilot\\controller-venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "research/aiml",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.43800000000010186,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.266s\n\nOK\n"
+    }
+  ],
+  "implementation": [
+    {
+      "path": "research/benchmark/run_evolution_development.py",
+      "sha256": "94ab63a06063971f0986ef02e30f49f1da0cc752ecea299d5ecb287a8e330952"
+    },
+    {
+      "path": "research/benchmark/mrhbench/evolution_native.py",
+      "sha256": "f9546d6979b1364bfba024394f77b9b94dcdeb0ad3a4b36909c99034392cfc60"
+    },
+    {
+      "path": "research/benchmark/mrhbench/evolution_driver.py",
+      "sha256": "45c753b7bcde455dbe93bf497a7b5d44b2e670fba7be927db18eb7e3002df2dd"
+    },
+    {
+      "path": "research/benchmark/mrhbench/evolution_evaluator.py",
+      "sha256": "06fe8ec4e014f0fd6987a0482a00f9b5a38a2167b7ffc78d473bf0ca6c223508"
+    },
+    {
+      "path": "research/benchmark/mrhbench/bounded_mcp.py",
+      "sha256": "a789c0a57c0f6ddc549aca6a7f724752c72ba8e58ca3fdbecdfd22558b107078"
+    }
+  ],
+  "ledger_used": 182,
+  "ledger_maximum": 268
+}

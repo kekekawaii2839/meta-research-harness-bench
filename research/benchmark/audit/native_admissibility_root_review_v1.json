@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "benchmark_tests": 290,
+  "new_model_calls": 0,
+  "ledger_used": 191,
+  "ledger_maximum": 268,
+  "reserved": 0,
+  "status": "code_and_bounded_replay_progress_native_os_isolation_pending_environment_choice",
+  "evidence": {
+    "native_admissibility_offline_tests_v1.log": "3bbd7e7916acb30f45bf1004ecfcdc20ecae8ece20819843fd4c662eb8b752ed",
+    "native_guard_contract_sources_v1.json": "790260399bd01b8d959ea8fa5711e341d8f2012442fa481d8aa76b8fe5db5ed9",
+    "native_judge_hook_and_tool_evidence_gap_review_v1.json": "89335dc8f948a033cebaefce754d36e117309d473b1fc4c21a8b9c1bedf316f7",
+    "native_judge_189_191_tool_replay_v1.json": "31f51ab4a2d756a80be04f27e7530deffa78cce5db7c1bd92bd0ec1fb1ef39de",
+    "native_admissibility_independent_review_v1.json": "48f919f5d3a5bd23e4aa49177c5e071514b74ac22bf90cfb0535320d84b53823",
+    "native_admissibility_judge_replay_v1.json": "45ee5992f7bc3eb4a395d314cf917d49026fe84ac09874e08d30484ec67a8cf2",
+    "native_read_boundary_research_v1.json": "65eeaddb30602892eee03ae1aff4551eac5b4cd2ad6061a4a7147b889c790b4a"
+  },
+  "root_review": [
+    "Inspected native guard, clone, admissibility code and real tool event shapes.",
+    "Reviewed independent replay reports and executed historical189–191 with current auditor. All remain pending outer-code review, no retroactive scoring change.",
+    "Current full290-test run passed. Tests cover software contracts, not Windows strict-read enforcement.",
+    "Read exact allow-read probe failure: child did not start; no denied-path acceptance claim."
+  ],
+  "full_goal_complete": false
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "integration-attribution-1",
+  "created_at": "2026-09-24",
+  "run": "D:/mrhbench-local-pilot/claude-integration-20260924-001",
+  "harness": {"path": "D:/mrhbench-local-pilot/h0-claude-frozen-v1/harness.py", "sha256": "7b6f5803b091cdde36bac42b5a379abc912a4c68cf92cf5c37beecdb80b3b99f", "released_interface": "interface_container_v2.json"},
+  "roles": "research/benchmark/config/role_transport_claude_v1.json (claude-opus-5-5/medium; judge native-judge-claude-v3.1)",
+  "ledger_calls": {"executor": [211, 212, 213, 215, 216, 217, 219, 220, 221, 223, 224, 225, 227, 228, 229], "judge": [214, 218, 222, 226, 230]},
+  "judge_scores_as_recorded": {"ssa-write-content": 3.5, "idea": 3.6, "lit": 0.5, "ssa-write-evidence": 0.5, "iv-exp": 0.25},
+  "systematic_finding": {
+    "observation": "In all five packages the harness made exactly three executor calls: plan (completed), first act step (refused by the provider safeguard, category reasoning_extraction, ~2.6 s, 0 output tokens), final (completed). After the refusal the harness finalized with stop_reason budget_exhausted although most of the model/tool budget remained, so no tool was ever called in LIT/WRITE_EVIDENCE/EXP.",
+    "trigger_evidence": "Refused iff the output_schema had a property named 'reasoning' (5/5 refused act-step schemas had it; 10/10 completed plan/final schemas did not). Controlled probe D:/mrhbench-local-pilot/claude-refusal-probe-b3f2564b90: a minimal structured-output schema with 'reasoning' was refused (reasoning_extraction, call 231); a {payload_json:string} envelope with the schema only in the prompt was also refused (category cyber, call 232).",
+    "attribution": "Primary: platform/provider constraint that the released interface v2 did not disclose (the harness was built against an ABI with no such rule, and the previous Codex executor accepted the same design). Secondary: H0 behaviour of treating one provider error as budget exhaustion. The recorded low scores are therefore NOT measurements of the harness's research capability and must not be used as H0 baselines or evolution signal.",
+    "not_done": "No field renaming or other disguise was applied to get past the safeguard; the fix is disclosure in interface_container_v3.json (model_client.provider_constraints) and an H0 rebuilt against it."
+  },
+  "per_package": {
+    "ssa-write-content": "Final call wrote the exposition inline in content.summary; no artifact file; judge 3.5 on the content alone.",
+    "idea": "Proposal produced by the final call without tools (IDEA needs none); judge 3.6. Least affected by the refusal.",
+    "lit": "No literature.search/read was executed; judge 0.5 reflects absent evidence, caused by the refusal path.",
+    "ssa-write-evidence": "No figure, code or provenance file produced; judge 0.5.",
+    "iv-exp": "No cpu.run, no code, no results; judge 0.25."
+  },
+  "judge_trajectory_review": "Not yet reviewed case by case; the judge correctly scored absent evidence as absent in the three empty runs (spot check of recorded omissions), but the full per-trajectory review of calls 214/218/222/226/230 remains pending.",
+  "status": "platform_attributed_development_run_not_a_baseline"
+}

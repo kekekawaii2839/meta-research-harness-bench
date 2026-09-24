@@ -1,0 +1,10 @@
+Created [review.json](D:/mrhbench-local-pilot/batch-20260923-002/ssa-pilot-v2/reviewer/review.json) with decision `revise`.
+
+Key blockers:
+
+- Missing core SSA adaptation conditions.
+- Oracle comparisons lack the labeled upper-bound qualification.
+- Public-asset redistribution rights are unresolved.
+- Container defaults to root and its smoke mounting path is undocumented.
+
+All 140 Table 4 numeric cells, declared hashes, task contracts, public assets, equations, and coverage claims were audited. Candidate files were not modified.

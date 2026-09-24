@@ -1,0 +1,25 @@
+{
+  "tested_at": "2026-09-23T22:56:27.356728+00:00",
+  "command": [
+    "D:\\programming\\Anaconda3\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "research/benchmark/tests",
+    "-p",
+    "test_stage_migration_v3.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_idea_fixed_independent_background_no_retrieval (test_stage_migration_v3.StageMigrationV3Tests) ... ok\ntest_lit_shared_original_abstract_service (test_stage_migration_v3.StageMigrationV3Tests) ... ok\ntest_originals_unchanged_and_development_not_accepted (test_stage_migration_v3.StageMigrationV3Tests) ... ok\ntest_package_resource_and_controller_budgets (test_stage_migration_v3.StageMigrationV3Tests) ... ok\ntest_public_publication_no_private_assets_or_target_canaries (test_stage_migration_v3.StageMigrationV3Tests) ... ok\ntest_schema_preserves_required_scientific_fields (test_stage_migration_v3.StageMigrationV3Tests) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.128s\n\nOK\n",
+  "test_count": 6,
+  "scope": "Mechanical public/private release, source immutability, schema, resource budgets, fixed IDEA inputs and real SharedCorpusView wiring; not semantic or native judge acceptance",
+  "new_model_calls": 0,
+  "full_tasks": [
+    "research/benchmark/materials/pilot_v3/released_stage_candidates/lit/task.json",
+    "research/benchmark/materials/pilot_v3/released_stage_candidates/idea/task.json"
+  ],
+  "formal_accepted": false
+}

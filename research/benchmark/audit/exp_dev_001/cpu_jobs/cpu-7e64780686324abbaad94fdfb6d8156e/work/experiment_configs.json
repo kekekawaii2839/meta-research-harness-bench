@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "algorithm": {"initialization": "zeros", "simultaneous_old_states": true, "gradient_normalization": "none", "cached_products": "B=Z.T@Z, C=Z.T@X, d=Z.T@Y; algebraically identical to the specified updates"},
+  "stable_scenarios": [
+    {"id": "S_balanced", "alpha_fraction_of_upper": 0.50, "eta_fraction_of_upper": 0.50},
+    {"id": "S_alpha_slow", "alpha_fraction_of_upper": 0.05, "eta_fraction_of_upper": 0.50},
+    {"id": "S_eta_slow", "alpha_fraction_of_upper": 0.50, "eta_fraction_of_upper": 0.05},
+    {"id": "S_near_boundary", "alpha_fraction_of_upper": 0.95, "eta_fraction_of_upper": 0.95}
+  ],
+  "outside_scenarios": [
+    {"id": "O_alpha_1.01", "alpha_fraction_of_upper": 1.01, "eta_fraction_of_upper": 0.50},
+    {"id": "O_eta_1.01", "alpha_fraction_of_upper": 0.50, "eta_fraction_of_upper": 1.01},
+    {"id": "O_both_1.25", "alpha_fraction_of_upper": 1.25, "eta_fraction_of_upper": 1.25}
+  ],
+  "regimes": [
+    {"id": "default", "n": 50, "p": 5, "q": 10, "noise": 1.0, "seeds": [0,1,2,3,4,5,6,7]},
+    {"id": "near_square", "n": 26, "p": 5, "q": 20, "noise": 1.0, "seeds": [100,101,102]},
+    {"id": "large_n", "n": 200, "p": 5, "q": 10, "noise": 1.0, "seeds": [200,201,202]},
+    {"id": "noise_zero", "n": 50, "p": 5, "q": 10, "noise": 0.0, "seeds": [300,301,302]},
+    {"id": "noise_two", "n": 50, "p": 5, "q": 10, "noise": 2.0, "seeds": [400,401,402]}
+  ],
+  "stable_iterations": 10000,
+  "outside_iterations": 2000,
+  "checkpoints": [0,1,2,5,10,20,50,100,200,500,1000,2000,5000,10000],
+  "late_fit_window": [1000,5000],
+  "selection_policy": "All predeclared regime/seed/scenario combinations; no outcome-based exclusions. Unsupported rate fits are retained and flagged.",
+  "deviation_note": "After two recorded 120-second timeouts, the stable horizon was reduced from 30000 and then 20000 to 10000, the outside horizon to 2000, and the seed set to 20 predeclared datasets across all five regimes. Scenarios and analysis rules were retained; cached algebraically equivalent products were used."
+}

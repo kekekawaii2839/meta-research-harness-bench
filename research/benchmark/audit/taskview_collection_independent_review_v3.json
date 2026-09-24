@@ -1,0 +1,163 @@
+{
+  "created_at": "2026-09-23T23:38:36.453308+00:00",
+  "scope": "Read-only independent v2 package residue/input/resource recheck; supplements v1 and v2 audits",
+  "new_model_calls": 0,
+  "new_container_or_gpu_runs": 0,
+  "rows": [
+    {
+      "path": "research\\benchmark\\materials\\pilot_v3\\collection_candidates_v2\\lit",
+      "files": [
+        "collection_contract_provenance.json",
+        "private/evaluation.json",
+        "public/research_setting.json",
+        "task.json"
+      ],
+      "only_manifest_owned_assets_and_metadata": true,
+      "no_release_residue": true,
+      "task_content_equal_v1": false,
+      "all_assets_byte_identical_to_prior": true,
+      "source_task_hash_matches_record": true,
+      "variant_task_hash_matches_record": true,
+      "task_sha256": "6792a5be46f24d15130e1c2b69dc77f2fec66b0869fc7dbbbf8db40bd27a8792",
+      "public_collection": {
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "max_entries": 500,
+        "max_total_bytes": 16777216,
+        "scope": "all_noninternal_work_files_and_directories",
+        "version": 1
+      },
+      "private_assets_exported": 0,
+      "container_resources_unchanged": true,
+      "execution_budget_unchanged": true
+    },
+    {
+      "path": "research\\benchmark\\materials\\pilot_v3\\collection_candidates_v2\\idea",
+      "files": [
+        "collection_contract_provenance.json",
+        "private/evaluation.json",
+        "public/background_report.json",
+        "public/research_setting.json",
+        "task.json"
+      ],
+      "only_manifest_owned_assets_and_metadata": true,
+      "no_release_residue": true,
+      "task_content_equal_v1": false,
+      "all_assets_byte_identical_to_prior": true,
+      "source_task_hash_matches_record": true,
+      "variant_task_hash_matches_record": true,
+      "task_sha256": "58db164d82a8ff60e634709b101b9103cc7b89de545bb1f7f316a5b87be524c3",
+      "public_collection": {
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "max_entries": 200,
+        "max_total_bytes": 8388608,
+        "scope": "all_noninternal_work_files_and_directories",
+        "version": 1
+      },
+      "private_assets_exported": 0,
+      "container_resources_unchanged": true,
+      "execution_budget_unchanged": true
+    },
+    {
+      "path": "research\\benchmark\\materials\\pilot_v3\\collection_candidates_v2\\iv-exp",
+      "files": [
+        "assets/NOTICE.txt",
+        "assets/base_resources.py",
+        "assets/task.md",
+        "collection_contract_provenance.json",
+        "private/reference.json",
+        "task.json"
+      ],
+      "only_manifest_owned_assets_and_metadata": true,
+      "no_release_residue": true,
+      "task_content_equal_v1": false,
+      "all_assets_byte_identical_to_prior": true,
+      "source_task_hash_matches_record": true,
+      "variant_task_hash_matches_record": true,
+      "task_sha256": "cab859716abeeecd1df04a1161a905239c9883674dc13d17047f66476fc4c024",
+      "public_collection": {
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "max_entries": 2000,
+        "max_total_bytes": 134217728,
+        "scope": "all_noninternal_work_files_and_directories",
+        "version": 1
+      },
+      "private_assets_exported": 0,
+      "container_resources_unchanged": true,
+      "execution_budget_unchanged": true
+    },
+    {
+      "path": "research\\benchmark\\materials\\pilot_v3\\collection_candidates_v2\\ssa-write-evidence",
+      "files": [
+        "assets/table4_manifest.json",
+        "assets/table4_utkface.csv",
+        "assets/write_evidence_task.md",
+        "collection_contract_provenance.json",
+        "private/reference.json",
+        "task.json"
+      ],
+      "only_manifest_owned_assets_and_metadata": true,
+      "no_release_residue": true,
+      "task_content_equal_v1": false,
+      "all_assets_byte_identical_to_prior": true,
+      "source_task_hash_matches_record": true,
+      "variant_task_hash_matches_record": true,
+      "task_sha256": "280893c1a14ad3ca0da7b2f96c15175fc998675071d2f8daa542383e45c9a179",
+      "public_collection": {
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "max_entries": 1000,
+        "max_total_bytes": 67108864,
+        "scope": "all_noninternal_work_files_and_directories",
+        "version": 1
+      },
+      "private_assets_exported": 0,
+      "container_resources_unchanged": true,
+      "execution_budget_unchanged": true
+    },
+    {
+      "path": "research\\benchmark\\materials\\pilot_v3\\collection_candidates_v2\\ssa-write-content",
+      "files": [
+        "assets/write_content_task.md",
+        "collection_contract_provenance.json",
+        "private/reference.json",
+        "task.json"
+      ],
+      "only_manifest_owned_assets_and_metadata": true,
+      "no_release_residue": true,
+      "task_content_equal_v1": false,
+      "all_assets_byte_identical_to_prior": true,
+      "source_task_hash_matches_record": true,
+      "variant_task_hash_matches_record": true,
+      "task_sha256": "df40b3e6e52f11fff3e371ee9438971f568a52b5b71afbeb1ef14cdc092137d4",
+      "public_collection": {
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "max_entries": 500,
+        "max_total_bytes": 16777216,
+        "scope": "all_noninternal_work_files_and_directories",
+        "version": 1
+      },
+      "private_assets_exported": 0,
+      "container_resources_unchanged": true,
+      "execution_budget_unchanged": true
+    }
+  ],
+  "all_checks_pass": false,
+  "prior_localized_packaging_issue": "Resolved prospectively in collection_candidates_v2; collection_candidates_v1 unchanged historical evidence.",
+  "admission": "Current new top-level packages suitable for bounded development testing; no formal scientific/judge/budget-sufficiency admission",
+  "source_integrity_basis": "Full177 historical source hashes rechecked in taskview_source_independent_review_v1.json; this supplement verifies all old task and asset bytes against provenance, not a new whole-source scan.",
+  "lifecycle_smoke": "Root-provided25MiB zero-model synthetic lifecycle evidence exists separately; not claimed as this reviewer own scientific run."
+}

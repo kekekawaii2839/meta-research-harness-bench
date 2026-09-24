@@ -1,0 +1,48 @@
+{
+  "hypotheses": [
+    {
+      "artifact_references": [
+        "coupled_estimator.py",
+        "experiment_configs.json",
+        "run_outputs.json",
+        "diagnostics.csv",
+        "analysis_summary.json"
+      ],
+      "experiment_ids": [
+        "all stable-family IDs in run_outputs.json"
+      ],
+      "hypothesis_id": "H1",
+      "limitations_and_unperformed_work": [
+        "No theorem is claimed.",
+        "No population-consistency or Transformer claim is tested.",
+        "Target is sample 2SLS; truth errors are descriptive comparators only."
+      ],
+      "short_conclusion": "TO_BE_FILLED_FROM_EXECUTED_SUMMARY",
+      "uncertainty": "Empirical finite-seed evidence; late log-linear fits are flagged unsupported near numerical floors or with too few usable points."
+    },
+    {
+      "artifact_references": [
+        "experiment_configs.json",
+        "run_outputs.json",
+        "diagnostics.csv",
+        "analysis_summary.json"
+      ],
+      "experiment_ids": [
+        "all stable and outside-family IDs in run_outputs.json"
+      ],
+      "hypothesis_id": "H2",
+      "limitations_and_unperformed_work": [
+        "No claim that every outside-region setting diverges.",
+        "Lambda is a local/asymptotic block diagnostic and does not model every coupled transient."
+      ],
+      "short_conclusion": "TO_BE_FILLED_FROM_EXECUTED_SUMMARY",
+      "uncertainty": "Outside-region behavior is observed only for specified fractions, seeds, regimes, and finite horizons."
+    }
+  ],
+  "method_fidelity": {
+    "configs": "experiment_configs.json",
+    "implementation": "coupled_estimator.py",
+    "statement": "Zero initialization, unnormalized gradients, constant positive steps, and simultaneous old-state updates are implemented directly."
+  },
+  "task_id": "dev-exp-001"
+}

@@ -1,0 +1,6 @@
+{"type":"thread.started","thread_id":"01a0ccd2-ff00-7f30-8de1-639991eb3ddd"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\li_ha\\.codex\\config.toml."}}
+{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"{\"kind\":\"read_evidence\",\"payload_json\":\"{\\\"reads\\\":[{\\\"evidence_id\\\":\\\"task\\\",\\\"start_line\\\":1,\\\"end_line\\\":1},{\\\"evidence_id\\\":\\\"submission\\\",\\\"start_line\\\":1,\\\"end_line\\\":1},{\\\"evidence_id\\\":\\\"platform\\\",\\\"start_line\\\":1,\\\"end_line\\\":69},{\\\"evidence_id\\\":\\\"input-setting\\\",\\\"start_line\\\":1,\\\"end_line\\\":1},{\\\"evidence_id\\\":\\\"private-evaluation\\\",\\\"start_line\\\":1,\\\"end_line\\\":1}]}\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":9603,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":147,"reasoning_output_tokens":31}}

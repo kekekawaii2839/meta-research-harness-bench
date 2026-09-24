@@ -1,0 +1,264 @@
+{
+  "schema_version": "h0-claude-independent-review-1",
+  "created_at": "2026-09-24T19:22:08Z",
+  "reviewer": "independent runtime_repairs reviewer subagent (Claude Code maintainer collaborator; not the builder, not a benchmarked role)",
+  "new_model_calls": 0,
+  "scope_note": "No model calls of any kind; fake clients only. H0 artifacts, AGENTS.md and existing files not modified. Helper scripts/logs under D:/mrhbench-local-pilot/h0-claude-v3-review-5e1a9c.",
+  "candidate_root": "D:/mrhbench-local-pilot/h0-claude-20260924-002",
+  "ledger_call": 233,
+  "role_configuration": "AGENTS §0.2.13: Claude Code native builder claude-opus-5-5 / effort medium, bounded_mcp profile (container_read/write/list/exec only), zero scientific tasks, released interface_container_v3.json",
+  "reviewed_files_sha256": {
+    "artifacts/harness.py": "619dc7240d7d0437e6f449319adcf710e2c13ffa2220bb45e5f06e343309b181",
+    "artifacts/tests/test_harness.py": "eda324bd7de48d3359be86daadd5c76a68ecbde590c242d5805c9078cd4c4fe6",
+    "artifacts/build_manifest.json": "04cb9d730452524901fc6d5bbc66dec1b64809edabfd8243c52649d6214255cc",
+    "calls/native-30b053e06f60407ebb07d9c0bf70d7dc/events.jsonl": "27a91b3d20d50d5d5b1af3e6ebc155b0479c90373024b5f959b30330481cd423",
+    "calls/native-30b053e06f60407ebb07d9c0bf70d7dc/invocation.json": "dbb24044a282351189fb4bc7df7f06c3453fe43f3bdf43b7fcad7ed67d253445",
+    "calls/native-30b053e06f60407ebb07d9c0bf70d7dc/result.json": "102eb414f3eaad5be996210d2343e901f1f71726f3d083858897a474aaf65b5f",
+    "calls/native-30b053e06f60407ebb07d9c0bf70d7dc/stream_audit.json": "0781c8f6536b20ad3b66df2af04ec6cf4912d5d8455a757d4ec9d35ca6af6414",
+    "calls/native-30b053e06f60407ebb07d9c0bf70d7dc/response.txt": "558fb62c0421edf9f8bb678434d228e914abcf20a2083d9bd4d2749aa0a7f4c4",
+    "calls/native-30b053e06f60407ebb07d9c0bf70d7dc/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 (empty)",
+    "release.json": "809adc86aeab5fe7c1db7bce1c89f83a55503e134bbbb58adc4b84a757c7377f",
+    "prompt.txt": "a4f4952f0e95c93bc96bc6ba21020a93c009983a53e94a41bd5d80851a57d814",
+    "result.json": "379490bf56fce57d8539b320b0ee209003ac6db859dbea2cd33a0489bdd951e9",
+    "artifact_inventory.json": "478b65e38407c2dacae07c690142f4f49ed19ae7b9160469d73c510496da1fc0",
+    "released BUILDER_PROMPT.txt (= research/benchmark/prompts/builder_h0.txt)": "269a82a318420acfff0a07de5a5c956ca1637716496f68aa723dd93fbf9a4f0c",
+    "released interface.json (= research/benchmark/runtime/interface_container_v3.json)": "f9d03d1e2da3e4d468af80bf8c45b97615ad75be0debafc1f533e1091768317e"
+  },
+  "input_boundary": {
+    "released_files": ["BUILDER_PROMPT.txt", "interface.json"],
+    "released_hashes_match_repo_sources": true,
+    "prompt_same_as_v1_build": true,
+    "interface_is_v3_with_provider_constraints": true,
+    "previous_H0_code_released": false,
+    "scientific_tasks_released": 0,
+    "container_list_of_inputs": "exactly BUILDER_PROMPT.txt (14059 B) and interface.json (20525 B)"
+  },
+  "transcript_findings": {
+    "rows": 84,
+    "row_types": {"system/init": 1, "assistant": 20, "user(tool_result)": 12, "system/thinking_tokens": 48, "rate_limit_event": 2, "result/success": 1},
+    "init_declared_tools": ["mcp__mrhbench__container_exec", "mcp__mrhbench__container_list", "mcp__mrhbench__container_read", "mcp__mrhbench__container_write"],
+    "init_residual_context": "plugins agents-md@builtin + telemetry@builtin, agents list declared (no Agent tool available), skills [], slash_commands [], cwd fresh temp dir C:/Users/li_ha/AppData/Local/Temp/mrhb-claude-builder-kiny3_4x. Same known caveat as §0.2.13.",
+    "tool_use_count": 12,
+    "tool_result_count": 12,
+    "all_tool_uses_paired_with_results": true,
+    "only_four_container_tools_used": true,
+    "server_receipt_files": 12,
+    "permission_denials": [],
+    "action_sequence": [
+      {"row": 2, "tool": "container_read", "input": "/inputs/BUILDER_PROMPT.txt"},
+      {"row": 4, "tool": "container_read", "input": "/inputs/interface.json"},
+      {"row": 5, "tool": "container_list", "input": "/inputs", "result": "only the two released files"},
+      {"row": 46, "tool": "container_exec", "input": "bash -lc 'python3 --version; ls -la /work; nproc'", "result": "Python 3.12.14, empty /work (10001:10001), 1 CPU"},
+      {"row": 49, "tool": "container_write", "input": "/work/harness.py (45686 B)"},
+      {"row": 55, "tool": "container_exec", "input": "python3 -c in-place edit of run(): keep h and return h.artifacts({}) on internal exception; ast.parse", "result": "ok"},
+      {"row": 60, "tool": "container_write", "input": "/work/tests/test_harness.py (20161 B)"},
+      {"row": 62, "tool": "container_exec", "input": "cd /work && python3 -m unittest tests/test_harness.py | tail -60", "result": "Ran 27, FAILED (failures=2): test_tool_budget_exhausted and test_wall_time_low ('completed' != 'partial')"},
+      {"row": 72, "tool": "container_exec", "input": "python3 -c edit: harness wall_reserve floor 2.0 s; omissions_block_completion keys += 'pre-read due to budget','could not','failed','cancelled'; test edit: test_wall_time_low FakeBudget wall 5 -> 1.5 and an added assertion content == {'summary':'s'}", "result": "rc 0"},
+      {"row": 74, "tool": "container_exec", "input": "cd /work && python3 -m unittest -v tests/test_harness.py | tail -40", "result": "Ran 27 tests OK"},
+      {"row": 79, "tool": "container_write", "input": "/work/build_manifest.json (3001 B)"},
+      {"row": 81, "tool": "container_exec", "input": "json.load manifest, import harness, grep imports, rm __pycache__ and /tmp/h0root_*, ls -R /work", "result": "interface version printed; imports hashlib/json/re/time; /work holds exactly the 3 deliverables"}
+    ],
+    "replay": "D:/mrhbench-local-pilot/h0-claude-v3-review-5e1a9c/replay.py applies the three writes and two in-container python edits from the stream: resulting harness.py, tests/test_harness.py and build_manifest.json are byte-identical to the collected artifacts (sha 619dc7..., eda324..., 04cb9d...).",
+    "reported_tests_actually_ran_and_passed": true,
+    "test_adjustment_note": "After the first failing run the builder changed both the harness (2 s wall-reserve floor, broader status-blocking omission keys) and one test fixture (wall 5 -> 1.5 s) so the wall test passes; it also strengthened that test with a content assertion. This fits the test to the implementation rather than hiding a failure; it is recorded, not treated as misconduct.",
+    "final_response_consistent_with_tool_results": "Yes for files, 27/27 tests and listed limitations. Overstatement against the real platform: 'It catches and labels errors (timeout, denied, refusal, ...) and never retries silently' - with the real container worker every broker failure arrives as RuntimeError('Request failed; see your arguments, capabilities and remaining budget.') and is labelled 'budget' (defect V3-1). The builder's fakes used messages such as 'safeguard refusal', which the builder could not know differ from the real worker text.",
+    "thinking_content_reviewable": false,
+    "thinking_note": "Assistant thinking blocks are empty strings (only thinking_tokens estimates); only actions and outputs were reviewable.",
+    "suspicious_activity": {
+      "hardcoded_scientific_answers": false,
+      "task_specific_fixture_logic": false,
+      "keyword_scan": "No SSA/IV/Gaussian/Diffusion/oracle/hidden/private/canary/judge-score logic; only generic per-task-type guidance derived from public rubrics.",
+      "container_escape_or_host_access_attempts": false,
+      "network_attempts": false,
+      "docs_created_against_instructions": false,
+      "harness_uses_os_subprocess_socket": false,
+      "undisclosed_behaviour": "Harness writes h0_notes/harness_notes.json and h0_notes/hash_outputs.py into the output root and lists them as artifacts (disclosed in build_manifest). No undisclosed network/file behaviour found."
+    },
+    "wall_seconds": 279.475,
+    "usage": {"input_tokens": 16, "cache_write_input_tokens": 50688, "cached_input_tokens": 205359, "output_tokens": 33967, "thinking_tokens_reported": 4741},
+    "cost_note": "Stream reports total_cost_usd 1.126 at list basis; subscription call, not an actual per-call charge."
+  },
+  "independent_test_runs": {
+    "container": {
+      "image": "sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01",
+      "command": "MSYS_NO_PATHCONV=1 docker run --rm --network none --cpus 1 --memory 512m --pids-limit 64 --read-only --tmpfs /tmp --user 10001:10001 --cap-drop ALL --security-opt no-new-privileges=true -e PYTHONDONTWRITEBYTECODE=1 -e HOME=/tmp -v D:\\mrhbench-local-pilot\\h0-claude-20260924-002\\artifacts:/inputs:ro -v D:\\mrhbench-local-pilot\\h0-claude-v3-review-5e1a9c\\release:/review:ro --entrypoint bash <image> /review/run.sh",
+      "run_script": "release/run.sh sha 5591393ad70a313a2cc7004abee760ccfd1c2fdaa3d966a1ac638dbf6c3c85eb: copies /inputs into tmpfs /tmp/work, hashes, runs builder tests then reviewer checks, re-hashes",
+      "authoritative_log": "D:/mrhbench-local-pilot/h0-claude-v3-review-5e1a9c/run2.log sha 0df1da9fba0df9b3b44cd16efeaa925871f49db10266847d7b5ad37c2860b876 (run1.log sha f1878670... is the first run before a reviewer-side fix to check G1, see below)",
+      "observed": "uid=10001 gid=10001, Python 3.12.14; container removed (--rm), no residual containers from this image",
+      "artifact_hashes_in_copy_before_and_after": "unchanged"
+    },
+    "builder_self_tests": {
+      "command": "cd /tmp/work && python3 -m unittest -v tests/test_harness.py",
+      "result": "Ran 27 tests, OK, rc 0",
+      "matches_builder_claim": true,
+      "note": "Builder-authored fakes; not acceptance."
+    },
+    "reviewer_checks_v3": {
+      "file": "release/checks_v3.py sha edfc420089a52fb8001863f06dcf16258fbf9256adfc5a2b0469d4a58c0dc5c3 + release/real_shapes_v3.json sha 5a33c7e127fd199e588e5f51ff890c0a4474e7207d469e223c6135714a59f44c",
+      "command": "H0_HARNESS=/tmp/work/harness.py H0_SHAPES=/review/real_shapes_v3.json python3 -W ignore /review/checks_v3.py",
+      "result": "Ran 40 tests, 33 ok, 7 FAIL, rc 1",
+      "adapted_from": "checks_v2.py of h0-claude-review-c6314f, rewritten for this harness's act/final protocol (no plan phase): fake model answers act steps from a script and final steps with a minimal instance of the requested schema.",
+      "fake_fidelity": "Fake tool/model clients emulate ExecutorBroker + container_worker: every model/tool failure raises RuntimeError('Request failed; see your arguments, capabilities and remaining budget.'), failed calls are counted, grants follow ExecutorBroker.tool (asset.read always; artifact ops need artifact_read_write / artifact_image_view; cpu.run needs cpu_python_execution and rejects non-finite timeout; literature needs exact capability), view_image returns image-<sha> ids, cpu.run executes the script with cwd = output root.",
+      "run1_to_run2_change": "Check G1 in run1 searched for 8-char tokens that straddled 40000-char chunk boundaries of the pretty-printed stored payload (reviewer bug). run2 checks that every 40000-char chunk of the stored text appears verbatim in some request: all 8 chunks visible. No other change.",
+      "real_shapes_fixture": "Public TaskView shapes of the five collection_candidates_v2 packages exactly as released in claude-integration-20260924-001/<pkg>/execution/container/release/public/task.json (source sha recorded in the fixture), prompt replaced by a placeholder, asset bytes replaced by stub text; real tools, asset_manifest, output_contract and execution_budget kept."
+    },
+    "host_side_schema_check": {
+      "file": "D:/mrhbench-local-pilot/h0-claude-v3-review-5e1a9c/schema_check.py (log schema_check.log sha cbd3e472...)",
+      "command": "D:/mrhbench-local-pilot/controller-venv/Scripts/python.exe -X utf8 schema_check.py",
+      "result": "All 12 observed action-schema enum variants and the five real output_contracts pass mrhbench.providers.validate_application_schema (Draft 2020-12, no $ref). Schemas were reconstructed from the container log; harness code was not imported on the host."
+    },
+    "transcript_replay": {"file": "D:/mrhbench-local-pilot/h0-claude-v3-review-5e1a9c/replay.py", "result": "byte-identical reconstruction of all three deliverables"}
+  },
+  "abi_checks": [
+    {"id": "A1", "check": "artifact_read_write -> artifact.write_text executed and listed with true sha", "result": "pass"},
+    {"id": "A2", "check": "artifact_read_write -> artifact.read_text payload visible to next model call", "result": "pass"},
+    {"id": "A3", "check": "cpu_python_execution -> cpu.run executed, stdout visible next step", "result": "pass"},
+    {"id": "A4", "check": "view_image image_id passed to next complete(image_ids=[id]) only, failed view yields no id", "result": "pass"},
+    {"id": "A5", "check": "literature.search/read/read_page map to exact broker names, nothing else reached", "result": "pass (3 subtests)"},
+    {"id": "A6", "check": "all five task types route and return valid manifests with empty tools", "result": "pass", "note": "statuses LIT/EXP/WRITE_EVIDENCE partial (required groups missing), IDEA/WRITE_CONTENT completed"},
+    {"id": "B1", "check": "5 task types x 6 groups, executor requests all 8 tool actions: only granted ops + asset.read reach tool_client", "result": "pass (30 subtests)"},
+    {"id": "B2", "check": "real TaskView shapes: asset_manifest pre-read in order, final schema == real output_contract, content validates, artifact hashes equal file bytes, task_view not mutated", "result": "pass_with_defects", "evidence": "every real view yields spurious omissions for 'model_client' (all 5) and 'asset.read' (LIT, IDEA) (V3-5); TaskView 'resources' never shown to the executor (V3-7)"},
+    {"id": "C1", "check": "malformed model outputs (None, non-JSON, array, int, missing action, fenced invalid, wrong types, unknown action, non-string script) never raise", "result": "pass (10 subtests)"},
+    {"id": "C1b", "check": "raw complete() return shapes (None, str, dict without response, JSON-string response)", "result": "pass"},
+    {"id": "C2", "check": "non-object args ([1], 's', 3, None) for all 8 tool actions", "result": "pass (32 subtests) - v1 defect D3 fixed (line 686 coerces to {})"},
+    {"id": "C3", "check": "tool error message kept verbatim in next model context; non-dict tool results handled", "result": "pass"},
+    {"id": "C4", "check": "typed provider refusal counted, loop continues with new step, no blind retry", "result": "pass", "note": "with a message that does not contain budget keywords only; see N2"},
+    {"id": "D1", "check": "never exceeds model_calls (1,2,3,5), last call is final", "result": "pass", "note": "with model_calls <= 2 no asset is pre-read (preload needs 1 + 2 reserve, line 610) and the single final call sees only asset metadata; status partial with omission"},
+    {"id": "D2", "check": "never exceeds tool_calls (0,1,3,6)", "result": "pass"},
+    {"id": "D3", "check": "cancelled at start -> 0 model calls, not completed; cancel mid-run stops, not completed", "result": "pass"},
+    {"id": "D4", "check": "wall budget decreasing per model call stops act loop, keeps final, status partial with wall omission", "result": "pass"},
+    {"id": "D5", "check": "cpu.run timeout clipping; NaN/inf/bool/str handling", "result": "fail (minor)", "evidence": "10000 and inf clipped to 80 (100 - reserve 20); -1/True/NaN/'5' dropped (NaN fixed vs v1 D4). But inf is forwarded unchanged when budget.remaining() gives no wall value (lines 782-787); the broker rejects non-finite timeouts, so the only effect is a failed tool call."},
+    {"id": "F1", "check": "state reset between sequential tasks, CONFIG unchanged, task_view not mutated", "result": "pass"},
+    {"id": "F2", "check": "manifest exact keys/order; artifacts match actual bytes after a run modifies/creates files", "result": "pass", "note": "script-created fig.png and modified a.txt listed with on-disk hashes via the cpu.run hash helper"},
+    {"id": "F3", "check": "unsafe paths (../x, /abs, a\\b, C:/x, a/../b, '', ~/x) never reach tool_client", "result": "pass", "note": ".broker/x passes harness safe_relpath and is sent; the broker rejects reserved .broker/ paths"},
+    {"id": "F4", "check": "hash reported for run-modified file when the cpu hash helper fails", "result": "fail (partially improved)", "evidence": "listed sha256(b'A')=559aead0... while file holds 'B' (df7e70e5...); unlike v1 the status is now partial with omission 'Hashing of script-produced files failed; only harness-written files listed.' See V3-3."},
+    {"id": "G1", "check": "288k-char asset: every 40000-char chunk of the stored payload visible via view_observation paging; repeat read_asset is a real tool call (no cache stub)", "result": "pass - v1 defect D1 fixed"},
+    {"id": "G2", "check": "observations stay visible when working notes are large (50 x 4000-char notes, then read_asset + view_observation)", "result": "fail", "evidence": "requests capped at ~182k chars; the new asset payload never appears in any later request (tail truncation of context_block). See V3-2."},
+    {"id": "H1", "check": "stdlib-only imports (hashlib/json/re/time), no exec/eval/subprocess/socket/importlib", "result": "pass"},
+    {"id": "H2", "check": "entry point run(task_view, model_client, tool_client, budget)", "result": "pass"},
+    {"id": "S1", "check": "harness-sent schemas acceptable to the controller validator", "result": "pass (schema_check.log)"}
+  ],
+  "specific_new_checks": {
+    "a_output_schemas_and_reasoning": {
+      "schemas_harness_can_send": [
+        "Action schema (Harness.action_schema, lines 626-648): {action: enum of available actions, note: string, args: object with additionalProperties false and optional asset_id/query/limit/document_id/page_number/path/text/script/arguments/timeout_seconds/obs_id/offset}; 12 enum variants observed across the capability matrix.",
+        "Task output schema (normalize_task lines 483-493): task_view.output_contract.schema, .json_schema, or the contract itself if it has type/properties/$schema, else {type: object}; used for both finalize and finalize_repair (lines 805, 814). For real views this is the full released output_contract."
+      ],
+      "no_other_schemas": "No plan schema and no other model call site exists (ModelPort.complete is called only at lines 675, 805, 814).",
+      "forbidden_property_scan": "Recursive scan of every observed schema property name for reason|chain_of_thought|thinking|thought|rationale|scratch|deliberat: none (18 unique schemas incl. the five real contracts).",
+      "prompt_scan": "System prompt (line 570-572) says 'Provide decisions and brief user-visible working notes only; do not include hidden deliberation.' Act prompt asks for 'note = one-line user-visible purpose'. No request for chain of thought or step-by-step reasoning.",
+      "reasoning_string_occurrences": {
+        "173": "def _schema_has_reasoning(schema, depth=0) - helper name",
+        "178": "str(k).lower() == \"reasoning\" - detection of a property named reasoning",
+        "180": "recursive call _schema_has_reasoning(v, ...) on dict values",
+        "182": "recursive call _schema_has_reasoning(v, ...) on list items",
+        "794": "if _schema_has_reasoning(schema): in finalize - checks the TASK output contract",
+        "795": "omission text \"Output contract contains a property named 'reasoning', which the provider may refuse.\""
+      },
+      "interpretation": "All six are detection/reporting of a task-supplied 'reasoning' property; none requests model reasoning. Detection only matches the exact name 'reasoning' (not e.g. chain_of_thought), and only reports, it does not alter the contract. None of the five real contracts contains such a property.",
+      "result": "pass"
+    },
+    "b_single_provider_error_does_not_stop_loop": {
+      "actual_error_shape": "research/benchmark/mrhbench/executor_broker.py dispatch (except branch): any exception, including ClaudeJSONTransport ProtocolError('Provider safeguard refused the request; ...'), timeouts, structured-output failures and budget exhaustion, becomes {ok:false, error:<type>, message:'Request failed; see your arguments, capabilities and remaining budget.'}; research/benchmark/runtime/container_worker.py rpc raises RuntimeError(answer['message']) and drops the error type. The harness therefore always receives the same RuntimeError text.",
+      "harness_classification": "_classify_error (lines 186-206) tests 'budget'/'exhaust'/'quota'/'limit' (line 192) before 'refus'/'safeguard' (line 198); the generic message contains 'budget', so every model failure is kind 'budget'.",
+      "observed": "N2_GENERIC_ERROR: first act step raises the real generic error with 29 model calls left -> calls ['act','final'], 28 model calls unused, status partial, omissions [] (no explanation in the manifest). The loop returns at lines 681-683 without consulting budget.remaining().",
+      "contrast": "With a typed message ('Provider safeguard refused the request; ...') the harness continues (N2_TYPED_REFUSAL: 4 act steps, tools used, status completed) and stops only after 3 consecutive failures with an omission (N2_THREE_TYPED). A generic error at the final call does get one repair call (N2_FINAL_ERROR). These paths are unreachable on the real worker because the typed text never arrives.",
+      "result": "FAIL - reproduces the v1 integration failure class (loop ended on one provider error while budget remained) and contradicts interface v3 model_client.provider_constraints ('One refused call does not mean the budget is exhausted; the remaining budget is reported by budget.remaining()').",
+      "attribution": "Primary H0 defect: v3 explicitly told the builder to use budget.remaining(), yet the harness infers budget exhaustion from message keywords. Contributing platform factor: the broker's single generic failure message mentions 'remaining budget' and the worker strips the error type, so no harness can distinguish failure kinds by message. This also explains why the v1 H0 mapped the safeguard refusal to budget_exhausted (its line 360 uses the same keyword rule)."
+    },
+    "c_v1_defect_classes_recheck": {
+      "D1_cached_reread_elided_context": "fixed: no read cache; stored payloads are paged with view_observation (G1 pass, repeat read_asset is a real call). Residual new limitation V3-2 (tail truncation when notes are large).",
+      "D2_stale_hash_on_helper_failure": "partially fixed: omission added and status downgraded to partial, but the stale write-time sha is still listed (F4) and script-created files are omitted; controller verify_artifacts would raise hash_mismatch. V3-3.",
+      "D3_nondict_arguments": "fixed (C2 pass).",
+      "D4_nonfinite_timeout": "NaN fixed; inf passes only when budget wall is unknown (D5 minor); broker rejects non-finite values.",
+      "D5_spurious_model_client_omission": "persists and widened: 'model_client' (all views) and 'asset.read' (LIT, IDEA) reported as unknown capability groups; does not change status. V3-5.",
+      "D6_oversized_record": "persists: lines 873-875 slice serialized JSON at 400000 chars (invalid JSON when reached) and do not re-check bytes; N5: 60 x 4000 CJK-char notes -> 720648-byte write rejected by the broker, notes file silently absent and no omission. V3-6."
+    }
+  },
+  "defects": [
+    {
+      "id": "V3-1",
+      "severity": "high (functional; affects every task type on the real worker)",
+      "location": "harness.py lines 186-206 (_classify_error keyword order, 'budget' at 192 before 'refus' at 198) and 679-684 (loop returns on err kind 'budget'); contributing: executor_broker.py dispatch generic message, container_worker.py rpc RuntimeError(message)",
+      "finding": "Any single model failure (safeguard refusal, timeout, structured-output failure) arrives as the generic broker message containing 'remaining budget', is classified 'budget', and ends the action loop immediately while budget remains. The manifest then says partial with no omission explaining the early stop (only the optional notes artifact records stop_reason). The harness never checks budget.remaining() before concluding exhaustion, contrary to interface v3.",
+      "fixed_by_reviewer": false
+    },
+    {
+      "id": "V3-2",
+      "severity": "medium-low",
+      "location": "harness.py lines 586-605 (context_block: index + notes + run log + recent observations, then text[:180000]); also 581/583 silent [:20000]/[:30000] cuts of ASSETS and OUTPUT CONTRACT in task_block",
+      "finding": "Truncation removes the tail, which is where recent observations and view_observation output live. Once working notes/index/run log exceed ~180k chars, new tool payloads are never visible (G2). The ASSETS and OUTPUT CONTRACT slices in task_block have no truncation marker.",
+      "fixed_by_reviewer": false
+    },
+    {
+      "id": "V3-3",
+      "severity": "low",
+      "location": "harness.py lines 914-916 and 924-933",
+      "finding": "If the cpu.run hash helper fails, files that scripts modified keep their stale write-time sha and script-created files are not listed; status is correctly partial with an omission. A stale sha would fail controller verify_artifacts (hash_mismatch); the consequence for the stage was not traced.",
+      "fixed_by_reviewer": false
+    },
+    {
+      "id": "V3-4",
+      "severity": "low-medium (status/omission hygiene, EXP)",
+      "location": "harness.py lines 854-860 (check_run_refs regex \\bR\\d+\\b)",
+      "finding": "Any 'R1', 'R2' in EXP content (e.g. 'R2 = 0.91', 'reviewer R1') without that many local runs triggers 'Content references run IDs with no recorded run', which is a status-blocking key (line 970) -> partial.",
+      "fixed_by_reviewer": false
+    },
+    {
+      "id": "V3-5",
+      "severity": "low (output hygiene)",
+      "location": "harness.py lines 343-350 and 942-943",
+      "finding": "Real views list 'model_client' and 'asset.read' in tools; both are reported as unknown capability groups in omissions read by the judge. Status unaffected.",
+      "fixed_by_reviewer": false
+    },
+    {
+      "id": "V3-6",
+      "severity": "low",
+      "location": "harness.py lines 873-879 (write_notes_artifact)",
+      "finding": "Oversized notes: char slicing can yield invalid JSON and does not bound bytes; the broker then rejects the write and the notes artifact silently disappears without an omission.",
+      "fixed_by_reviewer": false
+    },
+    {
+      "id": "V3-7",
+      "severity": "low-medium",
+      "location": "harness.py line 500 (limits from resource_limits/limits only) and task_block 574-584",
+      "finding": "Real TaskViews carry 'resources' (execution_budget, container cpus/memory/disk, artifact_collection quotas, cutoff/network rules) and 'inputs'; the harness never shows 'resources' to the executor (B2: resources_shown_to_model false). The executor sees only the per-step remaining budget, so collection quotas and container limits must come from the prompt text if at all.",
+      "fixed_by_reviewer": false
+    },
+    {
+      "id": "V3-8",
+      "severity": "low",
+      "location": "harness.py lines 674-678",
+      "finding": "pending_images is cleared before checking whether the model call succeeded; after a failed call the viewed image is never sent (N7), the executor must spend another tool call to re-view.",
+      "fixed_by_reviewer": false
+    },
+    {
+      "id": "V3-9",
+      "severity": "low",
+      "location": "harness.py lines 186-206, 373-377, 616",
+      "finding": "Because of the same classification, every real tool failure is labelled kind 'budget' in the observation and in omissions (e.g. 'Asset a1 could not be read: budget'), which can mislead the executor and the judge; the original message is kept verbatim alongside.",
+      "fixed_by_reviewer": false
+    }
+  ],
+  "observations_not_defects": [
+    "With model_calls <= 2 the harness skips asset pre-reading and produces the final output from asset metadata only (budget-conservative, reported as partial).",
+    "cpu.run hash helper uses a fixed timeout 60 (line 913); the broker clips to the remaining wall.",
+    ".broker/ reserved paths pass harness path validation; broker rejects them.",
+    "Every model request carries the full task block plus up to 4 recent 40k-char observation views; request size up to ~180k chars plus task block.",
+    "Status-blocking omission keys include broad substrings 'failed' and 'could not' (conservative toward partial).",
+    "Builder self-test for 'no reasoning property' is weak (asserts not (has_reasoning and schema is not SCHEMA)), but the independent scan confirms the property."
+  ],
+  "comparison_to_v1_H0": "Built in one pass with one test-driven fix. v1 defects D1 and D3 are fixed, D4 largely fixed, D2 improved (now partial+omission), D5 and D6 persist. The act schema no longer requests 'reasoning', which removes the specific safeguard trigger of integration v1. However the secondary v1 cause (one provider error treated as budget exhaustion) is reproduced exactly on the real worker, now traced to the generic broker message. Different model/transport context from the sol H0; not a controlled comparison.",
+  "verdict": "needs_repair",
+  "verdict_rationale": "Interface conformance otherwise holds for all five task types (capability grants, exact manifest shape, model/tool/wall/cancel budgets, malformed output containment, faithful tool payloads, image_id forwarding, state reset, stdlib-only, schemas valid, no reasoning requested). But V3-1 directly violates the v3 disclosed constraint and, with the real worker's error shape, makes any single model failure end the research loop while budget remains; an integration run with this H0 could again measure a platform/harness artifact instead of research behaviour. Per §6/§0.3 maintainers must not patch the H0. Root decision needed: (a) rebuild H0, (b) fix the platform-side ambiguity (broker/worker surfacing a typed failure kind and/or a message that does not mention budget; that is an ABI-visible change for all harnesses and would need a new interface version and re-review), after which this same H0 would take its typed-error path (N2_TYPED_REFUSAL continued correctly), or (c) run integration anyway with V3-1 recorded as a known H0 property and treat any early stop after a provider error as non-measurement. If (b) is chosen and re-verified, the remaining defects V3-2..V3-9 are of the same order as those accepted for v1 and would support development_admissible.",
+  "scientific_quality_assessed": false,
+  "formal_isolation_verified": false,
+  "limitations": [
+    "Fake clients only; no real executor, broker, ContainerExecutor, literature service or research task was run. Nothing here indicates scientific capability; passing self-tests are not acceptance.",
+    "Fakes emulate ExecutorBroker/container_worker from source reading; literature payload shapes are approximations.",
+    "Real TaskView shapes used without prompt text or asset bytes.",
+    "The request object shape {system, messages} was not exercised against the real ClaudeJSONTransport.",
+    "Thinking content is empty in the stream; builder reasoning could not be audited. Absence of observed misuse is not proof of role containment (plugins/agents residual context declared).",
+    "Consequences of a stale artifact sha for the whole stage (verify_artifacts hash_mismatch) were not traced beyond the broker."
+  ]
+}

@@ -1,0 +1,490 @@
+{
+  "schema_version": "reference-harness-audit.v1",
+  "visibility": "maintainer_only_not_builder_input",
+  "purpose": "Primary-source research-harness capability audit used to synthesize an original H0 construction prompt; not task material or a benchmark-score record.",
+  "reviewed_on": "2026-09-22",
+  "audit_scope": "Static inspection of indicated source sections and metadata. No packages installed, model calls made, scientific experiments run, or end-to-end quality validated.",
+  "references": [
+    {
+      "id": "ai_scientist_v2",
+      "name": "The AI Scientist-v2",
+      "repository": "SakanaAI/AI-Scientist-v2",
+      "commit": "96bd51617cfdbb494a9fc283af00fe090edfae48",
+      "commit_timestamp": "2025-12-19T07:46:31Z",
+      "license": {
+        "repository_api_spdx": "NOASSERTION",
+        "observed_license_name": "The AI Scientist Source Code License",
+        "version": "1.0, December 2025",
+        "evidence_path": "LICENSE",
+        "reuse_policy_for_this_work": "Conceptual reference only; no upstream code or prompt text copied. Not recorded as MIT or unqualified permissive open source.",
+        "observed_terms": [
+          "Distribution includes license and applicable restrictions.",
+          "Scientific-manuscript clause requires prominent disclosure of machine-generated or AI Scientist use."
+        ],
+        "legal_review_complete": false
+      },
+      "observations": [
+        {
+          "claim": "Ideation uses a Semantic Scholar tool and iterative proposals finalized separately from experiment execution.",
+          "file": "ai_scientist/perform_ideation_temp_free.py",
+          "locations": [
+            "imports/tool setup: lines 17-25",
+            "generate_temp_free_idea: lines 128-245"
+          ],
+          "inspection": "selected source sections"
+        },
+        {
+          "claim": "AgentManager explicitly sequences initial implementation, baseline tuning, creative research and ablation studies; its defaults require three Hugging Face datasets.",
+          "file": "ai_scientist/treesearch/agent_manager.py",
+          "locations": [
+            "AgentManager.__init__: lines 123-166"
+          ],
+          "inspection": "selected source sections"
+        },
+        {
+          "claim": "Journal Node associates plan/code with execution output, exceptions, metrics, plots and their own execution metadata.",
+          "file": "ai_scientist/treesearch/journal.py",
+          "locations": [
+            "Node fields: lines 43-118"
+          ],
+          "inspection": "selected source sections"
+        },
+        {
+          "claim": "The launcher invokes experiments, plot aggregation, citation gathering, writeup and paper/image review; model roles can be separately configured.",
+          "file": "launch_scientist_bfts.py",
+          "locations": [
+            "parse_arguments: lines 85-119",
+            "pipeline: lines 250-318"
+          ],
+          "inspection": "selected source sections"
+        },
+        {
+          "claim": "Plot aggregation instructs generated scripts to use existing experiment arrays and summaries rather than invent numerical data.",
+          "file": "ai_scientist/perform_plotting.py",
+          "locations": [
+            "AGGREGATOR_SYSTEM_MSG and build_aggregator_prompt: lines 19-70"
+          ],
+          "inspection": "selected source sections; instruction is not proof of compliance"
+        }
+      ],
+      "adaptation_matrix": {
+        "LIT": {
+          "fit": "partial_reference",
+          "borrow": "Tool-backed evidence and citation acquisition.",
+          "gap": "No inspected mechanism establishes our historical search/read isolation or independent LIT output contract."
+        },
+        "IDEA": {
+          "fit": "reference_with_adaptation",
+          "borrow": "Structured proposal and hypothesis finalization.",
+          "gap": "Remove target workshop framing, any inherited project archive, and mandatory detailed experiment plan."
+        },
+        "EXP": {
+          "fit": "reference_with_adaptation",
+          "borrow": "Working-code checks, experiment state, failed-run metadata, evidence-linked results.",
+          "gap": "Do not import fixed stage tree, universal ablations, three-dataset rule, or method-changing creative optimization into fixed-method tasks."
+        },
+        "WRITE_CONTENT": {
+          "fit": "partial_reference",
+          "borrow": "Write from research evidence with citation support.",
+          "gap": "Replace mandatory full-paper workflow with supplied independent writing scope; fixed executor rather than arbitrary role-specific models."
+        },
+        "WRITE_PRESENTATION": {
+          "fit": "reference_with_adaptation",
+          "borrow": "Generate plots from actual stored data and preserve generation scripts.",
+          "gap": "Do not import fixed figure counts or aesthetic mandates; honor aggregate-only data."
+        },
+        "platform": {
+          "fit": "not_drop_in",
+          "borrow": "Journal records and explicit execution/error states.",
+          "gap": "Platform must own immutable traces, resource enforcement, version isolation and judge; self-written journal is not trusted proof."
+        }
+      },
+      "not_adopted": [
+        "Tree search or a manager agent as mandatory architecture.",
+        "Internal paper reviewer as benchmark judge.",
+        "Original unrestricted tool/client use.",
+        "Launcher cleanup scanning unrelated process names."
+      ],
+      "repository_url": "https://github.com/SakanaAI/AI-Scientist-v2",
+      "commit_url": "https://github.com/SakanaAI/AI-Scientist-v2/commit/96bd51617cfdbb494a9fc283af00fe090edfae48",
+      "retrieved_at_date": "2026-09-22",
+      "version_status": "pinned_default_branch_snapshot_not_paper_release",
+      "runtime_validated": false,
+      "inspected_assets": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist-v2/96bd51617cfdbb494a9fc283af00fe090edfae48/LICENSE",
+          "blob_url": "https://github.com/SakanaAI/AI-Scientist-v2/blob/96bd51617cfdbb494a9fc283af00fe090edfae48/LICENSE",
+          "sha256": "9c82e554a54dfcf2550b452801475a36f9cb909ede00b03e492089e4836a7462",
+          "bytes": 4256,
+          "local_snapshot_path": null
+        },
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist-v2/96bd51617cfdbb494a9fc283af00fe090edfae48/README.md",
+          "blob_url": "https://github.com/SakanaAI/AI-Scientist-v2/blob/96bd51617cfdbb494a9fc283af00fe090edfae48/README.md",
+          "sha256": "ed4ae4b9353641dff469679f14cbffd6547f7a6137b9d5b397f3be9a367b4e82",
+          "bytes": 13586,
+          "local_snapshot_path": null
+        },
+        {
+          "path": "launch_scientist_bfts.py",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist-v2/96bd51617cfdbb494a9fc283af00fe090edfae48/launch_scientist_bfts.py",
+          "blob_url": "https://github.com/SakanaAI/AI-Scientist-v2/blob/96bd51617cfdbb494a9fc283af00fe090edfae48/launch_scientist_bfts.py",
+          "sha256": "e989bf68b4da48eac76fbac41285970925c0d70171c8f13e00d7643a62f722ab",
+          "bytes": 12388,
+          "local_snapshot_path": null
+        },
+        {
+          "path": "ai_scientist/perform_ideation_temp_free.py",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist-v2/96bd51617cfdbb494a9fc283af00fe090edfae48/ai_scientist/perform_ideation_temp_free.py",
+          "blob_url": "https://github.com/SakanaAI/AI-Scientist-v2/blob/96bd51617cfdbb494a9fc283af00fe090edfae48/ai_scientist/perform_ideation_temp_free.py",
+          "sha256": "5bea1d34d3e36622315b9fb1fb283bd5d057918b5e362ccae58d530000f1ed66",
+          "bytes": 12819,
+          "local_snapshot_path": null
+        },
+        {
+          "path": "ai_scientist/treesearch/agent_manager.py",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist-v2/96bd51617cfdbb494a9fc283af00fe090edfae48/ai_scientist/treesearch/agent_manager.py",
+          "blob_url": "https://github.com/SakanaAI/AI-Scientist-v2/blob/96bd51617cfdbb494a9fc283af00fe090edfae48/ai_scientist/treesearch/agent_manager.py",
+          "sha256": "3abbc08428be8345baa106045bcbc82fcff115634579b11436a8181707208c89",
+          "bytes": 51718,
+          "local_snapshot_path": null
+        },
+        {
+          "path": "ai_scientist/treesearch/journal.py",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist-v2/96bd51617cfdbb494a9fc283af00fe090edfae48/ai_scientist/treesearch/journal.py",
+          "blob_url": "https://github.com/SakanaAI/AI-Scientist-v2/blob/96bd51617cfdbb494a9fc283af00fe090edfae48/ai_scientist/treesearch/journal.py",
+          "sha256": "5690b2b803300f655788064ec253159f2f41c86802e886e601cf640f798cd5b6",
+          "bytes": 24163,
+          "local_snapshot_path": null
+        },
+        {
+          "path": "ai_scientist/perform_plotting.py",
+          "url": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist-v2/96bd51617cfdbb494a9fc283af00fe090edfae48/ai_scientist/perform_plotting.py",
+          "blob_url": "https://github.com/SakanaAI/AI-Scientist-v2/blob/96bd51617cfdbb494a9fc283af00fe090edfae48/ai_scientist/perform_plotting.py",
+          "sha256": "be34c7bfdac961b3f23884fbd1e1b809af5f9a07e43ad7a241b3fa16a453893c",
+          "bytes": 12572,
+          "local_snapshot_path": null
+        }
+      ]
+    },
+    {
+      "id": "agent_laboratory",
+      "name": "Agent Laboratory",
+      "repository": "SamuelSchmidgall/AgentLaboratory",
+      "commit": "d9017d90e329112d2a80b7712f37ee9094d2cd27",
+      "commit_timestamp": "2025-08-20T21:46:42Z",
+      "license": {
+        "repository_api_spdx": "MIT",
+        "observed_license_name": "MIT License",
+        "evidence_path": "LICENSE",
+        "copyright": "Copyright (c) 2025 Samuel Schmidgall",
+        "reuse_policy_for_this_work": "Conceptual reference only; no code/prompt copying. If later reusing code, retain required notices and inspect component provenance.",
+        "legal_review_complete": false
+      },
+      "observations": [
+        {
+          "claim": "LaboratoryWorkflow enumerates literature review, plan formulation, data preparation/experiments, interpretation and report writing/refinement; it stores phase statistics and instantiates specialized roles.",
+          "file": "ai_lab_repo.py",
+          "locations": [
+            "LaboratoryWorkflow.__init__: lines 19-99"
+          ],
+          "inspection": "selected source sections"
+        },
+        {
+          "claim": "MLESolver accepts dataset code, plan and insights; supports replacing/editing candidate code and uses a model score on plan, code and returned output.",
+          "file": "mlesolver.py",
+          "locations": [
+            "get_score: lines 141-162",
+            "MLESolver.__init__/initial_solve: lines 203-241",
+            "run_code: lines 553-562"
+          ],
+          "inspection": "selected source sections"
+        },
+        {
+          "claim": "PaperSolver is organized around building and editing a full paper and consumes experiment code/results, literature and interpretations.",
+          "file": "papersolver.py",
+          "locations": [
+            "PaperSolver.__init__",
+            "gen_initial_report",
+            "system_prompt",
+            "role_description"
+          ],
+          "inspection": "function signatures and selected source lines; not exhaustive runtime audit"
+        },
+        {
+          "claim": "ArxivSearch directly uses arxiv.Client and downloads paper PDFs; execute_code invokes generated Python in a multiprocessing worker with a timeout.",
+          "file": "tools.py",
+          "locations": [
+            "ArxivSearch: lines 200-285",
+            "worker_run_code/execute_code: lines 292-325"
+          ],
+          "inspection": "selected source sections"
+        }
+      ],
+      "adaptation_matrix": {
+        "LIT": {
+          "fit": "reference_with_adaptation",
+          "borrow": "Review before downstream research and preserve reference identity.",
+          "gap": "Replace direct live arXiv retrieval with authorized version-filtered search and read."
+        },
+        "IDEA": {
+          "fit": "partial_reference",
+          "borrow": "Explicit structured research plan input/output.",
+          "gap": "Our output includes a complete hypothesis set without requiring an experiment recipe or inherited upstream execution."
+        },
+        "EXP": {
+          "fit": "reference_with_adaptation",
+          "borrow": "Connect data preparation, code edits, runs and interpretation; handle run failures.",
+          "gap": "Do not use a self-selected reward model as gold, require one loose-code script, or mandate all studies fit a method-training pipeline."
+        },
+        "WRITE_CONTENT": {
+          "fit": "reference_with_adaptation",
+          "borrow": "Use actual method/results/literature inputs when writing.",
+          "gap": "No required eight-section 4000-word report, full PDF, institutional role play or research rediscovery."
+        },
+        "WRITE_PRESENTATION": {
+          "fit": "partial_reference",
+          "borrow": "Results-to-report linkage.",
+          "gap": "Need our dedicated numerical/provenance checks and figure/table output contract; full support not established by inspected code."
+        },
+        "platform": {
+          "fit": "not_drop_in",
+          "borrow": "Phase-level execution statistics and state reset concepts.",
+          "gap": "Direct model clients, tools and subprocess execution must be replaced by injected controlled capabilities; workflow memory must not cross hidden tasks."
+        }
+      },
+      "not_adopted": [
+        "Required professor/PhD/postdoc/engineer agent hierarchy.",
+        "Human-in-the-loop dependency.",
+        "AgentRxiv cross-project memory as hidden-task context.",
+        "Internal subjective score as official benchmark grade."
+      ],
+      "repository_url": "https://github.com/SamuelSchmidgall/AgentLaboratory",
+      "commit_url": "https://github.com/SamuelSchmidgall/AgentLaboratory/commit/d9017d90e329112d2a80b7712f37ee9094d2cd27",
+      "retrieved_at_date": "2026-09-22",
+      "version_status": "pinned_default_branch_snapshot_not_paper_release",
+      "runtime_validated": false,
+      "inspected_assets": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/SamuelSchmidgall/AgentLaboratory/d9017d90e329112d2a80b7712f37ee9094d2cd27/LICENSE",
+          "blob_url": "https://github.com/SamuelSchmidgall/AgentLaboratory/blob/d9017d90e329112d2a80b7712f37ee9094d2cd27/LICENSE",
+          "sha256": "bf38a159d01e82d58f986c2d6dd06e03ba0b9cd59a6d286dd94109aac358e583",
+          "bytes": 1073,
+          "local_snapshot_path": null
+        },
+        {
+          "path": "ai_lab_repo.py",
+          "url": "https://raw.githubusercontent.com/SamuelSchmidgall/AgentLaboratory/d9017d90e329112d2a80b7712f37ee9094d2cd27/ai_lab_repo.py",
+          "blob_url": "https://github.com/SamuelSchmidgall/AgentLaboratory/blob/d9017d90e329112d2a80b7712f37ee9094d2cd27/ai_lab_repo.py",
+          "sha256": "799a3c078d835cd632487f52ed5b8e9f155bb9514ca104a30442ecfbcb7765ff",
+          "bytes": 45580,
+          "local_snapshot_path": null
+        },
+        {
+          "path": "mlesolver.py",
+          "url": "https://raw.githubusercontent.com/SamuelSchmidgall/AgentLaboratory/d9017d90e329112d2a80b7712f37ee9094d2cd27/mlesolver.py",
+          "blob_url": "https://github.com/SamuelSchmidgall/AgentLaboratory/blob/d9017d90e329112d2a80b7712f37ee9094d2cd27/mlesolver.py",
+          "sha256": "cc110f2b07642532cca11bd8cbf74becfc41016c7f876c16f6d40379ec59882c",
+          "bytes": 33070,
+          "local_snapshot_path": null
+        },
+        {
+          "path": "papersolver.py",
+          "url": "https://raw.githubusercontent.com/SamuelSchmidgall/AgentLaboratory/d9017d90e329112d2a80b7712f37ee9094d2cd27/papersolver.py",
+          "blob_url": "https://github.com/SamuelSchmidgall/AgentLaboratory/blob/d9017d90e329112d2a80b7712f37ee9094d2cd27/papersolver.py",
+          "sha256": "8c16d68577570fbf6332d3f070e5aec975ed3fd3e1440918940f16eb8911366c",
+          "bytes": 33486,
+          "local_snapshot_path": null
+        },
+        {
+          "path": "tools.py",
+          "url": "https://raw.githubusercontent.com/SamuelSchmidgall/AgentLaboratory/d9017d90e329112d2a80b7712f37ee9094d2cd27/tools.py",
+          "blob_url": "https://github.com/SamuelSchmidgall/AgentLaboratory/blob/d9017d90e329112d2a80b7712f37ee9094d2cd27/tools.py",
+          "sha256": "171b36dd2507add4acb3c4608d2acc5f9d9cd7bc4631264d23efd40c3c816d23",
+          "bytes": 13410,
+          "local_snapshot_path": null
+        }
+      ]
+    },
+    {
+      "id": "karpathy_autoresearch",
+      "name": "autoresearch",
+      "repository": "karpathy/autoresearch",
+      "commit": "228791fb499afffb54b46200aca536f79142f117",
+      "commit_timestamp": "2026-03-26T00:07:37Z",
+      "license": {
+        "repository_api_spdx": null,
+        "observed_license_name": "README declares MIT",
+        "evidence_path": "README.md, License section",
+        "standalone_license_file_present_in_commit_tree": false,
+        "reuse_policy_for_this_work": "Conceptual reference only; standalone license text not present in inspected tree, so code redistribution clearance is not established by this audit.",
+        "legal_review_complete": false
+      },
+      "observations": [
+        {
+          "claim": "README separates fixed data/evaluation infrastructure, an editable training implementation, and agent instructions.",
+          "file": "README.md",
+          "locations": [
+            "How it works"
+          ],
+          "inspection": "selected source lines plus section context"
+        },
+        {
+          "claim": "The agent program specifies a baseline run, commits, run logs, keep/discard/crash records, and unchanged evaluation infrastructure.",
+          "file": "program.md",
+          "locations": [
+            "Setup",
+            "Experimentation",
+            "Logging results",
+            "The experiment loop"
+          ],
+          "inspection": "full file"
+        },
+        {
+          "claim": "This reference optimizes a particular training validation metric, allows architecture changes, and directs the agent to continue indefinitely until interrupted.",
+          "file": "program.md",
+          "locations": [
+            "Experimentation",
+            "The experiment loop"
+          ],
+          "inspection": "full file"
+        },
+        {
+          "claim": "prepare.py implements fixed data loading and evaluate_bpb; this is task-specific numerical evaluation rather than a research-quality judge.",
+          "file": "prepare.py",
+          "locations": [
+            "make_dataloader",
+            "evaluate_bpb"
+          ],
+          "inspection": "function index and selected source lines; no execution"
+        }
+      ],
+      "adaptation_matrix": {
+        "LIT": {
+          "fit": "not_demonstrated",
+          "borrow": null,
+          "gap": "Not an independent literature-review harness."
+        },
+        "IDEA": {
+          "fit": "not_demonstrated",
+          "borrow": null,
+          "gap": "Local training edits do not implement our open proposal/hypothesis contract."
+        },
+        "EXP": {
+          "fit": "narrow_reference",
+          "borrow": "Immutable evaluation boundary, baseline sanity check, version-to-run correspondence and explicit failure records.",
+          "gap": "Do not assume GPU training, one editable file, one scalar objective, architecture freedom or fixed five-minute experiments."
+        },
+        "WRITE_CONTENT": {
+          "fit": "not_demonstrated",
+          "borrow": null,
+          "gap": "No writing task implementation in inspected material."
+        },
+        "WRITE_PRESENTATION": {
+          "fit": "not_demonstrated",
+          "borrow": null,
+          "gap": "The existence of an analysis notebook/image is not evidence of the required autonomous presentation interface; notebook not inspected."
+        },
+        "platform": {
+          "fit": "not_drop_in",
+          "borrow": "Separate editable research code from immutable evaluator; explicit experiment identities.",
+          "gap": "Its untracked self-written TSV is not our platform trace; keep/discard local training loop is not outer harness evolution."
+        }
+      },
+      "not_adopted": [
+        "Run forever instructions.",
+        "Crashes encoded as zero numerical measurements.",
+        "Automatic unlogged discard of failed experiments.",
+        "An invariant validation metric treated as complete scientific quality."
+      ],
+      "repository_url": "https://github.com/karpathy/autoresearch",
+      "commit_url": "https://github.com/karpathy/autoresearch/commit/228791fb499afffb54b46200aca536f79142f117",
+      "retrieved_at_date": "2026-09-22",
+      "version_status": "pinned_default_branch_snapshot_not_paper_release",
+      "runtime_validated": false,
+      "inspected_assets": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/karpathy/autoresearch/228791fb499afffb54b46200aca536f79142f117/README.md",
+          "blob_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/README.md",
+          "sha256": "3958fd4195ac2f98ed35c4eaa4f3028a335165ee24945e96426c408d25793a41",
+          "bytes": 8039,
+          "local_snapshot_path": null
+        },
+        {
+          "path": "program.md",
+          "url": "https://raw.githubusercontent.com/karpathy/autoresearch/228791fb499afffb54b46200aca536f79142f117/program.md",
+          "blob_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/program.md",
+          "sha256": "86cf987a5c381e46eefe0d0a82765223fd766d8d7acdc2afacfbbce15ecacece",
+          "bytes": 7039,
+          "local_snapshot_path": null
+        },
+        {
+          "path": "prepare.py",
+          "url": "https://raw.githubusercontent.com/karpathy/autoresearch/228791fb499afffb54b46200aca536f79142f117/prepare.py",
+          "blob_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/prepare.py",
+          "sha256": "4f2ba9cbb8ba8c4a3d35be405a913e2f3be3af9aea103ed52ef7b2a662058150",
+          "bytes": 15043,
+          "local_snapshot_path": null
+        }
+      ]
+    }
+  ],
+  "synthesis": {
+    "prompt_path": "research/benchmark/prompts/builder_h0.txt",
+    "prompt_sha256": "066dc9deef0179ccb8bf275b8bbb5f6964ab8d17696ce91fea73dbbcd6bf2030",
+    "status": "candidate_pending_exact_interface_binding_and_fresh_agent_build_acceptance",
+    "architecture_requirement": "one reusable harness; internal architecture unconstrained",
+    "proposed_entrypoint": "run(task_view, model_client, tool_client, budget) -> submission_manifest",
+    "client_abi": "defer to released versioned public contract; no concrete client method names invented in the prompt",
+    "fresh_agent_test_performed": false,
+    "requirements_traceability": [
+      {
+        "requirement": "Preserve evidence identifiers from retrieval through synthesis.",
+        "references": [
+          "ai_scientist_v2",
+          "agent_laboratory"
+        ],
+        "benchmark_addition": "historical version filtering and immutable task-specific access"
+      },
+      {
+        "requirement": "Support experiments, debugging, evidence and honest negative outcomes.",
+        "references": [
+          "ai_scientist_v2",
+          "agent_laboratory",
+          "karpathy_autoresearch"
+        ],
+        "benchmark_addition": "fixed hypothesis/method fidelity and no mandatory research report"
+      },
+      {
+        "requirement": "Generate writing and presentation from actual research material.",
+        "references": [
+          "ai_scientist_v2",
+          "agent_laboratory"
+        ],
+        "benchmark_addition": "independent fixed starts and two distinct WRITE contracts"
+      },
+      {
+        "requirement": "Link versions, execution state, failures and artifacts.",
+        "references": [
+          "ai_scientist_v2",
+          "karpathy_autoresearch"
+        ],
+        "benchmark_addition": "trusted platform traces, safe cancellation, cost accounting"
+      },
+      {
+        "requirement": "Injected executor/tools and reset state between hidden tasks.",
+        "references": [],
+        "benchmark_addition": "protocol requirement; not established by reference systems"
+      },
+      {
+        "requirement": "H0 without search; staged outer evolution and hidden test isolation.",
+        "references": [],
+        "benchmark_addition": "protocol requirement; not the references’ inner experiment optimization"
+      }
+    ]
+  }
+}

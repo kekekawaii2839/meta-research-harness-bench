@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.1",
+  "sources": [
+    {
+      "source_id": "iv-paper-v1",
+      "url": "https://arxiv.org/html/2410.01265v1",
+      "kind": "paper_html",
+      "version": "arxiv-v1",
+      "paper_id": "iclr2025-QfhU3ZC2g1"
+    },
+    {
+      "source_id": "iv-abstract-v1",
+      "url": "https://arxiv.org/abs/2410.01265v1",
+      "kind": "version_and_license_metadata",
+      "version": "arxiv-v1",
+      "paper_id": "iclr2025-QfhU3ZC2g1"
+    },
+    {
+      "source_id": "iv-license",
+      "url": "https://raw.githubusercontent.com/harris-liang/IVTransformer/241010acd1acd9fa7896809b4618bbf0911edc59/LICENSE",
+      "version": "241010acd1acd9fa7896809b4618bbf0911edc59",
+      "kind": "repository_license",
+      "paper_id": "iclr2025-QfhU3ZC2g1"
+    },
+    {
+      "source_id": "iv-readme",
+      "url": "https://raw.githubusercontent.com/harris-liang/IVTransformer/241010acd1acd9fa7896809b4618bbf0911edc59/README.md",
+      "version": "241010acd1acd9fa7896809b4618bbf0911edc59",
+      "kind": "repository_documentation",
+      "paper_id": "iclr2025-QfhU3ZC2g1"
+    },
+    {
+      "source_id": "iv-simulation",
+      "url": "https://raw.githubusercontent.com/harris-liang/IVTransformer/241010acd1acd9fa7896809b4618bbf0911edc59/src/simulation.ipynb",
+      "version": "241010acd1acd9fa7896809b4618bbf0911edc59",
+      "kind": "author_analysis_notebook_private_only",
+      "paper_id": "iclr2025-QfhU3ZC2g1"
+    }
+  ]
+}

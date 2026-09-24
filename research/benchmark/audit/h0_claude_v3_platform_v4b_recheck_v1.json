@@ -1,0 +1,74 @@
+{
+  "schema_version": "h0-claude-platform-recheck-1",
+  "created_at": "2026-09-24",
+  "reviewer": "independent runtime_repairs reviewer subagent (Claude Code maintainer collaborator; not builder, not a benchmarked role)",
+  "new_model_calls": 0,
+  "scope": "Recheck of unchanged H0 v3 on corrected platform v4 (provider_refusal message reworded so only budget_exhausted mentions the budget). Fake clients only; no H0 artifact, AGENTS.md or existing file modified. Helpers under D:/mrhbench-local-pilot/h0-claude-v3-review-5e1a9c/rerun-v4b.",
+  "prior_reviews": [
+    "research/benchmark/audit/h0_claude_v3_independent_review_v1.json (needs_repair, V3-1)",
+    "research/benchmark/audit/h0_claude_v3_platform_v4_recheck_v1.json (sha 957c9dd7314eae52e29ce4995756535dfca6d0b372f9134d170fcf8b53208a20; needs_repair: provider_refusal message contained 'budget')"
+  ],
+  "harness_reviewed": {
+    "path": "D:/mrhbench-local-pilot/h0-claude-20260924-002/artifacts/harness.py",
+    "sha256": "619dc7240d7d0437e6f449319adcf710e2c13ffa2220bb45e5f06e343309b181",
+    "unchanged_before_after_run": true
+  },
+  "platform_sources_read_sha256": {
+    "research/benchmark/mrhbench/executor_broker.py": "6aa82a2731a6915c1a71fc23789a1fdeb7f0d95b7c2a70551c0fab3b6f96f9a1",
+    "research/benchmark/runtime/container_worker.py": "7ba1c0f943f15caf172d6867292bdafabd8360ffa7cd088c042006265b1a109f",
+    "research/benchmark/runtime/interface_container_v4.json": "7e2257bd478992b352866fa6702d0ce81f9a3695666c79fedd95052dc6df521f",
+    "research/benchmark/mrhbench/io.py": "22e8021153a652898b7c945dfcd5c4f32fb9a787d0dbdd719d63e050ec27fa01",
+    "research/benchmark/mrhbench/sdk.py": "6cfed36642f627f466b427009cd389271fcd26f7c84d1a8f0b7b74d378bbcf54",
+    "research/benchmark/mrhbench/claude_transport.py": "ddbd4d409841d3a6c4631c750ff06dc4ba2bcdeed77f6bc42d1a1ade40d2c063"
+  },
+  "fake_fidelity": {
+    "regeneration": "MSG dict in checks_v4.py regenerated from the live executor_broker.PUBLIC_ERROR_MESSAGES (controller venv import) and re-verified byte-equal (msg_equal true); interface_container_v4.json error_categories equal to the live dict; worker still raises BrokerError(message, category).",
+    "provider_refusal_message": "provider_refusal: the executor model provider declined this request. This one call was counted; other calls may still be available.",
+    "non_budget_messages_containing_word_budget": [],
+    "verify_log": "D:/mrhbench-local-pilot/h0-claude-v3-review-5e1a9c/rerun-v4b/verify_messages.log"
+  },
+  "runs": {
+    "container_command": "MSYS_NO_PATHCONV=1 docker run --rm --network none --cpus 1 --memory 512m --pids-limit 64 --read-only --tmpfs /tmp --user 10001:10001 --cap-drop ALL --security-opt no-new-privileges=true -e PYTHONDONTWRITEBYTECODE=1 -e HOME=/tmp -v D:\\mrhbench-local-pilot\\h0-claude-20260924-002\\artifacts:/inputs:ro -v D:\\mrhbench-local-pilot\\h0-claude-v3-review-5e1a9c\\rerun-v4b\\release:/review:ro --entrypoint bash sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01 /review/run.sh",
+    "release_files_sha256": {"checks_v4.py": "4dd65c4cfac0f340722bd240f334c628dcdeb8fa5c23bcb84c643695dc260b45", "real_shapes_v3.json": "5a33c7e127fd199e588e5f51ff890c0a4474e7207d469e223c6135714a59f44c", "run.sh": "91cfc15c4b8d983eb0ca9339c654889b71da444f1a88fa0ccb72efbd4d44e0f3"},
+    "log": "D:/mrhbench-local-pilot/h0-claude-v3-review-5e1a9c/rerun-v4b/run_v4b.log sha 14d6f837d4e00f4eb2ae475cb6edd2a65d0ba5c8b0816e6b4b5c7aeff29537d8",
+    "container_identity": "uid=10001 gid=10001, Python 3.12.14, --rm",
+    "builder_self_tests": "Ran 27, OK",
+    "reviewer_checks_v4": "Ran 44, 38 ok, 6 FAIL (all six are previously recorded non-V3-1 defects)"
+  },
+  "v3_1_recheck": {
+    "harness_classification_of_live_messages": {"budget_exhausted": "budget", "provider_refusal": "refusal", "provider_error": "timeout", "invalid_request": "protocol", "tool_error": "error"},
+    "one_provider_refusal_then_successes": {"result": "pass", "observed": "4 act steps + final; write_file and cpu.run executed after the refusal; 25 model calls left; status completed"},
+    "one_provider_error_then_successes": {"result": "pass", "observed": "4 act + final, completed"},
+    "one_invalid_request_then_successes": {"result": "pass", "observed": "3 act + final, completed"},
+    "three_consecutive_refusals": {"result": "pass", "observed": "stops after 3 with omission 'Action loop stopped after repeated model call failures.', status partial"},
+    "refusal_at_final_gets_repair": {"result": "pass", "observed": "act, final (refused), final repair -> content produced"},
+    "genuine_budget_exhausted_stops": {"result": "pass", "observed": "no further act or final call once remaining() is 0; status failed with omissions"},
+    "budget_exhausted_message_with_budget_still_reported": "harness stops on the message (act, final); expected behaviour for the category, not a defect.",
+    "summary": "V3-1 resolved on the corrected platform for every error category."
+  },
+  "remaining_defects": [
+    {"id": "V3-2", "severity": "medium-low", "location": "harness.py 586-605 (+ silent cuts at 581/583)", "status": "open: context tail truncation hides new observations once working notes/index exceed ~180k chars (G2 fail)"},
+    {"id": "V3-3", "severity": "low", "location": "harness.py 914-916, 924-933", "status": "open: stale write-time sha listed if the hash helper fails (status partial with omission; controller verify_artifacts would report hash_mismatch)"},
+    {"id": "V3-4", "severity": "low-medium", "location": "harness.py 854-860", "status": "open: \\bR\\d+\\b false positive ('R2 = 0.91') adds a status-blocking omission for EXP"},
+    {"id": "V3-5", "severity": "low", "location": "harness.py 343-350, 942-943", "status": "open: spurious unknown-group omissions for model_client (all views) and asset.read (LIT, IDEA)"},
+    {"id": "V3-6", "severity": "low", "location": "harness.py 873-879", "status": "open: oversized notes may be invalid JSON or rejected, then silently absent"},
+    {"id": "V3-7", "severity": "low-medium", "location": "harness.py 500, 574-584", "status": "open: TaskView 'resources' (budgets, container, collection quotas, cutoff) never shown to the executor"},
+    {"id": "V3-8", "severity": "low", "location": "harness.py 674-678", "status": "open: viewed image dropped after a failed model call"},
+    {"id": "D5-timeout-inf", "severity": "minor", "location": "harness.py 782-787", "status": "open: inf timeout forwarded only when budget wall unknown; broker rejects"},
+    {"id": "V3-1", "status": "resolved on platform v4 (corrected messages)"},
+    {"id": "V3-9", "status": "resolved on platform v4"}
+  ],
+  "fragility_note": "The H0 still ignores BrokerError.category and classifies by message keywords (timeout / budget / exhaust / quota / limit / cancel / denied / refus / ...). Its correct behaviour therefore depends on the exact public message texts; e.g. a future non-exhaustion message containing 'limit', 'quota' or 'exhaust' would reintroduce V3-1. Root's new platform test forbids only 'budget'; freezing the message texts per interface version (or extending the test to the other keywords) keeps this recheck valid. Any wording change invalidates this recheck.",
+  "verdict": "development_admissible",
+  "verdict_rationale": "On the corrected platform v4 the unchanged H0 v3 continues after a single provider refusal/error/invalid request while budget remains, stops on genuine budget exhaustion and after 3 consecutive failures, and otherwise conforms to the interface (capability grants, budgets, cancellation, manifest shape, state reset, schemas valid and free of reasoning requests). Remaining defects V3-2..V3-8 are builder-quality properties of the same order as those accepted for the v1 H0 and do not break the controller ABI; per §6/§0.3 they are recorded, not repaired by maintainers. Development only; not formal isolation or scientific acceptance.",
+  "conditions": [
+    "Valid only for platform files at the hashes above (in particular the PUBLIC_ERROR_MESSAGES texts).",
+    "Integration results must be read with V3-2/V3-4/V3-5/V3-7 in mind (possible spurious partial status/omissions, executor not seeing TaskView resources)."
+  ],
+  "scientific_quality_assessed": false,
+  "formal_isolation_verified": false,
+  "limitations": [
+    "Fake clients only; real ExecutorBroker/ContainerExecutor/ClaudeJSONTransport and literature service not run.",
+    "Nothing here indicates scientific capability; passing self-tests are not acceptance."
+  ]
+}

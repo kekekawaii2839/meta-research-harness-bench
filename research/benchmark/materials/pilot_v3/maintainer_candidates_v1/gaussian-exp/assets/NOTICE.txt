@@ -1,0 +1,7 @@
+Provenance and rights review
+
+This is a maintainer-constructed development candidate (not produced by a construction model). task.md and base_resources.py are newly authored for this benchmark. The data model, one-step first-layer update, ridge readout and held-out error follow the equations of arXiv 2503.00856v1 (HTML v1, Sections 2 and 4), restated in new wording and notation; no paper text is reproduced beyond equation content. Concrete constants that the paper fixes only as orders of growth (spike strength, learning rate, teacher-direction normalization) follow the choices in the authors' public repository at pinned commit 257bcd539ab3adef9aeae9d78604f681ea204017; no repository code is copied or released, and no repository output is used as a verified result.
+
+Implementation differences from that repository, recorded for transparency: NumPy instead of JAX; spike directions drawn as normalized Gaussian vectors (the same distribution of g g^T as the repository's QR-based draw); ||Sigma|| computed in closed form; independent per-sample component assignment (the repository draws exactly half per component; available here only as the declared 'stratified' variant).
+
+The pinned repository LICENSE is MIT, copyright 2025 KU-MLIP. Its scope over the paper and over newly authored benchmark assets is not asserted. Public release authorization and rights scope remain pending independent review.

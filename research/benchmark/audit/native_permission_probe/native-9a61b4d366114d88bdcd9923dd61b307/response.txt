@@ -1,0 +1,1 @@
+Failure: the native PowerShell command was rejected by the permission policy before execution. No command exit status was produced, and verification was not run. I stopped as requested.

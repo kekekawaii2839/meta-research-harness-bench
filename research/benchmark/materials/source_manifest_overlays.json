@@ -1,0 +1,27 @@
+{
+  "schema_version": "source-manifest-overlay-1",
+  "purpose": "Maintainer-owned paper attribution for raw source manifests that were written without paper_id/kind. The raw cache manifests are immutable; this overlay binds each by exact sha256 and never edits them.",
+  "overlays": [
+    {
+      "manifest": "research/source_cache/benchmark_materials/gaussian_prescreen_v1/manifest.json",
+      "sha256": "6c8fac7460c544c6ae7b25e8b4c35857aca254bbc6e18020646b98d4c7c3cb05",
+      "paper_id": "iclr2025-tNn6Hskmti",
+      "default_kind": "prescreen_source_unclassified",
+      "evidence": "research/benchmark/audit/gaussian_fulltext_prescreen_v1.json"
+    },
+    {
+      "manifest": "research/source_cache/benchmark_materials/gaussian_tree_prescreen_v1/manifest.json",
+      "sha256": "df3388780ca9b0d2a6f8a6add90cd903ee6eb4834a8f744bb31801066685a6a6",
+      "paper_id": "iclr2025-tNn6Hskmti",
+      "default_kind": "repository_tree_metadata",
+      "evidence": "research/benchmark/audit/gaussian_source_contract_review_v1.json"
+    },
+    {
+      "manifest": "research/source_cache/benchmark_materials/gaussian_code_prescreen_v1/manifest.json",
+      "sha256": "14ec594f45d8c52a67e16e412c8d4b72521b1cfe549ed29fa234cbf3e25c85ce",
+      "paper_id": "iclr2025-tNn6Hskmti",
+      "default_kind": "repository_file_at_pinned_commit",
+      "evidence": "research/benchmark/audit/gaussian_source_contract_review_v1.json"
+    }
+  ]
+}

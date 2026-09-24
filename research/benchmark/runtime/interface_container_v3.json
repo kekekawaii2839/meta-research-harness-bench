@@ -1,0 +1,344 @@
+{
+  "boundary": "Harness code runs in a new offline CPU Docker container. Controller owns model role and budget. Native builder tool-schema containment is still under audit; this ABI is development only.",
+  "budget": {
+    "limits": "injected controller-owned; failed attempts count; record all costs",
+    "method": "remaining() -> {model_calls,tool_calls,wall_seconds,cancelled}"
+  },
+  "entry_point": "run(task_view, model_client, tool_client, budget) -> submission_manifest",
+  "harness_package": {
+    "callable": "run",
+    "dependencies": "Python standard library; other dependencies require explicit approval",
+    "file": "harness.py"
+  },
+  "interface_version": "mrhb-container-dev-0.3",
+  "model_client": {
+    "errors": "ProtocolError or provider errors; failed calls counted; no silent retry",
+    "images": "artifact.view_image returns an image_id. Pass it to complete(image_ids=[...]) for actual pixel input; a file name is not image inspection.",
+    "method": "complete(request: JSON object, *, output_schema: JSON Schema, image_ids: list[str] | None = None) -> {response, call_id, usage}",
+    "model": "platform fixed",
+    "role": "executor fixed",
+    "provider_constraints": {
+      "executor_provider": "Claude subscription model behind an API-like transport; no tools on the model side.",
+      "safeguard_refusals": "The provider may refuse an entire request. A refusal is returned to the harness as a provider error, is counted against model_calls, and is not retried automatically. One refused call does not mean the budget is exhausted; the remaining budget is reported by budget.remaining().",
+      "observed_trigger": "Requests that ask the model to disclose its internal reasoning or chain of thought are refused, including an output_schema with a property named 'reasoning'. Ask for the decision and any concise, user-visible justification or working note you need instead; do not request hidden reasoning.",
+      "structured_output": "output_schema is enforced by the provider structured-output channel and validated again by the controller."
+    }
+  },
+  "public_rubrics": {
+    "EXP": {
+      "checks": [
+        "Map every fixed hypothesis to experiments, artifacts and brief conclusions; do not grade report length.",
+        "Inspect actual code and platform execution evidence, not solver self-reported logs alone.",
+        "Identify absence of evidence separately from evidence of absence, and valid negative results separately from invalid experiments.",
+        "Doing nothing and declaring everything uncertain is not automatically rigorous.",
+        "First four dimensions alone form equal-weight scientific quality. Resource grade and measured costs cannot compensate invalid science."
+      ],
+      "dimensions": {
+        "conclusion_credibility": [
+          "Conclusions contradict evidence or assert support from no relevant evidence.",
+          "Per-hypothesis conclusions, uncertainty and limits are proportional to evidence, including counterexamples or negative findings; computation and scientific inference are distinguished."
+        ],
+        "execution_credibility": [
+          "Claimed execution has no credible basis, is contradicted, or central results are fabricated.",
+          "Platform records and frozen code/configuration/data/artifacts consistently establish actual execution and allow key numbers to be recomputed."
+        ],
+        "resource_reasonableness": [
+          "No informative use of resources, or clear unjustified violation of task resource constraints.",
+          "Resources are used effectively to obtain discriminating evidence within the stated constraints, with unfinished work honestly bounded."
+        ],
+        "rigor": [
+          "Central comparisons are confounded, evaluation leaks or cherry-picking makes conclusions uninterpretable.",
+          "Appropriate comparisons, data boundaries, uncertainty and selection/deviation accounting support the claimed scope; statistical ritual is not required where inapplicable."
+        ],
+        "test_validity": [
+          "Experiments do not test the fixed hypotheses or silently change the method/research object.",
+          "Faithful, informative experiments address all input hypotheses and relevant alternatives, without assuming a unique author design."
+        ]
+      },
+      "levels": {
+        "0": "Absent or fundamentally invalid for this dimension; identify the actual affected requirement, not merely a style dislike.",
+        "1": "Some relevant work, but major defects leave most core requirements unsupported.",
+        "2": "Partially sound and useful, with material gaps or limitations affecting central requirements.",
+        "3": "Sound on the core requirements; limited, localized weaknesses or explicitly bounded uncertainty remain.",
+        "4": "Strong, evidence-supported fulfillment within the task scope; no material unresolved deficiency. Not perfection or positive results by definition."
+      },
+      "purpose": "Evaluate a whole hypothesis-to-evidence investigation; no standalone report required, and sound negative results can score highly.",
+      "required_evidence_roles": [
+        "task",
+        "submission",
+        "platform_trace",
+        "reference"
+      ],
+      "task_type": "EXP",
+      "version": "development-0.1"
+    },
+    "IDEA": {
+      "checks": [
+        "Do not require reproducing the reference method or predetermined positive findings.",
+        "Assess hypotheses against the entire proposal; do not reward cherry-picking easy weak claims.",
+        "No demand for full implementation, experiment plan or newly executed research unless task explicitly includes it."
+      ],
+      "dimensions": {
+        "feasibility": [
+          "Core idea cannot be assessed or implemented with the supplied resources/permissions, without acknowledging this.",
+          "There is a credible path to testing the proposal under the given constraints, with explicit assumptions and material risks."
+        ],
+        "grounding_value": [
+          "Proposal rests on false premises or has no meaningful relation to the supplied problem.",
+          "Motivation and intended value follow from the supplied scientific context and explicitly bounded claims."
+        ],
+        "hypothesis_quality": [
+          "No testable core claims, circular predictions, or replacement by irrelevant easy claims.",
+          "Hypotheses cover the proposal's central claims, specify conditions/comparators/predictions and potential challenging evidence; distinguish performance, contribution and mechanism."
+        ],
+        "specificity_coherence": [
+          "An unimplementable slogan or internally contradictory method.",
+          "Mechanism, key choices and intended effects are concrete and mutually consistent; legitimate implementation freedom remains."
+        ],
+        "substantive_difference": [
+          "Merely relabels existing work while claiming novelty, or offers no meaningful distinction.",
+          "Clearly explains a substantive difference from supplied prior work; judge only the accessible reference scope, not global novelty."
+        ]
+      },
+      "levels": {
+        "0": "Absent or fundamentally invalid for this dimension; identify the actual affected requirement, not merely a style dislike.",
+        "1": "Some relevant work, but major defects leave most core requirements unsupported.",
+        "2": "Partially sound and useful, with material gaps or limitations affecting central requirements.",
+        "3": "Sound on the core requirements; limited, localized weaknesses or explicitly bounded uncertainty remain.",
+        "4": "Strong, evidence-supported fulfillment within the task scope; no material unresolved deficiency. Not perfection or positive results by definition."
+      },
+      "purpose": "Evaluate one selected proposal with hypotheses, not similarity to the source paper's idea or completion of experiments.",
+      "required_evidence_roles": [
+        "task",
+        "submission",
+        "reference"
+      ],
+      "task_type": "IDEA",
+      "version": "development-0.1"
+    },
+    "LIT": {
+      "checks": [
+        "Validate source identity/version/cutoff and quoted location before semantic support.",
+        "Do not penalize an unlisted but accessible valid reference or different grounded gap.",
+        "Historical tool restrictions do not establish absence of model-memory contamination."
+      ],
+      "dimensions": {
+        "comparative_synthesis": [
+          "Disconnected titles or misleading comparisons provide no reliable synthesis.",
+          "Explains meaningful differences, conditions, conflicts and limitations using evidence, not citation volume or polished prose alone."
+        ],
+        "evidence_coverage": [
+          "The response omits essentially all evidence needed to answer the supplied question.",
+          "Covers the important approaches, findings and counterevidence needed for the question, using any valid sources rather than a closed gold bibliography."
+        ],
+        "factual_citation_accuracy": [
+          "Central claims cite nonexistent, inaccessible or contradicting sources; widespread false attribution.",
+          "Central factual claims are supported at the cited frozen versions/locations, with uncertainty and disagreements represented faithfully."
+        ],
+        "gap_grounding": [
+          "Claimed gap is refuted by supplied evidence or unrelated to the question.",
+          "Specific useful unresolved questions follow from the reviewed evidence and bounded search scope; no unjustified global novelty assertion."
+        ]
+      },
+      "levels": {
+        "0": "Absent or fundamentally invalid for this dimension; identify the actual affected requirement, not merely a style dislike.",
+        "1": "Some relevant work, but major defects leave most core requirements unsupported.",
+        "2": "Partially sound and useful, with material gaps or limitations affecting central requirements.",
+        "3": "Sound on the core requirements; limited, localized weaknesses or explicitly bounded uncertainty remain.",
+        "4": "Strong, evidence-supported fulfillment within the task scope; no material unresolved deficiency. Not perfection or positive results by definition."
+      },
+      "purpose": "Evaluate historical, source-grounded synthesis and problem positioning, not invention of a new method.",
+      "required_evidence_roles": [
+        "task",
+        "submission",
+        "platform_trace",
+        "reference"
+      ],
+      "task_type": "LIT",
+      "version": "development-0.1"
+    },
+    "WRITE_CONTENT": {
+      "checks": [
+        "Check narrative claims and technical semantics, including pseudocode when requested.",
+        "A faithful statement of unknown details is preferable to invented reproducibility or ethics information.",
+        "No requirement to recreate original wording, section order, visual layout or complete paper PDF.",
+        "Use cited support, not superficial textual similarity to the source paper."
+      ],
+      "dimensions": {
+        "completeness": [
+          "Most requested scientific content is absent or key conditions required to understand it are omitted.",
+          "Covers the requested contribution, relevant method/assumptions/evidence and necessary qualifications within scope/length, explicitly marking missing source facts."
+        ],
+        "comprehensibility": [
+          "Contradictory or disorganized exposition prevents understanding of the core argument.",
+          "A coherent, technically understandable argument distinguishes motivation, method, evidence and scope; formal elegance or verbosity is not a substitute."
+        ],
+        "fidelity": [
+          "Central method, attribution, numeric result or conclusion contradicts the supplied authoritative material.",
+          "Technical content, claims, comparisons and limitations faithfully express the supplied evidence without inventing implementation, approval, findings or certainty."
+        ],
+        "traceability": [
+          "Central claims and citations cannot be connected to the provided research materials.",
+          "Relevant claims, methods, attribution and reproducibility statements can be traced to exact supplied assets/locations with no fabricated provenance."
+        ]
+      },
+      "levels": {
+        "0": "Absent or fundamentally invalid for this dimension; identify the actual affected requirement, not merely a style dislike.",
+        "1": "Some relevant work, but major defects leave most core requirements unsupported.",
+        "2": "Partially sound and useful, with material gaps or limitations affecting central requirements.",
+        "3": "Sound on the core requirements; limited, localized weaknesses or explicitly bounded uncertainty remain.",
+        "4": "Strong, evidence-supported fulfillment within the task scope; no material unresolved deficiency. Not perfection or positive results by definition."
+      },
+      "purpose": "Evaluate accurate coherent research exposition from fixed scientific facts; do not demand new experiments or discoveries.",
+      "required_evidence_roles": [
+        "task",
+        "submission",
+        "reference"
+      ],
+      "task_type": "WRITE_CONTENT",
+      "version": "development-0.1"
+    },
+    "WRITE_EVIDENCE": {
+      "checks": [
+        "Inspect actual rendered evidence as well as code/data; successful compilation is not visual/scientific acceptance.",
+        "Aggregated input cannot support reconstruction of nonexistent replicates or standard errors.",
+        "Recompute quantities with trusted tools, never execute submission code inside the judge context.",
+        "If a required image is unavailable to the judging transport, mark evidence incomplete; do not hallucinate a visual inspection."
+      ],
+      "dimensions": {
+        "completeness": [
+          "Required evidence presentation is unusably incomplete or omits essential comparisons/definitions.",
+          "Required panels/tables, legends, units, sample/aggregation definitions, captions and relevant missing-data qualifications are included without inventing unavailable evidence."
+        ],
+        "comprehensibility": [
+          "The artifact is unreadable or its encoding obscures the scientific comparison.",
+          "Labels, layout and encodings make the intended comparisons understandable at the intended size; text faithfully explains them without overstating support."
+        ],
+        "fidelity": [
+          "Central values, aggregation, metric direction, uncertainty or visual encoding misrepresent the supplied data.",
+          "Values, aggregation, labels, units and uncertainty match the actual inputs; no fabricated runs, error bars, missing-as-zero or misleading axes."
+        ],
+        "traceability": [
+          "Numbers cannot be linked to input rows and the supplied generation code cannot explain the output.",
+          "Source values, transformations, generation code and rendered outputs correspond, with reproducible key quantities and explicit provenance for reported aggregates versus raw runs."
+        ]
+      },
+      "levels": {
+        "0": "Absent or fundamentally invalid for this dimension; identify the actual affected requirement, not merely a style dislike.",
+        "1": "Some relevant work, but major defects leave most core requirements unsupported.",
+        "2": "Partially sound and useful, with material gaps or limitations affecting central requirements.",
+        "3": "Sound on the core requirements; limited, localized weaknesses or explicitly bounded uncertainty remain.",
+        "4": "Strong, evidence-supported fulfillment within the task scope; no material unresolved deficiency. Not perfection or positive results by definition."
+      },
+      "purpose": "Evaluate figures/tables and their scientific explanation from fixed numeric evidence, not generate new research results.",
+      "required_evidence_roles": [
+        "task",
+        "submission",
+        "reference",
+        "rendered_artifact"
+      ],
+      "task_type": "WRITE_EVIDENCE",
+      "version": "development-0.1"
+    }
+  },
+  "resources": {
+    "container": "Task-specific cpus,memory_mb,disk_mb,pids_limit,wall_seconds",
+    "disk_semantics": "Total writable tmpfs allowance split work80%/tmp20%; deps/RO inputs/controller logs separate. Timeout can lose unsnapshotted artifacts.",
+    "execution_budget": "model_calls,tool_calls,wall_seconds; wall_seconds must equal container wall time"
+  },
+  "state": "fresh task context/output root every call; no cross-task state or private paths",
+  "status": "container_broker_development_pending_full_role_isolation_acceptance",
+  "submission_manifest": {
+    "artifacts": "list of {path, sha256}; actual files under output root; no duplicate paths",
+    "content": "JSON object satisfying task_view.output_contract",
+    "exact_keys": [
+      "status",
+      "content",
+      "artifacts",
+      "omissions"
+    ],
+    "omissions": "list of strings; never claim unexecuted work completed",
+    "status": [
+      "completed",
+      "partial",
+      "failed"
+    ]
+  },
+  "task_types": [
+    "LIT",
+    "IDEA",
+    "EXP",
+    "WRITE_CONTENT",
+    "WRITE_EVIDENCE"
+  ],
+  "tool_client": {
+    "always_available": {
+      "asset.read": {
+        "asset_id": "public asset manifest ID"
+      }
+    },
+    "capability_groups": {
+      "artifact_image_view": [
+        "artifact.view_image"
+      ],
+      "artifact_read_write": [
+        "artifact.read_text",
+        "artifact.write_text"
+      ],
+      "cpu_python_execution": [
+        "cpu.run"
+      ],
+      "literature.read": [
+        "literature.read"
+      ],
+      "literature.read_page": [
+        "literature.read_page"
+      ],
+      "literature.search": [
+        "literature.search"
+      ]
+    },
+    "conditional": {
+      "artifact.read_text": {
+        "path": "safe relative POSIX path"
+      },
+      "artifact.view_image": {
+        "path": "safe relative PNG/JPEG artifact path; requires artifact_image_view"
+      },
+      "artifact.write_text": {
+        "path": "safe relative POSIX path",
+        "text": "UTF-8 str, max 500000 bytes"
+      },
+      "cpu.run": {
+        "arguments": "optional list[str]",
+        "script": "relative .py artifact path",
+        "timeout_seconds": "optional positive number, clipped to actual remaining package wall time"
+      },
+      "literature.read": {
+        "document_id": "str"
+      },
+      "literature.read_page": {
+        "document_id": "str",
+        "page_number": "one-based int"
+      },
+      "literature.search": {
+        "limit": "int 1..50 default 10",
+        "query": "str"
+      }
+    },
+    "cpu_development_limit": "Code executes only in the package CPU container. cpu.run returns returncode/stdout/stderr/timed_out/output_limited; inspect/create artifacts via artifact tools. Script return code alone is not scientific evidence.",
+    "cpu_layout": "Persistent /work within this task only; scripts at /work/<artifact path>; immutable public assets at /inputs/public/<asset_manifest.path>. New container for each task. Do not assume /work/inputs aliases.",
+    "cpu_libraries": "Read package-declared dependencies; do not assume a global numpy/PIL-only runtime. No installs/network/GPU.",
+    "limits": "max 500000 bytes text per read/write; broker response serialized cap512KiB, oversize returns typed capacity error, never silent truncation. Tool_calls means broker API calls, not every local CPU/file operation; container resources bound all worker computation.",
+    "method": "call(name: str, arguments: object) -> JSON value",
+    "permissions": "task_view.tools contains capability GROUP names as specified in capability_groups, not necessarily exact tool names. asset.read is always available. model_client is a role service, not a ToolClient name.",
+    "unavailable": [
+      "arbitrary shell",
+      "raw HTTP",
+      "GPU execution"
+    ]
+  },
+  "changes_from_0.2": [
+    "model_client.provider_constraints added after development calls 212-228 were refused (AGENTS section 0.2.13). No other ABI change."
+  ]
+}

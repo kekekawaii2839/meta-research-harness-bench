@@ -1,0 +1,13 @@
+Created a candidate package at [package.json](/D:/mrhbench-local-pilot/batch-20260923-001/iv-pilot-v2/constructor/output/package.json), with the scoped EXP task, starter resource, and CPU environment files. Schema validation passed, and the task asset hashes matched.
+
+The package marks LIT, IDEA, WRITE_CONTENT, and WRITE_EVIDENCE as deferred, with reasons. Runtime remains unverified. No experiment, Docker build, or smoke test was run.
+
+Generated files:
+
+- [task.md](/D:/mrhbench-local-pilot/batch-20260923-001/iv-pilot-v2/constructor/output/assets/task.md)
+- [base_resources.py](/D:/mrhbench-local-pilot/batch-20260923-001/iv-pilot-v2/constructor/output/assets/base_resources.py)
+- [Dockerfile](/D:/mrhbench-local-pilot/batch-20260923-001/iv-pilot-v2/constructor/output/environment/image/Dockerfile)
+- [requirements.txt](/D:/mrhbench-local-pilot/batch-20260923-001/iv-pilot-v2/constructor/output/environment/image/requirements.txt)
+- [smoke.py](/D:/mrhbench-local-pilot/batch-20260923-001/iv-pilot-v2/constructor/output/environment/smoke.py)
+
+Outstanding blockers include independent review, runtime/resource validation, and verifying the historical disclosure date and literature-library coverage.

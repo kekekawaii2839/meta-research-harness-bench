@@ -1,0 +1,1071 @@
+{
+  "schema_version": 1,
+  "reviewer": "independent_subagent_native_judge_v2",
+  "new_model_calls_for_original_review": 0,
+  "historical_outputs_changed": false,
+  "scope": "Every meaningful visible executor response and application action/result, complete original WRITE/IV judge final scores and feedback; native judge tool requests and every exact delivered evidence page verified against frozen records. Static repeated application schemas hash-deduplicated. Encrypted reasoning has empty summaries and cannot be inspected. No submitted code executed by this reviewer.",
+  "cases": [
+    {
+      "case": "ssa-write-content",
+      "run": {
+        "budget": {
+          "cancelled": false,
+          "expires_at": 1790204598.0321157,
+          "limits": {
+            "model": 4,
+            "tool": 60
+          },
+          "started_at": 1790203998.0321157,
+          "used": {
+            "model": 3,
+            "tool": 2
+          },
+          "wall_limit": 600
+        },
+        "formal": false,
+        "scientific_acceptance": "requires_independent_judge_and_trajectory_review",
+        "status": "completed_structural_development_check",
+        "task_elapsed_seconds": 90.62095427513123,
+        "worker_status_trusted": false
+      },
+      "original_grade": {
+        "status": "scored",
+        "quality": 4,
+        "dimensions": {
+          "completeness": 4,
+          "comprehensibility": 4,
+          "fidelity": 4,
+          "traceability": 4
+        }
+      },
+      "artifact_inventory": {
+        "atomic_snapshot": false,
+        "bytes": 3692,
+        "entries": 2,
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "files": [
+          {
+            "bytes": 3692,
+            "path": "deliverables/ssa_method.md",
+            "sha256": "ca7b6bb1cdab47e930a1f7de849c94e83b4038483438af5e5501909ae072987b"
+          }
+        ]
+      },
+      "executor_calls": [
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\ssa-write-content\\executor_calls\\call-2f36ff2c705b476793afec597a30ac15",
+          "rollout_sha256": "994841e6a21fda05be5f758a70c9af20fcda9a59f34b39533543b70da74d8bf9",
+          "request_sha256": "439a16a16311a8a51303a1fde26bc6c559b56b88105d164c1f866083de51648e",
+          "meaningful_native_tool_calls": [],
+          "reasoning_summary_available": false,
+          "control": {
+            "force_final": false,
+            "note": "Choose the single most useful permitted tool call, or finalize.",
+            "remaining": {
+              "cancelled": false,
+              "model_calls": 4,
+              "tool_calls": 60,
+              "wall_seconds": 598.2660000000001
+            },
+            "step": 0
+          },
+          "response_sha256": "8f87fca2d61237da65e50fe9c3464a74ec7648b03d71604863fd7a90da246980",
+          "response_kind": "tool",
+          "requested_tool": "asset.read",
+          "application_schema_sha256": "c3df646aa6a2e7c75021cee05ca4020f2435e8b6effe351b985e2354e38b905f"
+        },
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\ssa-write-content\\executor_calls\\call-e3d1bfb3c9c34bada254f9fc31c08df0",
+          "rollout_sha256": "0a7efececf3c2c5f079db54f223cacc0c0ee83ff1930715fb245fb7aa8d17a72",
+          "request_sha256": "4ddb4f1d868eef5990f9790ff6a4f121001f76618b7019f8c2648f9b31c8aa4f",
+          "meaningful_native_tool_calls": [],
+          "reasoning_summary_available": false,
+          "control": {
+            "force_final": false,
+            "note": "Choose the single most useful permitted tool call, or finalize.",
+            "remaining": {
+              "cancelled": false,
+              "model_calls": 3,
+              "tool_calls": 59,
+              "wall_seconds": 583.547
+            },
+            "step": 1
+          },
+          "response_sha256": "6538788c8d8c6bfeea6182e03736310470b3cd9f41d7aeeacf07620f50799bc2",
+          "response_kind": "tool",
+          "requested_tool": "artifact.write_text",
+          "application_schema_sha256": "c3df646aa6a2e7c75021cee05ca4020f2435e8b6effe351b985e2354e38b905f"
+        },
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\ssa-write-content\\executor_calls\\call-ecfee09b479e44869fb14fd3913b8272",
+          "rollout_sha256": "8e0a7f4e96f988598e85770f4cd982b19f68539c95fd56af18fec4458691812f",
+          "request_sha256": "7ca5ca3785de3a7868dddb66c28a30d03e1061cf12f3ba0fe92e663ed90d0b30",
+          "meaningful_native_tool_calls": [],
+          "reasoning_summary_available": false,
+          "control": {
+            "force_final": false,
+            "note": "Choose the single most useful permitted tool call, or finalize.",
+            "remaining": {
+              "cancelled": false,
+              "model_calls": 2,
+              "tool_calls": 58,
+              "wall_seconds": 523.344
+            },
+            "step": 2
+          },
+          "response_sha256": "1ebf2616f599e2cc2f11b850cb0b721d2b21931bd390f623ea517d49265cc631",
+          "response_kind": "final",
+          "requested_tool": null,
+          "application_schema_sha256": "c3df646aa6a2e7c75021cee05ca4020f2435e8b6effe351b985e2354e38b905f"
+        }
+      ],
+      "judge_calls": [
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\ssa-write-content\\judge_calls\\native-02efca9f483b4dfab5c41eba00bb4c11",
+          "rollout_sha256": "56ce86d8221b430f13745908a77a6210660629bb2c8e0fe17410a1a66d9cd174",
+          "request_sha256": "52a180167951b7d83416e78bcbeaca16ccb030e2fe12195d56aac534c7034404",
+          "meaningful_native_tool_calls": [
+            {
+              "line_zero_based": 14,
+              "name": "exec",
+              "input": "const matches = ALL_TOOLS.filter(x => /evidence_(inventory|read)/.test(x.name));\ntext(matches);\n"
+            },
+            {
+              "line_zero_based": 20,
+              "name": "exec",
+              "input": "const ids = [\"task\", \"submission\", \"reference-0\"];\nfor (const evidence_id of ids) {\n  const r = await tools.mcp__mrhbench__evidence_read({evidence_id, start_char: 0, max_chars: 6000});\n  text(r);\n}\n"
+            },
+            {
+              "line_zero_based": 31,
+              "name": "exec",
+              "input": "const reqs = [\n  {evidence_id:\"task\", start_char:6000, max_chars:6000},\n  {evidence_id:\"artifact-0\", start_char:0, max_chars:6000},\n  {evidence_id:\"reference-1\", start_char:0, max_chars:6000}\n];\nfor (const q of reqs) {\n  const r = await tools.mcp__mrhbench__evidence_read(q);\n  text(r);\n}\n"
+            },
+            {
+              "line_zero_based": 40,
+              "name": "exec",
+              "input": "const reqs = [\n  {evidence_id:\"reference-1\", start_char:6000, max_chars:1000},\n  {evidence_id:\"output-contract-check\", start_char:0, max_chars:6000}\n];\nfor (const q of reqs) {\n  const r = await tools.mcp__mrhbench__evidence_read(q);\n  text(r);\n}\n"
+            }
+          ],
+          "reasoning_summary_available": false,
+          "final_sha256": "9e1265ac26423c8cfd7e87b682b5c0a7c8227202474c13ef50f159a836a64195",
+          "all_delivered_pages_exactly_match_frozen_records": true,
+          "delivered_pages": 8
+        }
+      ],
+      "record_coverage": [
+        {
+          "evidence_id": "task",
+          "source_sha256": "f799f56cbc53f6e8074b1a672ff3a614345535ee67a167eff536591e9600b97f",
+          "chars": 8944,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              8944
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "submission",
+          "source_sha256": "3a15734c6206d3f2c0fd61e5a218a3b7ae03ea951b1b4a5170992c23a5202c87",
+          "chars": 689,
+          "retrieved_ranges": [
+            [
+              0,
+              689
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "platform-events",
+          "source_sha256": "b456a582cab5a8b9a24232478f9ba54b692dc3f1583bd6375004424fcc6ff6aa",
+          "chars": 5645,
+          "retrieved_ranges": [],
+          "unread_chars": 5645
+        },
+        {
+          "evidence_id": "platform-enforcement",
+          "source_sha256": "a81c9d4039204c1edbd11313b66b6df107f60a15b92a466234b66e047f41cda2",
+          "chars": 1280,
+          "retrieved_ranges": [],
+          "unread_chars": 1280
+        },
+        {
+          "evidence_id": "platform-rpc-00003",
+          "source_sha256": "f8d3117904c8493bc8d8cef122868417f1dddb57d601b0fb048d32cb28480d83",
+          "chars": 4858,
+          "retrieved_ranges": [],
+          "unread_chars": 4858
+        },
+        {
+          "evidence_id": "platform-rpc-00006",
+          "source_sha256": "383698d49cba30bad5329b4082acfa515af2341d8ab0118e4b21e499e731d0d4",
+          "chars": 4277,
+          "retrieved_ranges": [],
+          "unread_chars": 4277
+        },
+        {
+          "evidence_id": "reference-0",
+          "source_sha256": "3e4fedae02b9ad7fd711e32a1616ededa9c2ec87f7ab23b1aba089ebc3df5658",
+          "chars": 4374,
+          "retrieved_ranges": [
+            [
+              0,
+              4374
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "reference-1",
+          "source_sha256": "cd337a69eed43c74f5a2626edd10beb85dad74d3be52c1dd9f9519f4b27c4c05",
+          "chars": 6374,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              6374
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "artifact-0",
+          "source_sha256": "7b096265ae0c8c2720054e1539a91867c1120ea274c2713b3915da6eff02344b",
+          "chars": 3720,
+          "retrieved_ranges": [
+            [
+              0,
+              3720
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "output-contract-check",
+          "source_sha256": "2a558f5b19f88c2b8a93bb7eb932653cdb8fa4a8122ab89ecb373a6a999055ff",
+          "chars": 98,
+          "retrieved_ranges": [
+            [
+              0,
+              98
+            ]
+          ],
+          "unread_chars": 0
+        }
+      ],
+      "images_delivered": 0,
+      "formal_acceptance": false,
+      "review": {
+        "decision": "bounded_content_quality_supported_with_length_verification_gap",
+        "score_assessment": "All4 is plausible for this narrow fixed-input exposition: all required scientific distinctions and source locators are preserved. No arbitrary ceiling or manual score overwrite. Single good sample cannot establish ranking discrimination.",
+        "checks": [
+          "Population covariance divisor N_s retained; target variance divisor B retained",
+          "PCA basis and weight 1+abs(w^T v_d) faithful",
+          "Both directed Gaussian KL terms retained; positive-variance limitation explicit",
+          "Normalization affine-only updates distinguished from projected feature moments",
+          "UTKFace age, severity5, 13 corruptions, D2048/K100 preserved",
+          "No invented performance/optimizer claims; no actual efficacy verification requested"
+        ],
+        "length_gap": {
+          "whitespace_tokens_including_markup": 437,
+          "alphabetic_regex_tokens_including_LaTex_names": 601,
+          "specified_range": "450–650 words",
+          "finding": "Judge only says apparent length range. Counting convention for equations/citations is not frozen, so this is incomplete mechanical verification rather than a retrospectively imposed grade penalty."
+        },
+        "feedback": "Empty issues and limitations contain no private leakage; no material contradiction found demanding fabricated criticism.",
+        "judge_coverage": "Task, full actual Markdown and all public/private reference records fully read. No platform trace was read; not a required role for WRITE_CONTENT. Actual artifact existence/hash independently checked in this review.",
+        "image": "Not requested; no image delivered or visual acceptance claimed."
+      }
+    },
+    {
+      "case": "ssa-write-evidence",
+      "run": {
+        "budget": {
+          "cancelled": false,
+          "expires_at": 1790204646.4788098,
+          "limits": {
+            "model": 4,
+            "tool": 60
+          },
+          "started_at": 1790204046.4788098,
+          "used": {
+            "model": 4,
+            "tool": 3
+          },
+          "wall_limit": 600
+        },
+        "formal": false,
+        "scientific_acceptance": "requires_independent_judge_and_trajectory_review",
+        "status": "completed_structural_development_check",
+        "task_elapsed_seconds": 50.408846378326416,
+        "worker_status_trusted": false
+      },
+      "original_grade": {
+        "status": "material_failure",
+        "quality": null,
+        "dimensions": null
+      },
+      "artifact_inventory": {
+        "atomic_snapshot": false,
+        "bytes": 0,
+        "entries": 0,
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "files": []
+      },
+      "executor_calls": [
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\ssa-write-evidence\\executor_calls\\call-011c77dec1dd4c7f8a77d23940622911",
+          "rollout_sha256": "f66c2aad668457c862d53c7a758489c00bfbe5ffc0fcc86fd6789fbd7e68bc62",
+          "request_sha256": "10a2626fe096c42af70f08f270bc4e039f080560d44ed5b748413c959464b8cc",
+          "meaningful_native_tool_calls": [],
+          "reasoning_summary_available": false,
+          "control": {
+            "force_final": false,
+            "note": "Choose the single most useful permitted tool call, or finalize.",
+            "remaining": {
+              "cancelled": false,
+              "model_calls": 4,
+              "tool_calls": 60,
+              "wall_seconds": 598.2660000000001
+            },
+            "step": 0
+          },
+          "response_sha256": "0a0ffb39b2c843df06e2d8fcb19739090360d0ebf472202d4f30b4ddc8181e0a",
+          "response_kind": "tool",
+          "requested_tool": "asset.read",
+          "application_schema_sha256": "338fb6cd02d3e10c1332f56933c4a921a281fa888fbaef2a25f2e76a4f920102"
+        },
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\ssa-write-evidence\\executor_calls\\call-cae3b451fc6644119a1c60c52b97920a",
+          "rollout_sha256": "b4b4d591ceea25ace0ae87bf3fcdda4adac7bafa39f8c38a69b5165cd107e138",
+          "request_sha256": "38c56e8fabebf22ce7fa6cf09522260a5f475f993200ab901a7f5c62bb97fad2",
+          "meaningful_native_tool_calls": [],
+          "reasoning_summary_available": false,
+          "control": {
+            "force_final": false,
+            "note": "Choose the single most useful permitted tool call, or finalize.",
+            "remaining": {
+              "cancelled": false,
+              "model_calls": 3,
+              "tool_calls": 59,
+              "wall_seconds": 586.422
+            },
+            "step": 1
+          },
+          "response_sha256": "1ce294bf729193d02a75e3b7db9d95d6fdad4bbf89179a4daa7fcbdb069121c6",
+          "response_kind": "tool",
+          "requested_tool": "asset.read",
+          "application_schema_sha256": "338fb6cd02d3e10c1332f56933c4a921a281fa888fbaef2a25f2e76a4f920102"
+        },
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\ssa-write-evidence\\executor_calls\\call-093ba174652148379e6a83b547a0923e",
+          "rollout_sha256": "1cb5e55c9a2797b534091bd67d35d25344f99f4e19b05a8d5167fea24b195b7c",
+          "request_sha256": "55cb322f66de4b3eef34c42abcc0d73f6579b37df4f525ec38b993a9812d857f",
+          "meaningful_native_tool_calls": [],
+          "reasoning_summary_available": false,
+          "control": {
+            "force_final": false,
+            "note": "Choose the single most useful permitted tool call, or finalize.",
+            "remaining": {
+              "cancelled": false,
+              "model_calls": 2,
+              "tool_calls": 58,
+              "wall_seconds": 574.578
+            },
+            "step": 2
+          },
+          "response_sha256": "17f39d59544c10751dd62d47b326304b771c9f6a9beb7d6f602bbdd8974431d5",
+          "response_kind": "tool",
+          "requested_tool": "asset.read",
+          "application_schema_sha256": "338fb6cd02d3e10c1332f56933c4a921a281fa888fbaef2a25f2e76a4f920102"
+        },
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\ssa-write-evidence\\executor_calls\\call-d44c180c4f9e4edb8c5c5447653c8e1b",
+          "rollout_sha256": "a30c74a19a09a2f2a3a898431c3ce86274a3f562767e7321ca792ba8e8be6827",
+          "request_sha256": "f2a5234a830e9afec4b0d33b42416bf2887ba7b899ccea7c7eae37079d379585",
+          "meaningful_native_tool_calls": [],
+          "reasoning_summary_available": false,
+          "control": {
+            "force_final": true,
+            "note": "Return the best truthful final response now; do not request a tool.",
+            "remaining": {
+              "cancelled": false,
+              "model_calls": 1,
+              "tool_calls": 57,
+              "wall_seconds": 563.922
+            },
+            "step": 3
+          },
+          "response_sha256": "70a26114daa743c755c462a6bf6ddfe762e1faf780933fd370a44d0ebf158490",
+          "response_kind": "final",
+          "requested_tool": null,
+          "application_schema_sha256": "338fb6cd02d3e10c1332f56933c4a921a281fa888fbaef2a25f2e76a4f920102"
+        }
+      ],
+      "judge_calls": [
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\ssa-write-evidence\\judge_calls\\native-cfa70a7832aa47e3ac93f02899295736",
+          "rollout_sha256": "17d2f6468187801825ecf1e2e83bed1ec57c3a0a5496a36afc522289e2267808",
+          "request_sha256": "dac6e4374383e0bd940c6d4567cb6d8e3f241bdefcfa849d69e0e1fd02a34da5",
+          "meaningful_native_tool_calls": [
+            {
+              "line_zero_based": 14,
+              "name": "exec",
+              "input": "const hits = ALL_TOOLS.filter(x => /evidence_(inventory|read)|isolated|container/i.test(x.name+\" \"+x.description));\ntext(hits);\n"
+            },
+            {
+              "line_zero_based": 20,
+              "name": "exec",
+              "input": "const a = await tools.mcp__mrhbench__evidence_read({evidence_id:\"task\",start_char:0,max_chars:6000});\ntext(JSON.stringify(a));\nconst b = await tools.mcp__mrhbench__evidence_read({evidence_id:\"submission\",start_char:0,max_chars:6000});\ntext(JSON.stringify(b));\nconst c = await tools.mcp__mrhbench__evidence_read({evidence_id:\"reference-0\",start_char:0,max_chars:6000});\ntext(JSON.stringify(c));\n"
+            },
+            {
+              "line_zero_based": 29,
+              "name": "exec",
+              "input": "const a = await tools.mcp__mrhbench__evidence_read({evidence_id:\"task\",start_char:6000,max_chars:6000});\ntext(JSON.stringify(a));\nconst b = await tools.mcp__mrhbench__evidence_read({evidence_id:\"reference-1\",start_char:0,max_chars:6000});\ntext(JSON.stringify(b));\nconst c = await tools.mcp__mrhbench__evidence_read({evidence_id:\"reference-2\",start_char:0,max_chars:6000});\ntext(JSON.stringify(c));\n"
+            },
+            {
+              "line_zero_based": 38,
+              "name": "exec",
+              "input": "const a = await tools.mcp__mrhbench__evidence_read({evidence_id:\"reference-2\",start_char:6000,max_chars:6000});\ntext(JSON.stringify(a));\nconst b = await tools.mcp__mrhbench__evidence_read({evidence_id:\"reference-3\",start_char:0,max_chars:6000});\ntext(JSON.stringify(b));\nconst c = await tools.mcp__mrhbench__evidence_read({evidence_id:\"output-contract-check\",start_char:0,max_chars:6000});\ntext(JSON.stringify(c));\n"
+            },
+            {
+              "line_zero_based": 49,
+              "name": "exec",
+              "input": "const a = await tools.mcp__mrhbench__evidence_read({evidence_id:\"platform-events\",start_char:0,max_chars:6000});\ntext(JSON.stringify(a));\nconst b = await tools.mcp__mrhbench__evidence_read({evidence_id:\"platform-rpc-00003\",start_char:0,max_chars:6000});\ntext(JSON.stringify(b));\nconst c = await tools.mcp__mrhbench__evidence_read({evidence_id:\"platform-rpc-00006\",start_char:0,max_chars:6000});\ntext(JSON.stringify(c));\n"
+            },
+            {
+              "line_zero_based": 58,
+              "name": "exec",
+              "input": "const a = await tools.mcp__mrhbench__evidence_read({evidence_id:\"platform-events\",start_char:6000,max_chars:6000});\ntext(JSON.stringify(a));\nconst b = await tools.mcp__mrhbench__evidence_read({evidence_id:\"platform-rpc-00009\",start_char:0,max_chars:6000});\ntext(JSON.stringify(b));\nconst c = await tools.mcp__mrhbench__evidence_read({evidence_id:\"platform-enforcement\",start_char:0,max_chars:6000});\ntext(JSON.stringify(c));\n"
+            }
+          ],
+          "reasoning_summary_available": false,
+          "final_sha256": "1e029c526dc63e5c7f3c80b6a1dc35f33bbe804f68b91a9b132a8bd8c95b02b4",
+          "all_delivered_pages_exactly_match_frozen_records": true,
+          "delivered_pages": 15
+        }
+      ],
+      "record_coverage": [
+        {
+          "evidence_id": "task",
+          "source_sha256": "7467131e41af5f732218540ec7e4f32b8ff5580a10a8dff3610ae7991c0d4e38",
+          "chars": 10182,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              10182
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "submission",
+          "source_sha256": "0241c279b0365e0769680f022538201cad4ed50227a6dfe75af8cf72a348a575",
+          "chars": 723,
+          "retrieved_ranges": [
+            [
+              0,
+              723
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "platform-events",
+          "source_sha256": "6ea03c707283e6b758cb457f678f731b5801d15358c46776570aa8151be9bcf1",
+          "chars": 7672,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              7672
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "platform-enforcement",
+          "source_sha256": "3bd45d631b0df4dddfc981d2975168ba075334ccda8196acf57272a64e8b25be",
+          "chars": 1281,
+          "retrieved_ranges": [
+            [
+              0,
+              1281
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "platform-rpc-00003",
+          "source_sha256": "1152eac9f914ddaa0d055764e34ed30fe20b05ff7c43005396011360e4e16865",
+          "chars": 3867,
+          "retrieved_ranges": [
+            [
+              0,
+              3867
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "platform-rpc-00006",
+          "source_sha256": "a2e44645a79e9275fff0b8a85299a70fc54b7f5d8f7a90d69c5d4fa3eb332680",
+          "chars": 1521,
+          "retrieved_ranges": [
+            [
+              0,
+              1521
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "platform-rpc-00009",
+          "source_sha256": "ad814dd97051f78fc67903cb4b56176933ff2121703cf462fb97ee7af208a633",
+          "chars": 12393,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ]
+          ],
+          "unread_chars": 6393
+        },
+        {
+          "evidence_id": "reference-0",
+          "source_sha256": "90cc3671e609eb25b781c83d9131725e3e3b109f9667b246975967433b42e598",
+          "chars": 3446,
+          "retrieved_ranges": [
+            [
+              0,
+              3446
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "reference-1",
+          "source_sha256": "ea6fe8e7777b137f3e6a39a9a6a85bdcad2544d1f8b880a648099bc6b19b0ca9",
+          "chars": 1115,
+          "retrieved_ranges": [
+            [
+              0,
+              1115
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "reference-2",
+          "source_sha256": "bbe9d0c3409975410464d16fe1a0669b5f0587ede7c44a062399a9e12a493eac",
+          "chars": 10503,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              10503
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "reference-3",
+          "source_sha256": "a8c1ab52ff6cee26f0e1389d4a22ddf99ec22e691376528eef59552fcbead6e1",
+          "chars": 5052,
+          "retrieved_ranges": [
+            [
+              0,
+              5052
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "output-contract-check",
+          "source_sha256": "2a558f5b19f88c2b8a93bb7eb932653cdb8fa4a8122ab89ecb373a6a999055ff",
+          "chars": 98,
+          "retrieved_ranges": [
+            [
+              0,
+              98
+            ]
+          ],
+          "unread_chars": 0
+        }
+      ],
+      "images_delivered": 0,
+      "formal_acceptance": false,
+      "review": {
+        "decision": "revise_failure_attribution",
+        "finding": "material_failure/null improperly excludes absent solver-owned outputs. Required rendered role was mechanically treated as prerequisite to all scoring. No image existed; not a multimodal transport failure.",
+        "direct_execution_path": "Three one-action model turns read task,CSV,manifest; fourth forced final with one model call remaining, ~564 seconds/57 tools still available. No artifact.write or cpu.run attempted. All broker reads succeeded.",
+        "cause_scope": "Observed H0 sequential-read/force-final policy under four-call development cap, not demonstrated material insufficiency or host permission failure. Budget feasibility remains unvalidated; do not generalize this to model scientific incapacity.",
+        "feedback": "Absence issue accurately grounded solely in public task/submission, root cause cautiously unknown; no private leakage observed. Status exclusion is wrong despite useful descriptive feedback.",
+        "judge_coverage": "Full task/submission/references/platform-events/resources read; platform-rpc-00009 only first6000 of12393chars. Remaining is repeated manifest content fully read as reference-2, but nonread receipt suffix not claimed read.",
+        "image": "No artifact inventory files, no MCP image result and zero native input_image blocks. This case CANNOT validate actual image transport or visual judgment.",
+        "next": "v2.4 controller-attested output-absence schema and complete-retrieval substitution; no automatic fabricated image or score."
+      }
+    },
+    {
+      "case": "iv-exp",
+      "run": {
+        "budget": {
+          "cancelled": false,
+          "expires_at": 1790205122.855027,
+          "limits": {
+            "model": 6,
+            "tool": 120
+          },
+          "started_at": 1790203922.855027,
+          "used": {
+            "model": 6,
+            "tool": 4
+          },
+          "wall_limit": 1200
+        },
+        "formal": false,
+        "scientific_acceptance": "requires_independent_judge_and_trajectory_review",
+        "status": "completed_structural_development_check",
+        "task_elapsed_seconds": 276.97732639312744,
+        "worker_status_trusted": false
+      },
+      "original_grade": {
+        "status": "scored",
+        "quality": 0.75,
+        "dimensions": {
+          "conclusion_credibility": 3,
+          "execution_credibility": 0,
+          "resource_reasonableness": 0,
+          "rigor": 0,
+          "test_validity": 0
+        }
+      },
+      "artifact_inventory": {
+        "atomic_snapshot": false,
+        "bytes": 0,
+        "entries": 0,
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "files": []
+      },
+      "executor_calls": [
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\iv-exp\\executor_calls\\call-afdb469a531c4cbf956f644049169e8f",
+          "rollout_sha256": "d59f192e48e59a9a5e0ddd0ef0763dfd637470a2125af45895128dd68fb1b4cf",
+          "request_sha256": "473f65633b0fd7cf2d6c3273c4a47c66340528c6c5c17edd00be073f19828e2a",
+          "meaningful_native_tool_calls": [],
+          "reasoning_summary_available": false,
+          "control": {
+            "force_final": false,
+            "note": "Choose the single most useful permitted tool call, or finalize.",
+            "remaining": {
+              "cancelled": false,
+              "model_calls": 6,
+              "tool_calls": 120,
+              "wall_seconds": 1198.3599999999997
+            },
+            "step": 0
+          },
+          "response_sha256": "72411f2db69fd492bc4f6823be90d293c4aba915d36d4deb83f78c7619f9f86b",
+          "response_kind": "tool",
+          "requested_tool": "asset.read",
+          "application_schema_sha256": "433170228153f88c5ab2093a56d1fc70ef3944343d9417dfb291232aad8c1ef6"
+        },
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\iv-exp\\executor_calls\\call-96794f0326b440b592603acab829f852",
+          "rollout_sha256": "235300e30258653eff2f373caaedd42902f92ddba768712b55f2dbe6e60fcfa5",
+          "request_sha256": "8de2a1214b05ab5e1196bff7bbee8470e2513208d3f48d09097abfff53274ce0",
+          "meaningful_native_tool_calls": [],
+          "reasoning_summary_available": false,
+          "control": {
+            "force_final": false,
+            "note": "Choose the single most useful permitted tool call, or finalize.",
+            "remaining": {
+              "cancelled": false,
+              "model_calls": 5,
+              "tool_calls": 119,
+              "wall_seconds": 1187.1249999999995
+            },
+            "step": 1
+          },
+          "response_sha256": "a5a87986402df6bf3123f1e558b45387462b7b48257166253fb3a4d2b504721a",
+          "response_kind": "tool",
+          "requested_tool": "asset.read",
+          "application_schema_sha256": "433170228153f88c5ab2093a56d1fc70ef3944343d9417dfb291232aad8c1ef6"
+        },
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\iv-exp\\executor_calls\\call-6999736ca812422eb9c9dee1e875800d",
+          "rollout_sha256": "6fef27116585358cffa4d1f85ec57c50010d707fad18cecba9dce59316cee790",
+          "request_sha256": "e63700a213f54345a7fa4eef3d45e482680ce87773378694e8812d4113c4b11c",
+          "meaningful_native_tool_calls": [],
+          "reasoning_summary_available": false,
+          "control": {
+            "force_final": false,
+            "note": "Choose the single most useful permitted tool call, or finalize.",
+            "remaining": {
+              "cancelled": false,
+              "model_calls": 4,
+              "tool_calls": 118,
+              "wall_seconds": 1171.4999999999995
+            },
+            "step": 2
+          },
+          "response_sha256": "08404c5fc6ca4bb457a0e4d13a630a2d6f963e27418aab678cceba79009f4c39",
+          "response_kind": "tool",
+          "requested_tool": "asset.read",
+          "application_schema_sha256": "433170228153f88c5ab2093a56d1fc70ef3944343d9417dfb291232aad8c1ef6"
+        },
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\iv-exp\\executor_calls\\call-e8523dc5583a46ec8bd8612e38f19b19",
+          "rollout_sha256": "7a992f4473f47463a0599ca86a99a154f97c8b5338d82fd3889bfbe7808b6fe8",
+          "request_sha256": "5ac24cc95eacf67108c8fa76c133fc6ad0df510a0e00b91bdabe441818604550",
+          "meaningful_native_tool_calls": [],
+          "reasoning_summary_available": false,
+          "control": {
+            "force_final": false,
+            "note": "Choose the single most useful permitted tool call, or finalize.",
+            "remaining": {
+              "cancelled": false,
+              "model_calls": 3,
+              "tool_calls": 117,
+              "wall_seconds": 1150.5319999999997
+            },
+            "step": 3
+          },
+          "response_sha256": "1ecda9a9097a34f0aab3a02640a7d78b5a47201efcf6bf04f280c330a2138894",
+          "response_kind": "tool",
+          "requested_tool": "asset.read",
+          "application_schema_sha256": "433170228153f88c5ab2093a56d1fc70ef3944343d9417dfb291232aad8c1ef6"
+        },
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\iv-exp\\executor_calls\\call-a52281805f28478a8d887475df957eb4",
+          "rollout_sha256": "a7da35175ecedad1d2cc5ef6127d463cdee8bdd7f222bd4ede3f07ded8438be0",
+          "request_sha256": "a2f66e7b7988f22ca6a5ad8a4c17f491002ae9023bd812845ad1ab4cfe67c3cc",
+          "meaningful_native_tool_calls": [],
+          "reasoning_summary_available": false,
+          "control": {
+            "force_final": false,
+            "note": "Choose the single most useful permitted tool call, or finalize.",
+            "remaining": {
+              "cancelled": false,
+              "model_calls": 2,
+              "tool_calls": 116,
+              "wall_seconds": 1139.5469999999996
+            },
+            "step": 4
+          },
+          "response_sha256": "b06e5f0f08e24bc7bdf8f34b899d208745b7fce8ec30e192de4c56ee31f719c2",
+          "response_kind": "tool",
+          "requested_tool": "cpu.run",
+          "application_schema_sha256": "433170228153f88c5ab2093a56d1fc70ef3944343d9417dfb291232aad8c1ef6"
+        },
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\iv-exp\\executor_calls\\call-59a3d61bf2774acca17aad9ed552b3d8",
+          "rollout_sha256": "b71fa2038e6da17cbb170d542e659a90663a166401ece0340d6c140d56f51b32",
+          "request_sha256": "4f4f0ae89b184c30ff2835d8d28fe947ebea562c9917b53448f76a5dbf9cda1e",
+          "meaningful_native_tool_calls": [],
+          "reasoning_summary_available": false,
+          "control": {
+            "force_final": true,
+            "note": "Return the best truthful final response now; do not request a tool.",
+            "remaining": {
+              "cancelled": false,
+              "model_calls": 1,
+              "tool_calls": 116,
+              "wall_seconds": 943.7969999999996
+            },
+            "step": 5
+          },
+          "response_sha256": "ff197f1d1e26c0484d00fa49b0a5f5860861e6cbfa91b6cb57450481354ce0f9",
+          "response_kind": "final",
+          "requested_tool": null,
+          "application_schema_sha256": "433170228153f88c5ab2093a56d1fc70ef3944343d9417dfb291232aad8c1ef6"
+        }
+      ],
+      "judge_calls": [
+        {
+          "directory": "D:\\mrhbench-local-pilot\\h0-integration-20260923-001\\iv-exp\\judge_calls\\native-c94a384f22c3491b983814bd22554747",
+          "rollout_sha256": "79cf3fbee7bc5f3242e4ba6b58dc3c300f5204d5bfd5656e3016258c69e425a6",
+          "request_sha256": "b2a67f64abf3bfd67e965b1192668f215c17f66adda0470eef831478b13361ec",
+          "meaningful_native_tool_calls": [
+            {
+              "line_zero_based": 14,
+              "name": "exec",
+              "input": "const matches = ALL_TOOLS.filter(x => /evidence_(inventory|read)/.test(x.name));\ntext(matches);\n"
+            },
+            {
+              "line_zero_based": 20,
+              "name": "exec",
+              "input": "const ids = [\"task\", \"submission\", \"reference-0\"];\nconst out = await Promise.all(ids.map(evidence_id =>\n  tools.mcp__mrhbench__evidence_read({evidence_id, start_char: 0, max_chars: 6000})\n));\nout.forEach((r, i) => { text(ids[i]); text(r); });\n"
+            },
+            {
+              "line_zero_based": 29,
+              "name": "exec",
+              "input": "const reqs = [\n  [\"task\", 6000, 6000],\n  [\"reference-0\", 6000, 6000],\n  [\"reference-1\", 0, 6000]\n];\nconst out = await Promise.all(reqs.map(([evidence_id,start_char,max_chars]) =>\n  tools.mcp__mrhbench__evidence_read({evidence_id,start_char,max_chars})\n));\nout.forEach((r,i)=>{text(`${reqs[i][0]}@${reqs[i][1]}`);text(r);});\n"
+            },
+            {
+              "line_zero_based": 40,
+              "name": "exec",
+              "input": "const ids=[\"platform-enforcement\",\"platform-events\",\"reference-2\"];\nconst out=await Promise.all(ids.map(evidence_id=>tools.mcp__mrhbench__evidence_read({evidence_id,start_char:0,max_chars:6000})));\nout.forEach((r,i)=>{text(ids[i]);text(r);});\n"
+            },
+            {
+              "line_zero_based": 49,
+              "name": "exec",
+              "input": "const reqs=[\n [\"platform-events\",6000,6000],\n [\"platform-events\",12000,6000],\n [\"platform-rpc-00003\",0,6000]\n];\nconst out=await Promise.all(reqs.map(([evidence_id,start_char,max_chars])=>tools.mcp__mrhbench__evidence_read({evidence_id,start_char,max_chars})));\nout.forEach((r,i)=>{text(`${reqs[i][0]}@${reqs[i][1]}`);text(r);});\n"
+            },
+            {
+              "line_zero_based": 58,
+              "name": "exec",
+              "input": "const ids=[\"platform-rpc-00006\",\"platform-rpc-00009\",\"platform-rpc-00012\"];\nconst out=await Promise.all(ids.map(evidence_id=>tools.mcp__mrhbench__evidence_read({evidence_id,start_char:0,max_chars:6000})));\nout.forEach((r,i)=>{text(ids[i]);text(r);});\n"
+            },
+            {
+              "line_zero_based": 67,
+              "name": "exec",
+              "input": "const reqs=[\n [\"platform-rpc-00009\",6000,6000],\n [\"output-contract-check\",0,6000],\n [\"reference-3\",0,6000]\n];\nconst out=await Promise.all(reqs.map(([evidence_id,start_char,max_chars])=>tools.mcp__mrhbench__evidence_read({evidence_id,start_char,max_chars})));\nout.forEach((r,i)=>{text(`${reqs[i][0]}@${reqs[i][1]}`);text(r);});\n"
+            },
+            {
+              "line_zero_based": 79,
+              "name": "exec",
+              "input": "const a=await tools.mcp__mrhbench__evidence_read({evidence_id:\"reference-3\",start_char:6000,max_chars:6000});\ntext(\"reference-3@6000\"); text(a);\nconst b=await tools.mcp__mrhbench__evidence_inventory({});\ntext(\"inventory\"); text(b);\n"
+            }
+          ],
+          "reasoning_summary_available": false,
+          "final_sha256": "efef849edfa1facf943630872be0127ec344032b9e9708a6fb36d75419eb819a",
+          "all_delivered_pages_exactly_match_frozen_records": true,
+          "delivered_pages": 19
+        }
+      ],
+      "record_coverage": [
+        {
+          "evidence_id": "task",
+          "source_sha256": "0d98962aad0982c4a3059c2eb96d2c2612b37e5cf5a50f20af1484a1febc6804",
+          "chars": 10187,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              10187
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "submission",
+          "source_sha256": "83b9c2f61296ac07cc689f3eb64b71b2c7f97ab4f6518c0cf3fa3354660b657e",
+          "chars": 1970,
+          "retrieved_ranges": [
+            [
+              0,
+              1970
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "platform-events",
+          "source_sha256": "7b2491cecb1a31d24448d7c1a0f91bff05b8c459eea5e1b8ba5ff729c8e3c655",
+          "chars": 12062,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              12000
+            ],
+            [
+              12000,
+              12062
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "platform-enforcement",
+          "source_sha256": "6976d838497c15c47b5fd9b53d805eccdc62cab9ad99635c59a831d11010e747",
+          "chars": 1282,
+          "retrieved_ranges": [
+            [
+              0,
+              1282
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "platform-rpc-00003",
+          "source_sha256": "7f93aafa922fc2676d985d1f25853a77568a216b5e238ef1c0aa187775974839",
+          "chars": 396,
+          "retrieved_ranges": [
+            [
+              0,
+              396
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "platform-rpc-00006",
+          "source_sha256": "e68c02335d76de09eecfb4220688f277f43cc995a8d7a140b9ca786472e4a52c",
+          "chars": 389,
+          "retrieved_ranges": [
+            [
+              0,
+              389
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "platform-rpc-00009",
+          "source_sha256": "c60a12d8b318f39889598be45ee1d8a2a52580ef22d2c8400452566b65e4ebe3",
+          "chars": 9392,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              9392
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "platform-rpc-00012",
+          "source_sha256": "5163d80d6d9f1f4c2b7ebecaeea218b61284f7ced6c53fabd821bd2b0da3e9e7",
+          "chars": 1255,
+          "retrieved_ranges": [
+            [
+              0,
+              1255
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "reference-0",
+          "source_sha256": "7e10c6a3507f9d4f5983a6b8fd6fa57464d12b09d7ef1b188ab239eecdd417b1",
+          "chars": 8867,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              8867
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "reference-1",
+          "source_sha256": "4e72373c3ba9eb3b7e90e9cdceb53815836ab7820c9fd3b6ec9caa51c715c3d7",
+          "chars": 845,
+          "retrieved_ranges": [
+            [
+              0,
+              845
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "reference-2",
+          "source_sha256": "9a215a8ff2e05031c82fe83cb4443153b9232830b4cd8fb6cfb95a817f1b8f22",
+          "chars": 1024,
+          "retrieved_ranges": [
+            [
+              0,
+              1024
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "reference-3",
+          "source_sha256": "af064dbce0f79191217e8e89af3a99addd3b2ad4b1c00eeb60539ca990674652",
+          "chars": 6426,
+          "retrieved_ranges": [
+            [
+              0,
+              6000
+            ],
+            [
+              6000,
+              6426
+            ]
+          ],
+          "unread_chars": 0
+        },
+        {
+          "evidence_id": "output-contract-check",
+          "source_sha256": "2a558f5b19f88c2b8a93bb7eb932653cdb8fa4a8122ab89ecb373a6a999055ff",
+          "chars": 98,
+          "retrieved_ranges": [
+            [
+              0,
+              98
+            ]
+          ],
+          "unread_chars": 0
+        }
+      ],
+      "images_delivered": 0,
+      "formal_acceptance": false,
+      "review": {
+        "decision": "bounded_failure_detection_with_provenance_feedback_gap",
+        "execution_findings": [
+          "Two asset.read actions add unsupported path fields and fail; third removes path and succeeds",
+          "Fourth model reads starter; fifth sends inline shell command to cpu.run instead of a safe relative .py script; H0 denies locally before broker",
+          "Sixth model forced final, truthful untested mapping, no generated files or experiment execution"
+        ],
+        "scope": "Generated inline code was read as an unexecuted proposed implementation; no real scientific output certified. Tool names without parameter schemas in H0 prompt plausibly explain misuse, not causal proof.",
+        "score_assessment": "Test validity, rigor, execution0 and resources0 track missing work; conclusion3 rewards correct untested labeling, scientific mean0.75. This dimension remains a rubric boundary needing calibration: honesty is valuable but not a completed scientific conclusion. No manual score change.",
+        "feedback_gap": "Second issue asks for independent failure provenance. Actual native executor request+next request history establish H0-side cpu.run denial, but controller supplied only broker tool RPCs to judge. Missing controller publication must not be assigned to builder as evidence-collection responsibility. Judge appropriately qualified uncertainty but feedback ownership needs revision.",
+        "private_leakage": "No private recipe, source100-replicate detail, hidden result or source IDs leaked into inspected feedback.",
+        "coverage": "All supplied judge records fully paged and exact native payloads verified. That does not cover controller-withheld executor decisions; source completeness remains a separate concern.",
+        "resources": "Judgeresource record now has enforced limits and taskelapsed; no substitution of per-command seconds for total. No GPU used."
+      }
+    }
+  ],
+  "followup": {
+    "judge_patch": "native-judge-pilot-v2.4",
+    "offline_judge_tests": 22,
+    "new_model_behavior_verification": "Two newly authorized rejudgments are separate followups, not yet included here. Original outcomes preserved.",
+    "formal_native_isolation": "Not established; visible native tool schema exposure remains separate blocker."
+  }
+}

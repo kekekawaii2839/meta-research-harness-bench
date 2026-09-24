@@ -1,0 +1,427 @@
+{
+  "created_at": "2026-09-23T23:37:57.081099+00:00",
+  "scope": "Independent read-only supplement to taskview_source_independent_review_v1.json, five versioned public collection contracts",
+  "new_model_calls": 0,
+  "new_gpu_or_container_runs": 0,
+  "rows": [
+    {
+      "package": "research\\benchmark\\materials\\pilot_v3\\collection_candidates_v1\\lit",
+      "prior": "research\\benchmark\\materials\\pilot_v3\\released_stage_candidates\\lit",
+      "task_sha256": "54873f7b4f8d1043dbce5a86b258e7fc8f7702a2f50514f79444b22b71f266ae",
+      "changes": [
+        "/public/resources/artifact_collection",
+        "/public/resources/disk_semantics",
+        "/public/task_id",
+        "/task_id"
+      ],
+      "only_authorized_changes": true,
+      "scientific_assets": [
+        {
+          "path": "public/research_setting.json",
+          "same_bytes": true,
+          "sha256": "92828f1ed0af91bf4bf1902f77b4f30c8a1eb4a744e6ba7b61ff2b68210d6671"
+        },
+        {
+          "path": "private/evaluation.json",
+          "same_bytes": true,
+          "sha256": "87ce18ee83b7d55d5d20cff5024d7b4dc9d1b18fff45b93df0d8f2922db07729"
+        }
+      ],
+      "collection_policy": {
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "max_entries": 500,
+        "max_total_bytes": 16777216,
+        "scope": "all_noninternal_work_files_and_directories",
+        "version": 1
+      },
+      "bytes_below_disk": true,
+      "public_resources": {
+        "artifact_collection": {
+          "excluded_top_level_rules": [
+            ".broker",
+            ".process-*"
+          ],
+          "max_entries": 500,
+          "max_total_bytes": 16777216,
+          "scope": "all_noninternal_work_files_and_directories",
+          "version": 1
+        },
+        "budget_status": "explicit_development_configuration_not_formally_frozen",
+        "container": {
+          "cpus": 1,
+          "disk_mb": 512,
+          "memory_mb": 1024,
+          "pids_limit": 64,
+          "wall_seconds": 600
+        },
+        "cutoff": "2024-09-01",
+        "disk_semantics": "per-run total writable tmpfs: /work 80%, /tmp 20%; charged to container memory; dependency image and read-only inputs excluded. Collection counts all /work files AND directories except top-level .broker and .process-*; file-byte total excludes directories and archive metadata. Hard deadline may discard uncaptured tmpfs; only already captured controller receipts are retained, no periodic backup promised.",
+        "execution_budget": {
+          "model_calls": 12,
+          "tool_calls": 120,
+          "wall_seconds": 600
+        },
+        "gpu_allowed": false,
+        "image_id": "sha256:399341648ce68031cef84e225a8b4985fed3125fd020ec96a8d6c5d6563036d0",
+        "network": "controller_shared_corpus_only",
+        "platform": "linux/amd64",
+        "resource_scope": "Limits govern this task execution; this is not an empirical future-experiment cost estimate.",
+        "tool_call_metric": "controller broker API calls; direct worker CPU/file operations remain bounded by container resources, not counted as API calls"
+      },
+      "execution_budget_unchanged": true,
+      "container_unchanged": true,
+      "provenance_hashes_match": true,
+      "fresh_export_current_contract": true,
+      "private_export_count": 0,
+      "copied_old_release": {
+        "task_id": "dev-lit-r2-002",
+        "current": false,
+        "has_artifact_collection": false
+      }
+    },
+    {
+      "package": "research\\benchmark\\materials\\pilot_v3\\collection_candidates_v1\\idea",
+      "prior": "research\\benchmark\\materials\\pilot_v3\\released_stage_candidates\\idea",
+      "task_sha256": "76be1469024f114c5a9d9670648f64f86a2a768e334e7f59b7af65bd2a267990",
+      "changes": [
+        "/public/resources/artifact_collection",
+        "/public/resources/disk_semantics",
+        "/public/task_id",
+        "/task_id"
+      ],
+      "only_authorized_changes": true,
+      "scientific_assets": [
+        {
+          "path": "public/research_setting.json",
+          "same_bytes": true,
+          "sha256": "7c070096c3959ab98baf0a1e66683909c212f2e6e5fb1f43bf839054d5d636cd"
+        },
+        {
+          "path": "public/background_report.json",
+          "same_bytes": true,
+          "sha256": "1b26410781315125b3a44c9a9f7320075b8eed67347aa872928f43c27f43369a"
+        },
+        {
+          "path": "private/evaluation.json",
+          "same_bytes": true,
+          "sha256": "b43b69b5dbe338c57d54073d2ea22fa56738e9c0de662901c96ab35c6b5a697c"
+        }
+      ],
+      "collection_policy": {
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "max_entries": 200,
+        "max_total_bytes": 8388608,
+        "scope": "all_noninternal_work_files_and_directories",
+        "version": 1
+      },
+      "bytes_below_disk": true,
+      "public_resources": {
+        "artifact_collection": {
+          "excluded_top_level_rules": [
+            ".broker",
+            ".process-*"
+          ],
+          "max_entries": 200,
+          "max_total_bytes": 8388608,
+          "scope": "all_noninternal_work_files_and_directories",
+          "version": 1
+        },
+        "budget_status": "explicit_development_configuration_not_formally_frozen",
+        "container": {
+          "cpus": 1,
+          "disk_mb": 512,
+          "memory_mb": 1024,
+          "pids_limit": 64,
+          "wall_seconds": 600
+        },
+        "cutoff": "2024-09-01",
+        "disk_semantics": "per-run total writable tmpfs: /work 80%, /tmp 20%; charged to container memory; dependency image and read-only inputs excluded. Collection counts all /work files AND directories except top-level .broker and .process-*; file-byte total excludes directories and archive metadata. Hard deadline may discard uncaptured tmpfs; only already captured controller receipts are retained, no periodic backup promised.",
+        "execution_budget": {
+          "model_calls": 6,
+          "tool_calls": 60,
+          "wall_seconds": 600
+        },
+        "gpu_allowed": false,
+        "image_id": "sha256:399341648ce68031cef84e225a8b4985fed3125fd020ec96a8d6c5d6563036d0",
+        "network": "none",
+        "platform": "linux/amd64",
+        "resource_scope": "Limits govern this task execution; this is not an empirical future-experiment cost estimate.",
+        "tool_call_metric": "controller broker API calls; direct worker CPU/file operations remain bounded by container resources, not counted as API calls"
+      },
+      "execution_budget_unchanged": true,
+      "container_unchanged": true,
+      "provenance_hashes_match": true,
+      "fresh_export_current_contract": true,
+      "private_export_count": 0,
+      "copied_old_release": {
+        "task_id": "dev-idea-fixed-002",
+        "current": false,
+        "has_artifact_collection": false
+      }
+    },
+    {
+      "package": "research\\benchmark\\materials\\pilot_v3\\collection_candidates_v1\\iv-exp",
+      "prior": "research\\benchmark\\materials\\pilot_v3\\budget_candidates_v2\\iv-exp",
+      "task_sha256": "dd2c915734dfa47e0770094bb4896233cb90cc39b1fd5a9d5336f0f3702911fc",
+      "changes": [
+        "/public/resources/artifact_collection",
+        "/public/resources/disk_semantics",
+        "/public/task_id",
+        "/task_id"
+      ],
+      "only_authorized_changes": true,
+      "scientific_assets": [
+        {
+          "path": "assets/task.md",
+          "same_bytes": true,
+          "sha256": "d716cfa74056e21574bdbcdd377b5456d8242bf9db8ab4e84110329d5fd1f021"
+        },
+        {
+          "path": "assets/base_resources.py",
+          "same_bytes": true,
+          "sha256": "c720367a63675508b59ad9cd066768e4d958cf9a97f9ce13982201af64067ea2"
+        },
+        {
+          "path": "assets/NOTICE.txt",
+          "same_bytes": true,
+          "sha256": "3c39fa64e74e782f92f77912ae1e60c352f53a014f0a0625289f78dc86f2690d"
+        },
+        {
+          "path": "private/reference.json",
+          "same_bytes": true,
+          "sha256": "a70dfa8ba78f34f55347b696eff3173df8242970a71888fa8cf3a66a2b53763e"
+        }
+      ],
+      "collection_policy": {
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "max_entries": 2000,
+        "max_total_bytes": 134217728,
+        "scope": "all_noninternal_work_files_and_directories",
+        "version": 1
+      },
+      "bytes_below_disk": true,
+      "public_resources": {
+        "artifact_collection": {
+          "excluded_top_level_rules": [
+            ".broker",
+            ".process-*"
+          ],
+          "max_entries": 2000,
+          "max_total_bytes": 134217728,
+          "scope": "all_noninternal_work_files_and_directories",
+          "version": 1
+        },
+        "budget_status": "explicit_development_candidate_pending_task_feasibility",
+        "container": {
+          "cpus": 2,
+          "disk_mb": 1024,
+          "memory_mb": 2048,
+          "pids_limit": 128,
+          "wall_seconds": 1200
+        },
+        "device": "CPU",
+        "disk_semantics": "per-run total writable tmpfs: /work 80%, /tmp 20%; charged to container memory; dependency image and read-only inputs excluded. Collection counts all /work files AND directories except top-level .broker and .process-*; file-byte total excludes directories and archive metadata. Hard deadline may discard uncaptured tmpfs; only already captured controller receipts are retained, no periodic backup promised.",
+        "execution_budget": {
+          "model_calls": 16,
+          "tool_calls": 120,
+          "wall_seconds": 1200
+        },
+        "gpu_allowed": false,
+        "image_id": "sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01",
+        "network": "none"
+      },
+      "execution_budget_unchanged": true,
+      "container_unchanged": true,
+      "provenance_hashes_match": true,
+      "fresh_export_current_contract": true,
+      "private_export_count": 0,
+      "copied_old_release": null
+    },
+    {
+      "package": "research\\benchmark\\materials\\pilot_v3\\collection_candidates_v1\\ssa-write-evidence",
+      "prior": "research\\benchmark\\materials\\pilot_v3\\budget_candidates_v2\\ssa-write-evidence",
+      "task_sha256": "28d191f113dd3da05898ce70b414869b62d464a4e521aef633ef14df63b8fdbf",
+      "changes": [
+        "/public/resources/artifact_collection",
+        "/public/resources/disk_semantics",
+        "/public/task_id",
+        "/task_id"
+      ],
+      "only_authorized_changes": true,
+      "scientific_assets": [
+        {
+          "path": "assets/write_evidence_task.md",
+          "same_bytes": true,
+          "sha256": "7e792bc76205c4e30df0ed7d94ad64587b70c2037e2986ea79246f71ca907020"
+        },
+        {
+          "path": "assets/table4_utkface.csv",
+          "same_bytes": true,
+          "sha256": "209ecee269b8a5cbdc96ac4ddc8332131efa5cd4d8a08835f10fd05a3a31ced6"
+        },
+        {
+          "path": "assets/table4_manifest.json",
+          "same_bytes": true,
+          "sha256": "d5f036851f80094dde4b3e12da64a60ffb31c12d7519afd3d92c0d23b693ad66"
+        },
+        {
+          "path": "private/reference.json",
+          "same_bytes": true,
+          "sha256": "6f396f9271f3a8138e71ffd5d5c752e04f41d019676b6c0baa78a2a9a5e2a215"
+        }
+      ],
+      "collection_policy": {
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "max_entries": 1000,
+        "max_total_bytes": 67108864,
+        "scope": "all_noninternal_work_files_and_directories",
+        "version": 1
+      },
+      "bytes_below_disk": true,
+      "public_resources": {
+        "artifact_collection": {
+          "excluded_top_level_rules": [
+            ".broker",
+            ".process-*"
+          ],
+          "max_entries": 1000,
+          "max_total_bytes": 67108864,
+          "scope": "all_noninternal_work_files_and_directories",
+          "version": 1
+        },
+        "budget_status": "explicit_development_candidate_pending_task_feasibility",
+        "container": {
+          "cpus": 1,
+          "disk_mb": 512,
+          "memory_mb": 1024,
+          "pids_limit": 64,
+          "wall_seconds": 600
+        },
+        "device": "CPU",
+        "disk_semantics": "per-run total writable tmpfs: /work 80%, /tmp 20%; charged to container memory; dependency image and read-only inputs excluded. Collection counts all /work files AND directories except top-level .broker and .process-*; file-byte total excludes directories and archive metadata. Hard deadline may discard uncaptured tmpfs; only already captured controller receipts are retained, no periodic backup promised.",
+        "execution_budget": {
+          "model_calls": 12,
+          "tool_calls": 60,
+          "wall_seconds": 600
+        },
+        "gpu_allowed": false,
+        "image_id": "sha256:399341648ce68031cef84e225a8b4985fed3125fd020ec96a8d6c5d6563036d0",
+        "network": "none"
+      },
+      "execution_budget_unchanged": true,
+      "container_unchanged": true,
+      "provenance_hashes_match": true,
+      "fresh_export_current_contract": true,
+      "private_export_count": 0,
+      "copied_old_release": null
+    },
+    {
+      "package": "research\\benchmark\\materials\\pilot_v3\\collection_candidates_v1\\ssa-write-content",
+      "prior": "research\\benchmark\\materials\\pilot_v3\\compiled_candidates_v7\\ssa\\ssa-write-content-utk-v6",
+      "task_sha256": "bfe17cbe7c6a9098a6f0f7fb4555627f6aa1ef8720c549558eeeb42c7df33723",
+      "changes": [
+        "/public/resources/artifact_collection",
+        "/public/resources/disk_semantics",
+        "/public/task_id",
+        "/task_id"
+      ],
+      "only_authorized_changes": true,
+      "scientific_assets": [
+        {
+          "path": "assets/write_content_task.md",
+          "same_bytes": true,
+          "sha256": "153a63d2b802d00edb6d1d835c1155752aa71d8f620c04d56e90eb2472683716"
+        },
+        {
+          "path": "private/reference.json",
+          "same_bytes": true,
+          "sha256": "80bb289eb7eeffe0bdb4502120390b617b2999f372628a15ce9dbd25a4519f71"
+        }
+      ],
+      "collection_policy": {
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "max_entries": 500,
+        "max_total_bytes": 16777216,
+        "scope": "all_noninternal_work_files_and_directories",
+        "version": 1
+      },
+      "bytes_below_disk": true,
+      "public_resources": {
+        "artifact_collection": {
+          "excluded_top_level_rules": [
+            ".broker",
+            ".process-*"
+          ],
+          "max_entries": 500,
+          "max_total_bytes": 16777216,
+          "scope": "all_noninternal_work_files_and_directories",
+          "version": 1
+        },
+        "budget_status": "explicit_development_candidate_pending_task_feasibility",
+        "container": {
+          "cpus": 1,
+          "disk_mb": 512,
+          "memory_mb": 1024,
+          "pids_limit": 64,
+          "wall_seconds": 600
+        },
+        "device": "CPU",
+        "disk_semantics": "per-run total writable tmpfs: /work 80%, /tmp 20%; charged to container memory; dependency image and read-only inputs excluded. Collection counts all /work files AND directories except top-level .broker and .process-*; file-byte total excludes directories and archive metadata. Hard deadline may discard uncaptured tmpfs; only already captured controller receipts are retained, no periodic backup promised.",
+        "execution_budget": {
+          "model_calls": 4,
+          "tool_calls": 60,
+          "wall_seconds": 600
+        },
+        "gpu_allowed": false,
+        "image_id": "sha256:399341648ce68031cef84e225a8b4985fed3125fd020ec96a8d6c5d6563036d0",
+        "network": "none"
+      },
+      "execution_budget_unchanged": true,
+      "container_unchanged": true,
+      "provenance_hashes_match": true,
+      "fresh_export_current_contract": true,
+      "private_export_count": 0,
+      "copied_old_release": null
+    }
+  ],
+  "accepted_for": "Development contract disclosure and stage-input preservation only; no new scientific/judge/formal admission",
+  "collection_semantics_review": {
+    "max_entries": "Counts files and directories in EXPORT_HELPER before descending; exact published field maps to historical max_files implementation argument.",
+    "max_total_bytes": "File-byte total, not tar overhead, dependency image, readonly inputs or whole tmpfs quota.",
+    "excluded_top_level": ".broker and .process-* exact top-level exclusions match actual exporter.",
+    "cpu_and_wall": "No CPU/modelcalls/toolcalls/memory/PIDs/wall values altered.",
+    "controller_binding": "Current driver reads collection_policy; run_container_harness rejects max_artifact_bytes/max_artifact_files values unequal to published contract before starting worker.",
+    "failure": "Public disk_semantics now explains memory-charged tmpfs, split mount quotas, hard-deadline loss and no periodic backup."
+  },
+  "prior_gap_update": {
+    "r2_allowed_versions": "Driver repaired, explicit mapping passed; no new real LIT replay claimed.",
+    "public_collection_and_tmpfs": "Fixed in all five new packages; prior runs remain attributed to their old versions."
+  },
+  "minor_open_issue": {
+    "finding": "LIT/IDEA copytree retained old release/task.json with old task_id and no new artifact_collection.",
+    "impact": "Current stage driver fresh-exports from top-level task.json and is unaffected. Other users/tools directly opening bundled release could consume stale contract.",
+    "action": "Exclude generated release directories in future versioning or regenerate them from new top-level task. Do not change original historical release.",
+    "owner_notified": "root"
+  },
+  "not_done": [
+    "No fresh real solver/judge execution or budget feasibility inference",
+    "No scientific material mutation or source-cache mutation",
+    "No formal task pool/split or autonomous constructor acceptance"
+  ],
+  "verdict": "All five new top-level TaskViews pass bounded independent resource disclosure/input-preservation review; copied stale LIT/IDEA releases remain a localized packaging issue."
+}

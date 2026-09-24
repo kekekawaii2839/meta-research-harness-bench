@@ -1,0 +1,650 @@
+{
+  "schema_version": "private-literature-relevance-review-1",
+  "visibility": "maintainer_private_never_solver_index",
+  "created_at": "2026-09-24T00:46:28.726124+00:00",
+  "status": "candidate_labels_for_root_adjudication_not_integrated",
+  "review_method": "Independent maintainer reading of relevant pinned-v1 full-text pages. No new model transport calls, external lookup, new paper, source/corpus edits, or score changes. Target bibliography is not primary evidence for these eight judgments.",
+  "task_binding": {
+    "task_id": "dev-lit-r2-002-collection-v2",
+    "task_manifest": "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/task.json",
+    "task_sha256": "6792a5be46f24d15130e1c2b69dc77f2fec66b0869fc7dbbbf8db40bd27a8792",
+    "research_setting_path": "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/public/research_setting.json",
+    "research_setting_sha256": "92828f1ed0af91bf4bf1902f77b4f30c8a1eb4a744e6ba7b61ff2b68210d6671",
+    "scope": "A pretrained deterministic scalar regression model faces changed input distributions. Deployment has unlabeled target inputs and no source examples or target labels. Source preparation may retain a documented finite summary of aggregate statistics, not original source examples. Do not assume the model already provides a predictive probability distribution.",
+    "resource_distinction": "No scientific numeric source-summary ceiling; package runtime budgets are separate."
+  },
+  "label_semantics": {
+    "core": "High-priority lineage or access-regime comparator; not necessarily directly applicable or mandatory.",
+    "background": "Conceptual/mechanistic support for interpreting approaches and evidence.",
+    "confusable": "Relevant near-neighbor with an important condition liable to be confused with the task; not irrelevant or invalid.",
+    "insufficient_evidence": "Insufficient inspected evidence for a role, not a negative label.",
+    "no_required_list": true,
+    "not_scoring_rule": true,
+    "alternatives": "Other valid documents may cover equivalent evidence. No single document is mandatory.",
+    "uncertainty": "Taxonomy boundaries are discretionary, particularly TTT when preparation is allowed; tiers may change without factual changes."
+  },
+  "evidence_location_contract": {
+    "extractor": "pypdf 6.10.0",
+    "page_numbering": "1-based physical PDF page",
+    "normalization": "re.sub(r\"\\s+\", \" \", page.extract_text()).strip(); preserve Unicode ligatures",
+    "character_offsets": "Python Unicode indexes; end exclusive after whitespace normalization",
+    "quotes": "At most 25 whitespace-delimited quoted words per paper; paraphrases reflect inspected conditions, not exhaustive summaries."
+  },
+  "labels": [
+    {
+      "document_id": "doc-2006.10726",
+      "paper_id": "background-arxiv-2006.10726",
+      "title": "Fully Test-time Adaptation by Entropy Minimization",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/2006.10726v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/background_v1/background-2006-10726-v1-paper.source",
+      "pdf_sha256": "54394849933b3ff88e001cbf25dc59ded458ea0f259c82951a0912170bc06756",
+      "proposed_tier": "core",
+      "confidence": 0.97,
+      "confidence_basis": "Task-relative judgment confidence, not a calibrated probability or score.",
+      "evidence": [
+        {
+          "pdf_page_1based": 2,
+          "section_hint": "2 Fully Test-time Adaptation",
+          "quote": "Probabilistic inference is needed",
+          "normalized_page_sha256": "d9e3a304d9fff54f3d18e4936dd9fc9625115f9251241d33d9e29bd15cc88dcf",
+          "start_char": 3585,
+          "end_char": 3618
+        },
+        {
+          "pdf_page_1based": 3,
+          "section_hint": "2 Fully Test-time Adaptation",
+          "quote": "regressors with predictive variance",
+          "normalized_page_sha256": "583269ebdc194ab7afda7ef025ea7d0c84c7802720914e2012f87c92b23f64d9",
+          "start_char": 793,
+          "end_char": 828
+        }
+      ],
+      "quoted_words": 8,
+      "task_relation": "Directly addresses adaptation using unlabeled target inputs without source examples or target supervision. An important information-regime comparison, not an automatically applicable solution for the given predictor.",
+      "applicability_and_confusion_caveat": "Entropy adaptation presupposes probabilistic inference. No distribution is supplied for this deterministic scalar predictor. The paper explicitly includes regressors WITH predictive variance, so saying entropy methods never work for regression would also be incorrect. Classifier experiments do not establish performance here.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false
+    },
+    {
+      "document_id": "doc-1909.13231",
+      "paper_id": "background-arxiv-1909.13231",
+      "title": "Test-Time Training for Out-of-Distribution Generalization",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/1909.13231v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/background_v1/background-1909-13231-v1-paper.source",
+      "pdf_sha256": "37e966ab281c85b74492ee9da7dfc2675e4b19ec77139718b32fa04b690843cd",
+      "proposed_tier": "confusable",
+      "confidence": 0.86,
+      "confidence_basis": "Task-relative judgment confidence, not a calibrated probability or score.",
+      "evidence": [
+        {
+          "pdf_page_1based": 2,
+          "section_hint": "2 Method",
+          "quote": "Our method requires a self-supervised auxiliary task",
+          "normalized_page_sha256": "dbdafd9a7ce5c40267f213b25cf823ff79a126e5cdc22c4e7d89e2f89041d819",
+          "start_char": 1119,
+          "end_char": 1171
+        },
+        {
+          "pdf_page_1based": 2,
+          "section_hint": "2 Method",
+          "quote": "the model is trained on both tasks",
+          "normalized_page_sha256": "dbdafd9a7ce5c40267f213b25cf823ff79a126e5cdc22c4e7d89e2f89041d819",
+          "start_char": 2359,
+          "end_char": 2393
+        }
+      ],
+      "quoted_words": 14,
+      "task_relation": "A useful near-neighbor for obtaining a label-free test-time signal, with preparation requirements liable to be hidden by the test-time-training name.",
+      "applicability_and_confusion_caveat": "Joint main/auxiliary source training precedes deployment. Source preparation is allowed in this task, so this is NOT an automatic exclusion. Applicability requires stating whether the given pretrained model and allowed preparation support that branch and a suitable scalar-regression self-supervised task; image rotation/classification results alone do not establish this. Standard-reset and online variants differ. Tier boundary is discretionary.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false
+    },
+    {
+      "document_id": "doc-2002.08546",
+      "paper_id": "background-arxiv-2002.08546",
+      "title": "Do We Really Need to Access the Source Data? Source Hypothesis Transfer for Unsupervised Domain Adaptation",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/2002.08546v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/background_v1/background-2002-08546-v1-paper.source",
+      "pdf_sha256": "c63576df482b899698c765e6712a4a76bc8ebcfc1766446e5153ce6944535821",
+      "proposed_tier": "core",
+      "confidence": 0.93,
+      "confidence_basis": "Task-relative judgment confidence, not a calibrated probability or score.",
+      "evidence": [
+        {
+          "pdf_page_1based": 3,
+          "section_hint": "3 Method",
+          "quote": "only a pre-trained source model",
+          "normalized_page_sha256": "b29b679c25c1cfdf20b5260623dc47dfbd29d7f6cab88cc1d82d1d477d6338c9",
+          "start_char": 2430,
+          "end_char": 2461
+        },
+        {
+          "pdf_page_1based": 3,
+          "section_hint": "3 Method",
+          "quote": "we consider the K-way classiﬁcation task",
+          "normalized_page_sha256": "b29b679c25c1cfdf20b5260623dc47dfbd29d7f6cab88cc1d82d1d477d6338c9",
+          "start_char": 2516,
+          "end_char": 2556
+        }
+      ],
+      "quoted_words": 11,
+      "task_relation": "A directly relevant source-free adaptation family showing source examples need not remain available at deployment; important context against claiming source-free adaptation itself is missing.",
+      "applicability_and_confusion_caveat": "The stated task is K-way classification, using a source feature extractor/classifier and classification-oriented information maximization and pseudo-labeling. These objectives do not directly transfer to arbitrary deterministic scalar outputs. Core relevance does not mean this solves the scalar task.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false
+    },
+    {
+      "document_id": "doc-2006.16971",
+      "paper_id": "background-arxiv-2006.16971",
+      "title": "Improving robustness against common corruptions by covariate shift adaptation",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/2006.16971v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/background_v1/background-2006-16971-v1-paper.source",
+      "pdf_sha256": "6dd742b604dba03335904a806e2db9648a547efdbccf4767acbfac5bf4c191ca",
+      "proposed_tier": "core",
+      "confidence": 0.97,
+      "confidence_basis": "Task-relative judgment confidence, not a calibrated probability or score.",
+      "evidence": [
+        {
+          "pdf_page_1based": 2,
+          "section_hint": "1 Introduction",
+          "quote": "estimating the BN statistics on the corrupted images",
+          "normalized_page_sha256": "30708ed65c107ca76b4f11c1b675cfbbcac477778e7163f50c5321c472ae37ee",
+          "start_char": 2463,
+          "end_char": 2515
+        },
+        {
+          "pdf_page_1based": 3,
+          "section_hint": "2 Background: Benchmarking Robustness",
+          "quote": "many unlabeled samples with similar corruptions",
+          "normalized_page_sha256": "9ddf2d78d776049fd9746d52cb59c71d77f3e8326fd35e91fec8990ecfc5ef70",
+          "start_char": 682,
+          "end_char": 729
+        }
+      ],
+      "quoted_words": 14,
+      "task_relation": "A close comparison based on updating normalization statistics from unlabeled shifted inputs rather than requiring a probabilistic output; informs what moment-based adaptation can support.",
+      "applicability_and_confusion_caveat": "Reported results concern image-corruption classification. Batch access and whether target examples share a shift matter; an unrepresentative or heterogeneous stream is not equivalent. This is not evidence that all scalar-regression shifts are repaired by BN adaptation, and the predictor must expose suitable normalization structure.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false
+    },
+    {
+      "document_id": "doc-1607.01719",
+      "paper_id": "background-arxiv-1607.01719",
+      "title": "Deep CORAL: Correlation Alignment for Deep Domain Adaptation",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/1607.01719v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/background_v1/background-1607-01719-v1-paper.source",
+      "pdf_sha256": "9691e1d6b20e0d5b75f580076516ff8a2e6a2ea3529eeb3e4ca3dd33b85e1ccc",
+      "proposed_tier": "confusable",
+      "confidence": 0.96,
+      "confidence_basis": "Task-relative judgment confidence, not a calibrated probability or score.",
+      "evidence": [
+        {
+          "pdf_page_1based": 2,
+          "section_hint": "2 Related Work / motivation",
+          "quote": "the labelled source data",
+          "normalized_page_sha256": "a6c075d94a3faa93e649d661ef8eb9bcb591b1c66962f73c7c55636fa56cf6a9",
+          "start_char": 2234,
+          "end_char": 2258
+        },
+        {
+          "pdf_page_1based": 3,
+          "section_hint": "3.1 The CORAL Loss",
+          "quote": "distance between the second-order statistics",
+          "normalized_page_sha256": "5893c2c393415c546e3ed8e78b3e705a7e6c0ae8e44dac1c36dc28c481d08059",
+          "start_char": 1063,
+          "end_char": 1107
+        }
+      ],
+      "quoted_words": 9,
+      "task_relation": "A scientifically relevant covariance-alignment comparator liable to be confused with a source-summary-only deployment method.",
+      "applicability_and_confusion_caveat": "The original joint adaptation objective uses labeled source examples and target features. A retained covariance matrix is not automatically equivalent to source examples needed for source supervision and feature-dependent covariance updates. Preparation is allowed, but access at each adaptation step must be distinguished. A qualified Deep CORAL citation is not wrong.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false
+    },
+    {
+      "document_id": "doc-1502.03167",
+      "paper_id": "background-arxiv-1502.03167",
+      "title": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/1502.03167v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/background_v1/background-1502-03167-v1-paper.source",
+      "pdf_sha256": "4591881ed6e7b3815eaa7c13cb8d8cc1c807ca5411150c11d11f718e6ba48949",
+      "proposed_tier": "background",
+      "confidence": 0.99,
+      "confidence_basis": "Task-relative judgment confidence, not a calibrated probability or score.",
+      "evidence": [
+        {
+          "pdf_page_1based": 4,
+          "section_hint": "3.1 Training and Inference with Batch-Normalized Networks",
+          "quote": "using the population, rather than mini-batch, statistics.",
+          "normalized_page_sha256": "402e771454216bb61f8f386b9e94f60b1143824d3d78e4202d3bb75eab66a502",
+          "start_char": 3035,
+          "end_char": 3092
+        }
+      ],
+      "quoted_words": 7,
+      "task_relation": "Mechanistic background on inference normalization, retained moments, and the distinction between learned affine parameters and estimated statistics.",
+      "applicability_and_confusion_caveat": "The original normalization/training proposal is not evidence that updating statistics improves shifted scalar regression. Population inference statistics, mini-batch estimates, and gamma/beta must not be conflated; the internal-covariate-shift motivation is not a general external-shift guarantee.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false
+    },
+    {
+      "document_id": "doc-1706.04599",
+      "paper_id": "background-arxiv-1706.04599",
+      "title": "On Calibration of Modern Neural Networks",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/1706.04599v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/background_v1/background-1706-04599-v1-paper.source",
+      "pdf_sha256": "f0a55abdbea889964f9d908da1baa04448ab3ffbd40f409f3676176f532c9ab1",
+      "proposed_tier": "background",
+      "confidence": 0.97,
+      "confidence_basis": "Task-relative judgment confidence, not a calibrated probability or score.",
+      "evidence": [
+        {
+          "pdf_page_1based": 2,
+          "section_hint": "2 Definitions",
+          "quote": "supervised multi- class classiﬁcation",
+          "normalized_page_sha256": "604027feb5631a6441e00d912510f2d3bfc6a58051376ae3fbe41b43b3fa4acd",
+          "start_char": 2329,
+          "end_char": 2366
+        },
+        {
+          "pdf_page_1based": 4,
+          "section_hint": "4 Calibration Methods",
+          "quote": "Each method requires a hold-out validation set",
+          "normalized_page_sha256": "9d423672b967357f76de14ade6255d52ef696190f91e6dda774857b5d8742508",
+          "start_char": 4546,
+          "end_char": 4592
+        },
+        {
+          "pdf_page_1based": 4,
+          "section_hint": "4 Calibration Methods",
+          "quote": "drawn from the same distribution",
+          "normalized_page_sha256": "9d423672b967357f76de14ade6255d52ef696190f91e6dda774857b5d8742508",
+          "start_char": 4725,
+          "end_char": 4757
+        }
+      ],
+      "quoted_words": 16,
+      "task_relation": "Conceptual background for distinguishing confidence from correctness and qualifying confidence-based claims; not a direct adaptation method for this deterministic scalar predictor.",
+      "applicability_and_confusion_caveat": "Studies classification probabilities. Calibration methods use held-out validation data under a same-distribution assumption. Neither a regression predictive distribution nor unlabeled target calibration follows. Labeled source validation at preparation is not forbidden, but does not settle target calibration under shift.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false
+    },
+    {
+      "document_id": "doc-1505.07818",
+      "paper_id": "background-arxiv-1505.07818",
+      "title": "Domain-Adversarial Training of Neural Networks",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/1505.07818v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/background_v1/background-1505-07818-v1-paper.source",
+      "pdf_sha256": "2b4b59b28a54205544515f604e422fecad43a7f7b9d1db884435180d7c8f1c5d",
+      "proposed_tier": "confusable",
+      "confidence": 0.97,
+      "confidence_basis": "Task-relative judgment confidence, not a calibrated probability or score.",
+      "evidence": [
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "labeled data from the source domain",
+          "normalized_page_sha256": "b32460d916e5a8d39c213dc735c6d30a004ed31bc7266811de1cbd4a5aa9ba24",
+          "start_char": 1416,
+          "end_char": 1451
+        },
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "unlabeled data from the target",
+          "normalized_page_sha256": "b32460d916e5a8d39c213dc735c6d30a004ed31bc7266811de1cbd4a5aa9ba24",
+          "start_char": 1456,
+          "end_char": 1486
+        }
+      ],
+      "quoted_words": 11,
+      "task_relation": "An important domain-alignment near-neighbor; source-free deployment must not be conflated with unlabeled-target adaptation.",
+      "applicability_and_confusion_caveat": "Joint training uses source examples and unlabeled target examples with predictive and domain-discriminative objectives. No target labels does not mean no source examples. Applications include classification and descriptor learning; do not misstate the paper as proving scalar-regression adaptation or as exclusively one application.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false
+    }
+  ],
+  "coverage": {
+    "corpus_documents": 18,
+    "newly_independently_reviewed": 8,
+    "new_tiers": {
+      "core": 3,
+      "background": 2,
+      "confusable": 3,
+      "insufficient_evidence": 0
+    },
+    "existing_SSA_candidates_not_reaudited": [
+      {
+        "paper_id": "background-arxiv-2204.13263",
+        "prior_tier": "core",
+        "status": "existing_candidate_not_independently_reaudited_here"
+      },
+      {
+        "paper_id": "background-arxiv-2101.10842",
+        "prior_tier": "core",
+        "status": "existing_candidate_not_independently_reaudited_here"
+      },
+      {
+        "paper_id": "background-arxiv-1607.06450",
+        "prior_tier": "background",
+        "status": "existing_candidate_not_independently_reaudited_here"
+      }
+    ],
+    "unreviewed_for_this_task": [
+      {
+        "document_id": "doc-1910.12358",
+        "paper_id": "background-arxiv-1910.12358",
+        "task_scope_status": "unreviewed_for_SSA",
+        "proposed_tier": null,
+        "confidence": null,
+        "reason": "Existing IV-scope label is not transferred; SSA relevance has not been adequately reviewed, not a negative judgment."
+      },
+      {
+        "document_id": "doc-2208.01066",
+        "paper_id": "background-arxiv-2208.01066",
+        "task_scope_status": "unreviewed_for_SSA",
+        "proposed_tier": null,
+        "confidence": null,
+        "reason": "Existing IV-scope label is not transferred; SSA relevance has not been adequately reviewed, not a negative judgment."
+      },
+      {
+        "document_id": "doc-2211.15661",
+        "paper_id": "background-arxiv-2211.15661",
+        "task_scope_status": "unreviewed_for_SSA",
+        "proposed_tier": null,
+        "confidence": null,
+        "reason": "Existing IV-scope label is not transferred; SSA relevance has not been adequately reviewed, not a negative judgment."
+      },
+      {
+        "document_id": "doc-2212.07677",
+        "paper_id": "background-arxiv-2212.07677",
+        "task_scope_status": "unreviewed_for_SSA",
+        "proposed_tier": null,
+        "confidence": null,
+        "reason": "Existing IV-scope label is not transferred; SSA relevance has not been adequately reviewed, not a negative judgment."
+      },
+      {
+        "document_id": "doc-2405.19463",
+        "paper_id": "background-arxiv-2405.19463",
+        "task_scope_status": "unreviewed_for_SSA",
+        "proposed_tier": null,
+        "confidence": null,
+        "reason": "Existing IV-scope label is not transferred; SSA relevance has not been adequately reviewed, not a negative judgment."
+      },
+      {
+        "document_id": "doc-2402.05639",
+        "paper_id": "background-arxiv-2402.05639",
+        "task_scope_status": "unreviewed_for_SSA",
+        "proposed_tier": null,
+        "confidence": null,
+        "reason": "Existing IV-scope label is not transferred; SSA relevance has not been adequately reviewed, not a negative judgment."
+      },
+      {
+        "document_id": "doc-2310.17086",
+        "paper_id": "background-arxiv-2310.17086",
+        "task_scope_status": "unreviewed_for_SSA",
+        "proposed_tier": null,
+        "confidence": null,
+        "reason": "Existing IV-scope label is not transferred; SSA relevance has not been adequately reviewed, not a negative judgment."
+      }
+    ],
+    "formal_domain_coverage_claim": false
+  },
+  "integrity": {
+    "input_hashes_before": {
+      "research/benchmark/materials/pilot_v3/literature_v3/shared_background_corpus.json": "b68e6cfc200c176068c4da01ddc4f985492a1e8b3ffa54a39d8084a4f3383afe",
+      "research/benchmark/materials/pilot_v3/literature_v3/private_literature_roles_candidates.json": "381af9b5b291ea014c2e58c568429c18e9cdc862a39f02895b2601df236e40aa",
+      "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/task.json": "6792a5be46f24d15130e1c2b69dc77f2fec66b0869fc7dbbbf8db40bd27a8792",
+      "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/public/research_setting.json": "92828f1ed0af91bf4bf1902f77b4f30c8a1eb4a744e6ba7b61ff2b68210d6671"
+    },
+    "input_hashes_after": {
+      "research/benchmark/materials/pilot_v3/literature_v3/shared_background_corpus.json": "b68e6cfc200c176068c4da01ddc4f985492a1e8b3ffa54a39d8084a4f3383afe",
+      "research/benchmark/materials/pilot_v3/literature_v3/private_literature_roles_candidates.json": "381af9b5b291ea014c2e58c568429c18e9cdc862a39f02895b2601df236e40aa",
+      "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/task.json": "6792a5be46f24d15130e1c2b69dc77f2fec66b0869fc7dbbbf8db40bd27a8792",
+      "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/public/research_setting.json": "92828f1ed0af91bf4bf1902f77b4f30c8a1eb4a744e6ba7b61ff2b68210d6671"
+    },
+    "all_bound_inputs_unchanged": true,
+    "registered_source_hash_checks": [
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-2006-10726-v1-paper.source",
+        "expected_sha256": "54394849933b3ff88e001cbf25dc59ded458ea0f259c82951a0912170bc06756",
+        "observed_sha256": "54394849933b3ff88e001cbf25dc59ded458ea0f259c82951a0912170bc06756",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-2006-10726-v1-abstract.source",
+        "expected_sha256": "ef0926eefd9a94296b2b1692f6c450f7b47328489172fe7ef46514bda8cc09e3",
+        "observed_sha256": "ef0926eefd9a94296b2b1692f6c450f7b47328489172fe7ef46514bda8cc09e3",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-1909-13231-v1-paper.source",
+        "expected_sha256": "37e966ab281c85b74492ee9da7dfc2675e4b19ec77139718b32fa04b690843cd",
+        "observed_sha256": "37e966ab281c85b74492ee9da7dfc2675e4b19ec77139718b32fa04b690843cd",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-1909-13231-v1-abstract.source",
+        "expected_sha256": "db7462b2ebed10b2dff27225fef700907785c15d15c43f1a7d360d1696cd204f",
+        "observed_sha256": "db7462b2ebed10b2dff27225fef700907785c15d15c43f1a7d360d1696cd204f",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-2002-08546-v1-paper.source",
+        "expected_sha256": "c63576df482b899698c765e6712a4a76bc8ebcfc1766446e5153ce6944535821",
+        "observed_sha256": "c63576df482b899698c765e6712a4a76bc8ebcfc1766446e5153ce6944535821",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-2002-08546-v1-abstract.source",
+        "expected_sha256": "a49df8ef9cd158a4f630f1324ee1d897b0e5da55e3ea720c71cc85f27881fd80",
+        "observed_sha256": "a49df8ef9cd158a4f630f1324ee1d897b0e5da55e3ea720c71cc85f27881fd80",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-2006-16971-v1-paper.source",
+        "expected_sha256": "6dd742b604dba03335904a806e2db9648a547efdbccf4767acbfac5bf4c191ca",
+        "observed_sha256": "6dd742b604dba03335904a806e2db9648a547efdbccf4767acbfac5bf4c191ca",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-2006-16971-v1-abstract.source",
+        "expected_sha256": "e479e71a02c24967b9e4c8b4c7a4e82e60523d26a73fd3a46d9e192d373e81cc",
+        "observed_sha256": "e479e71a02c24967b9e4c8b4c7a4e82e60523d26a73fd3a46d9e192d373e81cc",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-1607-01719-v1-paper.source",
+        "expected_sha256": "9691e1d6b20e0d5b75f580076516ff8a2e6a2ea3529eeb3e4ca3dd33b85e1ccc",
+        "observed_sha256": "9691e1d6b20e0d5b75f580076516ff8a2e6a2ea3529eeb3e4ca3dd33b85e1ccc",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-1607-01719-v1-abstract.source",
+        "expected_sha256": "36749c4d5d7d924bb0d66f904702beba8f7662ad44d862b2fee5f7fb2ee3582b",
+        "observed_sha256": "36749c4d5d7d924bb0d66f904702beba8f7662ad44d862b2fee5f7fb2ee3582b",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-1502-03167-v1-paper.source",
+        "expected_sha256": "4591881ed6e7b3815eaa7c13cb8d8cc1c807ca5411150c11d11f718e6ba48949",
+        "observed_sha256": "4591881ed6e7b3815eaa7c13cb8d8cc1c807ca5411150c11d11f718e6ba48949",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-1502-03167-v1-abstract.source",
+        "expected_sha256": "83a7f32f102e46081f55a2f6f851848d199c1afabdca726c68feafa35cb22f41",
+        "observed_sha256": "83a7f32f102e46081f55a2f6f851848d199c1afabdca726c68feafa35cb22f41",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-1706-04599-v1-paper.source",
+        "expected_sha256": "f0a55abdbea889964f9d908da1baa04448ab3ffbd40f409f3676176f532c9ab1",
+        "observed_sha256": "f0a55abdbea889964f9d908da1baa04448ab3ffbd40f409f3676176f532c9ab1",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-1706-04599-v1-abstract.source",
+        "expected_sha256": "9e98266172515b6e7d4a86302ea9ebd04b5aadf58e7b6f6490951f467e30f4ae",
+        "observed_sha256": "9e98266172515b6e7d4a86302ea9ebd04b5aadf58e7b6f6490951f467e30f4ae",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-1505-07818-v1-paper.source",
+        "expected_sha256": "2b4b59b28a54205544515f604e422fecad43a7f7b9d1db884435180d7c8f1c5d",
+        "observed_sha256": "2b4b59b28a54205544515f604e422fecad43a7f7b9d1db884435180d7c8f1c5d",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/background_v1/background-1505-07818-v1-abstract.source",
+        "expected_sha256": "91da97c489a5f0637185361e18903b5f93e3d06c1ddf1cc814fa6a48ceb52dd2",
+        "observed_sha256": "91da97c489a5f0637185361e18903b5f93e3d06c1ddf1cc814fa6a48ceb52dd2",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-1910-12358-v1-paper.source",
+        "expected_sha256": "db48e3419765524ba2cfb79b7fa121fa3f5196802929ed025e5ec9bc4bd8478d",
+        "observed_sha256": "db48e3419765524ba2cfb79b7fa121fa3f5196802929ed025e5ec9bc4bd8478d",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-1910-12358-v1-abstract.source",
+        "expected_sha256": "6ee60e8cc2a160a78512104fa7ef3c7b09af349899537da2b6fbad50bd6af6f5",
+        "observed_sha256": "6ee60e8cc2a160a78512104fa7ef3c7b09af349899537da2b6fbad50bd6af6f5",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2208-01066-v1-paper.source",
+        "expected_sha256": "3c212dc2df289a3163d14841b08837155bd3234d1dd87477ddad455042e112a7",
+        "observed_sha256": "3c212dc2df289a3163d14841b08837155bd3234d1dd87477ddad455042e112a7",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2208-01066-v1-abstract.source",
+        "expected_sha256": "20b24600f00daf28e8d48d0d9677165b3d508d0efbd2fb1ed08adaec43b632b0",
+        "observed_sha256": "20b24600f00daf28e8d48d0d9677165b3d508d0efbd2fb1ed08adaec43b632b0",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2211-15661-v1-paper.source",
+        "expected_sha256": "87e19f38c76f134f2248571e077a86e8ef9d2702127e6e32447086a97850f05c",
+        "observed_sha256": "87e19f38c76f134f2248571e077a86e8ef9d2702127e6e32447086a97850f05c",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2211-15661-v1-abstract.source",
+        "expected_sha256": "68e51bbdb60d0c2fabc8692eadb8b7e1d214005b82fec9e7f83fce74091f13a1",
+        "observed_sha256": "68e51bbdb60d0c2fabc8692eadb8b7e1d214005b82fec9e7f83fce74091f13a1",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2212-07677-v1-paper.source",
+        "expected_sha256": "f4541e1fa479877a0e0552283e15cb5240b243cc67aaa9a404c3135f23e5d9ac",
+        "observed_sha256": "f4541e1fa479877a0e0552283e15cb5240b243cc67aaa9a404c3135f23e5d9ac",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2212-07677-v1-abstract.source",
+        "expected_sha256": "f863b9c94f9f8489521310ff0a1170c76f28b6e484ee7f27bf9c8d84deca25dd",
+        "observed_sha256": "f863b9c94f9f8489521310ff0a1170c76f28b6e484ee7f27bf9c8d84deca25dd",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2405-19463-v1-paper.source",
+        "expected_sha256": "71305197a6d4b485a1b358113b511e0e762438de41b40b55d99eb666dcb0254a",
+        "observed_sha256": "71305197a6d4b485a1b358113b511e0e762438de41b40b55d99eb666dcb0254a",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2405-19463-v1-abstract.source",
+        "expected_sha256": "47d2033fa00a0443835ce63717bddcb593c481423f17154b8577e48ea96728f9",
+        "observed_sha256": "47d2033fa00a0443835ce63717bddcb593c481423f17154b8577e48ea96728f9",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2402-05639-v1-paper.source",
+        "expected_sha256": "77a066410c04896107241d38901f01cae9218dce236ed4e2022e941e2b9fa4d5",
+        "observed_sha256": "77a066410c04896107241d38901f01cae9218dce236ed4e2022e941e2b9fa4d5",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2402-05639-v1-abstract.source",
+        "expected_sha256": "b828bf3a72686cfdb06817fac321caacc86c47d76859038ebff8fa44a6371eca",
+        "observed_sha256": "b828bf3a72686cfdb06817fac321caacc86c47d76859038ebff8fa44a6371eca",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2310-17086-v1-paper.source",
+        "expected_sha256": "b0e836fc04577ec3c74292b589307dede035d0d23531ea716c92a62490de57a1",
+        "observed_sha256": "b0e836fc04577ec3c74292b589307dede035d0d23531ea716c92a62490de57a1",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2310-17086-v1-abstract.source",
+        "expected_sha256": "32564f17b3c5d219fed7f6725c901e29c88093d29f6471d1dc62c4409af179b5",
+        "observed_sha256": "32564f17b3c5d219fed7f6725c901e29c88093d29f6471d1dc62c4409af179b5",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2204-13263-v1-paper.source",
+        "expected_sha256": "e53c276d033736e04cb7d8ee9e236d863dea4e95564c37782e0302aed1e61b7a",
+        "observed_sha256": "e53c276d033736e04cb7d8ee9e236d863dea4e95564c37782e0302aed1e61b7a",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2204-13263-v1-abstract.source",
+        "expected_sha256": "ce91ba47c7ffaf012426decb4f1846a2c389c792ec576b49f6f6a2c953e8187e",
+        "observed_sha256": "ce91ba47c7ffaf012426decb4f1846a2c389c792ec576b49f6f6a2c953e8187e",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2101-10842-v1-paper.source",
+        "expected_sha256": "a15803b06af86bf237c5017f6d80bf533085527479bbd80ef110871cc57c5b06",
+        "observed_sha256": "a15803b06af86bf237c5017f6d80bf533085527479bbd80ef110871cc57c5b06",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2101-10842-v1-abstract.source",
+        "expected_sha256": "b2777442ed7f6ec7f3f29427dc7bb1c90d24f00ebc994128f4aa2ce6b0ddfd83",
+        "observed_sha256": "b2777442ed7f6ec7f3f29427dc7bb1c90d24f00ebc994128f4aa2ce6b0ddfd83",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-1607-06450-v1-paper.source",
+        "expected_sha256": "c464f839fb8d59f7fde92f9b4caa67c2d1f2f196b88f93fb60502249df0aaef7",
+        "observed_sha256": "c464f839fb8d59f7fde92f9b4caa67c2d1f2f196b88f93fb60502249df0aaef7",
+        "matches_registered": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-1607-06450-v1-abstract.source",
+        "expected_sha256": "b794807ce48978023eee40473fca743795e20dc6f533ce23a7712551f046e009",
+        "observed_sha256": "b794807ce48978023eee40473fca743795e20dc6f533ce23a7712551f046e009",
+        "matches_registered": true
+      }
+    ],
+    "source_checks_passed": 36,
+    "scope": "All 18 corpus PDF and abstract files against registered hashes; not a fresh whole-cache audit."
+  },
+  "validation": {
+    "unique_eight_document_ids": true,
+    "all_quotes_exact_at_offsets": true,
+    "all_quotes_under_25_words_per_paper": true,
+    "no_new_solver_visible_assets": true,
+    "model_calls": 0,
+    "scientific_experiments": 0
+  },
+  "remaining_work": [
+    "Root adjudication before private label integration/retrieval diagnostics.",
+    "Three existing SSA labels remain prior candidates, not full-text reaudited here.",
+    "Seven IV-scope documents remain SSA-unreviewed, not negative distractor labels.",
+    "Does not validate library breadth, global novelty, judge calibration, rights, or formal task readiness."
+  ]
+}

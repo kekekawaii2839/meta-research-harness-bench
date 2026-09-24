@@ -1,0 +1,68 @@
+{
+  "created_at": "2026-09-23T23:44:54.366087+00:00",
+  "scope": "Development-only injected orchestration; zero new native calls, no scientific execution or formal split creation",
+  "new_model_calls": 0,
+  "new_gpu_or_container_runs": 0,
+  "implementation_files": {
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\evolution_driver.py": "e0bc490c741ad9a38cfeccfc6b8bc649e5dcf39ed9f02aa9b22d74151a647328",
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_evolution_driver.py": "ad031dfe8963442216209ba6854d42dee12059356759040bd6402f719ddfb04b",
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\evolution.py": "0bb88e7cb9a33e7590aa0282ab14a8778a72b3d67ba1b1590a5b189b7152e0bf"
+  },
+  "existing_evolution_py_modified": false,
+  "new_tests": 13,
+  "compatibility_tests": 22,
+  "results": [
+    {
+      "pattern": "test_evolution_driver.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_builder_cannot_return_controller_candidate (test_evolution_driver.DriverTests) ... ok\ntest_builder_input_mutation_rejected (test_evolution_driver.DriverTests) ... ok\ntest_configuration_hash_mutation_rejected (test_evolution_driver.DriverTests) ... ok\ntest_exception_unknown_not_zero_or_retried (test_evolution_driver.DriverTests) ... ok\ntest_feedback_private_fields_rejected_before_builder (test_evolution_driver.DriverTests) ... ok\ntest_input_and_snapshot_mutations_rejected (test_evolution_driver.DriverTests) ... ok\ntest_mixed_full_rounds_selection_hidden_and_idempotent_resume (test_evolution_driver.DriverTests) ... ok\ntest_paper_split_and_incomplete_coverage_rejected (test_evolution_driver.DriverTests) ... ok\ntest_result_cache_hash_checked (test_evolution_driver.DriverTests) ... ok\ntest_returned_unknown_evaluation_not_zero (test_evolution_driver.DriverTests) ... ok\ntest_rounds_stop_without_additional_retries (test_evolution_driver.DriverTests) ... ok\ntest_same_turn_and_manual_review_required (test_evolution_driver.DriverTests) ... ok\ntest_snapshot_mutation_rejected (test_evolution_driver.DriverTests) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 4.177s\n\nOK\n"
+    },
+    {
+      "pattern": "test_protocol.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_formal_runner_not_falsely_accepted (test_protocol.EvolutionTests) ... ok\ntest_frozen_code_mutation_detected (test_protocol.EvolutionTests) ... ok\ntest_full_cycle_and_no_hidden_feedback (test_protocol.EvolutionTests) ... ok\ntest_round_skipping_repeated_evaluation_and_early_test_blocked (test_protocol.EvolutionTests) ... ok\ntest_json_duplicate_nonfinite (test_protocol.IOTests) ... ok\ntest_paths_reject_escape_ads_and_reserved (test_protocol.IOTests) ... ok\ntest_trace_mutation_detected (test_protocol.IOTests) ... ok\ntest_changed_asset_blocks_export (test_protocol.MaterialTests) ... ok\ntest_export_only_whitelisted_public_assets (test_protocol.MaterialTests) ... ok\ntest_formal_pending_rejected (test_protocol.MaterialTests) ... ok\ntest_hidden_export_to_search_rejected (test_protocol.MaterialTests) ... ok\ntest_historical_search_and_read_share_filter (test_protocol.MaterialTests) ... ok\ntest_split_same_paper_versions_together (test_protocol.MaterialTests) ... ok\ntest_all_modules_and_cost_not_in_score (test_protocol.ScoringTests) ... ok\ntest_exp_resource_cannot_compensate (test_protocol.ScoringTests) ... ok\ntest_infra_failure_not_silently_dropped (test_protocol.ScoringTests) ... ok\ntest_invalid_grade_and_dimension_set (test_protocol.ScoringTests) ... ok\ntest_many_slices_do_not_overweight_paper (test_protocol.ScoringTests) ... ok\ntest_missing_task_duplicate_and_wrong_identity (test_protocol.ScoringTests) ... ok\ntest_oracle_tie_earliest_and_builder_autonomy (test_protocol.ScoringTests) ... ok\ntest_scored_model_failure_stays_in_denominator (test_protocol.ScoringTests) ... ok\ntest_write_types_do_not_add_module_weight (test_protocol.ScoringTests) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.177s\n\nOK\n"
+    }
+  ],
+  "implemented": [
+    "Reuses EvolutionRun full-search/feedback gates, version freeze/identity, builder selection, per-version post-selection hidden evaluation and three-version summary.",
+    "Controller-only package bindings; evolver/selector see independent staging with current harness copy and public-only search exports plus builder_view projected feedback/search scores. No hidden task identity/path/score or private assets in builder request.",
+    "Explicit dependency injection evaluate/evolve/select; controller callbacks are trusted adapters, not untrusted executable tools or a sandbox.",
+    "Input package/H0/snapshot/configuration hashes rechecked; exact candidate bytes frozen. Success callbacks cached persistently, request/result hash checked; repeated finished advance invokes no callback again.",
+    "In-flight/exception/unknown/invalid results stop, no automatic zero, no implicit billed retry, no extra evolution after round cap."
+  ],
+  "synthetic_scope": {
+    "papers": "Synthetic paper-search and paper-test, with five types each",
+    "rounds": 2,
+    "versions": 3,
+    "evaluation_callback_count": 30,
+    "evolve_callback_count": 2,
+    "real_research_claim": false,
+    "synthetic_review_flags": "Fixtures mark same-turn/manual gates true only to exercise orchestration branches, not evidence that any real judge was reviewed."
+  },
+  "adapter_contracts": {
+    "evaluate_request": "development, minimal identity including controller routing split, version_id, frozen harness_directory/hash, private package path, unique output_directory. Must never forward full request to solver/builder.",
+    "evaluate_result": "Exact envelope status accepted_development, aggregate-compatible result, public feedback projection, judge_receipt containing same invocation ID and explicit same-turn/trajectory/semantic-feedback review flags. Flags are controller attestations, not proof generated by evaluator model.",
+    "evolve_request": "development, operation, fresh workspace, current_harness, public search_directory, EvolutionRun.builder_view(), output_directory.",
+    "evolve_result": "candidate_relative_path below staged output directory and observed files manifest; native adapter computes hashes after its worker exits.",
+    "selection": "Independent builder context sees same public search context and returns one version_id plus reason; selection freezes before any test evaluations."
+  },
+  "concrete_native_smoke_inputs_needed": [
+    "Frozen H0 directory containing only intended reusable harness files (not the whole historical builder workspace/audit).",
+    "Development material bindings with immutable images, public collection/resources and all gates explicitly tracked; externally supplied search/test routing keeps each paper wholly within one side.",
+    "Current aggregation requires all five task types on both sides. Existing SSA/IV five tasks alone cannot satisfy this with paper-disjoint routing. Do not duplicate these into hidden test. Add suitable independently sourced development materials, or separately approve a partial-search-only wiring smoke outside this full aggregate driver without a benchmark total.",
+    "A trusted evaluate adapter maps request.package and request.harness_directory/harness.py to run_container_stage_development.run_stage, using fresh output. It reads actual judge validated result/evidence/native invocation afterward; pending judge/image/feedback review is not accepted. Identity and dimension_scores map explicitly to scoring aggregate; omitted metrics never become zero.",
+    "A native evolver adapter uses a fresh independent Codex cwd equal to staged workspace, public repair prompt, recorded model/medium configuration, approved native tool boundary and existing shared call ledger; only returned output/candidate is frozen. Never mount controller store/private references/test paths.",
+    "Builder selection adapter uses isolated Codex context after all search versions and feeds no test outputs; native calls and costs separately recorded.",
+    "Declare positive round limit and enough remaining authorized transport budget for all per-task executor and judge calls, evolution and selection. At R rounds full protocol has 10*(R+1) task evaluations plus R evolution and one selection; each task may consume multiple transport calls, so this is not a model-call estimate."
+  ],
+  "remaining_gaps": [
+    "No concrete native evaluate/evolve/select adapters are auto-enabled by this module; no real mixed self-improvement trajectory has run.",
+    "Unknown operations deliberately block resume without automatic retry. No operator resolution API exists yet: retain journal and externally adjudicate; do not silently overwrite operation records. Success-boundary replay is idempotent, but crash between EvolutionRun file/state commits may stop rather than recover automatically.",
+    "On-resume hashes detect ordinary changes; they are not protection against an attacker controlling controller files or Python callbacks. Process/OS isolation must be enforced by native adapters.",
+    "Builder staging paths/feedback fields are bounded, but semantic feedback leakage still requires the recorded manual acceptance.",
+    "Formal costs, scale, splits, calibration, cross-paper coverage and statistical conclusions remain unfrozen."
+  ],
+  "verdict": "Bounded synthetic orchestration and regression tests passed; ready for adapter integration development, not real evolution or formal benchmark acceptance"
+}

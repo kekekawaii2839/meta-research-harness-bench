@@ -1,0 +1,347 @@
+{
+  "schema_version": "private-literature-relevance-review-1",
+  "visibility": "maintainer_private_never_solver_index",
+  "status": "candidate_labels_for_root_adjudication_not_integrated",
+  "created_at": "2026-09-24T00:52:03.120655+00:00",
+  "review_method": "Independent pinned-v1 full-text review, not abstract/bibliography-only; reading scope recorded per paper, without claim of exhaustive proof/figure validation.",
+  "task_binding": {
+    "task_id": "dev-lit-r2-002-collection-v2",
+    "task_manifest": "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/task.json",
+    "task_sha256": "6792a5be46f24d15130e1c2b69dc77f2fec66b0869fc7dbbbf8db40bd27a8792",
+    "research_setting_path": "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/public/research_setting.json",
+    "research_setting_sha256": "92828f1ed0af91bf4bf1902f77b4f30c8a1eb4a744e6ba7b61ff2b68210d6671",
+    "scope": "A pretrained deterministic scalar regression model faces changed input distributions. Deployment has unlabeled target inputs and no source examples or target labels. Source preparation may retain a documented finite summary of aggregate statistics, not original source examples. Do not assume the model already provides a predictive probability distribution.",
+    "resource_distinction": "No scientific numeric source-summary ceiling; package runtime budgets are separate."
+  },
+  "label_semantics": {
+    "core": "High-priority lineage or access-regime comparator; not necessarily directly applicable or mandatory.",
+    "background": "Conceptual/mechanistic support for interpreting approaches and evidence.",
+    "confusable": "Relevant near-neighbor with an important condition liable to be confused with the task; not irrelevant or invalid.",
+    "insufficient_evidence": "Insufficient inspected evidence for a role, not a negative label.",
+    "no_required_list": true,
+    "not_scoring_rule": true,
+    "alternatives": "Other valid documents may cover equivalent evidence. No single document is mandatory.",
+    "uncertainty": "Taxonomy boundaries are discretionary, particularly TTT when preparation is allowed; tiers may change without factual changes."
+  },
+  "evidence_location_contract": {
+    "extractor": "pypdf 6.10.0",
+    "page_numbering": "1-based physical PDF page",
+    "normalization": "re.sub(r\"\\s+\", \" \", page.extract_text()).strip(); preserve Unicode ligatures",
+    "character_offsets": "Python Unicode indexes; end exclusive after whitespace normalization",
+    "quotes": "At most 25 whitespace-delimited quoted words per paper; paraphrases reflect inspected conditions, not exhaustive summaries."
+  },
+  "labels": [
+    {
+      "document_id": "doc-2204.13263",
+      "paper_id": "background-arxiv-2204.13263",
+      "title": "Covariance-aware Feature Alignment with Pre-computed Source Statistics for Test-time Adaptation",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/2204.13263v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2204-13263-v1-paper.source",
+      "pdf_sha256": "e53c276d033736e04cb7d8ee9e236d863dea4e95564c37782e0302aed1e61b7a",
+      "prior_tier": "core",
+      "proposed_tier": "core",
+      "tier_changed": false,
+      "confidence": 0.98,
+      "confidence_basis": "Task-relative judgment, not calibrated probability or performance.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false,
+      "task_relation": "Retain core: closely matches source-prepared finite summaries and unlabeled target adaptation without deployment source examples. Core is not unchanged applicability to scalar regression.",
+      "conditions_and_limitations": {
+        "source_summary_fit": "Sections 3/4.1 and Algorithm 1 prepare means/covariances before deployment. Grouped statistics, not source examples, are exported.",
+        "storage": "Section 4.3 gives d mean entries plus sum_i |G_i|^2 covariance entries, alongside grouping metadata. Preparation forms full d-by-d covariance. This is not a universal 150 KB cost or a task storage cap.",
+        "deterministic_scalar_fit": "Full CAFe includes classification softmax infomax; it is not directly applicable unchanged to a deterministic scalar predictor. Feature-distribution Gaussians are NOT predictive regression distributions. Section 5.4 and Tables 1-3 explicitly include no-infomax ablation, so not every CAFe variant requires predictive class probabilities.",
+        "evidence_boundary": "Inspected main and supplementary results concern image/digit classification, not the stated scalar-regression adaptation setting. Section 6 notes marginal alignment need not align conditional distributions. Reduced feature discrepancy is not guaranteed predictive improvement.",
+        "architecture_batch": "Feature extraction, target batch support, group sizes and covariance conditioning matter. Allowed source preparation must not be confused with forbidden deployment source access."
+      },
+      "evidence": [
+        {
+          "pdf_page_1based": 3,
+          "section_hint": "3 Problem Setting",
+          "quote": "source dataset S cannot be accessed during TTA.",
+          "start_char": 3919,
+          "end_char": 3966,
+          "normalized_page_sha256": "20dafdcd8c32fe0e6cdf1f3761590c15bcae4d75a18b4335e153d165abf271aa"
+        },
+        {
+          "pdf_page_1based": 5,
+          "section_hint": "4.2 TTA",
+          "quote": "softmax probability",
+          "start_char": 67,
+          "end_char": 86,
+          "normalized_page_sha256": "62c179a7e009feb5e58b409d4103ead22562306397233dc4aa886a7dddfca7df"
+        },
+        {
+          "pdf_page_1based": 5,
+          "section_hint": "4.3 Feature Grouping",
+          "quote": "The numbers of parameters",
+          "start_char": 2568,
+          "end_char": 2593,
+          "normalized_page_sha256": "62c179a7e009feb5e58b409d4103ead22562306397233dc4aa886a7dddfca7df"
+        },
+        {
+          "pdf_page_1based": 7,
+          "section_hint": "5.4 Baselines",
+          "quote": "only the feature alignment loss",
+          "start_char": 2362,
+          "end_char": 2393,
+          "normalized_page_sha256": "55cf876e924c69122fe78cb4cca86a5831911cc15d38057a38c2a92aa5b98522"
+        },
+        {
+          "pdf_page_1based": 9,
+          "section_hint": "6 Conclusion",
+          "quote": "conditional distribution alignment",
+          "start_char": 1995,
+          "end_char": 2029,
+          "normalized_page_sha256": "08eda887f1e509edc6e280dfef39efb4ce30e11d0e9a785f79fbad68333dc009"
+        }
+      ],
+      "quoted_words": 22,
+      "reading_scope": {
+        "close_read_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          18,
+          19
+        ],
+        "other_pages": "Full-document page/keyword inspection located supplementary classification experiments and baselines. No exhaustive proof or numerical reproduction; bibliography not used as evidence."
+      }
+    },
+    {
+      "document_id": "doc-2101.10842",
+      "paper_id": "background-arxiv-2101.10842",
+      "title": "Source-free Domain Adaptation via Distributional Alignment by Matching Batch Normalization Statistics",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/2101.10842v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2101-10842-v1-paper.source",
+      "pdf_sha256": "a15803b06af86bf237c5017f6d80bf533085527479bbd80ef110871cc57c5b06",
+      "prior_tier": "core",
+      "proposed_tier": "core",
+      "tier_changed": false,
+      "confidence": 0.97,
+      "confidence_basis": "Task-relative judgment, not calibrated probability or performance.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false,
+      "task_relation": "Retain core: independently supports source-free distribution alignment using stored source moments. Existing short rationale needs architecture/output qualifications rather than a tier change.",
+      "conditions_and_limitations": {
+        "source_summary_fit": "Selected BN source means/variances approximate unobserved source feature distributions. Adaptation uses target minibatches and the pretrained model, not source examples.",
+        "storage": "Section 3.1 defines one source mean and variance per channel: O(C) retained moment scalars for the selected layer, in addition to model memory. This is a maintainer scaling inference, not a measured byte cost.",
+        "deterministic_scalar_fit": "Per-channel feature-Gaussian alignment itself does not need probabilistic scalar predictions, but the complete objective also uses categorical classifier information maximization. Its one-hot/diversity logic does not directly apply to deterministic scalar outputs. Removing that term changes the complete method and does not inherit its results.",
+        "architecture_batch": "Section 3 assumes at least one BN and a partition where BN starts the fixed classifier; encoder is adapted. An arbitrary scalar model need not expose this structure. Fixed source moment targets are not the same as overwriting source BN moments with target moments.",
+        "evidence_boundary": "Sections 4.1-4.3 evaluate Office-31 and digit classification. Text warns that marginal feature alignment alone does not ensure discriminative features. Its classification risk-bound discussion does not establish arbitrary scalar-regression improvement."
+      },
+      "evidence": [
+        {
+          "pdf_page_1based": 4,
+          "section_hint": "3 Proposed method",
+          "quote": "BN at least once",
+          "start_char": 1669,
+          "end_char": 1685,
+          "normalized_page_sha256": "44de20ac5326916073cfe424707e54ada43cc91ba8d855a8081dd489317b2e2a"
+        },
+        {
+          "pdf_page_1based": 5,
+          "section_hint": "3.1 Distribution alignment",
+          "quote": "BN statistics stored",
+          "start_char": 569,
+          "end_char": 589,
+          "normalized_page_sha256": "5bb3d8527191c000e5d6fc127251ea7f017750d97ff58a5d58df6b5b3e5daaf9"
+        },
+        {
+          "pdf_page_1based": 7,
+          "section_hint": "3.2 Domain adaptation",
+          "quote": "one-hot vector",
+          "start_char": 185,
+          "end_char": 199,
+          "normalized_page_sha256": "c407ac1066fcc2d1610696cffbef523a5b71992f0feecb22652b26dc5b166dff"
+        },
+        {
+          "pdf_page_1based": 7,
+          "section_hint": "3.2 Domain adaptation",
+          "quote": "without the source data",
+          "start_char": 1474,
+          "end_char": 1497,
+          "normalized_page_sha256": "c407ac1066fcc2d1610696cffbef523a5b71992f0feecb22652b26dc5b166dff"
+        },
+        {
+          "pdf_page_1based": 6,
+          "section_hint": "3.2 Domain adaptation",
+          "quote": "Only aligning the marginal",
+          "start_char": 2530,
+          "end_char": 2556,
+          "normalized_page_sha256": "d27abdd379d4f7a1e702a6ecdaa3b64ef8f9a21689cdba74cd71b3bea750f30e"
+        }
+      ],
+      "quoted_words": 17,
+      "reading_scope": {
+        "close_read_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "other_pages": "Pages 12-13 bibliography inspected as structure, not relevance truth. No independent equation/theorem validation."
+      }
+    },
+    {
+      "document_id": "doc-1607.06450",
+      "paper_id": "background-arxiv-1607.06450",
+      "title": "Layer Normalization",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/1607.06450v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/r2_v3/arxiv-1607-06450-v1-paper.source",
+      "pdf_sha256": "c464f839fb8d59f7fde92f9b4caa67c2d1f2f196b88f93fb60502249df0aaef7",
+      "prior_tier": "background",
+      "proposed_tier": "background",
+      "tier_changed": false,
+      "confidence": 0.99,
+      "confidence_basis": "Task-relative judgment, not calibrated probability or performance.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false,
+      "task_relation": "Retain background: foundational distinction between per-example layer statistics and source/population/batch moments, plus learned gains and biases; not a source-summary adaptation method.",
+      "conditions_and_limitations": {
+        "source_summary_fit": "Section 3 computes moments across hidden units separately for each case, not precomputed aggregate source moments. Avoiding target minibatch dependence does not itself align target features with a retained source distribution.",
+        "deterministic_scalar_fit": "The normalization operation need not require probabilistic output and can appear inside a deterministic predictor. That compatibility supplies neither a test-time adaptation objective nor evidence of improved scalar regression under shift.",
+        "evidence_boundary": "The paper is NOT exclusively classification: inspected experiments include retrieval, sentence-representation downstream MSE, generative modeling and handwriting with mixture outputs. None establishes the specific source-summary/no-label adaptation claim.",
+        "parameter_distinction": "Per-case means/variances are computed from activations, separate from learned gains/biases. Having affine parameters does not mean the original paper adapts them at test time.",
+        "storage": "The described LN operation does not require an archive of source moments. This does not mean model or activation memory is zero."
+      },
+      "evidence": [
+        {
+          "pdf_page_1based": 2,
+          "section_hint": "Introduction continued",
+          "quote": "within a hidden layer",
+          "start_char": 401,
+          "end_char": 422,
+          "normalized_page_sha256": "7411b41e14d3eca9475bcc2f35b3c191732e19bd831917fdacaad079e999b5b3"
+        },
+        {
+          "pdf_page_1based": 2,
+          "section_hint": "3 Layer normalization",
+          "quote": "different training cases have different normalization terms",
+          "start_char": 3569,
+          "end_char": 3628,
+          "normalized_page_sha256": "7411b41e14d3eca9475bcc2f35b3c191732e19bd831917fdacaad079e999b5b3"
+        },
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "same computation at training and test times",
+          "start_char": 1318,
+          "end_char": 1361,
+          "normalized_page_sha256": "47ba5bb37d6b58990ab22efd1b7afa39859e9c51edfe926ae9f6e01d2e5d22fd"
+        }
+      ],
+      "quoted_words": 18,
+      "reading_scope": {
+        "close_read_pages": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "targeted_fulltext_passages": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          13,
+          14
+        ],
+        "other_pages": "Definitions and invariance discussion closely read; experiment/supplement prose inspected. Plots/derivations not independently reproduced; references not primary evidence."
+      }
+    }
+  ],
+  "summary": {
+    "reviewed": 3,
+    "retained_core": 2,
+    "retained_background": 1,
+    "tier_changes": 0,
+    "important_qualification": "Both alignment papers fit source-summary access but their complete methods include classification infomax. CAFe explicitly reports a no-infomax ablation. LN is per-case normalization, not itself source-summary adaptation.",
+    "seven_IV_scope_papers": "Not read or relabeled; remain SSA-unreviewed, not negative."
+  },
+  "integrity": {
+    "input_hashes_before": {
+      "research/benchmark/materials/pilot_v3/literature_v3/shared_background_corpus.json": "b68e6cfc200c176068c4da01ddc4f985492a1e8b3ffa54a39d8084a4f3383afe",
+      "research/benchmark/materials/pilot_v3/literature_v3/private_literature_roles_candidates.json": "381af9b5b291ea014c2e58c568429c18e9cdc862a39f02895b2601df236e40aa",
+      "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/task.json": "6792a5be46f24d15130e1c2b69dc77f2fec66b0869fc7dbbbf8db40bd27a8792",
+      "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/public/research_setting.json": "92828f1ed0af91bf4bf1902f77b4f30c8a1eb4a744e6ba7b61ff2b68210d6671",
+      "research/benchmark/audit/private_ssa_lit_relevance_review_v1.json": "e556ccf068e183e4f1ea994cdf671f90e203a411964cc03f6b16833fc24e2499"
+    },
+    "input_hashes_after": {
+      "research/benchmark/materials/pilot_v3/literature_v3/shared_background_corpus.json": "b68e6cfc200c176068c4da01ddc4f985492a1e8b3ffa54a39d8084a4f3383afe",
+      "research/benchmark/materials/pilot_v3/literature_v3/private_literature_roles_candidates.json": "381af9b5b291ea014c2e58c568429c18e9cdc862a39f02895b2601df236e40aa",
+      "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/task.json": "6792a5be46f24d15130e1c2b69dc77f2fec66b0869fc7dbbbf8db40bd27a8792",
+      "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/public/research_setting.json": "92828f1ed0af91bf4bf1902f77b4f30c8a1eb4a744e6ba7b61ff2b68210d6671",
+      "research/benchmark/audit/private_ssa_lit_relevance_review_v1.json": "e556ccf068e183e4f1ea994cdf671f90e203a411964cc03f6b16833fc24e2499"
+    },
+    "all_bound_inputs_unchanged": true,
+    "source_hash_checks": [
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2204-13263-v1-paper.source",
+        "registered_sha256": "e53c276d033736e04cb7d8ee9e236d863dea4e95564c37782e0302aed1e61b7a",
+        "observed_sha256": "e53c276d033736e04cb7d8ee9e236d863dea4e95564c37782e0302aed1e61b7a",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2204-13263-v1-abstract.source",
+        "registered_sha256": "ce91ba47c7ffaf012426decb4f1846a2c389c792ec576b49f6f6a2c953e8187e",
+        "observed_sha256": "ce91ba47c7ffaf012426decb4f1846a2c389c792ec576b49f6f6a2c953e8187e",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2101-10842-v1-paper.source",
+        "registered_sha256": "a15803b06af86bf237c5017f6d80bf533085527479bbd80ef110871cc57c5b06",
+        "observed_sha256": "a15803b06af86bf237c5017f6d80bf533085527479bbd80ef110871cc57c5b06",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2101-10842-v1-abstract.source",
+        "registered_sha256": "b2777442ed7f6ec7f3f29427dc7bb1c90d24f00ebc994128f4aa2ce6b0ddfd83",
+        "observed_sha256": "b2777442ed7f6ec7f3f29427dc7bb1c90d24f00ebc994128f4aa2ce6b0ddfd83",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-1607-06450-v1-paper.source",
+        "registered_sha256": "c464f839fb8d59f7fde92f9b4caa67c2d1f2f196b88f93fb60502249df0aaef7",
+        "observed_sha256": "c464f839fb8d59f7fde92f9b4caa67c2d1f2f196b88f93fb60502249df0aaef7",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-1607-06450-v1-abstract.source",
+        "registered_sha256": "b794807ce48978023eee40473fca743795e20dc6f533ce23a7712551f046e009",
+        "observed_sha256": "b794807ce48978023eee40473fca743795e20dc6f533ce23a7712551f046e009",
+        "matches": true
+      }
+    ]
+  },
+  "validation": {
+    "unique_three_ids": true,
+    "quotes_exact_at_offsets": true,
+    "quotes_at_most_25_words_per_paper": true,
+    "model_calls": 0,
+    "new_papers": 0,
+    "public_assets_modified": false
+  },
+  "limitations": [
+    "Root adjudication needed before integration; no score or labels changed automatically.",
+    "Core means high relevance, not unchanged applicability or mandatory citation.",
+    "Development relevance review does not establish exhaustive field coverage, judge reliability or formal task readiness."
+  ]
+}

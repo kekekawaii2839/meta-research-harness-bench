@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "created_at": "2026-09-24T01:19:16.271333+00:00",
+  "new_transport_calls": 4,
+  "ledger_used": 195,
+  "maximum": 268,
+  "root_scope": "Read complete frozen four inputs and all four final judgment/feedback; independent subagent read full observable trajectories. Do not claim root duplicated the entire trajectory review.",
+  "findings": [
+    "IDEA preserves specificity/feasibility4 on weak incremental-value proposal, providing dimension-specific separation rather than uniform grade suppression.",
+    "LIT vague gap is correctly distinguished; accuracy3 for broad datasets-differ wording is interpretable, not proven fabricated fact or uniquely justified penalty.",
+    "IDEA hypothesis deduction overlaps incremental-value rationale; retain uncertainty about cross-dimension double counting.",
+    "Precall root caught missing required platform role in v001 LIT; v002 truthfully added fixture publication record. No paid attempt ran v001.",
+    "Four calls only, no prompt/score edits, retries or added benchmark papers. Bounded diagnostics do not establish population judge reliability or formal isolation."
+  ],
+  "calls": [
+    {
+      "call_id": 192,
+      "status": "completed",
+      "wall_seconds": 55.34400000000096,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 52352,
+        "input_tokens": 59702,
+        "output_tokens": 2574,
+        "reasoning_output_tokens": 855
+      },
+      "dollar_cost": null,
+      "code_mode_review_raw_sha256": "4e5b9ae28f874f2feb22dd99551fe6b4e6b1b0308c4d604beb4957751c417a41"
+    },
+    {
+      "call_id": 193,
+      "status": "completed",
+      "wall_seconds": 79.92100000000028,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 39552,
+        "input_tokens": 59749,
+        "output_tokens": 3775,
+        "reasoning_output_tokens": 1143
+      },
+      "dollar_cost": null,
+      "code_mode_review_raw_sha256": "d06fd8c7ff809da288fe571c12c29cb163c302ac5a8210d1e63e1749b111778a"
+    },
+    {
+      "call_id": 194,
+      "status": "completed",
+      "wall_seconds": 60.84399999999914,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 67968,
+        "input_tokens": 77186,
+        "output_tokens": 2738,
+        "reasoning_output_tokens": 691
+      },
+      "dollar_cost": null,
+      "code_mode_review_raw_sha256": "41f8c3544bb11ab9f47bf3eeda3dba98f10afa66b7f5991021e590cb87d5137a"
+    },
+    {
+      "call_id": 195,
+      "status": "completed",
+      "wall_seconds": 85.28100000000086,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 62080,
+        "input_tokens": 77951,
+        "output_tokens": 4154,
+        "reasoning_output_tokens": 1475
+      },
+      "dollar_cost": null,
+      "code_mode_review_raw_sha256": "d8a896486ee86330b9f96030cad36d23564ba2f814bf9f156a13c97b8b652444"
+    }
+  ],
+  "evidence_sha256": {
+    "native_judge_v2_8_idea_lit_holdout_acceptance_v2.json": "3bd6e62d752a1b55a71f06f3d76dc5117f4f459c3f6d0cfa7a395b6c92025af7",
+    "goal_requirement_evidence_review_v1.json": "a2b46c4adb899755c1b605ec64c4a75026b3cca63074bde693ca9534716487f5",
+    "agents_history_consolidation_v1.json": "8e08d35330d716e3373560cb2ab7fd583e7343a225826a4e3f76066c2d217fb8"
+  },
+  "full_goal_complete": false
+}

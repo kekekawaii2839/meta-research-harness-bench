@@ -1,0 +1,39 @@
+{
+  "kind": "offline_software_tests_not_scientific_scores",
+  "created_at": "2026-09-23T04:52:24.807116+00:00",
+  "runs": [
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "research/benchmark/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output": "test_formal_runner_not_falsely_accepted (test_protocol.EvolutionTests) ... ok\ntest_frozen_code_mutation_detected (test_protocol.EvolutionTests) ... ok\ntest_full_cycle_and_no_hidden_feedback (test_protocol.EvolutionTests) ... ok\ntest_round_skipping_repeated_evaluation_and_early_test_blocked (test_protocol.EvolutionTests) ... ok\ntest_json_duplicate_nonfinite (test_protocol.IOTests) ... ok\ntest_paths_reject_escape_ads_and_reserved (test_protocol.IOTests) ... ok\ntest_trace_mutation_detected (test_protocol.IOTests) ... ok\ntest_changed_asset_blocks_export (test_protocol.MaterialTests) ... ok\ntest_export_only_whitelisted_public_assets (test_protocol.MaterialTests) ... ok\ntest_formal_pending_rejected (test_protocol.MaterialTests) ... ok\ntest_hidden_export_to_search_rejected (test_protocol.MaterialTests) ... ok\ntest_historical_search_and_read_share_filter (test_protocol.MaterialTests) ... ok\ntest_split_same_paper_versions_together (test_protocol.MaterialTests) ... ok\ntest_all_modules_and_cost_not_in_score (test_protocol.ScoringTests) ... ok\ntest_exp_resource_cannot_compensate (test_protocol.ScoringTests) ... ok\ntest_infra_failure_not_silently_dropped (test_protocol.ScoringTests) ... ok\ntest_invalid_grade_and_dimension_set (test_protocol.ScoringTests) ... ok\ntest_many_slices_do_not_overweight_paper (test_protocol.ScoringTests) ... ok\ntest_missing_task_duplicate_and_wrong_identity (test_protocol.ScoringTests) ... ok\ntest_oracle_tie_earliest_and_builder_autonomy (test_protocol.ScoringTests) ... ok\ntest_scored_model_failure_stays_in_denominator (test_protocol.ScoringTests) ... ok\ntest_write_types_do_not_add_module_weight (test_protocol.ScoringTests) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.222s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "research/aiml",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output": "test_count_accounting (test_iclr2025_pilot.PilotTests) ... ok\ntest_coverage_and_no_score_imputation (test_iclr2025_pilot.PilotTests) ... ok\ntest_deterministic_sample (test_iclr2025_pilot.PilotTests) ... ok\ntest_repository_provenance_sidecars (test_iclr2025_pilot.PilotTests) ... ok\ntest_repository_url_deduplication (test_iclr2025_pilot.PilotTests) ... ok\ntest_retained_source_hashes (test_iclr2025_pilot.PilotTests) ... ok\ntest_saved_sample_matches_selection (test_iclr2025_pilot.PilotTests) ... ok\ntest_unique_forums_and_positive_submission_ids (test_iclr2025_pilot.PilotTests) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.292s\n\nOK\n"
+    }
+  ],
+  "original_cache_changed_paths": []
+}

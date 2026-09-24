@@ -1,0 +1,1 @@
+{"formal_acceptance":false,"manual_trajectory_review_complete":false,"runs":[{"name":"idea_sound_analysis","quality":3.4,"status":"scored"},{"name":"idea_fluent_relabel","quality":1.2,"status":"scored"},{"name":"idea_sound_analysis_repeat","quality":3.6,"status":"scored"},{"name":"write_real_obscured_header","quality":null,"status":"awaiting_image_delivery_review"}]}

@@ -1,0 +1,79 @@
+{
+  "created_at": "2026-09-24T00:10:51.611317+00:00",
+  "scope": "Independent read-only review of concrete development evolution CLI; only new test file authored",
+  "reviewed_files": {
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\run_evolution_development.py": "94ab63a06063971f0986ef02e30f49f1da0cc752ecea299d5ecb287a8e330952",
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\evolution_native.py": "f9546d6979b1364bfba024394f77b9b94dcdeb0ad3a4b36909c99034392cfc60",
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\evolution_driver.py": "45c753b7bcde455dbe93bf497a7b5d44b2e670fba7be927db18eb7e3002df2dd",
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\evolution_evaluator.py": "06fe8ec4e014f0fd6987a0482a00f9b5a38a2167b7ffc78d473bf0ca6c223508",
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_evolution_cli.py": "70c9d3b485329e2d58f0f110d28233e704e920d6d4b6b5988d4ecce5ddb47c0e"
+  },
+  "cli_modified_by_reviewer": false,
+  "new_model_calls": 0,
+  "new_container_or_gpu_runs": 0,
+  "tests": {
+    "command": "D:/programming/Anaconda3/python.exe -m unittest discover -s research/benchmark/tests -p test_evolution_cli.py -v",
+    "count": 9,
+    "names": [
+      "test_initialize_zero_worker_calls_and_ceiling_operation_names",
+      "test_pending_review_resume_never_repeats_paid_stage",
+      "test_full_fake_workers_real_adapter_review_cli_protocol",
+      "test_template_error_occurs_after_paid_cache_and_recovers",
+      "test_insufficient_budget_stops_before_stage",
+      "test_bound_configuration_and_implementation_changes_rejected",
+      "test_unknown_paid_operation_is_not_retried",
+      "test_review_store_cannot_overlap_builder_workspace",
+      "test_binary_hash_change_stops_before_any_worker"
+    ],
+    "exit_code": 0,
+    "wall_seconds_reported": 16.178,
+    "fixture_reuse": "Composition of DriverTests and EvaluationAdapterTests helpers; no TestCase inheritance or imported test-class re-discovery.",
+    "fakes": [
+      "Nonexecutable dedicated fake binary file",
+      "Fake stage scientific/native output generation",
+      "Fake native evolve/select callbacks",
+      "Fake read-only ledger summary"
+    ],
+    "real_code_exercised": [
+      "CLI initialize/advance/config/hash/budget wiring",
+      "DevelopmentEvolutionDriver persistence and stage exports",
+      "StageEvaluationAdapter request verification and evaluation freeze",
+      "ReadOnlyReviewResolver externally written bound approval files",
+      "Actual public evidence projection and feedback-ref resolution"
+    ]
+  },
+  "verified": [
+    "Initialization performs no worker/model invocation; native configuration, implementation and binary hashes are frozen.",
+    "R=1 synthetic fixture with10 tasks and per-task2 modelcalls yields62 conservative transport ceiling:20 evaluations*(2 executor+1 judge)+1 evolve+1 select. Matching evaluate-digest/evolve-H0/select operation cache entries deduct3/1/1; uncompleted operations reject.",
+    "Insufficient authorized headroom stops before stage execution. Ledger remains final shared per-call authorization; preflight is not a reservation or dollar/credit estimate.",
+    "Pending review stops before evolve. Repeated advance without approval executes no second stage for the cached task. Bound synthetic approvals advance one next task at a time.",
+    "Injected pending-template preparation failure occurs after the paid-result cache is complete; next advance recreates template without rerunning stage. Template is not an approval.",
+    "Full synthetic R=1 lifecycle completes20 stages, one evolve and one selection. Finished resume calls no additional stage and reports zero remaining transport ceiling. No real research improvement inferred.",
+    "Configuration/implementation/binary changes stop before worker. Private review store cannot overlap builder staging.",
+    "Builder callbacks assert no hidden-task identity/controller path/private canary and only receive staged public inputs/evidence. Real public projection retainspublic program checks but excludes private checks."
+  ],
+  "findings": [
+    {
+      "id": "CLI-R1",
+      "status": "fixed_by_root_and_independently_rechecked",
+      "initial_issue": "NativeDevelopmentBuilder constructor accepted cpus0/memory-1/pids0 although CLI said constructor validated resources.",
+      "root_fix": "Calls shared resource_args(resources) before any container/model action.",
+      "current_observation": "The same invalid fixture now raises ProtocolError Missing/invalid explicit package resource cpus."
+    },
+    {
+      "id": "CLI-R2",
+      "status": "fixed_by_root_and_regression_tested",
+      "issue": "Writing pending template inside paid evaluate callback could mark a successfully completed paid evaluation unresolved after a template failure.",
+      "current_observation": "Template generation now happens after cached completion and PendingEvaluationReview; failures return template_errors without overwriting operation."
+    }
+  ],
+  "limitations": [
+    "This proves control-flow integration with synthetic workers, not actual native model behavior, OS isolation, science scores or research evolution.",
+    "CLI intentionally requires enough remaining calls for the whole conservative bound, so even a pending-review resume may be blocked by insufficient remaining headroom; no credit purchase or limit expansion is inferred.",
+    "Hash binding covers configured source/code/binary/material inputs, not all external Python/Docker/host dependency behavior. Cross-host and actual native checks remain separate.",
+    "Shared ledger can be consumed by concurrent work after preflight; per-call ledger checks prevent unauthorized new calls but completion of whole run is not reserved.",
+    "Current two real paper packages still cannot supply independent paper-disjoint full five-type search and test coverage; synthetic fixture does not resolve the material gap.",
+    "Unknown paid outcomes remain a deliberate stop, not automatic replay; reviewer approvals are explicit trusted controller evidence rather than self-certified model output."
+  ],
+  "verdict": "Nine zero-model cross-module CLI tests passed; identified resource/template issues fixed. Concrete development wiring ready for separately authorized real smoke with adequate materials and review, not formal benchmark acceptance."
+}

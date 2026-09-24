@@ -1,0 +1,68 @@
+{
+  "scope": "Offline software regressions, not scientific judgment acceptance",
+  "new_model_calls": 0,
+  "tests": [
+    {
+      "command": [
+        "D:\\mrhbench-local-pilot\\controller-venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "research/benchmark/tests",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 48.65599999999904,
+      "stdout": "",
+      "stderr": "........................................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 248 tests in 48.267s\n\nOK\n"
+    },
+    {
+      "command": [
+        "D:\\mrhbench-local-pilot\\controller-venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "research/aiml",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.4220000000004802,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.245s\n\nOK\n"
+    }
+  ],
+  "implementation": [
+    {
+      "path": "mrhbench/context_policy.py",
+      "sha256": "317360c2f16ab2ec005ab00b483d6227b896a1db806b434c52d4297958631570"
+    },
+    {
+      "path": "mrhbench/native_codex.py",
+      "sha256": "e1664e811bd21390b7d591382a59bf95f896e46c4b796d8073accac53a3aec02"
+    },
+    {
+      "path": "mrhbench/providers.py",
+      "sha256": "eb8c7d07f42378ce4659fb802b2c2b11d8fc548024da89c69423f5c3363a36eb"
+    },
+    {
+      "path": "mrhbench/native_judge.py",
+      "sha256": "10da0dbd75cd3f57680b708c7bbb3e6826795505f2eeed8c6d97d6e94cec336f"
+    },
+    {
+      "path": "mrhbench/evolution_native.py",
+      "sha256": "7fee2ebbc2d5b8700a1998de84199ce78b6af683ee66abe1a641d9c6da061804"
+    },
+    {
+      "path": "mrhbench/evolution_evaluator.py",
+      "sha256": "a2e573e8a4fa7572de9ded743ebc70072fb63feb6cd599924bacff208f2326eb"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": "material-job-1",
+  "job_id": "ssa-pilot-v2",
+  "paper_id": "iclr2025-SXtl7NRyE5",
+  "requested_task_types": [
+    "WRITE_CONTENT",
+    "WRITE_EVIDENCE"
+  ],
+  "scope_request": "Construct two independently fixed writing tasks using ONLY SSA method and UTKFace corruption age-prediction Table 4. Do not merge Table 1 values. Other stage coverage must honestly explain missing background/shared library. Source algorithm and method are legitimate known writing inputs, not an executor novel-method implementation assignment.",
+  "sources": [
+    {
+      "source_id": "ssa-paper-v1",
+      "url": "https://arxiv.org/html/2410.03263v1",
+      "version": "arxiv-v1",
+      "sha256": "77cbdd9cbe5498f49625dc0c0c269c3d85a8bc18707f581d6ed1b2783c8dad60",
+      "role": "paper_html",
+      "local_path": "research/source_cache/benchmark_materials/first_snapshot/ssa-paper-v1.source"
+    },
+    {
+      "source_id": "ssa-abstract-v1",
+      "url": "https://arxiv.org/abs/2410.03263v1",
+      "version": "arxiv-v1",
+      "sha256": "42c74dde1791e2707ad9ec291b2de9afc50f5ad0ed7ecc8f884a282ecdc5c93e",
+      "role": "version_and_license_metadata",
+      "local_path": "research/source_cache/benchmark_materials/first_snapshot/ssa-abstract-v1.source"
+    },
+    {
+      "source_id": "ssa-repo-license",
+      "url": "https://raw.githubusercontent.com/kzkadc/regression-tta/c1c72f19b1018ad76d2e63897d53ea652228ac43/LICENSE",
+      "version": "c1c72f19b1018ad76d2e63897d53ea652228ac43",
+      "sha256": "2e224016ff83dee3bba45327495552dd2f81d7b09a293ea5c6f1e1c8956a1280",
+      "role": "repository_license",
+      "local_path": "research/source_cache/benchmark_materials/first_snapshot/ssa-repo-license.source"
+    },
+    {
+      "source_id": "ssa-repo-model",
+      "url": "https://raw.githubusercontent.com/kzkadc/regression-tta/c1c72f19b1018ad76d2e63897d53ea652228ac43/model.py",
+      "version": "c1c72f19b1018ad76d2e63897d53ea652228ac43",
+      "sha256": "ab8ad06909a93eba267873bf65308b9b98b98f71b8755b0ab81c40d6e8189ab3",
+      "role": "model_implementation",
+      "local_path": "research/source_cache/benchmark_materials/first_snapshot/ssa-repo-model.source"
+    },
+    {
+      "source_id": "ssa-repo-housing",
+      "url": "https://raw.githubusercontent.com/kzkadc/regression-tta/c1c72f19b1018ad76d2e63897d53ea652228ac43/dataset/california_housing.py",
+      "version": "c1c72f19b1018ad76d2e63897d53ea652228ac43",
+      "sha256": "b89292615bd957dd2273c44c3afa269a06caf9a43f4e63eb095ebc56b905bfda",
+      "role": "dataset_loading",
+      "local_path": "research/source_cache/benchmark_materials/first_snapshot/ssa-repo-housing.source"
+    },
+    {
+      "source_id": "ssa-repo-loss",
+      "url": "https://raw.githubusercontent.com/kzkadc/regression-tta/c1c72f19b1018ad76d2e63897d53ea652228ac43/utils/loss.py",
+      "version": "c1c72f19b1018ad76d2e63897d53ea652228ac43",
+      "sha256": "68af0f94405877998a768df4e62129ef36a143c0a73d09c652127fa04cdb6ce6",
+      "role": "target_implementation_private_only",
+      "local_path": "research/source_cache/benchmark_materials/first_snapshot/ssa-repo-loss.source"
+    }
+  ],
+  "first_disclosure": {
+    "date": null,
+    "reason": "Pinned arXiv version alone does not exclude earlier project/repository/report disclosure; required before historical LIT/IDEA acceptance.",
+    "verified": false
+  },
+  "constructor": {
+    "model": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "status": "candidate_pending_native_availability"
+  },
+  "reviewer": {
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium"
+  },
+  "environment_candidate": {
+    "cpus": 1,
+    "memory_mb": 1024,
+    "disk_mb": 512,
+    "pids_limit": 64,
+    "wall_seconds": 600,
+    "dependencies": [
+      "matplotlib==3.10.6",
+      "numpy==2.3.3"
+    ],
+    "scientific_rationale": "CPU-only rendering and exact finite table transformations of author-reported aggregates; no model training or new science experiments.",
+    "gpu": false,
+    "network": "none",
+    "docker_base": "python:3.12-slim",
+    "runtime_verified": false
+  },
+  "status": "prepared_not_invoked",
+  "formal_accepted": false
+}

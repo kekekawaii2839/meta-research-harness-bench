@@ -1,0 +1,12 @@
+Created [review.json](D:\mrhbench-local-pilot\batch-20260923-002\iv-pilot-v2\reviewer\review.json).
+
+Decision: `revise`
+
+Key issues:
+
+- Confirmatory experiment protocol is insufficiently fixed for comparable judging or resource assessment.
+- Machine-readable output schemas and filenames are unspecified.
+- The IV source fact omits the identification/full-rank condition.
+- The upstream MIT notice does not clearly establish licensing for newly authored benchmark assets.
+
+Scientific equations, generator semantics, private-result boundaries, hashes, and task leakage were otherwise checked. Docker build and runtime remain explicitly unverified.

@@ -1,0 +1,235 @@
+{
+  "kind": "independent_development_material_acceptance_static_evidence_not_paper_review_or_judge_behavior_acceptance",
+  "review_date": "2026-09-23",
+  "reviewer_role": "delegated_material_audit",
+  "scope": {
+    "tasks": [
+      "ssa_lit",
+      "ssa_idea",
+      "iv_analysis",
+      "ssa_write_content",
+      "ssa_write_evidence"
+    ],
+    "read_protocol_sections": [
+      "0",
+      "3",
+      "20.0"
+    ],
+    "task_assets": [
+      {
+        "path": "research/benchmark/materials/ssa_lit/private/evaluation.json",
+        "sha256": "1bd64bda29df95e3e678a75e6d09d914fbed7b54f5f5e01c5a360cf7098311f3"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_lit/public/research_setting.json",
+        "sha256": "981a8e94e2f8be3d25addbff323482d54a2281022d1a36bbad5e5b0095729320"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_lit/task.json",
+        "sha256": "da69f08c932512c10c292fc4c7f1e0818c9d61fa51bd0ce5704599a3edbeb916"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_idea/private/evaluation.json",
+        "sha256": "eacf22ecd851513f15ee192d43dfe59c685156079c9cdaca70f109e4c0b22aa9"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_idea/public/background_report.json",
+        "sha256": "a40008c4b40792dbc06f50090f6b38e4f53a304c024a5c3281927a66ca2fd732"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_idea/public/research_setting.json",
+        "sha256": "981a8e94e2f8be3d25addbff323482d54a2281022d1a36bbad5e5b0095729320"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_idea/task.json",
+        "sha256": "380c07caed75e18d7d2bed660719f8bf233f3606eb9b54e9902c0547fec2de3f"
+      },
+      {
+        "path": "research/benchmark/materials/iv_analysis/private/evaluation.json",
+        "sha256": "1ccd9291708d1135ffb372ef566f75d0c239663deafbc89c75028e69302e8658"
+      },
+      {
+        "path": "research/benchmark/materials/iv_analysis/public/baseline.py",
+        "sha256": "c7f54513353ac2025f8fdc68058bd1662f29d9e224c88cc1231ea3cba932b321"
+      },
+      {
+        "path": "research/benchmark/materials/iv_analysis/public/LICENSE.source.txt",
+        "sha256": "0c62244358639b87361d70abf720d79cabb5c4e40a114cb933e1a164d82e513b"
+      },
+      {
+        "path": "research/benchmark/materials/iv_analysis/public/proposal.txt",
+        "sha256": "3be67dc710880af561aacf36ed57b48a2b4a5199fd4d85af25ec8f9ec464ecbb"
+      },
+      {
+        "path": "research/benchmark/materials/iv_analysis/task.json",
+        "sha256": "e2baa779364d79457d33850ee3b222f26e48328252e6220e1388967845e3c15f"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_write_content/private/evaluation.json",
+        "sha256": "bfdf72404de775f0d199bbeae4c80fd6e7578266157c1b1935d9e207b5a5e27e"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_write_content/public/numeric_evidence.json",
+        "sha256": "af7d547a7ccce1a9349d2343750bfd1baf1c1dcf0404702edf15af135815c429"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_write_content/public/research_facts.json",
+        "sha256": "d983f2115ff183deda8f159a289b6a7c34cb47f9c73fc53c4db83f521cd2030e"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_write_content/task.json",
+        "sha256": "a97c7c120239db57eec7a9b98bc68fc50fb2bb5de6b018f3781a9dad8ae519bc"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_write_evidence/private/evaluation.json",
+        "sha256": "a1813ecc3cc3f5fb68394cc1d75ad84ae596963df6d945de9ff6400fc29621ba"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_write_evidence/public/numeric_evidence.json",
+        "sha256": "af7d547a7ccce1a9349d2343750bfd1baf1c1dcf0404702edf15af135815c429"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_write_evidence/public/research_facts.json",
+        "sha256": "d983f2115ff183deda8f159a289b6a7c34cb47f9c73fc53c4db83f521cd2030e"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_write_evidence/task.json",
+        "sha256": "f8fe9821ed6001f157ba375f82331a6ae55927eccbb3eeae41a008f703a5eefd"
+      }
+    ],
+    "source_checks": [
+      "Eight fixed background PDFs: listed support pages read; text extraction only, not rendered visual audit.",
+      "SSA fixed HTML S3.SS2 method, S4.SS1 setup, S4.SS2 baselines, S4.T4.",
+      "IV fixed HTML S3.SS2 Eq8a/Eq8b/Theorem3.1 and A3.SS2; notebook cells[3] and [4] read statically."
+    ],
+    "actions_not_taken": [
+      "No source cache changes.",
+      "No GPU or research algorithm experiment.",
+      "No executor/judge/model call.",
+      "No software unit tests used as scientific or judge acceptance.",
+      "No formal public/private isolation penetration test."
+    ]
+  },
+  "findings": [
+    {
+      "id": "MAT-01",
+      "severity": "P2",
+      "status": "resolved_verified_after_root_revision",
+      "files": [
+        "research/benchmark/materials/ssa_write_content/public/research_facts.json",
+        "research/benchmark/materials/ssa_write_evidence/public/research_facts.json"
+      ],
+      "fields": [
+        "method_facts[id=M1..M4]"
+      ],
+      "problem": "SSA fact cards specify the fixed head, projection and objective but omit which parameters are actually adapted. The WRITE_CONTENT prompt requests a technically faithful methods-and-findings passage, but a writer cannot determine from its allowed inputs whether all feature weights, an added transform, or only normalization affine parameters are optimized. This is a central mechanism, not an optional optimizer hyperparameter.",
+      "source": {
+        "file": "research/source_cache/benchmark_materials/first_snapshot/ssa-paper-v1.source",
+        "locator": "S3.SS2, paragraph immediately after Eq. (8)",
+        "support": "The source says feature extractor adaptation updates only gamma and beta affine parameters of normalization layers."
+      },
+      "recommended_fix": "Add an original factual card stating normalization affine gamma/beta are optimized through the SSA objective while the linear head and source subspace statistics remain fixed. Keep missing hyperparameters explicitly unknown; do not require solver to reconstruct the repository.",
+      "resolution": "Re-read both public research_facts.json: M5 now states only normalization affine gamma/beta are adapted and regression head stays fixed, located after source Eq8. No new simulation used."
+    },
+    {
+      "id": "MAT-02",
+      "severity": "P2",
+      "status": "resolved_verified_after_root_revision",
+      "files": [
+        "research/benchmark/materials/ssa_lit/private/evaluation.json"
+      ],
+      "fields": [
+        "checks[5]",
+        "checks[4]"
+      ],
+      "problem": "LIT private checks are byte-identical to IDEA checks. In particular checks[5] evaluates hypotheses covering a proposal, while the LIT prompt forbids proposing a new method and its output contract requests synthesis/limitations/gaps only. This can impose an unrequested IDEA obligation if passed as judge reference. checks[4] also refers to a valid different proposal/gap rather than solely a grounded gap.",
+      "source": {
+        "file": "AGENTS.md",
+        "locator": "3.1 LIT responsibilities and 3.2 IDEA hypothesis contract",
+        "support": "LIT is not required to invent a solution; hypotheses are part of IDEA."
+      },
+      "recommended_fix": "Split task-specific private checks: remove the hypothesis/proposal obligation from LIT and retain it only for IDEA. LIT should explicitly accept different evidence-grounded gaps without requiring a proposed solution. Shared source facts may remain shared.",
+      "resolution": "Re-read LIT evaluation.json: checks[5] now explicitly excludes requirements for proposal, method or generated hypotheses. checks[4] still says proposal/gap but does not impose proposal generation; optional wording cleanup only."
+    },
+    {
+      "id": "MAT-03",
+      "severity": "P2",
+      "status": "actionable_constraint_ambiguity_before_acceptance",
+      "files": [
+        "research/benchmark/materials/ssa_lit/public/research_setting.json",
+        "research/benchmark/materials/ssa_idea/public/research_setting.json",
+        "research/benchmark/materials/ssa_idea/task.json"
+      ],
+      "fields": [
+        "task_setting",
+        "constraints[2]",
+        "public.resources",
+        "public.public_rubric.dimensions.feasibility"
+      ],
+      "problem": "The setting permits a bounded set of retained source aggregate statistics and requires respecting the bounded retention constraint, but neither the setting nor resources defines a quantitative or structural bound. Consequently IDEA feasibility cannot distinguish a legal compact statistic from effectively retaining the source dataset in a very large representation. This is separate from the explicitly unfrozen model-call budget.",
+      "source": {
+        "file": "AGENTS.md",
+        "locator": "3.2 IDEA input data/tool/budget constraints; 20.0 formal budgets not frozen",
+        "support": "A proposal is judged feasible under given constraints; the packet currently uses an undefined retention bound."
+      },
+      "recommended_fix": "For development, explicitly say the proposer must state a bounded retention scheme and that no numeric storage cap is currently imposed, or set an actual byte/shape/scaling bound and preparation permissions before evaluating violations. Do not silently treat a judge-invented bound as user-approved."
+    }
+  ],
+  "positive_checks": [
+    {
+      "id": "CHK-numeric",
+      "result": "98/98 supplied decimal cells agree with independent parsing of fixed SSA Table4; no mismatches.",
+      "method": "Read-only BeautifulSoup MathML extraction by row name and column index; Decimal comparison.",
+      "scope_limit": "Does not verify an actual generated figure, original measurement validity, or uncertainty."
+    },
+    {
+      "id": "CHK-exp",
+      "result": "Public IV update equations, old-state semantics, zero initialization, structural Gaussian generator and sample-2SLS comparator match scoped source. The task leaves settings, repetitions, diagnostics and uncertainty design to executor; no stored target curves or target loop are in baseline.",
+      "scope_limit": "No target execution, resource budget sufficiency or general convergence proof accepted."
+    },
+    {
+      "id": "CHK-write-separation",
+      "result": "WRITE_CONTENT requires a coherent passage and claim map; WRITE_EVIDENCE requires table/figure/rendering/code/ledger. Public dimension descriptors and checks distinguish scientific prose fidelity from numerical/visual evidence. Sharing factual inputs/private numeric cautions does not itself mix the two rubrics.",
+      "scope_limit": "No actual judge behavior or visual rendering accepted."
+    },
+    {
+      "id": "CHK-background",
+      "result": "Source-free/classification/preparation assumptions in eight background digests are materially supported at inspected pages. Tent v1 explicitly allows compatible probabilistic regressors; the supplied clarification avoids incorrectly declaring entropy adaptation impossible for every regressor.",
+      "scope_limit": "Only bounded digest grounding, not comprehensive 2024 literature coverage; some summaries contain maintainer interpretation and are labelled as such."
+    },
+    {
+      "id": "CHK-role-leakage",
+      "result": "Listed LIT/IDEA public files do not contain SSA identity, target subspace-method facts or numeric target results. IV/WRITE method/finding disclosure is legitimate for their roles. Private identities and source references require whitelist service/export isolation.",
+      "scope_limit": "Target earliest public disclosure, source/project release chronology, parameter-memory contamination and browser/terminal bypass were not verified."
+    }
+  ],
+  "remaining_acceptance_gaps": [
+    "All five tasks remain formal_eligible=false; this audit does not pass formal gates.",
+    "Eight-document historical pool is explicitly insufficient for full field coverage and includes task-tailored maintainer digests; cannot claim open literature discovery or global novelty.",
+    "LIT/IDEA earliest target disclosure, independent corpus selection/background distractor coverage, and actual controlled search/read execution are still pending.",
+    "Rights release clearance beyond recorded asset license facts was not adjudicated.",
+    "Fresh executor access tests, complete budgeted execution, judge receipt/behavior trajectory acceptance and WRITE visual artifact checking remain unperformed."
+  ],
+  "summary": {
+    "actionable_findings_initial": 3,
+    "resolved_by_root_and_reread": 2,
+    "remaining_open": 1,
+    "formal_or_judge_acceptance": false
+  },
+  "root_followup": {
+    "issue": "undefined_bounded_retention",
+    "status": "corrected_by_root_after_independent_review",
+    "change": "No numeric storage ceiling in development; proposal must declare finite aggregate summary, dimensions/scaling and source-preparation needs; no original source examples retained. Judge may not invent a size limit.",
+    "evidence": [
+      {
+        "path": "research/benchmark/materials/ssa_lit/public/research_setting.json",
+        "sha256": "c0a0e3797015cc7d2928d76bfed6848d75204231352f3d467d339247d0bc3801"
+      },
+      {
+        "path": "research/benchmark/materials/ssa_idea/public/research_setting.json",
+        "sha256": "c0a0e3797015cc7d2928d76bfed6848d75204231352f3d467d339247d0bc3801"
+      }
+    ],
+    "independent_recheck_of_this_last_change": false
+  }
+}

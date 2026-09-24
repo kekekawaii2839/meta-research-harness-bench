@@ -1,0 +1,21 @@
+{
+  "iv-pilot-v2": [
+    "Independent review accepted scientific defining conditions, fixed updates, scoped hypotheses and experimental autonomy. Preserve them; do not change source to make tasks easier.",
+    "Complete machine-readable output representation via public JSON schemas or normative examples with types/field relationships for config.json, replicate_results.jsonl and report.json. Stable config/experiment/replicate IDs, seeds, each-iteration metrics with units, rank/condition diagnostics, bound/rate values, execution/status/stopping/budget details, aggregate linkage and hypothesis conclusions/evidence paths must be interpretable. Define serialization of non-finite values/status explicitly, not invalid NaN JSON. Do not prescribe actual repetitions, learning-rate grid, iterations, tolerance or fitting windows; these choices remain solver decisions. No new scientific report prose.",
+    "Explicit positive constant rates per trajectory (same fixed method as source), no implicit schedule-changing method. Maintain theoretical asymptotic versus finite-budget empirical distinction.",
+    "Provide environment controller contract: build context environment/image only; read-only mount of controller whitelist preserving /package/assets and /package/environment/smoke.py, run python /package/environment/smoke.py as nonroot with work/tmp writable. Never bake scientific source/task assets into dependency image or ask to expose whole package/private sources. Runtime remains unverified by constructor.",
+    "Keep rights provenance accurately separate and pending public release. This local development revision is not public release approval; no need for legal conclusions or permission claims.",
+    "Use new task ID v4. Do not invent verified source outputs or self-certify acceptance."
+  ],
+  "ssa-pilot-v2": [
+    "CRITICAL NEW REGRESSION: previous_candidate WRITE_CONTENT C4 and task incorrectly assert one-way KL. Original paper S3.SS2.p5 full equation group S3.EGx4 (includes all Eq8 continuation rows) explicitly sums forward AND reverse KL between N(0,lambda_d^s) and N(projected target mean, projected target variance). Read complete group, correct task/facts/output constraints everywhere to weighted symmetric two-way KL. Do not merely copy this note as evidence.",
+    "Distinguish projected-feature target mini-batch means/variances (S3.SS2.p5) from batch-normalization layer moments. That paragraph does NOT assert BN uses those K-dimensional projected feature moments. Remove unsupported BN-moment sentence. Keep source-supported update-only-normalization-affine gamma/beta from S3.SS2.p6. The projected source mean is zero, variance lambda, not unprojected source mean.",
+    "Verify ALL locators exist and support facts. S4.SS2.p4 does not exist; ResNet50 is S4.SS2.p1, D=2048/K=100 S4.SS2.p2. Find correct dataset/corruption/severity paragraph separately. Evidence task asks E1-E4 but only E1-E3 exist: make fact IDs consistent.",
+    "Unknown workflow facts U1-U4 cite request.json as though inside paper source. Do not attribute pipeline gaps to paper evidence; use empty evidence for unknown/maintainer_scope and state actual record location separately if needed.",
+    "Preserve all 140 Table4 numeric strings, Oracle target-label upper-bound qualification, no public target renderer. Keep synthetic unrelated rendering smoke. Review entire source for hidden regressions rather than assuming previous_candidate is correct.",
+    "New task IDs v4. Public release rights, full Docker isolation, judge behavior remain separate pending controller gates; not scientific self-acceptance.",
+    "Independent reviewer confirms further factual defect: Pixelate FR=0.946 > SSA=0.943, but RSD=0.941 < SSA. Correct false RSD example to FR with correct source row S4.T4.6.1.7.8; verify every comparison arithmetically.",
+    "Add defining source-supported TTA regime from S2.p1: unlabeled target dataset, no source dataset access during target adaptation, covariate shift p_s(x)!=p_t(x) but p_s(y|x)=p_t(y|x). These are supplied method assumptions not new experiment requirements.",
+    "Corruption dataset/severity source is S4.SS1.p3; C1 should not cite nonexistent S3.SS1.p6. Check exact existing IDs globally."
+  ]
+}

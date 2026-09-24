@@ -1,0 +1,7 @@
+# Caption and results text
+
+**Figure 1. Author-reported $R^2$ on corrupted UTKFace age prediction (severity 5).** (A) Every supplied condition value and reported mean; blue denotes nonnegative performance and red denotes negative performance on the fixed -4 to 1 color scale. Negative $R^2$ values are retained. (B) SSA minus the strongest reported non-oracle comparator (TTT, BN-Adapt, FR, or RSD) separately for each condition; positive values favor SSA. The oracle row is outlined in gold because it uses target labels and is not a same-information competitor. Cells are rounded author-reported aggregates from arXiv:2410.03263v1, Table S4.T4; no per-run observations or uncertainty were supplied.
+
+## Results
+
+On the 13 severity-5 corruptions, SSA has the highest reported non-oracle mean $R^2$ (0.731), followed by RSD (0.701) and FR (0.700); this is a 0.030 absolute increase over the strongest comparator mean. Against the best value among TTT, BN-Adapt, FR, and RSD for each corruption, SSA is higher on 9 conditions, tied on 3, and lower on 1. The largest per-condition advantage is for shot noise (+0.083); the sole deficit is on pixelate (-0.003). The oracle mean is 0.789, but its target-label access makes it a reference ceiling rather than a same-information competitor. These comparisons are descriptive only: the inputs contain rounded aggregate cells, not independent repetitions, so no error bars, confidence intervals, or significance claims are supported.

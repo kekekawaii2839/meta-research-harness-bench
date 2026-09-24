@@ -1,0 +1,82 @@
+{
+  "schema_version": "material-job-1",
+  "job_id": "iv-pilot-v2",
+  "paper_id": "iclr2025-QfhU3ZC2g1",
+  "requested_task_types": [
+    "EXP"
+  ],
+  "scope_request": "Construct a scientifically self-contained CPU numerical EXP for the coupled gradient estimator in section 3.2 and appendix C.2. Correct old-state update semantics, fixed method/object/hypotheses; not Transformer/GPU experiments, not reproduction of whole paper. Separate runnable data/baselines from withheld target iteration and experimental conclusions. Resource sufficiency remains to be validated, not assumed.",
+  "sources": [
+    {
+      "source_id": "iv-paper-v1",
+      "url": "https://arxiv.org/html/2410.01265v1",
+      "version": "arxiv-v1",
+      "sha256": "3050c1439f169d87435abc53754fd5d4301a8fe3520641358eb88a611067a970",
+      "role": "paper_html",
+      "local_path": "research/source_cache/benchmark_materials/iv_snapshot/iv-paper-v1.source"
+    },
+    {
+      "source_id": "iv-abstract-v1",
+      "url": "https://arxiv.org/abs/2410.01265v1",
+      "version": "arxiv-v1",
+      "sha256": "be8bd6c83856a22f292a3b3fa476bba525d648d4a2ccba7943b296f363af58bb",
+      "role": "version_and_license_metadata",
+      "local_path": "research/source_cache/benchmark_materials/iv_snapshot/iv-abstract-v1.source"
+    },
+    {
+      "source_id": "iv-license",
+      "url": "https://raw.githubusercontent.com/harris-liang/IVTransformer/241010acd1acd9fa7896809b4618bbf0911edc59/LICENSE",
+      "version": "241010acd1acd9fa7896809b4618bbf0911edc59",
+      "sha256": "0c62244358639b87361d70abf720d79cabb5c4e40a114cb933e1a164d82e513b",
+      "role": "repository_license",
+      "local_path": "research/source_cache/benchmark_materials/iv_snapshot/iv-license.source"
+    },
+    {
+      "source_id": "iv-readme",
+      "url": "https://raw.githubusercontent.com/harris-liang/IVTransformer/241010acd1acd9fa7896809b4618bbf0911edc59/README.md",
+      "version": "241010acd1acd9fa7896809b4618bbf0911edc59",
+      "sha256": "96e357ca19793e130e71b36cd4df0c6a65306da92bd435d5a87cb3eb36a1c687",
+      "role": "repository_documentation",
+      "local_path": "research/source_cache/benchmark_materials/iv_snapshot/iv-readme.source"
+    },
+    {
+      "source_id": "iv-simulation",
+      "url": "https://raw.githubusercontent.com/harris-liang/IVTransformer/241010acd1acd9fa7896809b4618bbf0911edc59/src/simulation.ipynb",
+      "version": "241010acd1acd9fa7896809b4618bbf0911edc59",
+      "sha256": "13492a765bec0b00426851997d335ea5948f8171a6affd108f150a4a4cc6103f",
+      "role": "author_analysis_notebook_private_only",
+      "local_path": "research/source_cache/benchmark_materials/iv_snapshot/iv-simulation.source"
+    }
+  ],
+  "first_disclosure": {
+    "date": null,
+    "reason": "Pinned arXiv version alone does not exclude earlier project/repository/report disclosure; required before historical LIT/IDEA acceptance.",
+    "verified": false
+  },
+  "constructor": {
+    "model": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "status": "candidate_pending_native_availability"
+  },
+  "reviewer": {
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium"
+  },
+  "environment_candidate": {
+    "cpus": 2,
+    "memory_mb": 2048,
+    "disk_mb": 1024,
+    "pids_limit": 128,
+    "wall_seconds": 1200,
+    "dependencies": [
+      "numpy==2.3.3"
+    ],
+    "scientific_rationale": "Synthetic moderate-dimensional IV numerical study with repeated CPU runs and OLS/2SLS controls; no pretrained Transformer, GPU, external dataset or source network access.",
+    "gpu": false,
+    "network": "none",
+    "docker_base": "python:3.12-slim",
+    "runtime_verified": false
+  },
+  "status": "prepared_not_invoked",
+  "formal_accepted": false
+}

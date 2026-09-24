@@ -1,0 +1,14 @@
+{
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "attempt": 1,
+  "kind": "codex_exec_connectivity",
+  "cwd": "C:\\Users\\li_ha\\AppData\\Local\\Temp\\meta-research-probe-9c9ce2e717544306b25c84833b58adf2",
+  "raw_model_equivalence": false,
+  "started_utc": "2026-09-23T04:38:16.3229238Z",
+  "exit_code": 1,
+  "status": "blocked_old_cli",
+  "error": "model requires newer Codex",
+  "cli_version": "0.130.0",
+  "actual_model_response": false
+}

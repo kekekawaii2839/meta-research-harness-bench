@@ -1,0 +1,7 @@
+Created [review.json](D:\mrhbench-local-pilot\batch-20260923-004\iv-pilot-v2\reviewer\review.json).
+
+Decision: `revise`.
+
+The principal finding is that notebook cell 4’s beta-first, then Theta update is equivalent to the paper’s frozen-old-state equations. `F_SIM_DESIGN` and `NOTICE.txt` incorrectly characterize it as non-simultaneous. The task equations themselves are correct.
+
+Container runtime, resource enforcement, judge integration, release rights, and first-disclosure verification remain pending. Candidate files were not modified.

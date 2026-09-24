@@ -1,0 +1,55 @@
+{
+  "schema_version": "collection-evolution-independent-review-supplement-2",
+  "new_model_calls": 0,
+  "supersedes_findings_status_only": [
+    "CE01",
+    "CE02"
+  ],
+  "historical_review": "collection_evolution_independent_review_v1.json",
+  "fixes": {
+    "CE01": "closed for supported JSONL capture-to-evidence path; complete original IV raw automatically included and exact decoded text/hash checked. Availability is NOT historical judge delivery.",
+    "CE02": "closed for fresh adapter/migration code: common WRITABLE_STORAGE_SEMANTICS includes80/20, memory charge, exclusions, hard deadline loss. No old task rewritten."
+  },
+  "actual_raw": {
+    "path": "D:\\mrhbench-local-pilot\\h0-budget-pilot-20260923-001\\iv-exp\\execution\\artifacts\\replicate_results.jsonl",
+    "sha256": "1f133209788c7308270d3939e494d2ca77928423312c7208de9f4428aa043f5f",
+    "bytes": 24993124,
+    "evidence_id": "artifact-2",
+    "evidence_sha256": "4a238936f6750a7f639425383baab0fc904cb1da30c389871c8dcb40ef38ce77",
+    "characters": 24993157,
+    "full_content_exact": true,
+    "old_file_unchanged": true,
+    "new_evidence_written": false,
+    "old_judge_replayed": false
+  },
+  "all_captured_files_represented": true,
+  "disk_semantics": "per-run total writable tmpfs: /work 80%, /tmp 20%; charged to container memory; dependency image and read-only inputs excluded. Collection counts all /work files AND directories except top-level .broker and .process-*; file-byte total excludes directories and archive metadata. Hard deadline may discard uncaptured tmpfs; only already captured controller receipts are retained, no periodic backup promised.",
+  "source_hashes": {
+    "run_container_stage_development.py": "a8fb9811cc73d98932ffe51b5f9727a2ac78781a0c4d7b2e2ce1e22a3e9afe76",
+    "mrhbench/artifact_policy.py": "bfe5118add46e486d5daad0aeb32be06106719037ceae17e0db327f2bb7fc4af",
+    "mrhbench/material_adapter.py": "651a0a7a2a8266365dd4b2ef1f8058c8b6e09857681a04fd52e4488358078b7c",
+    "prepare_collection_contract.py": "87701439df6109f6681e31527d0e244e34378c169c755d4bc576ac67e8a586dd"
+  },
+  "tests": [
+    {
+      "pattern": "test_stage_controller_evidence.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_capture_hash_checked_not_solver_claim (test_stage_controller_evidence.StageControllerEvidenceTests) ... ok\ntest_dependency_failure_before_run_directory_or_model (test_stage_controller_evidence.StageControllerEvidenceTests) ... ok\ntest_empty_captured_outputs_are_not_missing_task_materials (test_stage_controller_evidence.StageControllerEvidenceTests) ... ok\ntest_jsonl_is_available_and_other_formats_not_silently_lost (test_stage_controller_evidence.StageControllerEvidenceTests) ... ok\ntest_model_action_is_not_execution_and_local_errors_are_untrusted (test_stage_controller_evidence.StageControllerEvidenceTests) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.032s\n\nOK\n"
+    },
+    {
+      "pattern": "test_material_adapter.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_adjudicated_notes_preserved (test_material_adapter.MaterialAdapterTests) ... ok\ntest_compiles_public_private_without_gate_promotion (test_material_adapter.MaterialAdapterTests) ... ok\ntest_reject_missing_budget_mutable_image_and_wall_conflict (test_material_adapter.MaterialAdapterTests) ... ok\ntest_visual_preview_is_explicit_controller_rule_not_source_edit (test_material_adapter.MaterialAdapterTests) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.102s\n\nOK\n"
+    },
+    {
+      "pattern": "test_artifact_policy.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_controller_mismatch_rejected_before_output_or_docker (test_artifact_policy.ArtifactPolicyTests) ... ok\ntest_explicit_per_package_limits_and_fail_closed (test_artifact_policy.ArtifactPolicyTests) ... ok\ntest_versioned_migration_copies_only_manifest_assets (test_artifact_policy.ArtifactPolicyTests) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.033s\n\nOK\n"
+    }
+  ],
+  "formal_acceptance": false,
+  "remaining_gates": "Prior CE05 development-only evolution boundary unchanged; real native evolver/split/semantic judge acceptance remains separate. No newly discovered substantive blocker in this bounded code review."
+}

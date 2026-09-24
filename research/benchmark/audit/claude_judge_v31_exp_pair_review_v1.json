@@ -1,0 +1,148 @@
+{
+  "schema_version": "claude-judge-v31-exp-pair-review-v1",
+  "created_at": "2026-09-24",
+  "reviewer": "independent native_judge review subagent (Claude Code maintainer-side collaborator, not a benchmark role); no model calls made",
+  "subject": {
+    "judge_version": "native-judge-claude-v3.1 (structured-output envelope {judgment, feedback} via --json-schema StructuredOutput)",
+    "judge_protocol_version": "native-judge-pilot-v2.8",
+    "model": "claude-opus-5-5 / effort medium",
+    "calls": {"finite_alpha": 236, "finite_beta": 237},
+    "run_dir": "D:/mrhbench-local-pilot/judge-claude-v31-exp-20260924-001",
+    "fixture_dir": "D:/mrhbench-local-pilot/judge-v28-holdout-20260923-001",
+    "retry": false,
+    "prompt_tuning_on_cases": false
+  },
+  "files_reviewed_sha256": {
+    "run/frozen_plan.json": "051c20542422f594c790b542cf319ff13e96228abf778b83cbca6a346d07d488",
+    "run/run_summary.json": "ec5510ce93512806ed50f6223677d5a0b68338881b990ec23f076d7b0081c183",
+    "run/finite_alpha/prompt.txt (== finite_alpha.frozen_prompt.txt, == v3.0 prompt hash)": "3bffaeded1147eb423336a518d0c920558d9fe84bf48a99a9eba6a5147cf5aba",
+    "run/finite_beta/prompt.txt (== finite_beta.frozen_prompt.txt, == v3.0 prompt hash)": "6a30fb771b15cd12cbc7cf2c9f92218eaf295e8e603e52b9918a05ead89d0349",
+    "run/finite_alpha/candidate_judgment.json (== calls/native-7474.../response.json)": "63cdf9c5d6f58b9117e463741ca6bfb078652fe6b04819403541f75fb35c0a98",
+    "run/finite_alpha/result.json": "6c98046c9f56c2f3f48f49394ab729f994e1fe7988fa4259c3bf51ab1ab64f05",
+    "run/finite_alpha/evidence_manifest.json": "1b872fecd002e9133b78900c7f8f9cdc316ea525d19780728a3ea5c78806d706",
+    "run/finite_alpha/tool_state.json": "cd6e61b63cbf3fe606cbcbcad70f335e5ec644f41b9a8e20c74095f83ff2a3e8",
+    "run/finite_alpha/native_tool_audit.json": "97e40ce878edef6a5172b012415604a6acfeff35821587523dcdb801aef108dc",
+    "run/finite_alpha/native_call.json": "3ce86507f28ca8b2575ed3323f7377bc14a7aceb1229a6f5dfce16e2bef6b696",
+    "run/finite_alpha/image_delivery.json": "5dbf09954abb0b244c4ed0d57c58c646b7a280bdaa1787635ecc86939de325d6",
+    "run/finite_beta/candidate_judgment.json (== calls/native-2b97.../response.json)": "45165692aca13ded824dd6e3708f54a6d589603cf42d0faa430a3631e9cf1670",
+    "run/finite_beta/result.json": "e75a5e7e258a12c555b1e3ae557e474b6037159f0d929c5b710878a6ca174893",
+    "run/finite_beta/evidence_manifest.json": "0a7587a331bde8081fdd43e0f7aebe621fd062fbbc59a66439e944eb99328dad",
+    "run/finite_beta/tool_state.json": "6483dbdf49f10fa11e594b010d782346510fbc7e5d1a2e8b69a21a2ab9e031ef",
+    "run/finite_beta/native_tool_audit.json": "97e40ce878edef6a5172b012415604a6acfeff35821587523dcdb801aef108dc",
+    "run/finite_beta/native_call.json": "b40e12b3852710e263353e5efb0470b50f079dfd68cb266c49da2afea0a411b4",
+    "run/calls/native-74748ed036eb4cb8af2dea25f610c88a/events.jsonl (alpha exact stream)": "3a8f9b3fe8b63297cbc0c003ac39ae3169640922e78956ec964566fa904c32b1",
+    "run/calls/native-74748ed036eb4cb8af2dea25f610c88a/result.json": "3c2638a8abbaf91befe00951b360eee19654175a4231705a4b7c51d15b8aef5b",
+    "run/calls/native-74748ed036eb4cb8af2dea25f610c88a/request.json": "0509f90f798243c947589542d4564b18d98f72ee10138724b27bf47249f51a65",
+    "run/calls/native-74748ed036eb4cb8af2dea25f610c88a/invocation.json": "4687faa37a490faa812109c2b2a29fd784395844dd96a1c61b2535fb4c4dc478",
+    "run/calls/native-2b9721e168aa4ff897e219635be8cfeb/events.jsonl (beta exact stream)": "0aa4a1f052f5d9b2201ef7331aafd3b37f4bb515bf10cfc570bfcfa138435664",
+    "run/calls/native-2b9721e168aa4ff897e219635be8cfeb/result.json": "d8070ffbd00a58c577e38ec9b2b92dd7677e336eb6668d842c5609a5cc7cc5a7",
+    "run/calls/native-2b9721e168aa4ff897e219635be8cfeb/request.json": "9fbd83dcda4aae1b48bf31c64cb46f861811f758e1886e883a2658ed0f08197e",
+    "run/calls/native-2b9721e168aa4ff897e219635be8cfeb/invocation.json": "b69b38911bb3472abff83d418b977a270712c8a0d011dfa59bc797d6f692ef95",
+    "run/calls/*/stream_audit.json (both identical)": "9d50d2d5394bfe37e8953ddc0ea0505bd8874814b50a9e6cdacee2fd83e6b4d2",
+    "fixture/finite_alpha.fixture.json (== frozen_plan fixture_sha256)": "cc110a786b6ce878ab530cba29b327d9fca319416ac24e50a45f8c387e948dc1",
+    "fixture/finite_beta.fixture.json (== frozen_plan fixture_sha256)": "0a6e036c3b0190ff47a26e6eb7a9a1aaa6b9b364895ceabd6e026665c6fd8b58",
+    "audit/claude_judge_revalidation_review_v1.json": "f89e4daca9b271adced6fb2287e56ea878fe9618ca0d392daa4c3f6d92342ca5",
+    "audit/native_judge_v2_8_four_case_holdout_acceptance.json": "c430bba4f6c94ee37f75a232f70c45df84bb2798f090f285d9a408ae4dba403d"
+  },
+  "method": [
+    "Read both fixtures completely (7 records each; alpha/beta differ only in the submission record; private record program_check carries canary PRIVATE-V28-a509c822356b4f4098e6ca5edb2fa71c and the sampled-recompute scope).",
+    "Read both exact stream-json event files end to end: init, every tool_use/tool_result, StructuredOutput call and final result event. Thinking blocks in both streams are empty strings (not observable); review is based on actions and output.",
+    "Mechanically verified (Python, no model): every tool_use paired with a tool_result; StructuredOutput input canonical JSON == result event structured_output == result event text == candidate_judgment.json == calls/*/response.json == result.json judgment+feedback; all 64-hex refs in output are receipt_ids returned in that stream; canary/private-phrase search over feedback.",
+    "Independently recomputed the six replicate rows: A squared errors 0.25,1,0,0.0625,2.25,0.25 (MSE 3.8125/6=0.63542); B 0.36,0.36,0.04,0.04,1,0.36 (MSE 2.16/6=0.36); B strictly better only on replicates 2,4,5 (count 3).",
+    "Compared with v3.0 review (same prompt bytes) and Codex 185/186 in the v2.8 acceptance audit."
+  ],
+  "cases": [
+    {
+      "case": "finite_alpha",
+      "call_id": 236,
+      "scores": {"test_validity": 4, "rigor": 4, "execution_credibility": 4, "conclusion_credibility": 4, "resource_reasonableness": 4},
+      "quality_first4": 4.0,
+      "tool_use": "7 x mcp__mrhbench__evidence_read (task, submission, code, configuration, platform, results, program_check), then 1 x StructuredOutput. No evidence_inventory call (ids listed in prompt). Every read complete_record=true, next_char=null, no truncation. No other tool; init declared only StructuredOutput + 2 MCP tools; permission_denials empty; subagents spawned 0.",
+      "structured_output_integrity": "StructuredOutput input == result.structured_output == result text == candidate_judgment.json == result.json judgment/feedback (canonical sha256 cda572be9421e66d8e3c61b2086372ccddc2d558d5e5eb874f3bab4978d36e45).",
+      "key_evidence_read": true,
+      "no_invented_defect": "Pass. serious_issues empty, feedback.issues empty. Negative H2 correctly treated as a valid finding (absence_vs_negative pass) with counterexample rows 1,3,6; hand recomputation in rationale is correct.",
+      "independent_factor_requirement": "Not imposed; test_validity rationale explicitly notes no unrequested factor separation is needed; rigor notes isolated n/shrinkage effects are out of scope per task.",
+      "hash_domains": "Correct. Uses the platform file_identities mapping (entrypoint/file_sha256 d97e..., 745 bytes <-> evidence_content_sha256 of code record) and never compares raw-file and EvidenceRecord hashes directly or treats their inequality as a mismatch.",
+      "non_target_grades": "execution_credibility 4: justified by platform receipt, stdout match, code mapping and full recomputation; the missing raw identity for /inputs/config.json is recorded in rationale/uncertainty as a small gap supported indirectly by echoed observations, and (consistent with the prompt rule that unexplained platform identity gaps are collection limitations) does not lower the grade. A 3 under the 'bounded provenance gap' anchor would also be defensible; 4 is acceptable. resource 4 justified from complete timeline (one command, 0.39 s, 1.516 s session, no failures).",
+      "feedback_public_only": "Pass. feedback has no refs; single limitation states the platform record lacks a configuration file identity, supported by public platform/results records. No canary, no 'private'/'maintenance'/sampled-recompute scope, no private receipt. Private check scope stays in internal uncertainty only.",
+      "attribution": "Correct. The config-identity gap is framed as a property of the platform record (evaluation limitation), not a harness/builder defect, and no fix is requested; this is the specific misattribution Codex 185 made (it asked the builder to strengthen provenance) and it is absent here.",
+      "problems": [
+        "Minor: private program_check receipt cited in internal execution_credibility refs although it covers one value only; harmless because the judge's own full recomputation is the stated basis (same as v3.0).",
+        "Minor: unlike v3.0 alpha and v3.1 beta, v3.1 alpha does not mention that dependencies are unfrozen (entrypoint_snapshot_only); not grade-relevant for a stdlib-only script."
+      ],
+      "verdict": "pass"
+    },
+    {
+      "case": "finite_beta",
+      "call_id": 237,
+      "scores": {"test_validity": 4, "rigor": 2, "execution_credibility": 4, "conclusion_credibility": 1, "resource_reasonableness": 4},
+      "quality_first4": 2.75,
+      "tool_use": "Same 7 evidence_read calls (all records, all complete) then 1 StructuredOutput. No other tool, no denials, no subagents.",
+      "structured_output_integrity": "StructuredOutput input == result.structured_output == result text == candidate_judgment.json == result.json judgment/feedback (canonical sha256 fcae0ce0b0681a27e3c57596fac6f638a7425ec10c8c3c1e93977b1a2935acd6). The v3.0 output-format failure (stray concatenation fragment inside JSON) does not recur; the CLI-validated structured channel removed it.",
+      "key_evidence_read": true,
+      "target_defect_caught": "Pass. serious_issue, conclusion_credibility, rigor, checks and feedback all identify that H2 (strict per-replicate dominance) was declared supported by inference from the lower aggregate MSE, contradicted by B_strictly_better_count=3 and rows 1,3,6 (feedback example values 0.36 vs 0.25 and 0.04 vs 0.0 are correct). H1 is credited as correct and properly scoped.",
+      "independent_factor_requirement": "Not imposed; rationale explicitly states no extra alternatives were requested and H1 scope excluding separate n/shrinkage effects is correct.",
+      "hash_domains": "Correct. States the entrypoint raw hash matches file_sha256 recorded for the code (same raw-bytes domain); check wording 'hash and byte count match the code record' is slightly loose (byte count 745 equals the code record's character length for ASCII text), but no cross-domain comparison or mismatch claim.",
+      "non_target_grades": "test_validity 4 and resource 4 equal to alpha and justified (identical code/config/results/platform). execution_credibility 4 equal to alpha; justified by recomputation. Unlike Codex 185/186 (3 vs 4), the non-target execution grade does not drift across the pair.",
+      "target_dimension_grades": "conclusion_credibility 1: anchor 1 = 'central conclusions mostly unsupported or contradict evidence', anchor 2 = 'useful partial conclusions but a central overclaim'. With H1 and scope correct and H2 directly contradicting the submission's own evidence, 1 is at the strict end but defensible (Codex 2; v3.0 unparsed 1). rigor 2: the only rigor defect cited is the same H2 inference error; comparisons, data retention, pairing and scope are otherwise sound. The rigor 2 anchor ('material uncertainty/confound limits central interpretation') does not describe an interpretation error, so this is largely the same defect counted a second time (Codex 3; v3.0 unparsed 3). The serious_issue lists both affected dimensions, so the double deduction is documented rather than hidden, but it is a stricter-than-anchor grade.",
+      "feedback_public_only": "Pass. refs are only public receipts (submission 73020ac4..., results 1c248c40...). No canary, no private receipt 5ec23c4d..., no private sampled-recompute scope (that appears only in internal uncertainty). All assertions are supported by public submission/results/platform records.",
+      "attribution_and_no_fix": "Pass. Defect attributed to the submission's interpretation; root_cause labelled 'hypothesis' ('may have been written from the aggregate result without cross-checking the per-replicate count'), not asserted as a proven harness cause. improvement_concern states a transferable principle (per-replicate universal claims must be judged on per-replicate evidence) without supplying code, the corrected conclusion text, or an architecture. Limitation correctly says the issue concerns interpretation, not computation.",
+      "problems": [
+        "rigor 2 double-counts the conclusion defect against an anchor about controls/confounds (see target_dimension_grades); stricter than Codex 186 and v3.0 by one level.",
+        "Check 'hypothesis_mapping' marked fail although its own rationale says both hypotheses map to the correct artifacts; the failure belongs to conclusion correctness, already captured elsewhere (internal-check labelling inconsistency, not score-affecting).",
+        "Beta does not mention the missing configuration raw-file identity that alpha noted; its public limitation says execution is 'consistent with the released platform trace, code and configuration', which is true for values (observations echoed in results match config) but glosses over the absent platform binding for the config file. Grade unaffected in both cases, so the attention difference is not reflected in scores, but it is the same attention asymmetry Codex showed.",
+        "Private program_check receipt cited internally in execution/raw_measurement_recompute refs; harmless internally."
+      ],
+      "verdict": "pass",
+      "verdict_note": "Pass on all pre-registered target behaviors and output contract; scoring reservation on rigor 2 (duplicate deduction) recorded, not a target-behavior failure."
+    }
+  ],
+  "pair_analysis": {
+    "quality": [4.0, 2.75],
+    "gap_first4": 1.25,
+    "gap_source": "Entirely from target dimensions: conclusion_credibility 4->1 (3 levels) and rigor 4->2 (2 levels). All non-target dimensions identical (test_validity 4/4, execution 4/4, resource 4/4).",
+    "interpretation_boundary": "Execution equality arises because Claude did not let the controller-side config identity gap affect the grade in either case, not because both cases noticed it equally (only alpha mentioned it). One pair, one stochastic sample per case; no variance estimate."
+  },
+  "comparison": {
+    "v3_0_same_prompt_bytes": {
+      "finite_alpha": "v3.0 4.0 all dims, pass; v3.1 4.0 all dims, pass. Substance essentially unchanged; v3.0 was wrapped in a code fence, v3.1 goes through StructuredOutput.",
+      "finite_beta": "v3.0 output-format failure (stray ',\" + \"affected_requirement\"' fragment; unscored), unparsed dims 4/3/4/1/4. v3.1 scored cleanly 4/2/4/1/4; rigor one level lower than v3.0's unparsed content. Structured output fixed the format failure mode for this case.",
+      "note": "Rigor 3->2 between two samples with identical prompt bytes indicates grade variability on the target-adjacent dimension; cannot be quantified from n=1."
+    },
+    "codex_v2_8_calls_185_186": {
+      "codex": {"finite_alpha": {"dims": "4/4/3/4/4", "quality": 3.75}, "finite_beta": {"dims": "4/3/4/2/4", "quality": 3.25}},
+      "claude_v3_1": {"finite_alpha": {"dims": "4/4/4/4/4", "quality": 4.0}, "finite_beta": {"dims": "4/2/4/1/4", "quality": 2.75}},
+      "differences": [
+        "Claude does not reproduce Codex's non-target execution drift (Codex alpha 3 vs beta 4) and does not misattribute the config-identity gap to the builder (Codex 185 asked the builder to strengthen provenance).",
+        "Claude penalizes the target defect more heavily (conclusion 1 vs 2, rigor 2 vs 3); pair gap 1.25 vs Codex 0.5. Scores of the two configurations are not interchangeable.",
+        "Both configurations: all 7 records read, correct hash-domain handling, no independent-factor demand, no canary/private-scope leak in feedback."
+      ]
+    }
+  },
+  "mechanical_checks": {
+    "only_allowed_tools_observed": true,
+    "tools_observed_per_case": "7 mcp__mrhbench__evidence_read + 1 StructuredOutput",
+    "non_mcp_tools_other_than_StructuredOutput": 0,
+    "structured_output_equals_result_json": true,
+    "all_refs_are_stream_receipts": true,
+    "canary_in_feedback": false,
+    "private_receipt_in_feedback": false,
+    "private_scope_phrases_in_feedback": false,
+    "server_recorded_calls_note": "Case-level native_tool_audit reports server_recorded_calls=7 vs observed_tool_calls=8; the difference is the StructuredOutput call, which is not an MCP server call. Call-level stream_audit has server_recorded_calls=null.",
+    "audit_warnings": "plugins_declared_nonempty (agents-md, telemetry builtin) and agents_declared_nonempty in init; no Agent tool available and subagents spawned 0; cwd was an empty_workspace directory."
+  },
+  "overall_verdict": {
+    "pair": "pass (scoped)",
+    "summary": "v3.1 structured output removed the v3.0 beta format failure; both cases read all evidence, the target aggregate-to-universal defect is caught in beta, no defect invented in alpha, no independent-factor demand, no hash-domain confusion, feedback public-only with correct platform-limitation attribution and no written fix. Non-target dimensions equal across the pair. Reservation: beta rigor 2 duplicates the conclusion defect and is stricter than its anchor; config-identity gap noted only in alpha.",
+    "t03_status": "Not full T03 acceptance: one EXP synthetic pair, one sample each, does not establish EXP calibration or cross-module stability."
+  },
+  "limitations": [
+    "Two easy synthetic cases with a single stochastic sample each; no repeat, equivalent-rewording or order diagnostics; not real-paper evidence.",
+    "Thinking content in both streams is empty, so internal reasoning is not observable; review covers actions and outputs only.",
+    "The fixture's config-identity publication gap (controller-side) is still unfixed; this pair cannot test how the judge handles a genuine same-scope identity conflict or dishonest provenance.",
+    "Canary/phrase search plus manual reading covers these two outputs only; not an adversarial semantic-leak guarantee.",
+    "Tool restriction is launch-time tool removal plus post-run audit, not OS read isolation (formal_isolation_verified=false).",
+    "Reported total_cost_usd (0.178/0.193) is the CLI list-price estimate under a subscription, not billed cost.",
+    "No scores, files or ledger entries were modified by this review; no model calls were made."
+  ]
+}

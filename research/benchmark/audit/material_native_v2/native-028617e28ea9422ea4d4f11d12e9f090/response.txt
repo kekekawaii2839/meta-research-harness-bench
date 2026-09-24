@@ -1,0 +1,5 @@
+Created [review.json](D:/mrhbench-local-pilot/batch-20260923-004/ssa-pilot-v2/reviewer/review.json).
+
+Decision: `revise`.
+
+The primary defect is an unsupported claim that target batch normalization uses batch statistics. Its cited paragraph instead defines projected-feature minibatch moments, creating a statistics conflation. All 140 Table 4 values and locators otherwise matched the original source exactly. Runtime integration, release authorization, and earliest-disclosure verification remain pending.

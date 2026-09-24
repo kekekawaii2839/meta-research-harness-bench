@@ -1,0 +1,54 @@
+{
+  "created_at": "2026-09-24T00:00:05.176165+00:00",
+  "scope": "Two-phase evaluation/review resume and staged public execution evidence; synthetic tests only",
+  "new_model_calls": 0,
+  "new_container_runs": 0,
+  "files": {
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\evolution_driver.py": "45c753b7bcde455dbe93bf497a7b5d44b2e670fba7be927db18eb7e3002df2dd",
+    "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_evolution_driver.py": "b0f860079fd8a44be7711c28928aa1e35106b43d6d5d75ab1251a7aea70d4e54"
+  },
+  "tests": [
+    {
+      "pattern": "test_evolution_driver.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_builder_cannot_return_controller_candidate (test_evolution_driver.DriverTests) ... ok\ntest_builder_input_mutation_rejected (test_evolution_driver.DriverTests) ... ok\ntest_bundle_tamper_is_rejected (test_evolution_driver.DriverTests) ... ok\ntest_configuration_hash_mutation_rejected (test_evolution_driver.DriverTests) ... ok\ntest_exception_unknown_not_zero_or_retried (test_evolution_driver.DriverTests) ... ok\ntest_feedback_private_fields_rejected_before_builder (test_evolution_driver.DriverTests) ... ok\ntest_frozen_approval_mutation_rejected_without_callbacks (test_evolution_driver.DriverTests) ... ok\ntest_input_and_snapshot_mutations_rejected (test_evolution_driver.DriverTests) ... ok\ntest_mixed_full_rounds_selection_hidden_and_idempotent_resume (test_evolution_driver.DriverTests) ... ok\ntest_paper_split_and_incomplete_coverage_rejected (test_evolution_driver.DriverTests) ... ok\ntest_pending_review_cannot_be_disabled_on_resume (test_evolution_driver.DriverTests) ... ok\ntest_private_evidence_index_rejected_even_with_matching_hash (test_evolution_driver.DriverTests) ... ok\ntest_public_evidence_bundle_staged_without_controller_paths (test_evolution_driver.DriverTests) ... ok\ntest_result_cache_hash_checked (test_evolution_driver.DriverTests) ... ok\ntest_returned_unknown_evaluation_not_zero (test_evolution_driver.DriverTests) ... ok\ntest_review_input_and_score_hash_binding (test_evolution_driver.DriverTests) ... ok\ntest_rounds_stop_without_additional_retries (test_evolution_driver.DriverTests) ... ok\ntest_same_turn_and_manual_review_required (test_evolution_driver.DriverTests) ... ok\ntest_snapshot_mutation_rejected (test_evolution_driver.DriverTests) ... ok\ntest_two_phase_pending_to_approved_resume_calls_evaluate_once (test_evolution_driver.DriverTests) ... ok\ntest_unknown_paid_failure_never_calls_resolver_or_retries (test_evolution_driver.DriverTests) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 11.481s\n\nOK\n"
+    },
+    {
+      "pattern": "test_protocol.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_formal_runner_not_falsely_accepted (test_protocol.EvolutionTests) ... ok\ntest_frozen_code_mutation_detected (test_protocol.EvolutionTests) ... ok\ntest_full_cycle_and_no_hidden_feedback (test_protocol.EvolutionTests) ... ok\ntest_round_skipping_repeated_evaluation_and_early_test_blocked (test_protocol.EvolutionTests) ... ok\ntest_json_duplicate_nonfinite (test_protocol.IOTests) ... ok\ntest_paths_reject_escape_ads_and_reserved (test_protocol.IOTests) ... ok\ntest_trace_mutation_detected (test_protocol.IOTests) ... ok\ntest_changed_asset_blocks_export (test_protocol.MaterialTests) ... ok\ntest_export_only_whitelisted_public_assets (test_protocol.MaterialTests) ... ok\ntest_formal_pending_rejected (test_protocol.MaterialTests) ... ok\ntest_hidden_export_to_search_rejected (test_protocol.MaterialTests) ... ok\ntest_historical_search_and_read_share_filter (test_protocol.MaterialTests) ... ok\ntest_split_same_paper_versions_together (test_protocol.MaterialTests) ... ok\ntest_all_modules_and_cost_not_in_score (test_protocol.ScoringTests) ... ok\ntest_exp_resource_cannot_compensate (test_protocol.ScoringTests) ... ok\ntest_infra_failure_not_silently_dropped (test_protocol.ScoringTests) ... ok\ntest_invalid_grade_and_dimension_set (test_protocol.ScoringTests) ... ok\ntest_many_slices_do_not_overweight_paper (test_protocol.ScoringTests) ... ok\ntest_missing_task_duplicate_and_wrong_identity (test_protocol.ScoringTests) ... ok\ntest_oracle_tie_earliest_and_builder_autonomy (test_protocol.ScoringTests) ... ok\ntest_scored_model_failure_stays_in_denominator (test_protocol.ScoringTests) ... ok\ntest_write_types_do_not_add_module_weight (test_protocol.ScoringTests) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.267s\n\nOK\n"
+    }
+  ],
+  "driver_test_count": 21,
+  "legacy_protocol_test_count": 22,
+  "interfaces": {
+    "advance": "evaluate, evolve, select, optional review_evaluation",
+    "review_request": "review_evaluation(request=deepcopy(evaluate_request), evaluation=deepcopy(immutable_cached_completion), binding={request_hash,evaluation_hash})",
+    "review_pending": "{status:pending_review,...}; raises PendingEvaluationReview, retaining completed evaluate cache. Later explicit advance invokes only the pure reviewer again until approval.",
+    "review_approved": "Exact status approved, binding, envelope, envelope_hash=digest(envelope), review_receipt_hash=64hex. Approved envelope validated then frozen with approval_hash.",
+    "evaluation_request_addition": "package_hash=digest(frozen package tree manifest)",
+    "builder_request_addition": "public_evidence_directory points only to staged search_evidence/<version>/<task-id-digest>",
+    "bundle": "root/files/index_path/manifest_hash; entire manifest checked and copied; index records require public visibility and allowed origin, receipt IDs map to indexed public evidence. Program checks permitted only when explicitly public."
+  },
+  "verified_behaviors": [
+    "Two pending resumes call evaluate once for that task; subsequent approval advances without replacing cached paid completion. Finished resume invokes neither evaluator nor reviewer again.",
+    "Review cannot approve a different request/evaluation or altered score/feedback envelope hash; frozen review mutation rejects before callbacks.",
+    "Resume cannot disable an already selected external-review policy.",
+    "Unknown paid callback exception never calls reviewer, never reruns paid evaluation, and never becomes scientific zero.",
+    "No private/test path or controller projection root forwarded to builder; staged search-only public evidence preserves index and receipt resolution.",
+    "Mutated bundle and private-tagged index rejected; score/private-rationale records are not permitted public origins."
+  ],
+  "compatibility": "No-review path retains trusted preaccepted synthetic adapter support, labeled in persisted review_policy.json; this is not admission for actual native outputs.",
+  "limits": [
+    "A Python callback is a trusted controller adapter, not a side-effect sandbox. Pure reviewer MUST NOT invoke models; no model client/call capability is passed, but arbitrary Python side effects cannot be technically excluded by this interface.",
+    "Filesystem and receipt hashes are integrity bindings, not signatures or immunity to a compromised controller.",
+    "Public visibility alone does not establish semantic safety. Actual evaluator must bind external semantic-feedback and public-projection review; host/private path contents require review even when role is public.",
+    "Known completed evaluations pending approval can resume. Unknown paid outcomes/in-flight crashes remain explicit unresolved stops with no automatic retry.",
+    "Per-file staging is hash checked; no claim of arbitrary filesystem atomicity or formal process isolation.",
+    "Actual StageEvaluationAdapter/ReadOnlyReviewResolver integration and real native evolution are separate workstreams; no live calls in these tests."
+  ],
+  "related_agent": "container_runtime_v2 supplies actual evaluator/projection/resolver with the agreed envelope API; root supplies native builder/selection adapters",
+  "verdict": "Two-phase recovery and public evidence plumbing pass bounded synthetic tests; not real self-improvement or formal benchmark acceptance"
+}

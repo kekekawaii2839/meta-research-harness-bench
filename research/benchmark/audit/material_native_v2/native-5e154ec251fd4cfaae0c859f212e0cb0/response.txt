@@ -1,0 +1,5 @@
+Created the fresh candidate package at [package.json](/D:/mrhbench-local-pilot/batch-20260923-004/ssa-pilot-v2/constructor/output/package.json).
+
+It contains the two scoped writing tasks, their specifications, the Table 4 CSV and cell-level provenance manifest, and the Dockerfile and smoke script. The repair corrects SSA’s loss to symmetric two-way KL, removes the unsupported claim about batch-normalization moments, and fixes the Pixelate comparison. LIT, IDEA, and EXP are marked deferred with reasons.
+
+Schema validation and asset hash/reference checks passed. Docker and runtime remain unverified; first-disclosure and literature-library coverage remain pending. Independent review is still required.

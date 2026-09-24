@@ -1,0 +1,5 @@
+Created the v3 development candidate under `output/`, including the EXP specification, starter generator and controls, provenance notice, Dockerfile, smoke script, and package manifest.
+
+The package passed JSON Schema validation and local checks of asset hashes, paths, and fact visibility. The smoke script could not run because NumPy is not installed in the current environment; Docker was not built. Runtime and independent scientific review remain pending.
+
+LIT and IDEA are deferred pending disclosure and background verification. WRITE_CONTENT is outside the requested scope; WRITE_EVIDENCE is deferred because the available notebook results are aggregated and lack a validated numeric manifest. Public release authorization and the license scope for paper text and newly authored assets also remain unresolved.

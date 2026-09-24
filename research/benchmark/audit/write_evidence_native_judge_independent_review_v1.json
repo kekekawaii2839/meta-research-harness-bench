@@ -1,0 +1,354 @@
+{
+  "audit_version": 1,
+  "status": "revise_visual_judgment_behavior_not_transport",
+  "call_id": 173,
+  "case": "D:\\mrhbench-local-pilot\\h0-budget-pilot-20260923-001\\ssa-write-evidence",
+  "new_model_calls": 0,
+  "history_unchanged": true,
+  "reported_quality": 3.5,
+  "reported_dimensions": {
+    "completeness": 4,
+    "comprehensibility": 4,
+    "fidelity": 3,
+    "traceability": 3
+  },
+  "scope": "Independent review of complete observable judge trajectory and final judgment/feedback, frozen task/artifacts and actual image. Executor trajectory and fresh Docker scientific recomputation separately reviewed by container_runtime_v2; not rerun here.",
+  "trajectory": {
+    "rollout_sha256": "88b626cee8a643dc082689099cf22f8a982ae432879582996d6636a41bb50abe",
+    "rows": 109,
+    "tool_actions": [
+      {
+        "name": "exec",
+        "input": "const hits = ALL_TOOLS.filter(x => /evidence_(inventory|read)/.test(x.name));\ntext(hits);\n",
+        "call_id": "call_4MZ8aAROmfuhEFBwX4LFourP"
+      },
+      {
+        "name": "exec",
+        "input": "const ids = [\n  [\"task\", 0, 6000],\n  [\"submission\", 0, 6000],\n  [\"controller-output-inventory\", 0, 6000]\n];\nfor (const [evidence_id, start_char, max_chars] of ids) {\n  const r = await tools.mcp__mrhbench__evidence_read({evidence_id, start_char, max_chars});\n  text(r);\n}\n",
+        "call_id": "call_4utwWDIe7TYunkrKoZ8TGDMl"
+      },
+      {
+        "name": "exec",
+        "input": "const reqs = [\n  {evidence_id:\"task\", start_char:6000, max_chars:6000},\n  {evidence_id:\"artifact-0\", start_char:0, max_chars:6000},\n  {evidence_id:\"artifact-1\", start_char:0, max_chars:6000}\n];\nfor (const q of reqs) text(await tools.mcp__mrhbench__evidence_read(q));\n",
+        "call_id": "call_2TgfBQlyj7z3flJR0cT37Xl1"
+      },
+      {
+        "name": "exec",
+        "input": "const reqs = [\n  {evidence_id:\"artifact-1\", start_char:6000, max_chars:6000},\n  {evidence_id:\"artifact-2\", start_char:0, max_chars:6000},\n  {evidence_id:\"reference-0\", start_char:0, max_chars:6000}\n];\nfor (const q of reqs) text(await tools.mcp__mrhbench__evidence_read(q));\n",
+        "call_id": "call_31f30AplxBjzIirmbGFwIJqZ"
+      },
+      {
+        "name": "exec",
+        "input": "const reqs = [\n  {evidence_id:\"reference-1\", start_char:0, max_chars:6000},\n  {evidence_id:\"reference-2\", start_char:0, max_chars:6000},\n  {evidence_id:\"reference-3\", start_char:0, max_chars:6000}\n];\nfor (const q of reqs) text(await tools.mcp__mrhbench__evidence_read(q));\n",
+        "call_id": "call_MiMdJmxeQ6QyYG7uV7t1ytQ4"
+      },
+      {
+        "name": "exec",
+        "input": "const r = await tools.mcp__mrhbench__evidence_read({evidence_id:\"artifact-4\"});\nfor (const c of (r.content || [])) {\n  if (c.type === \"image\") image(c, \"original\");\n  else if (c.type === \"text\") text(c.text);\n  else text(c);\n}\n",
+        "call_id": "call_9dsDdIb2ExGgpHNkCAKfSnPc"
+      },
+      {
+        "name": "exec",
+        "input": "for (const start_char of [0,6000,12000]) {\n  text(await tools.mcp__mrhbench__evidence_read({evidence_id:\"artifact-3\", start_char, max_chars:6000}));\n}\n",
+        "call_id": "call_gEWtfTT2DV0ksZPZlbVish7I"
+      },
+      {
+        "name": "exec",
+        "input": "text(ALL_TOOLS.filter(x => /container|python|compute|exec|calculator/i.test(x.name+\" \"+x.description)));\n",
+        "call_id": "call_d5PTTqm61SYuh1j5DfCsCy0i"
+      },
+      {
+        "name": "exec",
+        "input": "const reqs = [\n  {evidence_id:\"artifact-5\", start_char:0, max_chars:6000},\n  {evidence_id:\"executed-2c09bb49cb9a53cf86d9086c2bd62f26372f381ce7316e728e1c6f36870334d4\", start_char:0, max_chars:6000},\n  {evidence_id:\"executed-96af2bec9c1131901092f1940f0f7882721ddd552dedb854eec1cb5d9ceab4c6\", start_char:0, max_chars:6000}\n];\nfor (const q of reqs) text(await tools.mcp__mrhbench__evidence_read(q));\n",
+        "call_id": "call_nFwTKwjZO2bHLqVlaUUM4zVI"
+      },
+      {
+        "name": "exec",
+        "input": "const reqs = [\n  {evidence_id:\"executed-583bb8c7ee663138f1cb5f540398c09f4778830cd7dfda859bec1d4fa697bf3b\", start_char:0, max_chars:6000},\n  {evidence_id:\"output-contract-check\", start_char:0, max_chars:6000},\n  {evidence_id:\"harness-local-report-810f897858a1b642a420e567f8015a151294bfd8152372b855d71b53d32740fd\", start_char:0, max_chars:6000}\n];\nfor (const q of reqs) text(await tools.mcp__mrhbench__evidence_read(q));\n",
+        "call_id": "call_cq020GuUPBmIpEvYyFjChXMu"
+      }
+    ],
+    "all_meaningful_observable_judge_inputs_outputs_final_feedback_reviewed": true,
+    "encrypted_reasoning_not_accessible": true,
+    "text_receipts": {
+      "044130d4a8eb17cc8deb7aab75fbc0b7ea7b70420f8111598d57b3b2498245a9": {
+        "end_char": 468,
+        "evidence_id": "executed-96af2bec9c1131901092f1940f0f7882721ddd552dedb854eec1cb5d9ceab4c6",
+        "media_type": "text/plain",
+        "source_sha256": "32e0fbabe6bf646b4576b470925e141932c13ac7fcb78698b7ea977f7a8ea960",
+        "start_char": 0
+      },
+      "0db9a64ed7366e2d862762bb46601af836203b36b59bc72ff6787ae9f854b51a": {
+        "end_char": 10199,
+        "evidence_id": "task",
+        "media_type": "text/plain",
+        "source_sha256": "81c23af53b37bb8abba5f9ae1fdd59432dd9ca7e2df20354402db906737c40f3",
+        "start_char": 6000
+      },
+      "112e8e296988bd1a6a1f62df3198704fac8c36fa41b95e239345662e4bfb59ba": {
+        "end_char": 6000,
+        "evidence_id": "reference-2",
+        "media_type": "text/plain",
+        "source_sha256": "bbe9d0c3409975410464d16fe1a0669b5f0587ede7c44a062399a9e12a493eac",
+        "start_char": 0
+      },
+      "1386c38837c556547feddce7fc9b6a91d2208970f64b76134904c7a9e1409c16": {
+        "evidence_id": "artifact-4",
+        "image_delivery_required": true,
+        "media_type": "image/png",
+        "source_sha256": "979a16efaaa262fb9c2859912bae324ca8ec21931817e6ad87ee5c37a72ed5d7"
+      },
+      "242e4a211edd1e014c2ffdc02223aaff318322d0f2f070cb96e54b35bc1f4e57": {
+        "end_char": 6000,
+        "evidence_id": "executed-583bb8c7ee663138f1cb5f540398c09f4778830cd7dfda859bec1d4fa697bf3b",
+        "media_type": "text/plain",
+        "source_sha256": "045c864b1f403c16a0e3e340bf3e7792e722094963e1c44b23614b8b10308d31",
+        "start_char": 0
+      },
+      "25e21da527c279d37258fff0c898ec09b174da8b6e9619a2d25ad3cf9841a9a8": {
+        "end_char": 1115,
+        "evidence_id": "reference-1",
+        "media_type": "text/plain",
+        "source_sha256": "ea6fe8e7777b137f3e6a39a9a6a85bdcad2544d1f8b880a648099bc6b19b0ca9",
+        "start_char": 0
+      },
+      "2acbc75fd7d5f75b7926ea54edccef76495cbda95a65c62a88b746b06dd515d0": {
+        "end_char": 2047,
+        "evidence_id": "submission",
+        "media_type": "text/plain",
+        "source_sha256": "06ca39a2ad9a320b558d5b05a4262faf1fed2244efc89ed9f47f8e754a90a5df",
+        "start_char": 0
+      },
+      "50d979b2f8f9d0c270a89070ffb2b29ebf1f6c9888df02c19621d29f90c22106": {
+        "end_char": 6000,
+        "evidence_id": "executed-2c09bb49cb9a53cf86d9086c2bd62f26372f381ce7316e728e1c6f36870334d4",
+        "media_type": "text/plain",
+        "source_sha256": "a6b2db57a4be7271de86aa09655aa4ab61d2f9dc8a755748df4eae84671abe7e",
+        "start_char": 0
+      },
+      "5518d87ba5582e803163bbeff509d68ac995b48ad9eccf4a38d21eb84dcfe809": {
+        "end_char": 6000,
+        "evidence_id": "artifact-3",
+        "media_type": "text/plain",
+        "source_sha256": "18a07ea7a5b35dbca4c42ded27a5e26ee1007670d3207e267679c5cfb655a736",
+        "start_char": 0
+      },
+      "68e73496d8c5f3f30461d089686d55b66213ed7e3d4f43c7e614821983b0fc6a": {
+        "end_char": 12000,
+        "evidence_id": "artifact-3",
+        "media_type": "text/plain",
+        "source_sha256": "18a07ea7a5b35dbca4c42ded27a5e26ee1007670d3207e267679c5cfb655a736",
+        "start_char": 6000
+      },
+      "712870eb429324fd86af7f30a464dd5d1da9f4403d627345b7da959082a99e5f": {
+        "end_char": 6000,
+        "evidence_id": "artifact-1",
+        "media_type": "text/plain",
+        "source_sha256": "2d654854f4085f10f3b09b4ec65dbd65187fc4c8a3aea1eb952dfa03029aac92",
+        "start_char": 0
+      },
+      "726f81a49b0de9a0baf6a01f320fa44cc8e5b683616fb1caca98d2ad5794e3e5": {
+        "end_char": 1056,
+        "evidence_id": "controller-output-inventory",
+        "media_type": "text/plain",
+        "source_sha256": "82eeda37d6010de1478a2096a3984ca41d8f7414465b0ed848988f1c4d20fabf",
+        "start_char": 0
+      },
+      "78ad8120f4ed12460dc6f5e0bdf802ce747235a4ce0f229d5c6db86c2207356f": {
+        "end_char": 6000,
+        "evidence_id": "task",
+        "media_type": "text/plain",
+        "source_sha256": "81c23af53b37bb8abba5f9ae1fdd59432dd9ca7e2df20354402db906737c40f3",
+        "start_char": 0
+      },
+      "9838976bc3cf8b9c4922f9d44ec7ff1aa50a5b5fbd631b8558df293f7cf3d64a": {
+        "end_char": 9328,
+        "evidence_id": "artifact-1",
+        "media_type": "text/plain",
+        "source_sha256": "2d654854f4085f10f3b09b4ec65dbd65187fc4c8a3aea1eb952dfa03029aac92",
+        "start_char": 6000
+      },
+      "ac0b455ac809f8f6be6d7c4f33caf423cd6ce5e5f8b681ed4d4cab9d2798c31f": {
+        "end_char": 3446,
+        "evidence_id": "reference-0",
+        "media_type": "text/plain",
+        "source_sha256": "90cc3671e609eb25b781c83d9131725e3e3b109f9667b246975967433b42e598",
+        "start_char": 0
+      },
+      "acb4b6f959bbe3795bb00b849d134431e5a5820a1f84eb2a438ae412a5e3cfd8": {
+        "end_char": 6000,
+        "evidence_id": "harness-local-report-810f897858a1b642a420e567f8015a151294bfd8152372b855d71b53d32740fd",
+        "media_type": "text/plain",
+        "source_sha256": "ff1fccb34a649903436da54f7c071e239e17697cfee77dee463f2a5212d0c576",
+        "start_char": 0
+      },
+      "b3a5a3e5298d22cf81c558974c739a753b7aea0a7e9ab28fe0641f1cb147d36f": {
+        "end_char": 1420,
+        "evidence_id": "artifact-2",
+        "media_type": "text/plain",
+        "source_sha256": "b239db3a2e828e951c674b6a475cdc7e348d75ea16014dfa235d61cae928d47d",
+        "start_char": 0
+      },
+      "be9dcb259765e30a407672e56196ad7f9b066def95a79b3ccd9498722488e588": {
+        "end_char": 98,
+        "evidence_id": "output-contract-check",
+        "media_type": "text/plain",
+        "source_sha256": "2a558f5b19f88c2b8a93bb7eb932653cdb8fa4a8122ab89ecb373a6a999055ff",
+        "start_char": 0
+      },
+      "c120fef9ca70fe11df9a93da7588fb9924d9a4ffe032e0cf3c7792c19d59982d": {
+        "end_char": 1205,
+        "evidence_id": "artifact-0",
+        "media_type": "text/plain",
+        "source_sha256": "6d0aaaee79691421b67cb4388616054f8fd78d21711cc32034ca47b1d5b43f19",
+        "start_char": 0
+      },
+      "db8e59caa43b9c04637043218caf828917461ac137367e5955624ad06db72716": {
+        "end_char": 508,
+        "evidence_id": "artifact-5",
+        "media_type": "text/plain",
+        "source_sha256": "08af6ad38de11ce0ebfd9606039aa290b75868f7dae6a19b0001e1e27195543b",
+        "start_char": 0
+      },
+      "e1ba90cde674fc9ffaee1071b98f02789daac02350539d9d4b7f3d4bc2752f4b": {
+        "end_char": 5052,
+        "evidence_id": "reference-3",
+        "media_type": "text/plain",
+        "source_sha256": "a8c1ab52ff6cee26f0e1389d4a22ddf99ec22e691376528eef59552fcbead6e1",
+        "start_char": 0
+      },
+      "e66a7fa2a059fe2992751009c6a1847a19f9f34e4c642c583220e46195174b97": {
+        "end_char": 14968,
+        "evidence_id": "artifact-3",
+        "media_type": "text/plain",
+        "source_sha256": "18a07ea7a5b35dbca4c42ded27a5e26ee1007670d3207e267679c5cfb655a736",
+        "start_char": 12000
+      }
+    },
+    "all_text_payloads_exactly_match_frozen_ranges": true,
+    "text_receipt_count": 21,
+    "structured_cell_data_review": "All 140 locators/source strings compared programmatically to full released manifest; other fields and generator/caption/interpretation read directly. Repeated code snapshots compared as static source, not executed on host.",
+    "partially_read_ranges": [
+      "reference-2 only0–6000, not complete140-cell source manifest; judge consumed complete outputmanifest and sourceCSV but did not independently retrieve every source locator.",
+      "Both generation code snapshots first6000 only; final artifact generator fully read.",
+      "Local error record first6000 only, omitted final event details; no controller cpu.run error/success results read."
+    ],
+    "observed_tools_only_bounded_evidence_mcp": true,
+    "formal_isolation_verified": false
+  },
+  "image_delivery": {
+    "actual_native_input_images": [
+      {
+        "sha256": "ed17164cfe8084bad5afc723a2be3b2d27367dbe139d838853612765c614ddfe",
+        "bytes": 614552,
+        "detail": "original"
+      }
+    ],
+    "artifact_sha256": "ed17164cfe8084bad5afc723a2be3b2d27367dbe139d838853612765c614ddfe",
+    "exact_source_bitmap_equality": true,
+    "source_dimensions": [
+      4204,
+      2241
+    ],
+    "inspection_by_independent_reviewer": "view_image original requested, displayed resized2048x1092; overlap visibly present at that displayed size. Nativejudge received exactoriginal4204x2241 accordingtohash, not this resizedmaintenanceview.",
+    "transport_pass_not_visual_reasoning_pass": true
+  },
+  "findings": [
+    {
+      "kind": "missed_visual_defect",
+      "assessment": "Judge comprehensibility4 omits visible intrusion of rotated column headers into Source cells; Defocus blur crosses Source row label, long Elastic transform/Gaussian/Impulse headers descend through first-row region despite blank space above. Not total unreadability: most cells remain legible. Strongest unqualified layout rationale is insufficiently supported.",
+      "score_action": "No manual replacement score and no new targeted model retry; retain3.5 as observed development judgment with revise flag."
+    },
+    {
+      "kind": "successful_numeric_error_detection",
+      "assessment": "Correctly catches inaccurate three-largest SSA-over-FR noise claim; Snow .089 is above Gaussian .071/Impulse .070. Local fidelity3 supported, not wholesale fabricateddata.",
+      "independent_sorted_differences": [
+        [
+          "Shot noise",
+          "0.102"
+        ],
+        [
+          "Snow",
+          "0.089"
+        ],
+        [
+          "Gaussian noise",
+          "0.071"
+        ],
+        [
+          "Impulse noise",
+          "0.070"
+        ],
+        [
+          "Contrast",
+          "0.036"
+        ],
+        [
+          "Fog",
+          "0.032"
+        ],
+        [
+          "Defocus blur",
+          "0.009"
+        ],
+        [
+          "JPEG comp.",
+          "0.004"
+        ],
+        [
+          "Zoom blur",
+          "0.002"
+        ],
+        [
+          "Brightness",
+          "0.002"
+        ],
+        [
+          "Motion blur",
+          "0.000"
+        ],
+        [
+          "Elastic transform",
+          "0.000"
+        ],
+        [
+          "Pixelate",
+          "-0.003"
+        ]
+      ]
+    },
+    {
+      "kind": "successful_traceability_detection",
+      "assessment": "Correctly identifies embeddedCSV replacing required live suppliedinput load. All140 copied values andlocators currently match. Traceability3 distinguishes weak dependency from fabricatedsource."
+    },
+    {
+      "kind": "attribution_limit",
+      "assessment": "Feedback says why external loading omitted is unknown. Conservative, not falseplatformattribution, but judge did not read actual FileNotFoundError or successful cpu.run platformrecords, which were available. Independentexecutor review confirms wrong guessed/work paths while assets existed /inputs/public/assets/assets; do not certify infrastructurefailure."
+    },
+    {
+      "kind": "provenance_coverage_limit",
+      "assessment": "Judge completeness rationale says manifest contains140 locators, which it read; traceability says correspondtoreference but referenceJSONonlyfirst6000 retrieved. SourceCSV fully retrieved provesvalues, not independentlyeverylocator. Independentmaintenance comparison now verifiesall140, but cannot substitute forjudge’s missingcheck."
+    }
+  ],
+  "feedback_review": {
+    "public_receipts_only": true,
+    "public_evidence_ids": [
+      "artifact-1",
+      "artifact-2",
+      "reference-0",
+      "reference-1"
+    ],
+    "semantic_private_leak_observed": false,
+    "assessment": "Snow difference is computable from released publicCSV; hardcoding visible in publiccode/task. No private source facts, heldout outputs, or hidden criteria supplied. Rootcausesbothunknown rather than assertedharnesscausality.",
+    "limitation_honesty": "Judge accurately admits it did not rerun generator; actual freshDocker recomputation belongs to independentmaintenance review, not judge."
+  },
+  "acceptance_boundaries": {
+    "exact_visual_transport": true,
+    "numeric_and_hardcoding_defect_detection_for_this_case": true,
+    "all_visual_quality_checks": false,
+    "general_judge_calibration": false,
+    "formal_scientific_acceptance": false
+  },
+  "future_general_improvement": "Add general explicit checks for label-cell/label-label collisions, clipping and intended-display-size legibility; distinguish actual received pixels from inferred code design. Require complete relevant source locator ranges or honestly bound correspondence claim. Validate on held-out visual artifacts with differing defect types, not repeated tuning of this samechart; no prescribed numeric grades.",
+  "related_audit": "research/benchmark/audit/write_evidence_budget_independent_review_v1.json"
+}

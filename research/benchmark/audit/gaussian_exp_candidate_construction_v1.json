@@ -1,0 +1,665 @@
+{
+ "schema_version": "maintainer-exp-candidate-construction-1",
+ "created_at": "2026-09-24T18:32:22.608932+00:00",
+ "role": "material_pipeline maintainer-side collaborator (Claude Code); not a benchmark role; no construction model used",
+ "status": "maintainer_constructed_candidate_development_only_not_admitted",
+ "package_dir": "research/benchmark/materials/pilot_v3/maintainer_candidates_v1/gaussian-exp/",
+ "task_id": "gaussian-onestep-hermite-alpha-exp-maint-v1",
+ "paper_id": "iclr2025-tNn6Hskmti",
+ "split": "development",
+ "registered_in_catalog": false,
+ "actions": {
+  "model_calls": 0,
+  "network_requests": 0,
+  "author_code_executed": false,
+  "author_code_or_paper_text_released": false,
+  "docker_runs": 3,
+  "docker_runs_note": "run1 (checks + cross-implementation + baseline 2 reps), run2 (determinism rerun, no smoke mount), run3_export (hardened flags, starter mounted from the loader export, 3 reps); all --rm, none left",
+  "new_images_built": 0,
+  "source_cache_modified": false,
+  "existing_files_modified": false,
+  "agents_md_modified": false,
+  "call_ledger": "unchanged; 0 model calls"
+ },
+ "inputs_read": [
+  {
+   "path": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json",
+   "sha256": "e3e25eca432b627e905d31172ee811eb90c58bf2f2aad5ec6db840fb8ef812e3"
+  },
+  {
+   "path": "research/benchmark/audit/gaussian_source_contract_review_v1.json",
+   "sha256": "3dd3078f92fc6edbde4329f12d3d9a49c5081eea512e5b27d62bd3793f88be7a"
+  },
+  {
+   "path": "research/benchmark/audit/gaussian_fulltext_prescreen_v1.json",
+   "sha256": "5b664479f0c1723e4d2ad4d0aeb94d07464be7f3297ceb78b98433eb334f7af1"
+  },
+  {
+   "path": "research/benchmark/audit/material_candidates_root_review_v2.json",
+   "sha256": "f5b757a5c3fd50c72dc70aa315f7dbeda3d44dbfb6d8e1885be1370ea0c3c5ba"
+  },
+  {
+   "path": "research/source_cache/benchmark_materials/gaussian_prescreen_v1/gaussian-mixtures-paper-v1.source",
+   "sha256": "d15f2111f9184be9793656426491ac5fcdd664f5d207e7383922b1f503bae45c"
+  },
+  {
+   "path": "research/source_cache/benchmark_materials/gaussian_code_prescreen_v1/gaussian-mixtures-fig1b-notebook.source",
+   "sha256": "2ee40dc7b4ed295cb65971abc7e8859e390c6c7b8f52e08c9d6212c8c8c2229e"
+  },
+  {
+   "path": "research/source_cache/benchmark_materials/gaussian_code_prescreen_v1/gaussian-mixtures-license.source",
+   "sha256": "c37394bf8c309277376abad59a744a7fc88a40237584b3487ac22d5054638219"
+  },
+  {
+   "path": "research/benchmark/materials/next_batch_proposals_v1/gaussian_cpu_smoke/smoke.py",
+   "sha256": "af1bdd0efc6d574e9a2f01a81bb4f6dfcbe4222e2a222af2a4c4a1c76a2483e1"
+  },
+  {
+   "path": "research/benchmark/materials/pilot_v3/collection_candidates_v2/iv-exp/task.json",
+   "sha256": "cab859716abeeecd1df04a1161a905239c9883674dc13d17047f66476fc4c024"
+  }
+ ],
+ "reading_scope": "Paper HTML S2, S4, S5 (Thm4, Eq16-17, Fig1 caption) and S6 re-read with math alttext; notebook cells 5, 9, 13 re-read for constants; IV EXP package and loaders (materials.check_task/export_task, artifact_policy.collection_policy, providers.validate_application_schema, container_executor/executor_broker preconditions, run_container_stage_development.evidence_for_run).",
+ "files": {
+  "task.json": "7739fcbf5f2db1e7c21bbebd19d54e0f5b209c710a420e0e847181d296b01ea5",
+  "assets/task.md": "59be8dcc33a6b279e92e199abbe652cf3ef30c120ad1d06d2f74014f2a05c180",
+  "assets/base_resources.py": "393d2e1d0b348b9ace558f5f83bf4e94a870a3ea3dcccec0b2fda5348c3a087c",
+  "assets/NOTICE.txt": "7bd3eac6e9d85c50f436eda963132c1b9cbed0bfa2123fbba29abf5f890d6fec",
+  "private/reference.json": "e89406256290ae20f3bd068b30cd2fba7c70220673968b99f8f216c618d40375",
+  "maintainer_checks/build_package.py": "402d56f5232456e2575e974921efa016270315e61802c8b3923aea1c838cbc80",
+  "maintainer_checks/verify_starter.py": "29f85f785868399e92333fb0e8a6c69963fc37f8c64500cffb7033b49ebf69e5",
+  "maintainer_checks/check_export.py": "1429156008368bd26b489a262583bafb76b97b123f200ac16d309b4f085eb0a6"
+ },
+ "format_conformance": "Mirrors collection_candidates_v2/iv-exp: task.json (schema 0.1; public fields exactly PUBLIC_FIELDS; all five gates pending; private block with construction label), public assets/task.md, assets/base_resources.py, assets/NOTICE.txt, private private/reference.json. public_rubric, tools and disk_semantics copied (JSON value) from the IV package; output_contract JSON schema copied with a new description. maintainer_checks/ is outside the asset list and never exported; package root holds no collection_contract_provenance.json because this is a first version, not a migration.",
+ "design_decisions": [
+  {
+   "id": "research_question",
+   "decision": "One question: at beta=0.74, n=m=k=1000, does the Hermite model (D=3, l=4) track the one-step NN held-out MSE across alpha in [0,1] for ReLU/tanh/sigmoid, where does agreement degrade, and how does NN error vary with alpha. H1 agreement, H2 regime dependence, H3 alpha trend; each states object/condition/reference/expected direction; negative/qualified outcomes explicitly acceptable.",
+   "source": "paper S5 Thm4; S6 alpha paragraph (private only); research/benchmark/audit/gaussian_source_contract_review_v1.json#method_and_claim_boundary"
+  },
+  {
+   "id": "finite_size_scope",
+   "decision": "Stated as a finite-size CPU study that cannot prove/refute the asymptotic theorem; ReLU vs A.8 and A.9 caveats stated; smaller equal-ratio sizes only as labelled supplementary diagnostics.",
+   "source": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json#activation_assumption_A8_relu; research/benchmark/audit/gaussian_source_contract_review_v1.json#historical_gpu_and_cpu_scope"
+  },
+  {
+   "id": "training_metric_eq5",
+   "decision": "Readout defined by normalized Eq5 with closed form (Phi Phi^T + lambda m I) w = Phi y; training metric named 'readout objective'; Eq6 discrepancy kept private (U_EQ6).",
+   "source": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json#training_objective_normalization_eq5_vs_eq6"
+  },
+  {
+   "id": "metric_full_mse",
+   "decision": "Primary metric Eq7 full MSE on fresh test samples; test size is a solver choice; half-MSE provenance kept private.",
+   "source": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json#generalization_metric_mse_vs_half_mse"
+  },
+  {
+   "id": "eq4_literal",
+   "decision": "Eq4 restated in new notation with eta = n^{beta alpha}; starter first_layer_step implements it (finite-difference verified).",
+   "source": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json#first_layer_step_loss_scaling"
+  },
+  {
+   "id": "degree_index",
+   "decision": "Distinct names D=3 and l=D+1=4; condition 2/3 < 0.74 < 3/4 stated; normalization h_j/j! and probabilists' He_j stated; Fig1 caption l=5 kept private.",
+   "source": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json#hermite_degree_index_l"
+  },
+  {
+   "id": "surrogate_timing_noise",
+   "decision": "F_hat computed once with original sigma/sigma'; models share structure, F, w, first-stage sample, F_hat, readout sample and test inputs; residual term mandatory; per-element independent noise fresh for train/test, publicly labelled as the task's fixed interpretation; b = sqrt(n/Tr(Sigma)).",
+   "source": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json#hermite_replacement_timing_and_noise"
+  },
+  {
+   "id": "repeat_unit",
+   "decision": "Replicate unit/count/seeds and which random sources are resampled are solver choices, declared with the estimand; notebook's conditional-on-data design kept private and not called an author bug.",
+   "source": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json#repeat_unit_fixed_data_per_alpha"
+  },
+  {
+   "id": "scaling_constants",
+   "decision": "theta = n^{beta(1-alpha)} for both components, eta = n^{beta alpha}, ||xi|| = 1/sqrt(||Sigma||) fixed publicly; text states eta ||Sigma|| is of order n^beta, not equal.",
+   "source": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json#scaling_constants_eta_theta_sigma_norm"
+  },
+  {
+   "id": "iid_sampling",
+   "decision": "Primary data model iid component assignment (literal Eq2); stratified exactly-half only as declared variant.",
+   "source": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json#mixture_sampling_stratified_vs_iid"
+  },
+  {
+   "id": "starter_split",
+   "decision": "Starter supplies structure/sampling, init, Eq4 step, features, Eq5 ridge, readout objective, MSE, generic fit_and_evaluate and the ORIGINAL-activation NN reference; NO Hermite coefficients, h*, b helper or surrogate. No author code or paper text. Spike directions as normalized Gaussians (same g g^T law as the notebook's QR column) and closed-form ||Sigma|| (checked against eigvalsh).",
+   "source": "AGENTS §3.3 起始代码与环境; research/benchmark/audit/gaussian_fulltext_prescreen_v1.json#cpu_candidate.starting_input_policy"
+  },
+  {
+   "id": "no_design_prescription",
+   "decision": "alpha grid, replicate count, seeds, test size, quadrature method, agreement criterion, diagnostics and aggregation left to the solver; only method semantics and necessary constants fixed; the source 20x20 design recorded privately as not required.",
+   "source": "research/benchmark/audit/gaussian_source_contract_review_v1.json; AGENTS §0.2.2 (reviewer overreach on repeats/grids rejected)"
+  },
+  {
+   "id": "joint_parameterization_caveat",
+   "decision": "task.md states that alpha jointly changes eta, theta, ||Sigma||, Tr(Sigma), b and xi scale; H3 asks what the trend does and does not imply. The maintainer's label-scale observation is NOT disclosed publicly (the hint 'label second moment' was removed from task.md after leak check v3).",
+   "source": "maintainer baseline run1/run3_export"
+  },
+  {
+   "id": "resources",
+   "decision": "Container 2 CPU / 2048 MiB / 512 MiB tmpfs disk / 128 PIDs / 1800 s; execution_budget 16 model / 120 tool calls / 1800 s; artifact collection 64 MiB / 1000 entries; budget_status maintainer_development_candidate_pending_real_pilot.",
+   "justification": "Adjudication smoke: median 0.358 s per fit (48 fits) at n=m=k=1000 in the same 2-CPU/2 GiB envelope; source-scale 2400-fit sweep extrapolated ~866 s (545-1130 s), peak RSS ~0.46 GiB. This starter: NN fit 0.19-0.32 s, setup ~0.13 s, peak RSS ~0.29 GiB. 1800 s (vs IV 1200 s) leaves room for model/tool latency (IV 16-call pilot used 737 s with 14 model calls) plus a sweep up to roughly source scale; 16 model calls matches the user-approved IV EXP development budget. Disk 512 MiB since outputs are small and tmpfs is memory-charged. Untested with a real agent.",
+   "source": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json#cpu_smoke, #extrapolation_labelled; AGENTS §0.2.5"
+  },
+  {
+   "id": "image",
+   "decision": "Reuse locked IV image sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01 (python 3.12.14, numpy 2.3.3 incl. numpy.polynomial.hermite_e, no scipy), sufficient for the starter and a NumPy surrogate (adjudication smoke used hermegauss in the same image). No new image built.",
+   "source": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json#cpu_smoke.image"
+  }
+ ],
+ "container_smoke": {
+  "image": {
+   "tag": "mrhbench-pilot/iv:860c335d9324",
+   "id": "sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01",
+   "arch": "amd64"
+  },
+  "commands": [
+   {
+    "run": "run1",
+    "cmd": "docker run --rm --network none --cpus 2 --memory 2g --pids-limit 128 --read-only --tmpfs /tmp --user 10001:10001 -e OPENBLAS_NUM_THREADS=2 -e OMP_NUM_THREADS=2 -v <pkg>/assets:/starter:ro -v <pkg>/maintainer_checks:/checks:ro -v <next_batch_proposals_v1>/gaussian_cpu_smoke:/smoke:ro mrhbench-pilot/iv:860c335d9324 python /checks/verify_starter.py",
+    "exit": 0,
+    "stderr_bytes": 0,
+    "output": "D:/mrhbench-local-pilot/gaussian-exp-candidate-20260924-001/run1.json",
+    "output_sha256": "df375e7095d6bc232b33e848703ab49a5b1c5b5f03524ebef107aa6259bcc923"
+   },
+   {
+    "run": "run2",
+    "cmd": "docker run --rm --network none --cpus 2 --memory 2g --pids-limit 128 --read-only --tmpfs /tmp --user 10001:10001 -e OPENBLAS_NUM_THREADS=2 -e OMP_NUM_THREADS=2 -v <pkg>/assets:/starter:ro -v <pkg>/maintainer_checks:/checks:ro mrhbench-pilot/iv:860c335d9324 python /checks/verify_starter.py",
+    "exit": 0,
+    "stderr_bytes": 0,
+    "output": "D:/mrhbench-local-pilot/gaussian-exp-candidate-20260924-001/run2.json",
+    "output_sha256": "8d001a2e7beca30e1903507e10c66b8b9d2b580f47626e240273d55af032e108",
+    "result": "baseline rows bit-identical to run1 (test/train MSE, theta, eta, sigma_norm)"
+   },
+   {
+    "run": "run3_export",
+    "cmd": "docker run --rm --network none --cpus 2 --memory 2g --pids-limit 128 --read-only --tmpfs /tmp --tmpfs /work --workdir /work --cap-drop ALL --security-opt no-new-privileges=true --user 10001:10001 -e OPENBLAS_NUM_THREADS=2 -e OMP_NUM_THREADS=2 -v <loader-check-v3>/export-public/assets/assets:/starter:ro -v <pkg>/maintainer_checks:/checks:ro -v <gaussian_cpu_smoke>:/smoke:ro mrhbench-pilot/iv:860c335d9324 python /checks/verify_starter.py '{\"reps\": 3}'",
+    "exit": 0,
+    "stderr_bytes": 0,
+    "output": "D:/mrhbench-local-pilot/gaussian-exp-candidate-20260924-001/run3_export.json",
+    "output_sha256": "c0924aae598390a669916f85927df3bf0e7d0e41ffa618164fd785a59644dec9",
+    "result": "replicates 0-1 identical to run1",
+    "note": "exported base_resources.py bytes 393d2e1d... equal the final package; base_resources.py was not changed after any run (later edits: task.md wording, build script, private reference)."
+   }
+  ],
+  "algebraic_checks": {
+   "eq4_G_plus_grad_half_mse_max_abs_relu": 1.8202467311212445e-11,
+   "eq4_G_max_abs_relu": 0.04428542825074444,
+   "eq4_G_plus_grad_half_mse_max_abs_tanh": 1.9757862013136673e-11,
+   "eq4_G_max_abs_tanh": 0.05858699499774522,
+   "eq4_G_plus_grad_half_mse_max_abs_sigmoid": 2.2064822191580902e-11,
+   "eq4_G_max_abs_sigmoid": 0.017140466655334474,
+   "ridge_eq5_stationarity_max_abs": 1.214306433183765e-17,
+   "sigmoid_vs_textbook_max_abs": 2.220446049250313e-16,
+   "sigma_norm_and_trace_closed_form_max_abs_err": 5.329070518200751e-15,
+   "theta_40": 15.329373064271778,
+   "component_spike_variance_rel_err_max": 0.008488979341753522,
+   "component_fraction_iid": 0.500165,
+   "stratified_counts": [
+    500,
+    501
+   ],
+   "xi_T_x_second_moment_empirical": 0.12786361175963298
+  },
+  "cross_implementation_vs_adjudication_smoke": {
+   "first_step_max_abs_diff_relu": 0.0,
+   "ridge_max_abs_diff_relu": 0.0,
+   "first_step_max_abs_diff_tanh": 2.7755575615628914e-17,
+   "ridge_max_abs_diff_tanh": 8.43769498715119e-15,
+   "first_step_max_abs_diff_sigmoid": 2.7755575615628914e-17,
+   "ridge_max_abs_diff_sigmoid": 1.9251267247000214e-13
+  },
+  "baseline_nn_rows_run3": [
+   {
+    "alpha": 0.0,
+    "replicate": 0,
+    "activation": "relu",
+    "theta": 165.958691,
+    "eta": 1.0,
+    "test_mse": 0.00395,
+    "train_mse": 0.000828,
+    "label_variance_test": 0.005022,
+    "label_second_moment_test": 0.007297
+   },
+   {
+    "alpha": 0.0,
+    "replicate": 0,
+    "activation": "tanh",
+    "theta": 165.958691,
+    "eta": 1.0,
+    "test_mse": 0.006948,
+    "train_mse": 0.001574,
+    "label_variance_test": 0.005022,
+    "label_second_moment_test": 0.007297
+   },
+   {
+    "alpha": 0.0,
+    "replicate": 0,
+    "activation": "sigmoid",
+    "theta": 165.958691,
+    "eta": 1.0,
+    "test_mse": 0.003566,
+    "train_mse": 0.002158,
+    "label_variance_test": 0.005022,
+    "label_second_moment_test": 0.007297
+   },
+   {
+    "alpha": 0.0,
+    "replicate": 1,
+    "activation": "relu",
+    "theta": 165.958691,
+    "eta": 1.0,
+    "test_mse": 0.003645,
+    "train_mse": 0.000836,
+    "label_variance_test": 0.004258,
+    "label_second_moment_test": 0.00618
+   },
+   {
+    "alpha": 0.0,
+    "replicate": 1,
+    "activation": "tanh",
+    "theta": 165.958691,
+    "eta": 1.0,
+    "test_mse": 0.006233,
+    "train_mse": 0.001311,
+    "label_variance_test": 0.004258,
+    "label_second_moment_test": 0.00618
+   },
+   {
+    "alpha": 0.0,
+    "replicate": 1,
+    "activation": "sigmoid",
+    "theta": 165.958691,
+    "eta": 1.0,
+    "test_mse": 0.00325,
+    "train_mse": 0.002032,
+    "label_variance_test": 0.004258,
+    "label_second_moment_test": 0.00618
+   },
+   {
+    "alpha": 0.0,
+    "replicate": 2,
+    "activation": "relu",
+    "theta": 165.958691,
+    "eta": 1.0,
+    "test_mse": 0.003893,
+    "train_mse": 0.001002,
+    "label_variance_test": 0.004069,
+    "label_second_moment_test": 0.006066
+   },
+   {
+    "alpha": 0.0,
+    "replicate": 2,
+    "activation": "tanh",
+    "theta": 165.958691,
+    "eta": 1.0,
+    "test_mse": 0.006216,
+    "train_mse": 0.001668,
+    "label_variance_test": 0.004069,
+    "label_second_moment_test": 0.006066
+   },
+   {
+    "alpha": 0.0,
+    "replicate": 2,
+    "activation": "sigmoid",
+    "theta": 165.958691,
+    "eta": 1.0,
+    "test_mse": 0.003321,
+    "train_mse": 0.002172,
+    "label_variance_test": 0.004069,
+    "label_second_moment_test": 0.006066
+   },
+   {
+    "alpha": 0.526316,
+    "replicate": 0,
+    "activation": "relu",
+    "theta": 11.261052,
+    "eta": 14.737406,
+    "test_mse": 0.049236,
+    "train_mse": 0.010011,
+    "label_variance_test": 0.049349,
+    "label_second_moment_test": 0.071704
+   },
+   {
+    "alpha": 0.526316,
+    "replicate": 0,
+    "activation": "tanh",
+    "theta": 11.261052,
+    "eta": 14.737406,
+    "test_mse": 0.074819,
+    "train_mse": 0.017528,
+    "label_variance_test": 0.049349,
+    "label_second_moment_test": 0.071704
+   },
+   {
+    "alpha": 0.526316,
+    "replicate": 0,
+    "activation": "sigmoid",
+    "theta": 11.261052,
+    "eta": 14.737406,
+    "test_mse": 0.040161,
+    "train_mse": 0.024307,
+    "label_variance_test": 0.049349,
+    "label_second_moment_test": 0.071704
+   },
+   {
+    "alpha": 0.526316,
+    "replicate": 1,
+    "activation": "relu",
+    "theta": 11.261052,
+    "eta": 14.737406,
+    "test_mse": 0.047053,
+    "train_mse": 0.009804,
+    "label_variance_test": 0.050441,
+    "label_second_moment_test": 0.073741
+   },
+   {
+    "alpha": 0.526316,
+    "replicate": 1,
+    "activation": "tanh",
+    "theta": 11.261052,
+    "eta": 14.737406,
+    "test_mse": 0.076732,
+    "train_mse": 0.016069,
+    "label_variance_test": 0.050441,
+    "label_second_moment_test": 0.073741
+   },
+   {
+    "alpha": 0.526316,
+    "replicate": 1,
+    "activation": "sigmoid",
+    "theta": 11.261052,
+    "eta": 14.737406,
+    "test_mse": 0.040502,
+    "train_mse": 0.023942,
+    "label_variance_test": 0.050441,
+    "label_second_moment_test": 0.073741
+   },
+   {
+    "alpha": 0.526316,
+    "replicate": 2,
+    "activation": "relu",
+    "theta": 11.261052,
+    "eta": 14.737406,
+    "test_mse": 0.052195,
+    "train_mse": 0.010576,
+    "label_variance_test": 0.053207,
+    "label_second_moment_test": 0.077015
+   },
+   {
+    "alpha": 0.526316,
+    "replicate": 2,
+    "activation": "tanh",
+    "theta": 11.261052,
+    "eta": 14.737406,
+    "test_mse": 0.081406,
+    "train_mse": 0.019905,
+    "label_variance_test": 0.053207,
+    "label_second_moment_test": 0.077015
+   },
+   {
+    "alpha": 0.526316,
+    "replicate": 2,
+    "activation": "sigmoid",
+    "theta": 11.261052,
+    "eta": 14.737406,
+    "test_mse": 0.043695,
+    "train_mse": 0.026671,
+    "label_variance_test": 0.053207,
+    "label_second_moment_test": 0.077015
+   },
+   {
+    "alpha": 1.0,
+    "replicate": 0,
+    "activation": "relu",
+    "theta": 1.0,
+    "eta": 165.958691,
+    "test_mse": 0.191961,
+    "train_mse": 0.040123,
+    "label_variance_test": 0.222875,
+    "label_second_moment_test": 0.325593
+   },
+   {
+    "alpha": 1.0,
+    "replicate": 0,
+    "activation": "tanh",
+    "theta": 1.0,
+    "eta": 165.958691,
+    "test_mse": 0.31481,
+    "train_mse": 0.068814,
+    "label_variance_test": 0.222875,
+    "label_second_moment_test": 0.325593
+   },
+   {
+    "alpha": 1.0,
+    "replicate": 0,
+    "activation": "sigmoid",
+    "theta": 1.0,
+    "eta": 165.958691,
+    "test_mse": 0.175546,
+    "train_mse": 0.098056,
+    "label_variance_test": 0.222875,
+    "label_second_moment_test": 0.325593
+   },
+   {
+    "alpha": 1.0,
+    "replicate": 1,
+    "activation": "relu",
+    "theta": 1.0,
+    "eta": 165.958691,
+    "test_mse": 0.189179,
+    "train_mse": 0.038665,
+    "label_variance_test": 0.216265,
+    "label_second_moment_test": 0.320669
+   },
+   {
+    "alpha": 1.0,
+    "replicate": 1,
+    "activation": "tanh",
+    "theta": 1.0,
+    "eta": 165.958691,
+    "test_mse": 0.315194,
+    "train_mse": 0.073444,
+    "label_variance_test": 0.216265,
+    "label_second_moment_test": 0.320669
+   },
+   {
+    "alpha": 1.0,
+    "replicate": 1,
+    "activation": "sigmoid",
+    "theta": 1.0,
+    "eta": 165.958691,
+    "test_mse": 0.172891,
+    "train_mse": 0.108048,
+    "label_variance_test": 0.216265,
+    "label_second_moment_test": 0.320669
+   },
+   {
+    "alpha": 1.0,
+    "replicate": 2,
+    "activation": "relu",
+    "theta": 1.0,
+    "eta": 165.958691,
+    "test_mse": 0.189197,
+    "train_mse": 0.038272,
+    "label_variance_test": 0.232604,
+    "label_second_moment_test": 0.337774
+   },
+   {
+    "alpha": 1.0,
+    "replicate": 2,
+    "activation": "tanh",
+    "theta": 1.0,
+    "eta": 165.958691,
+    "test_mse": 0.321362,
+    "train_mse": 0.070861,
+    "label_variance_test": 0.232604,
+    "label_second_moment_test": 0.337774
+   },
+   {
+    "alpha": 1.0,
+    "replicate": 2,
+    "activation": "sigmoid",
+    "theta": 1.0,
+    "eta": 165.958691,
+    "test_mse": 0.178935,
+    "train_mse": 0.112159,
+    "label_variance_test": 0.232604,
+    "label_second_moment_test": 0.337774
+   }
+  ],
+  "timing_run3": {
+   "checks_s": 0.37403730899995935,
+   "baseline_total_s": 8.331396225999924,
+   "nn_fit_seconds_min_median_max": [
+    0.21138095200012685,
+    0.2695600120000563,
+    0.31611079700041955
+   ],
+   "nn_fit_count": 27
+  },
+  "env_run3": {
+   "python": "3.12.14 (main, Sep 19 2026, 01:04:57) [GCC 14.2.0]",
+   "numpy": "2.3.3",
+   "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+   "os_cpu_count": 20,
+   "OPENBLAS_NUM_THREADS": "2",
+   "uid": 10001,
+   "max_rss_kib": 287260
+  },
+  "interpretation": "Starter runs under the package limits and reproduces adjudicated semantics (Eq4 = negative gradient of half-MSE to ~2e-11; Eq5 stationarity ~1e-17; closed-form ||Sigma||/trace exact to 5e-15; spike variance 1+theta within 0.85%; identical to the independent adjudication smoke to 2e-13). Baseline NN numbers are sanity values, not findings; no Hermite model was run for this package."
+ },
+ "loader_and_export": {
+  "controller_python": "D:/mrhbench-local-pilot/controller-venv/Scripts/python.exe",
+  "script": "research/benchmark/materials/pilot_v3/maintainer_candidates_v1/gaussian-exp/maintainer_checks/check_export.py",
+  "final_run": "D:/mrhbench-local-pilot/gaussian-exp-candidate-20260924-001/loader-check-v4/export_leak_check.json",
+  "final_run_sha256": "500ecfb30de6d8919cb491ffa7cb5592e87c8e499c6ae00291562de4fe57de60",
+  "results": {
+   "load_task": "ok",
+   "pending_gates": [
+    "source_semantics",
+    "rights",
+    "input_leakage",
+    "runtime",
+    "judge_behavior"
+   ],
+   "output_contract_schema": "valid",
+   "collection_policy": {
+    "excluded_top_level_rules": [
+     ".broker",
+     ".process-*"
+    ],
+    "max_entries": 1000,
+    "max_total_bytes": 67108864,
+    "scope": "all_noninternal_work_files_and_directories",
+    "version": 1
+   },
+   "formal_rejected": "Task not accepted for formal runs: source_semantics, rights, input_leakage, runtime, judge_behavior",
+   "hidden_audience_rejected": "Audience cannot access this split",
+   "budget_from_view": {
+    "limits": {
+     "model": 16,
+     "tool": 120
+    },
+    "wall": 1800
+   },
+   "deadlines_consistent": true,
+   "exported_files": [
+    "assets/assets/NOTICE.txt",
+    "assets/assets/base_resources.py",
+    "assets/assets/task.md",
+    "task.json"
+   ],
+   "exported_file_sha256": {
+    "assets/assets/NOTICE.txt": "7bd3eac6e9d85c50f436eda963132c1b9cbed0bfa2123fbba29abf5f890d6fec",
+    "assets/assets/base_resources.py": "393d2e1d0b348b9ace558f5f83bf4e94a870a3ea3dcccec0b2fda5348c3a087c",
+    "assets/assets/task.md": "59be8dcc33a6b279e92e199abbe652cf3ef30c120ad1d06d2f74014f2a05c180",
+    "task.json": "f20680ddc18f334f7acda6b757166a04060ecaa5f0358120db294e81a50aaf8d"
+   },
+   "private_keys_in_view": []
+  },
+  "leak_check": {
+   "phrases_checked": [
+    "Monte Carlo",
+    "l=5",
+    "linspace",
+    "NB_TRIALS",
+    "half the empirical",
+    "half-MSE",
+    "half MSE",
+    "Fig1b",
+    "Figure",
+    "rises as alpha",
+    "generalization error rises",
+    "data-structure strength",
+    "High data spread",
+    "align closely",
+    "label second moment",
+    "label variance",
+    "non-monotone",
+    "0.0036",
+    "0.189",
+    "Fashion",
+    "cGAN",
+    "maintainer_observations",
+    "judge_checks",
+    "private_facts",
+    "R_ALPHA_TREND",
+    "R_AGREEMENT",
+    "S_NOTEBOOK_DESIGN",
+    "U_EQ6",
+    "Eq6",
+    "reference.json",
+    "private-reference",
+    "source_cache",
+    "5m",
+    "conditional on fixed data",
+    "paper_id",
+    "iclr2025",
+    "tNn6Hskmti",
+    "KU-MLIP/2-Layer",
+    "Fig1b-alpha",
+    "ipynb",
+    "20 trials",
+    "invalidating",
+    "acceptable_outcomes",
+    "construction_audit"
+   ],
+   "phrase_hits": {},
+   "private_statement_prefix_hits": {
+    "private_facts": [],
+    "observations": [],
+    "judge_checks": []
+   }
+  },
+  "history": [
+   "Pre-v3 export hit 'Figure 2'/'Fashion'/'cGAN' via the public M_SCOPE fact -> reworded.",
+   "loader-check-v3 hit 'label second moment' in task.md -> removed as an over-assisting hint. Superseded exports remain on D: only.",
+   "Full benchmark offline suite after construction: 317 tests OK (62 s); no test references this package."
+  ],
+  "limits": "String/phrase grep and statement-prefix matching only; not a semantic leakage review; input_leakage gate stays pending."
+ },
+ "storage": {
+  "package_logical_bytes": 88442,
+  "d_drive_workdir_note": "D:/mrhbench-local-pilot/gaussian-exp-candidate-20260924-001 (~0.1 MB: run outputs, exports, this generator); no image layers added"
+ },
+ "open_issues": [
+  "Rights review pending: repository MIT (KU-MLIP) scope over newly authored assets not asserted; arXiv non-exclusive license is not open redistribution; NOTICE names the pinned repository commit.",
+  "Camera-ready alignment pending: arXiv 2503.00856v1 not asserted equal to the ICLR final; earliest disclosure unverified.",
+  "Judge and executor not run on this package; runtime/source_semantics/input_leakage/judge_behavior gates pending; an independent semantic review of task.md against sources has not been done.",
+  "Wall budget 1800 s and 16 model calls are unpiloted development candidates; 1800 s differs from IV's 1200 s and needs root/user confirmation.",
+  "Image reused from the IV package; root review v2 said a Gaussian package would need its own locked environment -> root to decide whether reuse (numpy-only, same digest) is acceptable.",
+  "No maintainer Hermite surrogate was run for this package; paired timing relies on the adjudication smoke (same image, same algebra, cross-implementation identical).",
+  "Private observation: absolute Eq7 error is entangled with label scale (~1/||Sigma||) across alpha, so H3 in absolute terms may be supported almost mechanically; the reference treats analysing this as rigor evidence, not a requirement. Root may prefer reframing H3.",
+  "Per-element independent residual noise is an adopted interpretation (paper writes scalar z); disclosed publicly as the task's fixed interpretation.",
+  "beta=0.74 is close to the l=4 upper bound 0.75; finite-size behaviour near the boundary is part of what is tested, not assumed.",
+  "Export path convention assets/assets/... mirrors the IV package (task.md paths are relative to the asset manifest)."
+ ],
+ "not_done": [
+  "No catalog registration (root decides)",
+  "No construction-model comparison",
+  "No formal admission"
+ ]
+}

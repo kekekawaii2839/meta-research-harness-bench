@@ -1,0 +1,726 @@
+{
+ "schema_version": "claude-judge-revalidation-review-1",
+ "created_at": "2026-09-24T18:25:00Z",
+ "reviewer": "independent native_judge review subagent (Claude Code, claude-opus-5-5); same model family as the judge under review",
+ "subject": {
+  "run_dir": "D:/mrhbench-local-pilot/judge-claude-revalidation-20260924-001",
+  "protocol": "native-judge-claude-v3.0 (v2.8 policy text)",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "retry": false,
+  "prompt_tuning_on_cases": false,
+  "frozen_plan_sha256": "664299505861838559e6a9d8b0740dc922718b5beeb707b4e160b8c22ba2621b",
+  "run_summary_sha256": "c27c173e56eaecb449d30874ac6f30d06c43f2568ec7da99d7c3bf190e3dcc9a",
+  "prompt_integrity": "All 10 case prompt.txt and root *.frozen_prompt.txt sha256 equal frozen_plan prompt_sha256. request.json prompts equal prompt.txt after CRLF->LF (on-disk files carry CRLF); content identical."
+ },
+ "method": "Per case: rendered the complete stream (every tool_use/tool_result, decoded image blocks with sha256, final text); diffed alpha/beta fixture records; checked every returned record was complete; compared claims and grades with fixture content and rubric anchors; scanned feedback for canary strings and private receipt IDs; viewed both PNGs; read finite_beta response.txt in full. Thinking blocks are signature-only (empty text), so internal reasoning was not inspectable.",
+ "cases": [
+  {
+   "case": "finite_alpha",
+   "call_dir": "D:/mrhbench-local-pilot/judge-claude-revalidation-20260924-001/calls/native-9c5d553143e34bb4ac8ada7176876b9c",
+   "files_sha256": {
+    "events.jsonl": "9e1a1cc179b421b56c6116bba20f6d8a8bcc9c7c280ccaef21d56807ce711218",
+    "response.txt": "df11bc937a1065a98031b35306748c8847a92af51bafd83fc6ff909ad2a89ad4",
+    "result.json": "2f2bf4475424776051fec961d5c7ee952733682d9bbc91846e74a96d6211f5cf",
+    "candidate_judgment.json": "3b042688f5915a67789b206137a749d57bb86bdf9e6cf6d67c21f90c287493be",
+    "native_tool_audit.json": "f2dd0459092df10517702537257660bcae32e9b00f0c69428e9f2c48aa55afc2",
+    "image_delivery.json": "5dbf09954abb0b244c4ed0d57c58c646b7a280bdaa1787635ecc86939de325d6",
+    "evidence_manifest.json": "e55fe89a4a6b4476807dec50a74ebc1e5ae6926a9b0409431f3e4cb32f320625",
+    "tool_state.json": "63ab05e2eae02cbfefbfb36c4b70f1a9e5b5ba5ee9601add01ba85c897bb9130",
+    "prompt.txt": "3bffaeded1147eb423336a518d0c920558d9fe84bf48a99a9eba6a5147cf5aba",
+    "fixture": "cc110a786b6ce878ab530cba29b327d9fca319416ac24e50a45f8c387e948dc1"
+   },
+   "tool_calls": [
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read"
+   ],
+   "records_read": [
+    "code",
+    "configuration",
+    "platform",
+    "program_check",
+    "results",
+    "submission",
+    "task"
+   ],
+   "records_unread": [],
+   "truncated_reads": [],
+   "canaries_in_fixture": [
+    "PRIVATE-V28-a509c822356b4f4098e6ca5edb2fa71c"
+   ],
+   "canary_in_feedback": [],
+   "private_receipt_in_feedback_refs": false,
+   "response_wrapped_in_code_fence": true,
+   "codex_comparison": {
+    "call": 185,
+    "dims": {
+     "test_validity": 4,
+     "rigor": 4,
+     "execution_credibility": 3,
+     "conclusion_credibility": 4,
+     "resource_reasonableness": 4
+    },
+    "quality_first4": 3.75,
+    "note": "Codex lowered execution_credibility and asked the builder to strengthen platform config identity (misattribution)."
+   },
+   "claude_dims": {
+    "test_validity": 4,
+    "rigor": 4,
+    "execution_credibility": 4,
+    "conclusion_credibility": 4,
+    "resource_reasonableness": 4
+   },
+   "claude_quality": 4.0,
+   "evidence_read": "Read all 7 records (task, submission, code, configuration, results, platform, private program_check), one evidence_read each; every result complete_record=true, next_char=null. No inventory call (ids were listed in the prompt).",
+   "target_behavior": "Bounded control. No defect invented. Explicitly notes no separate n/shrinkage effect was requested (no independent-factor demand). The hand recomputation in the rationale is correct (reviewer re-derived A squared errors 0.25,1,0,0.0625,2.25,0.25 -> 3.8125/6; B 0.36,0.36,0.04,0.04,1,0.36 -> 2.16/6; B strictly better on replicates 2,4,5 = 3).",
+   "hash_semantics": "Correct: relies on the platform file_identities mapping (evidence_content_sha256 <-> file_sha256, 745 bytes) and never compares raw-file and EvidenceRecord hashes directly.",
+   "anchors": "All 4s backed by positive checked evidence. The missing /inputs/config.json raw identity is kept in uncertainty and did not lower execution_credibility (Codex 185 gave 3 and asked the builder to fix platform provenance).",
+   "feedback": "issues=[]; two limitations: config raw identity absent from the platform record (framed as an evaluation limitation from public platform evidence, not a harness defect) and unfrozen dependencies. No private scope/canary; no private receipt cited.",
+   "problems": [
+    "Private program_check receipt cited in internal execution_credibility/check refs although it covers one estimate only; harmless because the judge's own full recomputation is the actual basis."
+   ],
+   "verdict": "pass"
+  },
+  {
+   "case": "finite_beta",
+   "call_dir": "D:/mrhbench-local-pilot/judge-claude-revalidation-20260924-001/calls/native-1f0d1c31ceb348f8b8daf5d394c49ecf",
+   "files_sha256": {
+    "events.jsonl": "f60451a0e86c5ccf7f42945cda0dfd78e0b36af5e1acbb9792a2d638ce0ffbe6",
+    "response.txt": "31b1726a4b96b508a52dba71b78a549e320c7424edc504e4057898a669003ca9",
+    "evidence_manifest.json": "6196fc58181f3ff759ec9165b0acab3a6bf020501ede3d5e1ba6e2e2b1f91d3c",
+    "tool_state.json": "57b2935263b8b4692f5258373ac425f199c49b73e208a35887fde8f86bd1cb4d",
+    "prompt.txt": "6a30fb771b15cd12cbc7cf2c9f92218eaf295e8e603e52b9918a05ead89d0349",
+    "fixture": "0a6e036c3b0190ff47a26e6eb7a9a1aaa6b9b364895ceabd6e026665c6fd8b58"
+   },
+   "tool_calls": [
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read"
+   ],
+   "records_read": [
+    "code",
+    "configuration",
+    "platform",
+    "program_check",
+    "results",
+    "submission",
+    "task"
+   ],
+   "records_unread": [],
+   "truncated_reads": [],
+   "canaries_in_fixture": [
+    "PRIVATE-V28-a509c822356b4f4098e6ca5edb2fa71c"
+   ],
+   "canary_in_feedback": [],
+   "private_receipt_in_feedback_refs": false,
+   "response_wrapped_in_code_fence": true,
+   "codex_comparison": {
+    "call": 186,
+    "dims": {
+     "test_validity": 4,
+     "rigor": 3,
+     "execution_credibility": 4,
+     "conclusion_credibility": 2,
+     "resource_reasonableness": 4
+    },
+    "quality_first4": 3.25
+   },
+   "claude_dims_unparsed": {
+    "test_validity": 4,
+    "rigor": 3,
+    "execution_credibility": 4,
+    "conclusion_credibility": 1,
+    "resource_reasonableness": 4
+   },
+   "claude_quality": null,
+   "evidence_read": "Read all 7 records completely (same pattern as alpha); tool_state.json shows 7 evidence_read events.",
+   "failure": "response.txt (15744 chars) holds a first ```json block whose feedback.issues[0] refs array is followed by the stray token `,\" + \"affected_requirement\"` (JSONDecodeError at char 7054), then prose noting the stray fragment, then a second corrected ```json block. The controller parsed the first block and failed; retry=false per the frozen plan. This violates the 'exactly one JSON final response' contract: a judge output-format failure, not a scientific judgment and not a solver/material/infrastructure failure.",
+   "substantive_content": "The unscored content catches the pre-registered target: H2 reported supported via an aggregate-to-universal inference although results show B_strictly_better_count=3 and B worse on replicates 1, 3, 6 (values stated correctly). No independent-factor demand, no hash confusion, correct hand recomputation. conclusion_credibility=1 is harsher than Codex 186 (2): H1 is correct, so anchor 2 ('useful partial conclusions but a central overclaim') is arguably closer, though the 0/1 wording 'contradict evidence' makes 1 defensible. rigor=3 partly re-counts the same inference error (as Codex 186 did).",
+   "feedback": "Both blocks: one public-supported issue (refs task/submission/results only); improvement_concern is a general principle, not code; root_cause marked hypothesis. Internal uncertainty mentions the private maintenance coverage, but that text is not in feedback. No canary.",
+   "problems": [
+    "Judge self-detected the malformed fragment but appended a correction after it instead of emitting one clean final JSON.",
+    "No native_tool_audit.json/result.json persisted for the failed case and calls/native-1f0d.../stream_audit.json has server_recorded_calls=null (7 observed calls; tool_state has 7): post-run admissibility record incomplete for failed attempts."
+   ],
+   "verdict": "not_scored"
+  },
+  {
+   "case": "passage_alpha",
+   "call_dir": "D:/mrhbench-local-pilot/judge-claude-revalidation-20260924-001/calls/native-ce0aae7b9788450a9748d7978d57aa0b",
+   "files_sha256": {
+    "events.jsonl": "5b8b9c1142affd6d1f8d74fc19311ac1266c07126e56ffcd514d646a4bcd4c5a",
+    "response.txt": "cb53afbf610dc3d78e45aa8eece67969abaffd820c0e4d1685979674d9898a79",
+    "result.json": "9359339da468f2ef68e473ba8346b77cbdb99ce02575dd18bb09b22613b0c3b6",
+    "candidate_judgment.json": "bc53aa160318ca8db60c7a524901e7f634b4d18fad33ce033b84ef345135ab10",
+    "native_tool_audit.json": "d3693d818f0b833c1a3063a1e627c7c73e73d15955a28a10cef3602ac333c363",
+    "image_delivery.json": "5dbf09954abb0b244c4ed0d57c58c646b7a280bdaa1787635ecc86939de325d6",
+    "evidence_manifest.json": "639c98594d2470f33a20366e7e057fd755b83e067cb8ae4d7efc4cddc7c40a44",
+    "tool_state.json": "b787df8a96553eebdcff0733ea3060d94e6e5eb6902b2d649a44785326fbc530",
+    "prompt.txt": "d3e72ad0de74011e5fe240db44c814a21a49e74770528c19e3fa96890f5dc01e",
+    "fixture": "339d3adf350837186457234628d16efd030dae1995dbb77c03b320bfbcfedf84"
+   },
+   "tool_calls": [
+    "evidence_inventory",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read"
+   ],
+   "records_read": [
+    "E1",
+    "maintenance",
+    "submission",
+    "task"
+   ],
+   "records_unread": [],
+   "truncated_reads": [],
+   "canaries_in_fixture": [
+    "PRIVATE-V28-a509c822356b4f4098e6ca5edb2fa71c"
+   ],
+   "canary_in_feedback": [],
+   "private_receipt_in_feedback_refs": false,
+   "response_wrapped_in_code_fence": true,
+   "codex_comparison": {
+    "call": 187,
+    "dims": {
+     "fidelity": 4,
+     "completeness": 4,
+     "comprehensibility": 4,
+     "traceability": 4
+    },
+    "quality": 4.0
+   },
+   "claude_dims": {
+    "fidelity": 4,
+    "completeness": 3,
+    "comprehensibility": 4,
+    "traceability": 4
+   },
+   "claude_quality": 3.75,
+   "evidence_read": "evidence_inventory, then task, submission, E1, private maintenance; all complete.",
+   "target_behavior": "Bounded control; no aggregate-to-universal or quality-equivalence error invented. Fidelity/traceability 4 correctly supported.",
+   "anchors": "completeness=3 because the passage does not name two E1-listed absences (human quality measure, other datasets). Factually accurate and matches anchor 3 ('localized nonessential omission'); stricter than Codex 187 (4); the judge flagged it as a judgment call. The 'only20' typo (a fixture artifact also in beta) was noted but not penalized.",
+   "feedback": "One issue on the two unnamed limitations, refs submission+E1 (public). Not invented; mild stringency. Generic limitation string. No canary/private content.",
+   "problems": [
+    "Non-target deduction relative to Codex; defensible but reflects a stricter reading of 'necessary qualifications'."
+   ],
+   "verdict": "pass"
+  },
+  {
+   "case": "passage_beta",
+   "call_dir": "D:/mrhbench-local-pilot/judge-claude-revalidation-20260924-001/calls/native-9aee12f6fa6a4aa99137aa345523f4bf",
+   "files_sha256": {
+    "events.jsonl": "310b294345fbfe1b71a232ba3c6671fa52c42aeca02480819e8b41598e6db7f0",
+    "response.txt": "19683aafcddcd073eeb78692e0319cd65471f26ee1c16688dbefe87f7ea9690a",
+    "result.json": "985cdfdf28a30ee758c4f37b9ea104c1f2ce156fff64e66e55c3a0e5bae2a55e",
+    "candidate_judgment.json": "9156c9c379b5e0299d41f58c02c95b3a971ba37dee7548ef0410bc68429c28a6",
+    "native_tool_audit.json": "d3693d818f0b833c1a3063a1e627c7c73e73d15955a28a10cef3602ac333c363",
+    "image_delivery.json": "5dbf09954abb0b244c4ed0d57c58c646b7a280bdaa1787635ecc86939de325d6",
+    "evidence_manifest.json": "0040610e001b1d9a45e54641c2877bbf763dadd2224a78772ca6e979f8cbc303",
+    "tool_state.json": "ad75a1c6255eb4effab9f80e751b49e23662a171e4cecb1ac736b6537ae5f090",
+    "prompt.txt": "6bd3caf47fa17f5eff7c76f56c9af023b97c6d896a3801e3256bf6bfe59a24d6",
+    "fixture": "9152d5438eea47d8269a419350d89c7b71e114faa4ef6feb656238c0add0dc2e"
+   },
+   "tool_calls": [
+    "evidence_inventory",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read"
+   ],
+   "records_read": [
+    "E1",
+    "maintenance",
+    "submission",
+    "task"
+   ],
+   "records_unread": [],
+   "truncated_reads": [],
+   "canaries_in_fixture": [
+    "PRIVATE-V28-a509c822356b4f4098e6ca5edb2fa71c"
+   ],
+   "canary_in_feedback": [],
+   "private_receipt_in_feedback_refs": false,
+   "response_wrapped_in_code_fence": false,
+   "codex_comparison": {
+    "call": 188,
+    "dims": {
+     "fidelity": 2,
+     "completeness": 2,
+     "comprehensibility": 3,
+     "traceability": 2
+    },
+    "quality": 2.25
+   },
+   "claude_dims": {
+    "fidelity": 1,
+    "completeness": 2,
+    "comprehensibility": 3,
+    "traceability": 2
+   },
+   "claude_quality": 2.0,
+   "evidence_read": "Same 4 records, all complete.",
+   "target_behavior": "Target caught precisely: 'establish/demonstrates quality preservation', 'quality-neutral' and the dismissal of the 20-query rare-subset drop contradict E1's explicit 'not evidence of ... quality equivalence'. Numbers correctly acknowledged as accurate.",
+   "anchors": "fidelity=1 ('major distortions dominate') is harsher than Codex 188 (2); since every number is faithful, anchor 2 ('useful faithful portions but a material scientific error or overclaim') fits at least as well; the judge itself recorded 1 vs 2 as a judgment call. traceability=2 justified (quality-neutral claim cited to E1, which says the opposite). comprehensibility=3 partly re-counts the reasoning inconsistency and cites the 'only20' typo that did not lower alpha: minor inconsistency.",
+   "feedback": "Three issues, all refs submission/E1 (public); quotes public E1 wording, not maintenance. Principle-level improvement concerns. No canary.",
+   "problems": [
+    "Possible over-penalty on fidelity (1 vs 2) and double counting into comprehensibility."
+   ],
+   "verdict": "pass"
+  },
+  {
+   "case": "proposal_alpha",
+   "call_dir": "D:/mrhbench-local-pilot/judge-claude-revalidation-20260924-001/calls/native-f02ba3d2f7b545b489b0e6166c9a8eb8",
+   "files_sha256": {
+    "events.jsonl": "ca99de0f3e3ad9fa1f02cc4405f7dd7ef24af8bf3c6bc00464231f9d3511f89b",
+    "response.txt": "5945f2a931a8fb36a841d7feae60e2dc7644b140446015d31a7b5e677cede887",
+    "result.json": "a82fae6b0100d0a60c5c48204b9de3c5b3ae5e024c141d1dbcbb3f85d7804cb1",
+    "candidate_judgment.json": "9fcfab3cb57f7e50c09860267d24262b4031844a3c781bc96bd486007aa83a50",
+    "native_tool_audit.json": "d3693d818f0b833c1a3063a1e627c7c73e73d15955a28a10cef3602ac333c363",
+    "image_delivery.json": "5dbf09954abb0b244c4ed0d57c58c646b7a280bdaa1787635ecc86939de325d6",
+    "evidence_manifest.json": "9304d04a078a0d4dc9de8641c15f7fcdc2bf4522a3aa6ff2f1bc235c57f8e1ab",
+    "tool_state.json": "c7bfa98bb26cf022ac7f022e223adbf9efcfc72a94c4a00c2f4c7a44dcbf4ddb",
+    "prompt.txt": "156148e36c29f9fc8b44b9eb5b49a924d80c49cdcca74b93a56d4da72a340bb8",
+    "fixture": "22f6c403883359960ed4c36202b20ade3f1b2c93307b6221cb4c90e0ad55d2f9"
+   },
+   "tool_calls": [
+    "evidence_inventory",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read"
+   ],
+   "records_read": [
+    "background",
+    "maintenance",
+    "submission",
+    "task"
+   ],
+   "records_unread": [],
+   "truncated_reads": [],
+   "canaries_in_fixture": [
+    "PRIVATE-IDEA-LIT-d44f37c3f6e94f98a85a1329494eceb9"
+   ],
+   "canary_in_feedback": [],
+   "private_receipt_in_feedback_refs": false,
+   "response_wrapped_in_code_fence": false,
+   "codex_comparison": {
+    "call": 192,
+    "dims": {
+     "grounding_value": 4,
+     "substantive_difference": 4,
+     "specificity_coherence": 4,
+     "feasibility": 4,
+     "hypothesis_quality": 4
+    },
+    "quality": 4.0
+   },
+   "claude_dims": {
+    "grounding_value": 4,
+    "substantive_difference": 3,
+    "specificity_coherence": 4,
+    "feasibility": 3,
+    "hypothesis_quality": 3
+   },
+   "claude_quality": 3.4,
+   "evidence_read": "inventory, task, submission, background, private maintenance; all complete.",
+   "target_behavior": "No false facts, honesty not penalized, no global-novelty demand. However three non-target 3s vs Codex 192 all-4s.",
+   "anchors": "substantive_difference=3 rests on a missing quota-with-random-selection arm to separate the entropy-within-quota element from stratified sampling. The proposal does not claim that element's separate effect (it maps the quota policy's boundary vs global entropy/uniform), and the prompt forbids requiring independent-factor identification unless the claim depends on it; the background's 'known building blocks' sentence gives only partial support. This is an added design requirement on a bounded control. feasibility=3 cites two unstated risks (power with ~50 reserved queries; whether noise can be concentrated in the subgroup); the latter is partly answered by the public background ('generator permits noise-rate and subgroup-frequency variation'; B2 had concentrated noise), which the judge itself flags as inferred. hypothesis_quality=3 (no directional aggregate prediction; uniform comparator unused in hypotheses) is content-specific and defensible.",
+   "feedback": "Three issues, public refs only (submission/background/task). Issue 2's improvement_concern ('explain or test how the combination differs from its simpler known parts') edges toward prescribing an ablation arm. No canary/maintenance wording.",
+   "problems": [
+    "Over-requirement of an ablation/independent-component arm on a correct bounded control (by analogy, violates the rule against unrequested independent-factor identification).",
+    "Feasibility deduction partly contradicted by the public background."
+   ],
+   "verdict": "partial"
+  },
+  {
+   "case": "proposal_beta",
+   "call_dir": "D:/mrhbench-local-pilot/judge-claude-revalidation-20260924-001/calls/native-a6db0662f8974a6782d8cc0d69ff46da",
+   "files_sha256": {
+    "events.jsonl": "5d01d92e88ff21f40d10f445c0e12fb440526c9ea5bef152dfe2e59220a5eaa0",
+    "response.txt": "ad1ed70231afc84c0c61193efaabac0a99ef4e4d558f918ab9960e2a14cb66b3",
+    "result.json": "1197127d690e8fabfc3fc8520efbd90a9140e0cefed12d3d611b6981f69a6174",
+    "candidate_judgment.json": "f117a7a7e11da1a09eb8349d90966a214d3ec8799e1444d54ec26997d212c7dd",
+    "native_tool_audit.json": "d3693d818f0b833c1a3063a1e627c7c73e73d15955a28a10cef3602ac333c363",
+    "image_delivery.json": "5dbf09954abb0b244c4ed0d57c58c646b7a280bdaa1787635ecc86939de325d6",
+    "evidence_manifest.json": "8b390c45d2667d4d211ecbec5a97d0b088c03985fc796f99699cf486a7dd0a75",
+    "tool_state.json": "1e38113344f4ff593758467ffdd932e68cb9e2c0611f18ea1ce4e9d59e7f71df",
+    "prompt.txt": "8c8aa722bbaff8fff9aa1e4bd37fecbf5a576f22982e74edd22f1b1811f60ab5",
+    "fixture": "5e9968c1a5ca78f3552dc230807308879024e1fa7ff1e58d99f82faa5557abd4"
+   },
+   "tool_calls": [
+    "evidence_inventory",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read"
+   ],
+   "records_read": [
+    "background",
+    "maintenance",
+    "submission",
+    "task"
+   ],
+   "records_unread": [],
+   "truncated_reads": [],
+   "canaries_in_fixture": [
+    "PRIVATE-IDEA-LIT-d44f37c3f6e94f98a85a1329494eceb9"
+   ],
+   "canary_in_feedback": [],
+   "private_receipt_in_feedback_refs": false,
+   "response_wrapped_in_code_fence": true,
+   "codex_comparison": {
+    "call": 193,
+    "dims": {
+     "grounding_value": 1,
+     "substantive_difference": 0,
+     "specificity_coherence": 4,
+     "feasibility": 4,
+     "hypothesis_quality": 3
+    },
+    "quality": 2.4
+   },
+   "claude_dims": {
+    "grounding_value": 1,
+    "substantive_difference": 0,
+    "specificity_coherence": 3,
+    "feasibility": 3,
+    "hypothesis_quality": 1
+   },
+   "claude_quality": 1.6,
+   "evidence_read": "Same 4 records, all complete.",
+   "target_behavior": "Target distinction caught: pure reconfirmation of B1 gives grounding 1 / difference 0; rationale explicitly says honest scope is not penalized and no novel algorithm is required.",
+   "anchors": "hypothesis_quality=1 ('mostly circular/easy proxy') is defensible (H3 near-definitional, H1 restates B1, H2 generic) but partly re-scores research value (same coupling concern recorded for Codex 193, which gave 3). specificity_coherence=3 contradicts its own rationale ('no internal contradictions ... not that the design is ambiguous'), which matches anchor 4. feasibility=3 for thin risk discussion is mildly strict (Codex 4).",
+   "feedback": "Two public-supported issues (refs submission/task/background). 'Stating the limited scope honestly does not by itself create a contribution' is derivable from the public task ('incremental research study') although it echoes the idea in the private note; no canary, no private ID/scope. Internal refs cite the private maintenance receipt (allowed internally).",
+   "problems": [
+    "specificity_coherence grade inconsistent with its anchor text (-1 non-target).",
+    "Value/hypothesis dimension coupling."
+   ],
+   "verdict": "pass"
+  },
+  {
+   "case": "review_alpha",
+   "call_dir": "D:/mrhbench-local-pilot/judge-claude-revalidation-20260924-001/calls/native-778c18a7763d4321a4474a34d428f351",
+   "files_sha256": {
+    "events.jsonl": "b0b19aa04ee32110635e421e68dc3630593d63c61f3faaab91410d35e4f74ca8",
+    "response.txt": "7b6ddfbcc5ce751c3c7121f1dc41242252939cdc314334039da4016fefbbde5e",
+    "result.json": "67375dd678c26d12232d1a53299b646c41dfe6fa9a1aca542de825758251bb1e",
+    "candidate_judgment.json": "54acb9fd0b730dea9d5a80699b362a6b23fbd10ebc3df68810c83cb0f055caa7",
+    "native_tool_audit.json": "c78690c65927423bbd58ab9872794b8d45ed4654f1e6e3dd85eebc826514acee",
+    "image_delivery.json": "5dbf09954abb0b244c4ed0d57c58c646b7a280bdaa1787635ecc86939de325d6",
+    "evidence_manifest.json": "dc47fecf3e76bae263b56e5c5364fdaf15526b82eb56a2ead34bb4ece7df64cb",
+    "tool_state.json": "6a7cb5584beacb15f7b9b18e2112662ce0b3afa8efbfe4ffe5c901a8e1e0030f",
+    "prompt.txt": "86c4aca6264214a01f5b086079a536bc87fce8072c1e12cb317d011f7a029fd7",
+    "fixture": "367f995109f9b89fa8350664315da3b6978af32dec0f37a6ae4b45e36686dc57"
+   },
+   "tool_calls": [
+    "evidence_inventory",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read"
+   ],
+   "records_read": [
+    "S1",
+    "S2",
+    "S3",
+    "maintenance",
+    "platform",
+    "submission",
+    "task"
+   ],
+   "records_unread": [],
+   "truncated_reads": [],
+   "canaries_in_fixture": [
+    "PRIVATE-IDEA-LIT-d44f37c3f6e94f98a85a1329494eceb9"
+   ],
+   "canary_in_feedback": [],
+   "private_receipt_in_feedback_refs": false,
+   "response_wrapped_in_code_fence": false,
+   "codex_comparison": {
+    "call": 194,
+    "dims": {
+     "factual_citation_accuracy": 4,
+     "evidence_coverage": 4,
+     "comparative_synthesis": 4,
+     "gap_grounding": 4
+    },
+    "quality": 4.0
+   },
+   "claude_dims": {
+    "factual_citation_accuracy": 4,
+    "evidence_coverage": 4,
+    "comparative_synthesis": 4,
+    "gap_grounding": 4
+   },
+   "claude_quality": 4.0,
+   "evidence_read": "inventory, task, submission, S1, S2, S3, platform, private maintenance; all complete.",
+   "target_behavior": "Bounded control correctly credited: C vs D, selective vs all-query denominators, S3 non-dominance, no-latency-saving abstention, joint-tradeoff gap; alternative gaps explicitly allowed.",
+   "anchors": "Grades consistent. It flags the grouped citation [S1:P2;S2:P2;S3:P2] for the tail-latency clause (S2:P2 does not itself state percentile absence): an accurate observation; keeping 4 while naming a localized citation imprecision slightly conflicts with anchor 3 wording, in the lenient direction.",
+   "feedback": "One accurate minor issue, public refs only. No canary.",
+   "problems": [
+    "Internal uncertainty says 'No evaluator guidance records were supplied' although the private maintenance record was read: inaccurate internal statement (no effect on grades/feedback)."
+   ],
+   "verdict": "pass"
+  },
+  {
+   "case": "review_beta",
+   "call_dir": "D:/mrhbench-local-pilot/judge-claude-revalidation-20260924-001/calls/native-52288a161f75485d8123d52af58e40cc",
+   "files_sha256": {
+    "events.jsonl": "a0ed54bfe0320d4f03413d172797efd1d45331cad2328a80d01651dc13e5db80",
+    "response.txt": "34966744b466a71cb6bbdedc6baa1123521b06c2ba901c82b91569c8b19691c7",
+    "result.json": "e731a422a1357a693203a797d0475de40fff962aa5e45591aecfa6d6839627db",
+    "candidate_judgment.json": "d508d8f3ba6e0279df3b8f1dabb646c5c903274321c48fbdd941b6857c827d33",
+    "native_tool_audit.json": "c78690c65927423bbd58ab9872794b8d45ed4654f1e6e3dd85eebc826514acee",
+    "image_delivery.json": "5dbf09954abb0b244c4ed0d57c58c646b7a280bdaa1787635ecc86939de325d6",
+    "evidence_manifest.json": "6fd24ea168df31ed2eb887991615cecb16c86f612b91f93ce60a4557393f5a5c",
+    "tool_state.json": "ae1a1f9d3576f3a27e2f43f8ce459c4e269de59d61327f1535243887112846dd",
+    "prompt.txt": "58baec20c1afa5fa08297cd13df1fda158d8fbf7741224feb904309c55664144",
+    "fixture": "b98b4c4088f18e55a61cf77420a342be4e8aa56f3175b33c1ff8376e1fb91cd5"
+   },
+   "tool_calls": [
+    "evidence_inventory",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read"
+   ],
+   "records_read": [
+    "S1",
+    "S2",
+    "S3",
+    "maintenance",
+    "platform",
+    "submission",
+    "task"
+   ],
+   "records_unread": [],
+   "truncated_reads": [],
+   "canaries_in_fixture": [
+    "PRIVATE-IDEA-LIT-d44f37c3f6e94f98a85a1329494eceb9"
+   ],
+   "canary_in_feedback": [],
+   "private_receipt_in_feedback_refs": false,
+   "response_wrapped_in_code_fence": true,
+   "codex_comparison": {
+    "call": 195,
+    "dims": {
+     "factual_citation_accuracy": 3,
+     "evidence_coverage": 3,
+     "comparative_synthesis": 3,
+     "gap_grounding": 1
+    },
+    "quality": 2.5
+   },
+   "claude_dims": {
+    "factual_citation_accuracy": 3,
+    "evidence_coverage": 2,
+    "comparative_synthesis": 1,
+    "gap_grounding": 1
+   },
+   "claude_quality": 1.75,
+   "evidence_read": "Same 7 records, all complete.",
+   "target_behavior": "Target caught: gap_grounding=1 for the generic 'more accurate and less costly' aspiration; synthesis judged weak.",
+   "anchors": "factual_citation_accuracy=3 relies on reading 'Their techniques and datasets differ' as all-pairwise (S1/S3 share C); literally imprecise but, as recorded for Codex 195, open to interpretation. The comparative_synthesis=1 rationale misstates the submission: it says the review 'does not explain ... why abstention after retrieval saves no latency', but the submission states 'mean latency stays70ms because abstention comes after retrieval/scoring [S2:P1-P2]' (the judge's own coverage rationale acknowledges this). The low synthesis grade is directionally right, but its magnitude (1 vs Codex 3) partly rests on that error. evidence_coverage=2 vs Codex 3: the listed omissions (no percentiles, S3 no abstention/shift, no C/D pairing) are real.",
+   "feedback": "Three issues, all public refs (submission/S1/S2/S3/task). Issue 2 lists source-stated limitations (tail latency etc.) that overlap the private note's example gap, but each is stated in public S1/S2/S3 text; no canary or maintainer scope. Issue 1 ('declines any comparison' on dataset grounds) fairly paraphrases 'I therefore refrain from ranking them'.",
+   "problems": [
+    "Judge misstatement of submission content inside a target-dimension rationale.",
+    "Interpretive factual-accuracy deduction; non-target coverage harsher than Codex."
+   ],
+   "verdict": "partial"
+  },
+  {
+   "case": "visual_alpha",
+   "call_dir": "D:/mrhbench-local-pilot/judge-claude-revalidation-20260924-001/calls/native-5ec8c3f93de943a0840f6f60857e80d5",
+   "files_sha256": {
+    "events.jsonl": "daf844e55805d4b6668d360f8eb79e03375bedad5570986ca79e0d41ef1762ec",
+    "response.txt": "c0ad75ccbeee1151e2693211b5fadc27a775eefd4071a201d78ec6aa702c2a80",
+    "result.json": "b952dfd4cf96ab0606a09c5c74ce0fececf35e213d126ce47de83122b92b0360",
+    "candidate_judgment.json": "91c7897569a1cff557b3184ef6c014486510e874d7786f2b47f5711ce465c061",
+    "native_tool_audit.json": "f2dd0459092df10517702537257660bcae32e9b00f0c69428e9f2c48aa55afc2",
+    "image_delivery.json": "14e01e5817e52e22341d8f33d431d546f103a2e4a87acfc6a6ca9e7f5c2e8d70",
+    "evidence_manifest.json": "739505670631b2cac5d1d3a98de514c332a52ac79bcfaeed62a81e652217fdd1",
+    "tool_state.json": "c4819cb7c8b75ae2543f3a4b6f800978a8f5a2a04ccc0761a86ab7c78ebd0c2b",
+    "prompt.txt": "ef78eb7f1e6bca474754294cb320ad6ef1733a43ac80064dfe3612f12082caa2",
+    "fixture": "23e5a58df881372d48a7ec1415fb08723b93f6dbb54bca04bf45395bf787503c"
+   },
+   "tool_calls": [
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read"
+   ],
+   "records_read": [
+    "generator",
+    "image",
+    "platform",
+    "reference",
+    "source",
+    "submission",
+    "task"
+   ],
+   "records_unread": [],
+   "truncated_reads": [],
+   "canaries_in_fixture": [],
+   "canary_in_feedback": [],
+   "private_receipt_in_feedback_refs": false,
+   "response_wrapped_in_code_fence": true,
+   "codex_comparison": {
+    "call": 180,
+    "judge_version": "v2.6",
+    "dims": {
+     "fidelity": 4,
+     "completeness": 4,
+     "comprehensibility": 4,
+     "traceability": 4
+    },
+    "quality": 4.0
+   },
+   "claude_dims": {
+    "fidelity": 4,
+    "completeness": 4,
+    "comprehensibility": 4,
+    "traceability": 4
+   },
+   "claude_quality": 4.0,
+   "evidence_read": "task, submission, source, generator, image, platform, private reference; all text complete.",
+   "image": "The stream tool_result contains an image block whose decoded bytes (68825 B) have sha256 4ac7b3b6...b606b, equal to the platform raw image_sha256 and the fixture figure.png; image_delivery.json verified receipt 39c562e9.... Reviewer viewed the same PNG: legend, ticks and x label all present.",
+   "target_behavior": "No material defect invented. Noted a real minor cosmetic point (white annotation boxes over short line segments near 3.0/6.0/5.0) without lowering grades. Correctly refused to compare the raw-byte image hash with the EvidenceRecord hash.",
+   "feedback": "One minor cosmetic issue (public image ref); improvement_concern 'placing labels so they avoid the lines' is mildly prescriptive. Limitation 'six plotted values were checked by hand against the supplied CSV and the controller stdout' discloses the judge's own verification scope, which the prompt classes as private-audit information; no private fact or canary revealed, low risk, but a literal deviation.",
+   "problems": [
+    "Minor feedback-policy deviation (verification scope in limitations)."
+   ],
+   "verdict": "pass"
+  },
+  {
+   "case": "visual_beta",
+   "call_dir": "D:/mrhbench-local-pilot/judge-claude-revalidation-20260924-001/calls/native-817bc246949e4f72bb1eab7f68320600",
+   "files_sha256": {
+    "events.jsonl": "7e6343edbdf09b0e67e2c2229e9ec696423455fe7939c4205f7a3f4fa3aeb176",
+    "response.txt": "db0e48b7bd664ae4889ef93d3838737bc0b5452a09ce2b0bca1178d959d9cea1",
+    "result.json": "244c7e1ab6ae655ea2dfa0b3a5ab1cff9e731db3bd1f33d6ac6ed996758389b9",
+    "candidate_judgment.json": "db5493334d0a9b93449c21eaaf6e837e115ee9e2cb865e52b66485d8006ebd9c",
+    "native_tool_audit.json": "c78690c65927423bbd58ab9872794b8d45ed4654f1e6e3dd85eebc826514acee",
+    "image_delivery.json": "9716065b5cc812a3e5e991d803e4fd02dba57d3cfa814a242d973b20085e9fe2",
+    "evidence_manifest.json": "7b182f25cb2adf3ca942001a0fac4c6475efba67b482672fe2f6ae5e99f57cd1",
+    "tool_state.json": "f2afb6f035f1c50f6ad3be7d4dae310ca90e8b7a82115826806ab60c0bfa9f82",
+    "prompt.txt": "29a0af567cf1f1ee13545d06d890512357a75060c6bf57accb925239121e6dd0",
+    "fixture": "b7de8572321514772546ce9c4ab9e3c1cb2a55d938cd33dce7eb7ae027e5c0da"
+   },
+   "tool_calls": [
+    "evidence_inventory",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read",
+    "evidence_read"
+   ],
+   "records_read": [
+    "generator",
+    "image",
+    "platform",
+    "reference",
+    "source",
+    "submission",
+    "task"
+   ],
+   "records_unread": [],
+   "truncated_reads": [],
+   "canaries_in_fixture": [],
+   "canary_in_feedback": [],
+   "private_receipt_in_feedback_refs": false,
+   "response_wrapped_in_code_fence": false,
+   "codex_comparison": {
+    "call": 181,
+    "judge_version": "v2.6",
+    "dims": {
+     "fidelity": 3,
+     "completeness": 2,
+     "comprehensibility": 2,
+     "traceability": 4
+    },
+    "quality": 2.75
+   },
+   "claude_dims": {
+    "fidelity": 3,
+    "completeness": 2,
+    "comprehensibility": 2,
+    "traceability": 3
+   },
+   "claude_quality": 2.5,
+   "evidence_read": "inventory, task, submission, generator, source, image, platform, private reference; all complete.",
+   "image": "Delivered bytes (59812 B) sha256 5fefeb74...66cd equal the platform raw image_sha256; verified receipt 88516234.... Reviewer viewed the PNG: x tick labels and x-axis label cut off (tick marks only), legend absent.",
+   "target_behavior": "Pre-registered defect identified exactly from pixels and explained from code (bottom=0.015, legend anchored at y=-0.35). No other defects invented; values verified.",
+   "anchors": "completeness 2 / comprehensibility 2 match Codex 181. fidelity 3 (same as Codex) and traceability 3 (Codex 4) re-use the missing-label defect; the traceability deduction is double counting since code/data/render correspond.",
+   "feedback": "One public-supported issue (image/generator/task refs); improvement concern 'check the final rendered pixels' is process-level, not a code fix; root_cause marked hypothesis. No private reference content.",
+   "problems": [
+    "Same defect counted in four dimensions (traceability deduction weakly justified)."
+   ],
+   "verdict": "pass"
+  }
+ ],
+ "cross_case_issues": [
+  "Output-contract robustness: 1/10 (finite_beta) unparsable final JSON; 6/10 responses wrapped JSON in ```json fences (tolerated by the controller). finite_beta appended a self-correction plus prose instead of a single final object. Whether a parser may ever accept a later corrected block is a controller policy to pre-register, not to apply post hoc to this case.",
+  "No canary or private maintenance/reference wording found in any feedback; no private receipt cited in feedback refs; all feedback refs resolve to public receipts. Private records were read in all 10 cases (by design) and cited only internally.",
+  "Hash-domain semantics handled correctly in all EXP/visual cases; the Codex-185 misattribution (lowering execution_credibility and asking the builder to fix platform config identity) did not recur in finite_alpha.",
+  "No independent-factor demand on the joint-configuration EXP question, but an analogous extra-arm demand appeared in proposal_alpha.",
+  "Direction of every alpha/beta pair matches the pre-registered expectations (finite pair only in unscored content). Target defects were localized accurately, including pixel-level clipping in visual_beta.",
+  "Claude v3.0 is systematically stricter than Codex v2.8 on non-target dimensions: alpha passage 3.75 vs 4.0, proposal 3.4 vs 4.0; beta passage 2.0 vs 2.25, proposal 1.6 vs 2.4, review 1.75 vs 2.5, visual 2.5 vs 2.75 (Codex v2.6); finite_alpha 4.0 vs 3.75. Scores are not interchangeable across configurations.",
+  "Recurrent dimension coupling/double counting: the same target defect lowers several dimensions (visual_beta traceability, passage_beta comprehensibility, finite_beta rigor, proposal_beta hypothesis_quality). Some grades conflict with their own rationale/anchor text (proposal_beta specificity_coherence; review_alpha citation imprecision kept at 4).",
+  "Two factual slips in judge text: the review_beta rationale misstates submission content (the latency explanation is present); the review_alpha uncertainty says no evaluator guidance was supplied although it read one.",
+  "Occasional mildly prescriptive improvement_concerns (visual_alpha label placement, proposal_alpha ablation arm); none supplies code or architecture.",
+  "Image delivery: in both visual cases the image bytes present in the exact stream equal the controller raw image hash; CLI-to-API resizing still not excluded.",
+  "Post-run audit gap for failed attempts: finite_beta lacks native_tool_audit.json/result.json and its stream_audit server_recorded_calls is null."
+ ],
+ "case_verdicts": {
+  "finite_alpha": "pass",
+  "finite_beta": "not_scored",
+  "passage_alpha": "pass",
+  "passage_beta": "pass",
+  "proposal_alpha": "partial",
+  "proposal_beta": "pass",
+  "review_alpha": "pass",
+  "review_beta": "partial",
+  "visual_alpha": "pass",
+  "visual_beta": "pass"
+ },
+ "overall_verdict": {
+  "verdict": "partial",
+  "summary": "Bounded re-validation of the Claude judge configuration on 10 previously frozen synthetic fixtures. Evidence retrieval was complete in all cases, image pixels were actually delivered and inspected, target defects were caught in every beta (finite_beta only in unscored content), no material defects were fabricated in alphas, there was no canary/private leakage, and hash domains were handled correctly. Not a pass because of one judge output-format failure (finite_beta, not scored, no retry), an over-requirement on a bounded control (proposal_alpha), a submission-content misstatement in review_beta, and several anchor-inconsistent or double-counted non-target grades. Tally: pass 7, partial 2, not_scored 1, fail 0.",
+  "not_claimed": [
+   "global judge reliability",
+   "T03 acceptance",
+   "equivalence with Codex v2.8 scores",
+   "formal isolation",
+   "stability under repetition"
+  ]
+ },
+ "limitations": [
+  "One run per case, no repeats; single-sample variance unknown.",
+  "Fixtures are maintainer-authored, small, synthetic and were already used for Codex acceptance; not blind to the fixture authors.",
+  "Reviewer is the same model family (Claude Opus 5.5) as the judge under review; self-preference or shared blind spots cannot be excluded.",
+  "Judge thinking content is not exposed (signature-only), so only tool actions and final text were reviewable.",
+  "Anchor-fit judgments (e.g. fidelity 1 vs 2) are reviewer interpretations with genuine room for disagreement.",
+  "Did not audit the Claude CLI context beyond native_call.json/stream_audit (plugins/agents declared-nonempty warnings stand as recorded).",
+  "The Codex comparison differs in model, transport and the tool-mechanism sentence of the prompt; differences are descriptive, not causal."
+ ]
+}

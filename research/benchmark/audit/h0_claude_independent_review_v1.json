@@ -1,0 +1,202 @@
+{
+  "schema_version": "h0-claude-independent-review-1",
+  "created_at": "2026-09-24T00:00:00+00:00",
+  "reviewer": "independent runtime_repairs reviewer subagent (Claude Code maintainer collaborator, not the builder, not a benchmarked role)",
+  "new_model_calls": 0,
+  "scope_note": "No model calls of any kind; fake clients only. H0 artifacts, AGENTS.md and existing files not modified. Helper scripts/logs under D:/mrhbench-local-pilot/h0-claude-review-c6314f.",
+  "candidate_root": "D:/mrhbench-local-pilot/h0-claude-20260924-001",
+  "ledger_call": 199,
+  "role_configuration": "AGENTS §0.2.13: Claude Code native builder claude-opus-5-5 / effort medium, bounded_mcp profile (container_read/write/list/exec only), zero scientific tasks released",
+  "reviewed_files_sha256": {
+    "artifacts/harness.py": "7b6f5803b091cdde36bac42b5a379abc912a4c68cf92cf5c37beecdb80b3b99f",
+    "artifacts/tests/test_harness.py": "ba9061d9c50a24b84c2bd9cde51ef9c070dcdcbd85f1bfb8616b7e51b0f18dcc",
+    "artifacts/build_manifest.json": "9f96df10e2948cf7faa868d53d751326d74f4c3e68322cf383ae1f5d2db4c619",
+    "calls/native-acd7b5d02172434594211bc9c699979e/events.jsonl": "f91ab11119ccce3f7b0b1d450e5aef7a52917fdde8edb9df0559abac13e8a356",
+    "calls/native-acd7b5d02172434594211bc9c699979e/invocation.json": "3db3fe00f4aaece7ee8547ad5d686c86eace5c02bb98e60618dd2e51bdb65fa8",
+    "calls/native-acd7b5d02172434594211bc9c699979e/result.json": "47921e2b471e69e8a467e495405df013a7079fc721078115205254c51d2b9fa9",
+    "calls/native-acd7b5d02172434594211bc9c699979e/stream_audit.json": "5047c915d6c873c3f651f7eb398670980b5bbe09edf6eb855e065219c8c227f3",
+    "calls/native-acd7b5d02172434594211bc9c699979e/response.txt": "ce64af981b4a156f72dd26b1b30b113a75d4ffb4a5542c7c74e678723f0ff618",
+    "release.json": "258cf6e5919e9601597a76e29ffa9842beb41d47c3a6ab25c77c8ae14565d966",
+    "prompt.txt": "a4f4952f0e95c93bc96bc6ba21020a93c009983a53e94a41bd5d80851a57d814",
+    "result.json": "c1501b8644fcdecbdb76b175eb755e6f73584b8c49d7696e6f1ba65d566609fe",
+    "artifact_inventory.json": "81e4d98514e1d9d7b68948acc0827cc294550faecb0e82ee2e5dc5c7a7b28a31",
+    "released BUILDER_PROMPT.txt (= research/benchmark/prompts/builder_h0.txt)": "269a82a318420acfff0a07de5a5c956ca1637716496f68aa723dd93fbf9a4f0c",
+    "released interface.json (= research/benchmark/runtime/interface_container_v2.json)": "e70fda7b8d7138e23e1fd8a3b6e490c9ab482208369a341edc552adcaabfa155"
+  },
+  "input_boundary": {
+    "released_files": ["BUILDER_PROMPT.txt", "interface.json"],
+    "released_hashes_match_repo_sources": true,
+    "same_released_prompt_and_interface_as_previous_sol_H0": true,
+    "previous_H0_code_released": false,
+    "scientific_tasks_released": 0,
+    "read_payloads_match_release_bytes": "Both container_read tool_result texts hash-equal to controller_container/release files."
+  },
+  "transcript_findings": {
+    "rows": 96,
+    "row_types": {"system/init": 1, "assistant": 20, "user(tool_result)": 10, "system/thinking_tokens": 61, "rate_limit_event": 3, "result/success": 1},
+    "init_declared_tools": ["mcp__mrhbench__container_exec", "mcp__mrhbench__container_list", "mcp__mrhbench__container_read", "mcp__mrhbench__container_write"],
+    "init_residual_context": "plugins agents-md@builtin + telemetry@builtin and agents list declared (no Agent tool available); skills []; cwd a fresh temp dir. Matches §0.2.13 known caveat.",
+    "tool_use_count": 10,
+    "tool_result_count": 10,
+    "all_tool_uses_paired_with_results": true,
+    "only_four_container_tools_used": true,
+    "server_receipt_files": 10,
+    "action_sequence": [
+      {"row": 3, "result_row": 5, "tool": "container_read", "input": "/inputs/BUILDER_PROMPT.txt", "assessment": "read released prompt; bytes match release"},
+      {"row": 4, "result_row": 6, "tool": "container_read", "input": "/inputs/interface.json", "assessment": "read released ABI; bytes match release"},
+      {"row": 7, "result_row": 9, "tool": "container_list", "input": "/inputs", "assessment": "only the two released files present"},
+      {"row": 32, "result_row": 33, "tool": "container_exec", "input": "sh -c 'python3 --version; ls -la /work; id'", "assessment": "environment probe; Python 3.12.14, empty /work, uid 10001"},
+      {"row": 66, "result_row": 67, "tool": "container_write", "input": "/work/harness.py (53886 bytes)", "assessment": "single full write of harness"},
+      {"row": 73, "result_row": 75, "tool": "container_exec", "input": "python3 -c in-place removal of a no-op 'if ... : pass' block + py_compile", "assessment": "replayed offline on the written text with Linux text I/O: result byte-identical to final artifacts/harness.py (53734 bytes, sha 7b6f58...)"},
+      {"row": 79, "result_row": 80, "tool": "container_write", "input": "/work/tests/test_harness.py (20620 bytes)", "assessment": "written text sha equals final test file"},
+      {"row": 82, "result_row": 83, "tool": "container_exec", "input": "cd /work && python3 -m unittest tests.test_harness | tail -60", "assessment": "tool result: 'Ran 25 tests in 1.087s OK', returncode 0"},
+      {"row": 89, "result_row": 90, "tool": "container_write", "input": "/work/build_manifest.json (3033 bytes)", "assessment": "written text sha equals final manifest"},
+      {"row": 91, "result_row": 93, "tool": "container_exec", "input": "json-load manifest, clear __pycache__, rerun tests | tail -3, grep imports, ls -R /work", "assessment": "tool result: 'Ran 25 tests in 1.097s OK'; imports copy/hashlib/json/re/time; /work contains exactly the 3 deliverables"}
+    ],
+    "reported_tests_actually_ran_and_passed": true,
+    "final_response_consistent_with_tool_results": "Yes for files, 25/25 tests and stated limitations. One overstatement: the response/manifest say elided context payloads can be fetched again by repeating the call; for cacheable read tools this route returns only a cache stub (defect D1). The builder's own elision test used 4 distinct document ids and never exercised a repeat read.",
+    "thinking_content_reviewable": false,
+    "thinking_note": "Assistant thinking blocks are empty strings in the stream (only thinking_tokens estimates); reasoning could not be reviewed, only actions and outputs.",
+    "suspicious_activity": {
+      "hardcoded_scientific_answers": false,
+      "task_specific_fixture_logic": false,
+      "keyword_scan": "No SSA/IV/Gaussian/Diffusion/oracle/hidden/private/canary/judge-score logic in harness or tests; only generic per-task-type guidance text derived from public rubrics.",
+      "container_escape_or_host_access_attempts": false,
+      "network_attempts": false,
+      "docs_created_against_instructions": false,
+      "harness_uses_os_subprocess_socket": false
+    },
+    "wall_seconds": 300.64,
+    "usage": {"input_tokens": 18, "cache_write_input_tokens": 49810, "cached_input_tokens": 251556, "output_tokens": 36994, "thinking_tokens_reported": 6588},
+    "cost_note": "Stream reports total_cost_usd 1.1887 at list cost basis; subscription call, not an actual per-call dollar charge."
+  },
+  "independent_test_runs": {
+    "container": {
+      "image": "sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01",
+      "command": "MSYS_NO_PATHCONV=1 docker run --rm --network none --cpus 1 --memory 512m --pids-limit 64 --read-only --tmpfs /tmp --user 10001 --cap-drop ALL --security-opt no-new-privileges=true -e PYTHONDONTWRITEBYTECODE=1 -e HOME=/tmp -v D:\\mrhbench-local-pilot\\h0-claude-20260924-001\\artifacts:/inputs:ro -v D:\\mrhbench-local-pilot\\h0-claude-review-c6314f\\release:/review:ro --entrypoint sh <image> /review/run.sh",
+      "run_script": "D:/mrhbench-local-pilot/h0-claude-review-c6314f/release/run.sh (sha 76fd1785ce0e0b010374012e1ae67ba36ac5ad7a45c2a46656ab4330f2d330b4): copies /inputs into tmpfs /tmp/work, hashes, runs the three suites, re-hashes",
+      "authoritative_log": "D:/mrhbench-local-pilot/h0-claude-review-c6314f/run2.log (sha 18173ec574ce34cc2a1a34e416cd359050e5860085bbcc37ffa5e1598fe5603b); run1.log (sha 49bbfbcc...) identical results with ResourceWarning noise from reviewer fakes",
+      "observed": "uid=10001 gid=0 (reviewer passed --user 10001 without a group; builder container used 10001:10001), Python 3.12.14, container removed (--rm)",
+      "artifact_hashes_in_copy_before_and_after": "unchanged (7b6f58..., ba9061..., 9f96df...)"
+    },
+    "builder_self_tests": {
+      "command": "cd /tmp/work && python3 -m unittest -v tests.test_harness",
+      "result": "Ran 25 tests in 1.094s, OK, rc 0",
+      "matches_builder_claim": true,
+      "note": "Passing self-tests are builder-authored fakes; not acceptance."
+    },
+    "previous_independent_checks_verbatim": {
+      "file": "checks_v1_previous.py (verbatim copy of h0-abi-review-cbfe6efe/002/release/checks.py, sha ca82006796ca3cf55e7ab1f8f955f8d619ecb62d309f03a368db0fdaf0867917)",
+      "command": "python3 -I /review/checks_v1_previous.py",
+      "result": "6 run, 6 FAIL, rc 1",
+      "interpretation": "Not ABI evidence. Those fakes hard-code the previous sol H0's model-response protocol ({kind:'tool'|'final', tool_name, ...}) and a two-response sequence; this harness defines its own plan/act/final protocol (a legitimate builder design choice, not part of interface_container_v2.json). The first scripted response is consumed by the plan phase and the fake then raises IndexError. The same six checks were therefore re-expressed with a protocol-adapted fake model (suite A below)."
+    },
+    "reviewer_checks_v2": {
+      "file": "D:/mrhbench-local-pilot/h0-claude-review-c6314f/release/checks_v2.py (sha ead6743aead755144a2c81275290b4e1bae044d7cf8f091f9bb42b9e5e407549) + real_shapes.json (sha 55fac17e72b3380fc850065b0641afbb69e7aaa45d56a973478a243e84f2b4c7)",
+      "command": "H0_HARNESS=/tmp/work/harness.py python3 -W ignore::ResourceWarning /review/checks_v2.py",
+      "result": "Ran 28 tests, 24 ok, 4 FAIL, rc 1",
+      "fake_model_design": "Answers according to the output_schema the harness requests (properties.action -> act, properties.content -> final, else plan); final content generated as the minimal instance of the requested content schema.",
+      "real_shapes_fixture": "Public TaskView shapes of the five collection_candidates_v2 tasks (tools incl. 'model_client'/'asset.read', inputs, real output_contract, asset_manifest ids); prompt text replaced by placeholder, no asset bytes, sha256 placeholders."
+    },
+    "host_side_schema_check": {
+      "file": "D:/mrhbench-local-pilot/h0-claude-review-c6314f/schema_check.py (log schema_check.log)",
+      "command": "D:/mrhbench-local-pilot/controller-venv/Scripts/python.exe -X utf8 schema_check.py",
+      "result": "ACTION_SCHEMA, PLAN_SCHEMA and final schemas built from all five real output_contracts pass mrhbench.providers.validate_application_schema (Draft 2020-12, no $ref). Non-object 'arguments' responses are rejected by the transport validator (relevant to D3)."
+    },
+    "transcript_replay": {
+      "file": "D:/mrhbench-local-pilot/h0-claude-review-c6314f/replay_edit.py",
+      "result": "written harness text + builder's in-container edit reproduce final harness.py byte-for-byte"
+    }
+  },
+  "abi_checks": [
+    {"id": "A1", "check": "artifact_read_write group -> artifact.write_text executed", "result": "pass", "evidence": "checks_v2 A.test_artifact_group_write"},
+    {"id": "A2", "check": "artifact_read_write group -> artifact.read_text executed", "result": "pass", "evidence": "A.test_artifact_group_read"},
+    {"id": "A3", "check": "cpu_python_execution group -> cpu.run executed", "result": "pass", "evidence": "A.test_cpu_group"},
+    {"id": "A4", "check": "artifact_image_view group -> view_image executed and returned image_id passed to the next complete(image_ids=[...])", "result": "pass", "evidence": "A.test_image_group_and_pixels_request; E.test_image_id_only_after_real_view_and_capped (next act call gets exactly ['img-0']; final gets last 4 ids); E.test_failed_view_gives_no_image"},
+    {"id": "A5", "check": "literature.search / literature.read / literature.read_page groups map to exact broker names", "result": "pass", "evidence": "A.test_literature_exact_capability (3 subtests)"},
+    {"id": "A6", "check": "all five task types route independently and complete with empty tools", "result": "pass", "evidence": "A.test_all_routes_independent"},
+    {"id": "B1", "check": "capability matrix: 5 task types x 6 groups, executor requests all 8 interface tools; only granted ops + always-available asset.read reach tool_client", "result": "pass", "evidence": "B.test_every_group_combo_per_task_type (30 subtests)"},
+    {"id": "B2", "check": "real TaskView shapes (LIT/IDEA/EXP/WRITE_CONTENT/WRITE_EVIDENCE): asset_manifest pre-read in order, only granted tools sent, real output_contract satisfied, manifest hashes match files, status completed", "result": "pass_with_defect", "evidence": "B.test_real_taskview_shapes; every real view yields spurious omission \"unrecognized capability names in task_view.tools ignored: ['model_client']\" (D5)"},
+    {"id": "C1", "check": "malformed model outputs (None, non-JSON, JSON array, int, missing response, fenced invalid action, wrong types) never raise; exact manifest keys", "result": "pass", "evidence": "C.test_malformed_model_outputs_never_raise (10 subtests)"},
+    {"id": "C2", "check": "non-object tool arguments from executor", "result": "fail", "evidence": "C.test_nondict_arguments_for_each_tool: cpu.run with list/str/int arguments -> AttributeError inside do_tool -> whole task returns status failed, content {} ('harness internal failure'); other 7 tools handled (bad_arguments observation). See D3; latent with current ClaudeJSONTransport schema validation."},
+    {"id": "C3", "check": "tool error payload kept verbatim in next model context; tool exceptions / non-dict results (list, None, str, 0) handled without silent retry", "result": "pass", "evidence": "C.test_tool_errors_faithful; C.test_tool_exception_and_nondict_results"},
+    {"id": "C4", "check": "model provider error counted, not silently retried, reported in omissions", "result": "pass", "evidence": "C.test_model_provider_error_counted_no_silent_retry"},
+    {"id": "D1", "check": "never exceeds model_calls (1,2,3,5) and last call is the reserved final", "result": "pass", "evidence": "D.test_never_exceeds_model_calls_and_final_reserved"},
+    {"id": "D2", "check": "never sends tool call after tool_calls reaches 0 (0,1,3,6)", "result": "pass", "evidence": "D.test_never_exceeds_tool_calls"},
+    {"id": "D3", "check": "cancelled at start -> zero model calls, not completed; cancel mid-run stops, not completed", "result": "pass", "evidence": "D.test_cancelled_at_start; D.test_cancel_mid_run"},
+    {"id": "D4", "check": "wall budget decreasing per model call stops act loop and keeps final call; status partial with wall_seconds_exhausted", "result": "pass", "evidence": "D.test_wall_stop_leaves_final"},
+    {"id": "D5", "check": "cpu.run timeout_seconds clipped to remaining wall minus reserve; invalid values rejected", "result": "fail", "evidence": "D.test_cpu_timeout_clipped_and_nonfinite: 10000/-1/inf/True/None -> 75.0 (correct); NaN forwarded unchanged ('nan'). See D4."},
+    {"id": "F1", "check": "state reset between sequential tasks (canary file/query/note absent from second task requests and manifest); module constants unchanged; task_view not mutated", "result": "pass", "evidence": "F.test_state_reset_and_globals_unchanged; builder TestStateReset"},
+    {"id": "F2", "check": "submission manifest: exact keys in order status/content/artifacts/omissions; artifacts {path,sha256} unique and matching actual file bytes after a run modifies/creates files", "result": "pass", "evidence": "F.test_artifacts_match_files_after_run_modifies; assertManifest used throughout"},
+    {"id": "F3", "check": "unsafe/undeclared declared artifacts rejected, status downgraded to partial", "result": "pass", "evidence": "F.test_unsafe_declared_artifacts_rejected"},
+    {"id": "F4", "check": "hash reported for run-modified file when the cpu hash helper fails", "result": "fail", "evidence": "F.test_stale_hash_when_hash_helper_fails: listed sha256(b'A') 559aead0... while file contains 'B' (df7e70e5...), status 'completed'. See D2."},
+    {"id": "G1", "check": "large input elided from context can be re-fetched as the harness advertises", "result": "fail", "evidence": "G.test_elided_cacheable_read_can_be_refetched: 250k-char asset elided (pinned cap 200k); executor repeats asset.read -> observation O2 {'cached_from':'O1', 'note':'...payload not re-fetched'}; payload never visible in any request. See D1."},
+    {"id": "H1", "check": "stdlib-only imports, no dynamic import/exec/eval, no os/subprocess/socket/http", "result": "pass", "evidence": "H.test_stdlib_only_imports: ['copy','hashlib','json','re','time']"},
+    {"id": "H2", "check": "entry point signature run(task_view, model_client, tool_client, budget)", "result": "pass", "evidence": "H.test_run_signature"},
+    {"id": "S1", "check": "harness-requested schemas acceptable to the controller transport validator", "result": "pass", "evidence": "schema_check.log"}
+  ],
+  "defects": [
+    {
+      "id": "D1",
+      "severity": "medium (functional, mainly LIT)",
+      "location": "harness.py lines 676-686 (Controller.do_tool read cache returns stub for identical READ_ONLY_CACHEABLE calls) interacting with lines 743-768 (context_observations elision; route text at 766-767 says 'repeat the same tool call')",
+      "finding": "When an observation is elided for context size, the advertised recovery route does not work for asset.read / literature.search / literature.read / literature.read_page: the identical repeat is answered from the in-harness cache with {'cached_from', 'note'} and no payload, so the executor can never see that payload again. Pinned asset reads above 200k chars and any single observation above 360k chars are never visible at all. Current pilot assets are <=11 KB, so this bites mainly LIT full-text reads after ~360k chars of accumulated observations (read_page with different arguments still works).",
+      "fixed_by_reviewer": false
+    },
+    {
+      "id": "D2",
+      "severity": "low (same class as accepted limitation F1 of the previous H0)",
+      "location": "harness.py lines 1020-1025 (build_artifacts: sha = hashed.get(p) or written write-time sha) with hash_via_cpu returning {} on failure at lines 957-970",
+      "finding": "If the cpu.run hash helper cannot run (budget, broker error), files written with write_text and later modified by a run are listed with their stale write-time sha256 and the submission can still be 'completed' without an omission. Controller must rehash collected artifacts (already done by the stream-hash collection path) and must not trust the manifest digest.",
+      "fixed_by_reviewer": false
+    },
+    {
+      "id": "D3",
+      "severity": "low / latent",
+      "location": "harness.py lines 697-704 (do_tool cpu.run ledger uses args.get('script') / args.get('arguments')); non-dict args pass through phase_act lines 863-872",
+      "finding": "Executor output with non-object 'arguments' for cpu.run raises AttributeError that escapes to run()'s catch-all, so the entire task returns status failed with empty content and a generic 'harness internal failure' omission instead of a bad_arguments observation. The current ClaudeJSONTransport validates responses against ACTION_SCHEMA ('arguments': object) and rejects such outputs before they reach the harness, so it is not reachable on that path; it would be with any executor path lacking schema enforcement.",
+      "fixed_by_reviewer": false
+    },
+    {
+      "id": "D4",
+      "severity": "low",
+      "location": "harness.py lines 530-537 (ToolAdapter.call cpu.run timeout clipping)",
+      "finding": "timeout_seconds = NaN is neither <= 0 nor > cap, so it is forwarded unchanged; the interface requires a positive number. JSON parsing in Python accepts NaN and ACTION_SCHEMA leaves arguments untyped, so the transport does not block it. Broker-side validation must reject it.",
+      "fixed_by_reviewer": false
+    },
+    {
+      "id": "D5",
+      "severity": "low (output hygiene)",
+      "location": "harness.py lines 593-602 (resolve_allowed_tools) and 1046-1048 (execute)",
+      "finding": "Every real TaskView lists 'model_client' in tools (interface: 'model_client is a role service, not a ToolClient name'); the harness reports it as an unrecognized capability in omissions for every task. Status is not affected, but omissions read by the judge contain a spurious platform complaint.",
+      "fixed_by_reviewer": false
+    },
+    {
+      "id": "D6",
+      "severity": "minor, not executed",
+      "location": "harness.py lines 987-990 (write_record)",
+      "finding": "Oversized record fallback slices the serialized JSON at 400000 characters, producing invalid JSON; with ensure_ascii=False non-ASCII text may still exceed 500000 bytes and be rejected by the adapter's size check (record then silently not written). Found by code reading only.",
+      "fixed_by_reviewer": false
+    }
+  ],
+  "observations_not_defects": [
+    "The harness defines its own plan/act/final model protocol and schemas; image_ids of up to the last 4 viewed images are re-sent on every subsequent model call (cost, not correctness).",
+    "Every model request carries the full task_view plus all non-elided observations; request size is bounded only by the 360k-char observation cap.",
+    "Harness-internal files h0/harness_record.json and h0/_hash_artifacts.py are written into the output root and listed as artifacts when artifact_read_write (and cpu for the helper) are granted.",
+    "Budget.remaining() failure leaves limits unknown; the harness then relies on broker enforcement plus its local monotonic deadline only if an initial wall value was obtained.",
+    "Model calls cannot be pre-empted; wall reserves (20 s + 5%) are estimates, as the builder states."
+  ],
+  "comparison_to_previous_sol_H0": "Previous H0 (h0-bounded-20260923-002) passed 17 self-tests + the 6 controller checks after one ABI repair; this Claude H0 was built in one pass (no repair round) and passes the re-expressed 6 checks plus 18 additional reviewer checks, failing 4 new stricter checks that the previous review did not run. Different model/transport; not a controlled comparison (AGENTS §0.2.13).",
+  "verdict": "development_admissible",
+  "verdict_rationale": "Interface-level conformance holds for all five task types: capability groups honored, exact manifest shape, budget/deadline/cancellation respected, malformed model output and tool errors contained with faithful payloads, image_ids forwarded, per-task state reset, stdlib-only. The four failing checks (D1-D4) and D5/D6 are builder-quality defects that do not break the controller ABI (run() still returns a valid manifest); per §6/§0.3 the frozen H0 must not be repaired by maintainers, so they are recorded as properties of this H0 rather than blocking development use. Controller-side mitigations required: rehash collected artifacts (D2), validate cpu.run timeout (D4), keep schema validation on the executor transport (D3).",
+  "scientific_quality_assessed": false,
+  "formal_isolation_verified": false,
+  "limitations": [
+    "Fake clients only; no real executor, broker, ContainerExecutor or research task was run. Nothing here indicates scientific capability.",
+    "Protocol-adapted fake model infers the phase from the harness's own schemas; checks are specific to this harness's protocol.",
+    "Real TaskView shapes were used without prompt text or asset bytes; the real ExecutorBroker/tool payload formats were approximated from interface_container_v2.json.",
+    "Reviewer container ran with gid 0 (no group given to --user); the builder container used 10001:10001. Results do not depend on group.",
+    "Thinking content in the stream is empty, so builder reasoning could not be audited; absence of observed misuse is not proof of role containment (plugins/agents residual context declared).",
+    "created_at is the review date; exact time not recorded by the reviewer."
+  ]
+}

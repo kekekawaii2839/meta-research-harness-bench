@@ -1,0 +1,1813 @@
+[
+  {
+    "project_id": "iclr2025-9TClCDZXeh",
+    "forum_id": "9TClCDZXeh",
+    "conference_submission_number": 7255,
+    "title": "Differentiable and Learnable Wireless Simulation with Geometric Transformers",
+    "topic": "Applications->Physics",
+    "topic_group": "Applications",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=9TClCDZXeh",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/30689",
+    "project_url": "https://github.com/Qualcomm-AI-research/Wi-GATr",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/Qualcomm-AI-research/Wi-GATr",
+        "slug": "Qualcomm-AI-research/Wi-GATr",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 30689,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/Qualcomm-AI-research/Wi-GATr",
+        "slug": "Qualcomm-AI-research/Wi-GATr",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "Qualcomm-AI-research/Wi-GATr",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": "BSD-3-Clause-Clear",
+        "pushed_at": "2025-08-22T10:48:32Z",
+        "size_kb": 124,
+        "description": null,
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": false,
+          "compute": true
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-1Xg4JPPxJ0",
+    "forum_id": "1Xg4JPPxJ0",
+    "conference_submission_number": 2678,
+    "title": "Are Transformers Able to Reason by Connecting Separated Knowledge in Training Data?",
+    "topic": "Deep Learning->Attention Mechanisms",
+    "topic_group": "Deep Learning",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=1Xg4JPPxJ0",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/31196",
+    "project_url": "https://github.com/roger-yt/Fragmented-at-Training-Chained-at-Testing",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/roger-yt/Fragmented-at-Training-Chained-at-Testing",
+        "slug": "roger-yt/Fragmented-at-Training-Chained-at-Testing",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 31196,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/roger-yt/Fragmented-at-Training-Chained-at-Testing",
+        "slug": "roger-yt/Fragmented-at-Training-Chained-at-Testing",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "roger-yt/Fragmented-at-Training-Chained-at-Testing",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": null,
+        "pushed_at": "2025-05-29T20:09:45Z",
+        "size_kb": 1872,
+        "description": null,
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": false,
+          "data": false,
+          "checkpoint": false,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-SXtl7NRyE5",
+    "forum_id": "SXtl7NRyE5",
+    "conference_submission_number": 8637,
+    "title": "Test-time Adaptation for Regression by Subspace Alignment",
+    "topic": "Miscellaneous Aspects of Machine Learning->Unsupervised and Semi-supervised Learning",
+    "topic_group": "Miscellaneous Aspects of Machine Learning",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=SXtl7NRyE5",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/29596",
+    "project_url": "https://github.com/kzkadc/regression-tta",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/kzkadc/regression-tta",
+        "slug": "kzkadc/regression-tta",
+        "evidence_fields": [
+          "url",
+          "abstract"
+        ]
+      }
+    ],
+    "source_event_id": 29596,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/kzkadc/regression-tta",
+        "slug": "kzkadc/regression-tta",
+        "evidence_fields": [
+          "url",
+          "abstract"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "kzkadc/regression-tta",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": "NOASSERTION",
+        "pushed_at": "2025-06-06T06:37:49Z",
+        "size_kb": 48012,
+        "description": "The official implementation of \"Test-time Adaptation for Regression by Subspace Alignment\" (ICLR 2025).  ",
+        "homepage": "",
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": false,
+          "training": true,
+          "evaluation": false,
+          "data": true,
+          "checkpoint": true,
+          "compute": true
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-z1nSpA2dAW",
+    "forum_id": "z1nSpA2dAW",
+    "conference_submission_number": 8,
+    "title": "FLOPS: Forward Learning with OPtimal Sampling",
+    "topic": "Optimization->Zero-order and Black-box Optimization",
+    "topic_group": "Optimization",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=z1nSpA2dAW",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/27694",
+    "project_url": "https://github.com/RTkenny/FLOPS-Forward-Learning-with-OPtimal-Sampling",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/RTkenny/FLOPS-Forward-Learning-with-OPtimal-Sampling",
+        "slug": "RTkenny/FLOPS-Forward-Learning-with-OPtimal-Sampling",
+        "evidence_fields": [
+          "url",
+          "abstract"
+        ]
+      }
+    ],
+    "source_event_id": 27694,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/RTkenny/FLOPS-Forward-Learning-with-OPtimal-Sampling",
+        "slug": "RTkenny/FLOPS-Forward-Learning-with-OPtimal-Sampling",
+        "evidence_fields": [
+          "url",
+          "abstract"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "RTkenny/FLOPS-Forward-Learning-with-OPtimal-Sampling",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": null,
+        "pushed_at": "2025-03-21T01:20:00Z",
+        "size_kb": 8629,
+        "description": "Official implementation of \"FLOPS: Forward Learning with OPtimal Sampling\", accepted by ICLR 2025",
+        "homepage": "",
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": false,
+          "data": true,
+          "checkpoint": false,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-5qg6JPSgCj",
+    "forum_id": "5qg6JPSgCj",
+    "conference_submission_number": 11675,
+    "title": "Score-based free-form architectures for high-dimensional Fokker-Planck equations",
+    "topic": "Probabilistic Methods->Everything Else",
+    "topic_group": "Probabilistic Methods",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=5qg6JPSgCj",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/30928",
+    "project_url": "https://github.com/niuffs/FPNN",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/niuffs/FPNN",
+        "slug": "niuffs/FPNN",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 30928,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/niuffs/FPNN",
+        "slug": "niuffs/FPNN",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "niuffs/FPNN",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": null,
+        "pushed_at": "2025-02-12T14:51:38Z",
+        "size_kb": 61972,
+        "description": null,
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": false,
+          "training": true,
+          "evaluation": false,
+          "data": false,
+          "checkpoint": false,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-nrRkAAAufl",
+    "forum_id": "nrRkAAAufl",
+    "conference_submission_number": 12802,
+    "title": "Constraint-Conditioned Actor-Critic for Offline Safe Reinforcement Learning",
+    "topic": "Reinforcement Learning",
+    "topic_group": "Reinforcement Learning",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=nrRkAAAufl",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/28392",
+    "project_url": "https://github.com/BU-DEPEND-Lab/CCAC",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/BU-DEPEND-Lab/CCAC",
+        "slug": "BU-DEPEND-Lab/CCAC",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 28392,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/BU-DEPEND-Lab/CCAC",
+        "slug": "BU-DEPEND-Lab/CCAC",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "BU-DEPEND-Lab/CCAC",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": "Apache-2.0",
+        "pushed_at": "2025-04-06T03:22:02Z",
+        "size_kb": 6882,
+        "description": "Constraint-Conditioned Actor-Critic for Offline Safe Reinforcement Learning",
+        "homepage": "",
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": true,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-9tKC0YM8sX",
+    "forum_id": "9tKC0YM8sX",
+    "conference_submission_number": 10267,
+    "title": "Exact Computation of Any-Order Shapley Interactions for Graph Neural Networks",
+    "topic": "Social Aspects->Accountability, Transparency and Interpretability",
+    "topic_group": "Social Aspects",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=9tKC0YM8sX",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/30660",
+    "project_url": "https://github.com/mmschlk/shapiq",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/mmschlk/shapiq",
+        "slug": "mmschlk/shapiq",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 30660,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/mmschlk/shapiq",
+        "slug": "mmschlk/shapiq",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "mmschlk/shapiq",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": "MIT",
+        "pushed_at": "2026-09-01T09:12:42Z",
+        "size_kb": 373425,
+        "description": "Shapley Interactions and Shapley Values for Machine Learning",
+        "homepage": "https://shapiq.readthedocs.io",
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": false,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-QfhU3ZC2g1",
+    "forum_id": "QfhU3ZC2g1",
+    "conference_submission_number": 7950,
+    "title": "Transformers Handle Endogeneity in In-Context Linear Regression",
+    "topic": "Theory->Learning Theory",
+    "topic_group": "Theory",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=QfhU3ZC2g1",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/29683",
+    "project_url": "https://github.com/harris-liang/IVTransformer",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/harris-liang/IVTransformer",
+        "slug": "harris-liang/IVTransformer",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 29683,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/harris-liang/IVTransformer",
+        "slug": "harris-liang/IVTransformer",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "harris-liang/IVTransformer",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": "MIT",
+        "pushed_at": "2025-03-21T00:18:30Z",
+        "size_kb": 1871,
+        "description": "Official implementations of experiments in paper \"Transformers Handle Endogeneity in In-Context Linear Regression\"",
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": true,
+          "data": false,
+          "checkpoint": false,
+          "compute": true
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-LNkMWCEssX",
+    "forum_id": "LNkMWCEssX",
+    "conference_submission_number": 2344,
+    "title": "Towards Domain Adaptive Neural Contextual Bandits",
+    "topic": "Unknown",
+    "topic_group": "Unknown",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=LNkMWCEssX",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/30002",
+    "project_url": null,
+    "repository_candidates": [
+      {
+        "url": "https://github.com/Wang-ML-Lab/DABand",
+        "slug": "Wang-ML-Lab/DABand",
+        "evidence_fields": [
+          "abstract"
+        ]
+      }
+    ],
+    "source_event_id": 30002,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/Wang-ML-Lab/DABand",
+        "slug": "Wang-ML-Lab/DABand",
+        "evidence_fields": [
+          "abstract"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "error",
+        "error": "HTTP Error 404: Not Found"
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-Nb3a8aUGfj",
+    "forum_id": "Nb3a8aUGfj",
+    "conference_submission_number": 4592,
+    "title": "Text2PDE: Latent Diffusion Models for Accessible Physics Simulation",
+    "topic": "Applications->Physics",
+    "topic_group": "Applications",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=Nb3a8aUGfj",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/29869",
+    "project_url": "https://github.com/anthonyzhou-1/ldm_pdes",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/anthonyzhou-1/ldm_pdes",
+        "slug": "anthonyzhou-1/ldm_pdes",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 29869,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/anthonyzhou-1/ldm_pdes",
+        "slug": "anthonyzhou-1/ldm_pdes",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "anthonyzhou-1/ldm_pdes",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": null,
+        "pushed_at": "2025-07-09T14:57:38Z",
+        "size_kb": 2295,
+        "description": null,
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": true,
+          "compute": true
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-Ax3uliEBVR",
+    "forum_id": "Ax3uliEBVR",
+    "conference_submission_number": 8415,
+    "title": "E(n) Equivariant Topological Neural Networks",
+    "topic": "Deep Learning->Graph Neural Networks",
+    "topic_group": "Deep Learning",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=Ax3uliEBVR",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/30602",
+    "project_url": null,
+    "repository_candidates": [
+      {
+        "url": "https://github.com/NSAPH-Projects/topological-equivariant-networks",
+        "slug": "NSAPH-Projects/topological-equivariant-networks",
+        "evidence_fields": [
+          "abstract"
+        ]
+      }
+    ],
+    "source_event_id": 30602,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/NSAPH-Projects/topological-equivariant-networks",
+        "slug": "NSAPH-Projects/topological-equivariant-networks",
+        "evidence_fields": [
+          "abstract"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "NSAPH-Projects/topological-equivariant-networks",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": "MIT",
+        "pushed_at": "2024-11-28T18:31:26Z",
+        "size_kb": 116402,
+        "description": "Code for paper E(n)-Equivariant Topological Neural Networks",
+        "homepage": "",
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": false,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-1L52bHEL5d",
+    "forum_id": "1L52bHEL5d",
+    "conference_submission_number": 6184,
+    "title": "Test-Time Adaptation for Combating Missing Modalities in Egocentric Videos",
+    "topic": "Miscellaneous Aspects of Machine Learning->Everything Else",
+    "topic_group": "Miscellaneous Aspects of Machine Learning",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=1L52bHEL5d",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/31208",
+    "project_url": "https://github.com/meryusha/midl_tta",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/meryusha/midl_tta",
+        "slug": "meryusha/midl_tta",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 31208,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/meryusha/midl_tta",
+        "slug": "meryusha/midl_tta",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "meryusha/midl_tta",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": null,
+        "pushed_at": "2025-03-09T13:44:43Z",
+        "size_kb": 13977,
+        "description": "MiDL TTA code",
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": true,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-QhxjQOMdDF",
+    "forum_id": "QhxjQOMdDF",
+    "conference_submission_number": 11183,
+    "title": "Addax: Utilizing Zeroth-Order Gradients to Improve Memory Efficiency and Performance of SGD for Fine-Tuning Language Models",
+    "topic": "Optimization->Non-Convex",
+    "topic_group": "Optimization",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=QhxjQOMdDF",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/29681",
+    "project_url": "https://github.com/optimization-for-data-driven-science/Addax",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/optimization-for-data-driven-science/Addax",
+        "slug": "optimization-for-data-driven-science/Addax",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 29681,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/optimization-for-data-driven-science/Addax",
+        "slug": "optimization-for-data-driven-science/Addax",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "optimization-for-data-driven-science/Addax",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": null,
+        "pushed_at": "2025-06-20T15:15:01Z",
+        "size_kb": 5,
+        "description": null,
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": false,
+          "training": true,
+          "evaluation": false,
+          "data": true,
+          "checkpoint": false,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-Zes7Wyif8G",
+    "forum_id": "Zes7Wyif8G",
+    "conference_submission_number": 4580,
+    "title": "KLay: Accelerating Arithmetic Circuits for Neurosymbolic AI",
+    "topic": "Probabilistic Methods->Bayesian Models and Methods",
+    "topic_group": "Probabilistic Methods",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=Zes7Wyif8G",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/29206",
+    "project_url": "https://github.com/ML-KULeuven/klay",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/ML-KULeuven/klay",
+        "slug": "ML-KULeuven/klay",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 29206,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/ML-KULeuven/klay",
+        "slug": "ML-KULeuven/klay",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "ML-KULeuven/klay",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": "Apache-2.0",
+        "pushed_at": "2026-08-25T09:49:46Z",
+        "size_kb": 9937,
+        "description": "Sparse Circuits on the GPU (ICLR2025)",
+        "homepage": "https://klaycircuits.readthedocs.io",
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": false,
+          "compute": true
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-KRv9NubipP",
+    "forum_id": "KRv9NubipP",
+    "conference_submission_number": 3416,
+    "title": "CaPo: Cooperative Plan Optimization for Efficient Embodied Multi-Agent Cooperation",
+    "topic": "Reinforcement Learning->Multi-agent",
+    "topic_group": "Reinforcement Learning",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=KRv9NubipP",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/30059",
+    "project_url": null,
+    "repository_candidates": [
+      {
+        "url": "https://github.com/jliu4ai/CaPo",
+        "slug": "jliu4ai/CaPo",
+        "evidence_fields": [
+          "abstract"
+        ]
+      }
+    ],
+    "source_event_id": 30059,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/jliu4ai/CaPo",
+        "slug": "jliu4ai/CaPo",
+        "evidence_fields": [
+          "abstract"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "jliu4ai/CaPo",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": null,
+        "pushed_at": "2025-03-01T08:24:01Z",
+        "size_kb": 1,
+        "description": "CaPo: Cooperative Plan Optimization for Efficient Embodied Multi-Agent Cooperation",
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": false,
+          "training": false,
+          "evaluation": false,
+          "data": false,
+          "checkpoint": false,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-V4y0CpX4hK",
+    "forum_id": "V4y0CpX4hK",
+    "conference_submission_number": 7260,
+    "title": "Agent Security Bench (ASB): Formalizing and Benchmarking Attacks and Defenses in LLM-based Agents",
+    "topic": "Social Aspects->Trustworthy Machine Learning",
+    "topic_group": "Social Aspects",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=V4y0CpX4hK",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/29432",
+    "project_url": "https://luckfort.github.io/ASBench/",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/agiresearch/ASB",
+        "slug": "agiresearch/ASB",
+        "evidence_fields": [
+          "abstract"
+        ]
+      }
+    ],
+    "source_event_id": 29432,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/agiresearch/ASB",
+        "slug": "agiresearch/ASB",
+        "evidence_fields": [
+          "abstract"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "agiresearch/ASB",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": "MIT",
+        "pushed_at": "2026-04-16T20:53:34Z",
+        "size_kb": 18780,
+        "description": "Agent Security Bench (ASB)",
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": false,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": false,
+          "compute": true
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-tNn6Hskmti",
+    "forum_id": "tNn6Hskmti",
+    "conference_submission_number": 13819,
+    "title": "Asymptotic Analysis of Two-Layer Neural Networks after One Gradient Step under Gaussian Mixtures Data with Structure",
+    "topic": "Theory->Learning Theory",
+    "topic_group": "Theory",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=tNn6Hskmti",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/28057",
+    "project_url": "https://github.com/KU-MLIP/2-Layer-NNs-with-Gaussian-Mixtures-Data",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/KU-MLIP/2-Layer-NNs-with-Gaussian-Mixtures-Data",
+        "slug": "KU-MLIP/2-Layer-NNs-with-Gaussian-Mixtures-Data",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 28057,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/KU-MLIP/2-Layer-NNs-with-Gaussian-Mixtures-Data",
+        "slug": "KU-MLIP/2-Layer-NNs-with-Gaussian-Mixtures-Data",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "KU-MLIP/2-Layer-NNs-with-Gaussian-Mixtures-Data",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": "MIT",
+        "pushed_at": "2025-03-03T13:10:19Z",
+        "size_kb": 52090,
+        "description": "Code for the ICLR 2025 paper called \"Asymptotic Analysis of Two-Layer Neural Networks after One Gradient Step under Gaussian Mixtures Data with Structure\"",
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": false,
+          "training": true,
+          "evaluation": false,
+          "data": true,
+          "checkpoint": false,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-mOpNrrV2zH",
+    "forum_id": "mOpNrrV2zH",
+    "conference_submission_number": 9115,
+    "title": "CBGBench: Fill in the Blank of Protein-Molecule Complex Binding Graph",
+    "topic": "Unknown",
+    "topic_group": "Unknown",
+    "decision": "Accept (Spotlight)",
+    "openreview_url": "https://openreview.net/forum?id=mOpNrrV2zH",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/28468",
+    "project_url": null,
+    "repository_candidates": [
+      {
+        "url": "https://github.com/EDAPINENUT/CBGBench",
+        "slug": "EDAPINENUT/CBGBench",
+        "evidence_fields": [
+          "abstract"
+        ]
+      }
+    ],
+    "source_event_id": 28468,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/EDAPINENUT/CBGBench",
+        "slug": "EDAPINENUT/CBGBench",
+        "evidence_fields": [
+          "abstract"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "EDAPINENUT/CBGBench",
+        "default_branch": "master",
+        "archived": false,
+        "license_spdx": "GPL-3.0",
+        "pushed_at": "2025-09-14T02:54:11Z",
+        "size_kb": 5867,
+        "description": "Official code repository of < CBGBench: Fill in the Blank of Protein-Molecule Complex Binding Graph >",
+        "homepage": "",
+        "readme_downloaded": false,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned"
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-c1RhJVTPwT",
+    "forum_id": "c1RhJVTPwT",
+    "conference_submission_number": 4181,
+    "title": "Swift4D: Adaptive divide-and-conquer Gaussian Splatting for compact and efficient reconstruction of dynamic scene",
+    "topic": "Applications->Computer Vision",
+    "topic_group": "Applications",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=c1RhJVTPwT",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/29075",
+    "project_url": "https://github.com/WuJH2001/swift4d",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/WuJH2001/swift4d",
+        "slug": "WuJH2001/swift4d",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 29075,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/WuJH2001/swift4d",
+        "slug": "WuJH2001/swift4d",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "WuJH2001/Swift4d",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": null,
+        "pushed_at": "2026-05-20T09:39:47Z",
+        "size_kb": 8672,
+        "description": "[ICLR‘2025] Swift4d: Adaptive divide-and-conquer Gaussian Splatting for compact and efficient reconstruction of dynamic scene",
+        "homepage": "",
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": false,
+          "compute": true
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-fxv0FfmDAg",
+    "forum_id": "fxv0FfmDAg",
+    "conference_submission_number": 4435,
+    "title": "DRoP: Distributionally Robust Data Pruning",
+    "topic": "Deep Learning->Robustness",
+    "topic_group": "Deep Learning",
+    "decision": "Accept (Spotlight)",
+    "openreview_url": "https://openreview.net/forum?id=fxv0FfmDAg",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/28840",
+    "project_url": "https://github.com/avysogorets/drop-data-pruning",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/avysogorets/drop-data-pruning",
+        "slug": "avysogorets/drop-data-pruning",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 28840,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/avysogorets/drop-data-pruning",
+        "slug": "avysogorets/drop-data-pruning",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "avysogorets/drop-data-pruning",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": "MIT",
+        "pushed_at": "2025-01-28T03:50:05Z",
+        "size_kb": 103,
+        "description": null,
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": false,
+          "data": true,
+          "checkpoint": false,
+          "compute": true
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-aN57tSd5Us",
+    "forum_id": "aN57tSd5Us",
+    "conference_submission_number": 9587,
+    "title": "Stabilized Neural Prediction of Potential Outcomes in Continuous Time",
+    "topic": "Miscellaneous Aspects of Machine Learning->Causality",
+    "topic_group": "Miscellaneous Aspects of Machine Learning",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=aN57tSd5Us",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/29172",
+    "project_url": "https://github.com/konstantinhess/SCIP-Net",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/konstantinhess/SCIP-Net",
+        "slug": "konstantinhess/SCIP-Net",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 29172,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/konstantinhess/SCIP-Net",
+        "slug": "konstantinhess/SCIP-Net",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "konstantinhess/SCIP-Net",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": null,
+        "pushed_at": "2024-10-01T15:52:23Z",
+        "size_kb": 661,
+        "description": "Stabilized IPW for potential outcome prediction in continuous time with neural CDEs",
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": false,
+          "data": true,
+          "checkpoint": false,
+          "compute": true
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-xVefsBbG2O",
+    "forum_id": "xVefsBbG2O",
+    "conference_submission_number": 3774,
+    "title": "Diffusion Models are Evolutionary Algorithms",
+    "topic": "Optimization->Zero-order and Black-box Optimization",
+    "topic_group": "Optimization",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=xVefsBbG2O",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/27778",
+    "project_url": "https://github.com/Zhangyanbo/diffusion-evolution",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/Zhangyanbo/diffusion-evolution",
+        "slug": "Zhangyanbo/diffusion-evolution",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 27778,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/Zhangyanbo/diffusion-evolution",
+        "slug": "Zhangyanbo/diffusion-evolution",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "Zhangyanbo/diffusion-evolution",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": "NOASSERTION",
+        "pushed_at": "2025-06-17T00:04:05Z",
+        "size_kb": 13181,
+        "description": "Diffusion model derived evolutionary algorithm",
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": false,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": false,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-HSi4VetQLj",
+    "forum_id": "HSi4VetQLj",
+    "conference_submission_number": 10297,
+    "title": "Improving Uncertainty Estimation through Semantically Diverse Language Generation",
+    "topic": "Probabilistic Methods->Monte Carlo and Sampling Methods",
+    "topic_group": "Probabilistic Methods",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=HSi4VetQLj",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/30224",
+    "project_url": "https://github.com/ml-jku/SDLG",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/ml-jku/SDLG",
+        "slug": "ml-jku/SDLG",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 30224,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/ml-jku/SDLG",
+        "slug": "ml-jku/SDLG",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "ml-jku/SDLG",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": "BSD-3-Clause-Clear",
+        "pushed_at": "2026-09-02T12:28:24Z",
+        "size_kb": 4058,
+        "description": "SDLG is an efficient method to accurately estimate aleatoric semantic uncertainty in LLMs",
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": true,
+          "compute": true
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-F07ic7huE3",
+    "forum_id": "F07ic7huE3",
+    "conference_submission_number": 2251,
+    "title": "Bisimulation Metric for Model Predictive Control",
+    "topic": "Reinforcement Learning->Planning",
+    "topic_group": "Reinforcement Learning",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=F07ic7huE3",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/30370",
+    "project_url": "https://github.com/purewater0901/BSMPC",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/purewater0901/BSMPC",
+        "slug": "purewater0901/BSMPC",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 30370,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/purewater0901/BSMPC",
+        "slug": "purewater0901/BSMPC",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "purewater0901/BSMPC",
+        "default_branch": "master",
+        "archived": false,
+        "license_spdx": null,
+        "pushed_at": "2024-10-09T03:13:52Z",
+        "size_kb": 1387,
+        "description": "Official code for BS-MPC",
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": false,
+          "data": true,
+          "checkpoint": false,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-Xbl6t6zxZs",
+    "forum_id": "Xbl6t6zxZs",
+    "conference_submission_number": 12153,
+    "title": "See It from My Perspective: How Language Affects Cultural Bias in Image Understanding",
+    "topic": "Social Aspects->Fairness, Equity, Justice and Safety",
+    "topic_group": "Social Aspects",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=Xbl6t6zxZs",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/29299",
+    "project_url": "https://github.com/amith-ananthram/see-it-from-my-perspective",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/amith-ananthram/see-it-from-my-perspective",
+        "slug": "amith-ananthram/see-it-from-my-perspective",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 29299,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/amith-ananthram/see-it-from-my-perspective",
+        "slug": "amith-ananthram/see-it-from-my-perspective",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "amith-ananthram/see-it-from-my-perspective",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": null,
+        "pushed_at": "2025-10-23T22:22:03Z",
+        "size_kb": 55338,
+        "description": "Evaluate code for See It From My Perspective, an investigation into how language pre-training drives cultural bias in image understanding (ICLR 2025)",
+        "homepage": "",
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": false,
+          "training": false,
+          "evaluation": false,
+          "data": true,
+          "checkpoint": false,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-D10yarGQNk",
+    "forum_id": "D10yarGQNk",
+    "conference_submission_number": 1297,
+    "title": "Efficient and Context-Aware Label Propagation for Zero-/Few-Shot Training-Free Adaptation of Vision-Language Model",
+    "topic": "Theory->Domain Adaptation and Transfer Learning",
+    "topic_group": "Theory",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=D10yarGQNk",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/30482",
+    "project_url": "https://github.com/Yushu-Li/ECALP",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/Yushu-Li/ECALP",
+        "slug": "Yushu-Li/ECALP",
+        "evidence_fields": [
+          "url",
+          "abstract"
+        ]
+      }
+    ],
+    "source_event_id": 30482,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/Yushu-Li/ECALP",
+        "slug": "Yushu-Li/ECALP",
+        "evidence_fields": [
+          "url",
+          "abstract"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "Yushu-Li/ECALP",
+        "default_branch": "master",
+        "archived": false,
+        "license_spdx": "MIT",
+        "pushed_at": "2025-12-11T04:54:59Z",
+        "size_kb": 2416,
+        "description": "[ICLR 2025] Official repository for “Efficient and Context-Aware Label Propagation for Zero-/Few-Shot Training-Free Adaptation of Vision-Language Model”",
+        "homepage": "",
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": false,
+          "training": true,
+          "evaluation": false,
+          "data": true,
+          "checkpoint": false,
+          "compute": true
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-il5yUQsrjC",
+    "forum_id": "il5yUQsrjC",
+    "conference_submission_number": 10792,
+    "title": "AndroidWorld: A Dynamic Benchmarking Environment for Autonomous Agents",
+    "topic": "Unknown",
+    "topic_group": "Unknown",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=il5yUQsrjC",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/28677",
+    "project_url": null,
+    "repository_candidates": [
+      {
+        "url": "https://github.com/google-research/android_world",
+        "slug": "google-research/android_world",
+        "evidence_fields": [
+          "abstract"
+        ]
+      }
+    ],
+    "source_event_id": 28677,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/google-research/android_world",
+        "slug": "google-research/android_world",
+        "evidence_fields": [
+          "abstract"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "google-research/android_world",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": "Apache-2.0",
+        "pushed_at": "2026-09-09T16:13:39Z",
+        "size_kb": 21370,
+        "description": "AndroidWorld is an environment and benchmark for autonomous agents",
+        "homepage": "",
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": false,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": true,
+          "compute": false
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-H9UnNgdq0g",
+    "forum_id": "H9UnNgdq0g",
+    "conference_submission_number": 8148,
+    "title": "MediConfusion: Can you trust your AI radiologist? Probing the reliability of multimodal medical foundation models",
+    "topic": "Applications->Health",
+    "topic_group": "Applications",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=H9UnNgdq0g",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/30242",
+    "project_url": "https://github.com/AIF4S/MediConfusion",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/AIF4S/MediConfusion",
+        "slug": "AIF4S/MediConfusion",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 30242,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/AIF4S/MediConfusion",
+        "slug": "AIF4S/MediConfusion",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "AIF4S/MediConfusion",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": null,
+        "pushed_at": "2025-02-27T23:32:41Z",
+        "size_kb": 5451,
+        "description": null,
+        "homepage": null,
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": false,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": true,
+          "compute": true
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-lqHv6dxBkj",
+    "forum_id": "lqHv6dxBkj",
+    "conference_submission_number": 7344,
+    "title": "SLoPe: Double-Pruned Sparse Plus Lazy Low-Rank Adapter Pretraining of LLMs",
+    "topic": "Deep Learning->Everything Else",
+    "topic_group": "Deep Learning",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=lqHv6dxBkj",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/28497",
+    "project_url": "https://github.com/Mohammad-Mozaffari/slope",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/Mohammad-Mozaffari/slope",
+        "slug": "Mohammad-Mozaffari/slope",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 28497,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/Mohammad-Mozaffari/slope",
+        "slug": "Mohammad-Mozaffari/slope",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "Paramathic/slope",
+        "default_branch": "main",
+        "archived": false,
+        "license_spdx": null,
+        "pushed_at": "2025-01-25T22:46:13Z",
+        "size_kb": 2795,
+        "description": "SLoPe: Double-Pruned Sparse Plus Lazy Low-rank Adapter Pretraining - Published at ICLR 2025",
+        "homepage": "",
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": true,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": true,
+          "compute": true
+        }
+      }
+    ]
+  },
+  {
+    "project_id": "iclr2025-9vTAkJ9Tik",
+    "forum_id": "9vTAkJ9Tik",
+    "conference_submission_number": 8459,
+    "title": "Doubly robust identification of treatment effects from multiple environments",
+    "topic": "Miscellaneous Aspects of Machine Learning->Causality",
+    "topic_group": "Miscellaneous Aspects of Machine Learning",
+    "decision": "Accept (Poster)",
+    "openreview_url": "https://openreview.net/forum?id=9vTAkJ9Tik",
+    "conference_url": "https://iclr.cc/virtual/2025/poster/30659",
+    "project_url": "https://github.com/jaabmar/RAMEN",
+    "repository_candidates": [
+      {
+        "url": "https://github.com/jaabmar/RAMEN",
+        "slug": "jaabmar/RAMEN",
+        "evidence_fields": [
+          "url"
+        ]
+      }
+    ],
+    "source_event_id": 30659,
+    "source_url": "https://iclr.cc/static/virtual/data/iclr-2025-orals-posters.json",
+    "source_sha256": "ebd6fa23d9ca54628eb715885756bf7e5addf72db134648dc683251678f86a70",
+    "reviews_status": "not_fetched_api_challenge",
+    "review_score": null,
+    "split": "design_pilot_unassigned",
+    "family_dedup_status": "not_audited",
+    "runtime_verified": false,
+    "task_status": "not_constructed",
+    "repositories": [
+      {
+        "url": "https://github.com/jaabmar/RAMEN",
+        "slug": "jaabmar/RAMEN",
+        "evidence_fields": [
+          "url"
+        ],
+        "link_status": "linked_from_conference_record_not_manually_authenticated",
+        "runtime_verified": false,
+        "license_review_status": "not_reviewed",
+        "fetch_status": "metadata_fetched",
+        "canonical_slug": "jaabmar/RAMEN",
+        "default_branch": "master",
+        "archived": false,
+        "license_spdx": "MIT",
+        "pushed_at": "2026-01-19T17:38:06Z",
+        "size_kb": 69,
+        "description": "Implementation for the paper \"Doubly robust identification of treatment effects from multiple environments\"",
+        "homepage": "",
+        "readme_downloaded": true,
+        "snapshot_status": "mutable_branch_readme_hashed_not_commit_pinned",
+        "readme_lexical_hints": {
+          "setup": true,
+          "training": false,
+          "evaluation": true,
+          "data": true,
+          "checkpoint": false,
+          "compute": false
+        }
+      }
+    ]
+  }
+]

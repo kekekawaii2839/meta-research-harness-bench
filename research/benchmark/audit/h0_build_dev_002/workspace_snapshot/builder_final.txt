@@ -1,0 +1,3 @@
+Blocked by the workspace permission profile: it is read-only and rejects both direct file reads/process execution and `apply_patch` writes. Consequently, I could not read the specifications, create artifacts, or run H0 tests.
+
+No files were changed and no tests were run. Please rerun with workspace read/write and local process execution enabled.

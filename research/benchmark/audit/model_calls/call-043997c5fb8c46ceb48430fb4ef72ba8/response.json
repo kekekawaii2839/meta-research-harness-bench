@@ -1,0 +1,1 @@
+{"kind":"tools","payload_json":"{\"calls\":[{\"name\":\"artifact.read_text\",\"arguments\":{\"path\":\"analysis_summary.json\"}},{\"name\":\"artifact.read_text\",\"arguments\":{\"path\":\"hypothesis_evidence_map.json\"}},{\"name\":\"artifact.read_text\",\"arguments\":{\"path\":\"diagnostics.csv\"}}]}"}

@@ -1,0 +1,955 @@
+{
+  "schema_version": "private-literature-relevance-review-1",
+  "visibility": "maintainer_private_never_solver_index",
+  "status": "candidate_labels_for_root_adjudication_not_integrated",
+  "created_at": "2026-09-24T18:01:17.282083+00:00",
+  "review_method": "Independent maintainer reading of pinned arxiv-v1 full-text PDFs for the seven R2 documents originally gathered for the IV package: abstract/introduction/problem-setup pages closely read, plus a full-page keyword scan (shift, out-of-distribution, test-time/test time, unlabeled, covariate, robust, adapt) with every hit read in context. No model transport calls, no network, no new papers, no source/corpus/public-asset/code/existing-audit edits, no score changes. The IV-scope tiers in private_literature_roles_candidates.json were NOT transferred.",
+  "task_binding": {
+    "task_id": "dev-lit-r2-002-collection-v2",
+    "task_manifest": "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/task.json",
+    "task_sha256": "6792a5be46f24d15130e1c2b69dc77f2fec66b0869fc7dbbbf8db40bd27a8792",
+    "research_setting_path": "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/public/research_setting.json",
+    "research_setting_sha256": "92828f1ed0af91bf4bf1902f77b4f30c8a1eb4a744e6ba7b61ff2b68210d6671",
+    "scope": "A pretrained deterministic scalar regression model faces changed input distributions. Deployment has unlabeled target inputs and no source examples or target labels. Source preparation may retain a documented finite summary of aggregate statistics, not original source examples. Do not assume the model already provides a predictive probability distribution.",
+    "resource_distinction": "No scientific numeric source-summary ceiling; package runtime budgets are separate."
+  },
+  "label_semantics": {
+    "core": "High-priority lineage or access-regime comparator; not necessarily directly applicable or mandatory.",
+    "background": "Conceptual/mechanistic support for interpreting approaches and evidence.",
+    "confusable": "Relevant near-neighbor with an important condition liable to be confused with the task; not irrelevant or invalid. Same value as the requested 'near_confusable' label; the existing schema string 'confusable' is kept for consistency with the two earlier SSA audits.",
+    "unrelated": "NEW in this file: after reading the inspected text, no substantive role for this task's access regime was found. Not an error label: retrieving or reading such a paper is not automatically penalized, and a solver may still legitimately cite it for a clearly scoped tangential point. Surface vocabulary overlap is recorded per paper.",
+    "insufficient_evidence": "Insufficient inspected evidence for a role, not a negative label.",
+    "no_required_list": true,
+    "not_scoring_rule": true,
+    "alternatives": "Other valid documents may cover equivalent evidence. No single document is mandatory.",
+    "uncertainty": "Tier boundaries are discretionary; doc-2212.07677 (unrelated) and doc-2208.01066 (confusable) sit on the confusable/unrelated boundary."
+  },
+  "evidence_location_contract": {
+    "extractor": "pypdf 6.10.0",
+    "python": "D:/mrhbench-local-pilot/controller-venv/Scripts/python.exe",
+    "page_numbering": "1-based physical PDF page",
+    "normalization": "re.sub(r\"\\s+\", \" \", page.extract_text()).strip(); preserve Unicode ligatures",
+    "normalized_page_sha256": "sha256 of the normalized page text encoded UTF-8 (convention re-derived and confirmed against private_ssa_lit_existing_three_review_v1.json doc-2204.13263 p3 before use)",
+    "character_offsets": "Python Unicode indexes; end exclusive after whitespace normalization",
+    "quotes": "At most 25 whitespace-delimited quoted words per paper; paraphrases reflect inspected conditions, not exhaustive summaries."
+  },
+  "labels": [
+    {
+      "document_id": "doc-1910.12358",
+      "paper_id": "background-arxiv-1910.12358",
+      "title": "Dual IV: A Single Stage Instrumental Variable Regression",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/1910.12358v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/r2_v3/arxiv-1910-12358-v1-paper.source",
+      "pdf_sha256": "db48e3419765524ba2cfb79b7fa121fa3f5196802929ed025e5ec9bc4bd8478d",
+      "published_date": "2019-10-27",
+      "prior_task_scope": "IV (private_literature_roles_candidates.json); IV tier not transferred",
+      "prior_ssa_status": "unreviewed_for_SSA",
+      "proposed_tier": "unrelated",
+      "requested_label_vocabulary": "unrelated",
+      "confidence": 0.88,
+      "confidence_basis": "Task-relative judgment, not calibrated probability or performance.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false,
+      "task_relation": "Not a source-summary/test-time-adaptation comparator. DualIV estimates a causal structural function from labeled observational (X, Y) data plus instruments Z under unobserved confounding; it offers no mechanism for adapting a pretrained regressor to unlabeled shifted inputs.",
+      "conditions_and_limitations": {
+        "access_regime": "Estimation requires outcome Y, treatment X and instrument Z samples at training time; no deployment-time adaptation phase, no retained source summary, and no unlabeled target-input setting is described in the inspected text.",
+        "surface_overlap_risk": "Shares scalar-outcome regression vocabulary (Y in R) and the notion that E[Y|x] differs from an interventional prediction. The interventional counterfactual-prediction target is a confounding/identification problem, not covariate shift between source and deployment inputs; conflating them would be a relevance error.",
+        "deterministic_scalar_fit": "Outputs a deterministic real-valued function estimate, but this is incidental; it does not bear on unsupervised adaptation.",
+        "why_not_confusable": "No inspected passage frames the method as handling a shift in input distribution at deployment; keyword scan found 'shift' only in 'supply cost shifter' (p7, demand-simulation instrument). Tier boundary is discretionary, but citing it as a test-time-adaptation method would be unsupported."
+      },
+      "evidence": [
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "instrumental variable (IV) regression",
+          "start_char": 322,
+          "end_char": 359,
+          "normalized_page_sha256": "c6d17a0fdb22a8681d410e0f168602f7b1586fa18e3dce53d13f1793e7858108"
+        },
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "1 Introduction",
+          "quote": "under the presence of an unobserved confounder",
+          "start_char": 1476,
+          "end_char": 1522,
+          "normalized_page_sha256": "c6d17a0fdb22a8681d410e0f168602f7b1586fa18e3dce53d13f1793e7858108"
+        },
+        {
+          "pdf_page_1based": 2,
+          "section_hint": "2.1 Instrumental Variable Regression",
+          "quote": "treatment assignment may not be random",
+          "start_char": 2543,
+          "end_char": 2581,
+          "normalized_page_sha256": "fe02d8f1abedb58038a203a4feaaa2503a28d32f5edbb0a5934bbb0f05ff688a"
+        },
+        {
+          "pdf_page_1based": 2,
+          "section_hint": "2.1 Instrumental Variable Regression",
+          "quote": "estimating f(x) from observational data",
+          "start_char": 2332,
+          "end_char": 2371,
+          "normalized_page_sha256": "fe02d8f1abedb58038a203a4feaaa2503a28d32f5edbb0a5934bbb0f05ff688a"
+        }
+      ],
+      "quoted_words": 22,
+      "pdf_extraction": {
+        "pages_total": 14,
+        "pages_empty_or_failed": []
+      },
+      "reading_scope": {
+        "close_read_pages": [
+          1,
+          2,
+          3
+        ],
+        "targeted_fulltext_passages": [
+          7,
+          13
+        ],
+        "other_pages": "Keyword scan of all 14 pages for shift/out-of-distribution/test-time/unlabeled/covariate/robust/adapt; proof pages inspected only as structure. No derivation or experiment reproduced."
+      },
+      "historical_h0_lit_run": {
+        "source": "research/benchmark/audit/private_ssa_retrieval_diagnostic_v2.json",
+        "stages_observed": [
+          "returned"
+        ],
+        "events": [
+          {
+            "stage": "returned",
+            "tool": "literature.search",
+            "sequence": 21,
+            "hit_index": 9,
+            "rpc_record_content_sha256": "85a5b4a1788e15c00d81ae2966f7542f031a4658363069b03c827141b94c9579"
+          }
+        ],
+        "note": "Returned once as hit_index 9 in successful literature.search seq 21; never abstract-read, page-read or adopted in the submission claim map.",
+        "historical_diagnosis_changed": false
+      }
+    },
+    {
+      "document_id": "doc-2208.01066",
+      "paper_id": "background-arxiv-2208.01066",
+      "title": "What Can Transformers Learn In-Context? A Case Study of Simple Function Classes",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/2208.01066v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2208-01066-v1-paper.source",
+      "pdf_sha256": "3c212dc2df289a3163d14841b08837155bd3234d1dd87477ddad455042e112a7",
+      "published_date": "2022-08-01",
+      "prior_task_scope": "IV (private_literature_roles_candidates.json); IV tier not transferred",
+      "prior_ssa_status": "unreviewed_for_SSA",
+      "proposed_tier": "confusable",
+      "requested_label_vocabulary": "near_confusable",
+      "confidence": 0.7,
+      "confidence_basis": "Task-relative judgment, not calibrated probability or performance.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false,
+      "task_relation": "Near-neighbor for 'regression predictor facing shifted inference-time inputs without parameter updates', but the mechanism consumes labeled input-output pairs in the prompt, which the task's deployment regime (no target labels) does not provide.",
+      "conditions_and_limitations": {
+        "access_regime": "In-context learning conditions on in-context examples that are input-output pairs; at deployment the task has unlabeled target inputs only. The robustness results therefore do not transfer to label-free adaptation.",
+        "shift_types": "Studied shifts are (i) training-prompt vs inference-prompt distribution and (ii) in-context examples vs query input (e.g., skewed covariance, orthants, query scaling in Appendix B.1). These are genuine input-distribution shifts for a scalar-output model, which is why it is liable to be cited as test-time adaptation.",
+        "model_regime": "Transformers are trained from scratch on synthetic function-class prompts; not a fixed pretrained regressor adapted with a source summary. No source-statistic retention is involved.",
+        "deterministic_scalar_fit": "Outputs are scalar predictions without a predictive distribution, matching that task condition, but this does not make it an applicable adaptation method.",
+        "evidence_boundary": "Synthetic linear/sparse/decision-tree/two-layer-network function classes; robustness is compared to least squares with the same labeled context. Citing it as evidence that a pretrained regressor self-adapts to unlabeled shift would overstate it. Tier boundary vs unrelated is discretionary."
+      },
+      "evidence": [
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "input-output pairs corresponding to some task",
+          "start_char": 439,
+          "end_char": 484,
+          "normalized_page_sha256": "6481c167e8023ea6405de3d6bc07b51c67ed3ea245b1504cbe2a8ac845e08c71"
+        },
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "without any parameter updates to the model",
+          "start_char": 617,
+          "end_char": 659,
+          "normalized_page_sha256": "6481c167e8023ea6405de3d6bc07b51c67ed3ea245b1504cbe2a8ac845e08c71"
+        },
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "possible even under two forms of distribution shift",
+          "start_char": 1509,
+          "end_char": 1560,
+          "normalized_page_sha256": "6481c167e8023ea6405de3d6bc07b51c67ed3ea245b1504cbe2a8ac845e08c71"
+        }
+      ],
+      "quoted_words": 21,
+      "pdf_extraction": {
+        "pages_total": 30,
+        "pages_empty_or_failed": []
+      },
+      "reading_scope": {
+        "close_read_pages": [
+          1,
+          2,
+          3
+        ],
+        "targeted_fulltext_passages": [
+          6,
+          7,
+          8,
+          10,
+          11,
+          13,
+          21,
+          22,
+          23
+        ],
+        "other_pages": "Keyword scan of all 30 pages; out-of-distribution prompt sections (Sec. 4, App. B.1-B.2) read in located passages; figures not reproduced."
+      },
+      "historical_h0_lit_run": {
+        "source": "research/benchmark/audit/private_ssa_retrieval_diagnostic_v2.json",
+        "stages_observed": [
+          "none"
+        ],
+        "events": [],
+        "note": "Not observed in any successful search return, read or adoption event in the historical H0 LIT run.",
+        "historical_diagnosis_changed": false
+      }
+    },
+    {
+      "document_id": "doc-2211.15661",
+      "paper_id": "background-arxiv-2211.15661",
+      "title": "What learning algorithm is in-context learning? Investigations with linear models",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/2211.15661v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2211-15661-v1-paper.source",
+      "pdf_sha256": "87e19f38c76f134f2248571e077a86e8ef9d2702127e6e32447086a97850f05c",
+      "published_date": "2022-11-28",
+      "prior_task_scope": "IV (private_literature_roles_candidates.json); IV tier not transferred",
+      "prior_ssa_status": "unreviewed_for_SSA",
+      "proposed_tier": "unrelated",
+      "requested_label_vocabulary": "unrelated",
+      "confidence": 0.85,
+      "confidence_basis": "Task-relative judgment, not calibrated probability or performance.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false,
+      "task_relation": "Mechanistic study of which learning algorithm transformer in-context learners implement on linear regression with labeled context; no distribution-shift adaptation, source-summary or unlabeled-deployment content located.",
+      "conditions_and_limitations": {
+        "access_regime": "Predictors are constructed from sequences of labeled examples (x, f(x)); the 'unlabeled test inputs' on p6 are probe inputs used to compare learned functions across algorithms, not an adaptation signal.",
+        "surface_overlap_risk": "Linear regression, 'moment matrices' and 'no parameter updates' can superficially resemble statistic-based adaptation; they refer to in-context estimator internals.",
+        "why_not_confusable": "Keyword scan located no out-of-distribution or shift evaluation (only 'phase shift' in the depth/width sense). If a solver cites it, it would be for ICL mechanism background, not for this task's access regime."
+      },
+      "evidence": [
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "construct new predictors from sequences of labeled examples",
+          "start_char": 380,
+          "end_char": 439,
+          "normalized_page_sha256": "df82351c225e27355c45fa429dca949ddc9563df51a4c8413bf0341192194e2b"
+        },
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "Using linear regression as a prototypical problem",
+          "start_char": 757,
+          "end_char": 806,
+          "normalized_page_sha256": "df82351c225e27355c45fa429dca949ddc9563df51a4c8413bf0341192194e2b"
+        }
+      ],
+      "quoted_words": 15,
+      "pdf_extraction": {
+        "pages_total": 28,
+        "pages_empty_or_failed": []
+      },
+      "reading_scope": {
+        "close_read_pages": [
+          1,
+          2
+        ],
+        "targeted_fulltext_passages": [
+          6,
+          8,
+          24
+        ],
+        "other_pages": "Keyword scan of all 28 pages; theorem constructions not validated."
+      },
+      "historical_h0_lit_run": {
+        "source": "research/benchmark/audit/private_ssa_retrieval_diagnostic_v2.json",
+        "stages_observed": [
+          "none"
+        ],
+        "events": [],
+        "note": "Not observed in any successful search return, read or adoption event in the historical H0 LIT run.",
+        "historical_diagnosis_changed": false
+      }
+    },
+    {
+      "document_id": "doc-2212.07677",
+      "paper_id": "background-arxiv-2212.07677",
+      "title": "Transformers learn in-context by gradient descent",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/2212.07677v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2212-07677-v1-paper.source",
+      "pdf_sha256": "f4541e1fa479877a0e0552283e15cb5240b243cc67aaa9a404c3135f23e5d9ac",
+      "published_date": "2022-12-15",
+      "prior_task_scope": "IV (private_literature_roles_candidates.json); IV tier not transferred",
+      "prior_ssa_status": "unreviewed_for_SSA",
+      "proposed_tier": "unrelated",
+      "requested_label_vocabulary": "unrelated",
+      "confidence": 0.72,
+      "confidence_basis": "Task-relative judgment, not calibrated probability or performance.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false,
+      "task_relation": "Shows trained linear self-attention implements gradient descent on an in-context regression loss. Its out-of-distribution validation tasks rescale inputs/teacher weights while still supplying labeled in-context data; it is not a label-free adaptation method or a source-summary comparator.",
+      "conditions_and_limitations": {
+        "access_regime": "In-context data are labeled regression pairs; the implicit GD step uses those targets. The task's deployment has no target labels.",
+        "shift_content": "OOD tests (p7, App. A.1/A.4) vary the input range U(-alpha, alpha) or scale teacher weights for validation tasks and compare Transformer vs GD degradation. This is shift in the in-context task distribution, not adapting a fixed pretrained regressor to unlabeled shifted inputs.",
+        "boundary_uncertainty": "Closer to 'confusable' than the other ICL-mechanism papers because it reports input-range shift for regression; kept unrelated because shift robustness is a secondary validation of the GD-equivalence hypothesis and presupposes labels. A reviewer could reasonably move it to confusable; this is not a factual disagreement."
+      },
+      "evidence": [
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "trained Transformers implement gradient descent in their forward pass",
+          "start_char": 1422,
+          "end_char": 1491,
+          "normalized_page_sha256": "ccc06d42aed8970f7d19bb497b14ceddcbea788c4898a80a3250b59a28061cb6"
+        },
+        {
+          "pdf_page_1based": 7,
+          "section_hint": "Single linear self-attention layer: out-of-distribution validation",
+          "quote": "Out-of-distribution validation tasks.",
+          "start_char": 1915,
+          "end_char": 1952,
+          "normalized_page_sha256": "4454cd1805ef416c0fad26a3b74ed1546fb449c5e8a5db0da9eef02789689aa5"
+        },
+        {
+          "pdf_page_1based": 7,
+          "section_hint": "Single linear self-attention layer: out-of-distribution validation",
+          "quote": "providing in-context data in regimes",
+          "start_char": 2104,
+          "end_char": 2140,
+          "normalized_page_sha256": "4454cd1805ef416c0fad26a3b74ed1546fb449c5e8a5db0da9eef02789689aa5"
+        }
+      ],
+      "quoted_words": 17,
+      "pdf_extraction": {
+        "pages_total": 22,
+        "pages_empty_or_failed": []
+      },
+      "reading_scope": {
+        "close_read_pages": [
+          1,
+          2,
+          3,
+          7
+        ],
+        "targeted_fulltext_passages": [
+          8,
+          15,
+          17,
+          18,
+          19,
+          20
+        ],
+        "other_pages": "Keyword scan of all 22 pages; weight constructions not validated."
+      },
+      "historical_h0_lit_run": {
+        "source": "research/benchmark/audit/private_ssa_retrieval_diagnostic_v2.json",
+        "stages_observed": [
+          "returned"
+        ],
+        "events": [
+          {
+            "stage": "returned",
+            "tool": "literature.search",
+            "sequence": 21,
+            "hit_index": 8,
+            "rpc_record_content_sha256": "85a5b4a1788e15c00d81ae2966f7542f031a4658363069b03c827141b94c9579"
+          }
+        ],
+        "note": "Returned once as hit_index 8 in successful literature.search seq 21; never abstract-read, page-read or adopted in the submission claim map.",
+        "historical_diagnosis_changed": false
+      }
+    },
+    {
+      "document_id": "doc-2310.17086",
+      "paper_id": "background-arxiv-2310.17086",
+      "title": "Transformers Learn Higher-Order Optimization Methods for In-Context Learning: A Study with Linear Models",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/2310.17086v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2310-17086-v1-paper.source",
+      "pdf_sha256": "b0e836fc04577ec3c74292b589307dede035d0d23531ea716c92a62490de57a1",
+      "published_date": "2023-10-26",
+      "prior_task_scope": "IV (private_literature_roles_candidates.json); IV tier not transferred",
+      "prior_ssa_status": "unreviewed_for_SSA",
+      "proposed_tier": "unrelated",
+      "requested_label_vocabulary": "unrelated",
+      "confidence": 0.86,
+      "confidence_basis": "Task-relative judgment, not calibrated probability or performance.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false,
+      "task_relation": "Mechanistic ICL study (Transformer layers approximate iterative Newton on in-context linear regression). No deployment shift/adaptation content relevant to unlabeled target inputs or retained source summaries located.",
+      "conditions_and_limitations": {
+        "access_regime": "ICL learns from input-output demonstration pairs; labels are part of the prompt.",
+        "ill_conditioned_note": "'Ill-conditioned data' (Sec. 4.3, App. A.2, kappa(Sigma)=100) concerns covariance conditioning of the in-context regression problem, not a source-to-target shift; the inspected text does not frame it as label-free deployment shift. Not verified whether models are retrained for that condition.",
+        "why_not_confusable": "Only incidental term overlap ('adapt' refers to a preconditioner adapting to data)."
+      },
+      "evidence": [
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "learning from demonstrations without parameter updates",
+          "start_char": 304,
+          "end_char": 358,
+          "normalized_page_sha256": "de6a17bcf8e66198c7addeaf76d7a4e34851a52ad490837129163d3222dd0767"
+        },
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "Focusing on in-context linear regression",
+          "start_char": 663,
+          "end_char": 703,
+          "normalized_page_sha256": "de6a17bcf8e66198c7addeaf76d7a4e34851a52ad490837129163d3222dd0767"
+        },
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "1 Introduction",
+          "quote": "learning from input-output pairs provided as inputs to the model",
+          "start_char": 2100,
+          "end_char": 2164,
+          "normalized_page_sha256": "de6a17bcf8e66198c7addeaf76d7a4e34851a52ad490837129163d3222dd0767"
+        }
+      ],
+      "quoted_words": 21,
+      "pdf_extraction": {
+        "pages_total": 28,
+        "pages_empty_or_failed": []
+      },
+      "reading_scope": {
+        "close_read_pages": [
+          1,
+          3
+        ],
+        "targeted_fulltext_passages": [
+          2,
+          7,
+          9,
+          12,
+          21
+        ],
+        "other_pages": "Keyword scan of all 28 pages; circuits/proofs not validated."
+      },
+      "historical_h0_lit_run": {
+        "source": "research/benchmark/audit/private_ssa_retrieval_diagnostic_v2.json",
+        "stages_observed": [
+          "none"
+        ],
+        "events": [],
+        "note": "Not observed in any successful search return, read or adoption event in the historical H0 LIT run.",
+        "historical_diagnosis_changed": false
+      }
+    },
+    {
+      "document_id": "doc-2405.19463",
+      "paper_id": "background-arxiv-2405.19463",
+      "title": "Stochastic Optimization Algorithms for Instrumental Variable Regression with Streaming Data",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/2405.19463v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2405-19463-v1-paper.source",
+      "pdf_sha256": "71305197a6d4b485a1b358113b511e0e762438de41b40b55d99eb666dcb0254a",
+      "published_date": "2024-05-29",
+      "prior_task_scope": "IV (private_literature_roles_candidates.json); IV tier not transferred",
+      "prior_ssa_status": "unreviewed_for_SSA",
+      "proposed_tier": "unrelated",
+      "requested_label_vocabulary": "unrelated",
+      "confidence": 0.9,
+      "confidence_basis": "Task-relative judgment, not calibrated probability or performance.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false,
+      "task_relation": "Online/streaming stochastic-optimization algorithms for instrumental-variable regression; estimates causal parameters from labeled streaming (X, Y, Z) data. Not a distribution-shift adaptation method.",
+      "conditions_and_limitations": {
+        "access_regime": "Requires outcome Y and instrument Z samples (two-sample or one-sample oracles) to recover theta*; no unlabeled target-input phase or retained source summary.",
+        "surface_overlap_risk": "'Fully online'/'streaming data' can be misread as online test-time adaptation. The paper's footnote places 'online' in the online-learning sense (p4); streaming here is labeled training data, not unlabeled shifted deployment inputs.",
+        "why_not_confusable": "Keyword scan found no shift/out-of-distribution/test-time/unlabeled passages; only reference-list 'adaptive stepsize'."
+      },
+      "evidence": [
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "fully online approach for performing instrumental variable regression with streaming data",
+          "start_char": 476,
+          "end_char": 565,
+          "normalized_page_sha256": "3221679113f20156ec1a36dc2baab902e75f72a7ac4b4f1c4555eb5eb55d75f3"
+        },
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "1 Introduction",
+          "quote": "estimate the causal effect of a random variable",
+          "start_char": 1378,
+          "end_char": 1425,
+          "normalized_page_sha256": "3221679113f20156ec1a36dc2baab902e75f72a7ac4b4f1c4555eb5eb55d75f3"
+        }
+      ],
+      "quoted_words": 19,
+      "pdf_extraction": {
+        "pages_total": 30,
+        "pages_empty_or_failed": []
+      },
+      "reading_scope": {
+        "close_read_pages": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "targeted_fulltext_passages": [
+          16
+        ],
+        "other_pages": "Keyword scan of all 30 pages; convergence proofs and experiments not reproduced."
+      },
+      "historical_h0_lit_run": {
+        "source": "research/benchmark/audit/private_ssa_retrieval_diagnostic_v2.json",
+        "stages_observed": [
+          "none"
+        ],
+        "events": [],
+        "note": "Not observed in any successful search return, read or adoption event in the historical H0 LIT run.",
+        "historical_diagnosis_changed": false
+      }
+    },
+    {
+      "document_id": "doc-2402.05639",
+      "paper_id": "background-arxiv-2402.05639",
+      "title": "Nonparametric Instrumental Variable Regression through Stochastic Approximate Gradients",
+      "version": "arxiv-v1",
+      "source_url": "https://arxiv.org/pdf/2402.05639v1",
+      "pdf_source_path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2402-05639-v1-paper.source",
+      "pdf_sha256": "77a066410c04896107241d38901f01cae9218dce236ed4e2022e941e2b9fa4d5",
+      "published_date": "2024-02-08",
+      "prior_task_scope": "IV (private_literature_roles_candidates.json); IV tier not transferred",
+      "prior_ssa_status": "unreviewed_for_SSA",
+      "proposed_tier": "unrelated",
+      "requested_label_vocabulary": "unrelated",
+      "confidence": 0.9,
+      "confidence_basis": "Task-relative judgment, not calibrated probability or performance.",
+      "status": "independent_private_candidate_not_gold",
+      "mandatory_citation": false,
+      "task_relation": "SAGD-IV: nonparametric IV regression via stochastic approximate gradients, trained on i.i.d. (X, Z, Y) samples; addresses confounding/ill-posed inverse problems, not deployment input shift with unlabeled targets.",
+      "conditions_and_limitations": {
+        "access_regime": "Nuisance estimators use N samples of (X, Z, Y); the inner loop uses Z samples. No unlabeled target-adaptation or source-summary regime.",
+        "surface_overlap_risk": "'Endogenous covariate' vocabulary may attract covariate-shift queries; the covariate here is the endogenous treatment, not a shifted input distribution.",
+        "why_not_confusable": "No inspected passage treats train/deployment distribution change."
+      },
+      "evidence": [
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "nonparametric instrumental variable (NPIV) regression",
+          "start_char": 384,
+          "end_char": 437,
+          "normalized_page_sha256": "25ee33118dc8260a23068bf1547267ac7c58403ca86d8d0cbec032eee78bf2c6"
+        },
+        {
+          "pdf_page_1based": 1,
+          "section_hint": "Abstract",
+          "quote": "presence of unobservable confounders",
+          "start_char": 628,
+          "end_char": 664,
+          "normalized_page_sha256": "25ee33118dc8260a23068bf1547267ac7c58403ca86d8d0cbec032eee78bf2c6"
+        },
+        {
+          "pdf_page_1based": 3,
+          "section_hint": "2 Problem setup and notation",
+          "quote": "samples from the joint distribution of X, Z and Y",
+          "start_char": 1675,
+          "end_char": 1724,
+          "normalized_page_sha256": "78ad7efc9ea36485eff4b5b7537a64040265c96ca79b30b12e71956d92fe6c7d"
+        }
+      ],
+      "quoted_words": 19,
+      "pdf_extraction": {
+        "pages_total": 22,
+        "pages_empty_or_failed": []
+      },
+      "reading_scope": {
+        "close_read_pages": [
+          1,
+          2,
+          3
+        ],
+        "targeted_fulltext_passages": [
+          7,
+          10
+        ],
+        "other_pages": "Keyword scan of all 22 pages; theory and experiments not reproduced."
+      },
+      "historical_h0_lit_run": {
+        "source": "research/benchmark/audit/private_ssa_retrieval_diagnostic_v2.json",
+        "stages_observed": [
+          "none"
+        ],
+        "events": [],
+        "note": "Not observed in any successful search return, read or adoption event in the historical H0 LIT run.",
+        "historical_diagnosis_changed": false
+      }
+    }
+  ],
+  "coverage": {
+    "corpus_documents": 18,
+    "reviewed_here": 7,
+    "new_tiers": {
+      "core": 0,
+      "background": 0,
+      "confusable": 1,
+      "unrelated": 6,
+      "insufficient_evidence": 0
+    },
+    "previously_labelled_elsewhere": 11,
+    "ssa_private_candidate_totals_after_this_file_if_adopted": {
+      "core": 5,
+      "background": 3,
+      "confusable": 4,
+      "unrelated": 6
+    },
+    "pages_failed_extraction": "None: all 174 pages across the seven PDFs returned non-empty text; pypdf emitted only 'Ignoring wrong pointing object' warnings. Math-heavy passages extract with degraded symbol spacing; no quotes were taken from such passages.",
+    "historical_h0_lit_run_summary": {
+      "diagnostic": "research/benchmark/audit/private_ssa_retrieval_diagnostic_v2.json",
+      "returned_only": [
+        "doc-1910.12358",
+        "doc-2212.07677"
+      ],
+      "read_or_adopted": [],
+      "not_observed": [
+        "doc-2208.01066",
+        "doc-2211.15661",
+        "doc-2310.17086",
+        "doc-2405.19463",
+        "doc-2402.05639"
+      ],
+      "note": "These two account for the diagnostic's retrieved unlabelled_paper_count=2. Both would now be 'unrelated' candidates; returned-only is not a read and carries no penalty. The historical diagnostic, grade, and trajectory are unchanged."
+    }
+  },
+  "integrity": {
+    "input_hashes_before": {
+      "research/benchmark/materials/pilot_v3/literature_v3/shared_background_corpus.json": "b68e6cfc200c176068c4da01ddc4f985492a1e8b3ffa54a39d8084a4f3383afe",
+      "research/benchmark/materials/pilot_v3/literature_v3/private_literature_roles_candidates.json": "381af9b5b291ea014c2e58c568429c18e9cdc862a39f02895b2601df236e40aa",
+      "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/task.json": "6792a5be46f24d15130e1c2b69dc77f2fec66b0869fc7dbbbf8db40bd27a8792",
+      "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/public/research_setting.json": "92828f1ed0af91bf4bf1902f77b4f30c8a1eb4a744e6ba7b61ff2b68210d6671",
+      "research/benchmark/audit/private_ssa_lit_relevance_review_v1.json": "e556ccf068e183e4f1ea994cdf671f90e203a411964cc03f6b16833fc24e2499",
+      "research/benchmark/audit/private_ssa_lit_existing_three_review_v1.json": "60597e5f5fd2b3e1e683b793a53849615a9c1204ca3c3763514bc49de4e7dc57",
+      "research/benchmark/audit/private_ssa_retrieval_diagnostic_v2.json": "ab98dddacda4ecd776aef64b5cd7ac194262143f37a74978602db1f5cbaec86b",
+      "research/source_cache/benchmark_materials/r2_v3/manifest.json": "a5475385004a1f3f0b7746534fd0a1fc4cb82e1506826b1c0690c9667a192aa8"
+    },
+    "input_hashes_after": {
+      "research/benchmark/materials/pilot_v3/literature_v3/shared_background_corpus.json": "b68e6cfc200c176068c4da01ddc4f985492a1e8b3ffa54a39d8084a4f3383afe",
+      "research/benchmark/materials/pilot_v3/literature_v3/private_literature_roles_candidates.json": "381af9b5b291ea014c2e58c568429c18e9cdc862a39f02895b2601df236e40aa",
+      "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/task.json": "6792a5be46f24d15130e1c2b69dc77f2fec66b0869fc7dbbbf8db40bd27a8792",
+      "research/benchmark/materials/pilot_v3/collection_candidates_v2/lit/public/research_setting.json": "92828f1ed0af91bf4bf1902f77b4f30c8a1eb4a744e6ba7b61ff2b68210d6671",
+      "research/benchmark/audit/private_ssa_lit_relevance_review_v1.json": "e556ccf068e183e4f1ea994cdf671f90e203a411964cc03f6b16833fc24e2499",
+      "research/benchmark/audit/private_ssa_lit_existing_three_review_v1.json": "60597e5f5fd2b3e1e683b793a53849615a9c1204ca3c3763514bc49de4e7dc57",
+      "research/benchmark/audit/private_ssa_retrieval_diagnostic_v2.json": "ab98dddacda4ecd776aef64b5cd7ac194262143f37a74978602db1f5cbaec86b",
+      "research/source_cache/benchmark_materials/r2_v3/manifest.json": "a5475385004a1f3f0b7746534fd0a1fc4cb82e1506826b1c0690c9667a192aa8"
+    },
+    "all_bound_inputs_unchanged": true,
+    "source_hash_checks": [
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-1910-12358-v1-paper.source",
+        "manifest_registered_sha256": "db48e3419765524ba2cfb79b7fa121fa3f5196802929ed025e5ec9bc4bd8478d",
+        "corpus_registered_sha256": "db48e3419765524ba2cfb79b7fa121fa3f5196802929ed025e5ec9bc4bd8478d",
+        "observed_sha256": "db48e3419765524ba2cfb79b7fa121fa3f5196802929ed025e5ec9bc4bd8478d",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-1910-12358-v1-abstract.source",
+        "manifest_registered_sha256": "6ee60e8cc2a160a78512104fa7ef3c7b09af349899537da2b6fbad50bd6af6f5",
+        "corpus_registered_sha256": "6ee60e8cc2a160a78512104fa7ef3c7b09af349899537da2b6fbad50bd6af6f5",
+        "observed_sha256": "6ee60e8cc2a160a78512104fa7ef3c7b09af349899537da2b6fbad50bd6af6f5",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2208-01066-v1-paper.source",
+        "manifest_registered_sha256": "3c212dc2df289a3163d14841b08837155bd3234d1dd87477ddad455042e112a7",
+        "corpus_registered_sha256": "3c212dc2df289a3163d14841b08837155bd3234d1dd87477ddad455042e112a7",
+        "observed_sha256": "3c212dc2df289a3163d14841b08837155bd3234d1dd87477ddad455042e112a7",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2208-01066-v1-abstract.source",
+        "manifest_registered_sha256": "20b24600f00daf28e8d48d0d9677165b3d508d0efbd2fb1ed08adaec43b632b0",
+        "corpus_registered_sha256": "20b24600f00daf28e8d48d0d9677165b3d508d0efbd2fb1ed08adaec43b632b0",
+        "observed_sha256": "20b24600f00daf28e8d48d0d9677165b3d508d0efbd2fb1ed08adaec43b632b0",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2211-15661-v1-paper.source",
+        "manifest_registered_sha256": "87e19f38c76f134f2248571e077a86e8ef9d2702127e6e32447086a97850f05c",
+        "corpus_registered_sha256": "87e19f38c76f134f2248571e077a86e8ef9d2702127e6e32447086a97850f05c",
+        "observed_sha256": "87e19f38c76f134f2248571e077a86e8ef9d2702127e6e32447086a97850f05c",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2211-15661-v1-abstract.source",
+        "manifest_registered_sha256": "68e51bbdb60d0c2fabc8692eadb8b7e1d214005b82fec9e7f83fce74091f13a1",
+        "corpus_registered_sha256": "68e51bbdb60d0c2fabc8692eadb8b7e1d214005b82fec9e7f83fce74091f13a1",
+        "observed_sha256": "68e51bbdb60d0c2fabc8692eadb8b7e1d214005b82fec9e7f83fce74091f13a1",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2212-07677-v1-paper.source",
+        "manifest_registered_sha256": "f4541e1fa479877a0e0552283e15cb5240b243cc67aaa9a404c3135f23e5d9ac",
+        "corpus_registered_sha256": "f4541e1fa479877a0e0552283e15cb5240b243cc67aaa9a404c3135f23e5d9ac",
+        "observed_sha256": "f4541e1fa479877a0e0552283e15cb5240b243cc67aaa9a404c3135f23e5d9ac",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2212-07677-v1-abstract.source",
+        "manifest_registered_sha256": "f863b9c94f9f8489521310ff0a1170c76f28b6e484ee7f27bf9c8d84deca25dd",
+        "corpus_registered_sha256": "f863b9c94f9f8489521310ff0a1170c76f28b6e484ee7f27bf9c8d84deca25dd",
+        "observed_sha256": "f863b9c94f9f8489521310ff0a1170c76f28b6e484ee7f27bf9c8d84deca25dd",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2310-17086-v1-paper.source",
+        "manifest_registered_sha256": "b0e836fc04577ec3c74292b589307dede035d0d23531ea716c92a62490de57a1",
+        "corpus_registered_sha256": "b0e836fc04577ec3c74292b589307dede035d0d23531ea716c92a62490de57a1",
+        "observed_sha256": "b0e836fc04577ec3c74292b589307dede035d0d23531ea716c92a62490de57a1",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2310-17086-v1-abstract.source",
+        "manifest_registered_sha256": "32564f17b3c5d219fed7f6725c901e29c88093d29f6471d1dc62c4409af179b5",
+        "corpus_registered_sha256": "32564f17b3c5d219fed7f6725c901e29c88093d29f6471d1dc62c4409af179b5",
+        "observed_sha256": "32564f17b3c5d219fed7f6725c901e29c88093d29f6471d1dc62c4409af179b5",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2405-19463-v1-paper.source",
+        "manifest_registered_sha256": "71305197a6d4b485a1b358113b511e0e762438de41b40b55d99eb666dcb0254a",
+        "corpus_registered_sha256": "71305197a6d4b485a1b358113b511e0e762438de41b40b55d99eb666dcb0254a",
+        "observed_sha256": "71305197a6d4b485a1b358113b511e0e762438de41b40b55d99eb666dcb0254a",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2405-19463-v1-abstract.source",
+        "manifest_registered_sha256": "47d2033fa00a0443835ce63717bddcb593c481423f17154b8577e48ea96728f9",
+        "corpus_registered_sha256": "47d2033fa00a0443835ce63717bddcb593c481423f17154b8577e48ea96728f9",
+        "observed_sha256": "47d2033fa00a0443835ce63717bddcb593c481423f17154b8577e48ea96728f9",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2402-05639-v1-paper.source",
+        "manifest_registered_sha256": "77a066410c04896107241d38901f01cae9218dce236ed4e2022e941e2b9fa4d5",
+        "corpus_registered_sha256": "77a066410c04896107241d38901f01cae9218dce236ed4e2022e941e2b9fa4d5",
+        "observed_sha256": "77a066410c04896107241d38901f01cae9218dce236ed4e2022e941e2b9fa4d5",
+        "matches": true
+      },
+      {
+        "path": "research/source_cache/benchmark_materials/r2_v3/arxiv-2402-05639-v1-abstract.source",
+        "manifest_registered_sha256": "b828bf3a72686cfdb06817fac321caacc86c47d76859038ebff8fa44a6371eca",
+        "corpus_registered_sha256": "b828bf3a72686cfdb06817fac321caacc86c47d76859038ebff8fa44a6371eca",
+        "observed_sha256": "b828bf3a72686cfdb06817fac321caacc86c47d76859038ebff8fa44a6371eca",
+        "matches": true
+      }
+    ],
+    "all_source_hashes_match_manifest_and_corpus": true
+  },
+  "quote_location_verification": {
+    "method": "Separate pass after drafting: re-read PDF bytes (sha256 re-checked), fresh pypdf extraction and normalization of each cited page, slice [start_char:end_char] compared to the quote, and normalized page sha256 recomputed.",
+    "checks": [
+      {
+        "document_id": "doc-1910.12358",
+        "pdf_page_1based": 1,
+        "start_char": 322,
+        "end_char": 359,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-1910.12358",
+        "pdf_page_1based": 1,
+        "start_char": 1476,
+        "end_char": 1522,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-1910.12358",
+        "pdf_page_1based": 2,
+        "start_char": 2543,
+        "end_char": 2581,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-1910.12358",
+        "pdf_page_1based": 2,
+        "start_char": 2332,
+        "end_char": 2371,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2208.01066",
+        "pdf_page_1based": 1,
+        "start_char": 439,
+        "end_char": 484,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2208.01066",
+        "pdf_page_1based": 1,
+        "start_char": 617,
+        "end_char": 659,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2208.01066",
+        "pdf_page_1based": 1,
+        "start_char": 1509,
+        "end_char": 1560,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2211.15661",
+        "pdf_page_1based": 1,
+        "start_char": 380,
+        "end_char": 439,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2211.15661",
+        "pdf_page_1based": 1,
+        "start_char": 757,
+        "end_char": 806,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2212.07677",
+        "pdf_page_1based": 1,
+        "start_char": 1422,
+        "end_char": 1491,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2212.07677",
+        "pdf_page_1based": 7,
+        "start_char": 1915,
+        "end_char": 1952,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2212.07677",
+        "pdf_page_1based": 7,
+        "start_char": 2104,
+        "end_char": 2140,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2310.17086",
+        "pdf_page_1based": 1,
+        "start_char": 304,
+        "end_char": 358,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2310.17086",
+        "pdf_page_1based": 1,
+        "start_char": 663,
+        "end_char": 703,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2310.17086",
+        "pdf_page_1based": 1,
+        "start_char": 2100,
+        "end_char": 2164,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2405.19463",
+        "pdf_page_1based": 1,
+        "start_char": 476,
+        "end_char": 565,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2405.19463",
+        "pdf_page_1based": 1,
+        "start_char": 1378,
+        "end_char": 1425,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2402.05639",
+        "pdf_page_1based": 1,
+        "start_char": 384,
+        "end_char": 437,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2402.05639",
+        "pdf_page_1based": 1,
+        "start_char": 628,
+        "end_char": 664,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      },
+      {
+        "document_id": "doc-2402.05639",
+        "pdf_page_1based": 3,
+        "start_char": 1675,
+        "end_char": 1724,
+        "reextracted_slice_equals_quote": true,
+        "normalized_page_sha256_matches": true,
+        "quote_occurrences_on_page": 1
+      }
+    ],
+    "all_slices_exact": true,
+    "all_page_hashes_match": true
+  },
+  "validation": {
+    "unique_seven_ids": true,
+    "quotes_exact_at_offsets": true,
+    "quotes_at_most_25_words_per_paper": true,
+    "model_calls": 0,
+    "new_papers": 0,
+    "public_assets_modified": false
+  },
+  "limitations": [
+    "Root adjudication needed before integration; no score, diagnostic or label file changed automatically.",
+    "Labels are task-relative private diagnostic candidates, never solver-visible and not mandatory-citation or penalty lists.",
+    "Reading was targeted (abstract/intro/setup plus keyword-located passages), not exhaustive proof, figure or experiment validation.",
+    "'Unrelated' is a judgment about this SSA access regime only; the same papers remain IV-scope candidates for the IV task."
+  ]
+}

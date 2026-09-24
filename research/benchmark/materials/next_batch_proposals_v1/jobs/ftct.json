@@ -1,0 +1,47 @@
+{
+  "schema_version": "material-job-1",
+  "job_id": "ftct-write-proposal-v1",
+  "paper_id": "iclr2025-1Xg4JPPxJ0",
+  "requested_task_types": [
+    "WRITE_CONTENT",
+    "WRITE_EVIDENCE"
+  ],
+  "scope_request": "PROPOSAL ONLY, not an approved next-batch identity. Construct two candidate CPU-only writing TaskViews using the original v1 paper, scoped to its Section 4.3 / Table 1 architecture comparison with causal depth N=5 and child-chain upper bound M=3. WRITE_CONTENT should synthesize a supported research passage from fixed, audited facts and reported findings, not copy original prose. WRITE_EVIDENCE should render a faithful comparison using exact author-reported table values and clear metric/parameter definitions; these are not raw seeds, independently replicated experiments, or new training runs. Preserve the Table 1 optimal-shots selection condition and limitations, including configuration/parameter differences; do not invent errors, repetitions, significance or stronger causal attribution. Verify all metric definitions against Sections 4.1/4.3 and relevant Appendix G context. Keep original target prose/chart and reviewer references private; do not provide a complete target renderer in public inputs. Use self-authored minimal data-reader/synthetic smoke assets where needed, not uncached upstream code. No EXP training, LIT or IDEA task is requested. Mark unavailable coverage deferred/unsupported with evidence. Original license/disclosure metadata remains pending; do not self-certify rights or acceptance.",
+  "sources": [
+    {
+      "source_id": "fragmented-paper-v1",
+      "url": "https://arxiv.org/html/2501.15857v1",
+      "version": "arxiv-v1",
+      "sha256": "6544464def8909867ddf1475308b8d2c6d9e08be02e85cfcc2633772ab0ffdae",
+      "role": "paper_html",
+      "local_path": "research/source_cache/benchmark_materials/first_snapshot/fragmented-paper-v1.source"
+    }
+  ],
+  "first_disclosure": {
+    "date": null,
+    "verified": false,
+    "reason": "Pinned arXiv v1 is not proof of earliest public disclosure. Historical discovery stages are not requested."
+  },
+  "environment_candidate": {
+    "cpus": 1,
+    "memory_mb": 1024,
+    "disk_mb": 512,
+    "pids_limit": 64,
+    "wall_seconds": 600,
+    "gpu": false,
+    "network": "none",
+    "dependencies": [
+      "matplotlib==3.10.6",
+      "numpy==2.3.3"
+    ],
+    "docker_base": "python:3.12-slim",
+    "runtime_verified": false,
+    "resource_status": "maintenance_proposal_unmeasured_not_frozen",
+    "scientific_rationale": "Scoped prose and chart production from seven finite author-reported architecture rows, with no training/inference. These numeric limits are an explicit unmeasured development proposal, not evidence of CPU sufficiency or transferred SSA acceptance; validate a task-specific environment before execution."
+  },
+  "status": "proposal_source_only_not_authorized_for_model_launch",
+  "formal_accepted": false,
+  "selection_confirmed": false,
+  "constructor_model_decision": "pending; no automatic replacement of Luna by sol",
+  "rights_review": "pending"
+}

@@ -1,0 +1,165 @@
+{
+  "audited_at": "2026-09-23T23:04:32.348296+00:00",
+  "status": "same_host_export_load_and_minimal_runtime_checks_passed_after_correcting_probe",
+  "passed": true,
+  "scope": "Same-host docker save/load by exact image ID; existing daemon layers remain present, NOT a clean-host import or cross-host numerical/kernel equivalence test.",
+  "initial_evidence": "D:\\mrhbench-local-pilot\\image-portability-20260923-001\\results.json",
+  "retest_evidence": "D:\\mrhbench-local-pilot\\image-portability-20260923-001\\retest-002\\results.json",
+  "initial_failure": "SSA probe incorrectly assumed pandas installed; actual package uses stdlib CSV/numpy/matplotlib. Original failure preserved; no dependency or image mutation made.",
+  "export": {
+    "logical_bytes": 374120448,
+    "path": "D:\\mrhbench-local-pilot\\image-portability-20260923-001\\iv-ssa-frozen-images.tar",
+    "sha256": "99953d94d6d126ff4b7e0fa2a9f75b85f6b59b47783fcc782fcddb516bc38ba8"
+  },
+  "export_layers": {
+    "note": "Both images saved together. Shared layer paths counted once. Tar bytes include metadata; image reported sizes and host VHDX allocated bytes are different quantities.",
+    "references": 14,
+    "unique_member_bytes": 374076928,
+    "unique_paths": 9
+  },
+  "image_identity_and_layers_preserved": true,
+  "image_ids": [
+    "sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01",
+    "sha256:399341648ce68031cef84e225a8b4985fed3125fd020ec96a8d6c5d6563036d0"
+  ],
+  "repository_manifest_digests": [
+    [],
+    []
+  ],
+  "identity_note": "These locally built image IDs are config digests; RepoDigests are empty, so no registry manifest digest is fabricated.",
+  "smoke_and_artifact_probes": {
+    "iv": {
+      "artifact_inventory": {
+        "atomic_snapshot": false,
+        "bytes": 133,
+        "entries": 2,
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "files": [
+          {
+            "bytes": 32,
+            "path": "claimed.txt",
+            "sha256": "36fd7511668227bbc143380739f4527a0d05d413d5b021df68f205e24dca72db"
+          },
+          {
+            "bytes": 101,
+            "path": "solver-claimed-inventory.json",
+            "sha256": "1f9bc4f643d6008651147d8af3b1b8afa063f89e167dedd26fa073314824d01c"
+          }
+        ]
+      },
+      "diagnostic_resources_not_scientific_budget": {
+        "cpus": 1,
+        "disk_mb": 32,
+        "memory_mb": 512,
+        "pids_limit": 32,
+        "wall_seconds": 90
+      },
+      "forged_hash_probe": {
+        "broker_verifier_rejects_fake_accepts_true": true,
+        "controller_captured_hash": "36fd7511668227bbc143380739f4527a0d05d413d5b021df68f205e24dca72db",
+        "independent_host_rehash": "36fd7511668227bbc143380739f4527a0d05d413d5b021df68f205e24dca72db",
+        "mismatch_detected": true,
+        "scope": "Actual ContainerSession collection hashes captured bytes; actual ExecutorBroker.verify_artifacts rejects false and accepts true hash against a live session. No full run_container_harness submission trajectory.",
+        "solver_claim": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "image_id": "sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01",
+      "passed": true,
+      "smoke": {
+        "numpy": "2.3.3",
+        "ols_coefficients": [
+          0.999999999999996,
+          2.0000000000000004
+        ],
+        "python": "3.12.14 (main, Sep 19 2026, 01:04:57) [GCC 14.2.0]"
+      }
+    },
+    "ssa": {
+      "artifact_inventory": {
+        "atomic_snapshot": false,
+        "bytes": 17217,
+        "entries": 3,
+        "excluded_top_level_rules": [
+          ".broker",
+          ".process-*"
+        ],
+        "files": [
+          {
+            "bytes": 32,
+            "path": "claimed.txt",
+            "sha256": "36fd7511668227bbc143380739f4527a0d05d413d5b021df68f205e24dca72db"
+          },
+          {
+            "bytes": 17084,
+            "path": "smoke.png",
+            "sha256": "fabf7cd5784e5a23a3b5ded8c5973f41b1cc82ac2ae7a14d07d05f313b309758"
+          },
+          {
+            "bytes": 101,
+            "path": "solver-claimed-inventory.json",
+            "sha256": "1f9bc4f643d6008651147d8af3b1b8afa063f89e167dedd26fa073314824d01c"
+          }
+        ]
+      },
+      "diagnostic_resources_not_scientific_budget": {
+        "cpus": 1,
+        "disk_mb": 32,
+        "memory_mb": 512,
+        "pids_limit": 32,
+        "wall_seconds": 90
+      },
+      "forged_hash_probe": {
+        "broker_verifier_rejects_fake_accepts_true": true,
+        "controller_captured_hash": "36fd7511668227bbc143380739f4527a0d05d413d5b021df68f205e24dca72db",
+        "independent_host_rehash": "36fd7511668227bbc143380739f4527a0d05d413d5b021df68f205e24dca72db",
+        "mismatch_detected": true,
+        "scope": "Actual ContainerSession collection hashes captured bytes; actual ExecutorBroker.verify_artifacts rejects false and accepts true hash against a live session. No full run_container_harness submission trajectory.",
+        "solver_claim": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "image_id": "sha256:399341648ce68031cef84e225a8b4985fed3125fd020ec96a8d6c5d6563036d0",
+      "passed": true,
+      "smoke": {
+        "csv_rows": 2,
+        "matplotlib": "3.10.6",
+        "numpy": "2.3.3",
+        "ols_coefficients": [
+          0.999999999999996,
+          2.0000000000000004
+        ],
+        "python": "3.12.14 (main, Sep 19 2026, 01:04:57) [GCC 14.2.0]"
+      }
+    }
+  },
+  "owned_container_ids": [
+    "2268be4057aff2f3187140e265058bb78df5231a27c1d49852c380cfa7342d53",
+    "faa791969f63a4f74fbcbd436a8b48e048db41cd33ea33c5fd0e8175ac28a781",
+    "13023180eb56e9e36baaf2e7d1a1babe8bd2904a6d21d9c29673748b465aa96e",
+    "ef0b3636db865ebc767ebddd4be165a02ca4dee7fd6524514408d8b8b1d13697"
+  ],
+  "owned_containers_remaining": [],
+  "disk_before": {
+    "free": 213021237248,
+    "total": 2000381014016,
+    "used": 1787359776768
+  },
+  "disk_after": {
+    "free": 212645376000,
+    "total": 2000381014016,
+    "used": 1787735638016
+  },
+  "export_mib": 356.7890625,
+  "d_free_gib": 198.04143905639648,
+  "directory_logical_bytes_at_snapshot": 374385466,
+  "storage_caveat": "Free-space difference is a host interval observation including concurrent work, not isolated project allocation. No VHDX allocation attribution is made.",
+  "new_model_calls": 0,
+  "gpu_used": false,
+  "not_proven": [
+    "Clean-host import completeness: existing daemon layers were retained",
+    "Different-host kernel/architecture/resource equivalence",
+    "Scientific task performance or exact dependency rebuild reproducibility",
+    "Artifact hash proves captured bytes not their scientific provenance; collection not an atomic snapshot"
+  ],
+  "script": "research/benchmark/audit_image_portability.py"
+}

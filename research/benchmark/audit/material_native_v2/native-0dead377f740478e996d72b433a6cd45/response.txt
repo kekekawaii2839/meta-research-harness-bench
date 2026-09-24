@@ -1,0 +1,8 @@
+Created [review.json](D:/mrhbench-local-pilot/batch-20260923-005-maintainer/iv-pilot-v2/reviewer/review.json).
+
+Decision: `pass_with_pending_runtime`
+
+- No scientific-content findings.
+- Verified all core equations, assumptions, simulation settings, facts, hashes, public assets, and task contracts.
+- Runtime/container integration, release rights, and earliest-disclosure history remain explicitly pending.
+- Candidate files were not modified.

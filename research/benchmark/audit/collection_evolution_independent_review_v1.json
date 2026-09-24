@@ -1,0 +1,106 @@
+{
+  "schema_version": "collection-evolution-independent-code-review-1",
+  "new_model_calls": 0,
+  "production_code_modified_by_reviewer": false,
+  "reviewed_code_sha256": {
+    "mrhbench/artifact_policy.py": "bfe5118add46e486d5daad0aeb32be06106719037ceae17e0db327f2bb7fc4af",
+    "prepare_collection_contract.py": "87701439df6109f6681e31527d0e244e34378c169c755d4bc576ac67e8a586dd",
+    "mrhbench/material_adapter.py": "651a0a7a2a8266365dd4b2ef1f8058c8b6e09857681a04fd52e4488358078b7c",
+    "run_container_stage_development.py": "a8fb9811cc73d98932ffe51b5f9727a2ac78781a0c4d7b2e2ce1e22a3e9afe76",
+    "mrhbench/container_executor.py": "c1ddd28cf243b0ffd0b72cc3537a85ea792e74d78d3af493001a7aa29e1a4e88",
+    "audit_collection_lifecycle.py": "ed342cf6cbc8046e506c287b0151eeaab7df53be187919b16362d71a98a44e73",
+    "mrhbench/evolution_driver.py": "e0bc490c741ad9a38cfeccfc6b8bc649e5dcf39ed9f02aa9b22d74151a647328",
+    "mrhbench/evolution.py": "0bb88e7cb9a33e7590aa0282ab14a8778a72b3d67ba1b1590a5b189b7152e0bf"
+  },
+  "tests": [
+    {
+      "test_file": "test_artifact_policy.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_controller_mismatch_rejected_before_output_or_docker (test_artifact_policy.ArtifactPolicyTests) ... ok\ntest_explicit_per_package_limits_and_fail_closed (test_artifact_policy.ArtifactPolicyTests) ... ok\ntest_versioned_migration_copies_only_manifest_assets (test_artifact_policy.ArtifactPolicyTests) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.030s\n\nOK\n"
+    },
+    {
+      "test_file": "test_material_adapter.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_adjudicated_notes_preserved (test_material_adapter.MaterialAdapterTests) ... ok\ntest_compiles_public_private_without_gate_promotion (test_material_adapter.MaterialAdapterTests) ... ok\ntest_reject_missing_budget_mutable_image_and_wall_conflict (test_material_adapter.MaterialAdapterTests) ... ok\ntest_visual_preview_is_explicit_controller_rule_not_source_edit (test_material_adapter.MaterialAdapterTests) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.077s\n\nOK\n"
+    },
+    {
+      "test_file": "test_stage_controller_evidence.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_capture_hash_checked_not_solver_claim (test_stage_controller_evidence.StageControllerEvidenceTests) ... ok\ntest_dependency_failure_before_run_directory_or_model (test_stage_controller_evidence.StageControllerEvidenceTests) ... ok\ntest_empty_captured_outputs_are_not_missing_task_materials (test_stage_controller_evidence.StageControllerEvidenceTests) ... ok\ntest_jsonl_is_available_and_other_formats_not_silently_lost (test_stage_controller_evidence.StageControllerEvidenceTests) ... ok\ntest_model_action_is_not_execution_and_local_errors_are_untrusted (test_stage_controller_evidence.StageControllerEvidenceTests) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.032s\n\nOK\n"
+    },
+    {
+      "test_file": "test_evolution_driver.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_builder_cannot_return_controller_candidate (test_evolution_driver.DriverTests) ... ok\ntest_builder_input_mutation_rejected (test_evolution_driver.DriverTests) ... ok\ntest_configuration_hash_mutation_rejected (test_evolution_driver.DriverTests) ... ok\ntest_exception_unknown_not_zero_or_retried (test_evolution_driver.DriverTests) ... ok\ntest_feedback_private_fields_rejected_before_builder (test_evolution_driver.DriverTests) ... ok\ntest_input_and_snapshot_mutations_rejected (test_evolution_driver.DriverTests) ... ok\ntest_mixed_full_rounds_selection_hidden_and_idempotent_resume (test_evolution_driver.DriverTests) ... ok\ntest_paper_split_and_incomplete_coverage_rejected (test_evolution_driver.DriverTests) ... ok\ntest_result_cache_hash_checked (test_evolution_driver.DriverTests) ... ok\ntest_returned_unknown_evaluation_not_zero (test_evolution_driver.DriverTests) ... ok\ntest_rounds_stop_without_additional_retries (test_evolution_driver.DriverTests) ... ok\ntest_same_turn_and_manual_review_required (test_evolution_driver.DriverTests) ... ok\ntest_snapshot_mutation_rejected (test_evolution_driver.DriverTests) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 4.449s\n\nOK\n"
+    }
+  ],
+  "real_lifecycle_evidence": {
+    "directory": "D:\\mrhbench-local-pilot\\collection-lifecycle-abd5e6f341",
+    "original_results_sha256": "f6e507afa0775353fd3bb5191743b95f8b2f54c88c3b190fc7462b4c910853ad",
+    "independent_read_only_checks": {
+      "actual_25MiB": true,
+      "controller_and_collected_and_submission_hash_match": true,
+      "published_policy_matches_invocation": true,
+      "zero_model_calls": true,
+      "completed_development_lifecycle": true,
+      "exact_owned_container_still_absent": true
+    },
+    "actual_file_sha256": "46dcc780385019675f4634933190c1e6defd60eebb7543eb4a28875aac4fcb06",
+    "container_id": "265132b6df530337380b27c5869d79e8939702599e5c8906dede15f4c9645adf",
+    "inspect_returncode": 1,
+    "inspect_stderr": "Error: No such object: 265132b6df530337380b27c5869d79e8939702599e5c8906dede15f4c9645adf\n",
+    "scope": "Existing synthetic25MiB success run reverified; no rerun or model. Not a scientific H0 result, full overflow lifecycle test, or cross-host proof."
+  },
+  "findings": [
+    {
+      "id": "CE01",
+      "severity": "functional_evidence_gap",
+      "file": "run_container_stage_development.py:evidence_for_run",
+      "finding": "At initial review, text suffix allowlist omitted .jsonl although IV requires replicate_results.jsonl. Collection repair allows this25MiB artifact, but ordinary judge evidence construction still silently omits it. Manual enriched_evidence in historical IV run does not repair future driver runs.",
+      "remedy": "Include full immutable JSONL as paginated text evidence; do not force full reading, truncate or treat inclusion as actual judge inspection. Add a regression test.",
+      "reported_to_owner_before_changes": true
+    },
+    {
+      "id": "CE02",
+      "severity": "published_resource_semantics_gap",
+      "file": "mrhbench/material_adapter.py:compile_package",
+      "finding": "Initial adapter publishes collection numeric/scope policy correctly, but disk_semantics only says total writable tmpfs. Migration script additionally reveals80/20 work/tmp split, memory charging and hard-deadline capture loss. Freshly compiled packages should not omit those operative constraints while migrated packages disclose them.",
+      "remedy": "Use one shared public resource-semantics helper for new compilation and migration; preserve historical task bytes.",
+      "reported_to_owner_before_changes": true
+    },
+    {
+      "id": "CE03",
+      "severity": "positive",
+      "finding": "Collection policy requires explicit version1 fields, positive integer limits and package-disk bound, exact implemented exclusions and files+directories scope. Runner rejects mismatched collector caps/image/deadline before container execution. Migration copies only manifest assets to a fresh development package, retains pending gates and records unchanged execution budgets."
+    },
+    {
+      "id": "CE04",
+      "severity": "positive_with_scope",
+      "finding": "Driver dependency/schema/collection preflight occurs before billed calls. R2 LiteratureService receives allowed_versions and shared=True; search/read/judge-page extraction share filtered service. This code does not prove corpus disclosure metadata scientifically correct. Development export rejects search/test packages through materials.export_task."
+    },
+    {
+      "id": "CE05",
+      "severity": "development_only_not_formal",
+      "file": "mrhbench/evolution_driver.py",
+      "finding": "Offline orchestration makes honest non-sandbox/development claims. Minimal task identities are paper-split checked; actual packages must be development; only public search assets/feedback staged; all mixed search and feedback precede next version; selection freezes before every version test evaluation. Resume caches completed operations and does not retry uncertain/failed calls or convert them to zeros. Hashes check snapshots/material/config/cached results.",
+      "development_gate": "Suitable for synthetic trusted-adapter orchestration and resume/round-routing tests; the13 tests exercise private canaries and gating at request/projection level.",
+      "formal_gate": "Not accepted: callbacks execute in controller process; separate directories are not permissions. judge_receipt reviewed booleans are trusted adapter declarations, not verified native trajectory attestations. Need actual isolated builder/evolver adapters, public-feedback semantic acceptance, bound execution/judge receipts and formal accepted material/splits before native/formal claims. No actual H0 evolution experiment follows from these tests."
+    }
+  ],
+  "conclusion": "Collection repair has credible successful25MiB end-to-end evidence and explicit per-task caps. Fix CE01/CE02 before claiming future new-package evidence/constraint disclosure path complete. Offline evolution driver is useful development scaffolding, not autonomous evolution or formal isolation acceptance.",
+  "tests_all_pass": true,
+  "source_snapshot_stable_during_automated_review": {
+    "mrhbench/artifact_policy.py": true,
+    "prepare_collection_contract.py": true,
+    "mrhbench/material_adapter.py": true,
+    "run_container_stage_development.py": true,
+    "mrhbench/container_executor.py": true,
+    "audit_collection_lifecycle.py": true,
+    "mrhbench/evolution_driver.py": true,
+    "mrhbench/evolution.py": true
+  }
+}

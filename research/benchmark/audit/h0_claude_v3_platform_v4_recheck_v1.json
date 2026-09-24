@@ -1,0 +1,82 @@
+{
+  "schema_version": "h0-claude-platform-recheck-1",
+  "created_at": "2026-09-24",
+  "reviewer": "independent runtime_repairs reviewer subagent (Claude Code maintainer collaborator; not builder, not a benchmarked role)",
+  "new_model_calls": 0,
+  "scope": "Recheck of frozen-candidate H0 v3 (unchanged) on platform interface v4 typed broker errors. Fake clients only. No H0 artifact, AGENTS.md or existing file modified. Helpers under D:/mrhbench-local-pilot/h0-claude-v3-review-5e1a9c/rerun-v4.",
+  "prior_review": "research/benchmark/audit/h0_claude_v3_independent_review_v1.json (sha e7a1b8e02c7d2180d9d1ef428d13f5d1bf6426b92d2e00056bdb875e17896e2c), verdict needs_repair on V3-1",
+  "harness_reviewed": {
+    "path": "D:/mrhbench-local-pilot/h0-claude-20260924-002/artifacts/harness.py",
+    "sha256": "619dc7240d7d0437e6f449319adcf710e2c13ffa2220bb45e5f06e343309b181",
+    "tests_sha256": "eda324bd7de48d3359be86daadd5c76a68ecbde590c242d5805c9078cd4c4fe6",
+    "unchanged_before_after_run": true
+  },
+  "platform_sources_read_sha256": {
+    "research/benchmark/runtime/container_worker.py": "7ba1c0f943f15caf172d6867292bdafabd8360ffa7cd088c042006265b1a109f",
+    "research/benchmark/mrhbench/executor_broker.py": "5cd184cd50e59e05037788b580fc13d29754c298b989dda1a9a19ec6fbc3f866",
+    "research/benchmark/mrhbench/io.py": "22e8021153a652898b7c945dfcd5c4f32fb9a787d0dbdd719d63e050ec27fa01",
+    "research/benchmark/mrhbench/sdk.py": "6cfed36642f627f466b427009cd389271fcd26f7c84d1a8f0b7b74d378bbcf54",
+    "research/benchmark/mrhbench/claude_transport.py": "ddbd4d409841d3a6c4631c750ff06dc4ba2bcdeed77f6bc42d1a1ade40d2c063",
+    "research/benchmark/runtime/interface_container_v4.json": "6de20f2b0543a5726df910948040f9fae6a8eb8e9071bf8d2e31b29723209c3e"
+  },
+  "fake_fidelity": {
+    "worker": "Fakes raise BrokerError(RuntimeError) with .category and message exactly as container_worker.rpc v4.",
+    "messages": "MSG dict in checks_v4.py equals executor_broker.PUBLIC_ERROR_MESSAGES (host verify_messages.py -> msg_equal true; worker raise statement matched).",
+    "category_mapping_verified_on_host": {"BudgetExhausted on complete/tool": "budget_exhausted", "ProviderRefusal on complete": "provider_refusal", "ProtocolError on tool": "tool_error", "broker-side ProtocolError on complete": "invalid_request"},
+    "fake_rules": "model/tool budget exhausted or cancelled -> budget_exhausted; tool() failures -> tool_error; scripted provider failures use provider_refusal / provider_error / invalid_request.",
+    "verify_log": "D:/mrhbench-local-pilot/h0-claude-v3-review-5e1a9c/rerun-v4/verify_messages.log"
+  },
+  "runs": {
+    "container_command": "MSYS_NO_PATHCONV=1 docker run --rm --network none --cpus 1 --memory 512m --pids-limit 64 --read-only --tmpfs /tmp --user 10001:10001 --cap-drop ALL --security-opt no-new-privileges=true -e PYTHONDONTWRITEBYTECODE=1 -e HOME=/tmp -v D:\\mrhbench-local-pilot\\h0-claude-20260924-002\\artifacts:/inputs:ro -v D:\\mrhbench-local-pilot\\h0-claude-v3-review-5e1a9c\\rerun-v4\\release:/review:ro --entrypoint bash sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01 /review/run.sh",
+    "release_files_sha256": {"checks_v4.py": "fe0658189df5fa5428cf9872ebe28e0bfaaca05696ce45f0c309c78a931a35e8", "real_shapes_v3.json": "5a33c7e127fd199e588e5f51ff890c0a4474e7207d469e223c6135714a59f44c", "run.sh": "91cfc15c4b8d983eb0ca9339c654889b71da444f1a88fa0ccb72efbd4d44e0f3"},
+    "log": "D:/mrhbench-local-pilot/h0-claude-v3-review-5e1a9c/rerun-v4/run_v4.log sha 9e919b4e8665bbb82cb8d9b70909f6ece928e1addc49ba4b53a5d086c2958e69",
+    "container_identity": "uid=10001 gid=10001, Python 3.12.14, --rm",
+    "builder_self_tests": "Ran 27, OK",
+    "reviewer_checks_v4": "Ran 44, 36 ok, 8 FAIL (the 40 checks of checks_v3 with v4 fakes, the N2 generic-error test replaced by 6 V3-1 tests)"
+  },
+  "v3_1_recheck": {
+    "harness_classification_of_v4_messages": {"budget_exhausted": "budget", "provider_refusal": "budget", "provider_error": "timeout", "invalid_request": "protocol", "tool_error": "error"},
+    "one_provider_refusal_then_successes": {
+      "result": "FAIL",
+      "observed": "calls ['act','final']; 28 of 30 model calls unused; tools used only asset.read + notes write; status partial; omissions [] (no explanation).",
+      "cause": "The harness ignores .category (it did not exist in v3) and keyword-classifies the message. The v4 provider_refusal message itself contains the word budget twice ('Other budget may remain; check budget.remaining().'), and _classify_error (harness.py lines 186-206) tests 'budget' (line 192) before 'refus' (line 198). The loop then returns at lines 681-683 without calling budget.remaining()."
+    },
+    "one_provider_error_then_successes": {"result": "pass", "observed": "classified timeout; loop continued (4 act steps, cpu.run executed), status completed"},
+    "one_invalid_request_then_successes": {"result": "pass", "observed": "classified protocol; loop continued, status completed"},
+    "genuine_budget_exhausted_stops": {"result": "pass", "observed": "after budget_exhausted with remaining() dropping to 0: no further act calls, no final call possible, status failed with omissions 'Final structured content could not be produced (budget)' and contract-miss. Stopping is correct; 'failed' rather than 'partial' reflects that no final call was left."},
+    "budget_exhausted_message_while_remaining_reports_budget": "harness stops on the message alone (calls act, final); documents that the harness trusts the message rather than remaining(); not expected to occur on the real broker.",
+    "three_consecutive_refusals": "loop stops after the first (N2_THREE: act, final) - same cause.",
+    "summary": "Platform v4 resolves V3-1 for provider_error, invalid_request and tool_error, but NOT for provider_refusal, which is exactly the category behind integration v1. Verified on host: provider_refusal is the only non-budget_exhausted public message containing the word 'budget'."
+  },
+  "other_checks_changed_vs_v3_review": {
+    "V3-9_tool_errors_labelled_budget": "resolved on v4: tool failures now labelled 'error' (e.g. 'Asset a1 could not be read: error'); invalid_request -> 'protocol'.",
+    "C4_typed_refusal": "now fails with the real v4 refusal message (act, final; status partial) - same root cause as V3-1.",
+    "N7_image_after_failure": "still dropped (V3-8)."
+  },
+  "remaining_defects": [
+    {"id": "V3-1", "severity": "high on platform v4 for provider refusals", "location": "harness.py 186-206, 679-684", "status": "open for provider_refusal; resolved for provider_error/invalid_request/tool_error"},
+    {"id": "V3-2", "severity": "medium-low", "location": "harness.py 586-605 (+581/583)", "status": "open: tail truncation hides new observations when notes are large (G2 fail)"},
+    {"id": "V3-3", "severity": "low", "location": "harness.py 914-916, 924-933", "status": "open: stale sha listed when hash helper fails (status partial with omission)"},
+    {"id": "V3-4", "severity": "low-medium", "location": "harness.py 854-860", "status": "open: R\\d+ false positive downgrades EXP status"},
+    {"id": "V3-5", "severity": "low", "location": "harness.py 343-350, 942-943", "status": "open: spurious unknown-group omissions for model_client/asset.read"},
+    {"id": "V3-6", "severity": "low", "location": "harness.py 873-879", "status": "open: oversized notes silently dropped / possible invalid JSON"},
+    {"id": "V3-7", "severity": "low-medium", "location": "harness.py 500, 574-584", "status": "open: TaskView resources not shown to executor"},
+    {"id": "V3-8", "severity": "low", "location": "harness.py 674-678", "status": "open: pending image dropped after failed model call"},
+    {"id": "V3-9", "severity": "low", "location": "harness.py 186-206", "status": "resolved on v4 for tool errors"},
+    {"id": "D5-timeout-inf", "severity": "minor", "location": "harness.py 782-787", "status": "open: inf timeout forwarded only when budget wall unknown; broker rejects"}
+  ],
+  "verdict": "needs_repair",
+  "verdict_rationale": "On platform v4 the frozen H0 v3 still ends the action loop after a single provider refusal while budget remains, the failure class that invalidated integration v1. All other interface behaviour matches the previous review (schemas valid and free of reasoning requests, capability grants, budgets, cancellation, manifest, state reset), and genuine budget exhaustion correctly stops the loop. The H0 must not be patched by maintainers.",
+  "options_for_root": [
+    "Platform: make every non-budget_exhausted public message free of the word 'budget' (consistent with the stated intent that only budget_exhausted signals exhaustion; the v4 docs and .category already tell harnesses to use remaining()). In the v3 review a refusal message without budget keywords took the harness's continue path (N2_TYPED_REFUSAL: 4 act steps, completed). This changes an ABI-visible message for all harnesses, needs a version note, and must be re-verified with the exact new text; note the risk of appearing to tune platform wording to one harness's keyword heuristic - the justification should be the general ambiguity, stated before re-testing.",
+    "Rebuild H0 against interface v4 (which exposes .category).",
+    "Run integration anyway with V3-1 recorded as a known H0 property and treat any post-refusal early stop as a non-measurement."
+  ],
+  "scientific_quality_assessed": false,
+  "formal_isolation_verified": false,
+  "limitations": [
+    "Fake clients only; the real ExecutorBroker/ContainerExecutor/ClaudeJSONTransport and literature service were not run.",
+    "Fake messages were verified equal to the live PUBLIC_ERROR_MESSAGES at the hashes above; a later wording change invalidates this recheck.",
+    "Nothing here indicates scientific capability; passing self-tests are not acceptance."
+  ]
+}

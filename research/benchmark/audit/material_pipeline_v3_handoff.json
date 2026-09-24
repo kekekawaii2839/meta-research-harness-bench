@@ -1,0 +1,1379 @@
+{
+  "schema_version": "material-pipeline-handoff-1",
+  "created_at": "2026-09-23T22:54:39.576817+00:00",
+  "scope": "CPU-only bounded local development pilot, not formal acceptance",
+  "calls": [
+    {
+      "id": 79,
+      "role": "constructor",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 228352,
+        "input_tokens": 281272,
+        "output_tokens": 6337,
+        "reasoning_output_tokens": 202
+      },
+      "wall_seconds": 131.9849999999999,
+      "artifact_directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-404a56c16040420faac257aabac24998",
+      "cost_basis": "subscription_price_not_metered_per_call",
+      "dollar_cost": null,
+      "exact_rollout": {
+        "complete_trajectory_verified": false,
+        "observed_tools": [
+          {
+            "call_id": "call_jFh7ZwrtGn6I8wJ0Pw2lRgwC",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_xtqe01bZ7mVFG9MC7V85N2jP",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_E25kN9703vKIx0nsiRyF2dam",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_yXKsuoESCFuYPZguueNK3ycC",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_QYu5sWzQw4YqVrlYTZFQ5zbF",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_atcsZwM9nRRYXQchQkGOA9Ol",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_n0WQdllvDpi57IIEjXO0UBmd",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_8rgLsSl9dDsYpS6u1F3PmaX9",
+            "name": "exec",
+            "type": "custom_tool_call"
+          }
+        ],
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-404a56c16040420faac257aabac24998\\session_rollout.redacted.jsonl",
+        "redactions_applied": 0,
+        "row_count": 71,
+        "session_id": "01a0d05a-18c3-7322-b265-0f8099d82dc2",
+        "sha256": "1ab47170bf9cfd6a967bccb57c90f88727e506a48acd40c9da2cea3443ec3642",
+        "source_sha256": "6fdad2442e9ac2e1961fd49990a8aa007c790977b41fbbb921e482a6e676cb64",
+        "status": "captured",
+        "verification_note": "Captured exact rollout; actual tool/image delivery and evidence coverage require review."
+      },
+      "binary_sha256": "a19f8f6c3c9dd5b71b6b1e3eb1ec55d75aafb2fdfb686d9e1f7a5f47db07d0d2"
+    },
+    {
+      "id": 80,
+      "role": "constructor",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 398336,
+        "input_tokens": 448813,
+        "output_tokens": 6980,
+        "reasoning_output_tokens": 198
+      },
+      "wall_seconds": 152.57799999999997,
+      "artifact_directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-f84e8f0fdd1446a0bb9649374fa3799e",
+      "cost_basis": "subscription_price_not_metered_per_call",
+      "dollar_cost": null,
+      "exact_rollout": {
+        "complete_trajectory_verified": false,
+        "observed_tools": [
+          {
+            "call_id": "call_qq5GsitXWFpFEq8ohiwLggxn",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_VlAwXiYt4PWeaTuUqR3xrSX2",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_3MGER3x7ppgtShkse0XY8IWP",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_BUsOcYxdigBQtXZB5d056YoM",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_gRryvHpgrdffMfHRhP4NXQhU",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_A2R7I1QSQ4JNkCzcbJEH2obU",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_dikLl6QRRQ3BCLo6WszjlPlX",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_dQxrm0G9JWaUMasDVJGShprQ",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_i50J4iijlnecyjhI70HL1GmM",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_B6MZq63DhhEx40DUc6wrgdYk",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_DnpTvrhe2wEM6yPBReNqMZ4Q",
+            "name": "exec",
+            "type": "custom_tool_call"
+          }
+        ],
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-f84e8f0fdd1446a0bb9649374fa3799e\\session_rollout.redacted.jsonl",
+        "redactions_applied": 0,
+        "row_count": 92,
+        "session_id": "01a0d05a-18b6-7033-ae03-4cea22074858",
+        "sha256": "c778c6b75238d975f80dd05ebf04985a8228f9c4f3674f76b0217aeb9913929b",
+        "source_sha256": "4c0948953481a60b37b20edd143bbda11982d58b6cb19a3293e090362154a61e",
+        "status": "captured",
+        "verification_note": "Captured exact rollout; actual tool/image delivery and evidence coverage require review."
+      },
+      "binary_sha256": "a19f8f6c3c9dd5b71b6b1e3eb1ec55d75aafb2fdfb686d9e1f7a5f47db07d0d2"
+    },
+    {
+      "id": 81,
+      "role": "material_reviewer",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 313088,
+        "input_tokens": 393576,
+        "output_tokens": 8154,
+        "reasoning_output_tokens": 3050
+      },
+      "wall_seconds": 286.9060000000002,
+      "artifact_directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-5a55ea33070e45fd8ddf7c5d03dd55a6",
+      "cost_basis": "subscription_price_not_metered_per_call",
+      "dollar_cost": null,
+      "exact_rollout": {
+        "complete_trajectory_verified": false,
+        "observed_tools": [
+          {
+            "call_id": "call_qVXH50FvyPul60ldrziAZa6V",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_t8nDnw7UgXHy0f9GWAKVRKXE",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_nDYiJIPXNkxNMtqrULlY2lG8",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_31sBlKeVbSK1sUyNCM2djUHD",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_510P8Yi0lZHFQ1arQKK9vVDO",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_9I8psc81Tl7SnKXbAw8nvymu",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_ZlWXT4Kmmc6aMiQvp9uHIhMF",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_Sn0LBvMKJ8OAMKd4wCREEGCr",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_3oDX4kDGMyJqZHJnSR5i3amT",
+            "name": "exec",
+            "type": "custom_tool_call"
+          }
+        ],
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-5a55ea33070e45fd8ddf7c5d03dd55a6\\session_rollout.redacted.jsonl",
+        "redactions_applied": 0,
+        "row_count": 94,
+        "session_id": "01a0d05c-1ef6-70a3-9082-bcd83cf534cd",
+        "sha256": "d206e618c7d86efc18094c06a9931b20524676353e85707e61b202b505bbd786",
+        "source_sha256": "e5c1a2de9d02f71fb9b9c8ec1c179806334653e02f5a1bee0c57d7a27125fdaf",
+        "status": "captured",
+        "verification_note": "Captured exact rollout; actual tool/image delivery and evidence coverage require review."
+      },
+      "binary_sha256": "a19f8f6c3c9dd5b71b6b1e3eb1ec55d75aafb2fdfb686d9e1f7a5f47db07d0d2"
+    },
+    {
+      "id": 82,
+      "role": "material_reviewer",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 807040,
+        "input_tokens": 904435,
+        "output_tokens": 12462,
+        "reasoning_output_tokens": 3173
+      },
+      "wall_seconds": 442.76599999999985,
+      "artifact_directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-e326506b75994af397867889e5f2420c",
+      "cost_basis": "subscription_price_not_metered_per_call",
+      "dollar_cost": null,
+      "exact_rollout": {
+        "complete_trajectory_verified": false,
+        "observed_tools": [
+          {
+            "call_id": "call_cy7XSrmXL1wHX1aXOYhGlBdy",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_sx26yky7Xn29UMaqapFxyL5h",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_xFDQwLUfHHVOTRFtlFfzVD8s",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_Q6R5s4FiZBJocKr9dLsM0c0J",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_vDJ3RGalQqlujD7ORKnUMmCK",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_g4TGn0IVUdwtq51WhgFpMJ7e",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_4lvfu3uyzvCw6J421Otlpyj6",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_gZ8Dd4tFpU2vmfGDy3GiI4zJ",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_mTaz2L2p6OWBDBWF4J9vujd2",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_0URaE0ysVoSiWOofQrX7HxVt",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_HBRaEZIHwfjGDd2yOKDTfNHN",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_sY5bopd2tSrZN5nLks8c0B8x",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_yLsqIollc6c7CUxKlzJELJfR",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_F7kIMop5elgmiTsYqrdJ1V9P",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_0q9Dow64fdMcvSRGVtXm3ThF",
+            "name": "exec",
+            "type": "custom_tool_call"
+          }
+        ],
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-e326506b75994af397867889e5f2420c\\session_rollout.redacted.jsonl",
+        "redactions_applied": 0,
+        "row_count": 132,
+        "session_id": "01a0d05c-6fdd-78d3-bb2b-3873b5b41a47",
+        "sha256": "79987ec77fe5baac3f533165fac66b3aefcf0bfbcaa9bf78bfe763e9f4fff519",
+        "source_sha256": "6094f9d803a9f9cff07ec7d80857e987acfedb7c14f1dafec0e9e5d2b0a85fe6",
+        "status": "captured",
+        "verification_note": "Captured exact rollout; actual tool/image delivery and evidence coverage require review."
+      },
+      "binary_sha256": "a19f8f6c3c9dd5b71b6b1e3eb1ec55d75aafb2fdfb686d9e1f7a5f47db07d0d2"
+    },
+    {
+      "id": 89,
+      "role": "constructor",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 651520,
+        "input_tokens": 720618,
+        "output_tokens": 8893,
+        "reasoning_output_tokens": 907
+      },
+      "wall_seconds": 190.90699999999993,
+      "artifact_directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-538790ebfb9e4cd8932640ba2713ca1e",
+      "cost_basis": "subscription_price_not_metered_per_call",
+      "dollar_cost": null,
+      "exact_rollout": {
+        "complete_trajectory_verified": false,
+        "observed_tools": [
+          {
+            "call_id": "call_p3SfvJ3wN83goj45PVpZ12OW",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_zDpAW36hS2dcp1CawBhNLFxU",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_CUylktqfCMTq3dtTGFsfzZ43",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_KdN5hcFykuIzJNsdmUQpNznd",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_ne9EdWqPvkHWa8oXxfjhAUFC",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_fKxoKwt1gu9XIPEbIjcCsdgG",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_xDUHdnx3a7S6W85ae6jZmXNa",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_i9334VWVhmJ2u9os63NvdxHk",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_HJSpxBRR3Vt3oYHRwWN5sL0b",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_KAuBm0GqEVcynVX0bOXHSPU0",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_sesN4fJo8dYgIYF7qYbNAfB1",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_wZ7JM9u20jwjMvzgRHmNyweP",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_U1SdwC4aJF5ykY4vrmGJw0oJ",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_StYCSSBjI3FcPXknpOjT5jCW",
+            "name": "exec",
+            "type": "custom_tool_call"
+          }
+        ],
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-538790ebfb9e4cd8932640ba2713ca1e\\session_rollout.redacted.jsonl",
+        "redactions_applied": 1,
+        "row_count": 115,
+        "session_id": "01a0d063-425a-7ce3-a9aa-4672a69064f1",
+        "sha256": "0caa3ebf421d35239ea0f3ba875bfcbac4300fa22b85aae6efa864f71083b28f",
+        "source_sha256": "c06c33d7af58c50a0aaea1ba5bcd0fd62c41c38d2e04714dfbc5a127600ba709",
+        "status": "captured",
+        "verification_note": "Captured exact rollout; actual tool/image delivery and evidence coverage require review."
+      },
+      "binary_sha256": "a19f8f6c3c9dd5b71b6b1e3eb1ec55d75aafb2fdfb686d9e1f7a5f47db07d0d2"
+    },
+    {
+      "id": 90,
+      "role": "constructor",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 674048,
+        "input_tokens": 747810,
+        "output_tokens": 10103,
+        "reasoning_output_tokens": 719
+      },
+      "wall_seconds": 217.9369999999999,
+      "artifact_directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-5e154ec251fd4cfaae0c859f212e0cb0",
+      "cost_basis": "subscription_price_not_metered_per_call",
+      "dollar_cost": null,
+      "exact_rollout": {
+        "complete_trajectory_verified": false,
+        "observed_tools": [
+          {
+            "call_id": "call_fxip919sF2pbv7mV7o4ktjsN",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_VzKmSZjuxeBFYgWFVUbAqA0T",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_KIZnJgnBV88Qn9hExhNx1hFB",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_3NpkTT4SZtpXxVXH2DC9pi1v",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_BSpMkDWokfKki9cEzqqIz4v8",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_oK9vIvMbaa1MvaM1mGqM72zr",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_g3buigCZiEvqgZpof965NpPo",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_kWAtSGRlJCOevdIyD1li41VI",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_RcSaZIxe07sT1YVPQd6GA5oL",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_qU5JISq1IvKkhgejWF6l0XQW",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_pHvQ4v8EaVtOIhhNYIpMStdw",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_48H2tHcdgrACnvtFTBkDqyts",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_sNYYEWJMI6XBvIJrMFsEtwVu",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_x9WXOC45TVCjwizTaUjE3Vu7",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_Bh3KGn1gwCLIu1QmM9M6bkyW",
+            "name": "exec",
+            "type": "custom_tool_call"
+          }
+        ],
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-5e154ec251fd4cfaae0c859f212e0cb0\\session_rollout.redacted.jsonl",
+        "redactions_applied": 0,
+        "row_count": 120,
+        "session_id": "01a0d063-42a3-7b62-b368-a79144bc4d33",
+        "sha256": "eb15e6ab773e21454c6915dd220a66db800265a52b322f0595f718da615868ac",
+        "source_sha256": "4b0816ee4391a96c88c327ace15340d61de166c546b5d98f4977ac155ec7f2a9",
+        "status": "captured",
+        "verification_note": "Captured exact rollout; actual tool/image delivery and evidence coverage require review."
+      },
+      "binary_sha256": "a19f8f6c3c9dd5b71b6b1e3eb1ec55d75aafb2fdfb686d9e1f7a5f47db07d0d2"
+    },
+    {
+      "id": 96,
+      "role": "material_reviewer",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 848768,
+        "input_tokens": 949367,
+        "output_tokens": 9864,
+        "reasoning_output_tokens": 2635
+      },
+      "wall_seconds": 390.15599999999995,
+      "artifact_directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-b9d615c224c04123a0e9da2c2e218067",
+      "cost_basis": "subscription_price_not_metered_per_call",
+      "dollar_cost": null,
+      "exact_rollout": {
+        "complete_trajectory_verified": false,
+        "observed_tools": [
+          {
+            "call_id": "call_hHYyOxlLyloUYOufkykMZhfr",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_Prv8JAgF5hrOrAHEfaVM07Wi",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_hRu2e3S5iIYxXsq6H5YBB6Ws",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_bWxLcEbFiuwTgUa0Z8qWP3n0",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_HyVa3PZiOxFOz38zm8yBuN4w",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_eHORP4PsHcP48xfKkbR9SpVP",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_7oNquEaAk8atAFIfagyJm7Tr",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_yahALEUBbn12sibOTyhHI51i",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_ZegTwwtgKOimHlXMCKY7AJ2a",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_ioiRRbDwwNW1zrbXbWCHPZUY",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_ZfBaOYgmmRQneHpchbyRiAZm",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_aMouZFpMuB1hp3Vdp9iJitE4",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_zRBCeGdFYJqCemN3bf9oeqG5",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_DfzdL6keFN9cLTyKpC3s8zXa",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_AwkNt9PYaLzqZV64Bu0vhMcX",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_ulCQtQhdlaW4e0xDUDDMuUc8",
+            "name": "exec",
+            "type": "custom_tool_call"
+          }
+        ],
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-b9d615c224c04123a0e9da2c2e218067\\session_rollout.redacted.jsonl",
+        "redactions_applied": 0,
+        "row_count": 140,
+        "session_id": "01a0d066-2fba-78b2-ab49-20b74743833d",
+        "sha256": "7d75f4cbdce3bdd4cefed81201ae308015056b97df217c6031db9aba1ea51af9",
+        "source_sha256": "becd3eacadda1ba8d925e09916f92b9a32148173b52f25066e1bdc63e0f2bec8",
+        "status": "captured",
+        "verification_note": "Captured exact rollout; actual tool/image delivery and evidence coverage require review."
+      },
+      "binary_sha256": "a19f8f6c3c9dd5b71b6b1e3eb1ec55d75aafb2fdfb686d9e1f7a5f47db07d0d2"
+    },
+    {
+      "id": 97,
+      "role": "material_reviewer",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 970880,
+        "input_tokens": 1059266,
+        "output_tokens": 10661,
+        "reasoning_output_tokens": 3577
+      },
+      "wall_seconds": 382.6089999999999,
+      "artifact_directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-028617e28ea9422ea4d4f11d12e9f090",
+      "cost_basis": "subscription_price_not_metered_per_call",
+      "dollar_cost": null,
+      "exact_rollout": {
+        "complete_trajectory_verified": false,
+        "observed_tools": [
+          {
+            "call_id": "call_jOV5PalZGULbdNlLWh8tUHZr",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_p0yUQIxurttB52Z3PMPEsDpd",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_79XwoqwQeVlQyptIylVdqz8S",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_BgLHd6O6q8F1JPMgi6b9u0E1",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_6EqObzO0Jcsz2zCLXWRPyOux",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_QUBDH28YUbeRYOCflPJ0XuuL",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_P4CJRdCB57eaCmJurZzLEy9C",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_Eu3HY3uF3zXeAYYOSNKKBr0m",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_qJOTWrpSbdHG4y5YEma6xsA2",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_sDP6H4NO1glhPhGkny7hK2Ln",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_FjO8JSuI7Vj9RQYtedydMrrq",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_ODTikSXooPeRK0PSNKuCVy7v",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_PMcMhb0SXOZxwm0WkaifVx95",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_YT1NNibuU7Yn0HxFYIQQVbKO",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_FCSl5p3Ao9BBDrfzO5rw4xIb",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_NdunZh0gWArDz5JHkhLH2F3V",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_7atcgBSXo7fIWKyt3FW0Yf5T",
+            "name": "exec",
+            "type": "custom_tool_call"
+          }
+        ],
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-028617e28ea9422ea4d4f11d12e9f090\\session_rollout.redacted.jsonl",
+        "redactions_applied": 0,
+        "row_count": 146,
+        "session_id": "01a0d066-99b5-7823-89ab-3198d4cce658",
+        "sha256": "ab19a7152e1388c199a249a3a8964b8738f319356cbac097d1139c388a51cc8e",
+        "source_sha256": "4eafe3e8b009ca7707042f58823cbbdbe36338b63fb0994a1a617b0509401ed4",
+        "status": "captured",
+        "verification_note": "Captured exact rollout; actual tool/image delivery and evidence coverage require review."
+      },
+      "binary_sha256": "a19f8f6c3c9dd5b71b6b1e3eb1ec55d75aafb2fdfb686d9e1f7a5f47db07d0d2"
+    },
+    {
+      "id": 104,
+      "role": "material_reviewer",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 1151744,
+        "input_tokens": 1234601,
+        "output_tokens": 11231,
+        "reasoning_output_tokens": 3651
+      },
+      "wall_seconds": 412.625,
+      "artifact_directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-2dbf3a16192d49f297ef0b711a852125",
+      "cost_basis": "subscription_price_not_metered_per_call",
+      "dollar_cost": null,
+      "exact_rollout": {
+        "complete_trajectory_verified": false,
+        "observed_tools": [
+          {
+            "call_id": "call_eDyAqYL785hTpPQtKO2CqnvV",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_NgB3nzfQ3ve56njW0jr3jIJM",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_DTQjJrbu0wWMbO0knxw9AFMw",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_dv8aznQIZuRe2H4twRlzhWSH",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_9uvehRNbF5JDfyh1t6mWrRB9",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_Hs0SOgendbeI6Su2nfo5s4M3",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_3dFB4WXv00CP4W01rMAoxehB",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_AWL39qDzTRi0DB6ckSKjEXkI",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_s6sFRW1at3UfMkMvqGT31Va6",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_BDCaLCiifPqqNy0tRRHFPNvt",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_bwPyUJd7kAIQQGCAkndRTvcd",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_muE5etPFwfdhKgHPYL7qcUvU",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_PCEcJ2zXXHlFltsHdmejw2W6",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_jxPjiMXt57JSEwho8otlvXhZ",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_B7CEeJQBaxV5rkoFIpPevpkV",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_wnF9gzDhyk059XOOfAn9MeDz",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_RaMN7RDcvBARs1KhGYKjSpxy",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_NB9xmr6esuHMkBUMKX3JXBGG",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_f9eAsKbXETrtF0scZNEkVSXK",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_haP7coHWawK0pE9XOX8Uzuvg",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_LrXFqdd1IURf7g0q1lOxZZtw",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_DVejjHBw6AcG0DBo1YWHAkfo",
+            "name": "exec",
+            "type": "custom_tool_call"
+          }
+        ],
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-2dbf3a16192d49f297ef0b711a852125\\session_rollout.redacted.jsonl",
+        "redactions_applied": 0,
+        "row_count": 177,
+        "session_id": "01a0d06d-a4ed-7352-941f-24c15693fa74",
+        "sha256": "bcf311887f7888d2806bf3ba6f65757a51884da0f4a8436110ed7a6bffb23102",
+        "source_sha256": "467a03babacdbc4d419343a0f3ebabdde234aa7706e8c759993221da9b92712f",
+        "status": "captured",
+        "verification_note": "Captured exact rollout; actual tool/image delivery and evidence coverage require review."
+      },
+      "binary_sha256": "a19f8f6c3c9dd5b71b6b1e3eb1ec55d75aafb2fdfb686d9e1f7a5f47db07d0d2"
+    },
+    {
+      "id": 105,
+      "role": "material_reviewer",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "status": "completed",
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 286592,
+        "input_tokens": 342650,
+        "output_tokens": 9200,
+        "reasoning_output_tokens": 3337
+      },
+      "wall_seconds": 315.46900000000005,
+      "artifact_directory": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-0dead377f740478e996d72b433a6cd45",
+      "cost_basis": "subscription_price_not_metered_per_call",
+      "dollar_cost": null,
+      "exact_rollout": {
+        "complete_trajectory_verified": false,
+        "observed_tools": [
+          {
+            "call_id": "call_1zgNQvfJaDT95BJ7oOQgd0Ur",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_ndF8zF4bCZiYk0IXYzHup2n9",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_LMNlK2A7o5hGik6IKBESdbWE",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_GoqC1Nn1B9WJ0vF6h0Ql2uLq",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_MO06YnN9HhRfpJPwrl78jnWE",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_2I00MuHw3GyCiqralvf6pW1u",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_e6sOI5FLiaIOZbW6JOQlknh3",
+            "name": "exec",
+            "type": "custom_tool_call"
+          },
+          {
+            "call_id": "call_9kWDEik4pHRO4LUXHMbX7oMP",
+            "name": "exec",
+            "type": "custom_tool_call"
+          }
+        ],
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-0dead377f740478e996d72b433a6cd45\\session_rollout.redacted.jsonl",
+        "redactions_applied": 0,
+        "row_count": 87,
+        "session_id": "01a0d06d-a546-78e0-ae06-bc4df390cfe2",
+        "sha256": "8ebe375b6810faa48b7debd38158e9bf5748b96c69b989f4c74ddc99abd3e447",
+        "source_sha256": "71de8edd0301d37b571197806c1e7d55e9e99a98135efcabe5f30cbb5aa08b42",
+        "status": "captured",
+        "verification_note": "Captured exact rollout; actual tool/image delivery and evidence coverage require review."
+      },
+      "binary_sha256": "a19f8f6c3c9dd5b71b6b1e3eb1ec55d75aafb2fdfb686d9e1f7a5f47db07d0d2"
+    }
+  ],
+  "calls_used": 10,
+  "calls_authorized_for_subtask": 10,
+  "no_more_model_calls": true,
+  "cost_summary": {
+    "wall_seconds_sum_not_parallel_elapsed": 2923.9379999999996,
+    "reported_usage_totals": {
+      "input_tokens": 7082408,
+      "cached_input_tokens": 6330368,
+      "output_tokens": 93885,
+      "reasoning_output_tokens": 21449
+    },
+    "usage_missing_calls": [],
+    "dollar_cost": null,
+    "excludes_controller_conversation_and_collaboration_usage": true
+  },
+  "model_quality_results": {
+    "batch003": "Both revise. SSA introduced asymmetric-KL/mean/BN/Pixelate factual regressions; IV interface needed clarification.",
+    "batch004": "Both revise. SSA retained unsupported BN clause; IV introduced false notebook-order claim.",
+    "maintainer005": "Controller corrected, not Luna autonomous success. Independent sol IV pass_with_pending_runtime; SSA WRITE_CONTENT ready, WRITE_EVIDENCE only two minor provenance findings.",
+    "maintainer006": "SSA source-supported provenance refinement; all 140 numeric CSV values and content asset unchanged. No fresh snapshot model review; root diff/source adjudication pending.",
+    "luna_autonomous_batch_acceptance": false
+  },
+  "final_compiled_tasks": [
+    {
+      "manifest": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\materials\\pilot_v3\\compiled_candidates\\iv\\iv-coupled-gd-exp-v5\\task.json",
+      "sha256": "5190afdddbf65a2c5a81fb5e10f9c11fc7ac005ecdf538dc8dd57952774b0cca"
+    },
+    {
+      "manifest": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\materials\\pilot_v3\\compiled_candidates_v7\\ssa\\ssa-write-content-utk-v6\\task.json",
+      "sha256": "42f2e655e2c50e1e23c2a9fcd67f037f8ea9b0943e5d8553afc995ff4952b96c"
+    },
+    {
+      "manifest": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\materials\\pilot_v3\\compiled_candidates_v7\\ssa\\ssa-write-evidence-utk-v6\\task.json",
+      "sha256": "c13667ca32d79b42f528313097823d120f5d81ec932a39d05be3e2ed6d3ed1c8"
+    }
+  ],
+  "source_refinement_evidence": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_v6_provenance_patch.json",
+  "preview_rule": "Controller-authored public same-content PNG preview if task permits SVG/PDF primary; does not extend original allowed formats or prescribe design.",
+  "gates": "All compiled formal gates remain pending; root may separately grant bounded development input acceptance.",
+  "coverage": {
+    "papers": 2,
+    "tasks": 3,
+    "EXP": 1,
+    "WRITE_CONTENT": 1,
+    "WRITE_EVIDENCE": 1,
+    "LIT": 0,
+    "IDEA": 0,
+    "R2": "Not expanded by this subtask"
+  },
+  "verification": {
+    "tests": [
+      {
+        "suite": "test_material_adapter.py",
+        "exit_code": 0,
+        "output": "test_adjudicated_notes_preserved (test_material_adapter.MaterialAdapterTests) ... ok\ntest_compiles_public_private_without_gate_promotion (test_material_adapter.MaterialAdapterTests) ... ok\ntest_reject_missing_budget_mutable_image_and_wall_conflict (test_material_adapter.MaterialAdapterTests) ... ok\ntest_visual_preview_is_explicit_controller_rule_not_source_edit (test_material_adapter.MaterialAdapterTests) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.088s\n\nOK\n"
+      },
+      {
+        "suite": "test_material_pipeline_v2.py",
+        "exit_code": 0,
+        "output": "test_asset_paths_are_output_relative_never_originals (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_cannot_expose_target_to_idea (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_explicit_repair_copies_only_candidate_not_prior_chat (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_failed_native_receipt_resume_does_not_reinvoke (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_generated_environment_not_input_only_checked (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_no_self_approval (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_package_limits_differ (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_private_only_empty_allowed_stages_is_valid (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_real_source_only_staging_hashes_and_freshness (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_repair_cannot_reuse_old_batch (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_reviewer_refuses_constructor_modified_sources (test_material_pipeline_v2.MaterialPipelineTests) ... ok\ntest_source_mutation_and_gpu_rejected (test_material_pipeline_v2.MaterialPipelineTests) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.725s\n\nOK\n"
+      },
+      {
+        "suite": "test_source_evidence_index.py",
+        "exit_code": 0,
+        "output": "test_complete_multiline_equation_and_math_alttext (test_source_evidence_index.SourceIndexTests) ... ok\ntest_real_ssa_symmetric_objective_complete (test_source_evidence_index.SourceIndexTests) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.117s\n\nOK\n"
+      }
+    ],
+    "test_count": 18,
+    "all_passed": true,
+    "staged_original_source_integrity": [
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-003\\iv-pilot-v2\\constructor\\sources\\000-iv-paper-v1.source",
+        "sha256": "3050c1439f169d87435abc53754fd5d4301a8fe3520641358eb88a611067a970",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-003\\iv-pilot-v2\\constructor\\sources\\001-iv-abstract-v1.source",
+        "sha256": "be8bd6c83856a22f292a3b3fa476bba525d648d4a2ccba7943b296f363af58bb",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-003\\iv-pilot-v2\\constructor\\sources\\002-iv-license.source",
+        "sha256": "0c62244358639b87361d70abf720d79cabb5c4e40a114cb933e1a164d82e513b",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-003\\iv-pilot-v2\\constructor\\sources\\003-iv-readme.source",
+        "sha256": "96e357ca19793e130e71b36cd4df0c6a65306da92bd435d5a87cb3eb36a1c687",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-003\\iv-pilot-v2\\constructor\\sources\\004-iv-simulation.source",
+        "sha256": "13492a765bec0b00426851997d335ea5948f8171a6affd108f150a4a4cc6103f",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-003\\ssa-pilot-v2\\constructor\\sources\\000-ssa-paper-v1.source",
+        "sha256": "77cbdd9cbe5498f49625dc0c0c269c3d85a8bc18707f581d6ed1b2783c8dad60",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-003\\ssa-pilot-v2\\constructor\\sources\\001-ssa-abstract-v1.source",
+        "sha256": "42c74dde1791e2707ad9ec291b2de9afc50f5ad0ed7ecc8f884a282ecdc5c93e",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-003\\ssa-pilot-v2\\constructor\\sources\\002-ssa-repo-license.source",
+        "sha256": "2e224016ff83dee3bba45327495552dd2f81d7b09a293ea5c6f1e1c8956a1280",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-003\\ssa-pilot-v2\\constructor\\sources\\003-ssa-repo-model.source",
+        "sha256": "ab8ad06909a93eba267873bf65308b9b98b98f71b8755b0ab81c40d6e8189ab3",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-003\\ssa-pilot-v2\\constructor\\sources\\004-ssa-repo-housing.source",
+        "sha256": "b89292615bd957dd2273c44c3afa269a06caf9a43f4e63eb095ebc56b905bfda",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-003\\ssa-pilot-v2\\constructor\\sources\\005-ssa-repo-loss.source",
+        "sha256": "68af0f94405877998a768df4e62129ef36a143c0a73d09c652127fa04cdb6ce6",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-004\\iv-pilot-v2\\constructor\\sources\\000-iv-paper-v1.source",
+        "sha256": "3050c1439f169d87435abc53754fd5d4301a8fe3520641358eb88a611067a970",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-004\\iv-pilot-v2\\constructor\\sources\\001-iv-abstract-v1.source",
+        "sha256": "be8bd6c83856a22f292a3b3fa476bba525d648d4a2ccba7943b296f363af58bb",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-004\\iv-pilot-v2\\constructor\\sources\\002-iv-license.source",
+        "sha256": "0c62244358639b87361d70abf720d79cabb5c4e40a114cb933e1a164d82e513b",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-004\\iv-pilot-v2\\constructor\\sources\\003-iv-readme.source",
+        "sha256": "96e357ca19793e130e71b36cd4df0c6a65306da92bd435d5a87cb3eb36a1c687",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-004\\iv-pilot-v2\\constructor\\sources\\004-iv-simulation.source",
+        "sha256": "13492a765bec0b00426851997d335ea5948f8171a6affd108f150a4a4cc6103f",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-004\\ssa-pilot-v2\\constructor\\sources\\000-ssa-paper-v1.source",
+        "sha256": "77cbdd9cbe5498f49625dc0c0c269c3d85a8bc18707f581d6ed1b2783c8dad60",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-004\\ssa-pilot-v2\\constructor\\sources\\001-ssa-abstract-v1.source",
+        "sha256": "42c74dde1791e2707ad9ec291b2de9afc50f5ad0ed7ecc8f884a282ecdc5c93e",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-004\\ssa-pilot-v2\\constructor\\sources\\002-ssa-repo-license.source",
+        "sha256": "2e224016ff83dee3bba45327495552dd2f81d7b09a293ea5c6f1e1c8956a1280",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-004\\ssa-pilot-v2\\constructor\\sources\\003-ssa-repo-model.source",
+        "sha256": "ab8ad06909a93eba267873bf65308b9b98b98f71b8755b0ab81c40d6e8189ab3",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-004\\ssa-pilot-v2\\constructor\\sources\\004-ssa-repo-housing.source",
+        "sha256": "b89292615bd957dd2273c44c3afa269a06caf9a43f4e63eb095ebc56b905bfda",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-004\\ssa-pilot-v2\\constructor\\sources\\005-ssa-repo-loss.source",
+        "sha256": "68af0f94405877998a768df4e62129ef36a143c0a73d09c652127fa04cdb6ce6",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-005-maintainer\\iv-pilot-v2\\constructor\\sources\\000-iv-paper-v1.source",
+        "sha256": "3050c1439f169d87435abc53754fd5d4301a8fe3520641358eb88a611067a970",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-005-maintainer\\iv-pilot-v2\\constructor\\sources\\001-iv-abstract-v1.source",
+        "sha256": "be8bd6c83856a22f292a3b3fa476bba525d648d4a2ccba7943b296f363af58bb",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-005-maintainer\\iv-pilot-v2\\constructor\\sources\\002-iv-license.source",
+        "sha256": "0c62244358639b87361d70abf720d79cabb5c4e40a114cb933e1a164d82e513b",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-005-maintainer\\iv-pilot-v2\\constructor\\sources\\003-iv-readme.source",
+        "sha256": "96e357ca19793e130e71b36cd4df0c6a65306da92bd435d5a87cb3eb36a1c687",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-005-maintainer\\iv-pilot-v2\\constructor\\sources\\004-iv-simulation.source",
+        "sha256": "13492a765bec0b00426851997d335ea5948f8171a6affd108f150a4a4cc6103f",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-005-maintainer\\ssa-pilot-v2\\constructor\\sources\\000-ssa-paper-v1.source",
+        "sha256": "77cbdd9cbe5498f49625dc0c0c269c3d85a8bc18707f581d6ed1b2783c8dad60",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-005-maintainer\\ssa-pilot-v2\\constructor\\sources\\001-ssa-abstract-v1.source",
+        "sha256": "42c74dde1791e2707ad9ec291b2de9afc50f5ad0ed7ecc8f884a282ecdc5c93e",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-005-maintainer\\ssa-pilot-v2\\constructor\\sources\\002-ssa-repo-license.source",
+        "sha256": "2e224016ff83dee3bba45327495552dd2f81d7b09a293ea5c6f1e1c8956a1280",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-005-maintainer\\ssa-pilot-v2\\constructor\\sources\\003-ssa-repo-model.source",
+        "sha256": "ab8ad06909a93eba267873bf65308b9b98b98f71b8755b0ab81c40d6e8189ab3",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-005-maintainer\\ssa-pilot-v2\\constructor\\sources\\004-ssa-repo-housing.source",
+        "sha256": "b89292615bd957dd2273c44c3afa269a06caf9a43f4e63eb095ebc56b905bfda",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-005-maintainer\\ssa-pilot-v2\\constructor\\sources\\005-ssa-repo-loss.source",
+        "sha256": "68af0f94405877998a768df4e62129ef36a143c0a73d09c652127fa04cdb6ce6",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-006-provenance\\ssa-pilot-v2\\constructor\\sources\\000-ssa-paper-v1.source",
+        "sha256": "77cbdd9cbe5498f49625dc0c0c269c3d85a8bc18707f581d6ed1b2783c8dad60",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-006-provenance\\ssa-pilot-v2\\constructor\\sources\\001-ssa-abstract-v1.source",
+        "sha256": "42c74dde1791e2707ad9ec291b2de9afc50f5ad0ed7ecc8f884a282ecdc5c93e",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-006-provenance\\ssa-pilot-v2\\constructor\\sources\\002-ssa-repo-license.source",
+        "sha256": "2e224016ff83dee3bba45327495552dd2f81d7b09a293ea5c6f1e1c8956a1280",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-006-provenance\\ssa-pilot-v2\\constructor\\sources\\003-ssa-repo-model.source",
+        "sha256": "ab8ad06909a93eba267873bf65308b9b98b98f71b8755b0ab81c40d6e8189ab3",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-006-provenance\\ssa-pilot-v2\\constructor\\sources\\004-ssa-repo-housing.source",
+        "sha256": "b89292615bd957dd2273c44c3afa269a06caf9a43f4e63eb095ebc56b905bfda",
+        "matches": true
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-006-provenance\\ssa-pilot-v2\\constructor\\sources\\005-ssa-repo-loss.source",
+        "sha256": "68af0f94405877998a768df4e62129ef36a143c0a73d09c652127fa04cdb6ce6",
+        "matches": true
+      }
+    ],
+    "basic_docker_smokes": [
+      "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_v5_docker_smoke.json",
+      "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_v6_docker_smoke.json"
+    ],
+    "new_image_builds": 0,
+    "gpu_used": false,
+    "full_solver_or_judge_acceptance": false
+  },
+  "manual_review": {
+    "reviewed": "All final review JSONs, generated task/fact/code/notice assets, targeted original scientific passages and complete equation groups, all 140 SSA numerical strings.",
+    "complete_raw_trajectory_payload_review": false,
+    "limitation": "Exact redacted rollouts retained. Action sequences and relevant source/code inspected, not every huge raw HTML payload. Material review does not constitute benchmark judge acceptance."
+  },
+  "disk": {
+    "basis": "Logical bytes snapshot, not physical allocation or causal whole-workspace delta",
+    "new_nonoverlapping_D_batches": [
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-003",
+        "files": 89,
+        "logical_bytes": 3600084
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-004",
+        "files": 88,
+        "logical_bytes": 3649103
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-005-maintainer",
+        "files": 76,
+        "logical_bytes": 4347162
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\batch-20260923-006-provenance",
+        "files": 19,
+        "logical_bytes": 826099
+      }
+    ],
+    "exact_nonoverlapping_call_audits": [
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-404a56c16040420faac257aabac24998",
+        "files": 7,
+        "logical_bytes": 1076856
+      },
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-f84e8f0fdd1446a0bb9649374fa3799e",
+        "files": 7,
+        "logical_bytes": 1286041
+      },
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-5a55ea33070e45fd8ddf7c5d03dd55a6",
+        "files": 7,
+        "logical_bytes": 1505582
+      },
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-e326506b75994af397867889e5f2420c",
+        "files": 7,
+        "logical_bytes": 1822822
+      },
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-538790ebfb9e4cd8932640ba2713ca1e",
+        "files": 7,
+        "logical_bytes": 1758571
+      },
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-5e154ec251fd4cfaae0c859f212e0cb0",
+        "files": 7,
+        "logical_bytes": 1505616
+      },
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-b9d615c224c04123a0e9da2c2e218067",
+        "files": 7,
+        "logical_bytes": 2097940
+      },
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-028617e28ea9422ea4d4f11d12e9f090",
+        "files": 7,
+        "logical_bytes": 1605808
+      },
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-2dbf3a16192d49f297ef0b711a852125",
+        "files": 7,
+        "logical_bytes": 1634936
+      },
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\material_native_v2\\native-0dead377f740478e996d72b433a6cd45",
+        "files": 7,
+        "logical_bytes": 1791219
+      }
+    ],
+    "compiled_versions_root": {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\materials\\pilot_v3",
+      "files": 59,
+      "logical_bytes": 1050605
+    },
+    "limitations": "Do not add nested dirs to workspace total; shared DB/log/raw session growth and physical VHDX delta unmeasured. Existing images reused."
+  },
+  "completed": [
+    "Versioned source corrections with independent reviews, preserving failures",
+    "Typed EXP evidence interface without fixing experiment recipe",
+    "TaskView adapter with explicit per-task budgets, immutable image ID, private/public separation, controller visual preview rule",
+    "Source navigation preserves full equation groups and math alttext; prospective prompt improvements",
+    "18 offline tests, CPU starter/dependency smokes and costs/disk evidence"
+  ],
+  "outstanding": [
+    "Root SSA provenance source/diff review for bounded dev acceptance",
+    "Full solver/judge runs, calibration and runtime security validation owned by other workstreams",
+    "Release rights unresolved separately; no legal clearance claim",
+    "Formal scale/splits and LIT/IDEA first-public-disclosure checks",
+    "Autonomous constructor model quality remains unaccepted; maintainer fixes do not justify volume expansion",
+    "Exhaustive raw-trajectory manual payload review not claimed"
+  ]
+}

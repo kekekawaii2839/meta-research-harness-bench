@@ -1,0 +1,182 @@
+{
+  "schema_version": "diffusion-formula-alignment-1",
+  "created_at": "2026-09-24T17:58:42Z",
+  "paper_id": "iclr2025-xVefsBbG2O",
+  "title": "Diffusion Models are Evolutionary Algorithms",
+  "role": "T10 maintainer adjudication of method/metric semantics for a possible CPU EXP task; maintainer-only; not a task, not scientific acceptance, not legal advice.",
+  "actions": {
+    "model_calls": 0,
+    "network": false,
+    "docker_runs": 0,
+    "author_code_executed": false,
+    "source_cache_modified": false,
+    "existing_audits_modified": false,
+    "local_numerics": "Maintainer numpy checks on the Windows host (bundled Python, numpy 2.3.5): grid maxima of Ackley/Rastrigin on [-4,4]^2, cosine-schedule endpoint arithmetic, and a pairwise-kernel microbenchmark. No author code, no complete Diffusion Evolution run, no baseline run."
+  },
+  "sources_relied_on": {
+    "directory": "research/source_cache/benchmark_materials/diffusion_prescreen_v1/",
+    "files": [
+      {"file": "diffusion-paper-v2.source", "source_id": "diffusion-paper-v2", "sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58", "use": "arXiv v2 HTML (2024-10-04): Sections 2-4, Algorithm 1/2, Appendix A.1-A.6"},
+      {"file": "diffusion-abstract-v2.source", "source_id": "diffusion-abstract-v2", "sha256": "160d7c8e9b7fc1dae14b6217aa0fbb2af6a4df50b054887399f366b0952f92d2", "use": "paper license link and version history (v1 2024-10-03, v2 2024-10-04, v3 2026-05-09)"},
+      {"file": "diffusion-code-commit.source", "source_id": "diffusion-code-commit", "sha256": "603cae47fcfeb3c4704664ca769578b1d3c201080625991837db19de73970c29", "use": "GitHub commit JSON for 41ac6ca3 (2025-06-17); contains only two small diff patches (README.md, diffevo/generator.py)"},
+      {"file": "diffusion-license.source", "source_id": "diffusion-license", "sha256": "9e50333d41b4abec0331dfe28ea51cbf49a0b5a95a5d121ca2d428d8e62b2853", "use": "Tufts rider + Apache 2.0 text"},
+      {"file": "diffusion-setup.source", "source_id": "diffusion-setup", "sha256": "bba91f0a3113ab54d5051a97e9d98d1b80314a1f264c9b7f5f34db11043877ab", "use": "package metadata only"},
+      {"file": "manifest.json", "sha256": "89d9e0125457f35f7d06381da69ea2595638bc1d533e55b296e5904fccb25f45", "use": "snapshot manifest; all five payload hashes re-verified identical by sha256sum at adjudication time"}
+    ],
+    "prior_audit_read": "research/benchmark/audit/diffusion_fulltext_prescreen_v1.json",
+    "text_extraction": "BeautifulSoup html.parser; MathML replaced by its alttext LaTeX; locations below use the HTML element ids of the v2 page.",
+    "implementation_availability": {
+      "cached": "No implementation source file is cached. Only: setup.py (no algorithm code, no install_requires); LICENSE; commit metadata whose embedded patches show fragments of README.md and diffevo/generator.py.",
+      "fragments_visible_in_commit_patch": [
+        "diffevo/generator.py: `class BayesianGenerator: def __init__(self, x, fitness, alpha, density='uniform', h=0.1):` followed by `if torch.any(fitness < 0): raise ValueError('fitness must be non-negative')` and `self.alpha, self.alpha_past = alpha`.",
+        "LatentBayesianGenerator has the same non-negativity check and `density='uniform', h=0.1` signature.",
+        "README.md context: `for t, alpha in scheduler:` ... `x = generator(noise=0)`; added text: 'The generator requires fitness values to be non-negative. If your objective returns negative values, please apply a mapping (see `diffevo.fitnessmapping`)'."
+      ],
+      "not_cached": "diffevo scheduler, estimator (BayesianEstimator), fitnessmapping, benchmark objective/rescaling scripts, entropy metric script, baseline (CMA-ES/OpenES/PEPG) configs. The code is also a 2025-06 commit, not asserted to be the 2024 paper code."
+    }
+  },
+  "issues": [
+    {
+      "id": "a_linear_schedule_and_alpha_constants",
+      "source_locations": [
+        {"html_id": "A1.E14", "excerpt": "The first is a simple linear schedule, used in Figure 2 : alpha_t = 1 - 1/T. (14)"},
+        {"html_id": "A1.E15", "excerpt": "alpha_t = exp(-beta_0 t - gamma t^2 / T) ... calculated by constraining alpha_0 = 1 - varepsilon and alpha_T = varepsilon, with varepsilon = 10^-4"},
+        {"html_id": "A1.E16", "excerpt": "The third schedule is the cosine schedule ... used in both Figures 3 and 4 : alpha_t = (1/2) cos(pi t / T) + 1/2. (16)"},
+        {"html_id": "S4.SS1.p2", "excerpt": "a cosine scheduling alpha_t = cos(pi t/T)/2 + 1/2 leads to better performance when T is small"},
+        {"html_id": "A1.E17", "excerpt": "sigma_t = sigma_m sqrt((1-alpha_{t-1})/(1-alpha_t)) sqrt(1 - alpha_t/alpha_{t-1}) ... We use sigma_m = 1 for most experiments, except ... Figure 2 ... sigma_m = 0.1"},
+        {"html_id": "alg1.l2", "excerpt": "alpha_0 ~ 1, alpha_T ~ 0, alpha_i > alpha_{i+1}, 0 < sigma_i < sqrt(1 - alpha_{i-1})"}
+      ],
+      "findings": [
+        "Eq14 has no t: it is a constant and violates Algorithm 1 line 2 (strictly decreasing alpha). The natural reading 'alpha_t = 1 - t/T' is a guess; the paper does not state it and the implementation scheduler is not cached.",
+        "Eq15 is internally inconsistent: at t = 0 it gives alpha_0 = exp(0) = 1 identically, so the stated constraint alpha_0 = 1 - varepsilon cannot be satisfied; beta_0 and gamma are therefore not determined by the text as written.",
+        "Eq16 cosine is fully specified: alpha_0 = 1, alpha_T = cos(pi)/2 + 1/2 = 0 exactly (float64 returns exactly 0.0). Maintainer derivation: (1+cos(pi t/T))/2 = cos^2(pi t/(2T)), i.e. Nichol & Dhariwal's cosine alpha-bar with offset s = 0 and without their beta clipping; the paper does not say this, it is an algebraic identity.",
+        "Eq17 is the DDIM eta-parameterised sigma with sigma_m playing eta; with sigma_m = 1 it is the DDPM-posterior choice.",
+        "Scope link: the linear schedule is tied only to Figure 2 (two-peak visual demo, sigma_m = 0.1). The five-landscape benchmark (Figure 3 / Table 1) is stated to use cosine; that Table 1 specifically used cosine and sigma_m = 1 is an inference from A.2 ('used in both Figures 3 and 4', 'sigma_m = 1 for most experiments'), not an explicit statement."
+      ],
+      "decision": "Fixed method inputs for a CPU EXP task MUST use the cosine schedule Eq16 plus Eq17 as the specified schedule, stated explicitly as formulas. The 'linear' Eq14 and DDPM-approx Eq15 schedules are EXCLUDED from fixed method semantics (genuinely ambiguous / inconsistent; requires source not yet cached). If sigma_m is fixed, state it as a method input; sigma_m = 1 may be given with the note that it is the paper's stated default for most experiments. Hypotheses must not claim to reproduce Figure 2's linear-schedule dynamics.",
+      "status": "resolved_by_exclusion_for_linear_and_ddpm; cosine_specified"
+    },
+    {
+      "id": "b_entropy_sign_and_fitness_to_probability_mapping",
+      "source_locations": [
+        {"html_id": "A1.E20", "excerpt": "H = sum_{i=1}^{N} P_i log_2 P_i, (20) where P_i is the probability of having a sample in grid i"},
+        {"html_id": "A1.SS4.SSS1.p1", "excerpt": "we divided the 2-D space into 80 x 80 grids and counted the frequencies of elite solutions"},
+        {"html_id": "S4.SS1.p3", "excerpt": "we select the top-64 fitness individuals, focusing solely on elite individuals"},
+        {"html_id": "S4.T1", "excerpt": "Average entropy of the top-64 elite populations ... Rosenbrock 4.93 ... Rastrigin ... CMA-ES 5.77"},
+        {"html_id": "S3.p1", "excerpt": "given a fitness function f ... we can choose a mapping g to transform f into a probability density function p(x) = g[f(x)]"},
+        {"html_id": "alg1.l5", "excerpt": "Q_i <- g[f(x_t^(i))]"}
+      ],
+      "findings": [
+        "Entropy: Eq20 lacks the leading minus sign; as printed it is <= 0 for any distribution, contradicting the positive Table 1 values. With 64 elites the maximum of -sum P log2 P is log2(64) = 6; all Table 1 values (max 5.77) are within [0, 6], consistent with the standard Shannon convention. 'N' in Eq20 is overloaded (it is the number of grid cells, not the population size). The spatial extent of the 80x80 grid is not stated (a [-4,4]^2 extent giving 0.1-wide cells is plausible but unstated). Tie-breaking in top-64 selection and whether elites outside the grid extent are dropped or clipped are unstated.",
+        "Mapping g: the paper never states which g was used for the 2D benchmark, the two-peak demo, or CartPole. The commit patch shows the implementation rejects negative fitness and offers a separate `diffevo.fitnessmapping` module, but its contents are not cached. For the benchmark, F from Eq19 lies in (0, 1], so g = identity is admissible, but that is not evidence the authors used identity. g (e.g. identity vs power/temperature) directly changes selection pressure, so it is method semantics, not a free solver choice."
+      ],
+      "decision": "Entropy: any private verifier or task-stated metric must use H = -sum_i P_i log2 P_i over occupied grid cells (sign corrected explicitly and recorded as a correction of a printed typo). If the task names this metric, it must state grid extent and cell count, elite count and tie rule as maintainer-specified parameters, labelled 'maintainer specification; author extent unverified'. Entropy alone must not be treated as a success criterion (CMA-ES has the highest entropy with low fitness on Ackley/Rastrigin, S4.SS1.p3). Mapping g: requires source not yet cached. Conservative choice: fix g explicitly in the method statement as identity on a non-negative fitness (F of Eq19, or the density Eq13 for two-peak), labelled as a maintainer specification not verified against author code; do not let the solver infer g, and do not describe results as reproducing the authors' exact configuration.",
+      "status": "entropy_resolved_as_typo; g_requires_source_not_yet_cached_with_conservative_identity"
+    },
+    {
+      "id": "c_fitness_normalization_and_boundaries_2d",
+      "source_locations": [
+        {"html_id": "A1.SS4.p1", "excerpt": "we constrain the range of x and y to (-4,4) and set the objective of the Rastrigin function to be maximization instead of minimization"},
+        {"html_id": "A1.E19", "excerpt": "F(x,y) = epsilon / (epsilon + ||f(x,y) - f*||^2 / s^2)"},
+        {"html_id": "A1.SS4.p3", "excerpt": "epsilon = 10^-3 ... f* is the target fitness value, with s as the scale factor ... determined by the standard deviation of fitness around their optimal points, with ranges adjusted for different functions"},
+        {"html_id": "A1.T2", "excerpt": "Ackley ... When restricting the range of x,y between -4 to 4, the maximal points are located at the four corners. Rastrigin ... A = 10. Similar as the Ackley function above ... the maximal points are located at the four corners."},
+        {"html_id": "S4.SS1.p1", "excerpt": "the Himmelblau, Ackley, and Rastrigin functions have multiple optimal solutions"},
+        {"html_id": "A1.E13", "excerpt": "f(x,y) = [N((x,y); mu_1, sigma^2) + N((x,y); mu_2, sigma^2)]/2 ... mu_1 = (1,1), mu_2 = (-1,-1). And the sigma = 0.1"}
+      ],
+      "findings": [
+        "Scale factors s are given only in prose; no numeric values or procedure ('ranges adjusted') are recoverable. Eq19 is therefore not executable for any of the five landscapes from the paper alone.",
+        "Objective direction conflict: A.4 text says only Rastrigin is switched to maximization, but Table 2 and S4.SS1.p1 describe Ackley as having multiple maxima in the box, which only holds under maximization. Ackley's direction is genuinely ambiguous in the text (maximization is the reading consistent with Table 2 and Table 1).",
+        "Maintainer numerics (8001x8001 grid on [-4,4]^2): Ackley maximum 12.540 at (+-3.614, +-3.614) vs corner value 11.013; Rastrigin (A=10, n=2) maximum 64.625 at (+-3.518, +-3.518) vs corner value 32.0. The printed 'maximal points are located at the four corners' is imprecise: maxima are four interior near-corner points; f* for these functions must be computed, not read off corners.",
+        "Boundary policy is not specified: the text says the range is 'constrained' but gives no clipping/projection/rejection/penalty rule, while Algorithm 1 has no boundary step and adds unbounded Gaussian noise. This is not cosmetic: Eq19 rewards |f - f*| -> 0, i.e. hitting the target value, not exceeding it. Outside the box Ackley and Rastrigin exceed the in-box maximum (e.g. Ackley 14.22 and Rastrigin 80.5 at x = y = 4.5), so continuous level sets with F = 1 exist outside the domain unless out-of-domain points are handled. For the minimization landscapes (Rosenbrock, Beale, Himmelblau) f >= 0 = f* and F = 1 only at the true minimizers, all inside (-4,4)^2, so the boundary policy matters less there.",
+        "Two-peak Eq13 is fully specified (second argument of N is a variance sigma^2 = 0.01). It needs no Eq19 rescaling; it is a non-negative density usable directly as fitness."
+      ],
+      "decision": "Genuinely ambiguous / requires source not yet cached for exact author reproduction. Conservative task semantics: (1) Every objective used in a task must be given as an explicit, self-contained formula with its optimization direction, domain and target f*; any s must be a stated maintainer value, labelled as not author-verified, and hypotheses must not reference Table 1 numeric values as reproduction targets. (2) The out-of-domain policy must be stated as part of the task/objective definition and applied identically to all compared methods; it must not be silently added as an extra step inside the fixed Diffusion Evolution algorithm (a projection step would change the method). (3) Until author scripts are cached, prefer a first scope of landscapes whose optimum semantics do not depend on boundary handling (two-peak Eq13; minimization Rosenbrock/Beale/Himmelblau with f* = 0); the maximized Ackley/Rastrigin variants should be excluded or used only with an explicitly stated domain policy and a note that they are maintainer re-specifications.",
+      "status": "genuinely_ambiguous; conservative_scope_defined"
+    },
+    {
+      "id": "d_numerical_endpoints_and_update_semantics",
+      "source_locations": [
+        {"html_id": "alg1.l4", "excerpt": "for t in [T, T-1, ..., 2] do"},
+        {"html_id": "alg1.l5", "excerpt": "Q_i <- g[f(x_t^(i))]  (Fitness are cached to avoid repeated evaluations)"},
+        {"html_id": "alg1.l7", "excerpt": "Z <- sum_j Q_j N(x_t^(i); sqrt(alpha_t) x_t^(j), 1 - alpha_t)"},
+        {"html_id": "alg1.l10", "excerpt": "x_{t-1}^(i) <- sqrt(alpha_{t-1}) x0hat + sqrt(1 - alpha_{t-1} - sigma_t^2) (x_t^(i) - sqrt(alpha_t) x0hat)/sqrt(1 - alpha_t) + sigma_t w"},
+        {"html_id": "S2.E1", "excerpt": "x_t = sqrt(alpha_t) x_0 + sqrt(1 - alpha_t) epsilon"},
+        {"html_id": "A1.E18", "excerpt": "N(x_t; sqrt(alpha_t) x, 1 - alpha_t) = (1/sqrt(alpha_t)) N(x; x_t/sqrt(alpha_t), sqrt((1-alpha_t)/alpha_t)) ... r^2 = (1 - alpha_t)/alpha_t"},
+        {"html_id": "S3.p3", "excerpt": "neighbors are shown in blue disks, with radius proportional to sqrt(1-alpha_t)/sqrt(alpha_t)"}
+      ],
+      "findings": [
+        "Synchronous update: lines 5-8 use the cached Q and the frozen generation x_t^(j) for every i; the population must be updated from a frozen snapshot, not in place.",
+        "Final population is x_1, not x_0: the loop stops at t = 2 producing x_1; alpha_0 is never used inside the loop. With T steps, fitness is evaluated at t = T..2 (T - 1 batches of N) plus any evaluation of x_1 for reporting. Whether the paper's '25 iterations' means T = 25 or 25 update steps is not stated.",
+        "Kernel variance convention: Eq1/Eq6 imply N(.; sqrt(alpha_t) x, 1 - alpha_t) has VARIANCE (1 - alpha_t) per dimension (isotropic); Eq13 also uses the variance convention. Eq18 then writes the second argument as a standard deviation (radius r^2 = (1-alpha)/alpha, consistent with the Figure 2 caption). The notation is inconsistent, but the derivation from Eq1 fixes the variance reading. Gaussian normalising constants are identical for all j and cancel in Eq8/Eq9, so only exp(-||x_t^(i) - sqrt(alpha_t) x^(j)||^2 / (2(1 - alpha_t))) matters.",
+        "Cosine endpoint t = T: alpha_T = 0 exactly, so every individual gets the same kernel N(x_t^(i); 0, 1) over j and x0hat is the same fitness-weighted population mean for all i. With sigma_m = 1, sigma_T^2 = 1 - alpha_{T-1} exactly, so the Algorithm 1 line 2 strict constraint sigma_i < sqrt(1 - alpha_{i-1}) is violated at equality and the middle coefficient sqrt(1 - alpha_{T-1} - sigma_T^2) is 0 mathematically; in float64 it evaluated to -1.11e-16 for T = 50 (sqrt -> NaN) and 0.0 for T = 10, 25 in maintainer checks.",
+        "Late steps: 1 - alpha_1 is small under cosine (about 0.0039 at T = 25), and the two-peak fitness (sigma = 0.1) is about exp(-100) = 3.7e-44 near the origin. Direct evaluation of Q_j * N(...) underflows (below float32 range; near float64 limits), so Z can become 0 and x0hat NaN. The self term j = i keeps Z > 0 mathematically only if Q_i > 0.",
+        "The implementation fragment shows `density='uniform', h=0.1` arguments on BayesianGenerator, suggesting an optional evaluation-density correction (Eq7 sums over samples x ~ p_eval) that Algorithm 1 does not include; and a README call `generator(noise=0)` suggesting a noise-free option. Neither file body is cached; their semantics and default use in the paper's experiments are unverified."
+      ],
+      "decision": "Fixed method semantics = Algorithm 1 exactly: synchronous update from a frozen generation; isotropic Gaussian kernel with variance (1 - alpha_t); no evaluation-density correction (the 'uniform' reading); loop t = T..2 so the returned population is x_1 (state this, and require solvers to report how many fitness evaluations their runs used). Allowed faithful numerical stabilisation, to be stated in the task: compute weights in the log domain (log Q_j - squared distance / (2(1-alpha_t)), subtract row max, normalise), which is mathematically identical; clamp the argument of sqrt(1 - alpha_{t-1} - sigma_t^2) at 0 when it is within rounding of 0. Require Q_j >= 0; how to handle all-zero Q in a row must be stated (conservative: treat as a recorded failure/undefined step rather than inventing a fallback). Any other stabilisation (clipping alpha_T to epsilon, adding a boundary projection, a noise-free final step) changes semantics and must be declared as a deviation. Whether the noise-free or density-corrected code options were used in the paper: requires source not yet cached.",
+      "status": "specified_with_declared_stabilisation; code_options_unverified"
+    },
+    {
+      "id": "e_unequal_budget_comparison",
+      "source_locations": [
+        {"html_id": "S4.SS1.p3", "excerpt": "Each experiment was conducted with a population of 512 and 25 iterations, except for the OpenES method, which requires 1000 steps to converge."},
+        {"html_id": "S4.SS1.p3", "excerpt": "we repeated the evolution 100 times for each method"},
+        {"html_id": "S4.SS1.p1", "excerpt": "we compare our method to other evolutionary strategies, including CMA-ES ( Hansen et al., 2003 ) , OpenES ( Salimans et al., 2017 ) , and PEPG"},
+        {"html_id": "S4.SS2.p2", "excerpt": "we can solve the cart pole task in only 10 generations, with 512 population size, one fitness evaluation per individual"}
+      ],
+      "findings": [
+        "OpenES ran 1000 steps vs 25 for the others; if its population was also 512 this is about 40x the fitness evaluations of Diffusion Evolution. The comparison is not equal-budget (here the extra budget goes to a baseline).",
+        "CMA-ES/PEPG hyperparameters (initial step size, library, learning rates), OpenES population/sigma, and whether 'population' means the same thing across algorithms (OpenES/PEPG samples around a mean) are not reported, so elite-entropy of 'final population' is not semantically identical across methods.",
+        "Table 1 entries are 100-run averages without dispersion; fitness 1.00 is displayed to two decimals."
+      ],
+      "decision": "Do not import Table 1 rankings or 'outperforms' as private gold; the headline comparison is neither equal-budget nor fully specified. A task may state a comparison hypothesis, but the solver designs baselines, budgets and repetitions; the judge should check that budgets (fitness evaluations, generations) are accounted and that any claim of superiority is matched to the budget actually compared. Legitimate negative findings must remain gradable as high quality.",
+      "status": "recorded_limitation; no_design_prescribed"
+    }
+  ],
+  "cpu_branch_assessment": {
+    "scope": "Only the low-dimensional analytic-fitness branch (two-peak Eq13 and 2D landscapes, D = 2). CartPole/latent (58 and 17,410 parameters) and any image/neural diffusion framing are out of scope and must not be shrunk and presented as the same hypothesis.",
+    "suitability": "CPU-suitable in principle: no trained network, dataset or checkpoint; each step is an N x N kernel-weighted average in D = 2 plus N analytic fitness evaluations. Memory for N = 512 is a 512x512 float64 matrix (about 2 MB).",
+    "maintainer_microbenchmark": "Pairwise log-domain kernel + weighted average only (not the full method, not baselines), N = 512, D = 2: 2400 steps took 34.98 s on this Windows host (20 logical CPUs, numpy 2.3.5, not in Docker, host possibly loaded), i.e. about 15 ms per step. This is an order-of-magnitude indication, not budget acceptance; package-level Docker smoke is still required.",
+    "caveats": [
+      "Baselines (CMA-ES, OpenES, PEPG) need third-party or re-implemented code with their own licences and hyperparameters; none is cached or tested.",
+      "The algorithm is the method under test; a complete implementation must not be shipped to the solver per the EXP contract, only its exact specification.",
+      "Two-mode or multi-basin results in 2D cannot establish the paper's general 'diffusion models are evolutionary algorithms' equivalence claim or high-dimensional performance."
+    ],
+    "method_semantics_that_must_be_public_and_fixed": [
+      "Algorithm 1 as specified in issue d (synchronous, variance 1 - alpha_t, loop T..2, returned x_1)",
+      "cosine alpha schedule Eq16 and sigma schedule Eq17 with stated sigma_m",
+      "explicit g (conservative: identity on non-negative fitness, labelled maintainer specification)",
+      "declared allowed numerical stabilisation",
+      "objective formulas, directions, domain, f*, s and out-of-domain policy (issue c)"
+    ]
+  },
+  "rights_note_not_legal_advice": {
+    "paper": {
+      "evidence": "diffusion-abstract-v2.source line ~187: <a href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/\" title=\"Rights to this article\" class=\"has_license\"> ... view license; paper HTML header: 'License: CC BY-NC-SA 4.0'.",
+      "what_it_says": "Only the licence identifier is cached (the CC legal code itself is not cached). CC BY-NC-SA 4.0 is generally understood to permit sharing and adaptation for non-commercial purposes with attribution, with adaptations shared under the same licence.",
+      "maintainer_judgement": "Do not give the paper to an EXP solver (answer leakage regardless of rights). Task text should be written in the maintainer's own words; restating equations/algorithm steps is the method specification, but verbatim paper passages, figures or tables copied into public task assets could make those assets adaptations subject to NC and ShareAlike. Whether the benchmark's use and release context counts as non-commercial is for the project owner to determine."
+    },
+    "code": {
+      "evidence_quotes": [
+        "LICENSE lines 10-15: 'the license rights provided to you pursuant to the License may be exercised by you solely for academic, non-commercial, research purposes and for no other purpose. The rights granted to you in the License expressly do not include, and the License does not grant to you, the right to copy, modify, reproduce, distribute, display, perform, or otherwise exploit the Software for any commercial purpose.'",
+        "LICENSE lines 16-19: 'You may not use the Software to provide any product or service to any third party, whether for a fee or any other consideration, including without limitation any hosting, software as a service, consulting, or support services'",
+        "LICENSE lines 25-29: 'Licensor asks that all such Modifications be disclosed and shared back to Licensor' (worded as a request)",
+        "LICENSE lines 34-36: 'Any license notice or attribution required by the License must also include the additional terms of this Tufts Open Source License Rider'",
+        "LICENSE lines 38-39: 'Software: Diffusion Evolution / License: Apache 2.0'; Apache s.4 'Redistribution' conditions follow (line ~72 onward).",
+        "setup.py classifier: 'License :: Other/Proprietary License'"
+      ],
+      "maintainer_judgement": "Author code must not be released to solvers: it is the target implementation (EXP contract) and, independently, the rider restricts use to academic non-commercial research and bars providing services to third parties (a hosted benchmark could plausibly fall under 'hosting ... services'). Maintainer-only cross-checking of code, if later cached, should be limited to academic research use with notices preserved. Baseline code should come from separately licensed sources, reviewed per asset. No legal clearance or prohibition is concluded here."
+    },
+    "releasable_to_solver_candidates": "Maintainer-authored method specification, objective formulas and task text; independently licensed baseline libraries after review. Not releasable: paper text/figures/tables verbatim, author code, Table 1 numbers as targets."
+  },
+  "unresolved": [
+    "Author scheduler implementation (true form of 'linear' Eq14; Eq15 constants) - not cached.",
+    "Mapping g used in each experiment; contents of diffevo.fitnessmapping - not cached.",
+    "Semantics and default use of density='uniform', h=0.1 and generator(noise=0) in the paper experiments - only signature fragments cached, from a 2025-06 commit.",
+    "Numeric scale factors s, Ackley objective direction, boundary/out-of-domain handling, entropy grid extent and tie rule for the 2D benchmark - not in paper, scripts not cached.",
+    "Meaning of '25 iterations' (T = 25 vs 25 updates); baseline hyperparameters and libraries.",
+    "Correspondence of arXiv v2 (2024) to the ICLR 2025 camera-ready and to the 2025 code commit - not established; v3 (2026) deliberately not used.",
+    "CC BY-NC-SA legal code not cached; whether project context is non-commercial - owner decision.",
+    "No Docker/CPU smoke of any full method or baseline run; microbenchmark is kernel-only on host."
+  ],
+  "verdict": "The 2D analytic branch can be given a self-contained, faithful method specification (Algorithm 1 + cosine Eq16/Eq17 + explicit g + declared log-domain/sqrt-clamp stabilisation) and is CPU-plausible. It is not construction-ready for exact author reproduction: g, s, Ackley direction, boundary policy and code options require sources not yet cached. A conservative first scope (two-peak Eq13; minimization Rosenbrock/Beale/Himmelblau) avoids the boundary-dependent ambiguities, with all maintainer choices labelled as such."
+}

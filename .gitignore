@@ -1,0 +1,36 @@
+# --- Python / tooling ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+node_modules/
+
+# --- OS / editors ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# --- Transient controller state ---
+*.lock
+*.tmp
+
+# --- Third-party raw sources (research/source_cache) ---
+# Immutable upstream payloads (papers, metadata dumps) stay local: size and redistribution
+# rights are not cleared. Their identities are tracked through the manifests (URL, version,
+# sha256), so a checkout can re-fetch and verify byte-for-byte.
+research/source_cache/**
+!research/source_cache/**/
+!research/source_cache/**/manifest.json
+
+# --- Raw model session transcripts ---
+# Kept on disk as primary evidence and summarized in tracked audit JSON; not committed because
+# they embed third-party text and opaque provider blobs (secret-shaped strings were found in two
+# Codex rollouts and must be inspected by a person before any sharing).
+research/benchmark/audit/**/session_rollout*.jsonl
+research/benchmark/audit/**/stderr.txt
+
+# --- Local binaries / caches ---
+research/benchmark/runtime/codex/

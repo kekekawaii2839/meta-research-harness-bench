@@ -1,0 +1,133 @@
+{
+  "schema_version": "0.1",
+  "sources": [
+    {
+      "source_id": "background-2006-10726-v1-abstract",
+      "url": "https://arxiv.org/abs/2006.10726v1",
+      "paper_id": "background-arxiv-2006.10726",
+      "version": "arxiv-v1",
+      "kind": "historical_background_abstract",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-2006-10726-v1-paper",
+      "url": "https://arxiv.org/pdf/2006.10726v1",
+      "paper_id": "background-arxiv-2006.10726",
+      "version": "arxiv-v1",
+      "kind": "historical_background_paper",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-1909-13231-v1-abstract",
+      "url": "https://arxiv.org/abs/1909.13231v1",
+      "paper_id": "background-arxiv-1909.13231",
+      "version": "arxiv-v1",
+      "kind": "historical_background_abstract",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-1909-13231-v1-paper",
+      "url": "https://arxiv.org/pdf/1909.13231v1",
+      "paper_id": "background-arxiv-1909.13231",
+      "version": "arxiv-v1",
+      "kind": "historical_background_paper",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-2002-08546-v1-abstract",
+      "url": "https://arxiv.org/abs/2002.08546v1",
+      "paper_id": "background-arxiv-2002.08546",
+      "version": "arxiv-v1",
+      "kind": "historical_background_abstract",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-2002-08546-v1-paper",
+      "url": "https://arxiv.org/pdf/2002.08546v1",
+      "paper_id": "background-arxiv-2002.08546",
+      "version": "arxiv-v1",
+      "kind": "historical_background_paper",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-2006-16971-v1-abstract",
+      "url": "https://arxiv.org/abs/2006.16971v1",
+      "paper_id": "background-arxiv-2006.16971",
+      "version": "arxiv-v1",
+      "kind": "historical_background_abstract",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-2006-16971-v1-paper",
+      "url": "https://arxiv.org/pdf/2006.16971v1",
+      "paper_id": "background-arxiv-2006.16971",
+      "version": "arxiv-v1",
+      "kind": "historical_background_paper",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-1607-01719-v1-abstract",
+      "url": "https://arxiv.org/abs/1607.01719v1",
+      "paper_id": "background-arxiv-1607.01719",
+      "version": "arxiv-v1",
+      "kind": "historical_background_abstract",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-1607-01719-v1-paper",
+      "url": "https://arxiv.org/pdf/1607.01719v1",
+      "paper_id": "background-arxiv-1607.01719",
+      "version": "arxiv-v1",
+      "kind": "historical_background_paper",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-1502-03167-v1-abstract",
+      "url": "https://arxiv.org/abs/1502.03167v1",
+      "paper_id": "background-arxiv-1502.03167",
+      "version": "arxiv-v1",
+      "kind": "historical_background_abstract",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-1502-03167-v1-paper",
+      "url": "https://arxiv.org/pdf/1502.03167v1",
+      "paper_id": "background-arxiv-1502.03167",
+      "version": "arxiv-v1",
+      "kind": "historical_background_paper",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-1706-04599-v1-abstract",
+      "url": "https://arxiv.org/abs/1706.04599v1",
+      "paper_id": "background-arxiv-1706.04599",
+      "version": "arxiv-v1",
+      "kind": "historical_background_abstract",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-1706-04599-v1-paper",
+      "url": "https://arxiv.org/pdf/1706.04599v1",
+      "paper_id": "background-arxiv-1706.04599",
+      "version": "arxiv-v1",
+      "kind": "historical_background_paper",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-1505-07818-v1-abstract",
+      "url": "https://arxiv.org/abs/1505.07818v1",
+      "paper_id": "background-arxiv-1505.07818",
+      "version": "arxiv-v1",
+      "kind": "historical_background_abstract",
+      "usage": "background_not_target_candidate"
+    },
+    {
+      "source_id": "background-1505-07818-v1-paper",
+      "url": "https://arxiv.org/pdf/1505.07818v1",
+      "paper_id": "background-arxiv-1505.07818",
+      "version": "arxiv-v1",
+      "kind": "historical_background_paper",
+      "usage": "background_not_target_candidate"
+    }
+  ]
+}

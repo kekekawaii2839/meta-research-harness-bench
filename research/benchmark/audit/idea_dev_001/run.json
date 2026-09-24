@@ -1,0 +1,1 @@
+{"budget":{"cancelled":false,"model_calls":3,"tool_calls":48,"wall_seconds":2272.265999999996},"formal":false,"gpu_used":false,"harness_kind":"handwritten_unified_baseline_not_builder_H0","judge_acceptance":"pending_manual_trajectory_review","task_hash":"d6d22851b68de50f18742e7f030ba5b1503b4fa339f74169b88359ef4506d035","task_id":"dev-idea-001"}

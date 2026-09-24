@@ -1,0 +1,3 @@
+Created [review.json](D:\mrhbench-local-pilot\batch-20260923-003\iv-pilot-v2\reviewer\review.json) with decision `revise`.
+
+It records three findings: incomplete machine-readable output schemas, unresolved redistribution authorization, and an undocumented fresh-container smoke/asset path. The JSON parses successfully; candidate files were not modified.

@@ -1,0 +1,410 @@
+{
+  "schema_version": "diffusion-fulltext-prescreen-1",
+  "created_at_utc": "2026-09-24T01:35:36.068048+00:00",
+  "paper_id": "iclr2025-xVefsBbG2O",
+  "title": "Diffusion Models are Evolutionary Algorithms",
+  "verdict": "CPU numerical EXP source candidate is substantiated; not ready for constructor launch or scientific acceptance until listed method/asset ambiguities are resolved.",
+  "actions": {
+    "model_calls": 0,
+    "docker_runs": 0,
+    "author_code_executed": false,
+    "repository_cloned": false,
+    "new_source_files": 5,
+    "new_source_payload_bytes": 315807,
+    "formal_tasks_constructed": 0,
+    "old_cache_modified": false,
+    "network": "Read-only primary-source web discovery and bounded fetch_sources.fetch. One extra in-memory GitHub main-commit lookup; no credentials."
+  },
+  "source_spec": "research/benchmark/materials/next_batch_proposals_v1/diffusion_source_spec.json",
+  "snapshot_manifest": {
+    "path": "research/source_cache/benchmark_materials/diffusion_prescreen_v1/manifest.json",
+    "sha256": "89d9e0125457f35f7d06381da69ea2595638bc1d533e55b296e5904fccb25f45",
+    "sources": [
+      {
+        "bytes": 251786,
+        "content_type": "text/html; charset=utf-8",
+        "fetched_at_utc": "2026-09-24T01:33:22.895769+00:00",
+        "file": "diffusion-paper-v2.source",
+        "kind": "paper_html",
+        "paper_id": "iclr2025-xVefsBbG2O",
+        "redistribution_review": "pending",
+        "resolved_url": "https://arxiv.org/html/2410.02543v2",
+        "role": "maintainer_only_original_source",
+        "sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+        "source_id": "diffusion-paper-v2",
+        "status": "fetched",
+        "url": "https://arxiv.org/html/2410.02543v2",
+        "version": "arxiv-v2"
+      },
+      {
+        "bytes": 42236,
+        "content_type": "text/html; charset=utf-8",
+        "fetched_at_utc": "2026-09-24T01:33:23.053401+00:00",
+        "file": "diffusion-abstract-v2.source",
+        "kind": "version_and_license_metadata",
+        "paper_id": "iclr2025-xVefsBbG2O",
+        "redistribution_review": "pending",
+        "resolved_url": "https://arxiv.org/abs/2410.02543v2",
+        "role": "maintainer_only_original_source",
+        "sha256": "160d7c8e9b7fc1dae14b6217aa0fbb2af6a4df50b054887399f366b0952f92d2",
+        "source_id": "diffusion-abstract-v2",
+        "status": "fetched",
+        "url": "https://arxiv.org/abs/2410.02543v2",
+        "version": "arxiv-v2"
+      },
+      {
+        "bytes": 7445,
+        "content_type": "application/json; charset=utf-8",
+        "fetched_at_utc": "2026-09-24T01:33:23.136272+00:00",
+        "file": "diffusion-code-commit.source",
+        "kind": "repository_commit_metadata",
+        "paper_id": "iclr2025-xVefsBbG2O",
+        "redistribution_review": "pending",
+        "resolved_url": "https://api.github.com/repos/Zhangyanbo/diffusion-evolution/commits/41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7",
+        "role": "maintainer_only_original_source",
+        "sha256": "603cae47fcfeb3c4704664ca769578b1d3c201080625991837db19de73970c29",
+        "source_id": "diffusion-code-commit",
+        "status": "fetched",
+        "url": "https://api.github.com/repos/Zhangyanbo/diffusion-evolution/commits/41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7",
+        "version": "41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7"
+      },
+      {
+        "bytes": 13574,
+        "content_type": "text/plain; charset=utf-8",
+        "fetched_at_utc": "2026-09-24T01:33:23.339290+00:00",
+        "file": "diffusion-license.source",
+        "kind": "repository_license",
+        "paper_id": "iclr2025-xVefsBbG2O",
+        "redistribution_review": "pending",
+        "resolved_url": "https://raw.githubusercontent.com/Zhangyanbo/diffusion-evolution/41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7/LICENSE",
+        "role": "maintainer_only_original_source",
+        "sha256": "9e50333d41b4abec0331dfe28ea51cbf49a0b5a95a5d121ca2d428d8e62b2853",
+        "source_id": "diffusion-license",
+        "status": "fetched",
+        "url": "https://raw.githubusercontent.com/Zhangyanbo/diffusion-evolution/41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7/LICENSE",
+        "version": "41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7"
+      },
+      {
+        "bytes": 766,
+        "content_type": "text/plain; charset=utf-8",
+        "fetched_at_utc": "2026-09-24T01:33:23.521892+00:00",
+        "file": "diffusion-setup.source",
+        "kind": "package_dependency_metadata",
+        "paper_id": "iclr2025-xVefsBbG2O",
+        "redistribution_review": "pending",
+        "resolved_url": "https://raw.githubusercontent.com/Zhangyanbo/diffusion-evolution/41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7/setup.py",
+        "role": "maintainer_only_original_source",
+        "sha256": "bba91f0a3113ab54d5051a97e9d98d1b80314a1f264c9b7f5f34db11043877ab",
+        "source_id": "diffusion-setup",
+        "status": "fetched",
+        "url": "https://raw.githubusercontent.com/Zhangyanbo/diffusion-evolution/41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7/setup.py",
+        "version": "41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7"
+      }
+    ],
+    "all_hashes_verified": true
+  },
+  "identity_and_version": {
+    "author_repository_match": "Paper Section 1 directly links Zhangyanbo/diffusion-evolution; existing conference-selected pilot metadata and README identify the same title and OpenReview ID.",
+    "conference": "ICLR 2025 accepted identity confirmed by official proceedings landing page; OpenReview forum returned browser challenge, not accepted as usable full text.",
+    "official_proceedings_url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/ba5f1233efa77787ff9ec015877dbd1f-Abstract-Conference.html",
+    "read_version": "arxiv-v2, 2024-10-04",
+    "earliest_arxiv": "v1, 2024-10-03T14:47:46Z",
+    "latest_version_observed": "v3, 2026-05-09; deliberately not substituted into 2025 candidate scope.",
+    "conference_equivalence": "Not established; v2 is explicitly a preprint and cannot be called byte-identical or scientifically identical to the accepted camera-ready paper. Reconcile the relevant equations/conditions against conference version or pinned implementation before constructing exact method inputs.",
+    "first_disclosure_verified": false,
+    "first_disclosure_limit": "arXiv history alone does not exclude earlier code/project/report disclosure.",
+    "repository_commit": "41ac6ca3ecd3d9b30c1c8cfdfe5a379bd914dfe7",
+    "repository_commit_date": "2025-06-17T00:04:05Z",
+    "code_version_limit": "Pinned June 2025 repository metadata is not claimed to be the 2024-v2 implementation or the initial conference submission code."
+  },
+  "direct_fulltext_findings": [
+    {
+      "evidence": [
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "S3",
+          "section_normalized_sha256": "3e1a873a07a88ed534f5eb6e5aec5f8ad95edc865ebea277111c6ea1c4222682",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#S3"
+        },
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "S3.E8",
+          "section_normalized_sha256": "028b169aa27e7b7a8c331891f841a687d7d67f8621812a474a0a1bc051c00246",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#S3.E8"
+        },
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "S3.E9",
+          "section_normalized_sha256": "89f5f38be05126d11505a988a5ea79ea01cb18e2cf522dc3541de1fd4ab009e3",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#S3.E9"
+        },
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "S3.E10",
+          "section_normalized_sha256": "29a4cc990d609b17fd2c4e3b2e2b8819d4c0be31ca63dc2bcff6a7ded9d8d5f0",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#S3.E10"
+        }
+      ],
+      "finding": "Algorithm 1 forms fitness-weighted Gaussian-neighbour averages of the current population, then a DDIM-style update. It requires no trained denoising network."
+    },
+    {
+      "evidence": [
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "S4.SS1",
+          "section_normalized_sha256": "7e4ea31905ce43a3131f3fac300470be01635751269639b255df31291d5f2927",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#S4.SS1"
+        },
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "A1.SS4",
+          "section_normalized_sha256": "4044f5331f20375532805c85139fc92b104e389acef142859e73e22460d82018",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#A1.SS4"
+        },
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "A1.SS4.SSS1",
+          "section_normalized_sha256": "8d88d9e4f4d4fca49aec2e56108f7aeffe40f756452d271f28984b80f65f9e54",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#A1.SS4.SSS1"
+        }
+      ],
+      "finding": "The 2D study evaluates five landscapes using mapped fitness and elite diversity; settings include 512 individuals, 25 iterations, 100 repetitions, with OpenES using 1000 steps. These are author settings, not mandatory benchmark recipes."
+    },
+    {
+      "evidence": [
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "A1.SS1",
+          "section_normalized_sha256": "b7593f66d92d68a28f6eae0ffde5189ecc1db0ab48542d8819a47df3896cbd34",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#A1.SS1"
+        },
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "A1.SS2",
+          "section_normalized_sha256": "cf21d911406f2c658b5442548798443febb6ec48f590ddba6fd0407d2141dc76",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#A1.SS2"
+        }
+      ],
+      "finding": "The two-peak Gaussian objective and alpha/noise schedules are specified separately from the multi-function benchmark."
+    },
+    {
+      "evidence": [
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "S4.SS2",
+          "section_normalized_sha256": "270bcbaaf5746e081a07bd27baa50aaf7b981ccd2c2f3f393a80761104da9c4d",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#S4.SS2"
+        },
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "A1.SS5.SSS1",
+          "section_normalized_sha256": "2dfb44c522f75ec647f8ddc80e11cfd8b76239298edbee64b6175184d21bcc21",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#A1.SS5.SSS1"
+        },
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "A1.SS6",
+          "section_normalized_sha256": "196bcf8ab5b5296b29f4e9d9bf64339cb3779b484b60d97c7aa1b9a8db912da6",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#A1.SS6"
+        }
+      ],
+      "finding": "Latent evolution computes neighbourhoods after random projection while retaining original-space updates; CartPole studies use 58 and 17,410 parameters. This is a separate scope."
+    }
+  ],
+  "cpu_scope_assessment": {
+    "recommended_candidate": "Finite 2D analytic-fitness optimization, testing solution quality together with separated-mode coverage/diversity under explicitly fixed method and task boundaries. This has a genuine paper-native low-dimensional setting; it is not a downsized image diffusion training task.",
+    "why_plausible": "Inference from arithmetic-only objective evaluation and population updates; no learned checkpoint, image dataset or neural-network training is needed. CPU performance has NOT been measured.",
+    "eligible_alternative": "Two-peak objective can isolate multimodal population behaviour once schedule/boundary/numerical details are resolved; it cannot establish broad superiority over all evolutionary algorithms.",
+    "avoid_first_pilot": "CartPole/latent high-dimensional branch: potentially CPU-executable but simulator version, episode protocol and performance costs are not validated. Do not label it GPU-required merely from a CUDA README command.",
+    "resource_inference": "Naive neighbour evaluation scales approximately with iterations × population² × dimension, plus fitness evaluations. At population 512 and 25 iterations there are about 6.55 million pair interactions per run; full repeated multi-landscape experiments are not automatically cheap. This is a complexity estimate, not timing or budget acceptance.",
+    "not_frozen": [
+      "Task resource numbers",
+      "Number of replicates",
+      "Grid sizes",
+      "Baselines/evaluation budget equality",
+      "Source-author schedules as the only permitted experiments"
+    ],
+    "cannot_claim_from_small_scope": [
+      "A numerical 2D result proves a general mathematical equivalence.",
+      "Two-mode preservation implies superiority across all landscapes or high-dimensional control.",
+      "Smaller populations/fewer repeats reproduce original Table 1 precision.",
+      "Matching generations means matched fitness-evaluation or compute budgets.",
+      "Any high entropy proves useful multimodality without also checking fitness, basin occupancy and selection/binning effects."
+    ]
+  },
+  "source_ambiguities_requiring_adjudication": [
+    {
+      "id": "linear_schedule",
+      "evidence": {
+        "source_id": "diffusion-paper-v2",
+        "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+        "html_id": "A1.E14",
+        "section_normalized_sha256": "3385f2a2db719dffb4eae4ee813504b0d644db7346af73ef25a45be341588b20",
+        "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+        "url": "https://arxiv.org/html/2410.02543v2#A1.E14"
+      },
+      "literal_math": "\\alpha_{t}=1-\\frac{1}{T}.",
+      "problem": "The expression described as linear has no time variable. Do not silently repair it in fixed method inputs. Cosine is separately available, but endpoint handling still needs a defined specification.",
+      "next_action": "Cross-check relevant accepted-version equation and pinned scheduler implementation; record maintainer adjudication/version rather than make solver infer intended formula."
+    },
+    {
+      "id": "entropy_sign",
+      "evidence": {
+        "source_id": "diffusion-paper-v2",
+        "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+        "html_id": "A1.E20",
+        "section_normalized_sha256": "57d511b24f456dd521c2c40e3ad7388d800ba5cfe700131b87a54c7bf51ef19d",
+        "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+        "url": "https://arxiv.org/html/2410.02543v2#A1.E20"
+      },
+      "literal_math": "H=\\sum_{i=1}^{N}P_{i}\\log_{2}P_{i},",
+      "problem": "Printed Shannon formula lacks a leading minus sign, inconsistent with positive reported entropy for nondegenerate probabilities.",
+      "next_action": "Verify actual metric implementation and record corrected intended convention explicitly; cannot blindly transcribe printed formula into hidden verifier."
+    },
+    {
+      "id": "fitness_transformation_and_boundaries",
+      "evidence": [
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "A1.SS4",
+          "section_normalized_sha256": "4044f5331f20375532805c85139fc92b104e389acef142859e73e22460d82018",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#A1.SS4"
+        },
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "A1.E19",
+          "section_normalized_sha256": "a7cd10ea4b6c2f1186965f50d6b77bf89eaf73169edba3c25168348e03bd3808",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#A1.E19"
+        }
+      ],
+      "problem": "Numeric per-function scale factors, precise extremum targets and treatment of particles outside the nominal domain are not completely executable from prose. Table/prose about maximizing Ackley/Rastrigin and corner extrema require verification; do not substitute familiar minimization defaults.",
+      "next_action": "Obtain precise objective definitions and boundary policy from versioned source, or explicitly construct and audit a narrower self-contained objective scope; no guessed constants."
+    },
+    {
+      "id": "synchronous_update_and_numerics",
+      "evidence": [
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "S3",
+          "section_normalized_sha256": "3e1a873a07a88ed534f5eb6e5aec5f8ad95edc865ebea277111c6ea1c4222682",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#S3"
+        },
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "A1.SS2",
+          "section_normalized_sha256": "cf21d911406f2c658b5442548798443febb6ec48f590ddba6fd0407d2141dc76",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#A1.SS2"
+        }
+      ],
+      "problem": "Implementation needs frozen current-generation weights/state, meaningful nonnegative density weights, positive normalizer, and alpha endpoint/numerical stability handling.",
+      "next_action": "Specify invariant algorithm semantics and allowed faithful numerical stabilization before handoff, without prescribing the solver experiment design or giving complete target implementation."
+    },
+    {
+      "id": "fairness_and_coverage",
+      "evidence": [
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "S4.SS1",
+          "section_normalized_sha256": "7e4ea31905ce43a3131f3fac300470be01635751269639b255df31291d5f2927",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#S4.SS1"
+        },
+        {
+          "source_id": "diffusion-paper-v2",
+          "raw_sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "html_id": "A1.SS4.SSS1",
+          "section_normalized_sha256": "8d88d9e4f4d4fca49aec2e56108f7aeffe40f756452d271f28984b80f65f9e54",
+          "normalization": "BeautifulSoup html.parser get_text(space, strip=True)",
+          "url": "https://arxiv.org/html/2410.02543v2#A1.SS4.SSS1"
+        }
+      ],
+      "problem": "Original comparisons use unequal iteration counts and elite/binning choices. Importing positive headline conclusions as private unquestionable gold would be invalid.",
+      "next_action": "Keep conclusions open to negative findings; judge evidence and comparison validity rather than reproduction of headline rankings."
+    }
+  ],
+  "necessary_inputs_before_material_construction": [
+    {
+      "input": "Exact method statement, objective and domain/fitness semantics",
+      "state": "Paper available; ambiguity resolution still needed.",
+      "public_private": "Fixed methods/hypotheses public; target outcome/rankings private. Do not ship complete diffevo implementation as target solution."
+    },
+    {
+      "input": "Relevant pinned scheduler, generator, objective and metric implementation for maintainer cross-check",
+      "state": "Not downloaded under five-file limit. Exact commit available; version correspondence unresolved.",
+      "public_private": "Maintainer-only method verification; any public baseline/data code must exclude target algorithm and expected outcomes."
+    },
+    {
+      "input": "Runnable CPU base environment and baselines",
+      "state": "Not built. setup.py identifies diffevo 1.1.0, Python>=3.6, but has no install_requires lock; OS Independent classifier is not CPU proof.",
+      "public_private": "Freeze justified task-specific dependencies/resources after smoke, not from metadata."
+    },
+    {
+      "input": "Independent scope/hypothesis and source-fidelity review",
+      "state": "Pending. No task, fixed hypothesis set or private verifier was generated here.",
+      "public_private": "Must permit legitimate negative outcomes and alternative sound experiment designs."
+    },
+    {
+      "input": "Rights/publication provenance per asset",
+      "state": "Exact paper/code declarations now available; distribution decision unresolved.",
+      "public_private": "Raw snapshots remain maintainer-only. Do not automatically package upstream implementation or paper as broadly permissive public assets."
+    }
+  ],
+  "rights_metadata_not_legal_advice": {
+    "paper": {
+      "declared_license": "CC BY-NC-SA 4.0",
+      "url": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "evidence_source_id": "diffusion-abstract-v2",
+      "evidence_sha256": "160d7c8e9b7fc1dae14b6217aa0fbb2af6a4df50b054887399f366b0952f92d2",
+      "scope": "Declaration for this paper version; no assertion it automatically governs all code/data/independently authored assets."
+    },
+    "code": {
+      "declared_license": "Apache 2.0 plus Tufts Open Source License Rider v.1, Academic Use Only",
+      "evidence": {
+        "source_id": "diffusion-license",
+        "raw_sha256": "9e50333d41b4abec0331dfe28ea51cbf49a0b5a95a5d121ca2d428d8e62b2853",
+        "line_start": 1,
+        "line_end": 38,
+        "normalized_char_start": 0,
+        "normalized_char_end": 2200,
+        "normalization": "UTF-8 universal-newline text; zero-based, end-exclusive"
+      },
+      "observed_terms_summary": "Rider restricts permitted use to academic non-commercial research, excludes commercial exploitation and third-party products/services, and requires rider inclusion with notices. This is not ordinary unrestricted Apache-2.0.",
+      "package_classifier": "License :: Other/Proprietary License",
+      "release_status": "unresolved; preserve notices and determine asset-specific reuse/public-release approach. No legal clearance or prohibition conclusion beyond reporting the text."
+    }
+  },
+  "next_decision": "Source is now plausible for CPU EXP prescreen, but not launch-ready: reconcile method/metric ambiguities and rights/asset plan before choosing this as a new-paper pilot. No constructor-model strategy was changed."
+}

@@ -1,0 +1,7 @@
+Completed successfully.
+
+- Read `input.txt`: `independent_smoke_271` with trailing newline.
+- Created [verify.py](C:/Users/li_ha/AppData/Local/Temp/mrhb-native-permission-stability-qyalhql2/verify.py).
+- Executed it successfully; exact-byte assertion passed.
+- Wrote `output.txt` as the input bytes followed by `_ok`.
+- Visually inspected `fixture.png`: **red, blue, yellow** from left to right.

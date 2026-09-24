@@ -1,0 +1,33 @@
+{
+  "schema_version": "root-material-review-2",
+  "created_at": "2026-09-24",
+  "reviewer": "root (Claude Code maintainer session, AGENTS §0.2.13); not a benchmark role",
+  "scope": "Root spot-verification of three collaborator audits against the immutable raw sources. Not a re-derivation of every item; accepted items are candidate task-specification decisions, not task construction or admission.",
+  "reviewed": [
+    {
+      "path": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json",
+      "spot_checks": [
+        {"claim": "Eq5 ridge objective uses 1/(2m) data term plus (lambda/2)||w||^2", "result": "confirmed in gaussian-mixtures-paper-v1.source (arXiv 2503.00856v1 HTML)"},
+        {"claim": "Eq6 training error uses 1/2 * sum without 1/m while keeping (lambda/2)||w||^2, so Eq6 != m*Eq5", "result": "confirmed"},
+        {"claim": "Eq7 generalization error is full expected squared error (not half)", "result": "confirmed"}
+      ],
+      "decision": "Accept the issue-by-issue specification choices as candidates for a future EXP TaskView. Timing is a single-configuration development measurement; the 866 s full-sweep figure is an extrapolation and does not set a package budget. A dedicated locked image is still required (IV image only reused for measurement)."
+    },
+    {
+      "path": "research/benchmark/audit/diffusion_formula_alignment_v1.json",
+      "spot_checks": [
+        {"claim": "Eq14 'linear schedule' is alpha_t = 1 - 1/T with no dependence on t", "result": "confirmed in diffusion-paper-v2.source A.2"},
+        {"claim": "Eq15 DDPM-approximation gives alpha_0 = exp(0) = 1, contradicting the stated alpha_0 = 1 - eps constraint", "result": "confirmed by the equation as printed"}
+      ],
+      "decision": "Accept cosine Eq16 as the only fixed schedule candidate and the reduced first objective scope. Author implementation is not cached, so the fitness mapping g=identity is an explicit maintainer choice, not author fidelity. Rights: author code and verbatim paper content must not be released to solvers; whether this project qualifies as non-commercial is an owner decision (user), not settled here."
+    },
+    {
+      "path": "research/benchmark/audit/private_ssa_lit_remaining_seven_review_v1.json",
+      "spot_checks": [
+        {"claim": "all 20 quote slices re-extracted and matched", "result": "collaborator reports programmatic re-check; root did not repeat all 20"}
+      ],
+      "decision": "Accept as private diagnostic candidates. The new label 'unrelated' carries no penalty and does not enter the four-dimension LIT score. Garg (confusable) and von Oswald (unrelated, borderline) remain judgement calls."
+    }
+  ],
+  "not_done": ["No new TaskView constructed from either paper", "No rights clearance", "No construction-model selection (user decision pending)"]
+}

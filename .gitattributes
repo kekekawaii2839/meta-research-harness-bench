@@ -1,0 +1,3 @@
+# Audits, manifests and frozen harnesses pin exact byte hashes (sha256), including CRLF vs LF.
+# Never let git normalize line endings or otherwise rewrite content.
+* -text

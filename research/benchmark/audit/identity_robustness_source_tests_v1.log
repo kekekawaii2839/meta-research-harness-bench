@@ -1,0 +1,13 @@
+test_count_accounting (test_iclr2025_pilot.PilotTests) ... ok
+test_coverage_and_no_score_imputation (test_iclr2025_pilot.PilotTests) ... ok
+test_deterministic_sample (test_iclr2025_pilot.PilotTests) ... ok
+test_repository_provenance_sidecars (test_iclr2025_pilot.PilotTests) ... ok
+test_repository_url_deduplication (test_iclr2025_pilot.PilotTests) ... ok
+test_retained_source_hashes (test_iclr2025_pilot.PilotTests) ... ok
+test_saved_sample_matches_selection (test_iclr2025_pilot.PilotTests) ... ok
+test_unique_forums_and_positive_submission_ids (test_iclr2025_pilot.PilotTests) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.254s
+
+OK

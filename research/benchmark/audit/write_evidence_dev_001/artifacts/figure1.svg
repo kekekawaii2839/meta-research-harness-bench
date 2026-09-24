@@ -1,0 +1,269 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3000" height="1740" viewBox="0 0 3000 1740">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#1c222b}.title{font-size:52px;font-weight:700}.sub{font-size:29px;fill:#414956}.panel{font-size:37px;font-weight:700}.method{font-size:27px;font-weight:700}.cell{font-size:23px;font-weight:700;text-anchor:middle}.small{font-size:24px;fill:#505660}</style>
+<text x="90" y="85" class="title">Corruption robustness in UTKFace age prediction</text>
+<text x="90" y="145" class="sub">Author-reported R² at severity 5 • higher is better • negative values are valid</text>
+<text x="70" y="245" class="panel">A  Reported values</text>
+<text x="395" y="270" class="small" transform="rotate(-42 395 270)">Defocus</text>
+<text x="567" y="270" class="small" transform="rotate(-42 567 270)">Motion</text>
+<text x="739" y="270" class="small" transform="rotate(-42 739 270)">Zoom</text>
+<text x="911" y="270" class="small" transform="rotate(-42 911 270)">Contrast</text>
+<text x="1083" y="270" class="small" transform="rotate(-42 1083 270)">Elastic</text>
+<text x="1255" y="270" class="small" transform="rotate(-42 1255 270)">JPEG</text>
+<text x="1427" y="270" class="small" transform="rotate(-42 1427 270)">Pixelate</text>
+<text x="1599" y="270" class="small" transform="rotate(-42 1599 270)">Gaussian</text>
+<text x="1771" y="270" class="small" transform="rotate(-42 1771 270)">Impulse</text>
+<text x="1943" y="270" class="small" transform="rotate(-42 1943 270)">Shot</text>
+<text x="2115" y="270" class="small" transform="rotate(-42 2115 270)">Bright</text>
+<text x="2287" y="270" class="small" transform="rotate(-42 2287 270)">Fog</text>
+<text x="2459" y="270" class="small" transform="rotate(-42 2459 270)">Snow</text>
+<text x="2631" y="270" class="small" transform="rotate(-42 2631 270)">Mean</text>
+<text x="72" y="352" class="method">Source</text>
+<rect x="330" y="285" width="167" height="100" fill="#9fbcd8" stroke="none" stroke-width="0"/>
+<text x="413.5" y="348" class="cell" style="fill:#191919">0.410</text>
+<rect x="502" y="285" width="167" height="100" fill="#d5e0eb" stroke="none" stroke-width="0"/>
+<text x="585.5" y="348" class="cell" style="fill:#191919">0.159</text>
+<rect x="674" y="285" width="167" height="100" fill="#6a98c6" stroke="none" stroke-width="0"/>
+<text x="757.5" y="348" class="cell" style="fill:#191919">0.658</text>
+<rect x="846" y="285" width="167" height="100" fill="#b41d30" stroke="none" stroke-width="0"/>
+<text x="929.5" y="348" class="cell" style="fill:#ffffff">-3.906</text>
+<rect x="1018" y="285" width="167" height="100" fill="#5f90c2" stroke="none" stroke-width="0"/>
+<text x="1101.5" y="348" class="cell" style="fill:#191919">0.711</text>
+<rect x="1190" y="285" width="167" height="100" fill="#e8edf2" stroke="none" stroke-width="0"/>
+<text x="1273.5" y="348" class="cell" style="fill:#191919">0.069</text>
+<rect x="1362" y="285" width="167" height="100" fill="#78a1ca" stroke="none" stroke-width="0"/>
+<text x="1445.5" y="348" class="cell" style="fill:#191919">0.595</text>
+<rect x="1534" y="285" width="167" height="100" fill="#cb6a76" stroke="none" stroke-width="0"/>
+<text x="1617.5" y="348" class="cell" style="fill:#ffffff">-2.536</text>
+<rect x="1706" y="285" width="167" height="100" fill="#cb6976" stroke="none" stroke-width="0"/>
+<text x="1789.5" y="348" class="cell" style="fill:#ffffff">-2.539</text>
+<rect x="1878" y="285" width="167" height="100" fill="#cb6a76" stroke="none" stroke-width="0"/>
+<text x="1961.5" y="348" class="cell" style="fill:#ffffff">-2.522</text>
+<rect x="2050" y="285" width="167" height="100" fill="#6a97c5" stroke="none" stroke-width="0"/>
+<text x="2133.5" y="348" class="cell" style="fill:#191919">0.661</text>
+<rect x="2222" y="285" width="167" height="100" fill="#f6f5f6" stroke="none" stroke-width="0"/>
+<text x="2305.5" y="348" class="cell" style="fill:#191919">-0.029</text>
+<rect x="2394" y="285" width="167" height="100" fill="#eed9db" stroke="none" stroke-width="0"/>
+<text x="2477.5" y="348" class="cell" style="fill:#191919">-0.544</text>
+<rect x="2566" y="285" width="167" height="100" fill="#ebd1d4" stroke="#191919" stroke-width="4"/>
+<text x="2649.5" y="348" class="cell" style="fill:#191919">-0.678</text>
+<text x="72" y="457" class="method">TTT</text>
+<rect x="330" y="390" width="167" height="100" fill="#578bbf" stroke="none" stroke-width="0"/>
+<text x="413.5" y="453" class="cell" style="fill:#ffffff">0.748</text>
+<rect x="502" y="390" width="167" height="100" fill="#5489be" stroke="none" stroke-width="0"/>
+<text x="585.5" y="453" class="cell" style="fill:#ffffff">0.761</text>
+<rect x="674" y="390" width="167" height="100" fill="#5287bd" stroke="none" stroke-width="0"/>
+<text x="757.5" y="453" class="cell" style="fill:#ffffff">0.773</text>
+<rect x="846" y="390" width="167" height="100" fill="#5186bd" stroke="none" stroke-width="0"/>
+<text x="929.5" y="453" class="cell" style="fill:#ffffff">0.778</text>
+<rect x="1018" y="390" width="167" height="100" fill="#467fb9" stroke="none" stroke-width="0"/>
+<text x="1101.5" y="453" class="cell" style="fill:#ffffff">0.826</text>
+<rect x="1190" y="390" width="167" height="100" fill="#5287bd" stroke="none" stroke-width="0"/>
+<text x="1273.5" y="453" class="cell" style="fill:#ffffff">0.772</text>
+<rect x="1362" y="390" width="167" height="100" fill="#3f7ab6" stroke="none" stroke-width="0"/>
+<text x="1445.5" y="453" class="cell" style="fill:#ffffff">0.861</text>
+<rect x="1534" y="390" width="167" height="100" fill="#87abd0" stroke="none" stroke-width="0"/>
+<text x="1617.5" y="453" class="cell" style="fill:#191919">0.525</text>
+<rect x="1706" y="390" width="167" height="100" fill="#85aacf" stroke="none" stroke-width="0"/>
+<text x="1789.5" y="453" class="cell" style="fill:#191919">0.532</text>
+<rect x="1878" y="390" width="167" height="100" fill="#91b2d3" stroke="none" stroke-width="0"/>
+<text x="1961.5" y="453" class="cell" style="fill:#191919">0.477</text>
+<rect x="2050" y="390" width="167" height="100" fill="#5187bd" stroke="none" stroke-width="0"/>
+<text x="2133.5" y="453" class="cell" style="fill:#ffffff">0.775</text>
+<rect x="2222" y="390" width="167" height="100" fill="#a2bdd9" stroke="none" stroke-width="0"/>
+<text x="2305.5" y="453" class="cell" style="fill:#191919">0.397</text>
+<rect x="2394" y="390" width="167" height="100" fill="#8db0d2" stroke="none" stroke-width="0"/>
+<text x="2477.5" y="453" class="cell" style="fill:#191919">0.493</text>
+<rect x="2566" y="390" width="167" height="100" fill="#6796c5" stroke="#191919" stroke-width="4"/>
+<text x="2649.5" y="453" class="cell" style="fill:#191919">0.671</text>
+<text x="72" y="562" class="method">BN-Adapt</text>
+<rect x="330" y="495" width="167" height="100" fill="#5b8ec0" stroke="none" stroke-width="0"/>
+<text x="413.5" y="558" class="cell" style="fill:#191919">0.727</text>
+<rect x="502" y="495" width="167" height="100" fill="#5589be" stroke="none" stroke-width="0"/>
+<text x="585.5" y="558" class="cell" style="fill:#ffffff">0.759</text>
+<rect x="674" y="495" width="167" height="100" fill="#5488be" stroke="none" stroke-width="0"/>
+<text x="757.5" y="558" class="cell" style="fill:#ffffff">0.763</text>
+<rect x="846" y="495" width="167" height="100" fill="#6191c2" stroke="none" stroke-width="0"/>
+<text x="929.5" y="558" class="cell" style="fill:#191919">0.702</text>
+<rect x="1018" y="495" width="167" height="100" fill="#467fb9" stroke="none" stroke-width="0"/>
+<text x="1101.5" y="558" class="cell" style="fill:#ffffff">0.826</text>
+<rect x="1190" y="495" width="167" height="100" fill="#5186bd" stroke="none" stroke-width="0"/>
+<text x="1273.5" y="558" class="cell" style="fill:#ffffff">0.778</text>
+<rect x="1362" y="495" width="167" height="100" fill="#417cb7" stroke="none" stroke-width="0"/>
+<text x="1445.5" y="558" class="cell" style="fill:#ffffff">0.850</text>
+<rect x="1534" y="495" width="167" height="100" fill="#8aadd1" stroke="none" stroke-width="0"/>
+<text x="1617.5" y="558" class="cell" style="fill:#191919">0.510</text>
+<rect x="1706" y="495" width="167" height="100" fill="#8aadd1" stroke="none" stroke-width="0"/>
+<text x="1789.5" y="558" class="cell" style="fill:#191919">0.510</text>
+<rect x="1878" y="495" width="167" height="100" fill="#98b6d6" stroke="none" stroke-width="0"/>
+<text x="1961.5" y="558" class="cell" style="fill:#191919">0.446</text>
+<rect x="2050" y="495" width="167" height="100" fill="#4e84bc" stroke="none" stroke-width="0"/>
+<text x="2133.5" y="558" class="cell" style="fill:#ffffff">0.790</text>
+<rect x="2222" y="495" width="167" height="100" fill="#a3beda" stroke="none" stroke-width="0"/>
+<text x="2305.5" y="558" class="cell" style="fill:#191919">0.392</text>
+<rect x="2394" y="495" width="167" height="100" fill="#96b5d5" stroke="none" stroke-width="0"/>
+<text x="2477.5" y="558" class="cell" style="fill:#191919">0.452</text>
+<rect x="2566" y="495" width="167" height="100" fill="#6b98c6" stroke="#191919" stroke-width="4"/>
+<text x="2649.5" y="558" class="cell" style="fill:#191919">0.654</text>
+<text x="72" y="667" class="method">FR</text>
+<rect x="330" y="600" width="167" height="100" fill="#4d84bb" stroke="none" stroke-width="0"/>
+<text x="413.5" y="663" class="cell" style="fill:#ffffff">0.794</text>
+<rect x="502" y="600" width="167" height="100" fill="#437db8" stroke="none" stroke-width="0"/>
+<text x="585.5" y="663" class="cell" style="fill:#ffffff">0.839</text>
+<rect x="674" y="600" width="167" height="100" fill="#417cb7" stroke="none" stroke-width="0"/>
+<text x="757.5" y="663" class="cell" style="fill:#ffffff">0.849</text>
+<rect x="846" y="600" width="167" height="100" fill="#5589be" stroke="none" stroke-width="0"/>
+<text x="929.5" y="663" class="cell" style="fill:#ffffff">0.756</text>
+<rect x="1018" y="600" width="167" height="100" fill="#3775b4" stroke="none" stroke-width="0"/>
+<text x="1101.5" y="663" class="cell" style="fill:#ffffff">0.899</text>
+<rect x="1190" y="600" width="167" height="100" fill="#467fb9" stroke="none" stroke-width="0"/>
+<text x="1273.5" y="663" class="cell" style="fill:#ffffff">0.825</text>
+<rect x="1362" y="600" width="167" height="100" fill="#2d6eb0" stroke="none" stroke-width="0"/>
+<text x="1445.5" y="663" class="cell" style="fill:#ffffff">0.946</text>
+<rect x="1534" y="600" width="167" height="100" fill="#8aadd1" stroke="none" stroke-width="0"/>
+<text x="1617.5" y="663" class="cell" style="fill:#191919">0.509</text>
+<rect x="1706" y="600" width="167" height="100" fill="#87abd0" stroke="none" stroke-width="0"/>
+<text x="1789.5" y="663" class="cell" style="fill:#191919">0.522</text>
+<rect x="1878" y="600" width="167" height="100" fill="#95b5d5" stroke="none" stroke-width="0"/>
+<text x="1961.5" y="663" class="cell" style="fill:#191919">0.458</text>
+<rect x="2050" y="600" width="167" height="100" fill="#3f7ab6" stroke="none" stroke-width="0"/>
+<text x="2133.5" y="663" class="cell" style="fill:#ffffff">0.861</text>
+<rect x="2222" y="600" width="167" height="100" fill="#a0bcd8" stroke="none" stroke-width="0"/>
+<text x="2305.5" y="663" class="cell" style="fill:#191919">0.408</text>
+<rect x="2394" y="600" width="167" height="100" fill="#9bb9d7" stroke="none" stroke-width="0"/>
+<text x="2477.5" y="663" class="cell" style="fill:#191919">0.428</text>
+<rect x="2566" y="600" width="167" height="100" fill="#6192c2" stroke="#191919" stroke-width="4"/>
+<text x="2649.5" y="663" class="cell" style="fill:#191919">0.700</text>
+<text x="72" y="772" class="method">RSD</text>
+<rect x="330" y="705" width="167" height="100" fill="#4e85bc" stroke="none" stroke-width="0"/>
+<text x="413.5" y="768" class="cell" style="fill:#ffffff">0.789</text>
+<rect x="502" y="705" width="167" height="100" fill="#457eb9" stroke="none" stroke-width="0"/>
+<text x="585.5" y="768" class="cell" style="fill:#ffffff">0.833</text>
+<rect x="674" y="705" width="167" height="100" fill="#417cb7" stroke="none" stroke-width="0"/>
+<text x="757.5" y="768" class="cell" style="fill:#ffffff">0.851</text>
+<rect x="846" y="705" width="167" height="100" fill="#578abf" stroke="none" stroke-width="0"/>
+<text x="929.5" y="768" class="cell" style="fill:#ffffff">0.749</text>
+<rect x="1018" y="705" width="167" height="100" fill="#3775b4" stroke="none" stroke-width="0"/>
+<text x="1101.5" y="768" class="cell" style="fill:#ffffff">0.897</text>
+<rect x="1190" y="705" width="167" height="100" fill="#467fb9" stroke="none" stroke-width="0"/>
+<text x="1273.5" y="768" class="cell" style="fill:#ffffff">0.825</text>
+<rect x="1362" y="705" width="167" height="100" fill="#2e6fb0" stroke="none" stroke-width="0"/>
+<text x="1445.5" y="768" class="cell" style="fill:#ffffff">0.941</text>
+<rect x="1534" y="705" width="167" height="100" fill="#8caed1" stroke="none" stroke-width="0"/>
+<text x="1617.5" y="768" class="cell" style="fill:#191919">0.502</text>
+<rect x="1706" y="705" width="167" height="100" fill="#8baed1" stroke="none" stroke-width="0"/>
+<text x="1789.5" y="768" class="cell" style="fill:#191919">0.503</text>
+<rect x="1878" y="705" width="167" height="100" fill="#98b6d6" stroke="none" stroke-width="0"/>
+<text x="1961.5" y="768" class="cell" style="fill:#191919">0.445</text>
+<rect x="2050" y="705" width="167" height="100" fill="#3f7ab6" stroke="none" stroke-width="0"/>
+<text x="2133.5" y="768" class="cell" style="fill:#ffffff">0.862</text>
+<rect x="2222" y="705" width="167" height="100" fill="#9dbad8" stroke="none" stroke-width="0"/>
+<text x="2305.5" y="768" class="cell" style="fill:#191919">0.419</text>
+<rect x="2394" y="705" width="167" height="100" fill="#8caed2" stroke="none" stroke-width="0"/>
+<text x="2477.5" y="768" class="cell" style="fill:#191919">0.500</text>
+<rect x="2566" y="705" width="167" height="100" fill="#6191c2" stroke="#191919" stroke-width="4"/>
+<text x="2649.5" y="768" class="cell" style="fill:#191919">0.701</text>
+<rect x="55" y="817" width="263" height="91" rx="12" fill="#deebf7"/>
+<text x="72" y="877" class="method">SSA (ours)</text>
+<rect x="330" y="810" width="167" height="100" fill="#4b83bb" stroke="none" stroke-width="0"/>
+<text x="413.5" y="873" class="cell" style="fill:#ffffff">0.803</text>
+<rect x="502" y="810" width="167" height="100" fill="#437db8" stroke="none" stroke-width="0"/>
+<text x="585.5" y="873" class="cell" style="fill:#ffffff">0.839</text>
+<rect x="674" y="810" width="167" height="100" fill="#417cb7" stroke="none" stroke-width="0"/>
+<text x="757.5" y="873" class="cell" style="fill:#ffffff">0.851</text>
+<rect x="846" y="810" width="167" height="100" fill="#4e84bc" stroke="none" stroke-width="0"/>
+<text x="929.5" y="873" class="cell" style="fill:#ffffff">0.792</text>
+<rect x="1018" y="810" width="167" height="100" fill="#3775b4" stroke="none" stroke-width="0"/>
+<text x="1101.5" y="873" class="cell" style="fill:#ffffff">0.899</text>
+<rect x="1190" y="810" width="167" height="100" fill="#467fb9" stroke="none" stroke-width="0"/>
+<text x="1273.5" y="873" class="cell" style="fill:#ffffff">0.829</text>
+<rect x="1362" y="810" width="167" height="100" fill="#2d6eb0" stroke="none" stroke-width="0"/>
+<text x="1445.5" y="873" class="cell" style="fill:#ffffff">0.943</text>
+<rect x="1534" y="810" width="167" height="100" fill="#7ba3cc" stroke="none" stroke-width="0"/>
+<text x="1617.5" y="873" class="cell" style="fill:#191919">0.580</text>
+<rect x="1706" y="810" width="167" height="100" fill="#78a1cb" stroke="none" stroke-width="0"/>
+<text x="1789.5" y="873" class="cell" style="fill:#191919">0.592</text>
+<rect x="1878" y="810" width="167" height="100" fill="#7fa6cd" stroke="none" stroke-width="0"/>
+<text x="1961.5" y="873" class="cell" style="fill:#191919">0.560</text>
+<rect x="2050" y="810" width="167" height="100" fill="#3e7ab6" stroke="none" stroke-width="0"/>
+<text x="2133.5" y="873" class="cell" style="fill:#ffffff">0.863</text>
+<rect x="2222" y="810" width="167" height="100" fill="#99b7d6" stroke="none" stroke-width="0"/>
+<text x="2305.5" y="873" class="cell" style="fill:#191919">0.440</text>
+<rect x="2394" y="810" width="167" height="100" fill="#88acd0" stroke="none" stroke-width="0"/>
+<text x="2477.5" y="873" class="cell" style="fill:#191919">0.517</text>
+<rect x="2566" y="810" width="167" height="100" fill="#5b8dc0" stroke="#191919" stroke-width="4"/>
+<text x="2649.5" y="873" class="cell" style="fill:#191919">0.731</text>
+<rect x="55" y="922" width="263" height="91" rx="12" fill="#fff7dc" stroke="#be8719" stroke-width="4"/>
+<text x="72" y="982" class="method">Oracle †</text>
+<rect x="330" y="915" width="167" height="100" fill="#407bb7" stroke="#be8719" stroke-width="4"/>
+<text x="413.5" y="978" class="cell" style="fill:#ffffff">0.856</text>
+<rect x="502" y="915" width="167" height="100" fill="#3976b4" stroke="#be8719" stroke-width="4"/>
+<text x="585.5" y="978" class="cell" style="fill:#ffffff">0.890</text>
+<rect x="674" y="915" width="167" height="100" fill="#3976b4" stroke="#be8719" stroke-width="4"/>
+<text x="757.5" y="978" class="cell" style="fill:#ffffff">0.889</text>
+<rect x="846" y="915" width="167" height="100" fill="#3f7ab6" stroke="#be8719" stroke-width="4"/>
+<text x="929.5" y="978" class="cell" style="fill:#ffffff">0.862</text>
+<rect x="1018" y="915" width="167" height="100" fill="#3372b2" stroke="#be8719" stroke-width="4"/>
+<text x="1101.5" y="978" class="cell" style="fill:#ffffff">0.917</text>
+<rect x="1190" y="915" width="167" height="100" fill="#3c78b6" stroke="#be8719" stroke-width="4"/>
+<text x="1273.5" y="978" class="cell" style="fill:#ffffff">0.873</text>
+<rect x="1362" y="915" width="167" height="100" fill="#2a6caf" stroke="#be8719" stroke-width="4"/>
+<text x="1445.5" y="978" class="cell" style="fill:#ffffff">0.960</text>
+<rect x="1534" y="915" width="167" height="100" fill="#6f9bc7" stroke="#be8719" stroke-width="4"/>
+<text x="1617.5" y="978" class="cell" style="fill:#191919">0.635</text>
+<rect x="1706" y="915" width="167" height="100" fill="#6b98c6" stroke="#be8719" stroke-width="4"/>
+<text x="1789.5" y="978" class="cell" style="fill:#191919">0.652</text>
+<rect x="1878" y="915" width="167" height="100" fill="#6f9bc7" stroke="#be8719" stroke-width="4"/>
+<text x="1961.5" y="978" class="cell" style="fill:#191919">0.635</text>
+<rect x="2050" y="915" width="167" height="100" fill="#3775b4" stroke="#be8719" stroke-width="4"/>
+<text x="2133.5" y="978" class="cell" style="fill:#ffffff">0.895</text>
+<rect x="2222" y="915" width="167" height="100" fill="#88acd0" stroke="#be8719" stroke-width="4"/>
+<text x="2305.5" y="978" class="cell" style="fill:#191919">0.519</text>
+<rect x="2394" y="915" width="167" height="100" fill="#6796c5" stroke="#be8719" stroke-width="4"/>
+<text x="2477.5" y="978" class="cell" style="fill:#191919">0.671</text>
+<rect x="2566" y="915" width="167" height="100" fill="#4e85bc" stroke="#be8719" stroke-width="4"/>
+<text x="2649.5" y="978" class="cell" style="fill:#ffffff">0.789</text>
+<text x="70" y="1075" class="small">Color scale: red = negative, white = 0, blue = positive (fixed −4 to 1); gold outline = oracle</text>
+<text x="70" y="1270" class="panel">B  SSA relative to strongest non-oracle comparator by condition</text>
+<line x1="360" y1="1425" x2="2860" y2="1425" stroke="#232830" stroke-width="3"/>
+<rect x="410.2" y="1415.5" width="92" height="9.5" fill="#2a79aa"/>
+<text x="456.2" y="1405.5" class="small" text-anchor="middle">+0.009</text>
+<text x="456.2" y="1471" class="small" transform="rotate(35 456.2 1471)">Defocus</text>
+<rect x="602.5" y="1425.0" width="92" height="0.0" fill="#2a79aa"/>
+<text x="648.5" y="1415.0" class="small" text-anchor="middle">+0.000</text>
+<text x="648.5" y="1471" class="small" transform="rotate(35 648.5 1471)">Motion</text>
+<rect x="794.8" y="1425.0" width="92" height="0.0" fill="#2a79aa"/>
+<text x="840.8" y="1415.0" class="small" text-anchor="middle">+0.000</text>
+<text x="840.8" y="1471" class="small" transform="rotate(35 840.8 1471)">Zoom</text>
+<rect x="987.1" y="1410.3" width="92" height="14.7" fill="#2a79aa"/>
+<text x="1033.1" y="1400.3" class="small" text-anchor="middle">+0.014</text>
+<text x="1033.1" y="1471" class="small" transform="rotate(35 1033.1 1471)">Contrast</text>
+<rect x="1179.4" y="1425.0" width="92" height="0.0" fill="#2a79aa"/>
+<text x="1225.4" y="1415.0" class="small" text-anchor="middle">+0.000</text>
+<text x="1225.4" y="1471" class="small" transform="rotate(35 1225.4 1471)">Elastic</text>
+<rect x="1371.7" y="1420.8" width="92" height="4.2" fill="#2a79aa"/>
+<text x="1417.7" y="1410.8" class="small" text-anchor="middle">+0.004</text>
+<text x="1417.7" y="1471" class="small" transform="rotate(35 1417.7 1471)">JPEG</text>
+<rect x="1564.0" y="1425.0" width="92" height="3.2" fill="#ca4842"/>
+<text x="1610.0" y="1460.2" class="small" text-anchor="middle">-0.003</text>
+<text x="1610.0" y="1471" class="small" transform="rotate(35 1610.0 1471)">Pixelate</text>
+<rect x="1756.3" y="1367.2" width="92" height="57.8" fill="#2a79aa"/>
+<text x="1802.3" y="1357.2" class="small" text-anchor="middle">+0.055</text>
+<text x="1802.3" y="1471" class="small" transform="rotate(35 1802.3 1471)">Gaussian</text>
+<rect x="1948.6" y="1362.0" width="92" height="63.0" fill="#2a79aa"/>
+<text x="1994.6" y="1352.0" class="small" text-anchor="middle">+0.060</text>
+<text x="1994.6" y="1471" class="small" transform="rotate(35 1994.6 1471)">Impulse</text>
+<rect x="2140.9" y="1337.8" width="92" height="87.2" fill="#2a79aa"/>
+<text x="2186.9" y="1327.8" class="small" text-anchor="middle">+0.083</text>
+<text x="2186.9" y="1471" class="small" transform="rotate(35 2186.9 1471)">Shot</text>
+<rect x="2333.2" y="1424.0" width="92" height="1.0" fill="#2a79aa"/>
+<text x="2379.2" y="1414.0" class="small" text-anchor="middle">+0.001</text>
+<text x="2379.2" y="1471" class="small" transform="rotate(35 2379.2 1471)">Bright</text>
+<rect x="2525.5" y="1403.0" width="92" height="22.0" fill="#2a79aa"/>
+<text x="2571.5" y="1393.0" class="small" text-anchor="middle">+0.021</text>
+<text x="2571.5" y="1471" class="small" transform="rotate(35 2571.5 1471)">Fog</text>
+<rect x="2717.8" y="1407.2" width="92" height="17.8" fill="#2a79aa"/>
+<text x="2763.8" y="1397.2" class="small" text-anchor="middle">+0.017</text>
+<text x="2763.8" y="1471" class="small" transform="rotate(35 2763.8 1471)">Snow</text>
+<text x="90" y="1695" class="small">Bars are descriptive differences of rounded aggregates; no uncertainty or significance is implied.</text>
+</svg>

@@ -1,0 +1,19 @@
+{
+  "status": "ok",
+  "outputs": [
+    "displayed_values.json",
+    "table.csv",
+    "table.md",
+    "table.tex",
+    "figure1.png",
+    "figure1.svg",
+    "caption_and_results.md",
+    "provenance.json"
+  ],
+  "rows": 98,
+  "wins_ties_losses": [
+    9,
+    3,
+    1
+  ]
+}

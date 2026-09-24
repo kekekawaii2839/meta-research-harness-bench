@@ -1,0 +1,184 @@
+{
+  "schema_version": "native-read-boundary-investigation-1",
+  "created_at": "2026-09-24T01:02:23.207288+00:00",
+  "scope": "T07 bounded official-doc research, exact-binary configuration parsing and authorized synthetic zero-model sandbox canary. No implementation changes.",
+  "verdict": "custom_read_policy_syntax_supported_but_current_unelevated_backend_refuses_enforcement",
+  "formal_isolation_verified": false,
+  "binary": {
+    "path": "C:\\Users\\li_ha\\AppData\\Local\\OpenAI\\Codex\\bin\\80f78947ad880e6e\\codex.exe",
+    "version": "codex-cli 0.155.0-alpha.16.3",
+    "sha256": "a19f8f6c3c9dd5b71b6b1e3eb1ec55d75aafb2fdfb686d9e1f7a5f47db07d0d2"
+  },
+  "official_sources": [
+    {
+      "url": "https://learn.chatgpt.com/docs/permissions",
+      "accessed": "2026-09-23",
+      "sections": [
+        "Filesystem permissions",
+        "Scope and enforcement",
+        "File access limited to workspace"
+      ],
+      "findings": "Profiles can restrict reads with root deny, minimal runtime reads, and explicit path grants. More-specific rules override broader rules; equal-path deny wins. Profiles govern sandboxed commands, not every Codex capability. MCP, browser, connectors and client service traffic require separate controls. Do not combine profiles with legacy sandbox settings. Windows unelevated cannot enforce all restricted policies."
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/windows/windows-sandbox",
+      "accessed": "2026-09-23",
+      "sections": [
+        "Configure the Windows sandbox",
+        "Windows version matrix",
+        "Troubleshooting"
+      ],
+      "findings": "Elevated uses dedicated lower-privilege users and OS filesystem/firewall boundaries; setup requires administrator approval. Unelevated is weaker. Local policy or setup failure may block elevated operation. The supported alternative for Linux sandbox semantics is WSL2."
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/agent-approvals-security",
+      "accessed": "2026-09-23",
+      "sections": [
+        "Test the sandbox locally",
+        "OS-level sandbox"
+      ],
+      "findings": "The documented sandbox helper permits no-model command testing. Documentation uses a windows subcommand, but this exact binary has a flattened sandbox command, so its own help must be followed."
+    }
+  ],
+  "candidate_config": {
+    "toml": "default_permissions = \"probe-local-only\"\napproval_policy = \"never\"\n[windows]\nsandbox = \"unelevated\"\n[permissions.probe-local-only]\nextends = \":workspace\"\n[permissions.probe-local-only.filesystem]\n\":root\" = \"deny\"\n\":minimal\" = \"read\"\n\":tmpdir\" = \"deny\"\n\":slash_tmp\" = \"deny\"\n[permissions.probe-local-only.filesystem.\":workspace_roots\"]\n\".\" = \"read\"\n\"scratch\" = \"write\"\n[permissions.probe-local-only.network]\nenabled = false\n",
+    "status": "parsed_valid_not_enforced_on_this_backend",
+    "explanation": "Current session root must be a fresh released stage, never the research repository. The example makes that stage read-only except scratch. Root deny removes broad disk-read coverage, with platform minimal-runtime exceptions. Explicit denied sensitive paths can supplement this after inspecting actual minimal roots, but not replace positive/negative tests.",
+    "execution_selection": "Controller can supply default_permissions plus the complete profile table via explicit per-invocation config; do not load untrusted task/global configuration. Runner currently only accepts built-in names, so opt-in validated profile support would require a separate code change.",
+    "not_promoted": true
+  },
+  "configuration_parse": {
+    "evidence_path": "D:\\mrhbench-local-pilot\\permissions-parser-1df8f1b60f\\results-v2.json",
+    "sha256": "6ff638e43a384b4d45d26ff9a2fba3085aec192e4776800e4a5eab324e78edab",
+    "results": [
+      {
+        "name": "valid",
+        "exit_code": 0,
+        "stderr": ""
+      },
+      {
+        "name": "invalid_access",
+        "exit_code": 1,
+        "stderr": "Error: failed to load bootstrap configuration\n\nCaused by:\n    data did not match any variant of untagged enum FilesystemPermissionToml\n    in `permissions`\n    \n"
+      },
+      {
+        "name": "missing_profile",
+        "exit_code": 1,
+        "stderr": "Error: failed to load configuration\n\nCaused by:\n    default_permissions refers to undefined profile `missing-profile`\n"
+      }
+    ],
+    "interpretation": "Valid profile loads; malformed permission value and missing default profile fail. This demonstrates parsing/name resolution, not OS enforcement.",
+    "failed_preliminary_probe": {
+      "path": "D:\\mrhbench-local-pilot\\permissions-parser-1df8f1b60f\\results.json",
+      "sha256": "f7fbbfed5256cd2a64b77a2c3a3e5b575b36bcacc5a211a5651ba02c8cb853f4",
+      "reason": "--strict-config is not supported with features; all three initial parser invocations rejected this command combination. Retained, not counted as successful profile checks."
+    }
+  },
+  "actual_sandbox_canary": {
+    "evidence_path": "D:\\mrhbench-local-pilot\\permissions-canary-f10a2478e3\\results.json",
+    "sha256": "d6bbd8671c4dd3fd9875a78f48886b8eaa683e06297a04db5be503f8371c64a2",
+    "codex_home": "D:\\mrhbench-local-pilot\\permissions-canary-f10a2478e3\\codex-home",
+    "new_command_count": 1,
+    "allowed_maximum": 4,
+    "observed": [
+      {
+        "name": "allowed_read",
+        "command": [
+          "C:\\Users\\li_ha\\AppData\\Local\\OpenAI\\Codex\\bin\\80f78947ad880e6e\\codex.exe",
+          "sandbox",
+          "-P",
+          "probe-local-only",
+          "-C",
+          "D:\\mrhbench-local-pilot\\permissions-canary-f10a2478e3\\stage",
+          "--",
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "-NoProfile",
+          "-NonInteractive",
+          "-Command",
+          "$ErrorActionPreference='Stop'; [Console]::WriteLine('PROCESS_STARTED'); $x=[IO.File]::ReadAllText('D:/mrhbench-local-pilot/permissions-canary-f10a2478e3/stage/allowed.txt'); [Console]::WriteLine($x)"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "windows sandbox failed: Restricted read-only access requires the elevated Windows sandbox backend\n",
+        "process_started": false
+      }
+    ],
+    "all_canary_hashes_unchanged": true,
+    "verdict": "platform_backend_unsupported_before_child_start_not_permission_negative_test_pass",
+    "stop_reason": "Allowed-read failed before PROCESS_STARTED with elevated-backend requirement; no fallback/escalation attempted.",
+    "unrun": [
+      "allowed_write",
+      "denied_read",
+      "denied_write"
+    ],
+    "model_calls": 0
+  },
+  "cli_mismatch_incident": {
+    "attempt": "codex sandbox windows --help",
+    "reason": "Expected documentation help subcommand, but this binary interpreted windows --help as the child command.",
+    "outcome": "SpawnChild/CreateProcessAsUserW failed with Windows error 2; no intended child or model ran.",
+    "boundary": "This accidental helper invocation used the existing workspace/config, not the later isolated probe. No manual config/service/ACL change was issued; sandbox-internal bookkeeping was not independently diffed, so no claim of zero OS metadata side effects.",
+    "correct_help": {
+      "command": [
+        "C:\\Users\\li_ha\\AppData\\Local\\OpenAI\\Codex\\bin\\80f78947ad880e6e\\codex.exe",
+        "sandbox",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "Run commands within a Codex-provided sandbox\n\nUsage: codex sandbox [OPTIONS] [COMMAND]...\n\nArguments:\n  [COMMAND]...\n          Full command args to run under Windows restricted token sandbox\n\nOptions:\n  -c, --config <key=value>\n          Override a configuration value that would otherwise be loaded from `~/.codex/config.toml`.\n          Use a dotted path (`foo.bar.baz`) to override nested values. The `value` portion is parsed\n          as TOML. If it fails to parse as TOML, the raw string is used as a literal.\n          \n          Examples: - `-c model=\"o3\"` - `-c 'sandbox_permissions=[\"disk-full-read-access\"]'` - `-c\n          shell_environment_policy.inherit=all`\n\n      --sandbox-state-json <JSON>\n          JSON value from `codex/sandbox-state-meta` to apply directly\n\n      --enable <FEATURE>\n          Enable a feature (repeatable). Equivalent to `-c features.<name>=true`\n\n      --sandbox-state-readable-root <SANDBOX_STATE_READABLE_ROOT>\n          Add a readable root to the supplied sandbox state. Repeat for multiple roots\n\n      --disable <FEATURE>\n          Disable a feature (repeatable). Equivalent to `-c features.<name>=false`\n\n      --sandbox-state-disable-network\n          Disable direct network access in the supplied sandbox state\n\n  -P, --permission-profile <NAME>\n          Named permissions profile to apply from the active configuration stack\n\n  -p, --profile <CONFIG_PROFILE>\n          Layer $CODEX_HOME/<name>.config.toml on top of the base user config\n\n  -C, --cd <DIR>\n          Working directory used for profile resolution and command execution\n\n      --include-managed-config\n          Include managed requirements while resolving an explicit permissions profile\n\n  -h, --help\n          Print help (see a summary with '-h')\n",
+      "stderr": ""
+    }
+  },
+  "acceptance_plan": [
+    {
+      "step": 1,
+      "name": "Environment readiness",
+      "requirement": "User-authorized working elevated Windows backend, or explicitly selected isolated WSL2/Linux environment. Record backend/version/config/binary; fail closed if unsupported rather than retry full access."
+    },
+    {
+      "step": 2,
+      "name": "Positive/negative filesystem canaries",
+      "requirement": "Repeat same fake allowed-read/write and denied-read/write scripts. All child processes must demonstrably start; positives succeed, negatives report specific access denial, denied bytes remain unchanged. Global launch failure does not count as a passing deny."
+    },
+    {
+      "step": 3,
+      "name": "Path and per-run boundary checks",
+      "requirement": "Test sibling prior-run synthetic files, path traversal, alternate path spelling and a controlled in-stage link to an outside fake canary. Confirm each new stage and only approved scratch can be read/written. Inspect minimal-runtime path expansion and tmp grants."
+    },
+    {
+      "step": 4,
+      "name": "Actual native-tool routes",
+      "requirement": "A separately authorized native-model smoke must verify the effective profile reaches real shell/custom reader/apply_patch/image routes used by the runner, including nested tools and delegation if exposed. Exact tool logs/OS results, not model self-reports. Unsupported routes must stay disabled or separately constrained."
+    },
+    {
+      "step": 5,
+      "name": "Broker/transport compatibility",
+      "requirement": "Allowed MCP calls and output-schema/rollout collection still work. Keep controller auth/model transport separate from model-readable files; do not mount credentials or whole CODEX_HOME. Profile does not automatically sandbox MCP servers; existing broker allowlists and task Docker boundaries remain required."
+    },
+    {
+      "step": 6,
+      "name": "Hook failure independent of OS boundary",
+      "requirement": "With a trusted synthetic failing hook, a native host read of an outside canary must still fail by OS permissions. Hooks and post-run rejection remain defense/audit layers, not substitutes for preventing reads."
+    }
+  ],
+  "user_environment_decision": {
+    "required_now_to_claim_enforcement": true,
+    "why": "The selected unelevated backend explicitly refuses restricted reads. We did not inspect credentials or attempt elevated setup.",
+    "options": [
+      "Authorize and configure native elevated sandbox if not already available, then rerun bounded canaries. This may require admin local-user/firewall/policy setup.",
+      "Choose a separately provisioned WSL2/Linux/containerized runner environment with no host-private mounts; revalidate backend and subscription transport before migration."
+    ],
+    "not_needed_for": "The completed read-only documentation/config parsing. No new model or infrastructure spending is required for that research itself.",
+    "must_not_assume": "Existing Docker/WSL readiness does not automatically provide an isolated Codex subscription runner."
+  },
+  "change_accounting": {
+    "new_model_calls": 0,
+    "new_packages_installed": 0,
+    "global_config_modified_by_us": false,
+    "services_changed_by_us": false,
+    "credentials_read_or_copied_by_us": false,
+    "manual_system_acl_changes": false,
+    "code_or_AGENTS_modified": false,
+    "only_new_files": "New D:/mrhbench-local-pilot parser/probe directories and this structured audit."
+  }
+}

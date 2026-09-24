@@ -1,0 +1,343 @@
+{
+ "schema_version": "gaussian-adjudication-cpu-feasibility-1",
+ "created_at": "2026-09-24T18:00:09.989764+00:00",
+ "paper_id": "iclr2025-tNn6Hskmti",
+ "paper": "arXiv 2503.00856v1 (cached HTML); not asserted byte-equal to ICLR camera-ready",
+ "role": "material_pipeline maintainer-side source adjudication (T10); not task construction or admission",
+ "status": "adjudicated_method_semantics_and_cpu_smoke_measured_not_task_admission",
+ "actions": {
+  "model_calls": 0,
+  "network_requests": 0,
+  "author_code_executed": false,
+  "docker_runs": 4,
+  "docker_runs_note": "1 tiny sanity run (n=m=k=120) + 3 representative runs; all --rm, none left",
+  "source_cache_modified": false,
+  "existing_audits_modified": false,
+  "agents_md_modified": false
+ },
+ "sources_verified": [
+  {
+   "path": "research/source_cache/benchmark_materials/gaussian_prescreen_v1/gaussian-mixtures-paper-v1.source",
+   "sha256": "d15f2111f9184be9793656426491ac5fcdd664f5d207e7383922b1f503bae45c",
+   "matches_prior_audit_registered_hash": true
+  },
+  {
+   "path": "research/source_cache/benchmark_materials/gaussian_prescreen_v1/gaussian-mixtures-abstract-v1.source",
+   "sha256": "69e728fa279e9b8f5a7ed7075cf592db8b7192a756100614d4b2f789f7dfa549",
+   "matches_prior_audit_registered_hash": true
+  },
+  {
+   "path": "research/source_cache/benchmark_materials/gaussian_code_prescreen_v1/gaussian-mixtures-fig1b-notebook.source",
+   "sha256": "2ee40dc7b4ed295cb65971abc7e8859e390c6c7b8f52e08c9d6212c8c8c2229e",
+   "matches_prior_audit_registered_hash": true
+  },
+  {
+   "path": "research/source_cache/benchmark_materials/gaussian_code_prescreen_v1/gaussian-mixtures-license.source",
+   "sha256": "c37394bf8c309277376abad59a744a7fc88a40237584b3487ac22d5054638219",
+   "matches_prior_audit_registered_hash": true
+  },
+  {
+   "path": "research/source_cache/benchmark_materials/gaussian_tree_prescreen_v1/gaussian-mixtures-pinned-tree.source",
+   "sha256": "2cc5fe6698acd62d842a6b2625912dc1dfa98feb45fda30012415b1dd76b3b3a",
+   "matches_prior_audit_registered_hash": true
+  }
+ ],
+ "reading_scope": "Read cached HTML S2 (Eq1-7, scalings), S4 (A.1-A.8, Eq9-10), S5 (Lemma1-2, Thm3-4, Eq16-17, Figure1 caption), S6 (simulation discussion, Figure2 caption) and A.9 (Eq48), with math replaced by alttext. Read all 17 notebook cell sources (JSON cells[] zero-indexed). Did not import or run the notebook.",
+ "issue_adjudication": [
+  {
+   "id": "training_objective_normalization_eq5_vs_eq6",
+   "evidence": {
+    "paper_S2_Eq5": "w_hat := argmin (1/(2m)) sum_i (y_i - k^{-1/2} w^T sigma(F_hat x_i))^2 + (lambda/2)||w||^2",
+    "paper_S2_Eq6": "T := (1/2) sum_{i=1}^m (y_i - k^{-1/2} w_hat^T sigma(F_hat x_i))^2 + (lambda/2)||w_hat||^2  (no 1/m)",
+    "paper_A2_A9_Eq48": "perturbed objective q_m(s) uses (1/(2m)) sum ... + (lambda/2)||w||^2 + s G(w)",
+    "notebook_cell7": "w = solve(RF @ RF.T + lambd * m * I, RF @ y)",
+    "notebook_cell6": "loss_calc = (1/2)*mean((y-RF.T@w)**2) + (lambd/2)*||w||^2; cell13 loss_ = loss_calc(w_hat, y, features, lambd)"
+   },
+   "verification": {
+    "ridge_stationarity_of_eq5_max_abs_grad": 1.1275702593849246e-17,
+    "same_w_hat_as_stationary_point_of_literal_eq6_max_abs_grad": 0.08368746569776331,
+    "data_term_ratio_eq6_over_eq5": 16.0,
+    "m": 16,
+    "algebra": "Setting the gradient of Eq5 to zero gives (Phi Phi^T + lambda m I) w = Phi y with Phi = sigma(F_hat X^T)/sqrt(k): exactly notebook cell7. Using the literal Eq6 as the objective would give (Phi Phi^T + lambda I) w = Phi y, i.e. effective ridge lambda/m. Eq6 data term = m x Eq5 data term, penalty unchanged, so Eq6 != m*Eq5."
+   },
+   "decision": "Estimator: the second layer is DEFINED by Eq5 (half mean squared residual + (lambda/2)||w||^2, lambda=1e-4 in the Fig1b configuration); the task will state this formula and the resulting normal equation. Reported training metric: the task will call the notebook quantity 'Eq5 objective value at w_hat' and will name Eq6 separately as printed; it will not call either the training error without the formula. Because a literal Eq6 grows linearly in m, it cannot have the finite proportional limit asserted in Thm3/4(i); this is recorded as an apparent notation inconsistency in v1, NOT an adjudicated author typo. Conservative spec: training error reported as the normalized Eq5 objective, with Eq6 literal given only as a note.",
+   "classification": "resolved_for_task_spec; author intent for Eq6 not determined"
+  },
+  {
+   "id": "generalization_metric_mse_vs_half_mse",
+   "evidence": {
+    "paper_S2_Eq7": "G := E_{(x,y)}[(y - k^{-1/2} w_hat^T sigma(F_hat x))^2]  (no 1/2)",
+    "notebook_cell13": "gloss_ = loss_calc(w_hat, y_new, features_new, 0)  -> (1/2)*mean over 5m fresh samples",
+    "notebook_cell15": "plots np.mean(*_gl_*, axis=1) with ylabel 'generalization error'"
+   },
+   "decision": "Task metric = Eq7 MSE, estimated on fresh held-out samples drawn from the same Eq2 mixture; the task will state that the author notebook's plotted 'generalization error' is half of an empirical test MSE (factor exactly 1/2 on the same sample), so absolute values in Figure 1(b) correspond to half-MSE if the notebook produced that figure. Positive rescaling preserves orderings/signs of paired differences and ratios but changes absolute values/thresholds; any comparison with reported numbers must convert units explicitly. A finite-sample test MSE is an estimate, not the population expectation.",
+   "classification": "resolved_for_task_spec"
+  },
+  {
+   "id": "first_layer_step_loss_scaling",
+   "evidence": {
+    "paper_S2_Eq4": "G := (1/m)((1/sqrt(k))(w y~^T - (1/sqrt(k)) w w^T sigma(F X~^T)) ⊙ sigma'(F X~^T)) X~",
+    "paper_S2_text": "'perform a single gradient descent step on F with respect to squared loss' (normalization not stated in words)",
+    "notebook_cell13_NN": "G = (1/m_tilde)*((1/sqrt(k))*(w @ (y_tilde.T - (1/sqrt(k))*w.T@activationF(FX_tilde))) * activationF_derivative(FX_tilde)) @ X_tilde"
+   },
+   "verification": {
+    "finite_difference_max_abs_err_G_vs_neg_grad_of_half_mse": 3.489558642044699e-11,
+    "G_max_abs_for_scale": 0.08663308741431719,
+    "algebra": "G = -grad_F of (1/(2m)) sum_i (y_i - k^{-1/2} w^T sigma(F x_i))^2. With a full-MSE loss (1/m) sum r^2 the gradient doubles, so eta*G would correspond to learning rate eta/2 on full MSE; the task must fix one."
+   },
+   "decision": "Task states Eq4 literally (equivalently: one GD step on the half-MSE loss with fixed initial w) and eta as a concrete number/formula. Notebook and paper agree here; no ambiguity remains once Eq4 is quoted.",
+   "classification": "no_inconsistency; must be quoted explicitly"
+  },
+  {
+   "id": "hermite_degree_index_l",
+   "evidence": {
+    "paper_Thm4_Eq16": "sigma_hat_l(x) := sum_{j=0}^{l-1} (1/j!) h_j H_j(x/b) + h*_l z, h*_l = sqrt(E[sigma(bz)^2] - sum_{j=0}^{l-1} h_j^2/j!), condition (l-2)/(l-1) < beta < (l-1)/l",
+    "paper_S5_Figure1_caption": "'we limit the maximum degree of the Hermite polynomial to l=5 for numerical stability'",
+    "paper_S6_Figure2_caption": "'beta=3/4^-, alpha=1/2, l=4'",
+    "notebook_cell13": "beta = 3/4 - 0.01; l = 3; generate_Hermite_expansion(relu_h[: l + 1], relu_hs[l], b)",
+    "notebook_cell11": "h[i] = E[He_i(z) act(bz)] / i!; hs[i] = sqrt(E[act(bz)^2] - sum_{j<=i} h_j^2/j!)"
+   },
+   "verification": {
+    "degree3_coefficient_count": 4,
+    "mapping": "notebook l=3 keeps j=0..3 (max degree 3) and noise hs[3] = h*_4 -> theorem index l=4; 2/3 < 0.74 < 3/4 holds."
+   },
+   "decision": "Task uses two distinct names: max_hermite_degree D (=3 for the Fig1b configuration) and theorem index l = D+1 (=4), and states the beta interval in terms of l. The Figure1 caption's 'l=5' is recorded as an unresolved caption/notation discrepancy (it could be a cap across panels or use a different index convention); it is not used to override the code-and-theorem-consistent D=3/l=4 choice. Coefficient normalization (h_j vs h_j/j!) and probabilists' Hermite polynomials must be stated.",
+   "classification": "resolved_for_task_spec (compatible); Figure1 caption l=5 ambiguous"
+  },
+  {
+   "id": "hermite_replacement_timing_and_noise",
+   "evidence": {
+    "paper_Thm4": "'Consider replacing the activation sigma(x) with the polynomial activation sigma_hat_l(x) after the training of the first layer F_hat as in (3).'",
+    "notebook_cell13": "NN(w, F, dataF, data, data_new, ReLU, ReLU_prime, relu_hermite, eta) -> gradient step uses activationF/derivative = original; features = activation(F_hat@X.T) uses Hermite surrogate",
+    "notebook_cell10": "act_func(x) = hermeval(x/b, h) + hs * randn(*x.shape) (fresh noise per element per call)"
+   },
+   "decision": "Task fixes: (1) F_hat is computed ONCE with the original activation sigma and sigma' (Eq3-4); (2) the NN model and the Hermite model share the same F, w, first-stage data and F_hat and differ only in the activation used to build ridge features and test predictions; (3) the residual Gaussian term h*_l z is part of the surrogate, drawn independently per hidden unit and per sample (independent for train and test features), not an optional truncation detail; (4) b = sqrt(n/Tr(Sigma)) uses the population trace, not the empirical norm of F_hat x. Training the first layer with the surrogate, or dropping the noise term, would change the method and is not allowed as 'the Hermite model'. Point (3) per-element independence is the notebook's reading of Eq16 (paper writes a scalar z); it is recorded as the adopted interpretation.",
+   "classification": "resolved_for_task_spec; per-element noise independence = interpretation consistent with notebook"
+  },
+  {
+   "id": "repeat_unit_fixed_data_per_alpha",
+   "evidence": {
+    "paper_S5_Figure1_caption": "'The figure presents averages from 20 Monte Carlo simulations.'",
+    "paper_S6_Figure2_caption": "'averages from 20 Monte Carlo simulations, with data resampled for each run' (Figure2 only)",
+    "notebook_cell13": "per alpha: xi,gamma,theta and dataF/data/data_new drawn once before `for e in range(NB_TRIALS)`; inside: F and w redrawn; Hermite noise redrawn per call; cell2 np.random.seed(0) once"
+   },
+   "decision": "If the task mentions the source experiment, it states that Fig1b's 20 repeats (per the cached notebook at commit 257bcd5) redraw F, w and surrogate noise while conditioning on one data structure and one set of datasets per alpha, and that structure/data change between alpha values (alpha points are not paired on data). It must not call them 20 independent datasets and must not call this an author bug. The solver chooses its own replicate unit and count; the task only requires that the solver declare which random sources are resampled per replicate and what estimand its uncertainty refers to.",
+   "classification": "resolved_for_task_spec (description only; design left to solver)"
+  },
+  {
+   "id": "scaling_constants_eta_theta_sigma_norm",
+   "new_in_this_audit": true,
+   "evidence": {
+    "paper_A2": "||Sigma|| ≍ n^{beta(1-alpha)}, eta ≍ n^{beta alpha}  (orders only)",
+    "notebook_cell13": "eta = n**(beta*alpha)",
+    "notebook_cell9": "theta1[:d] = n**(beta*(1-alpha)) (same for component 2); xi normalized by sqrt(||Sigma||_2)*||xi|| with Sigma = 0.5*Sigma1 + 0.5*Sigma2"
+   },
+   "measured_at_smoke_config": {
+    "eta": 14.737406155824793,
+    "theta": 11.2610515710163,
+    "sigma_norm_run1": 6.659982664260321,
+    "sigma_norm_run2": 6.700029559597365,
+    "eta_times_sigma_norm_run1": 98.15086951395647,
+    "n_pow_beta": 165.95869074375605
+   },
+   "decision": "Paper fixes only asymptotic orders, so the task must give concrete constants: theta_{c,1} = n^{beta(1-alpha)} for both components, eta = n^{beta alpha}, A.5 constant C=1 w.r.t. the mixture covariance. With two nearly orthogonal rank-one spikes and rho=0.5, ||Sigma|| ≈ 1 + theta/2, so eta*||Sigma|| ≈ 0.59 n^beta at n=1000, alpha≈0.53 — consistent with ≍ but not equality; the task must not describe eta*||Sigma|| as exactly n^beta. At alpha=1 theta=1, not 0.",
+   "classification": "resolved_for_task_spec"
+  },
+  {
+   "id": "mixture_sampling_stratified_vs_iid",
+   "new_in_this_audit": true,
+   "evidence": {
+    "paper_S2_Eq2": "x ~ sum_j rho_j N(mu_j, Sigma_j); P(c=j)=rho_j",
+    "notebook_cell5": "A1 = randn(m // 2, n); A2 = randn(m // 2, n); X = concat([X1, X2])  (exactly m/2 per component, ordered)"
+   },
+   "decision": "Task data model = literal Eq2 (i.i.d. component assignment with rho=0.5); the task will note that the notebook draws exactly m/2 per component, a stratified variant that leaves the per-sample marginal unchanged but removes component-count randomness. The released generator (if any) must state which it implements; the maintainer smoke uses i.i.d. (option 'stratified' also implemented). Row order is irrelevant for Eq4/Eq5.",
+   "classification": "minor; resolved_for_task_spec"
+  },
+  {
+   "id": "activation_assumption_A8_relu",
+   "new_in_this_audit": true,
+   "evidence": {
+    "paper_A8": "activation with bounded derivatives and E[sigma(bz)^2] < inf",
+    "paper_S6": "evaluates ReLU, tanh, Sigmoid"
+   },
+   "decision": "Task must not claim ReLU satisfies A.8 verbatim (non-differentiable at 0; notebook uses derivative 1[z>0]). Finite experiments with ReLU are empirical observations outside a literal reading of A.8; Theorem 4 statements are asymptotic regardless.",
+   "classification": "claim-boundary note"
+  }
+ ],
+ "cpu_smoke": {
+  "script": "research/benchmark/materials/next_batch_proposals_v1/gaussian_cpu_smoke/smoke.py",
+  "script_sha256": "af1bdd0efc6d574e9a2f01a81bb4f6dfcbe4222e2a222af2a4c4a1c76a2483e1",
+  "implementation_note": "Independent NumPy float64 implementation from Eq2-7, A.3-A.6, Eq16. Follows notebook for concrete constants (eta, theta, xi normalization, test size 5m, lambda, D=3, quadrature with 100 probabilists' Gauss-Hermite nodes). Differences from notebook: NumPy instead of JAX; numpy QR instead of scipy; ||Sigma|| via eigvalsh instead of SVD norm; i.i.d. component sampling; own RNG stream. Per-fit timing recomputes nothing extra: first-layer step is timed once per activation per trial but charged to both nn and hermite fits (notebook recomputes the step for each of its 6 NN() calls, so this matches notebook cost).",
+  "config": {
+   "n": 1000,
+   "m": 1000,
+   "k": 1000,
+   "beta": 0.74,
+   "alpha": 0.5263157894736842,
+   "alpha_note": "np.linspace(0,1,20)[10], a notebook grid point",
+   "lambda": 0.0001,
+   "delta": 0,
+   "max_hermite_degree": 3,
+   "theorem_l": 4,
+   "test_samples": 5000,
+   "teacher": "ReLU(xi^T x)",
+   "components": 2,
+   "rho": 0.5,
+   "rank": 1,
+   "align": 0,
+   "activations": [
+    "relu",
+    "tanh",
+    "sigmoid"
+   ],
+   "models": [
+    "nn",
+    "hermite"
+   ]
+  },
+  "docker_command": "docker run --rm --network none --cpus 2 --memory 2g --pids-limit 128 --read-only --tmpfs /tmp --user 10001:10001 -e OPENBLAS_NUM_THREADS=2 -v <gaussian_cpu_smoke>:/smoke:ro mrhbench-pilot/iv:860c335d9324 python /smoke/smoke.py '{\"seed\": ...}'",
+  "image": {
+   "tag": "mrhbench-pilot/iv:860c335d9324",
+   "id": "sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01",
+   "python": "3.12.14",
+   "numpy": "2.3.3",
+   "blas": "scipy-openblas 0.3.30",
+   "scipy": "absent"
+  },
+  "runs": {
+   "run1": {
+    "output_file": "D:/mrhbench-local-pilot/gaussian-cpu-smoke-20260924-001/run1.json",
+    "output_sha256": "ec2a7b2bd41cb043f68ff2f575000842ad8e6b624ae67a18cc3ef6e6ade78f2b",
+    "stderr_bytes": 0,
+    "seed": 20260925,
+    "trials": 2,
+    "fits": 12,
+    "in_process_total_wall_s": 4.325,
+    "setup_timing_s": {
+     "structure_s": 0.2031,
+     "three_datasets_s": 0.1592,
+     "hermite_coeffs_s": 0.0051
+    },
+    "per_fit_s": {
+     "min": 0.237,
+     "median": 0.357,
+     "max": 0.468
+    },
+    "max_rss_kib": 466800,
+    "eta": 14.737406155824793,
+    "theta": 11.2610515710163,
+    "b": 0.9944165865396176,
+    "sigma_spectral_norm": 6.659982664260321,
+    "eta_times_sigma_norm": 98.15086951395647,
+    "n_pow_beta": 165.95869074375605
+   },
+   "run2": {
+    "output_file": "D:/mrhbench-local-pilot/gaussian-cpu-smoke-20260924-001/run2.json",
+    "output_sha256": "2a4ae252863e19dc37cf7915f23edac37b77f701d1fcb4ddd0c184b75b07a34f",
+    "stderr_bytes": 0,
+    "seed": 20260926,
+    "trials": 2,
+    "fits": 12,
+    "in_process_total_wall_s": 4.074,
+    "setup_timing_s": {
+     "structure_s": 0.1872,
+     "three_datasets_s": 0.141,
+     "hermite_coeffs_s": 0.0041
+    },
+    "per_fit_s": {
+     "min": 0.229,
+     "median": 0.344,
+     "max": 0.443
+    },
+    "max_rss_kib": 468092,
+    "eta": 14.737406155824793,
+    "theta": 11.2610515710163,
+    "b": 0.9944165865396176,
+    "sigma_spectral_norm": 6.700029559597365,
+    "eta_times_sigma_norm": 98.74105687581827,
+    "n_pow_beta": 165.95869074375605
+   },
+   "run3": {
+    "output_file": "D:/mrhbench-local-pilot/gaussian-cpu-smoke-20260924-001/run3.json",
+    "output_sha256": "ec1ab8f732adccceb512aae72995f429365040527c703f29c4b545f7c931c7bf",
+    "stderr_bytes": 0,
+    "seed": 20260927,
+    "trials": 4,
+    "fits": 24,
+    "in_process_total_wall_s": 7.927,
+    "setup_timing_s": {
+     "structure_s": 0.1919,
+     "three_datasets_s": 0.1578,
+     "hermite_coeffs_s": 0.0041
+    },
+    "per_fit_s": {
+     "min": 0.224,
+     "median": 0.358,
+     "max": 0.459
+    },
+    "max_rss_kib": 468596,
+    "eta": 14.737406155824793,
+    "theta": 11.2610515710163,
+    "b": 0.9944165865396176,
+    "sigma_spectral_norm": 6.71557637410638,
+    "eta_times_sigma_norm": 98.97017659566691,
+    "n_pow_beta": 165.95869074375605,
+    "container_wall_incl_startup_ms": 8443
+   }
+  },
+  "pooled_per_fit_seconds": {
+   "fits": 48,
+   "min": 0.224,
+   "median": 0.358,
+   "max": 0.468
+  },
+  "peak_rss_mib_approx": 457.6,
+  "algebraic_checks_small_dim": {
+   "eq4_G_equals_neg_grad_half_mse_max_abs_err": 3.489558642044699e-11,
+   "eq4_G_max_abs": 0.08663308741431719,
+   "ridge_solves_eq5_stationarity_max_abs": 1.1275702593849246e-17,
+   "same_w_is_not_stationary_for_eq6_as_objective_max_abs": 0.08368746569776331,
+   "eq6_minus_pen_over_eq5_minus_pen_equals_m": 16.0,
+   "m": 16,
+   "hermite_degree3_coef_count": 4,
+   "hermite_degree3_h_star_l4": 0.0937157014335871
+  },
+  "outputs_dir": "D:/mrhbench-local-pilot/gaussian-cpu-smoke-20260924-001",
+  "sanity_numbers_not_findings": "At this single config NN and Hermite test half-MSE were close for all three activations in all 3 runs (e.g. run1 trial0 relu 0.0263 vs 0.0258). Recorded only as implementation sanity, NOT as validation of the paper's findings."
+ },
+ "extrapolation_labelled": {
+  "label": "EXTRAPOLATION from one configuration; not measured",
+  "notebook_fig1b_sweep_fits": 2400,
+  "formula": "20 alpha x (setup + 20 trials x 6 fits x per_fit)",
+  "median_estimate_s": 866,
+  "range_estimate_s": [
+   545,
+   1130
+  ],
+  "assumptions": "Per-fit cost independent of alpha (flop count unchanged; only constants change); same host, 2 CPUs quota, OpenBLAS 2 threads; excludes container start (~0.5 s observed), JAX dispatch/compile overhead of the original notebook, plotting, and any LLM-agent thinking/tool time.",
+  "interpretation": "Full notebook-scale sweep on this host would take on the order of 15 minutes of pure compute in the 2-CPU/2GiB envelope, peak RSS ~0.46 GiB. This supports CPU feasibility in principle; it does not set the package budget or the solver's design (grids/repeats are solver choices), and a solver spending its wall-clock on multiple exploratory sweeps could exceed a 1200 s budget."
+ },
+ "host": {
+  "cpu": "12th Gen Intel(R) Core(TM) i7-12700H",
+  "docker_engine": "28.5.1 linux/amd64",
+  "docker_ncpu": 20,
+  "docker_mem_total_bytes": 16771293184,
+  "kernel": "5.15.167.4-microsoft-standard-WSL2",
+  "cgroup": 1,
+  "os_cpu_count_in_container": 20,
+  "note": "--cpus is a CFS quota; container still sees 20 CPUs, hence OPENBLAS_NUM_THREADS=2 was set explicitly. Timings depend on host/virtualization."
+ },
+ "unresolved": [
+  "Figure1 caption 'l=5' vs code D=3/theorem l=4 (caption convention not determinable from sources read).",
+  "Eq6 literal (unnormalized) vs Eq5/A.9 normalized form: author intent not determined.",
+  "Figure2 caption theta=n^beta with alpha=1/2 (from prior audit) not examined; Fig2 code not cached; no Fig2-derived task.",
+  "Whether the ICLR camera-ready fixes any of these; earliest disclosure not verified.",
+  "Package resource budget, released starter split (generator/ridge baseline vs target surrogate) and rights clearance not decided here."
+ ],
+ "limitations": [
+  "Single configuration timed (3 runs, 48 fits); no alpha sweep, no other n/k ratios.",
+  "No numerical reproduction of any figure; no theorem audit; smoke does not validate findings.",
+  "JAX notebook runtime on CPU not measured; the historical notebook backend output was 'gpu'.",
+  "Docker image built for the IV package was reused for measurement only; a Gaussian package would need its own locked environment."
+ ]
+}

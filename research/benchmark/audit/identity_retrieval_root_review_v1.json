@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "benchmark_tests": 267,
+  "source_tests": 8,
+  "model_calls_this_turn": 3,
+  "ledger_used": 191,
+  "ledger_limit": 268,
+  "new_papers": 0,
+  "formal_evolution_runs": 0,
+  "root_review": {
+    "identity": "Code and actual two-run hash-domain assertions reviewed; old artifacts unchanged. Mutable per-execution imports/config remain a limitation.",
+    "judge": "Read all audit comparisons; independent subagent reviewed complete observable trajectories. This is not a root rereading of every rollout or global T03 acceptance.",
+    "literature": "Root inspected all 11 label rationales, exact source locators and adjacent text. Accept for private developmental diagnostics, not unique citation gold or quality weights. Latest diagnostic additionally verifies actual historical public asset bytes."
+  },
+  "evidence_sha256": {
+    "identity_retrieval_offline_tests_v2.log": "eeaef799aae85347067204d8c483ce18f3c653363c9153d9c405e62a58d3a0e8",
+    "identity_robustness_source_tests_v1.log": "9f9106add731a3aab8028cfd2319ad38d7f9a7022357683c48a7a70eef022ef6",
+    "execution_identity_independent_review_v1.json": "6e9fff505bb09759efdfd9b241ae33f914611f9a319c8686ee3135e622e206a5",
+    "native_judge_v2_8_robustness_diagnostic.json": "aa0b6c180256dd524d685a9ba220077c78bbe13750a67263e4fb4428220950ed",
+    "private_ssa_lit_relevance_review_v1.json": "e556ccf068e183e4f1ea994cdf671f90e203a411964cc03f6b16833fc24e2499",
+    "private_ssa_lit_existing_three_review_v1.json": "60597e5f5fd2b3e1e683b793a53849615a9c1204ca3c3763514bc49de4e7dc57",
+    "private_ssa_retrieval_diagnostic_v2.json": "ab98dddacda4ecd776aef64b5cd7ac194262143f37a74978602db1f5cbaec86b"
+  },
+  "status": "bounded_development_improvements_complete_full_goal_still_active"
+}
