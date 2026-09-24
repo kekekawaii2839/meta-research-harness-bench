@@ -1,0 +1,47 @@
+{
+  "visibility": "PRIVATE - judges/reviewers only; never mount into solver containers",
+  "status": "development_candidate_pending_independent_review",
+  "source": {"source_id": "fragmented-paper-v1", "source_sha256": "6544464def8909867ddf1475308b8d2c6d9e08be02e85cfcc2633772ab0ffdae"},
+  "target_prose_locators": {
+    "fact_id": "FTCT-P01",
+    "note": "The original target passage is Section 4.3 of the arXiv v1 HTML: heading 'Multi-Layer Attention Mechanism Enables Compositional Reasoning', paragraphs S4.SS3.p1, S4.SS3.p2, S4.SS3.p3. Judges resolve it from the controller-supplied original. It is not copied here. Submissions are NOT scored by similarity to it; it is used only to check faithfulness. The 12-word verbatim guard discounts n-grams that also occur in the public fact sheets. Note that the section heading states causation more strongly than Table 1 alone supports (see FTCT-S02)."
+  },
+  "original_presentation": {
+    "fact_id": "FTCT-P02",
+    "note": "The original presentation is a LaTeX-style table (S4.T1): 'Model' spans a family column (TF rowspan 5, MLP rowspan 2) and a config column; then 'Params'; then a grouped 'Training' header over Valid loss, Vertices acc, Values acc; then a grouped 'Testing' header over Vertices acc, Values acc, Whole acc. The caption has the typo 'Trainin'. The paper has no chart for these values. A WRITE_EVIDENCE submission is not expected to reproduce this layout."
+  },
+  "bold_markup": {
+    "fact_id": "FTCT-U06",
+    "cells_bold_in_source": {
+      "TF_3L3H": ["train_valid_loss", "train_vertices_acc", "train_values_acc", "test_vertices_acc", "test_values_acc", "test_whole_acc"],
+      "TF_2L2H": ["train_valid_loss", "train_vertices_acc", "train_values_acc", "test_vertices_acc", "test_values_acc", "test_whole_acc"],
+      "TF_2L1H": ["train_valid_loss", "train_values_acc", "test_values_acc"],
+      "TF_1L2H": ["train_values_acc", "test_values_acc"],
+      "TF_1L1H": ["train_values_acc", "test_values_acc"],
+      "MLP_4L": [],
+      "MLP_2L": ["test_vertices_acc"]
+    },
+    "note": "The bolding criterion is not stated. It is not 'best per column': 1.446 and 1.436 are bold while 1.433 is the minimum loss, 0.974 is bold, and MLP 2L 0.850 is bold although the TF rows reach 1.000. It reads as author highlighting of 'near-optimal' cells or cells discussed in the text. Submissions should not present bold or emphasis as a statistical judgment."
+  },
+  "shot_count_note": {
+    "fact_ids": ["FTCT-U02", "FTCT-R07"],
+    "note": "The source does not state the Table 1 shot count or selection rule. Figure 2 covers the same nominal 3L3H, N=5, M=3 configuration, but identity with the Table 1 model is unstated. The authors state that performance peaks at 1-shot (Appendix K, A11.p3.1) and that 1-shot suffices (Appendix G.2, A7.SS2.p1). A submission asserting 'Table 1 uses 1-shot' as fact is an error; attributing the Appendix K/G.2 statements as context is fine."
+  },
+  "consistency_notes_for_judges": {
+    "fact_id": "FTCT-S04",
+    "items": [
+      "R02 ('>=2 layers and 2 heads optimal'): consistent for accuracies (3L3H and 2L2H at 1.000/0.996). For loss, 3L3H (1.446) is higher than 2L2H (1.433) and 2L1H (1.436); these differences are in the third decimal and of unknown uncertainty.",
+      "R02 ('vertices accuracy drops, both training and testing, as complexity decreases'): training vertices accuracy falls monotonically 1.000 -> 0.870 -> 0.138 -> 0.025 (2L2H, 2L1H, 1L2H, 1L1H). Testing vertices accuracy does not: 1L2H has 0.776, above 2L1H at 0.768. 1L2H also shows a large train/test gap (0.138 train vs 0.776 test), a pattern the source does not discuss for TF. An accurate passage may note this; claiming a strictly monotone test drop is an error.",
+      "R02 uses the authors' word 'significant' for the drop; it is not a statistical test and must not be reported as one.",
+      "R02 ('values accuracy remains optimal'): testing values accuracy is 1.000 for every TF row; training values accuracy is 0.994 (1L2H) and 0.974 (1L1H), i.e. near-optimal rather than exactly optimal.",
+      "R05 ('MLPs perform well generating vertex order at test time'): MLP 2L test vertices 0.850; MLP 4L only 0.484. Both are far above their training vertices accuracy (0.063 and 0.065). An unqualified 'MLPs do well' overstates the 4L result.",
+      "MLP whole chain accuracy is 0.002 (4L) and 0.022 (2L). Test values accuracy is 0.290 and 0.346; training values accuracy is 0.104 and 0.146.",
+      "The deeper MLP (4L, 145M) has higher validation loss (3.464) than the 2L MLP (2.147, 143M).",
+      "MLPs have about 3x the reported parameters of the Transformers but also a different input representation (windowed one-hot), so parameter count alone is not a fair capacity comparison (FTCT-S02).",
+      "TF 1L1H test whole acc 0.022 vs test vertices 0.026: whole chain failure tracks vertex-order failure, since values accuracy is 1.000.",
+      "Heads: at 2 layers, going from 2 heads to 1 head lowers test whole accuracy from 1.000 to 0.766 at the same printed 48M parameters. At 1 layer, 2 heads vs 1 head gives 0.776 vs 0.022. Without run-to-run variability this is a single-cell comparison."
+    ]
+  },
+  "author_claims_for_write_evidence_interpretation": ["FTCT-R02", "FTCT-R03", "FTCT-R04", "FTCT-R05", "FTCT-R06"],
+  "author_claim_locations": {"FTCT-R02": "S4.SS3.p2.1", "FTCT-R03": "S4.SS3.p2.1; S6.SS1.p2.1", "FTCT-R04": "S4.SS3.p3.1", "FTCT-R05": "S4.SS3.p3.1", "FTCT-R06": "S5.SS2.p1.1; S5.Thmtheorem3; S5.SS2.p2.1"}
+}

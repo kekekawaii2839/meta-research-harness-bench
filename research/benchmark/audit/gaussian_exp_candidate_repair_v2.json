@@ -1,0 +1,399 @@
+{
+ "schema_version": "material-repair-1",
+ "created_at": "2026-09-24",
+ "actor": "material_pipeline maintainer collaborator (Claude Code subagent); maintainer repair, not a construction-model output and not a review; cannot grant acceptance",
+ "paper_id": "iclr2025-tNn6Hskmti",
+ "predecessor": {
+  "task_id": "gaussian-onestep-hermite-alpha-exp-maint-v1",
+  "package": "research/benchmark/materials/pilot_v3/maintainer_candidates_v1/gaussian-exp/",
+  "status": "kept unchanged as history",
+  "file_sha256_after_repair": {
+   "assets/base_resources.py": "393d2e1d0b348b9ace558f5f83bf4e94a870a3ea3dcccec0b2fda5348c3a087c",
+   "assets/NOTICE.txt": "7bd3eac6e9d85c50f436eda963132c1b9cbed0bfa2123fbba29abf5f890d6fec",
+   "assets/task.md": "59be8dcc33a6b279e92e199abbe652cf3ef30c120ad1d06d2f74014f2a05c180",
+   "maintainer_checks/build_package.py": "402d56f5232456e2575e974921efa016270315e61802c8b3923aea1c838cbc80",
+   "maintainer_checks/check_export.py": "1429156008368bd26b489a262583bafb76b97b123f200ac16d309b4f085eb0a6",
+   "maintainer_checks/verify_starter.py": "29f85f785868399e92333fb0e8a6c69963fc37f8c64500cffb7033b49ebf69e5",
+   "private/reference.json": "e89406256290ae20f3bd068b30cd2fba7c70220673968b99f8f216c618d40375",
+   "task.json": "7739fcbf5f2db1e7c21bbebd19d54e0f5b209c710a420e0e847181d296b01ea5"
+  },
+  "unchanged_check": "task.json 7739fcbf..., task.md 59be8dcc..., NOTICE 7bd3eac6..., reference.json e8940625..., base_resources.py 393d2e1d... equal the hashes recorded in the independent review inputs_reviewed"
+ },
+ "review_addressed": {
+  "path": "research/benchmark/audit/gaussian_exp_independent_review_v1.json",
+  "sha256": "1426aa43921a19748ab01400914f64d425c3ac1e19da3e4bbd26979c482cd169",
+  "decision": "revise"
+ },
+ "root_adjudication": "Binding root adjudication relayed in the task instruction: R1 (major) and R2-R8 all ACCEPT; additionally publish the collection quota with a reminder to keep raw outputs within it; keep resources unless a change is justified by measurement; do not raise limits.",
+ "repaired_package": {
+  "task_id": "gaussian-onestep-hermite-alpha-exp-maint-v2",
+  "path": "research/benchmark/materials/pilot_v3/maintainer_candidates_v2/gaussian-exp/",
+  "construction": "maintainer_constructed_candidate",
+  "gates": "all five pending (input_leakage, judge_behavior, rights, runtime, source_semantics); formal_eligible false; formal load rejected",
+  "file_sha256": {
+   "assets/base_resources.py": "393d2e1d0b348b9ace558f5f83bf4e94a870a3ea3dcccec0b2fda5348c3a087c",
+   "assets/NOTICE.txt": "3ef404df829df9ed50efc3f3e0c9510d76f462b1b1bbde615a6ae031894c425f",
+   "assets/task.md": "6ef6c8b33ece0aff9f0a5d7001840c036aa15e368f2f34cc839359dc90a59b93",
+   "maintainer_checks/build_package.py": "81c1500572ac2c478f304014a6db63e326cba95240eac7c8f404cd8fd6acbaa3",
+   "maintainer_checks/check_export.py": "b0579e0cac34fb426ddb6ed8fe6872787cba3187346c894e4f2f63d3550e3b54",
+   "maintainer_checks/verify_starter.py": "29f85f785868399e92333fb0e8a6c69963fc37f8c64500cffb7033b49ebf69e5",
+   "private/reference.json": "977de331263188eafc29099f5311ad3bf5a544c697e4dc5b94fa740efb471c2c",
+   "task.json": "ce0f92fddace6740ba9a24bd17e6a5c495cecd395465c8edf0020a2f6e4167f1"
+  },
+  "build": "maintainer_checks/build_package.py (v2; refuses to overwrite) generated task.json and private/reference.json from hand-edited assets; base_resources.py and verify_starter.py byte-identical to v1"
+ },
+ "changes": [
+  {
+   "finding": "R1",
+   "severity": "major",
+   "decision": "accepted",
+   "changes": [
+    "task.md H3 reframed to the paper's substantive claim: increasing alpha (strength shifted from data spread to first-layer learning rate) makes the NN model's generalization performance worse for each activation, with the Hermite model in the same direction.",
+    "task.md H3 states that under the fixed specification the scale of xi and therefore of the labels changes with alpha, so absolute G_err values across alpha are not automatically comparable; H3 must be assessed on a basis the solver chooses and justifies as fair across alpha; an absolute G_err increase is not by itself a test of H3; absolute G_err must still be reported for every configuration.",
+    "Research-question sentence, report.json hypotheses field (H3 must name its comparison basis and why it is comparable) and public verification plan updated accordingly.",
+    "No normalisation prescribed or named; no maintainer/reviewer normalised-trend numbers or direction in public assets (leak-checked).",
+    "Private judge_checks: rigor item requiring an explicitly named, justified comparable basis (absolute-only => at most untested/inconclusive for H3); optional trivial-predictor sanity example marked non-mandatory; acceptable_outcomes now allows supported/not supported/non-monotone/activation-dependent/inconclusive on a justified basis and explicitly rejects absolute-MSE-only; new serious-defect item scoped to H3 judgments only (not H1/H2).",
+    "maintainer_observations.judge_use rewritten: no normalisation is the expected answer or required basis; reviewer 200-seed label-scale observation added as private sanity value (reviewer_observation)."
+   ]
+  },
+  {
+   "finding": "R2",
+   "severity": "medium",
+   "decision": "accepted",
+   "changes": [
+    "Public NOTICE.txt rewritten: no paper title, arXiv id, repository name, commit, or implementation-difference list; states the assets are maintainer-written restatements of a published setting, attribution kept privately and restored at release; licence section limited to released starter code (maintainer-written, no third-party code copied, no third-party licence obligation; own release terms pending rights review).",
+    "Provenance (arXiv 2503.00856v1 Sections 2/4, KU-MLIP repository pinned commit, MIT licence, NumPy/JAX and sampling differences) moved to private fact M_PROVENANCE.",
+    "Public fact F_HERMITE no longer cites paper numbering 'Theorem 4'/'Eq17' (neutral 'Theorem (equivalence)'); private evidence locators unchanged.",
+    "task.json private.source_disclosure_note updated: explicit identifiers removed, paper still inferable from equations; not a contamination guarantee."
+   ]
+  },
+  {
+   "finding": "R3",
+   "severity": "low",
+   "decision": "accepted",
+   "changes": [
+    "Public resource rationale now states only measured per-fit timing and peak RSS; removed 'source-scale 2400-fit sweep' and the ~866 s (545-1130 s) extrapolation, and additionally the '1000x5000 test features' phrase (5000 = the private 5m notebook test size).",
+    "Extrapolation recorded privately as S_RESOURCE_EXTRAPOLATION."
+   ]
+  },
+  {
+   "finding": "R4",
+   "severity": "low",
+   "decision": "accepted",
+   "changes": [
+    "New reference.json hypothesis_disclosures HD_ALPHA_TREND and HD_AGREEMENT (kind hypothesis_disclosure, allowed_stages ['EXP']) record that the directions are public only as untested hypotheses H3 and H1/H2.",
+    "R_ALPHA_TREND and R_AGREEMENT (allowed_stages []) restated to cover only the private part: the paper's reported figure evidence and interpretation (R_ALPHA_TREND also records that the paper's trend is on an absolute scale entangled with the alpha-dependent label scale)."
+   ]
+  },
+  {
+   "finding": "R5",
+   "severity": "low",
+   "decision": "accepted",
+   "changes": [
+    "maintainer_observations note corrected to 'approximately xi^T Sigma xi / 2, i.e. about 1/(2||Sigma||), since xi^T Sigma xi * ||Sigma|| is about 1'."
+   ]
+  },
+  {
+   "finding": "R6",
+   "severity": "low",
+   "decision": "accepted",
+   "changes": [
+    "F_CONSTANTS private evidence locator now begins 'cells[8] n, m, lambd, delta=0 (no label noise)'."
+   ]
+  },
+  {
+   "finding": "R7",
+   "severity": "low",
+   "decision": "accepted",
+   "changes": [
+    "Public M_DEGREE now only 'Maximum degree D=3 with theorem index l=D+1=4, satisfying the theorem condition 2/3 < 0.74 < 3/4'; notebook l=3 mapping moved to a private_note.",
+    "Public F_CONSTANTS, M_NOISE, M_SAMPLING no longer mention the authors' notebook; notebook cues moved to private_note fields (excluded from the public prompt by the builder)."
+   ]
+  },
+  {
+   "finding": "R8",
+   "severity": "low",
+   "decision": "accepted",
+   "changes": [
+    "task.md adds a paragraph: navigation-map status (tested|partially_tested|not_tested) = COVERAGE; report.json status (supported|not_supported|inconclusive|untested) = OUTCOME; not interchangeable; not_tested corresponds to untested."
+   ]
+  },
+  {
+   "finding": "collection_quota",
+   "severity": "root_request",
+   "decision": "applied",
+   "changes": [
+    "task.md adds 'Collection quota': only /work collected, 64 MiB total file bytes and 1000 entries (files and directories; top-level .broker/.process-* excluded); /work tmpfs is larger than the quota so exceeding it can lose results; keep raw outputs compact (scalar per-replicate rows, no feature/weight/data/prediction matrices, avoid very many small files, delete scratch, check /work size before finishing).",
+    "Numbers match the unchanged published artifact_collection (max_total_bytes 67108864, max_entries 1000); disk_mb 512 => /work tmpfs about 410 MiB, larger than the quota."
+   ]
+  },
+  {
+   "finding": "resources",
+   "decision": "unchanged",
+   "changes": [
+    "cpus 2, memory 2048 MB, disk 512 MB, pids 128, wall 1800 s, 16 model / 120 tool calls, collection 64 MiB / 1000 entries, network none, same image. No measurement justified a change; nothing raised."
+   ]
+  }
+ ],
+ "checks": {
+  "load_export": {
+   "python": "D:/mrhbench-local-pilot/controller-venv/Scripts/python.exe -X utf8 maintainer_checks/check_export.py D:/mrhbench-local-pilot/gaussian-exp-repair-v2-20260924-001/export",
+   "result_file_sha256": "d790abd080d0b6c5f4a76df4ce1c18a658dd8a11c4bd7709e5aaee51433c29e1",
+   "load_task": "ok",
+   "output_contract_schema": "valid",
+   "formal_rejected": "Task not accepted for formal runs: source_semantics, rights, input_leakage, runtime, judge_behavior",
+   "hidden_audience_rejected": "Audience cannot access this split",
+   "collection_policy": {
+    "excluded_top_level_rules": [
+     ".broker",
+     ".process-*"
+    ],
+    "max_entries": 1000,
+    "max_total_bytes": 67108864,
+    "scope": "all_noninternal_work_files_and_directories",
+    "version": 1
+   },
+   "budget_from_view": {
+    "limits": {
+     "model": 16,
+     "tool": 120
+    },
+    "wall": 1800
+   },
+   "deadlines_consistent": true,
+   "exported_file_sha256": {
+    "assets/assets/NOTICE.txt": "3ef404df829df9ed50efc3f3e0c9510d76f462b1b1bbde615a6ae031894c425f",
+    "assets/assets/base_resources.py": "393d2e1d0b348b9ace558f5f83bf4e94a870a3ea3dcccec0b2fda5348c3a087c",
+    "assets/assets/task.md": "6ef6c8b33ece0aff9f0a5d7001840c036aa15e368f2f34cc839359dc90a59b93",
+    "task.json": "2a70e6e948e6fa9e49791ea2f6ab92dbfbd4ca682893e22971505fca423e7708"
+   },
+   "private_keys_in_view": [],
+   "pending_gates": [
+    "source_semantics",
+    "rights",
+    "input_leakage",
+    "runtime",
+    "judge_behavior"
+   ]
+  },
+  "leak_check": {
+   "phrases_checked_count": 98,
+   "phrases_checked": [
+    "Monte Carlo",
+    "l=5",
+    "linspace",
+    "NB_TRIALS",
+    "half the empirical",
+    "half-MSE",
+    "half MSE",
+    "Fig1b",
+    "Figure",
+    "rises as alpha",
+    "generalization error rises",
+    "data-structure strength",
+    "High data spread",
+    "align closely",
+    "label second moment",
+    "label variance",
+    "non-monotone",
+    "0.0036",
+    "0.189",
+    "Fashion",
+    "cGAN",
+    "maintainer_observations",
+    "judge_checks",
+    "private_facts",
+    "R_ALPHA_TREND",
+    "R_AGREEMENT",
+    "S_NOTEBOOK_DESIGN",
+    "U_EQ6",
+    "Eq6",
+    "reference.json",
+    "private-reference",
+    "source_cache",
+    "5m",
+    "conditional on fixed data",
+    "paper_id",
+    "iclr2025",
+    "tNn6Hskmti",
+    "KU-MLIP/2-Layer",
+    "Fig1b-alpha",
+    "ipynb",
+    "20 trials",
+    "invalidating",
+    "acceptable_outcomes",
+    "construction_audit",
+    "2400",
+    "arXiv",
+    "arxiv",
+    "2503.00856",
+    "2503",
+    "KU-MLIP",
+    "KU MLIP",
+    "2-Layer-NNs",
+    "Gaussian-Mixtures-Data",
+    "257bcd5",
+    "github",
+    "GitHub",
+    "raw.githubusercontent",
+    "notebook",
+    "Notebook",
+    "source-scale",
+    "866",
+    "545-1130",
+    "1000x5000",
+    "5000",
+    "Theorem 4",
+    "Eq17",
+    "Eq2",
+    "Eq16",
+    "Section 6",
+    "JAX",
+    "jax",
+    "MIT",
+    "M_PROVENANCE",
+    "HD_ALPHA_TREND",
+    "HD_AGREEMENT",
+    "hypothesis_disclosures",
+    "repair_audit",
+    "predecessor",
+    "52x",
+    "0.0064",
+    "0.066",
+    "0.331",
+    "1/(2||Sigma||)",
+    "E[y^2]",
+    "MSE / E",
+    "normalised",
+    "normalized trend",
+    "zero predictor",
+    "trivial predictor",
+    "data spread per se",
+    "more beneficial",
+    "KU",
+    "cells[",
+    "hermegauss",
+    "0.29-1.06",
+    "0.79-0.96",
+    "spot-check",
+    "reviewer"
+   ],
+   "phrase_hits": {
+    "MIT": 1
+   },
+   "hit_adjudication": {
+    "MIT": "false positive: substring of the public fact id 'F_HERMITE' in task.json; no licence-name mention in the public export"
+   },
+   "structured_private_prefix_hits": {
+    "private_facts": [],
+    "observations": [],
+    "judge_checks": [],
+    "private_notes": [],
+    "hypothesis_disclosure_statements": [],
+    "reviewer_and_judge_use": [],
+    "evidence_locators": [],
+    "source_urls_and_hashes": []
+   },
+   "coverage": "All private_facts statements, maintainer observations, reviewer_observation, judge_use, every judge_checks item, input-fact private_notes, hypothesis_disclosure statements, all evidence locators and every source_manifest url/sha256/version were checked (prefix match) against the full concatenated public export (task.json + three assets); zero hits. Phrase list includes 2400, arXiv, 2503.00856, KU-MLIP, repository name, commit prefix, notebook, source-scale, 866, 5000, Theorem 4, Eq17, reviewer numbers.",
+   "limits": "String matching only; not a semantic leak review; paper remains inferable from equations; executor memorisation not probed."
+  },
+  "container_smoke": {
+   "image": "sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01 (mrhbench-pilot/iv:860c335d9324)",
+   "command": "docker run --rm --network none --cpus 2 --memory 2g --pids-limit 128 --read-only --tmpfs /tmp --tmpfs /work:uid=10001,gid=10001,mode=0700 --workdir /work --cap-drop ALL --security-opt no-new-privileges=true --user 10001:10001 -e OPENBLAS_NUM_THREADS=2 -e OMP_NUM_THREADS=2 -v <export-public>/assets/assets:/starter:ro -v <v2>/maintainer_checks:/checks:ro -v <next_batch_proposals_v1>/gaussian_cpu_smoke:/smoke:ro <image> sh -c 'id; touch /work/x; touch /starter/y; touch /z; cat cgroup memory/pids limits; ls /sys/class/net; python /checks/verify_starter.py'",
+   "starter_mounted_from": "exported public assets (bytes equal to package base_resources.py 393d2e1d...)",
+   "exit_code": 0,
+   "stdout_path": "D:/mrhbench-local-pilot/gaussian-exp-repair-v2-20260924-001/container_smoke_stdout.txt",
+   "stdout_sha256": "29a4e292007c61e41e4e056aac518280bc7ce5db10a9e2257fa2d903e9ec60d2",
+   "stderr": "empty",
+   "boundary": {
+    "uid": "10001",
+    "work_writable": true,
+    "starter_readonly": true,
+    "root_readonly": true,
+    "memory_limit_bytes": 2147483648,
+    "pids_max": 128,
+    "net_interfaces": [
+     "lo"
+    ]
+   },
+   "algebra": {
+    "eq4_G_plus_grad_half_mse_max_abs_relu": 1.8202467311212445e-11,
+    "eq4_G_max_abs_relu": 0.04428542825074444,
+    "eq4_G_plus_grad_half_mse_max_abs_tanh": 1.9757862013136673e-11,
+    "eq4_G_max_abs_tanh": 0.05858699499774522,
+    "eq4_G_plus_grad_half_mse_max_abs_sigmoid": 2.2064822191580902e-11,
+    "eq4_G_max_abs_sigmoid": 0.017140466655334474,
+    "ridge_eq5_stationarity_max_abs": 1.214306433183765e-17,
+    "sigmoid_vs_textbook_max_abs": 2.220446049250313e-16,
+    "sigma_norm_and_trace_closed_form_max_abs_err": 5.329070518200751e-15,
+    "theta_40": 15.329373064271778,
+    "component_spike_variance_rel_err_max": 0.008488979341753522,
+    "component_fraction_iid": 0.500165,
+    "stratified_counts": [
+     500,
+     501
+    ],
+    "xi_T_x_second_moment_empirical": 0.12786361175963298
+   },
+   "cross_implementation": {
+    "first_step_max_abs_diff_relu": 0.0,
+    "ridge_max_abs_diff_relu": 0.0,
+    "first_step_max_abs_diff_tanh": 2.7755575615628914e-17,
+    "ridge_max_abs_diff_tanh": 8.43769498715119e-15,
+    "first_step_max_abs_diff_sigmoid": 2.7755575615628914e-17,
+    "ridge_max_abs_diff_sigmoid": 1.9251267247000214e-13
+   },
+   "timing": {
+    "checks_s": 0.4353830670006573,
+    "baseline_total_s": 5.5334604990002845,
+    "nn_fit_seconds_min_median_max": [
+     0.2102998070004105,
+     0.26529722649956966,
+     0.3147618100010732
+    ],
+    "nn_fit_count": 18
+   },
+   "env": {
+    "python": "3.12.14 (main, Sep 19 2026, 01:04:57) [GCC 14.2.0]",
+    "numpy": "2.3.3",
+    "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "os_cpu_count": 20,
+    "OPENBLAS_NUM_THREADS": "2",
+    "uid": 10001,
+    "max_rss_kib": 287048
+   },
+   "note": "Starter unchanged from v1; smoke confirms it runs from the v2 export. Original-activation NN fits 0.21-0.31 s (18 fits, test 5m) vs published '~0.25-0.36 s'; within the approximate stated range, rationale not changed. No Hermite surrogate run."
+  }
+ },
+ "actions": {
+  "model_calls": 0,
+  "network_requests": 0,
+  "author_code_executed": false,
+  "docker_runs": 1,
+  "files_created": [
+   "research/benchmark/materials/pilot_v3/maintainer_candidates_v2/gaussian-exp/assets/base_resources.py",
+   "research/benchmark/materials/pilot_v3/maintainer_candidates_v2/gaussian-exp/assets/NOTICE.txt",
+   "research/benchmark/materials/pilot_v3/maintainer_candidates_v2/gaussian-exp/assets/task.md",
+   "research/benchmark/materials/pilot_v3/maintainer_candidates_v2/gaussian-exp/maintainer_checks/build_package.py",
+   "research/benchmark/materials/pilot_v3/maintainer_candidates_v2/gaussian-exp/maintainer_checks/check_export.py",
+   "research/benchmark/materials/pilot_v3/maintainer_candidates_v2/gaussian-exp/maintainer_checks/verify_starter.py",
+   "research/benchmark/materials/pilot_v3/maintainer_candidates_v2/gaussian-exp/private/reference.json",
+   "research/benchmark/materials/pilot_v3/maintainer_candidates_v2/gaussian-exp/task.json",
+   "research/benchmark/audit/gaussian_exp_candidate_repair_v2.json"
+  ],
+  "files_modified": [],
+  "external_outputs": "D:/mrhbench-local-pilot/gaussian-exp-repair-v2-20260924-001/"
+ },
+ "open_issues": [
+  "Public H3 now explicitly tells the solver that the label scale changes with alpha and that an absolute increase is not a test. This makes a judged requirement public (root-accepted repair) but removes 'noticing the entanglement' as a discriminating rigor signal; root may prefer weaker wording. No normalisation or result is disclosed.",
+  "The repaired H3 has not been re-checked by an independent reviewer; that H3 is now discriminating rests only on the v1 reviewer's small spot-check, not on a real solver run.",
+  "Paper identity remains inferable from equations/setting; removing explicit identifiers is not a contamination guarantee.",
+  "Collection-quota note is guidance text; whether a real agent stays within 64 MiB / 1000 entries is unpiloted.",
+  "Budget (1800 s, 16 model / 120 tool calls) still unpiloted with a real agent and the Claude transport; runtime gate pending.",
+  "No package-specific Dockerfile/lock; reuse of the IV image remains a root decision.",
+  "Rights: release terms of the maintainer-written task.md/base_resources.py and of restating published equations not adjudicated; rights gate pending.",
+  "Judge behaviour on the new H3 checks untested; judge_behavior gate pending.",
+  "Published per-fit timing range (~0.25-0.36 s) vs this smoke (0.21-0.31 s) left unchanged."
+ ],
+ "formal_acceptance": "not granted; all five gates pending"
+}

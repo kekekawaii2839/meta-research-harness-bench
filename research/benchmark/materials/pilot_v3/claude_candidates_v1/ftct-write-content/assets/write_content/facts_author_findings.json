@@ -1,0 +1,23 @@
+{
+  "fact_sheet": "ftct-table1-author-findings",
+  "status": "development_candidate_pending_independent_review",
+  "source": {"source_id": "fragmented-paper-v1", "source_sha256": "6544464def8909867ddf1475308b8d2c6d9e08be02e85cfcc2633772ab0ffdae"},
+  "note": "The authors' reported findings and interpretations about Table 1, restated by maintainers in their own words. Each is an author claim to be reported with attribution, not an established fact. Where a claim goes beyond what Table 1 alone shows, the statement says so.",
+  "facts": [
+    {"fact_id": "FTCT-R02", "kind": "source_result",
+     "statement": "Authors' reading of Table 1: Transformers having two or more layers and two or more heads reach optimal performance on both the in-distribution and the compositional criteria. When model complexity is reduced, performance degrades, notably/especially through a large drop in vertices accuracy (on both the training and the testing criterion), while values accuracy stays optimal. The authors call this drop 'significant'; that is their descriptive word, not the result of a statistical test.",
+     "locators": ["Section 4.3, S4.SS3.p2.1"]},
+    {"fact_id": "FTCT-R03", "kind": "source_result",
+     "statement": "Authors' interpretation: Transformer depth is crucial for copying the vertex order shown in few-shot examples, and therefore for compositional reasoning. They attribute this to induction heads (used for in-context learning) being less likely to form in single-layer Transformers, and point to Section 6. The Section 6 attention-heatmap evidence comes from a 3-layer 3-head Transformer trained with causal depth 13 and child chain length 6, not from the Table 1 models or setting.",
+     "locators": ["Section 4.3, S4.SS3.p2.1", "Section 6.1, S6.SS1.p2.1"]},
+    {"fact_id": "FTCT-R04", "kind": "source_result",
+     "statement": "Authors' reading and interpretation: with the input window tuned for each MLP, both MLP rows score low on values accuracy, in training as well as in testing. In contrast, the smallest Transformer tested (one layer, one head) is close to perfect on values accuracy. From this contrast the authors infer that MLPs are worse than Transformers at picking out sparse value information amid noisy context, and they frame the result as attention being what allows sparse values to be deduced.",
+     "locators": ["Section 4.3, S4.SS3.p3.1"]},
+    {"fact_id": "FTCT-R05", "kind": "source_result",
+     "statement": "Authors' observation and tentative explanation: the MLP rows get the vertex order right far more often on test prompts than on training prompts. As a possible reason the authors point to the additional noise vertices that appear in training sequences. They read this as a hint that MLPs may store knowledge in a different way, and leave it for future work.",
+     "locators": ["Section 4.3, S4.SS3.p3.1"]},
+    {"fact_id": "FTCT-R06", "kind": "source_result",
+     "statement": "Theory context: Section 5.2 argues Transformer expressivity by explicitly constructing a 2-layer Transformer. Lemma 5.3 states that there exists a 2-layer Transformer with parameters θ* that approximates the paper's Algorithm 1 (its 'underlying program' for FTCT, detailed in Appendix D) with arbitrarily small error. This is an existence result; the lemma statement does not specify a number of heads. The authors say this ability of a 2-layer Transformer aligns with the performance observed in Table 1. An existence result does not show that training finds such parameters, nor that it explains the Table 1 differences.",
+     "locators": ["Section 5.2, S5.SS2.p1.1", "Lemma 5.3, S5.Thmtheorem3", "Section 5.2, S5.SS2.p2.1"]}
+  ]
+}

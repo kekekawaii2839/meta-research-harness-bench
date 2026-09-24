@@ -25,13 +25,15 @@ def main():
     p.add_argument('--output', required=True, type=Path)
     p.add_argument('--roles', type=Path, default=ROOT / 'config/role_transport_claude_v1.json')
     p.add_argument('--only', nargs='*')
+    p.add_argument('--catalog', type=Path, default=ROOT / 'materials/pilot_v3/collection_candidates_v2')
     a = p.parse_args()
     if file_hash(a.harness) != a.harness_sha256:
         raise ProtocolError('Frozen H0 hash mismatch')
     roles = read_json(a.roles)
     binary = Path(roles['claude_binary_default'])
-    selected = [x for x in PACKAGES if a.only is None or x in a.only]
-    catalog = ROOT / 'materials/pilot_v3/collection_candidates_v2'
+    catalog = a.catalog.resolve()
+    default = PACKAGES if catalog == (ROOT / 'materials/pilot_v3/collection_candidates_v2').resolve() else sorted(d.name for d in catalog.iterdir() if (d / 'task.json').is_file())
+    selected = [x for x in default if a.only is None or x in a.only]
     ceiling = sum(read_json(catalog / x / 'task.json')['public']['resources']['execution_budget']['model_calls'] + 1 for x in selected)
     summary = CallLedger(ROOT / 'audit/development_call_ledger.json').summary()
     remaining = summary['authorized_maximum'] - summary['used_runs_including_failures']
@@ -40,7 +42,7 @@ def main():
     out = a.output.resolve()
     out.mkdir(parents=True, exist_ok=False)
     write_json(out / 'integration_plan.json', {'harness': str(a.harness), 'harness_sha256': a.harness_sha256,
-               'roles': roles, 'roles_sha256': file_hash(a.roles), 'packages': selected, 'conservative_call_ceiling': ceiling,
+               'roles': roles, 'roles_sha256': file_hash(a.roles), 'catalog': str(catalog), 'packages': selected, 'conservative_call_ceiling': ceiling,
                'remaining_at_start': remaining, 'retry': False, 'formal': False,
                'judge_version_expected': 'native-judge-claude-v3.1'}, exclusive=True)
     results = []

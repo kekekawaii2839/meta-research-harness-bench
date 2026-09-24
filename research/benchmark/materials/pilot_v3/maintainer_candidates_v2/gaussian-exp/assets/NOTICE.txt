@@ -1,0 +1,5 @@
+Provenance and licence notice
+
+This is a maintainer-constructed development candidate of the benchmark (not produced by a construction model). task.md and base_resources.py are newly written for this benchmark by its maintainers. The task restates, in new wording and notation, a mathematical setting and equations from published research; no third-party text or code is included in the released inputs. Source attribution is kept in the benchmark's private provenance record for this development stage and is to be restored in public release metadata after rights review.
+
+Licence obligations for the released starter code: base_resources.py is maintainer-written and does not copy third-party code, so no third-party licence obligation attaches to it. Its own release licence, and the release terms of task.md, are pending the benchmark's rights review.
