@@ -177,6 +177,21 @@ def decode_json_text(text):
     return parse_json(fenced.group(1) if fenced else text), bool(fenced)
 
 
+PROVIDER_PROPERTY_KEY = re.compile(r"^[a-zA-Z0-9_.-]{1,64}$")
+
+
+def provider_schema_compatible(schema):
+    """The provider rejects tool input schemas whose property keys break this pattern (observed call 247)."""
+    if isinstance(schema, dict):
+        for key in (schema.get("properties") or {}):
+            if not PROVIDER_PROPERTY_KEY.match(key):
+                return False
+        return all(provider_schema_compatible(v) for v in schema.values())
+    if isinstance(schema, list):
+        return all(provider_schema_compatible(v) for v in schema)
+    return True
+
+
 def structured_response(parsed):
     """The CLI-validated structured output, cross-checked against the exact StructuredOutput call."""
     result = parsed["result"] or {}
@@ -290,9 +305,16 @@ class ClaudeJSONTransport(_Base):
         run_dir = self.audit_root / ("call-" + uuid.uuid4().hex)
         run_dir.mkdir(parents=True)
         write_json(run_dir / "request.json", envelope)
-        prompt = ("Return exactly one JSON value answering the request below through the structured output channel. "
-                  "It must satisfy the application schema.\n" + canonical({"application_schema": output_schema, "request": request}).decode("utf8"))
-        args = self.command(output_schema)
+        structured = provider_schema_compatible(output_schema)
+        if structured:
+            prompt = ("Return exactly one JSON value answering the request below through the structured output channel. "
+                      "It must satisfy the application schema.\n")
+        else:
+            # Same application schema, enforced locally instead of by the provider channel.
+            prompt = ("Return exactly one JSON value answering the request below as your whole reply, with no markdown or "
+                      "commentary. It must satisfy the application schema.\n")
+        prompt += canonical({"application_schema": output_schema, "request": request}).decode("utf8")
+        args = self.command(output_schema if structured else None)
         write_json(run_dir / "invocation.json", {"args": args, "binary_sha256": file_hash(self.binary), "prompt_hash": digest(prompt),
                                                   "system_prompt_replaced": True, "auth": "existing_claude_ai_login_no_token_copy",
                                                   "clean_directory_outside_workspace": True})
@@ -300,7 +322,8 @@ class ClaudeJSONTransport(_Base):
         start, status, usage = time.monotonic(), "failed", None
         metadata = {"transport": "claude_print_stream_json_no_tools_development", "bare_model_equivalence": False,
                     "model_configured": self.model, "reasoning_effort_configured": self.effort,
-                    "images": envelope["images"], "automatic_outer_retry": False, "timeout_seconds": call_timeout}
+                    "images": envelope["images"], "automatic_outer_retry": False, "timeout_seconds": call_timeout,
+                    "output_channel": "provider_structured_output" if structured else "text_json_local_validation"}
         try:
             with tempfile.TemporaryDirectory(prefix="mrhb-claude-json-") as clean:
                 remaining = absolute_deadline - time.monotonic()
@@ -330,7 +353,14 @@ class ClaudeJSONTransport(_Base):
                 raise ProviderRefusal("Provider safeguard refused the request; platform outcome, no automatic retry")
             if proc.returncode or audit["status"] != "development_admissible" or result.get("is_error") or result.get("subtype") != "success":
                 raise ProtocolError("Model invocation did not produce one auditable complete response; inspect private trace")
-            response = structured_response(parsed)
+            if structured:
+                response = structured_response(parsed)
+            else:
+                final = result.get("result")
+                if not isinstance(final, str) or not parsed["assistant_texts"] or parsed["assistant_texts"][-1].strip() != final.strip():
+                    raise ProtocolError("Final result disagrees with observed assistant message")
+                response, fenced = decode_json_text(final)
+                metadata["markdown_fence_stripped"] = fenced
             validate_application_schema(output_schema, response, check_response=True)
             write_json(run_dir / "response.json", response)
             status = "completed"

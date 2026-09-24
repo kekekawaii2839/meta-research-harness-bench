@@ -159,6 +159,16 @@ class StructuredOutputTests(unittest.TestCase):
         self.assertEqual(assess_claude_admissibility(parsed, allowed_tools=[])["status"], "rejected_observed_activity")
 
 
+class SchemaChannelTests(unittest.TestCase):
+    def test_provider_key_pattern_selects_channel(self):
+        from mrhbench.claude_transport import provider_schema_compatible
+        self.assertTrue(provider_schema_compatible({"type": "object", "properties": {"a_b.c-1": {"type": "string"}}}))
+        long_key = "k" * 65
+        self.assertFalse(provider_schema_compatible({"type": "object", "properties": {long_key: {"type": "string"}}}))
+        nested = {"type": "object", "properties": {"x": {"type": "object", "properties": {"has space": {}}}}}
+        self.assertFalse(provider_schema_compatible(nested))
+
+
 class RefusalTests(unittest.TestCase):
     def test_safeguard_refusal_is_classified_not_parsed_as_answer(self):
         from mrhbench.claude_transport import provider_refusal
@@ -196,6 +206,26 @@ class ClaudeJudgeWiringTests(unittest.TestCase):
         self.assertEqual(verify_stream_image_delivery(parsed, records, state), (["r1"], []))
         other = [evidence_record("E3", "rendered_artifact", base64.b64encode(png + b"x").decode(), media_type="image/png")]
         self.assertEqual(verify_stream_image_delivery(parsed, other, state), ([], ["r1"]))
+
+
+class JudgeSchemaTests(unittest.TestCase):
+    def test_v32_schema_is_provider_compatible_and_task_specific(self):
+        from jsonschema import Draft202012Validator
+        from mrhbench.native_judge import claude_output_schema
+        from mrhbench.claude_transport import provider_schema_compatible
+        from mrhbench.scoring import DIMENSIONS
+        for task_type, dims in DIMENSIONS.items():
+            schema = claude_output_schema(task_type)
+            self.assertTrue(provider_schema_compatible(schema))
+            ok = {"judgment": {"status": "scored", "dimensions": {d: {"score": 3, "rationale": "r", "refs": ["x"]} for d in dims},
+                               "checks": [], "serious_issues": [{"issue": "i", "affected_dimensions": [dims[0]], "refs": ["x"]}],
+                               "uncertainty": [], "failure_reason": None},
+                  "feedback": {"issues": [], "limitations": []}}
+            self.assertEqual(list(Draft202012Validator(schema).iter_errors(ok)), [])
+            bad = json.loads(json.dumps(ok)); bad["judgment"]["serious_issues"][0]["affected_dimensions"] = ["not_a_dimension"]
+            self.assertTrue(list(Draft202012Validator(schema).iter_errors(bad)))
+            missing = json.loads(json.dumps(ok)); del missing["judgment"]["failure_reason"]
+            self.assertTrue(list(Draft202012Validator(schema).iter_errors(missing)))
 
 
 if __name__ == "__main__":
