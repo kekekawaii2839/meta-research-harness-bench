@@ -1,0 +1,327 @@
+{
+ "schema_version": "claude-integration-review-1",
+ "created_at": "2026-09-24",
+ "reviewer": "independent runtime + native_judge reviewer subagent (Claude Code maintainer collaborator; not builder/executor/judge; no benchmarked role)",
+ "new_model_calls": 0,
+ "formal": false,
+ "scope": "T13 Claude integration v2: frozen H0 v3 (sha 619dc724...) on platform/interface v4, Claude executor transport, Claude native judge v3.1 (WRITE_CONTENT and WRITE_EVIDENCE re-judged with v3.3). Development evidence only; not formal evaluation, not T03 acceptance, not formal isolation.",
+ "method": "Read every broker RPC (operation, args, ok/err) and every executor call result/response for all five packages; read full judge stream transcripts (tool calls, receipts, final structured judgment+feedback) for WC v3.1 and v3.3, LIT v3.1, WE v3.3 (v3.1 candidate compared), IDEA -004 v3.1; read the relevant H0 source (normalize_task, task_block, context_block, ACTIONS) and interface v4 text; independently recomputed WC word counts, WE embedded-CSV bytes vs published CSV (identical), WE manifest contents, LIT final-request context contents, EXP output design. Viewed the WE PNG at 2000x847 (same downscale the judge received). No code executed in containers; no experiments re-run.",
+ "sha256_relied_on": {
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-content/executor_calls/call-60e6269cc7b0410ca967815ded3e4158/events.jsonl": "5eb4ed017dfbdff4647762f16e4bcc66eb411f823c977a3f5a39017f3f3b5e78",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-content/executor_calls/call-80d406d6452440018f70fbc2ad9a2fc3/events.jsonl": "a22f710b9487c4c16c6014371e5bece2029b7cd9f7c487df86e85aaa4e040015",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-content/executor_calls/call-f24a04ccc90c496494ed8046c70b06fe/events.jsonl": "cea74c37842a0a72f3dee599d9301db7fafbad352fea46ad46956cc356a26523",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-content/judge_calls/native-d5f8e5c61bb34acaa9f8823451d0b26b/events.jsonl": "fca30638f6f241dc6184bf8a389367cee0a54c37eaeeefee78228c6e258e9666",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-content/judge_v33_calls/native-7549cbbbc36e473c89be8f6fb7a56137/events.jsonl": "b105d5b79fb24841952fbce9352105d5004bca5f70d7c40fc7a83c662d604e52",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-content/execution/submission.json": "f1439c4901967fcd547a1b9b89243dff88b976d712fea85511d74ab31417e25d",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-content/execution/artifacts/ssa_method_exposition.md": "2bfb76422fb4064c1abbcff6cbe2637868ff4e1558a67c9d09fe4a91131764ec",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-content/judge_v33_result.json": "dce1178aa3021986fc8ec81937c1ad79e7ae24e9e46671d0b4b4b6ecbbf4265d",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/executor_calls/call-09d21c1588134a18b999210704dc28ea/events.jsonl": "446a6879fc0184befcf88e672dbd9e1e88532c4815533abf6f671bf528f36f33",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/executor_calls/call-19034926d9ea40f6960f2215198e977b/events.jsonl": "f93c186e81a46f3ddca7cd0e6be4beaccfaa0cc9abf87601c5bef89e7dd2ec0d",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/executor_calls/call-2c5f6a067f194e398eefb81927208cad/events.jsonl": "fcd0c156d5a52b960e264f20ecc0ca806539d26120e4658e8fc43b5c5ef8a0e3",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/executor_calls/call-3757bb387b8c4846afd415ffaeda1a40/events.jsonl": "a7effaf52dde6b659fa82f0f3767f126f5e9afeb45523a48694945c4993f1f46",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/executor_calls/call-4a4eafed2fef484b93ba4021534b4243/events.jsonl": "7ccc0943166727186cdd0085c491c9df36a869760d11948b4f44db02f31709fc",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/executor_calls/call-65880daf05d94c5b9dfcfb06978cd123/events.jsonl": "0fb656cf1b7ad49e3c0f76d3d3f8aa117185c3dfd9434bd764be1e5e7fbfcde1",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/executor_calls/call-79b3f28fc76543929cf675f293ca68e9/events.jsonl": "ce064c6f5ca3aed3c5dff210ae9cf8fa33bf687a7e4e45ca10b50f4ce851e13d",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/executor_calls/call-91ca2ca780aa4ce993a1a0abe7ef3948/events.jsonl": "f9fd1ca62141a597443e86603494495f32c7c7e52930e0203bdd6b132f79d5f1",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/executor_calls/call-e78ce6280b0d445e91d1f477eaf363a2/events.jsonl": "137392d9d16f38a1953eccdd697e5ab77bac3daf41786dde32b93ef5b95b2046",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/executor_calls/call-e848df86b5dd4695a53a4025b78e017f/events.jsonl": "6c07bdf23c873b046d9b6686bb11e7c6800ff8578eaf244cbb1a71bb91cf4fe1",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/executor_calls/call-f81f9159ef7f4e11a3e721d705fe8561/events.jsonl": "76c1cc9044486ee4f40d55dfe8a65fe3de27b72a9e977d3ef44c9e19f81fd170",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/judge_calls/native-0dc0e796f0b44f2fb35525322c075840/events.jsonl": "f29432cbfbb26905390fbe4ff1f90f61fb83e0969e7ffb80f14ccb63347a6a21",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/execution/submission.json": "7af2d50b4594f5eed5e54845f1b5e4bd2c8b730b39541245d77b6da2b800b762",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit/judge/result.json": "507860ce6539eed1314ae03961f2b3edb73f1b0b492d019710b62eeff746967d",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/executor_calls/call-2279c112243e43e187836109a406ae7b/events.jsonl": "341adf1e3e2cd0a994594cdd6aaef56000fe0310cde88d276a2f3a95703dc69a",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/executor_calls/call-52f569efc59c4a819e4b16c05e1b2138/events.jsonl": "9fa93977eb6d192cd60abbc8bb5f22895fca73e7114958f55638aa60d42c591e",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/executor_calls/call-6f57d89d25c747428189e9c5bc73dcc7/events.jsonl": "81abdf1750be65847af21dada55197b45a8bf1bc8592a3051f08a838378f6805",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/executor_calls/call-7e13765dcfed4770975b065a18b37e64/events.jsonl": "3df7b7205ef728e4eb318eb6dbecd488983df60c8dced1af9b584174dbf39f2b",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/executor_calls/call-8ce2753734b04852b354812514b690a9/events.jsonl": "c9add75929275f5f66deefd7755e65d83bc7f319af8fef9b0e88597018383008",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/executor_calls/call-90a92888803f46deabb39bb554401a0b/events.jsonl": "4a3d53d81279a5311ddfd7fbb0be4420ee1dab4ee404e1c8f4497a16429c1a35",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/executor_calls/call-a454980f4e0d424ebb38a264b5075121/events.jsonl": "274a31d042c3f4e53efa41e8d5b428993d086043c14c81cfc768b71ae8fb5d34",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/executor_calls/call-b5c7b1cab4d6408ba1764bc0b9766d4c/events.jsonl": "f3ce0c77cc083064b7056723af8256450ec3fffc9f9f03ff01048c5e6e68c5ea",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/executor_calls/call-db58ccbd38564b43a918016cee004787/events.jsonl": "25a01a019e952c426093cb267a8faa68e5fdb9732f172431e500183a1ef8ad86",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/executor_calls/call-f735605ebc7a45d59ef36e4407afb829/events.jsonl": "734a17033cfaf3135c10e858bf8ebd9888eb15a74bd59b5bc2530cccfdbe9250",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/executor_calls/call-fc83024adcb547238f10bda1a4b6a1db/events.jsonl": "d6fc5e18a6a6aa1e0898ad4b365844af27a49e409c7391e9c83e9c737e38b553",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/judge_calls/native-f6c16c127ccb44dabb33513ca5f82790/events.jsonl": "98638698c32cee179986d93dff51e347bbd634280722718a1b6288e991feb46d",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/judge_v33_calls/native-810b92b63e9847a9861730a5ef2cc822/events.jsonl": "84eb627890c2b6d256c37b2f4c47b89f5b66a41e90eb32ea7be629bfbf35da5c",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/execution/submission.json": "ea03d88ce0a260bf09b4b906c8f420aa8a1bf9ce2f01272db77afd0e685165b2",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/execution/artifacts/outputs/diag_paths.py": "a556cde57af58af50b00388c6d32902f4757e26b556b013a8c66b11ee05ce8f1",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/execution/artifacts/outputs/make_table4_figure.py": "739b2fea7af7c69eee2a18cdddaed0c6995ae469c33880543894dc97fcf7756e",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/execution/artifacts/outputs/table4_figure_caption.md": "e8e2f98d0ca755096569613f48e422a1b66ea65d744a5c8100d04549edd5c57c",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/execution/artifacts/outputs/table4_interpretation.md": "ee5857795b13fc122abe510af6cba6d3d911068cb9277cd8c8ae69fe05ccc669",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/execution/artifacts/outputs/table4_provenance_manifest.json": "35b44032bb80ab5a8b57ae62fd6335ad5a96d7dd8be96864170e0a0a0721c6a3",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/execution/artifacts/outputs/table4_utkface_heatmap.png": "b085f19b46a9e31a78234ba69487d170d153191c0acd0ee1beabdfbad0ad1aad",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/judge_v33/image_delivery_downscaled.json": "ced8006c9d425770acf39339a5757a3ba3d70900827cb7341440b54ada1aa6e6",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/judge_v33_result.json": "9919af8e2d46770d45ae920b73efe82d911e1aab256acda3adf9f506e961ad74",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence/judge_run_result.json": "c6f9ff706235622ca5c00fae3c1c47fe22ca33c122d52ca2240479f82378639b",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-00da8b90d61549358ac5458751c10b20/events.jsonl": "03d1342ddf13130f0c423be2b1c59cde110f589290f1ddc6904ab5d2e3fe7906",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-2c28989abef6462e81727254ffc74ee2/events.jsonl": "8f579dd5f8ab69c36997d8e03f7003c7597950b266434c46408237058bfdc4fa",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-3353462add734c828c7fefa8369daca8/events.jsonl": "cca2b0e919f27880cba1d9734a44d960e2ee0e0a9eb2e80fd3457a0c3d3605d2",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-4119fd57f86f455c9c583728eefcfc62/events.jsonl": "046a58fe0f592f7da3c7af830dc2972cebd75a3deb159be16c5f67d018c97f6e",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-4d17424383144257b03055a434b92328/events.jsonl": "ab20d1072e3cbb997593e7c5193fbb5dbc83ce2384cea568f04ba1717b96f328",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-51bdd4fa3e864e56be41e929667cc8ec/events.jsonl": "b6c3c38e3efe3ab6c25059671b9ff11bae1f7d024f5b1a454ae1ea18962da6b5",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-6232ce25952443ba8d4ce98605c50aa3/events.jsonl": "b6f30aa2388edb613aba183f4d2e75a72ffab0dfb81d6043aed884bc259ca67b",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-82265897b04f416e8aebddbe567afb03/events.jsonl": "3332676567aee6319b748f1ca2878e29a66fa2eff6a7b2b26e1b13fca8c4765e",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-870729ef0ca54bd2b04ffca2a38d4d80/events.jsonl": "8f0d1af946db49531357e0ea01c74d9455296288f1fe4bbb362485ce41637afb",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-8c857773f4fd4a3e826095031b7f2267/events.jsonl": "9bed9be91efb87f1642eeeadf707d311f0085538b60775b012f22619d8200cb7",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-9338518e128d4013bcdf08eb2d7c1897/events.jsonl": "2b0c1ab5855d744fa84a687ec0fe0ac5ab7e4ebb3ab5cc9943728f11f5cf2eee",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-ae0fb0d926324a38a550bf9dc8db56c1/events.jsonl": "5b08dc5f8b0b1a79367ebc241ef60ed8b1692d9bc5717da2ef7a540c916b1b89",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-c9ec0637b8a34dfc83eb5b7f178ad99d/events.jsonl": "4366ba49c64613cf5b78221c88ba469875a7a221f9bec88bda7a378c3e466118",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/executor_calls/call-d9192c97740f4b069b281fa2620b41e5/events.jsonl": "837c83087b8fccbb4be773a7f7c4395b802bc511b535082b0061bbfbcd715979",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/execution/failure.json": "60eb6618ffa2ca281ced2faed909fd0dd99d93ff0482988549591013cc888e1d",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/execution/container/0390-hash_file_receipt.json": "ba7e0958a5dd5b778fd5215bbaf40f984cf5841580f7ea2ed94d73a0594a19d3",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/public/task.json": "ce7a3fe790cc447b0edd225763cef3c2be2405aa3539dcb38cc50f3160df4e63",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp/public/assets/assets/task.md": "d716cfa74056e21574bdbcdd377b5456d8242bf9db8ab4e84110329d5fd1f021",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-004-idea/idea/executor_calls/call-650e4c9a36154a6b826ce8f8ae3d0674/events.jsonl": "7ac3d03948ab90adafc94cfa5263203669b370fc29a0023ca3a765f6738c274e",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-004-idea/idea/executor_calls/call-ac1718a9333b4ee2b922e9d4cc778b9b/events.jsonl": "eee6b428696add103f9871ef6890f063261142f727ff2bd6d869ddb56082eb92",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-004-idea/idea/executor_calls/call-b3d8cec0b87846bab67c68bcce096a21/events.jsonl": "8d761c9e370ca3943eecd9bfbbabf38e68898df00725e827dc49ae1e9c489e2d",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-004-idea/idea/judge_calls/native-943d7107002d4e489839e799d0b6db3d/events.jsonl": "f62dc93c823b78bcf1958e206fcb88115ccbe7e36dee48a046f98ec902e15a12",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-004-idea/idea/execution/submission.json": "3670cd8364b622de19fe3a0c7d163ae7f7504102b16461d50889b0901821387c",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-004-idea/idea/judge/result.json": "97bc1e1a27c16b9be73532b864da8eb40b560fa6570446d79ba75f1b3224580a",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/idea/executor_calls/call-14beec70237445c2bba92b4a531c6bd9/events.jsonl": "68066db92ddf3447ee4db8e4b4a905b85d41d1861ff9cfbda34810a87a672e6c",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/idea/executor_calls/call-60e943994d994da1ab0f4f4ee7b66cad/events.jsonl": "e4bb5981ed5998cb2f1c6b823e27a391d410a5325e02b84ae6e29ccd6ba263d7",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/idea/executor_calls/call-93e401bf5ae94e3d99aa243c70e4349f/events.jsonl": "a14cca0282b6b5c528337505b54a63c7d0afb09d84e68ab46caaa3d1c379159e",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/idea/executor_calls/call-c2bfe451a6bb418eb55aa00522c0b9c5/events.jsonl": "bdf815262a016aed86ce39697f25694305ac56e4c3203e8c8fc915a4f80420f4",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/idea/executor_calls/call-eaeddbe52ef044cb95af2596a91359af/events.jsonl": "dca2dfa5d7ab337844f972dbd0b0257f6ab33449e49647c1f3f204f0dbcfe433",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-003-idea/idea/executor_calls/call-306f504ea6e54642b6dbaadc0d771ee7/events.jsonl": "85b5b30cfa3f5bdd8081ac19967d4ee7621181a5271e5227f8f9d1128b768a68",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-003-idea/idea/executor_calls/call-65902ff6e39046ffbe2a027d6278b38b/events.jsonl": "9240c7918f67898abcfa4164db5133ccc749e781a3116bac9a65013c93f22402",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-003-idea/idea/executor_calls/call-854b60f7c8db452b9d01b79fb50798f1/events.jsonl": "ffe8a5f758db0123f7f25514f796df6e2a4d9151b7c05a8e9ffa2bc9d6659dd4",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-003-idea/idea/executor_calls/call-9888665bc534498b8198273e29d1eae4/events.jsonl": "c2e4512f4d750e873a8e964ff2adaef10200ce03a116ad474fbbab8448ed579d",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-002/integration_summary.json": "2fc701cb872b77876afd4635de8b34dac2314034fce3c5e1976d6ba23890d276",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-003-idea/integration_summary.json": "ead1dd2c8b8ecd43d3fd5c2022fdb2d79095282468bf5dfa60d44d9bef14d3ae",
+  "D:/mrhbench-local-pilot/claude-integration-20260924-004-idea/integration_summary.json": "1c702144c7681334fd05aa32e7a35252834495b26cab50216173d2ff2d5cb172",
+  "D:/mrhbench-local-pilot/h0-claude-frozen-v3/harness.py": "619dc7240d7d0437e6f449319adcf710e2c13ffa2220bb45e5f06e343309b181",
+  "research/benchmark/runtime/interface_container_v4.json": "7e2257bd478992b352866fa6702d0ce81f9a3695666c79fedd95052dc6df521f",
+  "research/benchmark/audit/h0_claude_v3_platform_v4b_recheck_v1.json": "d21d595803cf03c524953a51abf66b2b005b5b2ab394c8bf97d44a7677487e98",
+  "research/benchmark/mrhbench/native_judge.py": "69d32362eed02336bd5117c38a31fb43d3299f4f60c4eb07e0df72847764ffeb"
+ },
+ "tasks": {
+  "WRITE_CONTENT": {
+   "run": "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-content",
+   "execution": {
+    "budget": "model 4 / tool 60 / 600 s; used model 3, tool 4, 77.6 s",
+    "sequence": "asset.read(task) -> act#1 write_file exposition (call 239) -> act#2 read_file back (240) -> finalize (241) -> harness notes write. Stop reason model_calls_reserved_for_finalisation.",
+    "failures": [],
+    "provider_refusals": 0,
+    "classification": "No platform/transport failure. Early stop is H0 design (finalize + repair reserve) under a 4-call package budget; executor read the file back but did not measure length although cpu_python_execution was granted (genuine agent choice).",
+    "artifacts_real": true,
+    "content_check": "Exposition matches fixed facts C1-C6 (population covariance, strict ordering, alpha_d, two-way KL, positive variance, gamma/beta vs projected moments, UTKFace D=2048 K=100). Word count is convention-dependent: 706 whitespace tokens, 680 without headings, 621 without bracketed citations, 552 alphabetic words; the 650 limit is exceeded only under inclusive counting. Minor: acronym expansion not in inputs; regressor decomposition cited to C3 though stated in the C2 paragraph.",
+    "submission_status": "partial (spurious V3-5 'model_client' omission + early-stop omission)"
+   },
+   "judge": {
+    "v3_1": "In-stream judgment 4/3/4/4, rejected by controller validator (missing failure_reason): judge schema/validator mismatch, platform-attributed; preserved, not scored.",
+    "v3_3": "Re-judge 3.75 (fidelity 4, completeness 3, comprehensibility 4, traceability 4). Read task, submission, both artifacts, public reference, full private reference, contract check, inventory. Grades consistent with anchors and identical to the v3.1 candidate dimension scores.",
+    "issues": [
+     "Length check marked 'fail' from a hand count (~690); count is tokenization-dependent (621 excluding citations). Uncertainty is disclosed, but the check verdict and feedback assert 'likely over the limit'; completeness 3 defensible, fail verdict somewhat overconfident.",
+     "No invented defects. Feedback root-cause (model-call reservation left no count-and-trim pass) correct and framed as hypothesis; no platform limitation blamed on the builder."
+    ],
+    "leakage": "Feedback refs only public receipts (task, submission, artifact-1, reference-0 = public task asset). None observed.",
+    "tool_audit": "development_admissible; only 2 MCP evidence tools + StructuredOutput"
+   },
+   "verdict": "measurement_valid_with_caveats",
+   "attribution": "Score reflects executor writing quality under H0's tight finalize reserve; the single deduction (length) partly reflects a counting-convention ambiguity. v3.1 failure is platform."
+  },
+  "IDEA": {
+   "run": "D:/mrhbench-local-pilot/claude-integration-20260924-004-idea/idea",
+   "execution": {
+    "budget": "model 6 / tool 60 / 600 s; used model 3, tool 3, 101 s",
+    "sequence": "asset.read setting, asset.read background-report -> act#1 record_note (plan) -> act#2 finish -> final structured proposal (call 298; provider_structured_output with schema_key_aliases).",
+    "failures": [],
+    "classification": "Clean run. Executor chose to finish after one note; 3 of 6 model calls unused (agent choice: no draft/self-review pass).",
+    "artifacts_real": true,
+    "content_check": "Proposal HRSA (head-relevance-weighted source-summary alignment), 7 hypotheses incl. mechanism ablations and a label-shift failure condition. Defects: garbled loss argument 'N(mu_s^T v_j... projected source mean, sigma_j^2)'; KL direction unjustified. The idea is close to the hidden SSA target; per rubric neither rewarded nor penalised, and memory contamination cannot be excluded.",
+    "submission_status": "completed (spurious V3-5 omissions only)"
+   },
+   "judge": {
+    "score": "3.8 (grounding 4, difference 4, specificity 3, feasibility 4, hypotheses 4)",
+    "evidence_read": "task (full), setting, background report (full), private evaluation reference, full submission (3 pages), contract check, notes artifact.",
+    "issues": [
+     "Specificity 3 correctly catches the garbled loss and unspecified BN normalization mode (verified in submission).",
+     "Difference 4 while calling the contribution 'incremental' sits at the lenient edge of anchor 4 but is within 'no material unresolved deficiency'.",
+     "No invented defects; no demand for implementation; novelty bounded to the report."
+    ],
+    "leakage": "Private evaluation nuance (Tent / probabilistic regressor) appears only in internal rationale; feedback cites only the submission receipt. None observed.",
+    "tool_audit": "development_admissible"
+   },
+   "earlier_attempts": {
+    "claude-integration-20260924-002/idea": "Platform-attributed: final calls 247/248 rejected by provider API 400 (output-schema property key pattern/length > 64), 0 tokens; H0 submitted partial and mislabelled the provider error as 'timeout' (keyword classification); judge v3.1 output then failed validator ('Issue must name actual affected dimensions'). Not an agent result.",
+    "claude-integration-20260924-003-idea": "Platform-attributed: text-JSON fallback; final calls 292/293 produced output but local parse failed ('Extra data'); the partial submission was scored 1.0. Must not be used as agent evidence."
+   },
+   "verdict": "measurement_valid_with_caveats",
+   "attribution": "Agent/H0 result on the third attempt after two platform failures; single run."
+  },
+  "LIT": {
+   "run": "D:/mrhbench-local-pilot/claude-integration-20260924-002/lit",
+   "execution": {
+    "budget": "model 12 / tool 120 / 600 s; used model 11, tool 10, 133 s",
+    "sequence": "asset.read setting -> search -> read CAFe abstract -> CAFe p3 -> CAFe p4 -> view_observation O1 -> view_observation O2 -> read 2101.10842 abstract -> search -> 2101.10842 p3 -> Tent abstract -> final (call 260).",
+    "failures": [],
+    "provider_refusals": 0,
+    "classification": "No platform failure. Two model calls spent re-viewing O1/O2. Model-call-bound (one tool per model call; 110 tool calls unused).",
+    "key_finding": "NEW H0 DEFECT (not in V3-2..V3-8): context_block shows only CONFIG['recent_full_obs']=4 raw observations, including at finalization. The final request (21,817 chars, far below the 180k V3-2 cap) contained only O6-O9; the setting asset (O1) and CAFe pp.3-4 (O4/O5) were read but invisible when writing, so the submission says they were 'not available here'. The executor never used record_note to carry findings forward.",
+    "artifacts_real": true,
+    "content_check": "Claims accurate relative to what the final call saw; 3 documents informed content (2 abstract-only); positioning explicitly not checked against the setting."
+   },
+   "judge": {
+    "score": "1.75 (factual 3, coverage 1, synthesis 1, gap 2)",
+    "evidence_read": "task, setting (public), private evaluation, full submission, inventory, platform-events p1, contract check, RPCs 4/14/19/45/50, model-action 7/53. Did not read search RPCs 9/40 or CAFe p4 (rpc 24); disclosed.",
+    "issues": [
+     "Verified from platform receipts (not assumed) that setting and CAFe p3 were delivered then dropped; verified page_text_hash and the Tent 'MNIST and SVHN' wording (confirmed against rpc-00050 by this reviewer).",
+     "Coverage 1 / synthesis 1 match anchors for 3 documents and no setting-driven comparison.",
+     "Root cause given as hypothesis ('final writing step may not have been given earlier tool results'); this is a harness property, so builder-directed feedback is appropriate and no platform limitation is misattributed.",
+     "No invented defects found."
+    ],
+    "leakage": "Feedback refs are the public setting asset, the solver's own RPCs and submission; the private Tent-p3 nuance stays in internal uncertainty. None observed.",
+    "tool_audit": "development_admissible (17 observed / 16 server calls)"
+   },
+   "verdict": "measurement_valid_with_caveats",
+   "attribution": "Low score attributable to the harness under test (H0 context policy + finalize reserve) and executor choices (no notes, abstract-level reading). A legitimate harness measurement, unlike v1's 0.5 (provider refusal)."
+  },
+  "WRITE_EVIDENCE": {
+   "run": "D:/mrhbench-local-pilot/claude-integration-20260924-002/ssa-write-evidence",
+   "execution": {
+    "budget": "model 12 / tool 60 / 600 s; used model 11, tool 15, 344 s",
+    "sequence": "3x asset.read -> write script -> run (rc1 'missing input: table4_utkface.csv') -> rewrite -> run (rc1) -> write diag_paths.py -> run (walked /work and cwd only) -> view_observation O2 -> rewrite with CSV embedded + sha256 check -> run rc0 -> read script -> final; H0 hash helper.",
+    "failures": [
+     {
+      "what": "R1, R2 could not find the input CSV; R3 diagnostic searched /work only",
+      "classification": "NEW H0 DEFECT (layout): interface v4 cpu_layout says public assets are at /inputs/public/<asset_manifest.path>; H0 never conveys this to the executor. Container receipts show /inputs/public/assets/assets/table4_utkface.csv existed. Not platform. Cost 4 model calls."
+     }
+    ],
+    "provider_refusals": 0,
+    "artifacts_real": true,
+    "content_check": "Embedded CSV text is byte-identical to the published CSV (sha256 209ecee2...). Heatmap has all 140 cells with correct values, correct best-non-Oracle boxes incl. ties, Oracle separated. Defects: caption states 'FR = 0.946 and RSD = 0.941 exceed SSA = 0.943' (false for RSD; required Pixelate constraint); manifest cells link only to CSV row/col and figure position, no S4.T4.* locators although input-002 supplied them; generator embeds data instead of loading the supplied file and falsely states 'The container does not mount the input assets' (consequence of the H0 layout defect); figure never viewed by the executor (budget consumed by path failures). TwoSlopeNorm gives 0..1 the same colourbar span as -4.5..0; caption does not say the halves are differently scaled.",
+    "submission_status": "partial"
+   },
+   "judge": {
+    "v3_1": "Candidate 3/3/3/3 with the same two main findings; held at awaiting_image_delivery_review because exact image bytes were not found in the stream (CLI downscale). Correctly not released.",
+    "v3_3": "3.0 (3/3/3/3). Downscale verified faithful (2550x1080 -> 2000x847, PSNR 79.7 dB vs Lanczos reference). Full-resolution tiles artifact-7-tile-r0c0/r0c1 were available but NOT read; judge disclosed it inspected pixels at delivered size.",
+    "image_assessment": "3.0 is defensible. At the same 2000x847 rendering all 140 values, labels, bold/boxes, the dashed separator and colourbar ticks are legible to this reviewer; the scored visual findings (legibility, box correctness, separator overlapping SSA box edges) do not need detail below 2000 px. The decisive deductions (caption comparison error, missing per-cell locators) are textual. Visual claims depending on sub-2000px detail: none identified. 'All 140 cells match' rests on ~9 px glyphs at delivered scale; plausible, and values are independently verifiable from code/manifest, but a tile read would have made it exact.",
+    "issues": [
+     "Did not flag that the generator embeds data instead of loading the supplied file (task: 'must load supplied data') nor the false 'container does not mount inputs' statement; traceability 3 mildly lenient.",
+     "Read 4,000 of 40,367 manifest chars and inferred the rest from generator code; inference verified correct by this reviewer (no S4.T4 locator anywhere in the manifest).",
+     "No invented defects; no platform limitation blamed on the builder."
+    ],
+    "leakage": "Feedback refs: public task asset, public CSV, public manifest, submission, artifacts. None observed.",
+    "tool_audit": "development_admissible"
+   },
+   "verdict": "measurement_valid_with_caveats",
+   "attribution": "Score reflects real agent errors (caption comparison, provenance manifest) plus an H0 defect (asset layout not relayed) that consumed budget and prevented visual self-review. Image downscale is a judge-delivery caveat, not decisive for this run."
+  },
+  "EXP": {
+   "run": "D:/mrhbench-local-pilot/claude-integration-20260924-002/iv-exp",
+   "execution": {
+    "budget": "model 16 / tool 120 / 1200 s; used model 14, tool 16 before collection",
+    "sequence": "3x asset.read -> write experiment.py -> run (rc1: base_resources.py not found) -> write base_resources.py copied verbatim from asset text (sha c720367a..., identical to input-001) -> run rc0 (29 s, 120 trajectories) -> read report -> view_observation -> write+run validate_outputs.py (one error: conclusions missing) -> read experiment.py -> write+run add_conclusions.py -> finish -> final (call 287) -> H0 notes/hash helper. Harness returned normally.",
+    "failures": [
+     {
+      "what": "R1 base_resources.py not found",
+      "classification": "same NEW H0 layout defect; agent recovered with a byte-identical copy of the published starter."
+     },
+     {
+      "what": "ArtifactHashError byte_limit_exceeded on /work/replicate_results.jsonl during controller collection (remaining 134,182,997 B of published artifact_collection.max_total_bytes 134,217,728 B)",
+      "classification": "see quota_attribution"
+     }
+    ],
+    "provider_refusals": 0,
+    "artifacts_real": "Yes as far as observable: experiment ran in-container (29 s), validation/conclusion scripts ran; stdout reports H1 72/72 in-bound converged to 1e-6, H2 monotone rate dependence and 48/48 beyond-bound divergence, H3 converged error equal to 2SLS error within 4e-14. Files were never collected, so no independent recheck is possible.",
+    "design_note": "Executor ran every trajectory to 20000 iterations without early stop although median first-hit was 263-762 iterations, and retained every iterate (as the task requires) for 120 trajectories; this pushed replicate_results.jsonl above 128 MiB."
+   },
+   "quota_attribution": {
+    "facts": [
+     "The 128 MiB cap exists only in TaskView resources.artifact_collection; task.md never states it. The prompt's input contract lists cpus 2, memory 2048, disk_mb 1024, wall 1200 but not the cap (the executor copied exactly these into config.resource_budget), so it plausibly believed ~800 MiB of /work tmpfs was usable.",
+     "H0 renders 'RESOURCE LIMITS: {}' and 'CONSTRAINTS: {}' (V3-7): the harness had the cap in its TaskView; the executor never saw it."
+    ],
+    "conclusion": "Attributable to the harness under test, not the platform: primarily H0 V3-7 (published resource not relayed), proximately a genuine executor design choice (full 20000-iteration retention, no early stop) made without visibility of the cap. Not attributable to the executor alone. Secondary material issue: the package prose mandates per-iteration retention but omits the collection cap."
+   },
+   "controller_handling": {
+    "observed": "Stage failed; no judge; failure.json preserves RPCs, executed entrypoints and platform log with hashes; artifact_status unknown_uncollected_or_incomplete; automatic_zero false; attribution pending_evidence_review; no retry; container removed.",
+    "vs_T06": "Matches T06 as written: failure preserved, not silently dropped, not auto-zero, attribution left for review, no automatic retry.",
+    "gaps": [
+     "Collection aborted at the first oversize file in path order; later small files (report.json, trajectory_summaries.json, validation.json, validate_outputs.py) were never hashed/collected, so no judgeable evidence exists although the report itself was within quota.",
+     "No pre-registered fixed rule for a harness-caused collection-quota violation (7.5 says hard-budget violations follow fixed platform rules); the current rule yields no measurement rather than a scored violation. Needs a decision before formal runs."
+    ]
+   },
+   "judge": "not run (correct under the current rule)",
+   "verdict": "not_a_valid_measurement",
+   "attribution": "Harness-attributable resource-quota violation (H0 V3-7 + executor design), not platform. Record in the failure ledger as a harness failure event, not as a scientific score and not as a platform failure."
+  }
+ },
+ "cross_task_open_issues": [
+  {
+   "id": "H0-NEW-A asset layout",
+   "type": "H0 defect (builder property; maintainers must not repair)",
+   "detail": "Interface v4 cpu_layout (/inputs/public/<asset_manifest.path>) never conveyed to executor; 4 wasted calls in WE, 2 in EXP, false provenance statement and embedded data in WE."
+  },
+  {
+   "id": "H0-NEW-B recent-4 context",
+   "type": "H0 defect",
+   "detail": "Only the last 4 raw observations are shown (also at finalization); earlier reads incl. the task setting are lost unless notes are recorded. Decisive for LIT; distinct from V3-2 (180k tail truncation)."
+  },
+  {
+   "id": "V3-7",
+   "type": "H0 defect (known)",
+   "detail": "Resources/constraints never shown; decisive for the EXP quota failure."
+  },
+  {
+   "id": "V3-5",
+   "type": "H0 defect (known)",
+   "detail": "Spurious omissions made WC/LIT/WE 'partial'; the WC v3.1 judge cited the partial status. Low score impact but contaminates status."
+  },
+  {
+   "id": "H0 keyword error classification",
+   "type": "H0 fragility (known)",
+   "detail": "Provider 400 in IDEA -002 recorded as 'timeout'."
+  },
+  {
+   "id": "one action per model call",
+   "type": "H0 design",
+   "detail": "All runs model-call-bound; 5-27% of tool budgets used. Legitimate harness property; makes small package model budgets (4/6) dominant."
+  },
+  {
+   "id": "judge schema/validator drift",
+   "type": "platform (fixed in v3.3)",
+   "detail": "v3.1 WC and IDEA-002 judgments rejected by validator. v3.1 candidate and v3.3 dimension scores agree for WC and WE."
+  },
+  {
+   "id": "provider schema constraints",
+   "type": "platform (addressed)",
+   "detail": "Keys >64 chars rejected (IDEA-002); text-JSON fallback parse failures (IDEA-003). IDEA-004 succeeded with provider_structured_output + schema_key_aliases."
+  },
+  {
+   "id": "image delivery downscale",
+   "type": "platform/judge caveat",
+   "detail": "CLI downscales >2000 px images; v3.3 verifies faithful downscale and offers tiles, but the judge did not read tiles. Not decisive here; would be for dense figures."
+  },
+  {
+   "id": "collection-quota policy",
+   "type": "platform rule gap",
+   "detail": "No fixed rule for harness-caused quota overflow; abort-at-first-oversize loses in-quota evidence."
+  },
+  {
+   "id": "judge coverage/stability",
+   "type": "judge caveat",
+   "detail": "Judges read subsets of platform traces (disclosed). No invented defects or leakage found in the 5 scored judgments, but each is a single run; stability not established (T03 open)."
+  }
+ ],
+ "summary_scores_recorded": {
+  "WRITE_CONTENT": "3.75 (v3.3)",
+  "IDEA": "3.8 (-004)",
+  "LIT": "1.75",
+  "WRITE_EVIDENCE": "3.0 (v3.3)",
+  "EXP": "none (stage_failed)"
+ },
+ "recommendations": [
+  "Treat WC 3.75, IDEA 3.8, LIT 1.75, WE 3.0 as development H0-v3 measurements with the caveats above; do not use IDEA -002/-003 outcomes or v3.1 WC/IDEA-002 judge outcomes as agent evidence.",
+  "Add H0-NEW-A and H0-NEW-B to the H0 v3 defect register (recorded, not repaired); with V3-7 they are the main levers an evolver should discover from public feedback.",
+  "EXP: log as harness-attributable quota violation; before formal runs have the user fix a pre-registered rule (e.g., skip-and-record oversize files, collect remaining in-quota files, judge with a violation flag or fixed resource penalty) instead of whole-stage abort.",
+  "Materials: state the collection cap (and that /work tmpfs exceeds it) in task prose / input-contract resources for packages that mandate large per-iteration outputs (IV EXP especially).",
+  "Judge v3.3: require reading full-resolution tiles when image_delivery_downscaled is present, at least for legibility or 'all values match' claims; give WRITE_CONTENT an explicit word-count convention or a controller-computed count as evidence.",
+  "T03 remains open: these are single judge runs; they show plausible evidence-grounded grading and no observed leakage, not reliability."
+ ],
+ "limitations": [
+  "Transcripts read via summarising scripts plus targeted full reads; judge thinking blocks were empty/redacted and not assessable.",
+  "No container re-execution; EXP numeric claims rest on in-run stdout only, and EXP artifacts were never collected.",
+  "Private reference contents were read only as delivered in judge receipts; their correctness was not re-audited.",
+  "Image assessment done at the same 2000x847 delivered scale, not full resolution.",
+  "Single run per package; no variance estimate; development evidence only."
+ ]
+}
