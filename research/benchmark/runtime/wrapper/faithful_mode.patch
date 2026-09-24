@@ -1,9 +1,9 @@
 diff --git a/src/faithful_api.py b/src/faithful_api.py
 new file mode 100644
-index 0000000..13ee6b8
+index 0000000..f96ca7f
 --- /dev/null
 +++ b/src/faithful_api.py
-@@ -0,0 +1,192 @@
+@@ -0,0 +1,256 @@
 +"""Faithful OpenAI-chat-completions mode (mrhbench patch; enabled with WRAPPER_FAITHFUL_API=1).
 +
 +Upstream behaviour (kept when the flag is unset) runs a Claude Code agent: the client's
@@ -23,6 +23,9 @@ index 0000000..13ee6b8
 +from __future__ import annotations
 +
 +import base64
++import datetime
++import shutil
++from pathlib import Path
 +import logging
 +import json
 +import os
@@ -49,7 +52,8 @@ index 0000000..13ee6b8
 +    "CLAUDE_CODE_DISABLE_BACKGROUND_TASKS", "CLAUDE_CODE_DISABLE_BUNDLED_SKILLS", "CLAUDE_CODE_DISABLE_CLAUDE_API_SKILL",
 +    "CLAUDE_CODE_DISABLE_CLAUDE_CODE_SKILL", "CLAUDE_CODE_DISABLE_POLICY_SKILLS", "CLAUDE_CODE_DISABLE_ORG_MEMORY",
 +    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS", "CLAUDE_CODE_DISABLE_FILE_CHECKPOINTING", "CLAUDE_CODE_DISABLE_WORKFLOWS",
-+    "CLAUDE_CODE_DISABLE_CRON", "DISABLE_TELEMETRY", "DISABLE_ERROR_REPORTING", "DISABLE_AUTOUPDATER")}
++    "CLAUDE_CODE_DISABLE_CRON", "DISABLE_TELEMETRY", "DISABLE_ERROR_REPORTING", "DISABLE_AUTOUPDATER",
++    "CLAUDE_CODE_HIDE_CWD")}
 +DATA_URL = re.compile(r"^data:(image/(?:png|jpeg|gif|webp));base64,([A-Za-z0-9+/=]+)$")
 +
 +
@@ -84,6 +88,55 @@ index 0000000..13ee6b8
 +    yield {"type": "user", "message": {"role": "user", "content": blocks}, "parent_tool_use_id": None, "session_id": session_id}
 +
 +
++def _cli_env():
++    env = dict(CLI_ENV)
++    # Opt-in audit hook: route the CLI through a local body-capture proxy to record exact API requests.
++    capture = os.environ.get("WRAPPER_CAPTURE_BASE_URL")
++    if capture and capture.startswith("http://127.0.0.1:"):
++        env["ANTHROPIC_BASE_URL"] = capture
++    return env
++
++
++def _project_dir(workdir):
++    return Path.home() / ".claude" / "projects" / re.sub(r"[^a-zA-Z0-9]", "-", str(Path(workdir).resolve()))
++
++
++def _write_history(history, workdir, session_id, model):
++    """A minimal CLI transcript holding the earlier turns, for --resume; removed after the call."""
++    project = _project_dir(workdir)
++    project.mkdir(parents=True, exist_ok=False)
++    stamp = datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z")
++    common = {"cwd": str(Path(workdir).resolve()), "sessionId": session_id, "version": "2.1.281", "userType": "external",
++              "isSidechain": False, "timestamp": stamp}
++    rows, parent = [], None
++    for role, blocks in history:
++        entry_id = str(uuid.uuid4())
++        if role == "user":
++            message = {"role": "user", "content": blocks}
++        else:
++            message = {"id": "msg_history_" + uuid.uuid4().hex[:16], "type": "message", "role": "assistant", "model": model,
++                       "content": blocks, "stop_reason": "end_turn", "stop_sequence": None, "usage": {"input_tokens": 0, "output_tokens": 0}}
++        rows.append({**common, "type": role, "uuid": entry_id, "parentUuid": parent, "message": message})
++        parent = entry_id
++    path = project / (session_id + ".jsonl")
++    path.write_text("".join(json.dumps(r) + "\n" for r in rows), encoding="utf8")
++    return path
++
++
++def _cleanup(transcript, workdir):
++    try:
++        if transcript is not None:
++            project = transcript.parent
++            for item in project.iterdir():
++                if item.is_file() and item.suffix == ".jsonl":
++                    item.unlink()
++            if not any(project.iterdir()):
++                project.rmdir()
++        shutil.rmtree(workdir, ignore_errors=True)
++    except OSError as exc:
++        logger.error("faithful cleanup failed: %s", exc)
++
++
 +async def chat_completion(body: Dict[str, Any]) -> JSONResponse:
 +    extra = set(body) - SUPPORTED_KEYS
 +    if extra:
@@ -97,10 +150,10 @@ index 0000000..13ee6b8
 +        return _error(400, "messages must be a non-empty list", "invalid_messages")
 +    system = [m for m in messages if m.get("role") == "system"]
 +    rest = [m for m in messages if m.get("role") != "system"]
-+    if len(system) > 1 or (system and messages[0].get("role") != "system") or len(rest) != 1 or rest[0].get("role") != "user":
-+        # A CLI session cannot receive prior assistant turns as real assistant messages;
-+        # flattening them into text would not be an API-equivalent conversation.
-+        return _error(400, "faithful mode supports [system?, user] only (one user turn)", "unsupported_messages")
++    if len(system) > 1 or (system and messages[0].get("role") != "system"):
++        return _error(400, "faithful mode supports at most one system message, first", "unsupported_messages")
++    if not rest or rest[-1].get("role") != "user" or any(m.get("role") not in ("user", "assistant") for m in rest):
++        return _error(400, "messages after the system message must be user/assistant turns ending with a user turn", "unsupported_messages")
 +    try:
 +        system_text = ""
 +        if system:
@@ -108,7 +161,15 @@ index 0000000..13ee6b8
 +            if any(b["type"] != "text" for b in blocks):
 +                raise ValueError("system message must be text")
 +            system_text = "\n".join(b["text"] for b in blocks)
-+        user_blocks = _content_blocks(rest[0].get("content"))
++        # Earlier turns become a real role-separated history via the CLI's own --resume of a
++        # transcript (observed: the stream-json input path reorders and merges turns).
++        history = []
++        for m in rest[:-1]:
++            blocks = _content_blocks(m.get("content"))
++            if m["role"] == "assistant" and any(b["type"] != "text" for b in blocks):
++                raise ValueError("assistant history turns must be text")
++            history.append((m["role"], blocks))
++        user_blocks = _content_blocks(rest[-1].get("content"))
 +    except (ValueError, TypeError) as exc:
 +        return _error(400, str(exc), "invalid_content")
 +    schema = None
@@ -124,12 +185,13 @@ index 0000000..13ee6b8
 +        return _error(400, "reasoning_effort must be one of " + ", ".join(sorted(EFFORTS)), "unsupported_parameter")
 +    workdir = tempfile.mkdtemp(prefix="wrapper-faithful-")
 +    session_id = str(uuid.uuid4())
++    transcript = _write_history(history, workdir, session_id, body.get("model")) if history else None
 +    options = ClaudeAgentOptions(
 +        model=body.get("model"), cwd=workdir, tools=[], setting_sources=[], system_prompt=system_text,
 +        max_turns=3 if schema is not None else 1,
 +        output_format={"type": "json_schema", "schema": schema} if schema is not None else None,
 +        extra_args={"strict-mcp-config": None, "disable-slash-commands": None, "no-session-persistence": None},
-+        effort=effort, env=dict(CLI_ENV),
++        effort=effort, env=_cli_env(), resume=session_id if transcript else None,
 +    )
 +    only_text = all(b["type"] == "text" for b in user_blocks) and len(user_blocks) == 1
 +    prompt = user_blocks[0]["text"] if only_text else _user_stream(user_blocks, session_id)
@@ -151,6 +213,8 @@ index 0000000..13ee6b8
 +        # result (e.g. a safeguard refusal) is a model outcome handled below, not a crash.
 +        if not (type(exc).__name__ == "ResultError" and result is not None):
 +            return _error(502, "claude CLI failure: %s" % type(exc).__name__, "upstream_failure")
++    finally:
++        _cleanup(transcript, workdir)
 +    if result is None:
 +        return _error(502, "no result from claude CLI", "upstream_failure")
 +    declared = (init or {}).get("tools") or []

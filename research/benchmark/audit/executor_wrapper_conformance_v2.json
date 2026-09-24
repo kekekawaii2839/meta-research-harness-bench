@@ -1,0 +1,45 @@
+{
+  "schema_version": "executor-wrapper-conformance-2",
+  "created_at": "2026-09-24",
+  "supersedes_parts_of": "audit/executor_wrapper_conformance_v1.json (kept unchanged as history)",
+  "method": "A local pass-through proxy (D:/mrhbench-local-pilot/proxy/capture/body_capture_proxy.py) placed between the Claude CLI and api.anthropic.com via ANTHROPIC_BASE_URL recorded request BODIES only; auth headers were neither logged nor stored. Captures stay on D: because they contain the account email and account/device IDs.",
+  "exact_cli_additions_to_every_request": {
+    "system_blocks_before_client_system": [
+      "x-anthropic-billing-header: cc_version=2.1.281.979; cc_entrypoint=sdk-py;",
+      "You are a Claude agent, built on Anthropic's Claude Agent SDK."
+    ],
+    "client_system_message": "sent unchanged as the third system block",
+    "system_reminder_prepended_to_latest_user_turn": "<system-reminder>\nAs you answer the user's questions, you can use the following context:\n# userEmail\nThe user's email address is <REDACTED account email>. Use it only to identify the user, such as for authorship, attribution, or filtering their own work. Never send it to an unrelated service, such as in a request header, URL, or payload, unless the user explicitly asks.\n\nIMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.\n</system-reminder>",
+    "trailing_system_message": "# Environment\nYou have been invoked in the following environment: \n - Primary working directory: <temp dir>\n - Is a git repository: false\n - Platform: win32\n - Shell: PowerShell\n - OS Version: Windows 11 Pro 10.0.26200\n\nYou are powered by the model named Opus 5.5. The exact model ID is claude-opus-5-5. Assistant knowledge cutoff is June 2026.\n\nToday's date is 2026-09-24.",
+    "request_fields": {"model": "claude-opus-5-5", "max_tokens": 128000, "thinking": {"type": "adaptive"}, "output_config": {"effort": "medium"}, "tools": [], "stream": true,
+                       "metadata.user_id": "<REDACTED: JSON with device_id, account_uuid, session_id>"},
+    "controls_found": {
+      "userEmail": "added whenever the logged-in claude.ai account has an email; the CLI code skips it only when ANTHROPIC_UNIX_SOCKET is set (a different transport, not an on/off switch). No supported switch found.",
+      "environment_block": "assembled by the CLI context builder; CLAUDE_CODE_HIDE_CWD was set and did NOT remove the working directory line. No supported switch found to drop the block.",
+      "identity_and_billing_lines": "part of the subscription (OAuth) Claude Code request; cannot be removed on the supported path."
+    },
+    "not_done_by_choice": "Rewriting the CLI's outgoing requests in the local proxy (stripping these blocks or splicing messages) would make Claude Code a tunnel for arbitrary API calls under a subscription login and likely conflicts with the subscription terms; left to the user's decision."
+  },
+  "sampling_parameters": {
+    "finding": "Not a difference from the API. For claude-opus-5-5 (and Opus 5, Opus 4.8/4.7, Sonnet 5, Fable 5/5.1) the Messages API removed temperature/top_p/top_k: they return 400. Faithful mode also returns 400.",
+    "source": "claude-api skill reference, Thinking & Effort table (model rules), consulted 2026-09-24"
+  },
+  "multi_turn": {
+    "stream_json_input_path": "NOT faithful (call 333 capture): the CLI hoisted the assistant turn before the first user turn and merged the two user turns into one message.",
+    "resume_path": "faithful (calls 335, 336 captures): earlier turns written as a CLI session transcript for a fresh temp cwd and loaded with --resume reach the API as real role-separated user/assistant messages in order; images in earlier user turns arrive as image blocks. The transcript is deleted after each call.",
+    "implemented": "faithful mode now accepts [system?] + alternating user/assistant history ending with a user turn; assistant history turns must be text.",
+    "test": {"call": 336, "request": "system + user(text+image) + assistant + user", "answer": "Blue", "served_models": ["claude-opus-5-5"], "api_requests": 1}
+  },
+  "source_availability": {
+    "claude_code_cli": "closed source: github.com/anthropics/claude-code contains docs, plugins, examples and the changelog only; LICENSE.md: 'All rights reserved'. The context assembly above lives in the closed binary.",
+    "claude_agent_sdk_python": "open source (MIT, github.com/anthropics/claude-agent-sdk-python); it only launches the bundled CLI.",
+    "claude_code_openai_wrapper": "open source (MIT); patched here."
+  },
+  "patch": {"file": "research/benchmark/runtime/wrapper/faithful_mode.patch", "adds": ["multi-turn via transcript + --resume with cleanup", "CLAUDE_CODE_HIDE_CWD in CLI env (no observed effect)", "opt-in WRAPPER_CAPTURE_BASE_URL audit hook (loopback only, off by default)"]},
+  "remaining_differences_from_the_api": [
+    "about 400 input tokens per request of CLI additions listed above (billing line, identity line, account-email reminder, environment block)",
+    "assistant history turns are text only (no replay of thinking or tool-use blocks); the executor path uses no tools",
+    "images with a long side over 2000 px are downscaled by the CLI (accepted by the user for now)"
+  ],
+  "ledger": {"calls_this_step": "333-336", "used": 336, "authorized_maximum": 368}
+}
