@@ -1,0 +1,31 @@
+{
+  "schema_version": "package-image-1",
+  "created_at": "2026-09-24",
+  "package": "maintainer_candidates_v2/gaussian-exp",
+  "decision": "User 2026-09-24: packages must not share images; Gaussian no longer reuses the IV image.",
+  "image_tag": "mrhbench-pilot/gaussian-exp-v2:2a0e5db72726",
+  "image_id": "sha256:2947d2dbc8f929dc4cbaacb685697f5bcf5089ece123d9d997b9ac98830adcd7",
+  "base": "python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
+  "platform": "linux/amd64",
+  "environment_files": {
+    "environment/Dockerfile": "c945f380a34580a865d00a220997e9b4e25944567774ef498b365ac78a1a9afc",
+    "environment/requirements.txt": "93de842bade6b2631fe1efb076b0ed04f6c6639451358a4ed4ac1c55c82e7aeb"
+  },
+  "installed": [
+    "numpy==2.3.3"
+  ],
+  "smoke": {
+    "command": "python /checks/verify_starter.py",
+    "limits": "--cpus 2 --memory 2g --pids-limit 128 --network none --read-only --user 10001 --cap-drop ALL no-new-privileges, tmpfs /tmp 100m",
+    "exit_code": 0,
+    "output": "D:\\mrhbench-local-pilot\\gaussian-image-smoke-20260924.json",
+    "output_sha256": "c127712d95afb7ac6436543cbf85510230fb830963dd40a7ac237ba4f1eab66c",
+    "result": "algebra checks pass (Eq4 finite-difference 1.8e-11..2.2e-11, Eq5 stationarity 1.2e-17); baseline original-activation rows produced"
+  },
+  "not_done": [
+    "pip wheels not hash-locked",
+    "resources not measured with a real agent run",
+    "other gates remain pending"
+  ],
+  "model_calls": 0
+}

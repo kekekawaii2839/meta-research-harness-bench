@@ -217,6 +217,12 @@
 - **多轮已修复：** stream-json输入路径不忠实（call333：assistant被提前、两条user被合并）；改用CLI自身`--resume`读取临时会话转录，历史以真实user/assistant角色按序到达API、历史中的图片为图像块，调用后删除转录（call335/336捕获核验，336答“Blue”、单请求、仅claude-opus-5-5）。faithful模式现接受[system?]+user/assistant交替历史并以user结尾；assistant历史仅文本。
 - **审计与展示：** `audit/executor_wrapper_conformance_v1.json`；给用户的说明页 https://claude.ai/artifact/RSWUk7ZumdXQMhu3CBdnvo （源文件`D:/mrhbench-local-pilot/proxy/report/executor-proxy.html`）。**用户决定（2026-09-24）：不做代理改写；该wrapper反代仅作初步实验，正式实验将由用户向导师申请官方API额度，届时executor改接官方API（wrapper结果不与官方API结果混算）。**账本337/368；capture代理已停；wrapper当前在127.0.0.1:8765运行（faithful模式），重启用`start_executor_wrapper.py`。下一步：经wrapper重跑冻结H0 v3五类集成（上限55次），此前的executor侧分数不再引用。
 
+### 0.2.16 规模与材料构造分工改定（2026-09-24，用户决定）
+
+- **规模暂定70篇论文**（小而精，质量优先；实测Claude构造+审阅+返修一轮约28–30分钟模型时间、按官方价折算约11美元/篇，另有大量未计量的维护者裁定工作）。不是冻结的正式样本量，T14仍需确认。
+- **构造须走标准pipeline：** 由固定版本prompt驱动的独立模型会话（`ClaudeNativeRunner`各角色，入账本、独立workspace、不继承本对话/AGENTS.md）完成选源、源审计、歧义裁定、构造、审阅、意见裁定与返修；controller只做确定性步骤（取源/hash/结构门/镜像构建与烟雾/泄漏检查/编译/试跑调度）。**root与用户只做最终质量验收**，不再由root亲手写scope/裁定/构造包。此前root手写的FTCT/Diffusion job scope与裁定、维护者起草的Gaussian包均记为pipeline前的手工产物。pipeline阶段设计待用户确认后实现。
+- **镜像不得跨包共用（用户确认）：** Gaussian不再复用IV镜像，已建独立镜像`mrhbench-pilot/gaussian-exp-v2:2a0e5db72726`（ID `2947d2db…`，仅numpy==2.3.3，定义在包内`environment/`），声明资源下starter验证通过，`audit/gaussian_exp_image_v1.json`；0模型调用。
+
 ### 0.3 协作与文件规则
 
 - 用户偏好逐点讨论；已有原则不反复重开，普通实现细节由agent推进，重大歧义/资源或主指标改变再询问。区分已定、候选、已实现、已验收。
