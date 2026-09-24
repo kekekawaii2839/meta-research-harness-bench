@@ -220,7 +220,7 @@
 ### 0.2.16 规模与材料构造分工改定（2026-09-24，用户决定）
 
 - **规模暂定70篇论文**（小而精，质量优先；实测Claude构造+审阅+返修一轮约28–30分钟模型时间、按官方价折算约11美元/篇，另有大量未计量的维护者裁定工作）。不是冻结的正式样本量，T14仍需确认。
-- **构造须走标准pipeline：** 由固定版本prompt驱动的独立模型会话（`ClaudeNativeRunner`各角色，入账本、独立workspace、不继承本对话/AGENTS.md）完成选源、源审计、歧义裁定、构造、审阅、意见裁定与返修；controller只做确定性步骤（取源/hash/结构门/镜像构建与烟雾/泄漏检查/编译/试跑调度）。**root与用户只做最终质量验收**，不再由root亲手写scope/裁定/构造包。此前root手写的FTCT/Diffusion job scope与裁定、维护者起草的Gaussian包均记为pipeline前的手工产物。pipeline阶段设计待用户确认后实现。
+- **构造须走标准pipeline：** 由固定版本prompt驱动的独立模型会话（`ClaudeNativeRunner`各角色，入账本、独立workspace、不继承本对话/AGENTS.md）完成选源、源审计、歧义裁定、构造、审阅、意见裁定与返修；controller只做确定性步骤（取源/hash/结构门/镜像构建与烟雾/泄漏检查/编译/试跑调度）。**root与用户只做最终质量验收**，不再由root亲手写scope/裁定/构造包。此前root手写的FTCT/Diffusion job scope与裁定、维护者起草的Gaussian包均记为pipeline前的手工产物。pipeline阶段设计已获用户确认（2026-09-24，全部按root建议）：P0候选池(controller)→P1 scout初筛(约10篇/次)→controller按固定规则选约140篇进全文→**用户看一次选中名单**→P2取源(controller)→P3源审计→P4歧义裁定(独立会话，产出构造任务单)→P5构造/P6结构门/P7审阅→P8意见裁定→P9至多1轮返修→P10运行验证+编译(controller)→P11每题试跑一次(冻结H0+executor+judge)→P12验收档案。终验：前10篇逐篇细看，之后全部被标记包+其余随机20%。裁定会话用opus-5-5/medium全新会话。实现进行中（`mrhbench/factory_*.py`、`prompts/factory/`、`run_material_factory.py`），真实运行待额度。
 - **镜像不得跨包共用（用户确认）：** Gaussian不再复用IV镜像，已建独立镜像`mrhbench-pilot/gaussian-exp-v2:2a0e5db72726`（ID `2947d2db…`，仅numpy==2.3.3，定义在包内`environment/`），声明资源下starter验证通过，`audit/gaussian_exp_image_v1.json`；0模型调用。
 
 ### 0.3 协作与文件规则
