@@ -12,7 +12,8 @@ from .judging import EvidenceSession,JUDGE_SYSTEM,validate_judgment,validate_fee
 from .rubrics import rubric
 
 VERSION='native-judge-pilot-v2.8'
-CLAUDE_VERSION='native-judge-claude-v3.3'  # v3.3: image downscale disclosure + full-resolution tiles
+CLAUDE_VERSION='native-judge-claude-v3.4'  # v3.4: WRITE_EVIDENCE names full-resolution tile records explicitly
+# v3.3  # v3.3: image downscale disclosure + full-resolution tiles
 # v3.2  # v3.2: exact inner judgment/feedback schema on the structured channel
 # v3.1  # v3.1: structured output envelope; v3.0 (free-text JSON) used for call 200-210
 COMMON='''You are the independent scientific judge in a fresh native Codex context.
@@ -221,6 +222,12 @@ For traceability, retrieve the relevant source/provenance ranges before claiming
 they all match; do not convert a partial source read into exhaustive verification.
 '''
     if transport not in {'codex','claude'}:raise ProtocolError('Unknown judge transport')
+    if transport=='claude' and task_type=='WRITE_EVIDENCE':
+        tiles=sorted(k for k in session.records if '-tile-r' in k)
+        if tiles:
+            visual_policy+=(chr(10)+'Full-resolution tiles (exact crops of oversized figures; the whole figure reaches you downscaled): '
+                            +', '.join(tiles)+'. Read the tiles before judging labels, legends, overlap, clipping or '
+                            'small text; cite the tile receipt for any such visual finding.'+chr(10))
     return (COMMON if transport=='codex' else claude_common())+lit_policy+visual_policy+'\nThe inner judgment object (not the outer envelope) follows:\n'+contract+'\n'+json.dumps(payload,ensure_ascii=False)
 
 

@@ -247,5 +247,20 @@ class KeyAliasTests(unittest.TestCase):
         self.assertEqual(restored, {long_key: {"has space": "v"}, "ok": "y"})
 
 
+class TilePromptTests(unittest.TestCase):
+    def test_claude_write_evidence_prompt_names_tiles_codex_unchanged(self):
+        import base64
+        from mrhbench.judge_runner import evidence_record
+        from mrhbench.judging import EvidenceSession
+        from mrhbench.native_judge import make_prompt
+        png = base64.b64encode(bytes([137, 80, 78, 71, 13, 10, 26, 10]) + b"0" * 20).decode()
+        records = [evidence_record("task", "task", "t"), evidence_record("artifact-1", "rendered_artifact", png, media_type="image/png"),
+                   evidence_record("artifact-1-tile-r0c0", "rendered_artifact", png, media_type="image/png")]
+        claude = make_prompt("x", "WRITE_EVIDENCE", EvidenceSession(records), transport="claude")
+        codex = make_prompt("x", "WRITE_EVIDENCE", EvidenceSession(records), transport="codex")
+        self.assertIn("artifact-1-tile-r0c0. Read the tiles", claude)
+        self.assertNotIn("Full-resolution tiles (exact crops", codex)
+
+
 if __name__ == "__main__":
     unittest.main()
