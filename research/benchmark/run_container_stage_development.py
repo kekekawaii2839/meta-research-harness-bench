@@ -48,6 +48,19 @@ def captured_artifact_records(run):
         if suffix in {'.png','.jpg','.jpeg'}:
             records.append(evidence_record('artifact-'+str(i),'rendered_artifact',base64.b64encode(data).decode(),media_type='image/png' if suffix=='.png' else 'image/jpeg'))
             entry.update(evidence_id='artifact-'+str(i),representation='encoded_image_requires_pixel_receipt')
+            from mrhbench.image_views import PROVIDER_MAX_SIDE,full_resolution_tiles,image_size
+            tiles=full_resolution_tiles(data)
+            if tiles:
+                # Controller-derived lossless crops so full-resolution detail reaches a model whose
+                # transport downscales images above PROVIDER_MAX_SIDE; the original record is unchanged.
+                entry['full_resolution_tiles']=[]
+                entry['transport_delivery_note']=f'Original {image_size(data)} exceeds {PROVIDER_MAX_SIDE}px and may be delivered downscaled; tiles are exact crops.'
+                for t in tiles:
+                    tid=f"artifact-{i}-tile-r{t['row']}c{t['col']}"
+                    records.append(evidence_record(tid,'rendered_artifact',base64.b64encode(t['png']).decode(),media_type='image/png'))
+                    entry['full_resolution_tiles'].append({'evidence_id':tid,'box_left_top_right_bottom':t['box'],'evidence_content_sha256':records[-1]['sha256']})
+                records_index=len(records)-len(tiles)-1
+                entry['evidence_content_sha256']=records[records_index]['sha256']
         elif suffix in {'.json','.jsonl','.txt','.md','.csv','.py','.svg','.tex'}:
             try: content=data.decode('utf8')
             except UnicodeDecodeError:
@@ -58,7 +71,7 @@ def captured_artifact_records(run):
                 entry.update(evidence_id='artifact-'+str(i),representation='complete_text_available_for_paging_not_proof_of_reading',
                              content_transform={'encoding':'utf-8','newline_normalization':False,'prefix':prefix})
         else:entry['representation']='captured_binary_or_unsupported_format_not_exposed_as_content'
-        if entry['evidence_id'] is not None:entry['evidence_content_sha256']=records[-1]['sha256']
+        if entry['evidence_id'] is not None and not entry.get('full_resolution_tiles'):entry['evidence_content_sha256']=records[-1]['sha256']
         entries.append(entry)
     records.append(evidence_record('captured-artifact-inventory','platform_trace',pretty({
         'files':entries,'scope':'Controller capture and representation availability, not scientific verification or judge reading coverage.',

@@ -12,7 +12,8 @@ from .judging import EvidenceSession,JUDGE_SYSTEM,validate_judgment,validate_fee
 from .rubrics import rubric
 
 VERSION='native-judge-pilot-v2.8'
-CLAUDE_VERSION='native-judge-claude-v3.2'  # v3.2: exact inner judgment/feedback schema on the structured channel
+CLAUDE_VERSION='native-judge-claude-v3.3'  # v3.3: image downscale disclosure + full-resolution tiles
+# v3.2  # v3.2: exact inner judgment/feedback schema on the structured channel
 # v3.1  # v3.1: structured output envelope; v3.0 (free-text JSON) used for call 200-210
 COMMON='''You are the independent scientific judge in a fresh native Codex context.
 Use ONLY evidence_inventory and evidence_read plus explicitly provided isolated
@@ -152,8 +153,10 @@ to forward an image result, not text(base64). If orchestration says output was
 truncated, reread smaller pages and state the limitation.''')
     new=('''Call evidence_read one page at a time and read
 each result completely. An image record is returned to you directly as an image;
-inspect those actual pixels. If a tool result says output was truncated, reread
-smaller pages and state the limitation.''')
+inspect those actual pixels. Images wider or taller than 2000 px reach you
+downscaled; when the artifact inventory lists full_resolution_tiles for an image,
+read the tiles covering any region whose fine detail matters. If a tool result says
+output was truncated, reread smaller pages and state the limitation.''')
     if old not in text:raise ProtocolError('Judge policy text changed; review the Claude variant')
     return text.replace(old,new)
 
@@ -419,6 +422,30 @@ def claude_output_schema(task_type):
             'properties':{'judgment':judgment,'feedback':feedback}}
 
 
+def downscaled_deliveries(events,records,state,missing):
+    """For receipts without an exact byte match: is a delivered stream image a faithful downscale?"""
+    import base64
+    from .image_views import downscaled_match
+    delivered=[]
+    for e in events:
+        if e.get('type')=='user' and isinstance(e.get('message',{}).get('content'),list):
+            for b in e['message']['content']:
+                if b.get('type')=='tool_result' and isinstance(b.get('content'),list):
+                    delivered+= [x['source']['data'] for x in b['content'] if x.get('type')=='image' and (x.get('source') or {}).get('type')=='base64']
+    by_id={r['evidence_id']:r for r in records}
+    receipts={ev['receipt_id']:ev['arguments'].get('evidence_id') for ev in state.get('tool_events',[]) if ev.get('image_returned_as_mcp_content')}
+    found={}
+    for receipt in missing:
+        record=by_id.get(receipts.get(receipt))
+        if record is None:continue
+        original=base64.b64decode(record['content'])
+        for data in delivered:
+            match=downscaled_match(original,base64.b64decode(data))
+            if match['faithful_downscale']:
+                found[receipt]=match;break
+    return found
+
+
 def verify_stream_image_delivery(parsed,records,state):
     """Image receipts whose exact bytes appear in a tool_result of the exact stream.
 
@@ -458,9 +485,13 @@ def _run_claude_judge(*,runner,task_id,task_type,records,output,python_binary,se
     verified,missing=verify_stream_image_delivery(parsed,records,state)
     write_json(output/'image_delivery.json',{'verified_in_exact_stream':verified,'not_found_in_stream':missing,
                'caveat':'CLI-side resizing before the API request is not excluded; visual claims still require trajectory review.'})
-    if missing:
+    downscaled=downscaled_deliveries(parsed['events'],records,state,missing) if missing else {}
+    if downscaled:
+        write_json(output/'image_delivery_downscaled.json',{'receipts':downscaled,
+                   'meaning':'Delivered as a faithful uniform downscale of the released image (not exact bytes); detail below the delivered resolution was not visible unless full-resolution tiles were read.'})
+    if set(missing)-set(downscaled):
         return {'status':'awaiting_image_delivery_review','native_call':result,'candidate':response}
-    restored=restore_session(records,state,verified_image_receipts=verified)
+    restored=restore_session(records,state,verified_image_receipts=verified+sorted(downscaled))
     validated=validate_native_result(task_type,response,restored)
     validated['native_tool_admissibility_status']=tool_audit['status']
     validated['judge_version']=CLAUDE_VERSION

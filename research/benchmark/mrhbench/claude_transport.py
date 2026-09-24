@@ -192,6 +192,58 @@ def provider_schema_compatible(schema):
     return True
 
 
+def provider_safe_schema(schema):
+    """Losslessly alias property keys the provider rejects (observed call 247: a 67-char key).
+
+    Returns (safe_schema, aliases) where aliases maps alias -> original key. Each alias
+    carries the original key name in its description; responses are mapped back exactly.
+    """
+    import hashlib
+    aliases = {}
+
+    def alias_for(key):
+        name = "k_" + hashlib.sha256(key.encode("utf8")).hexdigest()[:12] + "_" + re.sub(r"[^a-zA-Z0-9_]", "_", key)[:40]
+        if aliases.get(name, key) != key:
+            raise ProtocolError("Schema key alias collision")
+        aliases[name] = key
+        return name
+
+    def walk(node):
+        if isinstance(node, list):
+            return [walk(v) for v in node]
+        if not isinstance(node, dict):
+            return node
+        out = {k: walk(v) for k, v in node.items() if k not in {"properties", "required"}}
+        if isinstance(node.get("properties"), dict):
+            props = {}
+            for key, sub in node["properties"].items():
+                sub = walk(sub)
+                if not PROVIDER_PROPERTY_KEY.match(key):
+                    new = alias_for(key)
+                    sub = dict(sub) if isinstance(sub, dict) else sub
+                    if isinstance(sub, dict):
+                        sub["description"] = ("Field named '" + key + "'. " + sub.get("description", "")).strip()
+                    props[new] = sub
+                else:
+                    props[key] = sub
+            out["properties"] = props
+        if isinstance(node.get("required"), list):
+            forward = {v: k for k, v in aliases.items()}
+            out["required"] = [forward.get(k, k) if not PROVIDER_PROPERTY_KEY.match(k) else k for k in node["required"]]
+        return out
+
+    safe = walk(schema)
+    return safe, aliases
+
+
+def restore_aliases(value, aliases):
+    if isinstance(value, dict):
+        return {aliases.get(k, k): restore_aliases(v, aliases) for k, v in value.items()}
+    if isinstance(value, list):
+        return [restore_aliases(v, aliases) for v in value]
+    return value
+
+
 def structured_response(parsed):
     """The CLI-validated structured output, cross-checked against the exact StructuredOutput call."""
     result = parsed["result"] or {}
@@ -305,16 +357,15 @@ class ClaudeJSONTransport(_Base):
         run_dir = self.audit_root / ("call-" + uuid.uuid4().hex)
         run_dir.mkdir(parents=True)
         write_json(run_dir / "request.json", envelope)
-        structured = provider_schema_compatible(output_schema)
-        if structured:
-            prompt = ("Return exactly one JSON value answering the request below through the structured output channel. "
-                      "It must satisfy the application schema.\n")
-        else:
-            # Same application schema, enforced locally instead of by the provider channel.
-            prompt = ("Return exactly one JSON value answering the request below as your whole reply, with no markdown or "
-                      "commentary. It must satisfy the application schema.\n")
-        prompt += canonical({"application_schema": output_schema, "request": request}).decode("utf8")
-        args = self.command(output_schema if structured else None)
+        structured = True
+        provider_schema, aliases = (output_schema, {}) if provider_schema_compatible(output_schema) else provider_safe_schema(output_schema)
+        prompt = ("Return exactly one JSON value answering the request below through the structured output channel. "
+                  "It must satisfy the application schema.")
+        if aliases:
+            prompt += (" Transport note: the output channel names some long fields by alias; the controller maps them back: "
+                       + canonical(aliases).decode("utf8"))
+        prompt += "\n" + canonical({"application_schema": output_schema, "request": request}).decode("utf8")
+        args = self.command(provider_schema)
         write_json(run_dir / "invocation.json", {"args": args, "binary_sha256": file_hash(self.binary), "prompt_hash": digest(prompt),
                                                   "system_prompt_replaced": True, "auth": "existing_claude_ai_login_no_token_copy",
                                                   "clean_directory_outside_workspace": True})
@@ -323,7 +374,7 @@ class ClaudeJSONTransport(_Base):
         metadata = {"transport": "claude_print_stream_json_no_tools_development", "bare_model_equivalence": False,
                     "model_configured": self.model, "reasoning_effort_configured": self.effort,
                     "images": envelope["images"], "automatic_outer_retry": False, "timeout_seconds": call_timeout,
-                    "output_channel": "provider_structured_output" if structured else "text_json_local_validation"}
+                    "output_channel": "provider_structured_output", "schema_key_aliases": aliases}
         try:
             with tempfile.TemporaryDirectory(prefix="mrhb-claude-json-") as clean:
                 remaining = absolute_deadline - time.monotonic()
@@ -354,7 +405,7 @@ class ClaudeJSONTransport(_Base):
             if proc.returncode or audit["status"] != "development_admissible" or result.get("is_error") or result.get("subtype") != "success":
                 raise ProtocolError("Model invocation did not produce one auditable complete response; inspect private trace")
             if structured:
-                response = structured_response(parsed)
+                response = restore_aliases(structured_response(parsed), aliases)
             else:
                 final = result.get("result")
                 if not isinstance(final, str) or not parsed["assistant_texts"] or parsed["assistant_texts"][-1].strip() != final.strip():

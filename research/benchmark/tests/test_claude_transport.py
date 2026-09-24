@@ -188,7 +188,9 @@ class ClaudeJudgeWiringTests(unittest.TestCase):
         self.assertNotIn("code-mode", text)
         self.assertNotIn("Codex", text)
         self.assertIn("Hash identity semantics", text)
-        self.assertEqual(len(COMMON.splitlines()) - len(text.splitlines()), 0)
+        # v3.3 adds exactly the two-line image downscale/tile disclosure.
+        self.assertEqual(len(text.splitlines()) - len(COMMON.splitlines()), 2)
+        self.assertIn("full_resolution_tiles", text)
 
     def test_stream_image_delivery_matches_record_hash_domain(self):
         import base64
@@ -226,6 +228,23 @@ class JudgeSchemaTests(unittest.TestCase):
             self.assertTrue(list(Draft202012Validator(schema).iter_errors(bad)))
             missing = json.loads(json.dumps(ok)); del missing["judgment"]["failure_reason"]
             self.assertTrue(list(Draft202012Validator(schema).iter_errors(missing)))
+
+
+class KeyAliasTests(unittest.TestCase):
+    def test_long_keys_alias_losslessly(self):
+        from mrhbench.claude_transport import provider_safe_schema, restore_aliases, provider_schema_compatible
+        from mrhbench.providers import validate_application_schema
+        long_key = "x" * 70
+        schema = {"type": "object", "required": [long_key, "ok"], "additionalProperties": False,
+                  "properties": {long_key: {"type": "object", "properties": {"has space": {"type": "string"}}}, "ok": {"type": "string"}}}
+        safe, aliases = provider_safe_schema(schema)
+        self.assertTrue(provider_schema_compatible(safe))
+        self.assertEqual(set(aliases.values()), {long_key, "has space"})
+        response = {k: v for k, v in {a: {"has space" if False else next(x for x, y in aliases.items() if y == "has space"): "v"} for a in safe["required"] if aliases.get(a) == long_key}.items()}
+        response["ok"] = "y"
+        restored = restore_aliases(response, aliases)
+        validate_application_schema(schema, restored, check_response=True)
+        self.assertEqual(restored, {long_key: {"has space": "v"}, "ok": "y"})
 
 
 if __name__ == "__main__":
