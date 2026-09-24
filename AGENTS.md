@@ -212,7 +212,7 @@
 - **一致性验证（官方openai SDK 1.109.1，仅base_url不同）：** 零成本拒绝5项全对；C1 system提示生效、C2提示/回答不被改写、C3 json_schema、C4 data-URL图像、C5拒绝以content_filter如实返回且无换模型——全部通过；中性算术只服务claude-opus-5-5、1轮、无工具；executor transport端到端（动作schema+图像）通过。313–316早于关闭fallback、321/324早于ResultError映射修复，均作废。**两条经错误transport得到的平台结论在正确路径复核仍成立**：`reasoning`字段被拒（331）、属性键≤64字符（332）。
 - **残余差异（如实）：** 订阅OAuth必经Claude Code，CLI前置身份/归因system块与oauth beta头，每请求约多400输入token，无法在受支持路径内去除；temperature等采样参数不可设（拒绝而非模拟）；每请求单轮；CLI对长边>2000px图像降采样（executor侧tile未做）；Opus 5.5 safeguard对部分良性写法会拒绝（模型级，托管API同样存在）。
 - **实验分类：** `audit/experiment_transport_classification_v1.json`。受影响（executor走错transport，不得作H0基线/演化信号，须经wrapper重跑）：A1探针196/205/231/232/295；A2集成v1（211–230）；A3集成v2与IDEA重跑（239–302中的executor/judge）；A4中止的新论文集成305–311。仍有效：Codex时代1–195（独立历史配置）；judge合成fixture重验证及探针197–198/200–210/236–237；builder H0 v1/v3（199、233）及其审阅；材料构造/审核（234–304中构造与reviewer）；全部零调用工作与平台修复。A3中judge行为证据与读H0请求得到的H0缺陷仍有效。模型纯度扫描：切换前116份Claude转录全部由claude-opus-5-5作答，仅探针232发生过静默fallback且已被拒收。
-- **审计：** `audit/executor_wrapper_conformance_v1.json`；账本332/368。下一步：经wrapper重跑冻结H0 v3五类集成（上限55次），此前的executor侧分数不再引用。
+- **审计与展示：** `audit/executor_wrapper_conformance_v1.json`；给用户的说明页 https://claude.ai/artifact/RSWUk7ZumdXQMhu3CBdnvo （源文件`D:/mrhbench-local-pilot/proxy/report/executor-proxy.html`）。账本332/368；wrapper当前在127.0.0.1:8765运行（faithful模式），重启用`start_executor_wrapper.py`。下一步：经wrapper重跑冻结H0 v3五类集成（上限55次），此前的executor侧分数不再引用。
 
 ### 0.3 协作与文件规则
 
