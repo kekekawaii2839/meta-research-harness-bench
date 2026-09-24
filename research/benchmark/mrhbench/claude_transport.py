@@ -474,7 +474,7 @@ class ClaudeNativeRunner(_Base):
                                       "env": spec.get("env", {})} for name, spec in self.mcp_servers.items()}}
 
     def run(self, *, workspace: Path, prompt: str, output_schema=None, role="judge", images=None, timeout_seconds=None):
-        if role not in {"probe", "builder", "judge", "constructor", "material_reviewer"}:
+        if role not in {"probe", "builder", "judge", "constructor", "material_reviewer", "scout", "source_auditor", "adjudicator"}:
             raise ProtocolError("Native agent runner cannot silently replace the harness-owned executor")
         workspace = Path(workspace).resolve(strict=True)
         if not workspace.is_dir() or not isinstance(prompt, str) or not prompt.strip():

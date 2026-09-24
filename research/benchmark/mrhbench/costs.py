@@ -45,7 +45,7 @@ class CallLedger:
         return state
 
     def reserve(self, *, role: str, model: str, effort: str, request_hash: str, artifact_directory: str) -> int:
-        if role not in {"probe", "builder", "executor", "judge", "feedback", "constructor", "material_reviewer"}:
+        if role not in {"probe", "builder", "executor", "judge", "feedback", "constructor", "material_reviewer", "scout", "source_auditor", "adjudicator"}:
             raise ProtocolError("Unknown model-call role")
         with self._locked():
             state = self._read()

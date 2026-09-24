@@ -37,6 +37,11 @@ def _check_inputs(root, names, expected, role):
 
 
 CONTROLLER_FILL = "CONTROLLER_FILL"
+# Appended to the constructor prompt for file-tool-only (no shell) constructors.
+MATERIAL_PROMPT_SUFFIX = (
+    "\nThis session has file tools only and cannot execute code. For every sha256 of a file you write, put the literal "
+    "string CONTROLLER_FILL; the trusted controller computes those hashes from the final bytes after you finish. "
+    "Do not write helper scripts for hashing.\n")
 
 
 def fill_sentinel_hashes(output_root, sentinels=(CONTROLLER_FILL,)):

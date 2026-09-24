@@ -1,0 +1,15 @@
+
+Factory runtime contract (the controller verifies your environment exactly this way):
+- environment/image/Dockerfile must use the base "FROM python:3.12-slim" (a single stage, no other base) and
+  install only pinned dependencies from environment/image/requirements.txt (name==version per line). Do not COPY
+  task files, data or code into the image.
+- The controller runs environment/smoke.py in a fresh container as non-root uid 10001, with no network and a
+  read-only root filesystem. The smoke file is mounted at /smoke/smoke.py. Every PUBLIC task asset is mounted
+  read-only at /inputs/public/<asset path as listed in package.json>; the environment variable MRH_PUBLIC_ROOT
+  holds /inputs/public. Only /work (the working directory) and /tmp are writable. Private assets are never mounted.
+- The smoke must therefore locate starting code and data through MRH_PUBLIC_ROOT, never relative to its own file,
+  exercise the public starting resources (imports, data loading, baseline helpers) on small inputs, never run the
+  withheld target method, and exit 0 only on success. Keep it within the declared resources and a few minutes.
+- The binding factory decisions in request.json scope_request override any conflicting default in the general
+  instructions; if they conflict with the original sources, record the conflict as an unresolved blocker instead
+  of silently choosing.

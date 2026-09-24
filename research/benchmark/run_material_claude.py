@@ -11,13 +11,9 @@ from pathlib import Path
 from mrhbench.claude_transport import ClaudeNativeRunner
 from mrhbench.costs import CallLedger
 from mrhbench.io import ProtocolError, read_json, write_json
-from mrhbench.material_batch import run_batch
+from mrhbench.material_batch import MATERIAL_PROMPT_SUFFIX, run_batch
 
 ROOT = Path(__file__).resolve().parent
-MATERIAL_PROMPT_SUFFIX = (
-    "\nThis session has file tools only and cannot execute code. For every sha256 of a file you write, put the literal "
-    "string CONTROLLER_FILL; the trusted controller computes those hashes from the final bytes after you finish. "
-    "Do not write helper scripts for hashing.\n")
 
 
 def main():
