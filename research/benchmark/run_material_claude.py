@@ -27,6 +27,8 @@ def main():
     p.add_argument("--roles", type=Path, default=ROOT / "config/role_transport_claude_v1.json")
     p.add_argument("--workers", type=int, default=2)
     p.add_argument("--timeout", type=int, default=1800, help="Construction call walltime, not experiment task budget")
+    p.add_argument("--repair-from", type=Path, help="Prior batch root; ONE explicit repair per job")
+    p.add_argument("--repair-notes", type=Path, help="Root-adjudicated notes mapping job IDs to text items")
     args = p.parse_args()
     roles = read_json(args.roles)
     spec = roles.get("constructor") or roles["builder"]
@@ -39,6 +41,7 @@ def main():
     result = run_batch(jobs, workspace=ROOT.parents[1], batch_root=args.output, templates=ROOT / "prompts",
                        constructor=ClaudeNativeRunner(**common), reviewer=ClaudeNativeRunner(**common),
                        max_workers=args.workers, max_jobs=len(jobs), controller_hash_fill=True,
+                       repair_from=args.repair_from, repair_notes=read_json(args.repair_notes) if args.repair_notes else None,
                        prompt_suffix=MATERIAL_PROMPT_SUFFIX)
     write_json(args.output / "batch_result.json", result)
     print({"jobs": [{"job_id": r["job_id"], "status": r["status"]} for r in result["jobs"]], "formal_accepted": False})
