@@ -194,6 +194,15 @@
 - **Git：** 按内部研究代码库标准初始化跟踪（commit `7acae41`起）。`.gitattributes`设`* -text`（审计按字节hash，全局core.autocrlf=true会改写换行）；`research/source_cache/`只跟踪manifest（第三方原件留本地，凭URL/version/sha256复核）；原始session rollout留本地不提交（两份旧Codex rollout含sk-形字符串，需用户本人检查，root未读取其内容）；修正旧规则误忽略整个`runtime/`（接口与worker代码现已跟踪），仅忽略`runtime/codex/`。提交前对待跟踪集做密钥形/邮箱扫描为零命中。D盘试产目录不在仓库内。
 - **用户新授权（2026-09-24）：** 新增100次Claude开发调用（失败计入），账本上限268→368（授权时已用233，已记入ledger authorization_events）；三角色确认claude-opus-5-5/medium；新论文材料构造改用`ClaudeNativeRunner`作为账本记录的`constructor`角色（维护者subagent起草的Gaussian包仍标维护者构造，不冒充constructor产物）。
 
+### 0.2.14 暂停与交接（2026-09-24，用户要求暂停）
+
+- **用户纠正（最高优先，下一步先做）：** executor的“反代API”应使用GitHub项目 **claude-code-openai-wrapper** 做反向代理（把Claude Code订阅包装成OpenAI兼容API），而不是本轮实现的`ClaudeJSONTransport`（`claude -p`关工具+结构化输出）。因此§0.2.13中所有**executor**侧结果（集成v1/v2、IDEA重跑、reasoning拒绝/键别名/结构化输出等transport结论）只是**未获批transport下的开发证据**，不得作为executor基线、H0能力或演化信号；builder/judge走Claude Code原生agent的部分不受此纠正影响（仍按用户§0.2.13决定）。下一步：取得并审阅该wrapper（固定版本/commit、许可、本地启动方式、是否关闭其自身工具、是否支持图像与结构化/JSON输出、如何计次入账），实现`OpenAIWrapperTransport`（与`complete(request, output_schema, role, images, ...)`同签名，凭据留controller、不进容器），真实探针后按§7.2/T01重新验收，再重跑H0集成。未审阅前不要假设其行为（例如是否同样触发reasoning_extraction拒绝、键长限制、图像缩放）。
+- **暂停时刻状态：** 账本311/368，无reserved。新论文集成`D:/mrhbench-local-pilot/claude-integration-20260924-005-newpapers`被root按用户要求中止：diffusion-exp阶段已完成7次executor调用（305–311），未采集、未评judge、无结果，不计测量；FTCT两包未开始。已杀控制器进程树，并删除带本项目session-owner标签的遗留容器`mrh-session-7b7136…`（镜像为Diffusion镜像）；无其他本项目容器。Gaussian v2独立复审subagent被用户停止，未产出审计文件（`audit/gaussian_exp_independent_review_v2.json`不存在）。
+- **已完成待用的产物：** 冻结H0 v3（`D:/mrhbench-local-pilot/h0-claude-frozen-v3`，在接口v4/typed错误平台上development_admissible）；judge v3.4（Claude原生，精确schema、图像缩放核验+tile）；接口v4（typed broker错误，消息冻结测试）；Claude constructor/reviewer流水线（material_workspace档、controller填hash、resume/repair）；新包`materials/pilot_v3/claude_candidates_v1/{ftct-write-content,ftct-write-evidence,diffusion-exp}`（已编译、镜像已建并烟雾通过、全部gate pending）与`maintainer_candidates_v2/gaussian-exp`（R1–R8已修，待独立复审）。
+- **仍待用户决定：** ①配额违规计分规则（建议：跳过并记录超限文件、收集其余、带违规标记评judge；实现需改沙箱导出助手，未做）；②正式split/样本量/轮次/重复（T14）；③原生OS级隔离环境（Windows提权sandbox或独立Linux；Claude builder/judge已做到启动即无宿主工具，但CLI宿主进程本身未OS隔离）；④Gaussian复用IV镜像是否可接受；⑤Diffusion许可（CC BY-NC-SA论文+代码非商业附加条款）下本项目是否算非商业用途。
+- **已知小问题待修：** `run_claude_integration.py`计划文件中`judge_version_expected`常量仍写v3.1（实际judge版本以各result的`judge_version`为准，应改为导入`CLAUDE_VERSION`）；编辑脚本须用`write_bytes`/`newline=''`保留原换行（Windows下`write_text`会把LF改CRLF，影响按字节hash）。
+- **交接入口：** 本节+§0.2.13为最新工作记忆；git已跟踪（见§0.2.13 Git条，最近提交见`git log`）；D盘`D:/mrhbench-local-pilot/`存放全部运行目录与原始转录（不入git）。最新离线测试：`controller-venv`下325项；交接时第一次运行出现1个error、立即重跑全部通过，疑为时序相关的偶发测试，尚未定位（日志`D:/mrhbench-local-pilot/tests-handoff.log`为通过的那次）。
+
 ### 0.3 协作与文件规则
 
 - 用户偏好逐点讨论；已有原则不反复重开，普通实现细节由agent推进，重大歧义/资源或主指标改变再询问。区分已定、候选、已实现、已验收。
