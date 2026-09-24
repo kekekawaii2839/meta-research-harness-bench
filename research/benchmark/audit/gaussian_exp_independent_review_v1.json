@@ -1,0 +1,157 @@
+{
+ "schema_version": "material-review-1",
+ "paper_id": "iclr2025-tNn6Hskmti",
+ "task_id": "gaussian-onestep-hermite-alpha-exp-maint-v1",
+ "created_at": "2026-09-24",
+ "reviewer_role": "independent material reviewer (Claude Code subagent); not the constructor; did not inherit constructor reasoning; cannot grant formal acceptance or rank models",
+ "decision": "revise",
+ "decision_rationale": "Method semantics in task.md (Eq2 data model with notebook constants, Eq3-4 step, Eq5 ridge and normal equation, Eq7 full-MSE metric, Eq16 Hermite surrogate with D=3 / l=4, raw h_j with 1/j! scaling, He_j(u/b), b=sqrt(n/Tr Sigma), residual h*_4 zeta, replacement after first-layer training, pairing) were checked against the original arXiv v1 HTML and the pinned Fig1b notebook and are faithful; the starter does not implement the surrogate and does not prescribe grids, replicates, test size or criteria. The blocking issue is scientific: H3 as written ('absolute G_err increases with alpha') is near-automatic under the fixed C=1 teacher normalisation, because the label second moment is about xi^T Sigma xi / 2, i.e. about 1/(2||Sigma||), which by construction grows about 50x from alpha=0 to alpha=1. A reviewer container spot-check shows the NN error normalised by E[y^2] has no consistent alpha direction while absolute error rises about 40x, so even a zero predictor would 'support' H3, and the private judge_checks accept an absolute-MSE increase as a valid outcome. H3 must be reframed before controller integration. Remaining findings are medium/low (explicit paper identity in the public NOTICE, source-design size in the public resource rationale, visibility-label inconsistencies, a factor-2 error in a private note, a locator gap, public notebook-index cues, two status vocabularies). Runtime, judge, rights and leakage gates stay pending irrespective of this decision.",
+ "inputs_reviewed": [
+  {"path": "research/benchmark/materials/pilot_v3/maintainer_candidates_v1/gaussian-exp/task.json", "sha256": "7739fcbf5f2db1e7c21bbebd19d54e0f5b209c710a420e0e847181d296b01ea5"},
+  {"path": "research/benchmark/materials/pilot_v3/maintainer_candidates_v1/gaussian-exp/assets/task.md", "sha256": "59be8dcc33a6b279e92e199abbe652cf3ef30c120ad1d06d2f74014f2a05c180"},
+  {"path": "research/benchmark/materials/pilot_v3/maintainer_candidates_v1/gaussian-exp/assets/base_resources.py", "sha256": "393d2e1d0b348b9ace558f5f83bf4e94a870a3ea3dcccec0b2fda5348c3a087c"},
+  {"path": "research/benchmark/materials/pilot_v3/maintainer_candidates_v1/gaussian-exp/assets/NOTICE.txt", "sha256": "7bd3eac6e9d85c50f436eda963132c1b9cbed0bfa2123fbba29abf5f890d6fec"},
+  {"path": "research/benchmark/materials/pilot_v3/maintainer_candidates_v1/gaussian-exp/private/reference.json", "sha256": "e89406256290ae20f3bd068b30cd2fba7c70220673968b99f8f216c618d40375"},
+  {"path": "research/benchmark/audit/gaussian_exp_candidate_construction_v1.json", "role": "construction record; read for claims to check, not as authority"},
+  {"path": "research/benchmark/audit/gaussian_adjudication_cpu_feasibility_v1.json", "role": "source adjudication; read for claims to check, not as authority"},
+  {"path": "research/source_cache/benchmark_materials/gaussian_prescreen_v1/gaussian-mixtures-paper-v1.source", "sha256": "d15f2111f9184be9793656426491ac5fcdd664f5d207e7383922b1f503bae45c", "read": "S1 notation, S2 (Eq1-7, scalings), S4 (A.1-A.8, Eq9-10), S5 (Lemma 1-2, Thm 3-4, Eq16-17, Figure 1 caption), S6 (alpha/beta/mixture discussion, Figure 2 caption), Appendix B (A.9, Eq48), Appendix D.1-D.2 captions/text; math read from alttext of complete equation groups"},
+  {"path": "research/source_cache/benchmark_materials/gaussian_prescreen_v1/gaussian-mixtures-abstract-v1.source", "sha256": "69e728fa279e9b8f5a7ed7075cf592db8b7192a756100614d4b2f789f7dfa549", "read": "license link and submission date only"},
+  {"path": "research/source_cache/benchmark_materials/gaussian_code_prescreen_v1/gaussian-mixtures-fig1b-notebook.source", "sha256": "2ee40dc7b4ed295cb65971abc7e8859e390c6c7b8f52e08c9d6212c8c8c2229e", "read": "all 17 cells and saved outputs; not executed"},
+  {"path": "research/source_cache/benchmark_materials/gaussian_code_prescreen_v1/gaussian-mixtures-license.source", "sha256": "c37394bf8c309277376abad59a744a7fc88a40237584b3487ac22d5054638219", "read": "full text (MIT, Copyright (c) 2025 KU-MLIP)"}
+ ],
+ "findings": [
+  {
+   "id": "R1",
+   "severity": "major",
+   "task_id": "gaussian-onestep-hermite-alpha-exp-maint-v1",
+   "fact_id": "H3 / R_ALPHA_TREND",
+   "source_id": "gaussian-mixtures-paper-v1",
+   "locator": "task.md 'Scoped hypotheses' H3; paper (A.5) ||xi|| = C/||Sigma^{1/2}||; S6 paragraph 'High data spread instead of high learning rate'; notebook cells[9] xi normalisation; private/reference.json judge_checks.acceptable_outcomes[1]",
+   "observed_issue": "H3 asks whether the NN's absolute Eq7 held-out error increases with alpha. Under the fixed constants (C=1, rank-one spikes theta=n^{beta(1-alpha)}), E[y^2] = E[ReLU(xi^T x)^2] = xi^T Sigma xi / 2, about 1/(2||Sigma||). Reviewer container check over 200 seeds: median E[y^2] 0.0064 (alpha=0), 0.066 (alpha=0.5), 0.331 (alpha=1), i.e. about 52x growth fixed by construction, with xi^T Sigma xi * ||Sigma|| in [1.00, 1.79]. In a paired spot-check (2 reps x alpha in {0, 0.5, 1} x 3 activations, n=m=k=1000) absolute NN test MSE rose about 40x (ReLU 0.004-0.005 -> 0.19-0.20) while NN MSE / E[y^2] ranged 0.29-1.06 with no consistent alpha direction (ReLU 0.29/0.68 -> 0.69/0.65 -> 0.60/0.57). Hence 'supported' is obtainable from any model whose relative error is roughly scale-invariant, including the zero predictor; H3 has essentially no discriminating power, while the private rubric accepts an absolute increase with a generic caveat as a valid outcome. The public caveat ('alpha jointly changes ... the scale of xi') does not repair the hypothesis itself. This is a fixed-scientific-specification defect, not a solver design choice.",
+   "repair_action": "Reframe H3 as the paper's substantive claim rather than the scale-driven quantity, e.g. 'At fixed beta, increasing alpha (shifting strength from data spread to first-layer learning rate) degrades the network's generalization performance for each activation, and the Hermite model shows the same direction', and state that comparisons across alpha must be made on a basis the solver justifies as comparable across alpha under the fixed specification (absolute Eq7 G_err remains a required reported quantity). Do not disclose the maintainer's normalised-trend observation or prescribe a specific normalisation. Alternatively demote the absolute trend to a descriptive quantity and remove it from the hypothesis set. Update judge_checks.acceptable_outcomes and rigor items so that an absolute-MSE increase alone does not count as testing H3, and re-run the leak check on the new wording."
+  },
+  {
+   "id": "R2",
+   "severity": "medium",
+   "task_id": "gaussian-onestep-hermite-alpha-exp-maint-v1",
+   "source_id": "gaussian-mixtures-abstract-v1",
+   "locator": "assets/NOTICE.txt paragraph 1 (public asset input-002)",
+   "observed_issue": "The public NOTICE names 'arXiv 2503.00856v1' and the authors' repository commit 257bcd539ab3adef9aeae9d78604f681ea204017. This makes the source paper explicitly identifiable (not merely inferable), inviting recall of Figure 1(b)/Section 6 findings and the paper's interpretation (private R_ALPHA_TREND/R_AGREEMENT) beyond what the hypotheses state. task.json private note acknowledges inferability, but no root decision to accept explicit identification is recorded.",
+   "repair_action": "For development/evaluation exports keep the arXiv ID and commit in private provenance (reference.json source_manifest) and use a neutral public notice (newly authored assets restating equations of a published paper; attribution restored at release); or record an explicit root decision accepting explicit identity exposure for this EXP task with the contamination rationale."
+  },
+  {
+   "id": "R3",
+   "severity": "low",
+   "task_id": "gaussian-onestep-hermite-alpha-exp-maint-v1",
+   "fact_id": "S_NOTEBOOK_DESIGN",
+   "source_id": "gaussian-mixtures-fig1b-notebook",
+   "locator": "task.json public.prompt input contract resources.rationale ('a source-scale 2400-fit sweep extrapolates to ~866 s')",
+   "observed_issue": "The public resource rationale discloses the size of the authors' experimental design (2400 fits = 20 alpha x 20 trials x 6), which is recorded as private (S_NOTEBOOK_DESIGN, allowed_stages []), and can anchor the solver's design. The constructor's phrase leak check did not include '2400' or 'source-scale'.",
+   "repair_action": "Keep only measured per-fit cost, memory and container overhead in the public rationale; move the source-scale extrapolation to private/construction records."
+  },
+  {
+   "id": "R4",
+   "severity": "low",
+   "task_id": "gaussian-onestep-hermite-alpha-exp-maint-v1",
+   "fact_id": "R_ALPHA_TREND, R_AGREEMENT",
+   "source_id": "gaussian-mixtures-paper-v1",
+   "locator": "private/reference.json private_facts R_ALPHA_TREND / R_AGREEMENT (allowed_stages []) vs task.md H1 and H3",
+   "observed_issue": "Visibility labels vs actual public content: the directional content of R_ALPHA_TREND (error rises with alpha) and R_AGREEMENT (NN and Hermite agree) is published as H3/H1 hypothesis text, while both facts are labelled not allowed at any stage. Legitimate for EXP as hypotheses, but the labels misdescribe what is public; the genuinely private parts are the paper's interpretation ('data structure more beneficial') and its figure evidence.",
+   "repair_action": "Split each into (a) hypothesis content, EXP-visible as an untested hypothesis, and (b) the paper's reported evidence/interpretation, private; or annotate that the direction is disclosed only as a hypothesis."
+  },
+  {
+   "id": "R5",
+   "severity": "low",
+   "task_id": "gaussian-onestep-hermite-alpha-exp-maint-v1",
+   "locator": "private/reference.json maintainer_observations.observations[0] ('it is roughly 1/||Sigma||')",
+   "observed_issue": "For the ReLU teacher the label second moment is about xi^T Sigma xi / 2, i.e. about 1/(2||Sigma||), not 1/||Sigma||: the note's own values (0.006-0.007 at alpha=0 with ||Sigma|| about 84; 0.32-0.33 at alpha=1 with ||Sigma|| about 1.5) match 1/(2||Sigma||). Proportionality, and therefore finding R1, is unaffected.",
+   "repair_action": "Correct to 'approximately xi^T Sigma xi / 2, about 1/(2||Sigma||), since xi^T Sigma xi * ||Sigma|| is about 1'."
+  },
+  {
+   "id": "R6",
+   "severity": "low",
+   "task_id": "gaussian-onestep-hermite-alpha-exp-maint-v1",
+   "fact_id": "F_CONSTANTS",
+   "source_id": "gaussian-mixtures-fig1b-notebook",
+   "locator": "private/reference.json F_CONSTANTS evidence ('cells[9] ...; cells[13] ...; cells[5] ...')",
+   "observed_issue": "n=1000, m=1000, lambda=1e-4 and delta=0 (no label noise) are set in notebook cells[8], which the locator omits; the Figure 1 caption covers n, m and lambda but not the absence of label noise.",
+   "repair_action": "Add 'cells[8] n, m, lambd, delta=0' to the F_CONSTANTS evidence."
+  },
+  {
+   "id": "R7",
+   "severity": "low",
+   "task_id": "gaussian-onestep-hermite-alpha-exp-maint-v1",
+   "fact_id": "M_DEGREE, M_NOISE, M_SAMPLING, F_CONSTANTS",
+   "locator": "task.json public.prompt 'Fixed supplied facts' (e.g. M_DEGREE 'notebook l=3 keeps coefficients 0..3 ...')",
+   "observed_issue": "The public facts introduce a third index convention (notebook l=3) beside D=3 and theorem l=4 and repeatedly refer to an author notebook the solver cannot see. The mapping is correct, but it adds avoidable confusion and source-identity cues.",
+   "repair_action": "Publicly state only D=3, l=4 and the beta interval; keep notebook index mapping and notebook references in private evidence."
+  },
+  {
+   "id": "R8",
+   "severity": "low",
+   "task_id": "gaussian-onestep-hermite-alpha-exp-maint-v1",
+   "locator": "task.json public.output_contract hypothesis_evidence_map.status (tested|partially_tested|not_tested) vs task.md report.json hypotheses.status (supported|not_supported|inconclusive|untested)",
+   "observed_issue": "Two status vocabularies for the same H1-H3 without saying that one is test coverage and the other is outcome; a solver may conflate them.",
+   "repair_action": "Add one sentence to task.md: navigation-map status = coverage of testing; report.json status = outcome."
+  }
+ ],
+ "verified_claims": [
+  "Eq2 / A.3-A.4 / Eq9: zero-mean two-component mixture, Sigma_c = I + theta g_c g_c^T with equal traces; notebook cells[5]/[9] use theta = n^{beta(1-alpha)} for both components, one spike each, independent QR draws (align=0), X = A(I + (sqrt(theta+1)-1) g g^T). The starter's z + s (z.g) g with (1+s)^2 - 1 = theta is the same law; mixture Sigma = I + (theta/2)(g1 g1^T + g2 g2^T) and closed-form top eigenvalue 1 + (theta/2)(1 + |g1.g2|) are correct.",
+  "A.5 with C=1 and notebook cells[9]: ||xi|| = 1/sqrt(||Sigma||) with Sigma the mixture covariance; ReLU teacher, delta=0 (cells[8]).",
+  "A.6: F rows N(0, I/Tr Sigma), w ~ N(0, I/k); init_weights matches.",
+  "Eq3-4 (S2 'Training procedure'): task.md and first_layer_step match the full enclosing equation group (w (y~ - k^{-1/2} w^T sigma(F X~^T))^T / sqrt(k), elementwise sigma', 1/m, times X~); w fixed at init; notebook cells[13] NN() identical; eta = n^{beta alpha} (cells[13]).",
+  "Eq5: 1/(2m) sum + (lambda/2)||w||^2; closed form (Phi Phi^T + lambda m I) w = Phi y matches ridge_readout and notebook cells[7]; new independent readout sample as stated in S2.",
+  "Eq6 prints (1/2) sum without 1/m; task uses the Eq5 objective value as training metric and names it so; discrepancy correctly kept as private unknown U_EQ6.",
+  "Eq7: full squared error without 1/2; notebook plots loss_calc(..., 0) = half MSE (cells[6], [13], [15]); task metric = full MSE; half-MSE provenance correctly private.",
+  "Scalings (S2, A.2): paper fixes only orders; task correctly says concrete constants are the task's choice and eta||Sigma|| is of order but not equal to n^beta.",
+  "Thm 4 / Eq16-17: sigma_hat_l(x) = sum_{j=0}^{l-1} h_j/j! H_j(x/b) + h*_l z, h_j = E[H_j(z) sigma(bz)], h*_l = sqrt(E[sigma(bz)^2] - sum_{j<l} h_j^2/j!), b = sqrt(n/Tr Sigma), replacement after training F_hat, part (ii) needs A.9. task.md matches with D=3, l=4 and 2/3 < 0.74 < 3/4.",
+  "Notebook cells[10]-[11], [13]: calculate_h subtracts raw h_i^2/i! before dividing h_i by i!, hs[3] = h*_4, hermeval(x/b, h[:4]); consistent with the task's D=3 / l=4 and 1/j! convention. Noise hs*randn(x.shape) is fresh per element and per call (train/test), matching the task's disclosed per-element interpretation. Figure 1 caption 'l=5' vs code l=3 correctly left private/unresolved.",
+  "Pairing/timing: notebook passes the original activation/derivative for the step and the surrogate only for features (cells[13]); task requires the same and shared F, w, samples and F_hat.",
+  "A.8 'bounded derivatives' wording supports the task's hedge that ReLU does not literally satisfy it; A.1 proportional limit and A.9 (Eq48) are real conditions; finite-size honesty statements in task.md are appropriate.",
+  "Starter contains no Hermite coefficient, h*, b helper or surrogate; it supplies data, init, Eq4 step, Eq5 ridge, metrics, generic fit_and_evaluate and the original-activation NN reference. It fixes no alpha grid, replicate count, seeds, test size, quadrature or agreement criterion; task.md lists these as solver choices. No author code text is copied (independent NumPy reimplementation).",
+  "No author experimental values, Figure 1(b) values, 'l=5', half-MSE, 20x20 design or maintainer baseline numbers appear in task.md, base_resources.py or NOTICE (full read plus grep), apart from the '2400-fit' rationale in task.json (R3) and identity in NOTICE (R2).",
+  "Private reference locators checked against originals: F_SETTING, F_METRIC, F_SCALING, F_DATA, F_HERMITE, M_DEGREE, M_NOISE, M_SAMPLING, R_ALPHA_TREND (S6 'High data spread...'), R_AGREEMENT (S6 closing 'Collectively...'), R_FIG1_CAPTION, S_NOTEBOOK_DESIGN (linspace(0,1,20); 20 trials redrawing F, w and noise with structure and data fixed per alpha; 5m test; stratified halves; half-MSE; backend 'gpu'), U_EQ6, U_ASSUMPTIONS. maintainer_observations numbers recomputed from the construction record's run3 rows (ReLU MSE/Var 0.79-0.96, 0.93-1.00, 0.81-0.88; tanh ratio > 1) are correct except the R5 factor.",
+  "Rights facts: repository LICENSE is MIT, Copyright (c) 2025 KU-MLIP; arXiv abstract page links nonexclusive-distrib/1.0; v1 submitted 2 Mar 2025. NOTICE correctly does not assert MIT scope over the paper.",
+  "SHA-256 of task.md, base_resources.py, NOTICE.txt, reference.json and task.json equal the values recorded in task.json and the construction record.",
+  "Reviewer container spot-check (image sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01, --network none, --read-only, --tmpfs /tmp, --cap-drop ALL, no-new-privileges, uid 10001, 2 CPU / 2 GiB / 128 PIDs, starter mounted read-only; nothing executed on the host): starter imports and runs; an independent reviewer Hermite implementation (100-node hermegauss) gives ReLU h3/3! = 0 as expected, tanh even coefficients 0, sigmoid h0 = 0.5; paired Hermite-minus-NN relative test-MSE differences within about +-3% (ReLU largest, sigmoid about 0) at alpha in {0, 0.5, 1}, 2 reps, so H1/H2 are testable and not trivially decided; one paired activation evaluation 0.54-0.75 s; 18 paired evaluations plus setup 12.5 s; max RSS about 403 MiB. These are reviewer sanity values, not findings, and must not enter public assets."
+ ],
+ "unverified_claims": [
+  "Proofs (Appendices A-C), the Lemma 8 degree condition and whether A.9 holds for this configuration were not audited.",
+  "Figure 1(b) plotted values (image) were not extracted; the authors' agreement and alpha trend were not checked at pixel level.",
+  "arXiv v1 vs ICLR camera-ready equality and earliest disclosure were not verified.",
+  "The 1800 s / 16 model-call / 120 tool-call budget was not piloted with a real agent; the ~866 s source-scale extrapolation is the constructor's and was not re-derived.",
+  "Controller export/TaskView loader path, collection policy and exported layout (assets/assets/...) were not re-run by this reviewer.",
+  "No semantic leakage review beyond reading all public assets and the public prompt plus targeted greps; executor memorisation of the paper was not probed.",
+  "Judge behaviour on this package, including application of judge_checks, is untested.",
+  "Rights: releasability of newly authored assets restating equations/constants and MIT scope over them were not adjudicated.",
+  "Image reuse from the IV package: no package-specific Dockerfile/lock was built or reviewed; only runtime behaviour of the existing image was observed.",
+  "One reviewer draw (seed 1000, alpha=0) had an unusually large xi-spike projection (n (xi.g1)^2 / |xi|^2 = 22.5); the 200-seed distribution looked consistent with independent draws but no formal test was run."
+ ],
+ "coverage_review": {
+  "task_types": ["EXP"],
+  "notes": "Single EXP task derived from the Fig1b alpha sweep; LIT/IDEA must not receive this package (method disclosed). Figure 1(a)/(c), Figure 2 and the Fashion-MNIST/cGAN branch are correctly out of scope; no WRITE task claimed. The finite-size CPU scope is an honest maintainer reduction, not a reduction of a GPU claim (the source computation is CPU-feasible)."
+ },
+ "environment_review": {
+  "image": "sha256:92e6b0ef5cb3a149905fa097ae1d1ae3dd907cd19c796e057d3564d8a8fcfe01 (python 3.12.14, numpy 2.3.3, no scipy), reused from the IV package",
+  "declared_limits": {"cpus": 2, "memory_mb": 2048, "disk_mb": 512, "pids_limit": 128, "wall_seconds": 1800, "model_calls": 16, "tool_calls": 120, "network": "none", "gpu": false},
+  "observations": [
+   "Starter plus a surrogate implementation run within 2 CPU / 2 GiB; peak RSS about 0.40 GiB in the reviewer check (0.29-0.47 GiB in construction records), leaving room for memory-charged tmpfs and larger test samples.",
+   "Per-pair costs make an informative sweep (e.g. about 10 alpha values x several replicates x 3 activations) a few minutes of compute; 1800 s is plausible but unpiloted with model/tool latency.",
+   "numpy.polynomial.hermite_e.hermegauss(400) produced overflow warnings and NaN weights in this image while 100 nodes works. This is a solver-side numerical pitfall for the required quadrature-accuracy check, not a package defect; no method should be prescribed.",
+   "Container reports 20 CPUs under a 2-CPU CFS quota; the controller must set OPENBLAS/OMP thread variables (the starter only uses setdefault).",
+   "Whether this package needs its own locked environment instead of the IV image is a root decision; reuse is technically sufficient for the numpy-only starter."
+  ],
+  "status": "runtime_unverified_pending_controller_fresh_container_path_and_real_agent_pilot"
+ },
+ "reviewer_actions": {
+  "model_calls": 0,
+  "network_requests": 0,
+  "author_code_executed": false,
+  "host_execution_of_starter": false,
+  "docker_runs": 2,
+  "docker_runs_note": "review_check.py (paired NN/Hermite spot-check) and scale_check.py (label-scale distribution over 200 seeds); --rm, --network none, --read-only, --tmpfs /tmp, --cap-drop ALL, no-new-privileges, --user 10001:10001, --cpus 2 --memory 2g --pids-limit 128. Scripts kept only in the reviewer's temp directory, not part of the package (review_check.py sha256 5d55b774acb96ccf1887c433023a7e692f5b563684c9928479ad2ad7a6803116; scale_check.py sha256 ffa688d5c0681803bf311942a47ebd4ec159e41a3fe00dabef78adbdeee6d522; spot-check output sha256 ea3c3ce986920931bc6582cd0a85c5e8390fb6e3b6918c4a2215a3d3d9e2616f).",
+  "files_modified": [],
+  "files_created": ["research/benchmark/audit/gaussian_exp_independent_review_v1.json"]
+ },
+ "formal_acceptance": "not granted; this reviewer cannot grant formal acceptance. All five task gates remain pending."
+}

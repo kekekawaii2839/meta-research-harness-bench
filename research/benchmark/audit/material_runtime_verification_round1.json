@@ -1,0 +1,1198 @@
+{
+ "schema": "material-runtime-verification-1",
+ "round": 1,
+ "created": "2026-09-24",
+ "scope": "Controller runtime verification of two repaired material candidates (review decision pass_with_pending_runtime) from D:/mrhbench-local-pilot/material-claude-20260924-004-repair. Development smoke only; not formal acceptance, not scientific task execution, not formal isolation.",
+ "model_calls": 0,
+ "constructor_code_executed_on_host": false,
+ "host": {
+  "docker_engine": "28.5.1 linux/amd64 (Docker Desktop, WSL2)",
+  "cgroup": "v1",
+  "base_image": "python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
+  "base_image_id": "sha256:9e87977b867847e186d066f531ef783b006d582a985c341c269446088d90f2c4"
+ },
+ "workdir": "D:\\mrhbench-local-pilot\\runtime-verify-20260924-r1",
+ "controller_scripts": {
+  "controller_verify.py": "c6022b67a66b46eb7b4f6bf954eb8b691089e83cebe7b33455857b3fcadc1be3",
+  "leak_check_v2.py": "a3c3196ae33e256193a528c57c0a0a23d8f5b5c9a9913ee82fa2b6ba8a4c1b5b",
+  "write_audit.py": "93626ec126c847ecfc27c9ac950fa3eaec97e55e525ccd8df9c9cae57e6a2c0e"
+ },
+ "raw_results": {
+  "controller_results.json": "8d6e14b3fcdd5190bbb5547e5e92e57a2d7932f095fad43f6be44f0c6e3490f5",
+  "leak_check_v2.json": "f5c5a5346eb396b67a2f4ffac9b3e509cdd9b7b9fd80f4ded87773caa3bb39f1"
+ },
+ "controller_build_note": "Package image contexts were copied unmodified; controller added Dockerfile.controller_locked differing only in FROM tag -> digest (precedent AGENTS 0.2.3), excluded by .dockerignore and passed with -f. Package files unchanged.",
+ "tmpfs_variants": {
+  "A_default_tmpfs": "--tmpfs /work:size=410m, /tmp:size=102m without uid options (tests image-side /work ownership)",
+  "B_controller_uid_tmpfs": "same sizes with uid=1000,gid=1000,mode=0700 (controller-owned writability, as in the earlier pilot runner)"
+ },
+ "packages": {
+  "ftct-write-v2": {
+   "job": "ftct-write-v2",
+   "source_output": "D:\\mrhbench-local-pilot\\material-claude-20260924-004-repair\\ftct-write-v2\\constructor\\output",
+   "package_json_sha256": "166e4fe6b0175492767cd842f2dc52b65b67a91ec9cda7c516d03726e1d1cbbf",
+   "hash_check": {
+    "all_match": true,
+    "assets": [
+     {
+      "path": "assets/common/SOURCE_NOTICE.md",
+      "visibility": "public",
+      "declared": "9fb1aaac4726279a7cc4718f439f61bda3e14c773e9ad1099c127fe6d145938c",
+      "actual": "9fb1aaac4726279a7cc4718f439f61bda3e14c773e9ad1099c127fe6d145938c",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 1161
+     },
+     {
+      "path": "assets/common/facts_core.json",
+      "visibility": "public",
+      "declared": "e143b78d5523703097fddea1bd2fbd01b3abd495ef3143dd65e6f07cff3b2328",
+      "actual": "e143b78d5523703097fddea1bd2fbd01b3abd495ef3143dd65e6f07cff3b2328",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 13922
+     },
+     {
+      "path": "assets/common/ftct_table1_manifest.json",
+      "visibility": "public",
+      "declared": "4808130389614cffcbf273da8345bcd09bf5656530f6e75b50d0e92150f89170",
+      "actual": "4808130389614cffcbf273da8345bcd09bf5656530f6e75b50d0e92150f89170",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 9108
+     },
+     {
+      "path": "assets/common/ftct_table1_values.csv",
+      "visibility": "public",
+      "declared": "974528ad2f29dd83422455edd0b0f22c1880933f7a4a0784daca663fa0503981",
+      "actual": "974528ad2f29dd83422455edd0b0f22c1880933f7a4a0784daca663fa0503981",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 699
+     },
+     {
+      "path": "assets/common/table1_reader.py",
+      "visibility": "public",
+      "declared": "7951cd4ced40dd67ece70488cb57208e857a7878d0faad4b281daaca623a3950",
+      "actual": "7951cd4ced40dd67ece70488cb57208e857a7878d0faad4b281daaca623a3950",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 3175
+     },
+     {
+      "path": "assets/write_content/facts_author_findings.json",
+      "visibility": "public",
+      "declared": "2dca584a32843292c68fdddf251b2f028048ede9c32b7dfae39c1929d97f4093",
+      "actual": "2dca584a32843292c68fdddf251b2f028048ede9c32b7dfae39c1929d97f4093",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 3680
+     },
+     {
+      "path": "assets/write_content/task.md",
+      "visibility": "public",
+      "declared": "4e06d50370e5fce56df6ac10906f0e401fda29d0ee48f48e49e63bd4d86085d5",
+      "actual": "4e06d50370e5fce56df6ac10906f0e401fda29d0ee48f48e49e63bd4d86085d5",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 6291
+     },
+     {
+      "path": "assets/write_evidence/task.md",
+      "visibility": "public",
+      "declared": "a057333586fb10f7f3512cefd92ee5ecdc334663d05adcb80c2c440f2159d34f",
+      "actual": "a057333586fb10f7f3512cefd92ee5ecdc334663d05adcb80c2c440f2159d34f",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 5410
+     },
+     {
+      "path": "private/reference_notes.json",
+      "visibility": "private",
+      "declared": "337187d3413f85dcf5cae6ed09f4832052f94a41c4ba2579aaa5bb04972e574d",
+      "actual": "337187d3413f85dcf5cae6ed09f4832052f94a41c4ba2579aaa5bb04972e574d",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 5513
+     },
+     {
+      "path": "private/write_content_rubric.md",
+      "visibility": "private",
+      "declared": "8a26c2c9202ec19fa1dc55479c5deb6f6a45280ba0c0c864671b0b0ff872a43a",
+      "actual": "8a26c2c9202ec19fa1dc55479c5deb6f6a45280ba0c0c864671b0b0ff872a43a",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 4096
+     },
+     {
+      "path": "private/write_evidence_rubric.md",
+      "visibility": "private",
+      "declared": "990312a3e93d92e937fbe98dbfcea5b90a817739eedcf0fc6e0bfe01f6853c47",
+      "actual": "990312a3e93d92e937fbe98dbfcea5b90a817739eedcf0fc6e0bfe01f6853c47",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 4556
+     }
+    ],
+    "undeclared_files_outside_environment": []
+   },
+   "public_assets": [
+    "assets/common/SOURCE_NOTICE.md",
+    "assets/common/facts_core.json",
+    "assets/common/ftct_table1_manifest.json",
+    "assets/common/ftct_table1_values.csv",
+    "assets/common/table1_reader.py",
+    "assets/write_content/facts_author_findings.json",
+    "assets/write_content/task.md",
+    "assets/write_evidence/task.md"
+   ],
+   "private_assets": [
+    "private/reference_notes.json",
+    "private/write_content_rubric.md",
+    "private/write_evidence_rubric.md"
+   ],
+   "build_context": {
+    "dir": "D:\\mrhbench-local-pilot\\runtime-verify-20260924-r1\\ftct-write-v2\\image_context",
+    "files_from_package": [
+     ".dockerignore",
+     "Dockerfile",
+     "requirements.txt"
+    ],
+    "files_sha256": {
+     ".dockerignore": "ad4ffbb29ec74c37891a0efba1236aa378fdbf9e7a30b0df8532cdcd7baf4698",
+     "Dockerfile": "8d35e7128f4e63987d4b3595a3f16944429ef60525e6a76511c261ffe2c9b407",
+     "requirements.txt": "cc4e9b2b8ffc9060fafc93ea6f257331eb2a7afbaa5afaf4998425371311d888"
+    },
+    "controller_added": {
+     "Dockerfile.controller_locked": "37715fad6d0c9cc302f9e7b3d0532279d09ef40345fde995d2b2003bc5481698"
+    },
+    "controller_change": "FROM tag replaced by digest-pinned reference only; Dockerfile.controller_locked is excluded by .dockerignore and passed with -f",
+    "private_file_in_context": false
+   },
+   "build": {
+    "tag": "mrhbench-pilot/ftct-write-v2:e6e5d918b500",
+    "rc": 0,
+    "wall_s": 13.765,
+    "log": "D:\\mrhbench-local-pilot\\runtime-verify-20260924-r1\\ftct-write-v2\\build.log",
+    "log_tail": [
+     "#7 6.079 Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)",
+     "#7 6.114 Downloading fonttools-4.59.2-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (4.9 MB)",
+     "#7 6.581    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 11.0 MB/s eta 0:00:00",
+     "#7 6.604 Downloading kiwisolver-1.4.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)",
+     "#7 6.733    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 11.4 MB/s eta 0:00:00",
+     "#7 6.770 Downloading packaging-25.0-py3-none-any.whl (66 kB)",
+     "#7 6.797 Downloading pillow-11.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)",
+     "#7 7.304    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 12.8 MB/s eta 0:00:00",
+     "#7 7.321 Downloading pyparsing-3.2.3-py3-none-any.whl (111 kB)",
+     "#7 7.353 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)",
+     "#7 7.444 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)",
+     "#7 7.531 Installing collected packages: six, pyparsing, pillow, packaging, numpy, kiwisolver, fonttools, cycler, python-dateutil, contourpy, matplotlib",
+     "#7 11.39 Successfully installed contourpy-1.3.3 cycler-0.12.1 fonttools-4.59.2 kiwisolver-1.4.9 matplotlib-3.10.6 numpy-2.3.3 packaging-25.0 pillow-11.3.0 pyparsing-3.2.3 python-dateutil-2.9.0.post0 six-1.17.0",
+     "#7 11.39 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.",
+     "#7 DONE 12.5s",
+     "",
+     "#8 [4/4] WORKDIR /work",
+     "#8 DONE 0.0s",
+     "",
+     "#9 exporting to image",
+     "#9 exporting layers",
+     "#9 exporting layers 0.5s done",
+     "#9 writing image sha256:61ba1829927d6cd34424374b1206adf836950f8f9fd08722371d7ca397371009 done",
+     "#9 naming to docker.io/mrhbench-pilot/ftct-write-v2:e6e5d918b500 done",
+     "#9 DONE 0.5s"
+    ]
+   },
+   "image": {
+    "tag": "mrhbench-pilot/ftct-write-v2:e6e5d918b500",
+    "id": "sha256:61ba1829927d6cd34424374b1206adf836950f8f9fd08722371d7ca397371009",
+    "os": "linux",
+    "arch": "amd64",
+    "size_bytes": 274728148,
+    "user": "solver",
+    "workdir": "/work",
+    "env": [
+     "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+     "LANG=C.UTF-8",
+     "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+     "PYTHON_VERSION=3.12.14",
+     "PYTHON_SHA256=5c8462af5790baf43a321a1559dbe0db06d1be4300fb85fb53c40060668e548a",
+     "PYTHONDONTWRITEBYTECODE=1",
+     "PYTHONUNBUFFERED=1",
+     "PIP_NO_CACHE_DIR=1",
+     "PIP_DISABLE_PIP_VERSION_CHECK=1",
+     "MPLBACKEND=Agg",
+     "MPLCONFIGDIR=/opt/mplconfig"
+    ],
+    "layers": [
+     "sha256:a6dc765193a52cbaede3c93a9ff48b9540948dd0774bbe7031fcb5847606f9ac",
+     "sha256:7ca599ccfc97fa428fcf941eda7c2d643f066feb947020dcdbbf913cec34d5dc",
+     "sha256:b54011271bdbf69ae643cb5a4af6a5bc2f834ae8bc0833b736b52bbd2396e99f",
+     "sha256:c321a426ca693e386f4df5f198d7f32c2da49e29f53ff77d695ceb02dfb0a421",
+     "sha256:93aa6c5e38a4bb9e42eb3f5f47b1c1a39243ab24201589842ea30af0b26929b2",
+     "sha256:743ce521685e4379e2e8039b62f191e19ca768f4129f25cd29c84c8935ab630e",
+     "sha256:9e85a7ba56622d17800c57539b42176033537e1f12a8133e69eb7ecde31c3476"
+    ],
+    "base_ref": "python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
+    "base_image_id": "sha256:9e87977b867847e186d066f531ef783b006d582a985c341c269446088d90f2c4",
+    "base_repo_digests": [
+     "python@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9"
+    ],
+    "base_layers_prefix_match": true,
+    "pins_resolved": {
+     "numpy==2.3.3": true,
+     "matplotlib==3.10.6": true,
+     "contourpy==1.3.3": true,
+     "cycler==0.12.1": true,
+     "fonttools==4.59.2": true,
+     "kiwisolver==1.4.9": true,
+     "packaging==25.0": true,
+     "pillow==11.3.0": true,
+     "pyparsing==3.2.3": true,
+     "python-dateutil==2.9.0.post0": true,
+     "six==1.17.0": true
+    },
+    "installed_not_in_requirements": [],
+    "task_or_private_named_files_in_image": [],
+    "pip_freeze_all": [
+     "contourpy==1.3.3",
+     "cycler==0.12.1",
+     "fonttools==4.59.2",
+     "kiwisolver==1.4.9",
+     "matplotlib==3.10.6",
+     "numpy==2.3.3",
+     "packaging==25.0",
+     "pillow==11.3.0",
+     "pip==25.0.1",
+     "pyparsing==3.2.3",
+     "python-dateutil==2.9.0.post0",
+     "six==1.17.0"
+    ],
+    "in_image_probe": [
+     "Python 3.12.14",
+     "--ls",
+     "drwx------ 2 solver solver 4096 Sep 24 20:38 /home/solver",
+     "drwxrwxrwx 2 root   root   4096 Sep 24 20:38 /opt/mplconfig",
+     "drwxr-xr-x 2 solver solver 4096 Sep 24 20:38 /work",
+     "uid=1000(solver) gid=1000(solver) groups=1000(solver)"
+    ]
+   },
+   "resources_applied": {
+    "cpus": 1,
+    "memory_mb": 1024,
+    "disk_mb": 512,
+    "pids_limit": 64,
+    "wall_seconds": 600
+   },
+   "docker_run_flags_common": [
+    "--rm",
+    "--network none",
+    "--read-only",
+    "--cap-drop ALL",
+    "--security-opt no-new-privileges=true",
+    "--user 1000:1000",
+    "--cpus 1",
+    "--memory/--memory-swap 1024m",
+    "--pids-limit 64",
+    "public_view -> /pkg:ro",
+    "-w /work",
+    "tmpfs /work 410m + /tmp 102m (80/20 of 512 MB disk; counted in memory)",
+    "host watchdog timeout = wall_seconds + 30 = 630 s"
+   ],
+   "cgroup_v1_readback": "memory.limit_in_bytes, pids.max and cpu.cfs_quota_us/period read inside the container match declared memory/pids/cpus (lines in smoke stdout)",
+   "public_mount": {
+    "host_dir": "D:\\mrhbench-local-pilot\\runtime-verify-20260924-r1\\ftct-write-v2\\public_view",
+    "container_path": "/pkg",
+    "mode": "ro",
+    "files": [
+     "assets/common/SOURCE_NOTICE.md",
+     "assets/common/facts_core.json",
+     "assets/common/ftct_table1_manifest.json",
+     "assets/common/ftct_table1_values.csv",
+     "assets/common/table1_reader.py",
+     "assets/write_content/facts_author_findings.json",
+     "assets/write_content/task.md",
+     "assets/write_evidence/task.md",
+     "environment/smoke.py"
+    ],
+    "smoke_sha256": "99e0678bbbb803e004eecb89c8e0270bc70f9ddda12c849201ef92eb73575a28",
+    "private_file_in_mount": false,
+    "package_json_mounted": false,
+    "note": "package.json is not mounted because it contains private-only facts; smoke step that reads package.json is skipped by its own os.path.exists guard, and the controller performs the equivalent hash check on the host"
+   },
+   "smoke_runs": {
+    "A_default_tmpfs": {
+     "container_name": "mrh-rv1-ftct-write-a-1790282329",
+     "tmpfs_flags": [
+      "--tmpfs",
+      "/work:rw,nosuid,nodev,size=410m",
+      "--tmpfs",
+      "/tmp:rw,nosuid,nodev,size=102m"
+     ],
+     "rc": 0,
+     "timed_out": false,
+     "wall_s": 3.024,
+     "work_writable": false,
+     "pkg_mount_writable": false,
+     "rootfs_writable": false,
+     "smoke_passed": true,
+     "log": "D:\\mrhbench-local-pilot\\runtime-verify-20260924-r1\\ftct-write-v2\\smoke_A_default_tmpfs.log",
+     "stdout_filtered": [
+      "uid=1000(solver) gid=1000(solver) groups=1000(solver)",
+      "drwxrwxrwt 2 root root 40 Sep 24 20:38 /tmp",
+      "drwxr-xr-x 2 root root 40 Sep 24 20:38 /work",
+      "tmpfs on /tmp type tmpfs (rw,nosuid,nodev,noexec,relatime,size=104448k)",
+      "tmpfs on /work type tmpfs (rw,nosuid,nodev,noexec,relatime,size=419840k,mode=755)",
+      "WORK_WRITABLE=no",
+      "PKG_WRITABLE=no",
+      "ROOTFS_WRITABLE=no",
+      "CapEff:\t0000000000000000",
+      "NoNewPrivs:\t1",
+      "lo",
+      "1073741824",
+      "64",
+      "100000",
+      "100000",
+      "===SMOKE===",
+      "ok  - numpy version 2.3.3",
+      "ok  - matplotlib version 3.10.6",
+      "ok  - synthetic PNG renders and decodes (450, 600, 4)",
+      "ok  - synthetic SVG/PDF written",
+      "ok  - CSV validates against provenance manifest",
+      "ok  - 7 model rows",
+      "ok  - 49 unique source cell locators",
+      "ok  - manifest source hash recorded",
+      "ok  - cell_locator helper works",
+      "ok  - consistently perturbed pair validates",
+      "ok  - inconsistent pair is rejected",
+      "ok  - fact IDs unique (24)",
+      "ok  - smoke finished in 1.5 s",
+      "SMOKE PASS (runtime environment still unverified by maintainers)",
+      "SMOKE_RC=0"
+     ],
+     "omitted_repetitive_ok_lines": 72,
+     "stderr_tail": [
+      "touch: cannot touch '/work/.w': Permission denied",
+      "/opt/mplconfig is not a writable directory",
+      "Matplotlib created a temporary cache directory at /tmp/matplotlib-56d0cpxh because there was an issue with the default path (/opt/mplconfig); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing."
+     ]
+    },
+    "B_controller_uid_tmpfs": {
+     "container_name": "mrh-rv1-ftct-write-b-1790282332",
+     "tmpfs_flags": [
+      "--tmpfs",
+      "/work:rw,nosuid,nodev,size=410m,uid=1000,gid=1000,mode=0700",
+      "--tmpfs",
+      "/tmp:rw,nosuid,nodev,size=102m,uid=1000,gid=1000,mode=0700"
+     ],
+     "rc": 0,
+     "timed_out": false,
+     "wall_s": 1.753,
+     "work_writable": true,
+     "pkg_mount_writable": false,
+     "rootfs_writable": false,
+     "smoke_passed": true,
+     "log": "D:\\mrhbench-local-pilot\\runtime-verify-20260924-r1\\ftct-write-v2\\smoke_B_controller_uid_tmpfs.log",
+     "stdout_filtered": [
+      "uid=1000(solver) gid=1000(solver) groups=1000(solver)",
+      "drwx------ 2 solver solver 40 Sep 24 20:38 /tmp",
+      "drwx------ 2 solver solver 40 Sep 24 20:38 /work",
+      "tmpfs on /tmp type tmpfs (rw,nosuid,nodev,noexec,relatime,size=104448k,mode=700,uid=1000,gid=1000)",
+      "tmpfs on /work type tmpfs (rw,nosuid,nodev,noexec,relatime,size=419840k,mode=700,uid=1000,gid=1000)",
+      "WORK_WRITABLE=yes",
+      "PKG_WRITABLE=no",
+      "ROOTFS_WRITABLE=no",
+      "CapEff:\t0000000000000000",
+      "NoNewPrivs:\t1",
+      "lo",
+      "1073741824",
+      "64",
+      "100000",
+      "100000",
+      "===SMOKE===",
+      "ok  - numpy version 2.3.3",
+      "ok  - matplotlib version 3.10.6",
+      "ok  - synthetic PNG renders and decodes (450, 600, 4)",
+      "ok  - synthetic SVG/PDF written",
+      "ok  - CSV validates against provenance manifest",
+      "ok  - 7 model rows",
+      "ok  - 49 unique source cell locators",
+      "ok  - manifest source hash recorded",
+      "ok  - cell_locator helper works",
+      "ok  - consistently perturbed pair validates",
+      "ok  - inconsistent pair is rejected",
+      "ok  - fact IDs unique (24)",
+      "ok  - smoke finished in 1.2 s",
+      "SMOKE PASS (runtime environment still unverified by maintainers)",
+      "SMOKE_RC=0"
+     ],
+     "omitted_repetitive_ok_lines": 72,
+     "stderr_tail": [
+      "/opt/mplconfig is not a writable directory",
+      "Matplotlib created a temporary cache directory at /tmp/matplotlib-h_qmpjnu because there was an issue with the default path (/opt/mplconfig); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing."
+     ]
+    }
+   },
+   "leftover_containers_after_runs": [],
+   "leak_check": {
+    "initial_broad_scan": {
+     "needle_count": 65,
+     "hit_count": 133,
+     "note": "over-broad (included public values/ids restated in private rubrics); superseded by refined scan"
+    },
+    "refined_scan": {
+     "private_only_fact_ids": [
+      "FTCT-P01",
+      "FTCT-P02",
+      "FTCT-S04",
+      "FTCT-U06"
+     ],
+     "private_asset_paths": [
+      "private/reference_notes.json",
+      "private/write_content_rubric.md",
+      "private/write_evidence_rubric.md"
+     ],
+     "public_asset_paths": [
+      "assets/common/SOURCE_NOTICE.md",
+      "assets/common/facts_core.json",
+      "assets/common/ftct_table1_manifest.json",
+      "assets/common/ftct_table1_values.csv",
+      "assets/common/table1_reader.py",
+      "assets/write_content/facts_author_findings.json",
+      "assets/write_content/task.md",
+      "assets/write_evidence/task.md"
+     ],
+     "auto_token_needles": 48,
+     "manual_needles": [
+      "Multi-Layer Attention Mechanism Enables Compositional Reasoning",
+      "ltx_font_bold",
+      "S4.SS3.p",
+      "not monotone",
+      "bold"
+     ],
+     "hits": [
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "1024",
+       "file": "assets/write_content/task.md",
+       "context": " 3.12 with numpy and matplotlib is available but not needed. Limits for this task: 1 CPU, 1024 MB RAM, 512 MB disk, 64 processes, 600 s wall time. "
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "1024",
+       "file": "assets/write_evidence/task.md",
+       "context": "alone do not satisfy this task. The figure is the primary artifact.  ## Resources  1 CPU, 1024 MB RAM, 512 MB disk, 64 processes, 600 s wall time for the whole session. Rendering 49 va"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "250",
+       "file": "assets/write_evidence/task.md",
+       "context": "ell_locator` from the input files at run time. 5. `submission/interpretation.md`: at most 250 words. Say what the figure shows    about the Transformer configurations and Transformers"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "450",
+       "file": "assets/write_content/task.md",
+       "context": " outputs (write to `submission/`)  1. `submission/section.md`: the passage in Markdown, **450–900 words** of body text    (headings and any optional table are not counted). Do not put"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "49",
+       "file": "assets/write_evidence/task.md",
+       "context": " 1024 MB RAM, 512 MB disk, 64 processes, 600 s wall time for the whole session. Rendering 49 values should take seconds. "
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "600",
+       "file": "assets/write_content/task.md",
+       "context": "able but not needed. Limits for this task: 1 CPU, 1024 MB RAM, 512 MB disk, 64 processes, 600 s wall time. "
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "600",
+       "file": "assets/write_evidence/task.md",
+       "context": "re is the primary artifact.  ## Resources  1 CPU, 1024 MB RAM, 512 MB disk, 64 processes, 600 s wall time for the whole session. Rendering 49 values should take seconds. "
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "900",
+       "file": "assets/write_content/task.md",
+       "context": "puts (write to `submission/`)  1. `submission/section.md`: the passage in Markdown, **450–900 words** of body text    (headings and any optional table are not counted). Do not put fac"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "Table 1 uses 1-shot",
+       "file": "assets/common/facts_core.json",
+       "context": "ction (best-case) summaries. Writers must not assert a specific Table 1 shot count (e.g. 'Table 1 uses 1-shot prompts').\",      \"locators\": [\"Table 1 caption (S4.T1)\", \"Section 4.3, S4.SS3.p1.2\"]},  "
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "development_candidate_pending_independent_review",
+       "file": "assets/common/facts_core.json",
+       "context": "{   \"fact_sheet\": \"ftct-table1-core-facts\",   \"status\": \"development_candidate_pending_independent_review\",   \"source\": {\"source_id\": \"fragmented-paper-v1\", \"source_sha256\": \"6544464def8909867ddf"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "development_candidate_pending_independent_review",
+       "file": "assets/common/ftct_table1_manifest.json",
+       "context": "{   \"manifest_version\": \"ftct-table1-manifest-2\",   \"status\": \"development_candidate_pending_independent_review\",   \"data_file\": \"ftct_table1_values.csv\",   \"source\": {     \"source_id\": \"fragmented-pap"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "development_candidate_pending_independent_review",
+       "file": "assets/write_content/facts_author_findings.json",
+       "context": "{   \"fact_sheet\": \"ftct-table1-author-findings\",   \"status\": \"development_candidate_pending_independent_review\",   \"source\": {\"source_id\": \"fragmented-paper-v1\", \"source_sha256\": \"6544464def8909867ddf"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "test_values_acc",
+       "file": "assets/common/ftct_table1_manifest.json",
+       "context": "ix H.1 A8.I1.ix3).\", \"units\": \"fraction in [0,1]\", \"direction\": \"higher is better\"},     \"test_values_acc\": {\"group\": \"Testing (compositional reasoning)\", \"printed_header\": \"Values acc\", \"definit"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "test_values_acc",
+       "file": "assets/common/ftct_table1_values.csv",
+       "context": "ed,params_reported,train_valid_loss,train_vertices_acc,train_values_acc,test_vertices_acc,test_values_acc,test_whole_acc,source_row_locator TF_3L3H,TF,3L3H,3,3,54M,1.446,1.000,1.000,0.996,1.000,0"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "test_values_acc",
+       "file": "assets/common/table1_reader.py",
+       "context": "id_loss\",     \"train_vertices_acc\",     \"train_values_acc\",     \"test_vertices_acc\",     \"test_values_acc\",     \"test_whole_acc\", ) ACCURACY_COLUMNS = METRIC_COLUMNS[1:]   def load_rows(csv_path)"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "test_vertices_acc",
+       "file": "assets/common/ftct_table1_manifest.json",
+       "context": "train (S4.I3.ix3).\", \"units\": \"fraction in [0,1]\", \"direction\": \"higher is better\"},     \"test_vertices_acc\": {\"group\": \"Testing (compositional reasoning)\", \"printed_header\": \"Vertices acc\", \"defin"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "test_vertices_acc",
+       "file": "assets/common/ftct_table1_values.csv",
+       "context": "orted,heads_reported,params_reported,train_valid_loss,train_vertices_acc,train_values_acc,test_vertices_acc,test_values_acc,test_whole_acc,source_row_locator TF_3L3H,TF,3L3H,3,3,54M,1.446,1.000,1.0"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "test_vertices_acc",
+       "file": "assets/common/table1_reader.py",
+       "context": "OLUMNS = (     \"train_valid_loss\",     \"train_vertices_acc\",     \"train_values_acc\",     \"test_vertices_acc\",     \"test_values_acc\",     \"test_whole_acc\", ) ACCURACY_COLUMNS = METRIC_COLUMNS[1:]   "
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "test_whole_acc",
+       "file": "assets/common/ftct_table1_manifest.json",
+       "context": "2.ix2; A8.I1.ix4).\", \"units\": \"fraction in [0,1]\", \"direction\": \"higher is better\"},     \"test_whole_acc\": {\"group\": \"Testing (compositional reasoning)\", \"printed_header\": \"Whole acc\", \"definiti"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "test_whole_acc",
+       "file": "assets/common/ftct_table1_values.csv",
+       "context": "ed,train_valid_loss,train_vertices_acc,train_values_acc,test_vertices_acc,test_values_acc,test_whole_acc,source_row_locator TF_3L3H,TF,3L3H,3,3,54M,1.446,1.000,1.000,0.996,1.000,0.996,S4.T1.2.1."
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "test_whole_acc",
+       "file": "assets/common/table1_reader.py",
+       "context": "rtices_acc\",     \"train_values_acc\",     \"test_vertices_acc\",     \"test_values_acc\",     \"test_whole_acc\", ) ACCURACY_COLUMNS = METRIC_COLUMNS[1:]   def load_rows(csv_path):     \"\"\"Return a list"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "test_whole_acc",
+       "file": "assets/write_content/task.md",
+       "context": "   \"fact_ids\": [\"FTCT-R01\", \"FTCT-F07\"],     \"numbers\": [{\"row_id\": \"TF_2L1H\", \"column\": \"test_whole_acc\", \"value\": \"0.766\"}],     \"claim_type\": \"table_observation | author_interpretation | defi"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "test_whole_acc",
+       "file": "assets/write_evidence/task.md",
+       "context": "s    plus the 7 parameter strings** shown:    ```json    {\"row_id\": \"TF_2L1H\", \"column\": \"test_whole_acc\", \"value_as_printed\": \"0.766\",     \"source_cell_locator\": \"S4.T1.2.1.5.8\", \"visual_elemen"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "train_valid_loss",
+       "file": "assets/common/ftct_table1_manifest.json",
+       "context": "models, as printed, rounded to millions (M = million). Exact counts not reported.\"},     \"train_valid_loss\": {\"group\": \"Training (in-distribution)\", \"printed_header\": \"Valid loss\", \"definition\": \""
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "train_valid_loss",
+       "file": "assets/common/ftct_table1_values.csv",
+       "context": "row_id,family,config_label,layers_reported,heads_reported,params_reported,train_valid_loss,train_vertices_acc,train_values_acc,test_vertices_acc,test_values_acc,test_whole_acc,sour"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "train_valid_loss",
+       "file": "assets/common/table1_reader.py",
+       "context": "anifest) \"\"\"  import csv import json from decimal import Decimal  METRIC_COLUMNS = (     \"train_valid_loss\",     \"train_vertices_acc\",     \"train_values_acc\",     \"test_vertices_acc\",     \"test_va"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "train_values_acc",
+       "file": "assets/common/ftct_table1_manifest.json",
+       "context": "train (S4.I3.ix2).\", \"units\": \"fraction in [0,1]\", \"direction\": \"higher is better\"},     \"train_values_acc\": {\"group\": \"Training (in-distribution)\", \"printed_header\": \"Values acc\", \"definition\": \""
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "train_values_acc",
+       "file": "assets/common/ftct_table1_values.csv",
+       "context": "_label,layers_reported,heads_reported,params_reported,train_valid_loss,train_vertices_acc,train_values_acc,test_vertices_acc,test_values_acc,test_whole_acc,source_row_locator TF_3L3H,TF,3L3H,3,3,5"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "train_values_acc",
+       "file": "assets/common/table1_reader.py",
+       "context": "import Decimal  METRIC_COLUMNS = (     \"train_valid_loss\",     \"train_vertices_acc\",     \"train_values_acc\",     \"test_vertices_acc\",     \"test_values_acc\",     \"test_whole_acc\", ) ACCURACY_COLUMN"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "train_vertices_acc",
+       "file": "assets/common/ftct_table1_manifest.json",
+       "context": "oss value, unitless; scale/normalization unstated\", \"direction\": \"lower is better\"},     \"train_vertices_acc\": {\"group\": \"Training (in-distribution)\", \"printed_header\": \"Vertices acc\", \"definition\":"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "train_vertices_acc",
+       "file": "assets/common/ftct_table1_values.csv",
+       "context": "ow_id,family,config_label,layers_reported,heads_reported,params_reported,train_valid_loss,train_vertices_acc,train_values_acc,test_vertices_acc,test_values_acc,test_whole_acc,source_row_locator TF_3"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "train_vertices_acc",
+       "file": "assets/common/table1_reader.py",
+       "context": " import json from decimal import Decimal  METRIC_COLUMNS = (     \"train_valid_loss\",     \"train_vertices_acc\",     \"train_values_acc\",     \"test_vertices_acc\",     \"test_values_acc\",     \"test_whole"
+      },
+      {
+       "class": "manual_needle",
+       "needle": "S4.SS3.p",
+       "file": "assets/common/facts_core.json",
+       "context": "ots number. the 'params' column gives parameter counts.\",      \"locators\": [\"section 4.3, s4.ss3.p1 (sentence block s4.ss3.p1.2)\", \"table 1 caption (s4.t1)\"]},     {\"fact_id\": \"ftct-f08\", "
+      },
+      {
+       "class": "manual_needle",
+       "needle": "S4.SS3.p",
+       "file": "assets/common/ftct_table1_manifest.json",
+       "context": "ted by cot with the optimal shots number is shown (table 1 caption; section 4.3 paragraph s4.ss3.p1). the source does not state the shot count used for any table 1 row, the candidate shot "
+      },
+      {
+       "class": "manual_needle",
+       "needle": "S4.SS3.p",
+       "file": "assets/write_content/facts_author_findings.json",
+       "context": "descriptive word, not the result of a statistical test.\",      \"locators\": [\"section 4.3, s4.ss3.p2.1\"]},     {\"fact_id\": \"ftct-r03\", \"kind\": \"source_result\",      \"statement\": \"authors' i"
+      }
+     ]
+    },
+    "adjudication": "No private-only fact ID (FTCT-P01/P02/S04/U06), target-prose heading, bold-markup note or S04 judge-note text appears in any public asset. Remaining automatic hits are benign: resource numbers and word limits stated in public task.md, public CSV column names, status strings, and a prohibition example in public facts_core.json; S4.SS3.p locators are public provenance locators of public facts."
+   },
+   "verdict": "pass_runtime_smoke_development",
+   "verdict_reasons": [
+    "all 11 declared asset sha256 equal file bytes (reviewer copies identical)",
+    "image builds from pinned base digest; all 11 requirement pins resolve exactly; no extra packages",
+    "smoke passes in locked-down container with declared 1 CPU/1024 MB/512 MB/64 pids under both tmpfs variants",
+    "no private file in build context, image or public mount; string leak check clean after adjudication"
+   ],
+   "open_issues": [
+    "Default Docker --tmpfs /work is root:root 0755, so /work is NOT writable by uid 1000 (variant A); this package smoke does not write to /work, so it still passes. Real solver runs must use controller tmpfs uid=1000,gid=1000 (variant B, verified writable).",
+    "MPLCONFIGDIR=/opt/mplconfig is unwritable under --read-only; matplotlib warns and falls back to /tmp. Harmless but noisy; controller may set MPLCONFIGDIR=/tmp/matplotlib.",
+    "smoke.py reads assets/write_content/facts_author_findings.json, which is NOT in the WRITE_EVIDENCE task public set; smoke was run on the package-level union of public assets. Per-task TaskView mounts must be narrower than this smoke mount, and this smoke cannot run unchanged inside a WRITE_EVIDENCE view.",
+    "smoke step 6 (package.json hash check) skipped by its own exists-guard because package.json (contains private-only facts) was not mounted; controller performed the equivalent host check.",
+    "Docker tmpfs is noexec by default (python script.py works, ./executable does not).",
+    "os.cpu_count() inside the container reports 20 host CPUs despite --cpus 1; OMP/OPENBLAS thread env set to quota.",
+    "Resources are smoke-only: no WRITE task executed; 600 s wall and 512 MB disk remain unmeasured candidates. pip install is not hash-locked, so cross-host byte-identical rebuild is not guaranteed.",
+    "Rights/first-disclosure, judge integration and formal isolation remain pending gates."
+   ]
+  },
+  "diffusion-exp-2d-v1": {
+   "job": "diffusion-exp-2d-v1",
+   "source_output": "D:\\mrhbench-local-pilot\\material-claude-20260924-004-repair\\diffusion-exp-2d-v1\\constructor\\output",
+   "package_json_sha256": "21b530d84399a1bce8317d5a7c06d5ca8b6432ead7dcb379757005a4941b8cdb",
+   "hash_check": {
+    "all_match": true,
+    "assets": [
+     {
+      "path": "assets/exp_2d/method_spec.md",
+      "visibility": "public",
+      "declared": "28069bee1a0fbca4e7ceed19b0cec8602957641603d283459fcf1bac493fa06b",
+      "actual": "28069bee1a0fbca4e7ceed19b0cec8602957641603d283459fcf1bac493fa06b",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 10526
+     },
+     {
+      "path": "assets/exp_2d/private/review_notes.md",
+      "visibility": "private",
+      "declared": "8826993abdefa2aecf67ebe38cacf3b8def57782569ec73b9e965fc6a4709104",
+      "actual": "8826993abdefa2aecf67ebe38cacf3b8def57782569ec73b9e965fc6a4709104",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 12054
+     },
+     {
+      "path": "assets/exp_2d/starter/baseline_random_search.py",
+      "visibility": "public",
+      "declared": "8bdca58f9488bb6c415c09eb2761e00aca24db05a4a029c4c851cdf7ecb1a3f4",
+      "actual": "8bdca58f9488bb6c415c09eb2761e00aca24db05a4a029c4c851cdf7ecb1a3f4",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 3189
+     },
+     {
+      "path": "assets/exp_2d/starter/metrics.py",
+      "visibility": "public",
+      "declared": "449963a5e7d6abd835feaa67192ac99203bf95c58a07bb27c001422fde6c1422",
+      "actual": "449963a5e7d6abd835feaa67192ac99203bf95c58a07bb27c001422fde6c1422",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 4710
+     },
+     {
+      "path": "assets/exp_2d/starter/objectives.py",
+      "visibility": "public",
+      "declared": "e07299a5cf2232f73961153a6b556f179370061303d1a4cdb9bf23daa6cd9f79",
+      "actual": "e07299a5cf2232f73961153a6b556f179370061303d1a4cdb9bf23daa6cd9f79",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 5436
+     },
+     {
+      "path": "assets/exp_2d/starter/test_starter.py",
+      "visibility": "public",
+      "declared": "229eab3604000b39c02ef0f31bf9abc73865952a656c0ad18ebd9b2df019f06f",
+      "actual": "229eab3604000b39c02ef0f31bf9abc73865952a656c0ad18ebd9b2df019f06f",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 4573
+     },
+     {
+      "path": "assets/exp_2d/task.md",
+      "visibility": "public",
+      "declared": "667c97f5d3b6bc0cf7cf6ed9c7da1e689b5a5a3cb2d9ecef3dcdef2f49b61802",
+      "actual": "667c97f5d3b6bc0cf7cf6ed9c7da1e689b5a5a3cb2d9ecef3dcdef2f49b61802",
+      "match": true,
+      "reviewer_copy_identical": true,
+      "bytes": 8418
+     }
+    ],
+    "undeclared_files_outside_environment": []
+   },
+   "public_assets": [
+    "assets/exp_2d/method_spec.md",
+    "assets/exp_2d/starter/baseline_random_search.py",
+    "assets/exp_2d/starter/metrics.py",
+    "assets/exp_2d/starter/objectives.py",
+    "assets/exp_2d/starter/test_starter.py",
+    "assets/exp_2d/task.md"
+   ],
+   "private_assets": [
+    "assets/exp_2d/private/review_notes.md"
+   ],
+   "build_context": {
+    "dir": "D:\\mrhbench-local-pilot\\runtime-verify-20260924-r1\\diffusion-exp-2d-v1\\image_context",
+    "files_from_package": [
+     ".dockerignore",
+     "Dockerfile",
+     "requirements.txt"
+    ],
+    "files_sha256": {
+     ".dockerignore": "ad4ffbb29ec74c37891a0efba1236aa378fdbf9e7a30b0df8532cdcd7baf4698",
+     "Dockerfile": "6725eab143ab76af2fab58da983adafa22beef57f7dbae0e23b43cdc81e5fd99",
+     "requirements.txt": "367320ef82f177875c60310b49899b54609e33852958b81683163dc1951536eb"
+    },
+    "controller_added": {
+     "Dockerfile.controller_locked": "eb4e97705284356e0a2f5bba32813dcf88eb09e056173c5f2f31a8f3b0ed56e7"
+    },
+    "controller_change": "FROM tag replaced by digest-pinned reference only; Dockerfile.controller_locked is excluded by .dockerignore and passed with -f",
+    "private_file_in_context": false
+   },
+   "build": {
+    "tag": "mrhbench-pilot/diffusion-exp-2d-v1:ac07e25c2e4c",
+    "rc": 0,
+    "wall_s": 12.619,
+    "log": "D:\\mrhbench-local-pilot\\runtime-verify-20260924-r1\\diffusion-exp-2d-v1\\build.log",
+    "log_tail": [
+     "#7 4.950 Downloading kiwisolver-1.4.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)",
+     "#7 5.138    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 8.4 MB/s eta 0:00:00",
+     "#7 5.160 Downloading packaging-25.0-py3-none-any.whl (66 kB)",
+     "#7 5.188 Downloading pillow-11.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)",
+     "#7 5.727    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 12.4 MB/s eta 0:00:00",
+     "#7 5.745 Downloading pyparsing-3.2.3-py3-none-any.whl (111 kB)",
+     "#7 5.772 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)",
+     "#7 5.806 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)",
+     "#7 5.883 Installing collected packages: six, pyparsing, pillow, packaging, numpy, kiwisolver, fonttools, cycler, python-dateutil, contourpy, matplotlib",
+     "#7 9.737 Successfully installed contourpy-1.3.3 cycler-0.12.1 fonttools-4.59.0 kiwisolver-1.4.9 matplotlib-3.10.6 numpy-2.3.3 packaging-25.0 pillow-11.3.0 pyparsing-3.2.3 python-dateutil-2.9.0.post0 six-1.17.0",
+     "#7 9.737 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.",
+     "#7 DONE 10.0s",
+     "",
+     "#8 [4/5] RUN useradd --create-home --uid 1000 solver     && mkdir -p /work     && chown solver:solver /work     && chmod 0755 /work",
+     "#8 DONE 0.8s",
+     "",
+     "#9 [5/5] WORKDIR /work",
+     "#9 DONE 0.2s",
+     "",
+     "#10 exporting to image",
+     "#10 exporting layers",
+     "#10 exporting layers 0.6s done",
+     "#10 writing image sha256:70114ade2b01a967b630faca376fed62bc3c40cd416543802aee88c12b2c0483 0.0s done",
+     "#10 naming to docker.io/mrhbench-pilot/diffusion-exp-2d-v1:ac07e25c2e4c 0.0s done",
+     "#10 DONE 0.8s"
+    ]
+   },
+   "image": {
+    "tag": "mrhbench-pilot/diffusion-exp-2d-v1:ac07e25c2e4c",
+    "id": "sha256:70114ade2b01a967b630faca376fed62bc3c40cd416543802aee88c12b2c0483",
+    "os": "linux",
+    "arch": "amd64",
+    "size_bytes": 274680750,
+    "user": "solver",
+    "workdir": "/work",
+    "env": [
+     "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+     "LANG=C.UTF-8",
+     "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+     "PYTHON_VERSION=3.12.14",
+     "PYTHON_SHA256=5c8462af5790baf43a321a1559dbe0db06d1be4300fb85fb53c40060668e548a",
+     "PYTHONDONTWRITEBYTECODE=1",
+     "PYTHONUNBUFFERED=1",
+     "MPLBACKEND=Agg",
+     "MPLCONFIGDIR=/tmp/matplotlib",
+     "PIP_DISABLE_PIP_VERSION_CHECK=1"
+    ],
+    "layers": [
+     "sha256:a6dc765193a52cbaede3c93a9ff48b9540948dd0774bbe7031fcb5847606f9ac",
+     "sha256:7ca599ccfc97fa428fcf941eda7c2d643f066feb947020dcdbbf913cec34d5dc",
+     "sha256:b54011271bdbf69ae643cb5a4af6a5bc2f834ae8bc0833b736b52bbd2396e99f",
+     "sha256:c321a426ca693e386f4df5f198d7f32c2da49e29f53ff77d695ceb02dfb0a421",
+     "sha256:a344e0b5c478ec44ab3fede6d7cad8217535201e6438f842f0465cfe38084ba3",
+     "sha256:9c2209c7629b22bc0b02f99f1aa653064da046e3a7d924fb0fc97c49881d48da",
+     "sha256:fbb204e0629188a321e2ac54410dc0acc3b3fbefb6c992ef54c3374b01dc9812",
+     "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    ],
+    "base_ref": "python:3.12-slim@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
+    "base_image_id": "sha256:9e87977b867847e186d066f531ef783b006d582a985c341c269446088d90f2c4",
+    "base_repo_digests": [
+     "python@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9"
+    ],
+    "base_layers_prefix_match": true,
+    "pins_resolved": {
+     "numpy==2.3.3": true,
+     "matplotlib==3.10.6": true,
+     "contourpy==1.3.3": true,
+     "cycler==0.12.1": true,
+     "fonttools==4.59.0": true,
+     "kiwisolver==1.4.9": true,
+     "packaging==25.0": true,
+     "pillow==11.3.0": true,
+     "pyparsing==3.2.3": true,
+     "python-dateutil==2.9.0.post0": true,
+     "six==1.17.0": true
+    },
+    "installed_not_in_requirements": [],
+    "task_or_private_named_files_in_image": [],
+    "pip_freeze_all": [
+     "contourpy==1.3.3",
+     "cycler==0.12.1",
+     "fonttools==4.59.0",
+     "kiwisolver==1.4.9",
+     "matplotlib==3.10.6",
+     "numpy==2.3.3",
+     "packaging==25.0",
+     "pillow==11.3.0",
+     "pip==25.0.1",
+     "pyparsing==3.2.3",
+     "python-dateutil==2.9.0.post0",
+     "six==1.17.0"
+    ],
+    "in_image_probe": [
+     "Python 3.12.14",
+     "--ls",
+     "drwx------ 2 solver solver 4096 Sep 24 20:39 /home/solver",
+     "drwxr-xr-x 2 solver solver 4096 Sep 24 20:39 /work",
+     "uid=1000(solver) gid=1000(solver) groups=1000(solver)"
+    ]
+   },
+   "resources_applied": {
+    "cpus": 2,
+    "memory_mb": 2048,
+    "disk_mb": 512,
+    "pids_limit": 128,
+    "wall_seconds": 1200
+   },
+   "docker_run_flags_common": [
+    "--rm",
+    "--network none",
+    "--read-only",
+    "--cap-drop ALL",
+    "--security-opt no-new-privileges=true",
+    "--user 1000:1000",
+    "--cpus 2",
+    "--memory/--memory-swap 2048m",
+    "--pids-limit 128",
+    "public_view -> /pkg:ro",
+    "-w /work",
+    "tmpfs /work 410m + /tmp 102m (80/20 of 512 MB disk; counted in memory)",
+    "host watchdog timeout = wall_seconds + 30 = 1230 s"
+   ],
+   "cgroup_v1_readback": "memory.limit_in_bytes, pids.max and cpu.cfs_quota_us/period read inside the container match declared memory/pids/cpus (lines in smoke stdout)",
+   "public_mount": {
+    "host_dir": "D:\\mrhbench-local-pilot\\runtime-verify-20260924-r1\\diffusion-exp-2d-v1\\public_view",
+    "container_path": "/pkg",
+    "mode": "ro",
+    "files": [
+     "assets/exp_2d/method_spec.md",
+     "assets/exp_2d/starter/baseline_random_search.py",
+     "assets/exp_2d/starter/metrics.py",
+     "assets/exp_2d/starter/objectives.py",
+     "assets/exp_2d/starter/test_starter.py",
+     "assets/exp_2d/task.md",
+     "environment/smoke.py"
+    ],
+    "smoke_sha256": "8513906a38417cc52aa2755de162cec4e738b9a8982cc0bee9d260f77510fbe2",
+    "private_file_in_mount": false,
+    "package_json_mounted": false,
+    "note": "package.json is not mounted because it contains private-only facts; smoke step that reads package.json is skipped by its own os.path.exists guard, and the controller performs the equivalent hash check on the host"
+   },
+   "smoke_runs": {
+    "A_default_tmpfs": {
+     "container_name": "mrh-rv1-diffusion--a-1790282349",
+     "tmpfs_flags": [
+      "--tmpfs",
+      "/work:rw,nosuid,nodev,size=410m",
+      "--tmpfs",
+      "/tmp:rw,nosuid,nodev,size=102m"
+     ],
+     "rc": 1,
+     "timed_out": false,
+     "wall_s": 1.95,
+     "work_writable": false,
+     "pkg_mount_writable": false,
+     "rootfs_writable": false,
+     "smoke_passed": false,
+     "log": "D:\\mrhbench-local-pilot\\runtime-verify-20260924-r1\\diffusion-exp-2d-v1\\smoke_A_default_tmpfs.log",
+     "stdout_filtered": [
+      "uid=1000(solver) gid=1000(solver) groups=1000(solver)",
+      "drwxrwxrwt 2 root root 40 Sep 24 20:39 /tmp",
+      "drwxr-xr-x 2 root root 40 Sep 24 20:39 /work",
+      "tmpfs on /tmp type tmpfs (rw,nosuid,nodev,noexec,relatime,size=104448k)",
+      "tmpfs on /work type tmpfs (rw,nosuid,nodev,noexec,relatime,size=419840k,mode=755)",
+      "WORK_WRITABLE=no",
+      "PKG_WRITABLE=no",
+      "ROOTFS_WRITABLE=no",
+      "CapEff:\t0000000000000000",
+      "NoNewPrivs:\t1",
+      "lo",
+      "2147483648",
+      "128",
+      "200000",
+      "100000",
+      "===SMOKE===",
+      "versions: {'numpy': '2.3.3', 'matplotlib': '3.10.6'} python 3.12.14",
+      "render ok (7600 bytes, synthetic data)",
+      "throughput probe: 20 x (400x400 matmul) in 0.075 s, cpus visible=20"
+     ],
+     "omitted_repetitive_ok_lines": 0,
+     "stderr_tail": [
+      "touch: cannot touch '/work/.w': Permission denied",
+      "working directory /work is not writable: [Errno 13] Permission denied: '/work/.smoke_7wecpy22'"
+     ]
+    },
+    "B_controller_uid_tmpfs": {
+     "container_name": "mrh-rv1-diffusion--b-1790282350",
+     "tmpfs_flags": [
+      "--tmpfs",
+      "/work:rw,nosuid,nodev,size=410m,uid=1000,gid=1000,mode=0700",
+      "--tmpfs",
+      "/tmp:rw,nosuid,nodev,size=102m,uid=1000,gid=1000,mode=0700"
+     ],
+     "rc": 0,
+     "timed_out": false,
+     "wall_s": 1.577,
+     "work_writable": true,
+     "pkg_mount_writable": false,
+     "rootfs_writable": false,
+     "smoke_passed": true,
+     "log": "D:\\mrhbench-local-pilot\\runtime-verify-20260924-r1\\diffusion-exp-2d-v1\\smoke_B_controller_uid_tmpfs.log",
+     "stdout_filtered": [
+      "uid=1000(solver) gid=1000(solver) groups=1000(solver)",
+      "drwx------ 2 solver solver 40 Sep 24 20:39 /tmp",
+      "drwx------ 2 solver solver 40 Sep 24 20:39 /work",
+      "tmpfs on /tmp type tmpfs (rw,nosuid,nodev,noexec,relatime,size=104448k,mode=700,uid=1000,gid=1000)",
+      "tmpfs on /work type tmpfs (rw,nosuid,nodev,noexec,relatime,size=419840k,mode=700,uid=1000,gid=1000)",
+      "WORK_WRITABLE=yes",
+      "PKG_WRITABLE=no",
+      "ROOTFS_WRITABLE=no",
+      "CapEff:\t0000000000000000",
+      "NoNewPrivs:\t1",
+      "lo",
+      "2147483648",
+      "128",
+      "200000",
+      "100000",
+      "===SMOKE===",
+      "versions: {'numpy': '2.3.3', 'matplotlib': '3.10.6'} python 3.12.14",
+      "render ok (7600 bytes, synthetic data)",
+      "throughput probe: 20 x (400x400 matmul) in 0.052 s, cpus visible=20",
+      "working directory writable: /work",
+      "ok  check_optima",
+      "ok  check_fitness_properties",
+      "ok  check_out_of_box",
+      "ok  check_entropy",
+      "ok  check_elites_and_coverage",
+      "ok  check_random_search",
+      "ok  check_no_protocol_defaults",
+      "starter self-checks passed",
+      "starter loaders ok (4 objectives, logging round-trip)",
+      "SMOKE OK",
+      "SMOKE_RC=0"
+     ],
+     "omitted_repetitive_ok_lines": 0,
+     "stderr_tail": []
+    }
+   },
+   "leftover_containers_after_runs": [],
+   "leak_check": {
+    "initial_broad_scan": {
+     "needle_count": 23,
+     "hit_count": 3,
+     "note": "over-broad (included public values/ids restated in private rubrics); superseded by refined scan"
+    },
+    "refined_scan": {
+     "private_only_fact_ids": [
+      "META-CODE-LICENSE",
+      "META-VERSION-LICENSE",
+      "MS-TWO-PEAK-EXTENSION",
+      "RES-FIG3-QUALITATIVE",
+      "RES-TABLE1",
+      "SRC-ACKLEY-RASTRIGIN-DIRECTION",
+      "SRC-CLAIM-DIVERSITY",
+      "SRC-FIG2-SETTINGS",
+      "SRC-PROTOCOL-AUTHORS",
+      "SRC-SCHEDULES-EXCLUDED",
+      "UNK-AUTHOR-DETAILS"
+     ],
+     "private_asset_paths": [
+      "assets/exp_2d/private/review_notes.md"
+     ],
+     "public_asset_paths": [
+      "assets/exp_2d/method_spec.md",
+      "assets/exp_2d/starter/baseline_random_search.py",
+      "assets/exp_2d/starter/metrics.py",
+      "assets/exp_2d/starter/objectives.py",
+      "assets/exp_2d/starter/test_starter.py",
+      "assets/exp_2d/task.md"
+     ],
+     "auto_token_needles": 26,
+     "manual_needles": [
+      "12800",
+      "top-64",
+      "top 64",
+      "100 repetitions",
+      "1000 steps",
+      "sigma_m = 0.1",
+      "sigma_m=0.1",
+      "Tufts",
+      "Academic Use Only",
+      "41ac6ca",
+      "CMA-ES",
+      "OpenES",
+      "PEPG",
+      "512",
+      "Figure 2",
+      "Table 1"
+     ],
+     "hits": [
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "2.3",
+       "file": "assets/exp_2d/task.md",
+       "context": "un `python test_starter.py`.  **Environment.** CPU-only container with Python 3.12, numpy 2.3.3 and matplotlib 3.10.6. There is no network access and no other scientific packages; for"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "32",
+       "file": "assets/exp_2d/starter/test_starter.py",
+       "context": "e(-4, 4, 41)     centres = (edges[:-1] + edges[1:]) / 2     distinct = np.stack([centres[:32], np.full(32, centres[20])], axis=1)     H, n = grid_entropy(distinct, bins=40)     asser"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "4.0",
+       "file": "assets/exp_2d/starter/objectives.py",
+       "context": "ort dataclass from typing import Callable, Dict, Optional  import numpy as np  BOX_LOW = -4.0 BOX_HIGH = 4.0 EPS_TRANSFORM = 1e-3 TRANSFORM_SCALE = 1.0  TWO_PEAK_SIGMA = 0.1 TWO_PEAK_"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "4.0",
+       "file": "assets/exp_2d/starter/test_starter.py",
+       "context": "k_fitness_properties() -> None:     rng = np.random.default_rng(123)     X = rng.uniform(-4.0, 4.0, size=(5000, 2))     for name, obj in OBJECTIVES.items():         q = obj.fitness(X)"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "40",
+       "file": "assets/exp_2d/starter/baseline_random_search.py",
+       "context": "andom_search.py --objective himmelblau --budget 3000 \\         --n-keep 100 --k 10 --bins 40 --radius 0.2 --seed 7 \\         --out results/random_search.jsonl \"\"\"  from __future__ im"
+      },
+      {
+       "class": "private_token_not_in_public_facts",
+       "needle": "40",
+       "file": "assets/exp_2d/starter/test_starter.py",
+       "context": "entropy() -> None:     same = np.zeros((20, 2)) + 0.01     H, n = grid_entropy(same, bins=40)     assert n == 20 and abs(H) < 1e-12     edges = np.linspace(-4, 4, 41)     centres = ("
+      },
+      {
+       "class": "8word_shingle_overlap",
+       "file": "assets/exp_2d/method_spec.md",
+       "count": 17,
+       "examples": [
+        "- alpha_ t-1 - sigma_t 2 1 -",
+        "- alpha_ t-1 alpha_ t-1 - alpha_t 1",
+        "- at t t with sigma_m 1 alpha_t",
+        "- sigma_t 2 1 - alpha_ t-1 2",
+        ". - at t t with sigma_m 1",
+        "1 - alpha_ t-1 - sigma_t 2 1",
+        "1 - alpha_ t-1 alpha_ t-1 - alpha_t",
+        "2 1 - alpha_ t-1 2 alpha_t alpha_"
+       ]
+      },
+      {
+       "class": "manual_needle",
+       "needle": "CMA-ES",
+       "file": "assets/exp_2d/task.md",
+       "context": "tlib 3.10.6. there is no network access and no other scientific packages; for example, no cma-es library is available, so you must write any baseline yourself.  **proposed per-container "
+      },
+      {
+       "class": "manual_needle",
+       "needle": "512",
+       "file": "assets/exp_2d/task.md",
+       "context": "ntainer limits** (unmeasured; may be revised after a pilot):  - 2 cpus - 2048 mb memory - 512 mb disk - 128 processes - 1200 s wall time  your `experiments/run.md` must regenerate all"
+      }
+     ]
+    },
+    "adjudication": "No private-only fact ID, Table 1 value, author-protocol number (population 512 / 25 iterations / top-64 / 12800 / 100 repetitions / 1000 OpenES steps), Figure-2 sigma_m=0.1 setting or licence-rider text appears in public assets. Benign hits: 512 = public disk limit; CMA-ES only in 'no cma-es library is available'; numbers in starter self-checks (bins=40, box 4.0, 32); TWO_PEAK_SIGMA=0.1 is the public objective width (SRC-OBJ-TWOPEAK), not sigma_m; 8-word shingle overlap with method_spec.md is the public schedule identity (MS-SCHEDULE-IDENTITY-BOUNDS) restated in private notes; degenerate_rows is a public contract field. NOTE: private review_notes.md lives INSIDE assets/exp_2d/private/; the controller mounted only declared-public files, a naive assets/ mount would leak it."
+   },
+   "verdict": "pass_runtime_smoke_development_requires_controller_uid_tmpfs",
+   "verdict_reasons": [
+    "all 7 declared asset sha256 equal file bytes (reviewer copies identical)",
+    "image builds from pinned base digest with --only-binary; all 11 pins resolve exactly; no extra packages",
+    "smoke FAILS with default tmpfs (variant A: /work root-owned 0755, check_writable_cwd exits rc=1 before starter checks) and PASSES with controller tmpfs uid=1000,gid=1000 (variant B) incl. all 7 starter self-checks and logging round-trip",
+    "no private file in build context, image or public mount; string leak check clean after adjudication"
+   ],
+   "open_issues": [
+    "Review flag on Dockerfile USER/WORKDIR ordering: the image does create /work owned by solver (verified in-image ls), but under --read-only + --tmpfs /work the tmpfs masks it and Docker does not copy ownership, so the Dockerfile chown is irrelevant. Writability depends entirely on controller tmpfs uid/gid options. Package needs no fix for this; controller must mount /work and /tmp with uid=1000,gid=1000.",
+    "Private review_notes.md is under assets/exp_2d/private/; mounting the whole assets/ directory would publish it. Publish only declared-public files (as done here); recommend moving private files outside assets/ in a future package version.",
+    "Docker tmpfs is noexec by default; os.cpu_count() reports 20 host CPUs despite --cpus 2 (thread env set to 2).",
+    "Resources are smoke-only (throughput probe 20x400x400 matmul ~0.05-0.08 s). No Diffusion Evolution study was run; 1200 s / 512 MB sufficiency and whether wall covers the whole solver session remain open.",
+    "pip install is not hash-locked; cross-host rebuild not guaranteed byte-identical.",
+    "Rights (paper CC BY-NC-SA 4.0; code Apache-2.0 + academic-use rider, not used), first-disclosure, judge integration and formal isolation remain pending."
+   ]
+  }
+ },
+ "summary": {
+  "ftct-write-v2": "pass (smoke, both variants); solver /work writes need controller uid tmpfs",
+  "diffusion-exp-2d-v1": "pass only with controller uid tmpfs; default tmpfs fails smoke writable-cwd check; private notes sit under assets/, so only declared-public files may be mounted"
+ },
+ "not_done": [
+  "no OOM/PID/disk-exhaustion stress for these packages",
+  "no scientific solver run or resource sufficiency measurement",
+  "no image save/load or cross-host rebuild",
+  "no rights/first-disclosure review",
+  "images left in place: mrhbench-pilot/ftct-write-v2:e6e5d918b500 (sha256:61ba1829...), mrhbench-pilot/diffusion-exp-2d-v1:ac07e25c2e4c (sha256:70114ade...)"
+ ]
+}
