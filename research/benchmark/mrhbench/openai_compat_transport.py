@@ -77,6 +77,9 @@ class OpenAICompatTransport:
             return exc.code, exc.read()
 
     def complete(self, request: dict, *, output_schema: dict, role: str, images=None, timeout_seconds=None, deadline_monotonic=None) -> dict:
+        if getattr(self, "rate_limited", False):
+            # Sticky after one 429: refuse before reserving so a retrying harness cannot burn ledger calls.
+            raise ProviderRateLimit("Provider rate/session limit already hit in this run; call refused before the ledger")
         validate_application_schema(output_schema)
         call_timeout = self.timeout if timeout_seconds is None else min(self.timeout, timeout_seconds)
         if deadline_monotonic is not None:
@@ -105,6 +108,7 @@ class OpenAICompatTransport:
             metadata["http_status"] = code
             data = parse_json(raw.decode("utf8"))
             if code == 429:
+                self.rate_limited = True
                 metadata["failure_class"] = "provider_rate_limit"
                 raise ProviderRateLimit("Provider rate/session limit (HTTP 429); platform outcome, no automatic retry")
             if code != 200:

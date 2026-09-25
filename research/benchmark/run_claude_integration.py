@@ -57,9 +57,18 @@ def main():
                    'dimension_scores': j.get('dimension_scores') if j else None}
         except Exception as exc:
             row = {'package': name, 'status': 'stage_failed', 'error_type': type(exc).__name__, 'message': str(exc)[:600], 'retry': False}
+        limited = [x for x in read_json(ROOT / 'audit/development_call_ledger.json')['attempts']
+                   if str(x.get('artifact_directory', '')).startswith(str(out / name)) and (x.get('metadata') or {}).get('failure_class') == 'provider_rate_limit']
+        if limited:
+            row['provider_rate_limited_calls'] = [x['id'] for x in limited]
         results.append(row)
         write_json(out / 'integration_summary.json', {'runs': results, 'manual_trajectory_review_complete': False, 'formal': False})
         print(json.dumps(row), flush=True)
+        if limited:
+            # Platform outcome: stop instead of spending further calls into the limit (no automatic retry).
+            write_json(out / 'halted_provider_rate_limit.json', {'after_package': name, 'calls': row['provider_rate_limited_calls'],
+                       'not_started': selected[selected.index(name) + 1:]})
+            break
 
 
 if __name__ == '__main__':
