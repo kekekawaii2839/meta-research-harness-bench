@@ -4,6 +4,7 @@ import sys
 import tempfile
 import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"scripts/prepare"))
 from mrhbench.artifact_policy import collection_policy,make_collection_policy
 from mrhbench.container_executor import run_container_harness
 from mrhbench.io import ProtocolError,write_json

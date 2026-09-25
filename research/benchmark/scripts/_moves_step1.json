@@ -1,0 +1,206 @@
+[
+ {
+  "old": "research/benchmark/audit_candidates.py",
+  "new": "research/benchmark/scripts/audits/audit_candidates.py"
+ },
+ {
+  "old": "research/benchmark/audit_collection_evolution_code_review.py",
+  "new": "research/benchmark/scripts/audits/audit_collection_evolution_code_review.py"
+ },
+ {
+  "old": "research/benchmark/audit_collection_lifecycle.py",
+  "new": "research/benchmark/scripts/audits/audit_collection_lifecycle.py"
+ },
+ {
+  "old": "research/benchmark/audit_container_runtime.py",
+  "new": "research/benchmark/scripts/audits/audit_container_runtime.py"
+ },
+ {
+  "old": "research/benchmark/audit_context_policy_real_probes.py",
+  "new": "research/benchmark/scripts/audits/audit_context_policy_real_probes.py"
+ },
+ {
+  "old": "research/benchmark/audit_evolution_native_bridge.py",
+  "new": "research/benchmark/scripts/audits/audit_evolution_native_bridge.py"
+ },
+ {
+  "old": "research/benchmark/audit_execution_identity.py",
+  "new": "research/benchmark/scripts/audits/audit_execution_identity.py"
+ },
+ {
+  "old": "research/benchmark/audit_image_portability.py",
+  "new": "research/benchmark/scripts/audits/audit_image_portability.py"
+ },
+ {
+  "old": "research/benchmark/audit_iv_budget_pilot.py",
+  "new": "research/benchmark/scripts/audits/audit_iv_budget_pilot.py"
+ },
+ {
+  "old": "research/benchmark/audit_iv_native_judge_v1.py",
+  "new": "research/benchmark/scripts/audits/audit_iv_native_judge_v1.py"
+ },
+ {
+  "old": "research/benchmark/audit_judge_idea_lit_holdout.py",
+  "new": "research/benchmark/scripts/audits/audit_judge_idea_lit_holdout.py"
+ },
+ {
+  "old": "research/benchmark/audit_native_admissibility.py",
+  "new": "research/benchmark/scripts/audits/audit_native_admissibility.py"
+ },
+ {
+  "old": "research/benchmark/audit_native_judge_tool_replay.py",
+  "new": "research/benchmark/scripts/audits/audit_native_judge_tool_replay.py"
+ },
+ {
+  "old": "research/benchmark/audit_ssa_retrieval.py",
+  "new": "research/benchmark/scripts/audits/audit_ssa_retrieval.py"
+ },
+ {
+  "old": "research/benchmark/audit_stream_artifact_hash.py",
+  "new": "research/benchmark/scripts/audits/audit_stream_artifact_hash.py"
+ },
+ {
+  "old": "research/benchmark/audit_timeout_failure.py",
+  "new": "research/benchmark/scripts/audits/audit_timeout_failure.py"
+ },
+ {
+  "old": "research/benchmark/audit_write_evidence_budget_pilot.py",
+  "new": "research/benchmark/scripts/audits/audit_write_evidence_budget_pilot.py"
+ },
+ {
+  "old": "research/benchmark/inspect_judge_holdout_trajectory.py",
+  "new": "research/benchmark/scripts/audits/inspect_judge_holdout_trajectory.py"
+ },
+ {
+  "old": "research/benchmark/build_h0_container_development.py",
+  "new": "research/benchmark/scripts/legacy_codex/build_h0_container_development.py"
+ },
+ {
+  "old": "research/benchmark/build_h0_development.py",
+  "new": "research/benchmark/scripts/legacy_codex/build_h0_development.py"
+ },
+ {
+  "old": "research/benchmark/judge_v28_robustness_diagnostic.py",
+  "new": "research/benchmark/scripts/legacy_codex/judge_v28_robustness_diagnostic.py"
+ },
+ {
+  "old": "research/benchmark/rejudge_development.py",
+  "new": "research/benchmark/scripts/legacy_codex/rejudge_development.py"
+ },
+ {
+  "old": "research/benchmark/revalidate_native_judge.py",
+  "new": "research/benchmark/scripts/legacy_codex/revalidate_native_judge.py"
+ },
+ {
+  "old": "research/benchmark/run_broker_smoke.py",
+  "new": "research/benchmark/scripts/legacy_codex/run_broker_smoke.py"
+ },
+ {
+  "old": "research/benchmark/run_docker_pilot.py",
+  "new": "research/benchmark/scripts/legacy_codex/run_docker_pilot.py"
+ },
+ {
+  "old": "research/benchmark/run_judge_idea_lit_holdout.py",
+  "new": "research/benchmark/scripts/legacy_codex/run_judge_idea_lit_holdout.py"
+ },
+ {
+  "old": "research/benchmark/run_judge_v2_8_holdout.py",
+  "new": "research/benchmark/scripts/legacy_codex/run_judge_v2_8_holdout.py"
+ },
+ {
+  "old": "research/benchmark/run_material_pilot.py",
+  "new": "research/benchmark/scripts/legacy_codex/run_material_pilot.py"
+ },
+ {
+  "old": "research/benchmark/run_native_judge_calibration.py",
+  "new": "research/benchmark/scripts/legacy_codex/run_native_judge_calibration.py"
+ },
+ {
+  "old": "research/benchmark/run_native_rejudge_development.py",
+  "new": "research/benchmark/scripts/legacy_codex/run_native_rejudge_development.py"
+ },
+ {
+  "old": "research/benchmark/run_stage_development.py",
+  "new": "research/benchmark/scripts/legacy_codex/run_stage_development.py"
+ },
+ {
+  "old": "research/benchmark/run_write_content_development.py",
+  "new": "research/benchmark/scripts/legacy_codex/run_write_content_development.py"
+ },
+ {
+  "old": "research/benchmark/build_shared_corpus_v3.py",
+  "new": "research/benchmark/scripts/prepare/build_shared_corpus_v3.py"
+ },
+ {
+  "old": "research/benchmark/migrate_stage_candidates_v3.py",
+  "new": "research/benchmark/scripts/prepare/migrate_stage_candidates_v3.py"
+ },
+ {
+  "old": "research/benchmark/prepare_collection_contract.py",
+  "new": "research/benchmark/scripts/prepare/prepare_collection_contract.py"
+ },
+ {
+  "old": "research/benchmark/prepare_development_budget_variant.py",
+  "new": "research/benchmark/scripts/prepare/prepare_development_budget_variant.py"
+ },
+ {
+  "old": "research/benchmark/prepare_joint_config_judge_holdout.py",
+  "new": "research/benchmark/scripts/prepare/prepare_joint_config_judge_holdout.py"
+ },
+ {
+  "old": "research/benchmark/prepare_judge_idea_lit_holdout.py",
+  "new": "research/benchmark/scripts/prepare/prepare_judge_idea_lit_holdout.py"
+ },
+ {
+  "old": "research/benchmark/prepare_judge_positive_fixtures.py",
+  "new": "research/benchmark/scripts/prepare/prepare_judge_positive_fixtures.py"
+ },
+ {
+  "old": "research/benchmark/prepare_judge_v2_8_holdout.py",
+  "new": "research/benchmark/scripts/prepare/prepare_judge_v2_8_holdout.py"
+ },
+ {
+  "old": "research/benchmark/prepare_material_pilot.py",
+  "new": "research/benchmark/scripts/prepare/prepare_material_pilot.py"
+ },
+ {
+  "old": "research/benchmark/prepare_visual_judge_holdouts.py",
+  "new": "research/benchmark/scripts/prepare/prepare_visual_judge_holdouts.py"
+ },
+ {
+  "old": "research/benchmark/prepare_write_content_defect.py",
+  "new": "research/benchmark/scripts/prepare/prepare_write_content_defect.py"
+ },
+ {
+  "old": "research/benchmark/probe_claude_reasoning_refusal.py",
+  "new": "research/benchmark/scripts/probes/probe_claude_reasoning_refusal.py"
+ },
+ {
+  "old": "research/benchmark/probe_claude_transport.py",
+  "new": "research/benchmark/scripts/probes/probe_claude_transport.py"
+ },
+ {
+  "old": "research/benchmark/probe_native_context_policy.py",
+  "new": "research/benchmark/scripts/probes/probe_native_context_policy.py"
+ },
+ {
+  "old": "research/benchmark/probe_native_guard.py",
+  "new": "research/benchmark/scripts/probes/probe_native_guard.py"
+ },
+ {
+  "old": "research/benchmark/probe_native_judge_v2.py",
+  "new": "research/benchmark/scripts/probes/probe_native_judge_v2.py"
+ },
+ {
+  "old": "research/benchmark/probe_native_judge_v2b.py",
+  "new": "research/benchmark/scripts/probes/probe_native_judge_v2b.py"
+ },
+ {
+  "old": "research/benchmark/probe_native_judge_v2c.py",
+  "new": "research/benchmark/scripts/probes/probe_native_judge_v2c.py"
+ },
+ {
+  "old": "research/benchmark/probe_transport.py",
+  "new": "research/benchmark/scripts/probes/probe_transport.py"
+ }
+]

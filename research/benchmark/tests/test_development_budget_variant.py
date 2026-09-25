@@ -5,6 +5,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
+sys.path.insert(0,str(ROOT/"scripts/prepare"))
 from prepare_development_budget_variant import prepare
 from mrhbench.io import ProtocolError,read_json,file_hash
 
