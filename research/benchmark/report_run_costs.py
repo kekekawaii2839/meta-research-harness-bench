@@ -27,7 +27,10 @@ def tokens(attempt):
         uncached = int(u.get("uncached_input_tokens", int(u.get("input_tokens") or 0) - cached - write))
     else:
         uncached = int(u.get("input_tokens") or 0)
-    return {"uncached_input": uncached, "cache_write": write, "cache_read": cached, "output": int(u.get("output_tokens") or 0)}
+    out = int(u.get("output_tokens") or 0)
+    # Primary raw counts: every input token sent (all cache classes) and every output token.
+    return {"input_tokens_total": uncached + write + cached, "output_tokens": out,
+            "uncached_input": uncached, "cache_write": write, "cache_read": cached, "output": out}
 
 
 def trajectory(attempt):
@@ -72,6 +75,7 @@ def report(run: Path, ledger_path: Path):
             add(bucket, t, a.get("wall_seconds"), missing)
     for bucket in [total, *by_role.values(), *(r for v in by_task.values() for r in v.values())]:
         bucket["estimated_usd"] = round(dollars({k: bucket.get(k, 0) for k in ("uncached_input", "cache_write", "cache_read", "output")}), 4)
+        bucket["_primary"] = "input_tokens_total and output_tokens are the raw measurements; the cache split and USD are secondary"
     return {"schema_version": "run-cost-report-1", "generated_at": utc_now(), "run": str(run), "ledger": str(ledger_path),
             "price_basis": "ESTIMATE at claude-opus-5-5 list API prices; subscription calls are not metered per call", "price_per_mtok_usd": PRICE,
             "missing_usage_is_not_zero": True, "total": total, "by_role": by_role, "by_task": by_task, "calls": rows}
