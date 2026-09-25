@@ -22,7 +22,7 @@ from pathlib import Path
 
 from .claude_transport import image_rows, provider_safe_schema, provider_schema_compatible, restore_aliases
 from .costs import CallLedger
-from .io import ProtocolError, ProviderRefusal, canonical, digest, file_hash, parse_json, write_json
+from .io import ProtocolError, ProviderRateLimit, ProviderRefusal, canonical, digest, file_hash, parse_json, write_json
 from .providers import validate_application_schema
 
 SYSTEM_PROMPT = (
@@ -104,15 +104,23 @@ class OpenAICompatTransport:
             (run_dir / "http_response_body.json").write_bytes(raw)
             metadata["http_status"] = code
             data = parse_json(raw.decode("utf8"))
+            if code == 429:
+                metadata["failure_class"] = "provider_rate_limit"
+                raise ProviderRateLimit("Provider rate/session limit (HTTP 429); platform outcome, no automatic retry")
             if code != 200:
                 raise ProtocolError("Wrapper returned HTTP %s: %s" % (code, (data.get("error") or {}).get("code")))
             ext = data.get("x_claude") or {}
             metadata["x_claude"] = {k: ext.get(k) for k in ("session_id", "declared_tools", "tool_uses", "stop_reason", "num_turns",
                                                              "cli_version", "init_model", "skills", "plugins", "mcp_servers", "refusal",
-                                                             "served_models", "cli_events")}
+                                                             "served_models", "cli_events", "raw_usage")}
             u = data.get("usage") or {}
             usage = {"input_tokens": int(u.get("prompt_tokens") or 0), "output_tokens": int(u.get("completion_tokens") or 0),
                      "cached_input_tokens": int((u.get("prompt_tokens_details") or {}).get("cached_tokens") or 0)}
+            raw_usage = ext.get("raw_usage") or {}
+            if raw_usage.get("cache_creation_input_tokens") is not None:
+                # prompt_tokens = uncached input + cache writes + cache reads (faithful wrapper); keep the split.
+                usage["cache_write_input_tokens"] = int(raw_usage["cache_creation_input_tokens"])
+                usage["uncached_input_tokens"] = int(raw_usage.get("input_tokens") or 0)
             declared = set(ext.get("declared_tools") or [])
             if declared - {"StructuredOutput"} or set(ext.get("tool_uses") or []) - {"StructuredOutput"}:
                 status = "rejected_native_tool_activity"

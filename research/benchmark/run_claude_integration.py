@@ -12,6 +12,7 @@ from pathlib import Path
 
 from mrhbench.costs import CallLedger
 from mrhbench.io import ProtocolError, file_hash, read_json, write_json
+from mrhbench.native_judge import CLAUDE_VERSION
 from run_container_stage_development import run_stage
 
 ROOT = Path(__file__).resolve().parent
@@ -44,7 +45,7 @@ def main():
     write_json(out / 'integration_plan.json', {'harness': str(a.harness), 'harness_sha256': a.harness_sha256,
                'roles': roles, 'roles_sha256': file_hash(a.roles), 'catalog': str(catalog), 'packages': selected, 'conservative_call_ceiling': ceiling,
                'remaining_at_start': remaining, 'retry': False, 'formal': False,
-               'judge_version_expected': 'native-judge-claude-v3.1'}, exclusive=True)
+               'judge_version_expected': CLAUDE_VERSION}, exclusive=True)
     results = []
     for name in selected:
         try:

@@ -31,7 +31,7 @@ import uuid
 from pathlib import Path
 
 from .costs import CallLedger
-from .io import ProtocolError, ProviderRefusal, canonical, digest, file_hash, parse_json, read_json, write_json
+from .io import ProtocolError, ProviderRateLimit, ProviderRefusal, canonical, digest, file_hash, parse_json, read_json, write_json
 from .providers import validate_application_schema
 from .runtime_contracts import run_process_tree
 
@@ -398,6 +398,9 @@ class ClaudeJSONTransport(_Base):
                 status = "rejected_native_tool_activity"
                 raise ProtocolError("Executor transport exposed or used a non-output tool; response rejected")
             result = parsed["result"] or {}
+            if result.get("api_error_status") == 429:
+                metadata.update(failure_class="provider_rate_limit", provider_message=str(result.get("result"))[:200])
+                raise ProviderRateLimit("Provider rate/session limit (HTTP 429); platform outcome, no automatic retry")
             refusal = provider_refusal(parsed)
             if refusal is not None:
                 metadata.update(failure_class="provider_safety_refusal", refusal=refusal)
@@ -536,6 +539,9 @@ class ClaudeNativeRunner(_Base):
                 metadata["failure_class"] = "platform_required_mcp_unavailable"
                 raise ProtocolError("Required controller MCP server did not connect")
             result = parsed["result"] or {}
+            if result.get("api_error_status") == 429:
+                metadata.update(failure_class="provider_rate_limit", provider_message=str(result.get("result"))[:200])
+                raise ProviderRateLimit("Provider rate/session limit (HTTP 429); platform outcome, no automatic retry")
             refusal = provider_refusal(parsed)
             if refusal is not None:
                 metadata.update(failure_class="provider_safety_refusal", refusal=refusal)

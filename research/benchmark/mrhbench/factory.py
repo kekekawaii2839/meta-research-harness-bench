@@ -23,7 +23,7 @@ from pathlib import Path
 
 import jsonschema
 
-from .io import ProtocolError, contained, digest, file_hash, read_json, utc_now, write_json
+from .io import ProtocolError, ProviderRateLimit, contained, digest, file_hash, read_json, utc_now, write_json
 from .material_batch import MATERIAL_PROMPT_SUFFIX, _check_inputs, _input_snapshot, run_batch
 from .source_evidence_index import build_evidence_index
 
@@ -33,6 +33,13 @@ PAPER_STAGES = ("fetch", "source_audit", "adjudication", "background", "construc
 DONE = "completed"
 # Terminal outcomes after which later stages must not run.
 TERMINAL = {"dropped", "blocked_source", "failed_needs_attribution"}
+# Provider 429: not terminal; rerun only with an explicit retry (failed attempt kept on disk).
+RATE_LIMITED = "platform_rate_limited"
+STAGE_PATHS = {"fetch": ["sources"], "source_audit": ["source_audit"], "adjudication": ["adjudication"],
+               "background": ["background", "background_decision.json"], "construct": ["construct", "job.json"],
+               "review_adjudication": ["review_adjudication"], "repair": ["repair", "job_repair.json"],
+               "repair_adjudication": ["repair_adjudication"], "runtime": ["runtime"], "compile": ["compiled"],
+               "pilot": ["pilot"], "dossier": ["dossier"]}
 CPU_RANK = {"high": 3, "medium": 2, "low": 1, "none": 0}
 DEFAULT_CONFIG = {
     "schema_version": "factory-config-1", "seed": "mrh-factory-v1", "target_papers": 70, "fulltext_papers": 140,
@@ -82,6 +89,33 @@ class Factory:
         self.sources, self.runtime, self.pilot = sources, runtime, pilot
         self.budget = budget or CallBudget(0)
         self._state_lock = threading.Lock()
+        self.halted = None  # set on the first provider rate limit; later calls are refused before the ledger
+
+    def runner(self, role):
+        inner, factory = self.runner_factory(role), self
+
+        class Guarded:
+            def run(self, **kwargs):
+                if factory.halted:
+                    raise ProviderRateLimit("Factory halted after a provider rate limit: " + factory.halted)
+                try:
+                    return inner.run(**kwargs)
+                except ProviderRateLimit as exc:
+                    factory.halted = str(exc)
+                    raise
+        return Guarded()
+
+    @staticmethod
+    def set_aside(path: Path):
+        """Keep a failed attempt: rename to <name>.failed-N (never delete evidence)."""
+        if not path.exists():
+            return None
+        n = 1
+        while path.with_name("%s.failed-%d" % (path.name, n)).exists():
+            n += 1
+        target = path.with_name("%s.failed-%d" % (path.name, n))
+        path.rename(target)
+        return target.name
 
     # ------------------------------------------------------------------ config
     def init(self, overrides=None):
@@ -113,7 +147,7 @@ class Factory:
         self.budget.take()
         snapshot = _input_snapshot(workspace, inputs)
         prompt = (self.factory_templates / prompt_name).read_text(encoding="utf8")
-        call = self.runner_factory(role).run(workspace=workspace, prompt=prompt, role=role)
+        call = self.runner(role).run(workspace=workspace, prompt=prompt, role=role)
         _check_inputs(workspace, inputs, snapshot, role)
         out_path = workspace / output_name
         if not out_path.is_file():
@@ -148,7 +182,7 @@ class Factory:
         import json
         return [json.loads(line) for line in path.read_text(encoding="utf8").splitlines() if line.strip()]
 
-    def run_triage(self, workers=1):
+    def run_triage(self, workers=1, retry_platform=False):
         cfg = self.config()
         pool = self.triage_pool()
         size = cfg["triage_batch_size"]
@@ -158,6 +192,8 @@ class Factory:
             index, batch = index_batch
             ws = self.root / "triage" / ("batch-%03d" % index)
             result_path = ws / "result.json"
+            if result_path.exists() and retry_platform and read_json(result_path).get("status") == RATE_LIMITED:
+                self.set_aside(ws)
             if result_path.exists():
                 return read_json(result_path)
             if ws.exists():
@@ -174,7 +210,8 @@ class Factory:
                     raise ProtocolError("Scout output does not cover exactly the batch papers")
                 row.update(status=DONE, call=call)
             except Exception as exc:
-                row.update(status="failed_needs_attribution", error="%s: %s" % (type(exc).__name__, exc))
+                row.update(status=RATE_LIMITED if isinstance(exc, ProviderRateLimit) else "failed_needs_attribution",
+                           error="%s: %s" % (type(exc).__name__, exc))
             write_json(result_path, row, exclusive=True)
             return row
 
@@ -290,19 +327,27 @@ class Factory:
                                   "finished_at": utc_now(), "notes": list(notes)}
         self._save(state)
 
-    def run_papers(self, project_ids, stages=PAPER_STAGES, workers=1):
+    def run_papers(self, project_ids, stages=PAPER_STAGES, workers=1, retry_platform=False):
         approved = set(self.approved_papers())
         if set(project_ids) - approved:
             raise ProtocolError("Paper outside the approved selection")
         with ThreadPoolExecutor(max_workers=workers) as pool:
-            return list(pool.map(lambda pid: self.advance(pid, stages), project_ids))
+            return list(pool.map(lambda pid: self.advance(pid, stages, retry_platform), project_ids))
 
-    def advance(self, project_id, stages=PAPER_STAGES):
+    def advance(self, project_id, stages=PAPER_STAGES, retry_platform=False):
         """Run the requested stages in order; stops at the first failure or terminal outcome."""
         state = self.state(project_id)
-        self.paper_dir(project_id).mkdir(parents=True, exist_ok=True)
+        pdir = self.paper_dir(project_id)
+        pdir.mkdir(parents=True, exist_ok=True)
         for stage in PAPER_STAGES:
             done = state["stages"].get(stage, {}).get("status")
+            if done == RATE_LIMITED and retry_platform:
+                moved = [self.set_aside(pdir / p) for p in STAGE_PATHS[stage]]
+                state.setdefault("history", []).append({"stage": stage, **state["stages"].pop(stage), "set_aside": moved})
+                self._save(state)
+                done = None
+            if done == RATE_LIMITED:
+                break
             if done in TERMINAL:
                 break
             if done is not None:
@@ -312,7 +357,8 @@ class Factory:
             try:
                 getattr(self, "stage_" + stage)(state)
             except Exception as exc:
-                self._record(state, stage, "failed_needs_attribution", notes=["%s: %s" % (type(exc).__name__, exc)])
+                self._record(state, stage, RATE_LIMITED if isinstance(exc, ProviderRateLimit) else "failed_needs_attribution",
+                             notes=["%s: %s" % (type(exc).__name__, exc)])
                 break
             if state["stages"][stage]["status"] in TERMINAL:
                 break
@@ -469,7 +515,7 @@ class Factory:
         self.check_prompts()
         self.budget.take(2)
         result = run_batch([job], workspace=pdir, batch_root=batch_root, templates=self.templates,
-                           constructor=self.runner_factory("constructor"), reviewer=self.runner_factory("material_reviewer"),
+                           constructor=self.runner("constructor"), reviewer=self.runner("material_reviewer"),
                            max_workers=1, max_jobs=1, controller_hash_fill=True,
                            prompt_suffix=MATERIAL_PROMPT_SUFFIX + (self.factory_templates / "constructor_addendum.txt").read_text(encoding="utf8"),
                            repair_from=repair_from, repair_notes=repair_notes)
@@ -479,7 +525,8 @@ class Factory:
         pdir = self.paper_dir(state["project_id"])
         job, row = self._batch(state, pdir / "construct")
         calls = [(row.get(k) or {}).get("call_id") for k in ("constructor", "reviewer")]
-        status = DONE if row["status"] in {"pass_with_pending_runtime", "revise", "reject"} else "failed_needs_attribution"
+        status = DONE if row["status"] in {"pass_with_pending_runtime", "revise", "reject"} else (
+            RATE_LIMITED if (row.get("error") or {}).get("type") == "ProviderRateLimit" else "failed_needs_attribution")
         self._record(state, "construct", status, {"receipt": "construct/%s/receipt.json" % job["job_id"],
                      "review": "construct/%s/reviewer/review.json" % job["job_id"]}, calls,
                      ["reviewer decision " + row["status"]] + ([row["error"]["message"]] if row.get("error") else []))
@@ -535,7 +582,8 @@ class Factory:
         notes = read_json(pdir / "review_adjudication" / "review_adjudication.json")["repair_notes"]
         job, row = self._batch(state, pdir / "repair", repair_from=pdir / "construct", repair_notes={slug(state["project_id"]): notes})
         calls = [(row.get(k) or {}).get("call_id") for k in ("constructor", "reviewer")]
-        status = DONE if row["status"] in {"pass_with_pending_runtime", "revise", "reject"} else "failed_needs_attribution"
+        status = DONE if row["status"] in {"pass_with_pending_runtime", "revise", "reject"} else (
+            RATE_LIMITED if (row.get("error") or {}).get("type") == "ProviderRateLimit" else "failed_needs_attribution")
         self._record(state, "repair", status, {"receipt": "repair/%s/receipt.json" % job["job_id"],
                      "review": "repair/%s/reviewer/review.json" % job["job_id"]}, calls, ["reviewer decision " + row["status"]])
 

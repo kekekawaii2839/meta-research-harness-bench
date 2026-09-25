@@ -86,6 +86,7 @@ def main():
     t = sub.add_parser("triage")
     t.add_argument("--max-calls", type=int, required=True)
     t.add_argument("--workers", type=int, default=2)
+    t.add_argument("--retry-platform", action="store_true", help="Re-run batches that hit a provider rate limit (failed attempt kept)")
     sub.add_parser("select")
     sub.add_parser("approve-selection").add_argument("--by", required=True, help="Name of the person who read selection.md")
     r = sub.add_parser("run")
@@ -95,6 +96,7 @@ def main():
     r.add_argument("--workers", type=int, default=2)
     r.add_argument("--harness", type=Path, help="Frozen H0 harness.py for the pilot stage")
     r.add_argument("--harness-sha256")
+    r.add_argument("--retry-platform", action="store_true", help="Re-run stages that hit a provider rate limit (failed attempt kept)")
     sub.add_parser("status")
     sub.add_parser("review-queue")
     a = p.parse_args()
@@ -108,7 +110,7 @@ def main():
                                          ROOT.parent / "source_cache/iclr2025_pilot/iclr-2025-orals-posters.json",
                                          a.root / "pool", fetch_readmes=not a.no_readmes)
     elif a.cmd == "triage":
-        out = f.run_triage(workers=a.workers)
+        out = f.run_triage(workers=a.workers, retry_platform=a.retry_platform)
     elif a.cmd == "select":
         out = f.select()
         out = {k: out[k] for k in ("triaged", "eligible", "quotas_target", "quotas_reached")} | {"selected": len(out["papers"]),
@@ -120,7 +122,7 @@ def main():
         stages = tuple(s for s in a.stages.split(",") if s)
         if set(stages) - set(PAPER_STAGES):
             raise ProtocolError("Unknown stage")
-        out = f.run_papers(papers, stages=stages, workers=a.workers)
+        out = f.run_papers(papers, stages=stages, workers=a.workers, retry_platform=a.retry_platform)
     elif a.cmd == "status":
         out = f.status()
     else:

@@ -144,3 +144,7 @@ class BudgetExhausted(ProtocolError):
 
 class ProviderRefusal(ProtocolError):
     """The executor model provider refused the request (public category provider_refusal)."""
+
+
+class ProviderRateLimit(ProtocolError):
+    """Subscription/API rate or session limit (HTTP 429): a platform outcome, never an agent result."""

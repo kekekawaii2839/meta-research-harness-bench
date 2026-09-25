@@ -1,0 +1,8 @@
+{
+ "from": "maintainer_candidates_v2/gaussian-exp",
+ "change": "task.json resources.image_id repointed from the IV image to the package's own image mrhbench-pilot/gaussian-exp-v2:2a0e5db72726 (user 2026-09-24: images must not be shared); no other byte changed",
+ "image_record": "audit/gaussian_exp_image_v1.json",
+ "v2_task_sha256": "ce0f92fddace6740ba9a24bd17e6a5c495cecd395465c8edf0020a2f6e4167f1",
+ "v3_task_sha256": "cd1b80038ea272e70ec056a133067e9b00a289f62301e689fb6de6c1755103f8",
+ "note": "maintainer_checks/build_package.py still names the IV image; it is the historical v2 builder"
+}
