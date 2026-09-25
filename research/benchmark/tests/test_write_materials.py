@@ -6,6 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "scripts/active"))
 from mrhbench.io import ProtocolError, read_json
 from mrhbench.materials import load_task, validate_split
 from mrhbench.numeric_checks import check_display_ledger

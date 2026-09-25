@@ -11,9 +11,10 @@ import argparse
 import json
 from pathlib import Path
 
+import sys as _sys, pathlib as _pl; _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))  # benchmark root (scripts/<group>/)
 from mrhbench.io import read_json, write_json, utc_now
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 PRICE = {"input": 4.0, "output": 20.0, "cache_write": 5.0, "cache_read": 0.4}  # USD per MTok, opus-5-5 list price
 
 

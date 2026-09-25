@@ -6,7 +6,7 @@ from pathlib import Path
 import sys as _sys, pathlib as _pl; _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))  # benchmark root (scripts/<group>/)
 from mrhbench.execution_identity import public_input_identities
 from mrhbench.io import read_json, write_json, file_hash, digest, parse_json
-from run_container_stage_development import evidence_for_run
+from mrhbench.stage_controller import evidence_for_run
 
 
 def main():

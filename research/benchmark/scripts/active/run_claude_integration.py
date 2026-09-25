@@ -10,12 +10,13 @@ import json
 import sys
 from pathlib import Path
 
+import sys as _sys, pathlib as _pl; _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))  # benchmark root (scripts/<group>/)
 from mrhbench.costs import CallLedger
 from mrhbench.io import ProtocolError, file_hash, read_json, write_json
 from mrhbench.native_judge import CLAUDE_VERSION
-from run_container_stage_development import run_stage
+from mrhbench.stage_controller import run_stage
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 PACKAGES = ['ssa-write-content', 'idea', 'lit', 'ssa-write-evidence', 'iv-exp']
 
 

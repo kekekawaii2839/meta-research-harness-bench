@@ -184,7 +184,7 @@ def validate_roles(roles):
 
 
 def run_stage(package,harness,output,binary,skip_judge=False,context_policy=None,roles=None):
-    root=Path(__file__).resolve().parent
+    root=Path(__file__).resolve().parents[1]  # benchmark root
     package,harness,output=Path(package).resolve(),Path(harness).resolve(),Path(output).resolve()
     if output.exists():raise ProtocolError('Fresh stage output required')
     if context_policy is not None:
@@ -242,10 +242,3 @@ def run_stage(package,harness,output,binary,skip_judge=False,context_policy=None
         write_json(output/'judge_run_result.json',judge)
     return {'submission_status':result['status'],'output':str(output),'formal':False,'manual_trajectory_review_required':True}
 
-
-if __name__=='__main__':
-    p=argparse.ArgumentParser()
-    for key in ('package','harness','output','binary'):p.add_argument('--'+key,required=True)
-    p.add_argument('--skip-judge',action='store_true');p.add_argument('--context-policy',type=Path);p.add_argument('--roles',type=Path);a=p.parse_args()
-    if a.roles and a.context_policy:raise ProtocolError('Codex context policy and Claude roles are exclusive')
-    print(run_stage(a.package,a.harness,a.output,a.binary,a.skip_judge,read_json(a.context_policy) if a.context_policy else None,read_json(a.roles) if a.roles else None))

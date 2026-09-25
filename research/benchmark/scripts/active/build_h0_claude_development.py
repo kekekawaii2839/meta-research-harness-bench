@@ -9,6 +9,7 @@ import sys
 import tempfile
 from pathlib import Path
 
+import sys as _sys, pathlib as _pl; _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))  # benchmark root (scripts/<group>/)
 from mrhbench.claude_transport import ClaudeNativeRunner
 from mrhbench.container_runtime import ContainerSession
 from mrhbench.costs import CallLedger
@@ -37,7 +38,7 @@ states actual produced files, tests and limitations; no claimed scientific score
 
 
 def build(binary, output, model, effort, wall_seconds):
-    root = Path(__file__).resolve().parent
+    root = Path(__file__).resolve().parents[2]
     output = Path(output).resolve()
     if output.exists():
         raise ProtocolError('Fresh output required')

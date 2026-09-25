@@ -10,6 +10,7 @@ import json
 import sys
 from pathlib import Path
 
+import sys as _sys, pathlib as _pl; _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))  # benchmark root (scripts/<group>/)
 from mrhbench.claude_transport import ClaudeNativeRunner
 from mrhbench.costs import CallLedger
 from mrhbench.io import ProtocolError, file_hash, read_json, write_json
@@ -38,7 +39,7 @@ def expectations(source, name, fixture):
 
 
 def run(output, roles, only=None):
-    base = Path(__file__).resolve().parent
+    base = Path(__file__).resolve().parents[2]
     roles = read_json(Path(roles))
     judge = roles['judge']
     out = Path(output).resolve()
@@ -82,7 +83,7 @@ def run(output, roles, only=None):
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--output', required=True)
-    p.add_argument('--roles', default=str(Path(__file__).resolve().parent / 'config/role_transport_claude_v1.json'))
+    p.add_argument('--roles', default=str(Path(__file__).resolve().parents[2] / 'config/role_transport_claude_v1.json'))
     p.add_argument('--only', nargs='*')
     a = p.parse_args()
     run(a.output, a.roles, a.only)

@@ -23,7 +23,7 @@ def sha(path):
 
 def main():
     targets = ['mrhbench/artifact_policy.py','scripts/prepare/prepare_collection_contract.py',
-               'mrhbench/material_adapter.py','run_container_stage_development.py',
+               'mrhbench/material_adapter.py','mrhbench/stage_controller.py',
                'mrhbench/container_executor.py','scripts/audits/audit_collection_lifecycle.py',
                'mrhbench/evolution_driver.py','mrhbench/evolution.py']
     snapshots = {p:sha(ROOT/p) for p in targets}

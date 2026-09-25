@@ -7,7 +7,7 @@ from unittest.mock import patch
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from mrhbench.io import ProtocolError,write_json,file_hash,digest
-from run_container_stage_development import model_action_records,output_inventory_for_run,run_stage,captured_artifact_records,frozen_bytes
+from mrhbench.stage_controller import model_action_records,output_inventory_for_run,run_stage,captured_artifact_records,frozen_bytes
 
 
 class StageControllerEvidenceTests(unittest.TestCase):
@@ -88,8 +88,8 @@ class StageControllerEvidenceTests(unittest.TestCase):
     def test_dependency_failure_before_run_directory_or_model(self):
         with tempfile.TemporaryDirectory() as td:
             output=Path(td)/'new-run'
-            with patch('run_container_stage_development.load_task',return_value={'public':{'output_contract':{}},'private':{}}), \
-                 patch('run_container_stage_development.validate_application_schema',side_effect=ImportError('dependency unavailable')):
+            with patch('mrhbench.stage_controller.load_task',return_value={'public':{'output_contract':{}},'private':{}}), \
+                 patch('mrhbench.stage_controller.validate_application_schema',side_effect=ImportError('dependency unavailable')):
                 with self.assertRaises(ImportError):run_stage(td,'harness.py',output,'codex.exe')
             self.assertFalse(output.exists())
 

@@ -181,7 +181,7 @@ class StageEvaluationAdapter:
         if output.exists():raise ProtocolError('Fresh evaluation output required; pending review must resume without reevaluation')
         runner=self.stage_runner
         if runner is None:
-            from run_container_stage_development import run_stage
+            from mrhbench.stage_controller import run_stage
             runner=run_stage
         # Controller-only request is not itself a model prompt. run_stage exports
         # only the fixed public TaskView, then executes the frozen harness.

@@ -8,7 +8,7 @@ from mrhbench.io import ProtocolError,read_json,write_json,file_hash
 from mrhbench.materials import load_task
 from mrhbench.native_codex import NativeCodexRunner
 from mrhbench.native_judge import run_native_judge
-from run_container_stage_development import output_inventory_for_run
+from mrhbench.stage_controller import output_inventory_for_run
 
 
 def run(package,run_root,records_path,output,binary):

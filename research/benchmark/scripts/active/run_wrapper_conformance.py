@@ -19,10 +19,11 @@ from pathlib import Path
 
 from openai import OpenAI
 
+import sys as _sys, pathlib as _pl; _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))  # benchmark root (scripts/<group>/)
 from mrhbench.costs import CallLedger
 from mrhbench.io import digest, write_json
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 PASSTHROUGH = "<args>keep-me</args>\n\n\n\n<thinking>visible-thinking</thinking> data:image/png;base64,AAAA [Image: x]"
 
 

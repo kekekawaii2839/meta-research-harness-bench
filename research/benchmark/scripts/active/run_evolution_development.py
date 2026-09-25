@@ -5,6 +5,7 @@ split, claim judge acceptance, or override the shared subscription call ledger.
 """
 import argparse
 from pathlib import Path
+import sys as _sys, pathlib as _pl; _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))  # benchmark root (scripts/<group>/)
 from mrhbench.costs import CallLedger
 from mrhbench.evolution_driver import DevelopmentEvolutionDriver, PendingEvaluationReview
 from mrhbench.evolution_evaluator import StageEvaluationAdapter, ReadOnlyReviewResolver, review_template
@@ -12,11 +13,11 @@ from mrhbench.evolution_native import NativeDevelopmentBuilder
 from mrhbench.io import ProtocolError, digest, file_hash, read_json, write_json
 from mrhbench.materials import load_task
 
-ROOT=Path(__file__).resolve().parent
+ROOT=Path(__file__).resolve().parents[2]
 
 
 def implementation_manifest():
-    paths=[Path(__file__),ROOT/'run_container_stage_development.py']
+    paths=[Path(__file__),ROOT/'mrhbench/stage_controller.py']
     paths+=list((ROOT/'mrhbench').glob('*.py'))
     paths+=list((ROOT/'runtime').glob('*.py'))+list((ROOT/'runtime').glob('*.json'))
     paths+=list((ROOT/'prompts').glob('*.txt'))
@@ -39,7 +40,7 @@ def check_configuration(config):
     keys={'image_id','resources','native_timeout_seconds','max_tool_calls','max_artifact_bytes','max_artifact_entries','use_hook_guard'}
     if set(config['native_builder'])!=keys:raise ProtocolError('Explicit native development resource profile required')
     if config.get('roles') is not None:
-        from run_container_stage_development import validate_roles
+        from mrhbench.stage_controller import validate_roles
         validate_roles(config['roles'])
         if config.get('context_policy') is not None or config['native_builder']['use_hook_guard']:
             raise ProtocolError('Claude roles exclude the Codex context policy and Codex hook guard')

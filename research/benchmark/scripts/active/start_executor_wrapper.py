@@ -19,7 +19,7 @@ import time
 import urllib.request
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 COMMIT = "aaad0b96a4cd63833003ac340bbcc37f89418acc"
 SDK = "claude-agent-sdk==0.2.159"
 

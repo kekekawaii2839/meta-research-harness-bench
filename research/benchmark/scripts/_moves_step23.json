@@ -1,0 +1,62 @@
+[
+ {
+  "old": "research/benchmark/run_container_stage_development.py",
+  "new": "research/benchmark/mrhbench/stage_controller.py (+ thin CLI scripts/active/run_container_stage_development.py)"
+ },
+ {
+  "old": "research/benchmark/build_h0_claude_development.py",
+  "new": "research/benchmark/scripts/active/build_h0_claude_development.py"
+ },
+ {
+  "old": "research/benchmark/build_material_catalog.py",
+  "new": "research/benchmark/scripts/active/build_material_catalog.py"
+ },
+ {
+  "old": "research/benchmark/fetch_sources.py",
+  "new": "research/benchmark/scripts/active/fetch_sources.py"
+ },
+ {
+  "old": "research/benchmark/measure_local_storage.py",
+  "new": "research/benchmark/scripts/active/measure_local_storage.py"
+ },
+ {
+  "old": "research/benchmark/rejudge_claude_stage.py",
+  "new": "research/benchmark/scripts/active/rejudge_claude_stage.py"
+ },
+ {
+  "old": "research/benchmark/report_run_costs.py",
+  "new": "research/benchmark/scripts/active/report_run_costs.py"
+ },
+ {
+  "old": "research/benchmark/resume_material_review.py",
+  "new": "research/benchmark/scripts/active/resume_material_review.py"
+ },
+ {
+  "old": "research/benchmark/run_claude_integration.py",
+  "new": "research/benchmark/scripts/active/run_claude_integration.py"
+ },
+ {
+  "old": "research/benchmark/run_evolution_development.py",
+  "new": "research/benchmark/scripts/active/run_evolution_development.py"
+ },
+ {
+  "old": "research/benchmark/run_judge_claude_revalidation.py",
+  "new": "research/benchmark/scripts/active/run_judge_claude_revalidation.py"
+ },
+ {
+  "old": "research/benchmark/run_material_claude.py",
+  "new": "research/benchmark/scripts/active/run_material_claude.py"
+ },
+ {
+  "old": "research/benchmark/run_material_factory.py",
+  "new": "research/benchmark/scripts/active/run_material_factory.py"
+ },
+ {
+  "old": "research/benchmark/run_wrapper_conformance.py",
+  "new": "research/benchmark/scripts/active/run_wrapper_conformance.py"
+ },
+ {
+  "old": "research/benchmark/start_executor_wrapper.py",
+  "new": "research/benchmark/scripts/active/start_executor_wrapper.py"
+ }
+]

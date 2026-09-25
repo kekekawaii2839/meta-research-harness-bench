@@ -9,13 +9,14 @@ import argparse
 import shutil
 from pathlib import Path
 
+import sys as _sys, pathlib as _pl; _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))  # benchmark root (scripts/<group>/)
 from mrhbench.claude_transport import ClaudeNativeRunner
 from mrhbench.costs import CallLedger
 from mrhbench.io import ProtocolError, contained, digest, file_hash, read_json, write_json
 from mrhbench.material_batch import CONTROLLER_FILL, fill_sentinel_hashes
 from mrhbench.material_pipeline import prepare_review
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 # Exact placeholders the two constructors wrote in batch material-claude-20260924-001 (no hash tool available).
 SENTINELS = (CONTROLLER_FILL, "PENDING-run-tools/fill_asset_hashes.py", "UNCOMPUTED-no-hash-tool")
 

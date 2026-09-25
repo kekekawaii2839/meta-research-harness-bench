@@ -11,19 +11,20 @@ import argparse
 import json
 from pathlib import Path
 
+import sys as _sys, pathlib as _pl; _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))  # benchmark root (scripts/<group>/)
 from mrhbench import factory_sources
 from mrhbench.claude_transport import ClaudeNativeRunner
 from mrhbench.costs import CallLedger
 from mrhbench.factory import PAPER_STAGES, CallBudget, Factory
 from mrhbench.io import ProtocolError, file_hash, read_json
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 TIMEOUTS = {"scout": 900, "source_auditor": 1800, "adjudicator": 1800, "constructor": 1800, "material_reviewer": 1800}
 
 
 def make_pilot(harness: Path, harness_sha256: str, roles_path: Path):
     """P11: each compiled task runs once with the frozen H0, the configured executor and the judge. No retries."""
-    from run_container_stage_development import run_stage
+    from mrhbench.stage_controller import run_stage
     if file_hash(harness) != harness_sha256:
         raise ProtocolError("Frozen H0 hash mismatch")
     roles = read_json(roles_path)

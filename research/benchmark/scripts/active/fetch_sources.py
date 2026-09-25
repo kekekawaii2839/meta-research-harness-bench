@@ -9,6 +9,7 @@ import urllib.request
 import urllib.parse
 from pathlib import Path
 
+import sys as _sys, pathlib as _pl; _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))  # benchmark root (scripts/<group>/)
 from mrhbench.io import ProtocolError, file_hash, read_json, utc_now, write_json
 
 ALLOWED_HOSTS = {"arxiv.org", "export.arxiv.org", "api.github.com", "raw.githubusercontent.com", "proceedings.mlr.press", "openreview.net"}

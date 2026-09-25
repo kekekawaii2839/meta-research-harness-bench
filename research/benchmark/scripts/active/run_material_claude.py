@@ -8,12 +8,13 @@ Candidates are never formally accepted here.
 import argparse
 from pathlib import Path
 
+import sys as _sys, pathlib as _pl; _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2]))  # benchmark root (scripts/<group>/)
 from mrhbench.claude_transport import ClaudeNativeRunner
 from mrhbench.costs import CallLedger
 from mrhbench.io import ProtocolError, read_json, write_json
 from mrhbench.material_batch import MATERIAL_PROMPT_SUFFIX, run_batch
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def main():

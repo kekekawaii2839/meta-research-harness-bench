@@ -6,6 +6,7 @@ import unittest
 from unittest.mock import patch
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"scripts/active"))
 import run_evolution_development as cli
 import test_evolution_driver as driver_fixtures
 import test_evolution_evaluator as evaluator_fixtures
