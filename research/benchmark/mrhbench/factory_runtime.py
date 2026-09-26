@@ -44,8 +44,8 @@ SMOKE_CONTAINER_PATH = "/smoke/smoke.py"
 PUBLIC_ROOT = "/inputs/public"
 MIB = 1024 * 1024
 # Same order as mrhbench.factory.PAPER_STAGES (construct/repair each include their review).
-STAGE_ORDER = ("fetch", "source_audit", "adjudication", "background", "repo_files", "construct", "review_adjudication",
-               "repair", "repair_adjudication", "runtime", "compile", "pilot", "dossier")
+STAGE_ORDER = ("fetch", "source_audit", "adjudication", "background", "repo_files", "external_data", "units", "construct", "review_adjudication",
+               "repair", "repair_adjudication", "repair2", "repair2_adjudication", "runtime", "compile", "pilot", "dossier")
 # Artifact name recorded by the factory -> extraction kind.
 ARTIFACT_KIND = {"source_audit": "source_audit", "adjudication": "adjudication", "review": "review",
                  "review_adjudication": "review_adjudication", "runtime_record": "runtime", "compiled_tasks": "compile",

@@ -660,3 +660,291 @@ def fetch_background(requests: list[dict], dest_dir: Path, *, base_dir: Path | N
                 "base_dir_note": "local_path is relative to base_dir", "requests": results, "sources": store.rows}
     write_json(dest_dir / "manifest.json", manifest)
     return manifest
+
+
+# ----------------------------------------------------------------------------- external datasets (factory v3+)
+# Adjudicator-requested datasets ({"url", "why"}) downloaded by the controller for an internal academic
+# benchmark. Separate allowlist and transport: ALLOWED_HOSTS (used by every other function) is unchanged.
+#
+# DATA_HOSTS: hosts a request URL may name (https only). github.com is further restricted to release
+# assets (/<owner>/<repo>/releases/download/<tag>/<file>), so repository pages, source archives and
+# API endpoints are not reachable through this path.
+DATA_HOSTS = frozenset({"zenodo.org", "huggingface.co", "github.com", "raw.githubusercontent.com",
+                        "figshare.com", "ndownloader.figshare.com", "osf.io", "files.osf.io"})
+# DATA_REDIRECT_HOSTS: exact CDN hosts the above are known to redirect downloads to; allowed only as
+# redirect hops / final URLs, never as the requested URL:
+#   objects.githubusercontent.com, release-assets.githubusercontent.com -> GitHub release assets
+#   cdn-lfs.huggingface.co, cdn-lfs-us-1.huggingface.co, cdn-lfs.hf.co  -> Hugging Face LFS files
+#   cas-bridge.xethub.hf.co                                             -> Hugging Face Xet storage
+# Deliberately NOT included (conservative): generic cloud buckets such as *.s3.amazonaws.com or
+# storage.googleapis.com (figshare/OSF may bounce there). Such downloads end as host_not_allowed and
+# need an explicit, reviewed change to this constant.
+DATA_REDIRECT_HOSTS = frozenset({"objects.githubusercontent.com", "release-assets.githubusercontent.com",
+                                 "cdn-lfs.huggingface.co", "cdn-lfs-us-1.huggingface.co", "cdn-lfs.hf.co",
+                                 "cas-bridge.xethub.hf.co"})
+DATA_TIMEOUT = (30, 120)  # (connect, read) seconds per request/hop
+DATA_MAX_REDIRECTS = 8
+_GH_RELEASE = re.compile(r"^/[A-Za-z0-9_.-]{1,100}/[A-Za-z0-9_.-]{1,100}/releases/download/[^/]+/[^/]+$")
+_ARCHIVE_SUFFIXES = (".tar.gz", ".tgz", ".tar", ".zip")
+
+
+def check_data_url(url: str, *, redirect: bool = False) -> None:
+    """Raise ProtocolError unless ``url`` is an allowed dataset request URL (or, with redirect=True, hop)."""
+    p = urllib.parse.urlparse(url)
+    hosts = DATA_HOSTS | DATA_REDIRECT_HOSTS if redirect else DATA_HOSTS
+    try:
+        port = p.port
+    except ValueError:
+        port = -1
+    if p.scheme != "https" or p.hostname not in hosts or p.username or p.password or port not in (None, 443):
+        raise ProtocolError(f"URL outside external-data allowlist: {url}")
+    if p.hostname == "github.com" and not _GH_RELEASE.match(p.path):
+        raise ProtocolError(f"github.com data URLs must be release assets: {url}")
+
+
+def requests_data_http(url: str, dest: Path, max_bytes: int, *, get=None, max_redirects=DATA_MAX_REDIRECTS):
+    """Default data transport: HTTPS GET streamed to ``dest``; returns (status, final_url, headers, nbytes).
+
+    Redirects are followed manually and every hop is checked with check_data_url(redirect=True).
+    At most max_bytes+1 bytes are written (nbytes > max_bytes signals the cap; returned early without
+    writing when Content-Length already exceeds it). Content is never executed.
+    ``get(url)`` may be injected (a requests-like streaming response context manager) for offline tests.
+    """
+    if get is None:
+        import requests
+        get = lambda u: requests.get(u, headers={"User-Agent": USER_AGENT}, timeout=DATA_TIMEOUT,
+                                     allow_redirects=False, stream=True)
+    check_data_url(url)
+    for _ in range(max_redirects + 1):
+        with get(url) as r:
+            if r.status_code in (301, 302, 303, 307, 308):
+                url = urllib.parse.urljoin(url, r.headers.get("Location", ""))
+                check_data_url(url, redirect=True)
+                continue
+            headers = dict(r.headers.items())
+            if r.status_code != 200:
+                return r.status_code, url, headers, 0
+            try:
+                declared = int(headers.get("Content-Length", headers.get("content-length", "")))
+            except ValueError:
+                declared = None
+            if declared is not None and declared > max_bytes:
+                return 200, url, headers, max_bytes + 1
+            n = 0
+            with Path(dest).open("xb") as f:
+                for chunk in r.iter_content(1024 * 1024):
+                    if not chunk:
+                        continue
+                    chunk = chunk[: max_bytes + 1 - n]
+                    f.write(chunk)
+                    n += len(chunk)
+                    if n > max_bytes:
+                        break
+            return 200, url, headers, n
+    raise ProtocolError("Too many redirects")
+
+
+class _ArchiveError(Exception):
+    def __init__(self, status, detail):
+        super().__init__(detail)
+        self.status = status
+
+
+def _data_basename(url: str) -> str:
+    name = urllib.parse.unquote(PurePosixPath(urllib.parse.urlparse(url).path).name)
+    name = re.sub(r"[^A-Za-z0-9_.-]", "_", name).strip("._")[:100]
+    return name or "download"
+
+
+def _archive_kind(name: str):
+    low = name.lower()
+    if low.endswith(".zip"):
+        return "zip"
+    if low.endswith((".tar.gz", ".tgz", ".tar")):
+        return "tar"
+    return None
+
+
+def _archive_members(path: Path, kind: str, max_files: int, byte_budget: int):
+    """Validate every entry before anything is written. Returns ([(name, size, opener)], closer)."""
+    import tarfile
+    import zipfile
+    entries = []
+    try:
+        if kind == "zip":
+            arc = zipfile.ZipFile(path)
+            for info in arc.infolist():
+                mode = info.external_attr >> 16
+                if stat.S_ISLNK(mode) or (stat.S_IFMT(mode) and not (stat.S_ISREG(mode) or stat.S_ISDIR(mode))):
+                    raise _ArchiveError("archive_unsafe", f"special entry {info.filename!r}")
+                if info.flag_bits & 0x1:
+                    raise _ArchiveError("archive_unsafe", f"encrypted entry {info.filename!r}")
+                entries.append((info.filename, info.is_dir(), info.file_size, (lambda i=info: arc.open(i))))
+        else:
+            arc = tarfile.open(path, mode="r:*")
+            for m in arc.getmembers():
+                if not (m.isfile() or m.isdir()):
+                    raise _ArchiveError("archive_unsafe", f"link/device entry {m.name!r}")
+                entries.append((m.name, m.isdir(), m.size, (lambda mm=m: arc.extractfile(mm))))
+    except _ArchiveError:
+        raise
+    except Exception as exc:  # corrupt archive, unsupported compression
+        raise _ArchiveError("archive_unsafe", f"unreadable archive: {type(exc).__name__}")
+    files, seen, total = [], set(), 0
+    try:
+        for name, is_dir, size, opener in entries:
+            clean = name[:-1] if is_dir and name.endswith("/") else name
+            while clean.startswith("./"):
+                clean = clean[2:]
+            if is_dir and clean in ("", "."):
+                continue
+            try:
+                relative_path(clean)
+            except ProtocolError:
+                raise _ArchiveError("archive_unsafe", f"unsafe entry path {name!r}")
+            if is_dir:
+                continue
+            if clean.lower() in seen:
+                raise _ArchiveError("archive_unsafe", f"duplicate entry {name!r}")
+            seen.add(clean.lower())
+            total += size
+            if len(seen) > max_files:
+                raise _ArchiveError("archive_too_large", f"more than {max_files} files")
+            if total > byte_budget:
+                raise _ArchiveError("archive_too_large", "declared extracted size exceeds remaining cap")
+            files.append((clean, size, opener))
+        for clean in seen:  # a/b as a file and a/b/c would otherwise clash mid-extraction
+            parts = clean.split("/")
+            if any("/".join(parts[:k]) in seen for k in range(1, len(parts))):
+                raise _ArchiveError("archive_unsafe", f"file/directory clash at {clean!r}")
+    except _ArchiveError:
+        arc.close()
+        raise
+    return files, arc
+
+
+def _extract_archive(path: Path, kind: str, target: Path, max_files: int, byte_budget: int):
+    """Extract into new ``target``; returns [(rel_name, nbytes, Path)]. Removes target on any failure."""
+    files, arc = _archive_members(path, kind, max_files, byte_budget)
+    out, total = [], 0
+    try:
+        with arc:
+            target.mkdir()
+            root = target.resolve()
+            for clean, size, opener in files:
+                dst = root.joinpath(*PurePosixPath(clean).parts)
+                if not dst.resolve().is_relative_to(root):
+                    raise _ArchiveError("archive_unsafe", f"entry escapes target {clean!r}")
+                dst.parent.mkdir(parents=True, exist_ok=True)
+                dst = contained(root, clean)
+                n = 0
+                with opener() as src, dst.open("xb") as f:
+                    while True:
+                        chunk = src.read(1024 * 1024)
+                        if not chunk:
+                            break
+                        n += len(chunk)
+                        if n > size or total + n > byte_budget:  # zip headers can lie about sizes
+                            raise _ArchiveError("archive_too_large", f"entry larger than declared {clean!r}")
+                        f.write(chunk)
+                total += n
+                out.append((clean, n, dst))
+    except _ArchiveError:
+        if target.exists():
+            _rmtree(target)
+        raise
+    except Exception as exc:
+        if target.exists():
+            _rmtree(target)
+        raise _ArchiveError("archive_unsafe", f"extraction failed: {type(exc).__name__}")
+    return out
+
+
+def fetch_external_data(requests, dest_dir: Path, *, base_dir: Path | None = None, http=None,
+                        max_total_bytes=REPO_FILES_TOTAL_CAP, already_used_bytes=0, max_extract_files=2000):
+    """Controller download of adjudicator-requested external datasets ([{"url", "why"}]).
+
+    ``http(url, dest_path, max_bytes) -> (status, final_url, headers, nbytes)`` streams to dest_path
+    (default requests_data_http). Request URLs must pass check_data_url; the final URL must pass it with
+    redirect=True. The byte cap is shared: already_used_bytes + downloaded + extracted <= max_total_bytes.
+    .zip/.tar/.tar.gz/.tgz are extracted (archive kept) after strict validation; nothing is executed.
+    Row status: fetched, host_not_allowed, http_<code>, total_cap, fetch_failed:<Exc>, archive_unsafe,
+    archive_too_large. Writes dest_dir/manifest.json; local_path rows are relative to base_dir
+    (default dest_dir.parent).
+    """
+    http = http or requests_data_http
+    dest_dir = Path(dest_dir)
+    base_dir = Path(base_dir) if base_dir is not None else dest_dir.parent
+    if dest_dir.exists():
+        raise ProtocolError("External data destination must be new")
+    dest_dir.mkdir(parents=True)
+    base = base_dir.resolve()
+    if not dest_dir.resolve().is_relative_to(base):
+        raise ProtocolError("dest_dir must be inside base_dir")
+    files = dest_dir / "files"
+    files.mkdir()
+    version = f"fetched:{utc_now()[:10]}"
+    rows, sources, total = [], [], 0
+
+    def remaining():
+        return max_total_bytes - already_used_bytes - total
+
+    def add_source(url, path: Path, n):
+        sid = "extdata_%03d" % (len(sources) + 1)
+        sources.append({"source_id": sid, "url": url, "version": version, "sha256": file_hash(path), "bytes": n,
+                        "role": "external_data_file", "local_path": path.resolve().relative_to(base).as_posix()})
+        return sid
+
+    for i, req in enumerate(requests, 1):
+        url = (req.get("url") or "").strip() if isinstance(req, dict) else ""
+        row = {"url": url, "why": req.get("why") if isinstance(req, dict) else None, "status": None,
+               "bytes": None, "sha256": None, "source_ids": [], "extracted": None}
+        rows.append(row)
+        try:
+            check_data_url(url)
+        except ProtocolError:
+            row["status"] = "host_not_allowed"; continue
+        if remaining() <= 0:
+            row["status"] = "total_cap"; continue
+        name = f"{i:03d}-{_data_basename(url)}"
+        target = files / name
+        try:
+            status, final, _headers, n = http(url, target, remaining())
+            check_data_url(final, redirect=True)
+        except ProtocolError:
+            target.unlink(missing_ok=True); row["status"] = "host_not_allowed"; continue
+        except Exception as exc:
+            target.unlink(missing_ok=True); row["status"] = f"fetch_failed:{type(exc).__name__}"; continue
+        if status != 200:
+            target.unlink(missing_ok=True); row["status"] = f"http_{status}"; continue
+        if n > remaining():
+            target.unlink(missing_ok=True); row.update(status="total_cap", bytes=n); continue
+        if not target.is_file() or target.stat().st_size != n:
+            target.unlink(missing_ok=True); row["status"] = "fetch_failed:SizeMismatch"; continue
+        total += n
+        row.update(status="fetched", bytes=n, sha256=file_hash(target))
+        row["source_ids"].append(add_source(url, target, n))
+        kind = _archive_kind(name)
+        if kind:
+            stem = name
+            for suf in _ARCHIVE_SUFFIXES:
+                if stem.lower().endswith(suf):
+                    stem = stem[: -len(suf)]; break
+            xdir = files / f"{stem}-extracted"
+            try:
+                extracted = _extract_archive(target, kind, xdir, max_extract_files, remaining())
+            except _ArchiveError as exc:
+                row.update(status=exc.status, extracted={"status": exc.status, "detail": str(exc)})
+                continue
+            xbytes = sum(n2 for _c, n2, _p in extracted)
+            total += xbytes
+            for clean, n2, p in extracted:
+                row["source_ids"].append(add_source(f"{url}#{urllib.parse.quote(clean)}", p, n2))
+            row["extracted"] = {"status": "extracted", "dir": xdir.resolve().relative_to(base).as_posix(),
+                                "files": len(extracted), "bytes": xbytes}
+    manifest = {"schema_version": "factory-external-data-1", "fetched_at": utc_now(), "max_total_bytes": max_total_bytes,
+                "already_used_bytes": already_used_bytes, "total_bytes": total, "requests": rows, "sources": sources,
+                "note": "External datasets requested by the adjudicator; licence/terms of each dataset must be recorded "
+                        "separately. Archives are kept alongside their validated extraction; nothing was executed."}
+    write_json(dest_dir / "manifest.json", manifest)
+    return manifest

@@ -31,6 +31,7 @@ class Script:
 
     def __init__(self, **flags):
         self.calls, self.flags = [], flags
+        self.seen_requests, self.seen_workspaces = [], []
 
     def scout(self, ws):
         papers = []
@@ -41,7 +42,9 @@ class Script:
                            "EXP": {"plausible": True, "reason": "fixture", "cpu_branch": "synthetic"},
                            "WRITE_CONTENT": mod(i % 3 == 0), "WRITE_EVIDENCE": mod(False)},
                            "cpu_feasibility": "high", "research_type": "method", "rights_flags": [],
-                           "priority": 3 if pid.endswith("0") else 2, "notes": ""})
+                           "priority": 3 if pid.endswith("0") else 2, "notes": "",
+                           **({"data_availability": "in_repository"}
+                              if "data_availability" in (ws / "triage.schema.json").read_text(encoding="utf8") else {})})
         write_json(ws / "triage.json", {"schema_version": "factory-triage-1", "papers": papers})
 
     def source_auditor(self, ws):
@@ -64,19 +67,27 @@ class Script:
     def adjudicator(self, ws):
         if (ws / "adjudication.schema.json").exists():
             pid = read_json(ws / "candidate.json")["project_id"]
+            schema_text = (ws / "adjudication.schema.json").read_text(encoding="utf8")
+            types = self.flags.get("types", ["EXP"])
+            v4 = {}
+            if "task_scopes" in schema_text:
+                v4 = {"task_scopes": {t: "Build one %s task." % t for t in types if not self.flags.get("no_task_scopes")},
+                      "external_data_requests": [{"url": "https://zenodo.org/records/1/files/d.csv", "why": "dataset",
+                                                  "licence_terms": "no licence stated"}]}
             decisions = [] if self.flags.get("skip_ambiguity") else [{
                 "ambiguity_id": "A1", "decision": "adopt_resolution", "resolution_id": "R1", "statement": "Use Eq. 5.",
                 "rationale": "Supported by the text.", "policy_rules": ["B2"], "locations": [{"source_id": "paper_html", "locator": "Eq. 5"}]}]
             write_json(ws / "adjudication.json", {
                 "schema_version": "factory-adjudication-1", "project_id": pid, "decision": "construct", "drop_reason": None,
-                "ambiguity_decisions": decisions, "requested_task_types": ["EXP"],
-                "unrequested_reasons": {t: "fixture" for t in TASK_TYPES if t != "EXP"}, "scope_request": "Build one EXP task.",
+                "ambiguity_decisions": decisions, "requested_task_types": types,
+                "unrequested_reasons": {t: "fixture" for t in TASK_TYPES if t not in types}, "scope_request": "Build one EXP task.",
                 "environment_candidate": {"docker_base": "python:3.12-slim", "dependencies": ["numpy==2.3.3"], "gpu": False,
                                           "network": "none", "scientific_rationale": "small", **RESOURCES},
                 "background_requests": [], "rights_review": "MIT code", "withheld_from_solver": ["author code"],
                 "checked_against_sources": ["Eq. 5"],
-                **({"repo_file_requests": [{"path": "data/x.bin", "why": "dataset"}]}
-                   if "repo_file_requests" in (ws / "adjudication.schema.json").read_text(encoding="utf8") else {})})
+                **({"repo_file_requests": [{"path": "data/x.bin", "why": "dataset",
+                                            **({"licence_terms": "no licence stated"} if v4 else {})}]}
+                   if "repo_file_requests" in schema_text else {}), **v4})
             return
         rnd = read_json(ws / "round.json")["round"]
         pid = read_json(ws / "request.json")["paper_id"]
@@ -95,17 +106,28 @@ class Script:
     def constructor(self, ws):
         request = read_json(ws / "request.json")
         self.seen_prepopulated = [(p["path"], (ws / "output" / p["path"]).read_bytes()) for p in request.get("prepopulated_output_files", [])]
+        self.seen_requests.append(request)
+        self.seen_workspaces.append(ws)
+        if self.flags.pop("constructor_limit_nowrite_once", False):
+            from mrhbench.io import ProviderRateLimit
+            raise ProviderRateLimit("Provider rate/session limit (HTTP 429)")
+        if self.flags.pop("constructor_truncated_once", False):
+            from mrhbench.io import ProviderRateLimit
+            (ws / "output").mkdir(exist_ok=True)
+            (ws / "output" / "partial.md").write_text("half-written specification", encoding="utf8")
+            raise ProviderRateLimit("Provider rate/session limit (HTTP 429)")
+        ttype = request["requested_task_types"][0]
         bad = self.flags.pop("bad_coverage_once", False)
         n_tasks = 2 if self.flags.get("two_tasks") else 1
         out = ws / "output"
-        (out / "environment/image").mkdir(parents=True)
+        (out / "environment/image").mkdir(parents=True, exist_ok=True)
         (out / "environment/image/Dockerfile").write_text("FROM python:3.12-slim\n")
         (out / "environment/smoke.py").write_text("assert True\n")
         write_json(out / "package.json", dict(
             schema_version="material-package-1", status="candidate", paper_id=request["paper_id"],
-            facts=[dict(fact_id="f", kind="maintainer_scope", statement="Fixture", allowed_stages=["EXP"])],
-            coverage=[dict(task_type=t, status="candidate" if t == "EXP" else "deferred", reason="Fixture") for t in TASK_TYPES][: 4 if bad else 5],
-            tasks=[dict(task_id="t" if i == 0 else "t%d" % (i + 1), paper_id=request["paper_id"], split="development", task_type="EXP",
+            facts=[dict(fact_id="f", kind="maintainer_scope", statement="Fixture", allowed_stages=[ttype])],
+            coverage=[dict(task_type=t, status="candidate" if t == ttype else "deferred", reason="Fixture") for t in TASK_TYPES][: 4 if bad else 5],
+            tasks=[dict(task_id="t" if i == 0 else "t%d" % (i + 1), paper_id=request["paper_id"], split="development", task_type=ttype,
                         input_fact_ids=["f"], input_contract={"description": "Fixture"}, output_contract={"description": "Fixture"},
                         verification_plan={"pending": True}) for i in range(n_tasks)],
             environment=dict(gpu=False, network="none", runtime_verified=False, dependencies=[], scientific_rationale="Fixture",
@@ -154,7 +176,7 @@ class FakeRuntime:
         write_json(dest / "runtime_record.json", record)
         return record
 
-    def compile_tasks(self, out, package, record, dest, *, package_slug):
+    def compile_tasks(self, out, package, record, dest, *, package_slug, **kw):
         dest.mkdir(parents=True)
         return [{"task_id": t["task_id"]} for t in package["tasks"]]
 
@@ -165,6 +187,38 @@ class FakeRuntime:
 
     def select_for_final_review(self, dossiers, *, seed, first_n, sample_rate):
         return [{"project_id": d["project_id"], "reason": "first_n"} for d in dossiers[:first_n]]
+
+
+class FakeSourcesV4(FakeSources):
+    """Adds one code file and an external-data fetch (zip already extracted by the controller)."""
+
+    def fetch_paper_sources(self, candidate, pdir, *, conference_end):
+        manifest = super().fetch_paper_sources(candidate, pdir, conference_end=conference_end)
+        code = pdir / "sources" / "files" / "code" / "m.py"
+        code.parent.mkdir(parents=True)
+        code.write_text("x = 1\n", encoding="utf8")
+        manifest["sources"].append({"source_id": "code_0001", "url": "https://github.com/o/r/blob/m.py", "version": "git:" + "a" * 40,
+                                    "sha256": file_hash(code), "bytes": 6, "role": "code_file",
+                                    "local_path": "sources/files/code/m.py"})
+        write_json(pdir / "sources" / "manifest.json", manifest)
+        return manifest
+
+    def fetch_external_data(self, reqs, dest, *, base_dir, already_used_bytes):
+        self.used = already_used_bytes
+        files = dest / "files"
+        (files / "000-d-extracted").mkdir(parents=True)
+        (files / "000-d.zip").write_bytes(b"PKzip")
+        (files / "000-d-extracted" / "d.csv").write_text("a,b\n1,2\n", encoding="utf8")
+        z, c = file_hash(files / "000-d.zip"), file_hash(files / "000-d-extracted" / "d.csv")
+        m = {"schema_version": "factory-external-data-1", "total_bytes": 13,
+             "requests": [{"url": reqs[0]["url"], "why": "d", "status": "fetched", "bytes": 5, "sha256": z,
+                           "source_ids": ["extdata_000", "extdata_001"], "extracted": {"status": "extracted", "files": 1}}],
+             "sources": [{"source_id": "extdata_000", "url": reqs[0]["url"], "version": "fetched:2026-09-26", "sha256": z, "bytes": 5,
+                          "role": "external_data_file", "local_path": "external_data/files/000-d.zip"},
+                         {"source_id": "extdata_001", "url": reqs[0]["url"] + "#d.csv", "version": "fetched:2026-09-26", "sha256": c,
+                          "bytes": 8, "role": "external_data_file", "local_path": "external_data/files/000-d-extracted/d.csv"}]}
+        write_json(dest / "manifest.json", m)
+        return m
 
 
 def pilot(state, pdir, budget):
@@ -355,6 +409,110 @@ class FactoryTests(unittest.TestCase):
         stages = f.run_papers([pid])[0]["stages"]
         self.assertEqual(stages["repo_files"], "skipped")
         self.assertNotIn("prepopulated_output_files", read_json(f.paper_dir(pid) / "job.json"))
+
+    def v4(self, script, budget=100, **config):
+        f = Factory(self.root, templates=self.templates, runner_factory=lambda role: FakeRunner(script, role),
+                    sources=FakeSourcesV4(), runtime=FakeRuntime(), budget=CallBudget(budget), pilot=pilot)
+        f.init({"triage_pool_size": 6, "triage_batch_size": 3, "fulltext_papers": 3, "factory_prompts": "factory_v4",
+                "structural_gate_to_repair": True, "per_task_resources": True, "unit_split": True,
+                "continue_truncated": True, "exp_second_repair": True, **config})
+        f.run_triage(); f.select(); f.approve_selection("user")
+        return f, read_json(self.root / "selection.json")["papers"][0]["project_id"]
+
+    def test_v4_units_get_their_own_sources_jobs_and_compilation(self):
+        script = Script(round1="pass", types=["WRITE_CONTENT", "EXP"])
+        f, pid = self.v4(script)
+        result = f.run_papers([pid])[0]
+        self.assertEqual((result["stages"]["external_data"], result["stages"]["units"]), ("completed", "completed"))
+        self.assertEqual(list(result["units"]), ["EXP", "WRITE_CONTENT"])  # scarcest module first
+        for unit in ("EXP", "WRITE_CONTENT"):
+            self.assertEqual(result["units"][unit]["dossier"], "completed")
+            udir = f.paper_dir(pid) / "units" / unit
+            self.assertEqual(read_json(udir / "compiled" / "compiled_tasks.json"), [{"task_id": "t"}])
+            self.assertTrue((udir / "construct" / (pid + "__" + unit) / "receipt.json").is_file())
+        exp, wc = script.seen_requests
+        self.assertEqual((exp["requested_task_types"], wc["requested_task_types"]), (["EXP"], ["WRITE_CONTENT"]))
+        roles = lambda r: sorted({s["role"] for s in r["sources"]})
+        self.assertEqual(roles(exp), ["code_file", "paper_html"])
+        self.assertEqual(roles(wc), ["code_file", "paper_html"])
+        self.assertEqual(sorted(p["path"] for p in exp["prepopulated_output_files"]),
+                         ["assets/external_data/000-d-extracted/d.csv", "assets/repo_data/data/x.bin"])  # archive itself not copied
+        self.assertNotIn("prepopulated_output_files", wc)
+        self.assertIn("ONLY EXP task(s)", exp["scope_request"])
+        self.assertIn("Build one EXP task.", exp["scope_request"])
+        self.assertEqual(f.sources.used, 6)  # repository bytes count against the shared cap
+        self.assertEqual(f.package_slug(f.unit_state(pid, "EXP")), f.package_slug(f.state(pid)) + "-exp")
+        self.assertEqual(sorted(str(r.get("unit")) for r in f.status()), ["EXP", "None", "WRITE_CONTENT"])
+
+    def test_v4_lit_unit_gets_no_code_or_data(self):
+        script = Script(round1="pass", types=["LIT"])
+        f, pid = self.v4(script, min_background_found=0)
+        f.run_papers([pid])
+        req = script.seen_requests[0]  # (the fixture LIT package itself fails the structural gate; only sources matter here)
+        self.assertEqual(sorted({s["role"] for s in req["sources"]}), ["paper_html"])
+        self.assertNotIn("prepopulated_output_files", req)
+
+    def test_v4_exp_gets_a_second_targeted_repair(self):
+        script = Script(round1="repair", round2="repair", round3="pass")
+        f, pid = self.v4(script)
+        units = f.run_papers([pid])[0]["units"]
+        self.assertEqual([units["EXP"][s] for s in ("repair", "repair_adjudication", "repair2", "repair2_adjudication", "dossier")],
+                         ["completed"] * 5)
+        self.assertEqual(read_json(f.paper_dir(pid) / "units/EXP/repair2_adjudication/round.json")["allowed_actions"],
+                         ["pass", "pass_partial", "drop"])
+        self.assertIn("repair2", str(f.final_output(f.unit_state(pid, "EXP"))))
+
+    def test_v4_non_exp_unit_keeps_single_repair_round(self):
+        f, pid = self.v4(Script(round1="repair", round2="repair", types=["WRITE_CONTENT"]))
+        units = f.run_papers([pid])[0]["units"]
+        self.assertEqual(units["WRITE_CONTENT"]["repair_adjudication"], "failed_needs_attribution")
+        self.assertNotIn("repair2", units["WRITE_CONTENT"])
+
+    def test_v4_truncated_constructor_continues_from_partial_output(self):
+        script = Script(round1="pass", constructor_truncated_once=True)
+        f, pid = self.v4(script)
+        result = f.run_papers([pid])[0]
+        self.assertEqual((result["stages"]["units"], result["units"]["EXP"]["construct"]),
+                         ("platform_rate_limited", "platform_rate_limited"))
+        f.halted = None
+        result = f.run_papers([pid], retry_platform=True)[0]
+        self.assertEqual((result["stages"]["units"], result["units"]["EXP"]["dossier"]), ("completed", "completed"))
+        ws = script.seen_workspaces[-1]
+        self.assertEqual((ws / "previous_candidate" / "partial.md").read_text(encoding="utf8"), "half-written specification")
+        self.assertIn("CONTINUATION", json.dumps(read_json(ws / "repair_request.json")))
+        ustate = f.unit_state(pid, "EXP")
+        self.assertEqual(ustate["continuations"][0]["from"], "construct.failed-1")
+        self.assertEqual(ustate["stages"]["repair"]["status"], "skipped")  # continuation is not the repair round
+
+    def test_v4_limit_before_any_output_is_a_fresh_retry(self):
+        script = Script(round1="pass", constructor_limit_nowrite_once=True)
+        f, pid = self.v4(script)
+        f.run_papers([pid])
+        f.halted = None
+        f.run_papers([pid], retry_platform=True)
+        self.assertFalse((script.seen_workspaces[-1] / "previous_candidate").exists())
+        self.assertNotIn("continuations", f.unit_state(pid, "EXP"))
+
+    def test_v4_unit_filter_runs_only_selected_units(self):
+        script = Script(round1="pass", types=["WRITE_CONTENT", "EXP"])
+        f, pid = self.v4(script)
+        result = f.run_papers([pid], units=["EXP"])[0]
+        self.assertEqual((result["stages"]["units"], result["units"]["EXP"]["dossier"], result["units"]["WRITE_CONTENT"]),
+                         ("in_progress", "completed", {}))
+        self.assertEqual(f.run_papers([pid])[0]["stages"]["units"], "completed")
+
+    def test_v4_adjudication_needs_task_scopes(self):
+        f, pid = self.v4(Script(no_task_scopes=True))
+        self.assertEqual(f.run_papers([pid])[0]["stages"]["adjudication"], "failed_needs_attribution")
+
+    def test_v4_stage_filter_leaves_units_in_progress(self):
+        f, pid = self.v4(Script(round1="pass"))
+        result = f.run_papers([pid], stages=("fetch", "source_audit", "adjudication", "background", "repo_files",
+                                             "external_data", "units", "construct", "review_adjudication"))[0]
+        self.assertEqual(result["stages"]["units"], "in_progress")
+        self.assertNotIn("runtime", result["units"]["EXP"])
+        result = f.run_papers([pid])[0]
+        self.assertEqual((result["stages"]["units"], result["units"]["EXP"]["dossier"]), ("completed", "completed"))
 
     def test_call_budget_and_prompt_freeze(self):
         f = self.prepared(Script(), budget=3)  # two scout calls used

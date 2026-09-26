@@ -314,3 +314,185 @@ class RepoFilesTests(unittest.TestCase):
             m2 = fs.fetch_repo_files("https://github.com/o/r", commit, [{"path": "data/x.bin", "why": "d"}],
                                      Path(tmp) / "paper" / "rf2", clone_source=str(repo), max_total_bytes=10)
             self.assertEqual(m2["requests"][0]["status"], "total_cap")
+
+
+class FakeDataHTTP:
+    """Offline data transport: routes url -> (status, body[, final_url]); final URL checked like a redirect hop."""
+    def __init__(self, routes):
+        self.routes, self.calls = routes, []
+
+    def __call__(self, url, dest, max_bytes):
+        self.calls.append(url)
+        route = self.routes[url]
+        status, body = route[0], route[1]
+        final = route[2] if len(route) > 2 else url
+        fs.check_data_url(final, redirect=True)
+        if status != 200:
+            return status, final, {}, 0
+        data = body[: max_bytes + 1]
+        Path(dest).write_bytes(data)
+        return 200, final, {}, len(data)
+
+
+def zip_bytes(entries):
+    import io
+    import zipfile
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w") as z:
+        for name, data in entries:
+            z.writestr(name, data)
+    return buf.getvalue()
+
+
+def tgz_bytes(entries, link=None):
+    import io
+    import tarfile
+    buf = io.BytesIO()
+    with tarfile.open(fileobj=buf, mode="w:gz") as t:
+        for name, data in entries:
+            info = tarfile.TarInfo(name)
+            info.size = len(data)
+            t.addfile(info, io.BytesIO(data))
+        if link:
+            info = tarfile.TarInfo(link[0])
+            info.type = tarfile.SYMTYPE
+            info.linkname = link[1]
+            t.addfile(info)
+    return buf.getvalue()
+
+
+class ExternalDataTests(unittest.TestCase):
+    """fetch_external_data: separate allowlist, shared byte cap, strict archive extraction (offline)."""
+
+    def test_allowlist_and_redirects(self):
+        ok = "https://zenodo.org/records/1/files/a.csv"
+        for bad in ("http://zenodo.org/x.csv", "https://evil.example/x.csv", "https://github.com/o/r/archive/main.zip",
+                    "https://github.com/o/r/blob/main/x.csv", "https://objects.githubusercontent.com/x",
+                    "https://user:pw@zenodo.org/x", "https://zenodo.org:8443/x"):
+            with self.assertRaises(ProtocolError, msg=bad):
+                fs.check_data_url(bad)
+        fs.check_data_url(ok)
+        fs.check_data_url("https://github.com/o/r/releases/download/v1/data.tgz")
+        fs.check_data_url("https://release-assets.githubusercontent.com/x?sig=1", redirect=True)
+        with self.assertRaises(ProtocolError):
+            fs.check_data_url("https://bucket.s3.amazonaws.com/x", redirect=True)
+        self.assertNotIn("zenodo.org", fs.ALLOWED_HOSTS)  # existing allowlist untouched
+        hf = "https://huggingface.co/d/x/resolve/main/y.bin"
+        fig = "https://figshare.com/ndownloader/files/9"
+        with tempfile.TemporaryDirectory() as tmp:
+            http = FakeDataHTTP({ok: (200, b"a,b\n1,2\n"), hf: (200, b"zz", "https://evil.example/y.bin"), fig: (404, b"")})
+            reqs = [{"url": ok, "why": "table"}, {"url": "https://evil.example/x", "why": "no"},
+                    {"url": "https://github.com/o/r/raw/main/x.csv", "why": "not release"},
+                    {"url": hf, "why": "bad redirect"}, {"url": fig, "why": "missing"}]
+            dest = Path(tmp) / "paper" / "external_data"
+            m = fs.fetch_external_data(reqs, dest, http=http)
+            self.assertEqual([r["status"] for r in m["requests"]],
+                             ["fetched", "host_not_allowed", "host_not_allowed", "host_not_allowed", "http_404"])
+            self.assertEqual(http.calls, [ok, hf, fig])  # disallowed request URLs never reach the transport
+            self.assertEqual(m["schema_version"], "factory-external-data-1")
+            src = m["sources"]
+            self.assertEqual([s["source_id"] for s in src], ["extdata_001"])
+            self.assertEqual(src[0]["local_path"], "external_data/files/001-a.csv")
+            self.assertEqual(src[0]["sha256"], file_hash(dest / "files" / "001-a.csv"))
+            self.assertTrue(src[0]["version"].startswith("fetched:"))
+            self.assertEqual(sorted(p.name for p in (dest / "files").iterdir()), ["001-a.csv"])
+            self.assertEqual(read_json(dest / "manifest.json"), m)
+            with self.assertRaises(ProtocolError):
+                fs.fetch_external_data(reqs, dest, http=http)  # destination must be new
+
+    def test_default_transport_checks_every_hop_and_caps(self):
+        class Resp:
+            def __init__(self, status, headers=None, body=b""):
+                self.status_code, self.headers, self.body = status, headers or {}, body
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *a):
+                return False
+
+            def iter_content(self, n):
+                for k in range(0, len(self.body), 3):
+                    yield self.body[k:k + 3]
+
+        start = "https://github.com/o/r/releases/download/v1/d.bin"
+        cdn = "https://release-assets.githubusercontent.com/d?x=1"
+        routes = {start: Resp(302, {"Location": cdn}), cdn: Resp(200, {}, b"0123456789")}
+        with tempfile.TemporaryDirectory() as tmp:
+            st, final, _h, n = fs.requests_data_http(start, Path(tmp) / "a", 100, get=routes.__getitem__)
+            self.assertEqual((st, final, n, (Path(tmp) / "a").read_bytes()), (200, cdn, 10, b"0123456789"))
+            st, _f, _h, n = fs.requests_data_http(start, Path(tmp) / "b", 4, get=routes.__getitem__)
+            self.assertEqual((n, (Path(tmp) / "b").stat().st_size), (5, 5))  # max_bytes + 1 signals the cap
+            routes[cdn] = Resp(200, {"Content-Length": "999"}, b"x" * 999)
+            st, _f, _h, n = fs.requests_data_http(start, Path(tmp) / "c", 10, get=routes.__getitem__)
+            self.assertEqual(n, 11)
+            self.assertFalse((Path(tmp) / "c").exists())  # declared length over cap: nothing written
+            routes[start] = Resp(302, {"Location": "https://evil.example/d"})
+            with self.assertRaises(ProtocolError):
+                fs.requests_data_http(start, Path(tmp) / "d", 100, get=routes.__getitem__)
+            self.assertFalse((Path(tmp) / "d").exists())
+
+    def test_total_cap_includes_already_used(self):
+        a, b = "https://zenodo.org/records/1/files/a.bin", "https://zenodo.org/records/1/files/b.bin"
+        http = FakeDataHTTP({a: (200, b"x" * 40), b: (200, b"y" * 40)})
+        with tempfile.TemporaryDirectory() as tmp:
+            dest = Path(tmp) / "p" / "ext"
+            m = fs.fetch_external_data([{"url": a, "why": ""}, {"url": b, "why": ""}], dest, http=http,
+                                       max_total_bytes=100, already_used_bytes=50)
+            self.assertEqual([r["status"] for r in m["requests"]], ["fetched", "total_cap"])
+            self.assertEqual(m["total_bytes"], 40)
+            self.assertFalse((dest / "files" / "002-b.bin").exists())
+            m2 = fs.fetch_external_data([{"url": a, "why": ""}], Path(tmp) / "p" / "ext2", http=http,
+                                        max_total_bytes=100, already_used_bytes=100)
+            self.assertEqual(m2["requests"][0]["status"], "total_cap")
+            self.assertEqual(http.calls, [a, b])  # no transport call once the shared cap is used up
+
+    def test_unsafe_archives_write_nothing(self):
+        url = "https://zenodo.org/records/1/files/data.zip"
+        for entries in ([("ok.txt", b"1"), ("../evil.txt", b"x")], [("C:/evil.txt", b"x")], [("/abs.txt", b"x")],
+                        [("a/../../evil.txt", b"x")]):
+            with tempfile.TemporaryDirectory() as tmp:
+                http = FakeDataHTTP({url: (200, zip_bytes(entries))})
+                dest = Path(tmp) / "p" / "ext"
+                m = fs.fetch_external_data([{"url": url, "why": ""}], dest, http=http)
+                row = m["requests"][0]
+                self.assertEqual(row["status"], "archive_unsafe", entries)
+                self.assertFalse((dest / "files" / "001-data-extracted").exists())
+                self.assertTrue((dest / "files" / "001-data.zip").exists())  # archive kept
+                self.assertEqual(len(row["source_ids"]), 1)
+                self.assertEqual(list(Path(tmp).rglob("*evil*")), [])
+                self.assertEqual(list(Path(tmp).rglob("ok.txt")), [])
+        with tempfile.TemporaryDirectory() as tmp:
+            tgz = tgz_bytes([("a.txt", b"1")], link=("link", "/etc/passwd"))
+            http = FakeDataHTTP({"https://osf.io/x/d.tgz": (200, tgz)})
+            m = fs.fetch_external_data([{"url": "https://osf.io/x/d.tgz", "why": ""}], Path(tmp) / "p" / "e", http=http)
+            self.assertEqual(m["requests"][0]["status"], "archive_unsafe")
+            self.assertFalse((Path(tmp) / "p" / "e" / "files" / "001-d-extracted").exists())
+
+    def test_zip_and_targz_extracted_and_caps(self):
+        z = "https://zenodo.org/records/1/files/data.zip"
+        t = "https://huggingface.co/datasets/o/d/resolve/main/more.tar.gz"
+        zb = zip_bytes([("d/", b""), ("d/a.csv", b"a,b\n"), ("b.npy", b"\x93NUMPY")])
+        tb = tgz_bytes([("./x/y.txt", b"hello"), ("z.txt", b"world!")])
+        with tempfile.TemporaryDirectory() as tmp:
+            http = FakeDataHTTP({z: (200, zb), t: (200, tb)})
+            dest = Path(tmp) / "p" / "ext"
+            m = fs.fetch_external_data([{"url": z, "why": "zip"}, {"url": t, "why": "tgz"}], dest, http=http)
+            self.assertEqual([r["status"] for r in m["requests"]], ["fetched", "fetched"])
+            paths = {s["local_path"]: s for s in m["sources"]}
+            for p in ("ext/files/001-data.zip", "ext/files/001-data-extracted/d/a.csv", "ext/files/001-data-extracted/b.npy",
+                      "ext/files/002-more.tar.gz", "ext/files/002-more-extracted/x/y.txt", "ext/files/002-more-extracted/z.txt"):
+                self.assertIn(p, paths)
+                self.assertEqual(paths[p]["sha256"], file_hash(Path(tmp) / "p" / p))
+                self.assertEqual(paths[p]["role"], "external_data_file")
+            self.assertEqual(m["requests"][1]["extracted"]["files"], 2)
+            self.assertEqual(len(m["requests"][0]["source_ids"]), 3)
+            self.assertEqual(m["total_bytes"], len(zb) + len(tb) + 4 + 6 + 5 + 6)
+            self.assertEqual([s["source_id"] for s in m["sources"]], ["extdata_%03d" % k for k in range(1, 7)])
+            m2 = fs.fetch_external_data([{"url": z, "why": ""}], Path(tmp) / "p" / "ext2", http=http, max_extract_files=1)
+            self.assertEqual(m2["requests"][0]["status"], "archive_too_large")  # file-count cap
+            self.assertFalse((Path(tmp) / "p" / "ext2" / "files" / "001-data-extracted").exists())
+            m3 = fs.fetch_external_data([{"url": t, "why": ""}], Path(tmp) / "p" / "ext3", http=http,
+                                        max_total_bytes=len(tb) + 8)
+            self.assertEqual(m3["requests"][0]["status"], "archive_too_large")  # extracted bytes share the cap
+            self.assertEqual(m3["total_bytes"], len(tb))

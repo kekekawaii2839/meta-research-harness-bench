@@ -1,0 +1,27 @@
+
+Factory runtime contract (the controller verifies your environment exactly this way):
+- environment/image/Dockerfile must use the base "FROM python:3.12-slim" (a single stage, no other base) and
+  install only pinned dependencies from environment/image/requirements.txt (name==version per line). Do not COPY
+  task files, data or code into the image.
+- The controller runs environment/smoke.py in a fresh container as non-root uid 10001, with no network and a
+  read-only root filesystem. The smoke file is mounted at /smoke/smoke.py. Every PUBLIC task asset is mounted
+  read-only at /inputs/public/<asset path as listed in package.json>; the environment variable MRH_PUBLIC_ROOT
+  holds /inputs/public. Only /work (the working directory) and /tmp are writable. Private assets are never mounted.
+- The smoke must therefore locate starting code and data through MRH_PUBLIC_ROOT, never relative to its own file,
+  exercise the public starting resources (imports, data loading, baseline helpers) on small inputs, never run the
+  withheld target method, and exit 0 only on success. Keep it within the declared resources and a few minutes.
+- Repository files requested by the adjudicator (data, checkpoints) are pre-placed by the controller under
+  output/assets/repo_data/<repository path> and listed in request.json prepopulated_output_files. You cannot
+  copy binary files, so reference these exact paths as assets; never recreate them. If a needed file is
+  missing (see the request statuses in scope_request), follow the fallback in the scope or defer the task.
+- External data requested by the adjudicator is pre-placed under output/assets/external_data/<file or
+  extracted path> and listed in request.json prepopulated_output_files; treat it like repository data.
+- This is ONE construction unit (factory v4): request.json requested_task_types holds exactly one task
+  type. Build only tasks of that type (one or more tasks), with only the sources given. Do not build or
+  describe other task types.
+- If repair_request.json marks the previous candidate as a CONTINUATION, the previous attempt was cut
+  off by a provider limit before finishing: keep what is correct and complete the rest; it is not a
+  review repair.
+- The binding factory decisions in request.json scope_request override any conflicting default in the general
+  instructions; if they conflict with the original sources, record the conflict as an unresolved blocker instead
+  of silently choosing.

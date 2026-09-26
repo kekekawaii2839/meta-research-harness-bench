@@ -44,6 +44,33 @@ STAGE_PATHS = {"fetch": ["sources"], "source_audit": ["source_audit"], "adjudica
                "review_adjudication": ["review_adjudication"], "repair": ["repair", "job_repair.json"],
                "repair_adjudication": ["repair_adjudication"], "runtime": ["runtime"], "compile": ["compiled"],
                "pilot": ["pilot"], "dossier": ["dossier"]}
+STAGE_PATHS.update({"external_data": ["external_data"], "units": [], "repair2": ["repair2", "job_repair2.json"],
+                    "repair2_adjudication": ["repair2_adjudication"]})
+# Factory v4 (unit_split): shared paper stages, then one construction unit per requested task type.
+PAPER_STAGES_V4 = ("fetch", "source_audit", "adjudication", "background", "repo_files", "external_data", "units")
+UNIT_STAGES = ("construct", "review_adjudication", "repair", "repair_adjudication", "repair2", "repair2_adjudication",
+               "runtime", "compile", "pilot", "dossier")
+ALL_STAGES = tuple(dict.fromkeys(PAPER_STAGES + PAPER_STAGES_V4 + UNIT_STAGES))
+IN_PROGRESS = "in_progress"  # units stage: some unit has not reached its last requested stage yet
+UNIT_ORDER = ("EXP", "WRITE_EVIDENCE", "WRITE_CONTENT", "LIT", "IDEA")  # scarcest module first
+# Source classes each unit receives (policy I1); readme/licence travel with the paper.
+UNIT_SOURCES = {"LIT": {"paper", "background"}, "IDEA": {"paper", "background"}, "EXP": {"paper", "code", "data"},
+                "WRITE_CONTENT": {"paper", "code"}, "WRITE_EVIDENCE": {"paper", "code", "data"}}
+CONTINUATION_NOTE = ("CONTINUATION: the previous attempt was cut off by a provider session limit before it finished; "
+                     "previous_candidate/ holds its partial output. Keep what is correct and faithful to the original sources, "
+                     "complete what is missing and write a complete new output/. This is not a review repair.")
+
+
+def source_class(role):
+    if role == "background_paper":
+        return "background"
+    if role in ("code_file", "code_tree"):
+        return "code"
+    if role in ("repo_data_file", "external_data_file"):
+        return "data"
+    return "paper"
+
+
 CPU_RANK = {"high": 3, "medium": 2, "low": 1, "none": 0}
 DEFAULT_CONFIG = {
     "schema_version": "factory-config-1", "seed": "mrh-factory-v1", "target_papers": 70, "fulltext_papers": 140,
@@ -323,6 +350,27 @@ class Factory:
     def paper_dir(self, project_id):
         return self.root / "papers" / slug(project_id)
 
+    @property
+    def unit_mode(self):
+        return bool(self.config().get("unit_split"))
+
+    def paper_stages(self):
+        return PAPER_STAGES_V4 if self.unit_mode else PAPER_STAGES
+
+    def wdir(self, state):
+        """Working directory of a paper state or (v4) of one construction unit."""
+        pdir = self.paper_dir(state["project_id"])
+        return pdir / "units" / state["unit"] if state.get("unit") else pdir
+
+    @staticmethod
+    def job_id(state):
+        return slug(state["project_id"]) + ("__" + state["unit"] if state.get("unit") else "")
+
+    @staticmethod
+    def package_slug(state):
+        base = docker_slug(state["project_id"])
+        return base + "-" + state["unit"].lower().replace("_", "-") if state.get("unit") else base
+
     def state(self, project_id):
         path = self.paper_dir(project_id) / "state.json"
         if path.exists():
@@ -330,31 +378,61 @@ class Factory:
         title = next((r["title"] for r in self._pool_rows() if r["project_id"] == project_id), None)
         return {"schema_version": "factory-paper-state-1", "project_id": project_id, "title": title, "stages": {}, "flags": []}
 
+    def unit_state(self, project_id, unit):
+        if unit not in TASK_TYPES:
+            raise ProtocolError("Unknown construction unit")
+        path = self.paper_dir(project_id) / "units" / unit / "state.json"
+        if path.exists():
+            return read_json(path)
+        return {"schema_version": "factory-paper-state-1", "project_id": project_id, "unit": unit,
+                "title": self.state(project_id).get("title"), "stages": {}, "flags": []}
+
+    def units(self, project_id):
+        path = self.paper_dir(project_id) / "background_decision.json"
+        if not self.unit_mode or not path.exists():
+            return []
+        requested = set(read_json(path)["requested_task_types"])
+        return [t for t in UNIT_ORDER if t in requested]
+
     def _save(self, state):
         with self._state_lock:
-            write_json(self.paper_dir(state["project_id"]) / "state.json", state)
+            path = self.wdir(state) / "state.json"
+            path.parent.mkdir(parents=True, exist_ok=True)
+            write_json(path, state)
 
     def _record(self, state, stage, status, artifacts=None, calls=(), notes=()):
         state["stages"][stage] = {"status": status, "artifacts": artifacts or {}, "calls": [c for c in calls if c is not None],
                                   "finished_at": utc_now(), "notes": list(notes)}
         self._save(state)
 
-    def run_papers(self, project_ids, stages=PAPER_STAGES, workers=1, retry_platform=False):
+    def run_papers(self, project_ids, stages=ALL_STAGES, workers=1, retry_platform=False, units=None):
         approved = set(self.approved_papers())
         if set(project_ids) - approved:
             raise ProtocolError("Paper outside the approved selection")
         with ThreadPoolExecutor(max_workers=workers) as pool:
-            return list(pool.map(lambda pid: self.advance(pid, stages, retry_platform), project_ids))
+            return list(pool.map(lambda pid: self.advance(pid, stages, retry_platform, units), project_ids))
 
-    def advance(self, project_id, stages=PAPER_STAGES, retry_platform=False):
+    def advance(self, project_id, stages=ALL_STAGES, retry_platform=False, units=None):
         """Run the requested stages in order; stops at the first failure or terminal outcome."""
         state = self.state(project_id)
-        pdir = self.paper_dir(project_id)
-        pdir.mkdir(parents=True, exist_ok=True)
-        for stage in PAPER_STAGES:
+        self.paper_dir(project_id).mkdir(parents=True, exist_ok=True)
+        self._unit_filter = set(units) if units else None  # v4: run only these construction units (others stay pending)
+        self._run_stages(state, self.paper_stages(), stages, retry_platform)
+        result = {"project_id": project_id, "stages": {k: v["status"] for k, v in state["stages"].items()}}
+        if self.unit_mode:
+            result["units"] = {u: {k: v["status"] for k, v in self.unit_state(project_id, u)["stages"].items()}
+                               for u in self.units(project_id)}
+        return result
+
+    def _run_stages(self, state, order, stages, retry_platform):
+        wdir = self.wdir(state)
+        wdir.mkdir(parents=True, exist_ok=True)
+        for stage in order:
             done = state["stages"].get(stage, {}).get("status")
+            if done == IN_PROGRESS:
+                done = None  # units stage: re-enter, each unit resumes where it stopped
             if done in RETRYABLE and retry_platform:
-                moved = [self.set_aside(pdir / p) for p in STAGE_PATHS[stage]]
+                moved = [self.set_aside(wdir / p) for p in STAGE_PATHS[stage]]
                 state.setdefault("history", []).append({"stage": stage, **state["stages"].pop(stage), "set_aside": moved})
                 self._save(state)
                 done = None
@@ -364,18 +442,53 @@ class Factory:
                 break
             if done is not None:
                 continue
-            if stage not in stages:
+            if stage not in stages and not (stage == "units" and set(stages) & set(UNIT_STAGES)):
                 break
             try:
-                getattr(self, "stage_" + stage)(state)
+                if stage == "units":
+                    self.stage_units(state, stages, retry_platform)
+                else:
+                    getattr(self, "stage_" + stage)(state)
             except Exception as exc:
                 self._record(state, stage, RATE_LIMITED if isinstance(exc, ProviderRateLimit) else "failed_needs_attribution",
                              notes=["%s: %s" % (type(exc).__name__, exc)])
                 break
-            if state["stages"][stage]["status"] in TERMINAL or state["stages"][stage]["status"] in RETRYABLE:
+            if state["stages"][stage]["status"] in TERMINAL | RETRYABLE | {IN_PROGRESS}:
                 # A rate-limited or transient-fetch stage must stop the paper too, never let later stages run.
                 break
-        return {"project_id": project_id, "stages": {k: v["status"] for k, v in state["stages"].items()}}
+
+    def stage_units(self, state, stages, retry_platform):
+        """Factory v4: run each requested task type as an independent construction unit (policy I1)."""
+        summary, rate_limited, finished = {}, False, True
+        for unit in self.units(state["project_id"]):
+            if getattr(self, "_unit_filter", None) is not None and unit not in self._unit_filter:
+                finished = False  # not run in this invocation
+                continue
+            if self.halted:
+                rate_limited = True
+                break
+            ustate = self.unit_state(state["project_id"], unit)
+            self._run_stages(ustate, UNIT_STAGES, stages, retry_platform)
+            statuses = {k: v["status"] for k, v in ustate["stages"].items()}
+            summary[unit] = statuses
+            if set(statuses.values()) & RETRYABLE:
+                rate_limited = True
+                break
+            if not (set(statuses.values()) & TERMINAL) and set(statuses) != set(UNIT_STAGES):
+                finished = False
+        units = self.units(state["project_id"])
+        if rate_limited:
+            status = RATE_LIMITED
+        elif not finished or len(summary) < len(units):
+            status = IN_PROGRESS
+        elif any(s.get("compile") == DONE for s in summary.values()):
+            status = DONE
+        elif all(set(s.values()) & TERMINAL <= {"dropped"} for s in summary.values()):
+            status = "dropped"
+        else:
+            status = "failed_needs_attribution"
+        self._record(state, "units", status, {u: "units/%s/state.json" % u for u in summary},
+                     notes=["%s: %s" % (u, ",".join("%s=%s" % kv for kv in s.items())) for u, s in summary.items()])
 
     # --------------------------------------------------------------- stages
     def _candidate(self, project_id):
@@ -467,6 +580,8 @@ class Factory:
         unrequested = set(TASK_TYPES) - set(out["requested_task_types"])
         if unrequested - set(out["unrequested_reasons"]):
             raise ProtocolError("Every unrequested task type needs a reason")
+        if self.unit_mode and out["decision"] == "construct" and set(out.get("task_scopes") or {}) != set(out["requested_task_types"]):
+            raise ProtocolError("task_scopes must hold exactly one scope per requested task type")
         status = DONE if out["decision"] == "construct" else "dropped"
         self._record(state, "adjudication", status, {"adjudication": "adjudication/adjudication.json"}, [call["call_id"]],
                      [out["drop_reason"]] if status == "dropped" else ["requested " + ",".join(out["requested_task_types"])])
@@ -519,39 +634,79 @@ class Factory:
         self._record(state, "repo_files", DONE, {"repo_files_manifest": "repo_files/manifest.json"},
                      notes=["%s; %d bytes" % (counts, manifest["total_bytes"])])
 
+    def stage_external_data(self, state):
+        """Controller fetch of adjudicator-requested public datasets from allowlisted hosts (factory v4)."""
+        pdir = self.paper_dir(state["project_id"])
+        reqs = read_json(pdir / "adjudication" / "adjudication.json").get("external_data_requests") or []
+        if not reqs:
+            self._record(state, "external_data", "skipped", notes=["no external data requested"])
+            return
+        repo_manifest = pdir / "repo_files" / "manifest.json"
+        used = read_json(repo_manifest)["total_bytes"] if repo_manifest.exists() else 0
+        manifest = self.sources.fetch_external_data([{"url": r["url"], "why": r["why"]} for r in reqs], pdir / "external_data",
+                                                    base_dir=pdir, already_used_bytes=used)
+        counts = {}
+        for r in manifest["requests"]:
+            counts[r["status"]] = counts.get(r["status"], 0) + 1
+        if counts.get("fetched", 0) < len(reqs):
+            state["flags"].append("external_data_partially_fetched")
+        self._record(state, "external_data", DONE, {"external_data_manifest": "external_data/manifest.json"},
+                     notes=["%s; %d bytes" % (counts, manifest["total_bytes"])])
+
     def build_job(self, state):
         pdir = self.paper_dir(state["project_id"])
+        unit = state.get("unit")
+        allowed = UNIT_SOURCES[unit] if unit else {"paper", "code", "background", "data"}
         adj = read_json(pdir / "adjudication" / "adjudication.json")
-        requested = read_json(pdir / "background_decision.json")["requested_task_types"]
+        requested = [unit] if unit else read_json(pdir / "background_decision.json")["requested_task_types"]
         manifest = read_json(pdir / "sources" / "manifest.json")
-        sources = [{k: s[k] for k in ("source_id", "url", "version", "sha256", "role", "local_path")} for s in manifest["sources"]]
+        sources = [{k: s[k] for k in ("source_id", "url", "version", "sha256", "role", "local_path")} for s in manifest["sources"]
+                   if source_class(s["role"]) in allowed]
         bg = pdir / "background" / "manifest.json"
-        if bg.exists():
+        if bg.exists() and "background" in allowed:
             sources += [{k: s[k] for k in ("source_id", "url", "version", "sha256", "role", "local_path")}
                         for s in read_json(bg)["sources"]]
         decisions = "\n".join("- [%s] %s: %s" % (d["ambiguity_id"], d["decision"], d["statement"]) for d in adj["ambiguity_decisions"])
-        scope = (adj["scope_request"] + "\n\nBinding ambiguity decisions (factory adjudication; maintainer choices must be "
-                 "labelled as such in public specifications):\n" + (decisions or "- none") +
-                 "\n\nWithhold from solver inputs: " + ("; ".join(adj["withheld_from_solver"]) or "nothing listed"))
+        scope = adj["scope_request"]
+        if unit:
+            scope += ("\n\nThis construction unit builds ONLY %s task(s). Unit scope (factory adjudication task_scopes):\n%s"
+                      % (unit, adj["task_scopes"][unit]))
+        scope += ("\n\nBinding ambiguity decisions (factory adjudication; maintainer choices must be "
+                  "labelled as such in public specifications):\n" + (decisions or "- none") +
+                  "\n\nWithhold from solver inputs: " + ("; ".join(adj["withheld_from_solver"]) or "nothing listed"))
         env = {**adj["environment_candidate"], "resource_status": "adjudicator_proposal_unmeasured_not_frozen", "runtime_verified": False}
         extra = {}
         repo_manifest = pdir / "repo_files" / "manifest.json"
+        ext_manifest = pdir / "external_data" / "manifest.json"
+        if "data" not in allowed:
+            repo_manifest = ext_manifest = pdir / "_no_data_for_this_unit"
+        if ext_manifest.exists():
+            em = read_json(ext_manifest)
+            archives = {r["sha256"] for r in em["requests"] if r["status"] == "fetched" and (r.get("extracted") or {}).get("status") == "extracted"}
+            rows = [s for s in em["sources"] if not (s["sha256"] in archives and "-extracted/" not in s["local_path"])]
+            extra["prepopulated_output_files"] = [
+                {"from": s["local_path"], "to": "assets/external_data/" + s["local_path"].split("external_data/files/", 1)[1],
+                 "sha256": s["sha256"], "provenance": {"url": s["url"], "version": s["version"]}} for s in rows]
+            scope += ("\n\nController-fetched external data: every fetched file (archives already extracted) is present in "
+                      "output/assets/external_data/. Use it where the construction order needs it (list used files in "
+                      "package.json with sha256 CONTROLLER_FILL). Request statuses:\n%s"
+                      % "\n".join("- %s: %s" % (r["url"], r["status"]) for r in em["requests"]))
         if repo_manifest.exists():
             rm = read_json(repo_manifest)
             fetched = [r for r in rm["requests"] if r["status"] == "fetched"]
             if fetched:
                 by_sid = {s["source_id"]: s for s in rm["sources"]}
-                extra["prepopulated_output_files"] = [
+                extra.setdefault("prepopulated_output_files", []).extend([
                     {"from": by_sid[r["source_id"]]["local_path"], "to": "assets/repo_data/" + r["path"], "sha256": r["sha256"],
                      "provenance": {"url": by_sid[r["source_id"]]["url"], "version": by_sid[r["source_id"]]["version"]}}
-                    for r in fetched]
+                    for r in fetched])
             status_lines = "\n".join("- %s: %s" % (r["path"], r["status"]) for r in rm["requests"])
             scope += ("\n\nController-fetched repository files (pinned commit %s): every fetched file is already present in "
                       "output/assets/repo_data/<repository path>. Use them as task assets where the construction order needs "
                       "them (list them in package.json with sha256 CONTROLLER_FILL); unused ones may stay unlisted. Request "
                       "statuses:\n%s" % (rm["commit"], status_lines))
         arxiv = manifest.get("arxiv") or {}
-        return {"schema_version": "material-job-1", "job_id": slug(state["project_id"]), "paper_id": state["project_id"],
+        return {"schema_version": "material-job-1", "job_id": self.job_id(state), "paper_id": state["project_id"],
                 "requested_task_types": requested, "scope_request": scope, "sources": sources,
                 "first_disclosure": {"date": (arxiv.get("earliest_known_public_version") or {}).get("date"), "verified": False,
                                      "reason": "earliest known arXiv version from controller fetch; not proof of earliest disclosure"},
@@ -559,14 +714,21 @@ class Factory:
                 "status": "approved_by_factory_adjudication", "formal_accepted": False,
                 "constructor_model_decision": "User 2026-09-24: Claude native constructor/reviewer via the standard factory", **extra}
 
-    def _batch(self, state, batch_root, repair_from=None, repair_notes=None):
-        pdir = self.paper_dir(state["project_id"])
+    def _batch(self, state, batch_root, repair_from=None, repair_notes=None, job_name="job.json"):
+        pdir, wdir = self.paper_dir(state["project_id"]), self.wdir(state)
         job = self.build_job(state)
-        write_json(pdir / ("job.json" if repair_from is None else "job_repair.json"), job)
+        write_json(wdir / job_name, job)
         self.check_prompts()
         resumed = self._resume_reviewer_only(job, batch_root)
         if resumed is not None:
             return job, resumed
+        continuation = self._continuation_source(job, batch_root)
+        if continuation is not None:
+            # v4: a truncated constructor run continues from its own partial output (not a review repair round).
+            notes = list((repair_notes or {}).get(job["job_id"], [])) + [CONTINUATION_NOTE]
+            repair_from, repair_notes = continuation, {job["job_id"]: notes}
+            state.setdefault("continuations", []).append({"batch": batch_root.name, "from": continuation.name, "at": utc_now()})
+            self._save(state)
         self.budget.take(2)
         result = run_batch([job], workspace=pdir, batch_root=batch_root, templates=self.templates,
                            constructor=self.runner("constructor"), reviewer=self.runner("material_reviewer"),
@@ -574,6 +736,32 @@ class Factory:
                            prompt_suffix=MATERIAL_PROMPT_SUFFIX + (self.factory_templates / "constructor_addendum.txt").read_text(encoding="utf8"),
                            repair_from=repair_from, repair_notes=repair_notes)
         return job, result["jobs"][0]
+
+    def _continuation_source(self, job, batch_root):
+        """Latest set-aside attempt whose constructor was cut off by a provider limit after writing output (factory v4).
+
+        Returns the prior batch directory, or None. A prior that only holds controller-prepopulated files (the
+        constructor never ran) is not a continuation; a completed constructor is handled by the reviewer-only resume.
+        """
+        if not self.config().get("continue_truncated") or batch_root.exists():
+            return None
+        priors = sorted(batch_root.parent.glob(batch_root.name + ".failed-*"), key=lambda p: int(p.name.rsplit("-", 1)[1]))
+        if not priors:
+            return None
+        prior = priors[-1] / job["job_id"]
+        receipt_path = prior / "receipt.json"
+        if receipt_path.is_file():
+            old = read_json(receipt_path)
+            if (old.get("job_hash") != digest(job) or (old.get("constructor") or {}).get("status") == "completed"
+                    or (old.get("error") or {}).get("type") != "ProviderRateLimit"):
+                return None
+        out = prior / "constructor" / "output"
+        request_path = prior / "constructor" / "request.json"
+        if not out.is_dir() or not request_path.is_file():
+            return None
+        prepopulated = {r.get("path") or r.get("to") for r in read_json(request_path).get("prepopulated_output_files") or []}
+        written = [p for p in out.rglob("*") if p.is_file() and p.relative_to(out).as_posix() not in prepopulated]
+        return priors[-1] if written else None
 
     def _resume_reviewer_only(self, job, batch_root):
         """After a provider rate limit hit only the reviewer, reuse the completed construction.
@@ -628,12 +816,17 @@ class Factory:
         write_json(root / "receipt.json", row, exclusive=True)
         return row
 
+    @staticmethod
+    def _batch_status(row):
+        if row["status"] in {"pass_with_pending_runtime", "revise", "reject"}:
+            return DONE
+        return RATE_LIMITED if (row.get("error") or {}).get("type") == "ProviderRateLimit" else "failed_needs_attribution"
+
     def stage_construct(self, state):
-        pdir = self.paper_dir(state["project_id"])
-        job, row = self._batch(state, pdir / "construct")
+        wdir = self.wdir(state)
+        job, row = self._batch(state, wdir / "construct")
         calls = [(row.get(k) or {}).get("call_id") for k in ("constructor", "reviewer")]
-        status = DONE if row["status"] in {"pass_with_pending_runtime", "revise", "reject"} else (
-            RATE_LIMITED if (row.get("error") or {}).get("type") == "ProviderRateLimit" else "failed_needs_attribution")
+        status = self._batch_status(row)
         error = row.get("error") or {}
         gate_failure = (status == "failed_needs_attribution" and self.config().get("structural_gate_to_repair")
                         and (row.get("constructor") or {}).get("status") == "completed" and "structural_check" not in row
@@ -645,7 +838,7 @@ class Factory:
             note = ("The controller's deterministic structural gate rejected the previous package: " + error.get("message", "")
                     + ". Produce a complete package that satisfies material_package.schema.json and every deterministic check,"
                     " keeping the scientific content faithful to the original sources.")
-            write_json(pdir / "review_adjudication" / "review_adjudication.json", {
+            write_json(wdir / "review_adjudication" / "review_adjudication.json", {
                 "schema_version": "factory-review-adjudication-1", "project_id": state["project_id"], "round": 1,
                 "finding_decisions": [], "action": "repair", "repair_notes": [note], "drop_reason": None,
                 "excluded_task_ids": [], "author": "controller_structural_gate"}, exclusive=True)
@@ -656,11 +849,14 @@ class Factory:
                      "review": "construct/%s/reviewer/review.json" % job["job_id"]}, calls,
                      ["reviewer decision " + row["status"]] + ([row["error"]["message"]] if row.get("error") else []))
 
+    def max_repair_rounds(self, state):
+        return 2 if state.get("unit") == "EXP" and self.config().get("exp_second_repair") else 1
+
     def _review_adjudication(self, state, stage, batch_dir, round_no):
-        pdir = self.paper_dir(state["project_id"])
-        job_id = slug(state["project_id"])
-        review_dir = pdir / batch_dir / job_id / "reviewer"
-        ws = pdir / stage
+        wdir = self.wdir(state)
+        job_id = self.job_id(state)
+        review_dir = wdir / batch_dir / job_id / "reviewer"
+        ws = wdir / stage
         if ws.exists():
             raise ProtocolError("Stage workspace must be fresh")
         ws.mkdir(parents=True)
@@ -673,7 +869,7 @@ class Factory:
                     shutil.copyfile(contained(review_dir, rel, must_exist=True), target)
         for name in ("review.json", "structural_check.json", "request.json"):
             shutil.copyfile(review_dir / name, ws / name)
-        allowed = ["pass", "repair", "drop"] if round_no == 1 else ["pass", "drop"]
+        allowed = ["pass", "repair", "drop"] if round_no <= self.max_repair_rounds(state) else ["pass", "drop"]
         schema_actions = set(read_json(self.factory_templates / "review_adjudication.schema.json")["properties"]["action"]["enum"])
         if "pass_partial" in schema_actions:  # factory prompts v2+
             allowed.insert(1, "pass_partial")
@@ -706,21 +902,24 @@ class Factory:
     def stage_review_adjudication(self, state):
         self._review_adjudication(state, "review_adjudication", "construct", 1)
 
-    def _needs_repair(self, state):
-        return read_json(self.paper_dir(state["project_id"]) / "review_adjudication" / "review_adjudication.json")["action"] == "repair"
+    def _needs_repair(self, state, adjudication_stage="review_adjudication"):
+        path = self.wdir(state) / adjudication_stage / "review_adjudication.json"
+        return path.is_file() and read_json(path)["action"] == "repair"
+
+    def _repair(self, state, stage, source_batch, adjudication_stage, job_name):
+        wdir = self.wdir(state)
+        notes = read_json(wdir / adjudication_stage / "review_adjudication.json")["repair_notes"]
+        job, row = self._batch(state, wdir / stage, repair_from=wdir / source_batch,
+                               repair_notes={self.job_id(state): notes}, job_name=job_name)
+        calls = [(row.get(k) or {}).get("call_id") for k in ("constructor", "reviewer")]
+        self._record(state, stage, self._batch_status(row), {"receipt": "%s/%s/receipt.json" % (stage, job["job_id"]),
+                     "review": "%s/%s/reviewer/review.json" % (stage, job["job_id"])}, calls, ["reviewer decision " + row["status"]])
 
     def stage_repair(self, state):
         if not self._needs_repair(state):
             self._record(state, "repair", "skipped", notes=["round-1 action was pass"])
             return
-        pdir = self.paper_dir(state["project_id"])
-        notes = read_json(pdir / "review_adjudication" / "review_adjudication.json")["repair_notes"]
-        job, row = self._batch(state, pdir / "repair", repair_from=pdir / "construct", repair_notes={slug(state["project_id"]): notes})
-        calls = [(row.get(k) or {}).get("call_id") for k in ("constructor", "reviewer")]
-        status = DONE if row["status"] in {"pass_with_pending_runtime", "revise", "reject"} else (
-            RATE_LIMITED if (row.get("error") or {}).get("type") == "ProviderRateLimit" else "failed_needs_attribution")
-        self._record(state, "repair", status, {"receipt": "repair/%s/receipt.json" % job["job_id"],
-                     "review": "repair/%s/reviewer/review.json" % job["job_id"]}, calls, ["reviewer decision " + row["status"]])
+        self._repair(state, "repair", "construct", "review_adjudication", "job_repair.json")
 
     def stage_repair_adjudication(self, state):
         if state["stages"]["repair"]["status"] == "skipped":
@@ -728,14 +927,27 @@ class Factory:
             return
         self._review_adjudication(state, "repair_adjudication", "repair", 2)
 
+    def stage_repair2(self, state):
+        """Factory v4 (policy H): EXP units may get one more targeted repair round."""
+        if state["stages"].get("repair_adjudication", {}).get("status") != DONE or not self._needs_repair(state, "repair_adjudication"):
+            self._record(state, "repair2", "skipped", notes=["no second repair requested"])
+            return
+        self._repair(state, "repair2", "repair", "repair_adjudication", "job_repair2.json")
+
+    def stage_repair2_adjudication(self, state):
+        if state["stages"]["repair2"]["status"] == "skipped":
+            self._record(state, "repair2_adjudication", "skipped")
+            return
+        self._review_adjudication(state, "repair2_adjudication", "repair2", 3)
+
     def final_output(self, state):
-        batch = "repair" if state["stages"].get("repair", {}).get("status") == DONE else "construct"
-        return self.paper_dir(state["project_id"]) / batch / slug(state["project_id"]) / "constructor" / "output"
+        batch = next((b for b in ("repair2", "repair") if state["stages"].get(b, {}).get("status") == DONE), "construct")
+        return self.wdir(state) / batch / self.job_id(state) / "constructor" / "output"
 
     def stage_runtime(self, state):
         out = self.final_output(state)
-        record = self.runtime.verify_runtime(out, read_json(out / "package.json"), self.paper_dir(state["project_id"]) / "runtime",
-                                             package_slug=docker_slug(state["project_id"]))
+        record = self.runtime.verify_runtime(out, read_json(out / "package.json"), self.wdir(state) / "runtime",
+                                             package_slug=self.package_slug(state))
         status = DONE if record["status"] == "passed" else "failed_needs_attribution"
         if status != DONE:
             state["flags"].append("runtime_failed")
@@ -743,61 +955,63 @@ class Factory:
 
     def stage_compile(self, state):
         out = self.final_output(state)
-        pdir = self.paper_dir(state["project_id"])
-        tasks = self.runtime.compile_tasks(out, read_json(out / "package.json"), read_json(pdir / "runtime" / "runtime_record.json"),
-                                           pdir / "compiled", package_slug=docker_slug(state["project_id"]),
+        wdir = self.wdir(state)
+        tasks = self.runtime.compile_tasks(out, read_json(out / "package.json"), read_json(wdir / "runtime" / "runtime_record.json"),
+                                           wdir / "compiled", package_slug=self.package_slug(state),
                                            **({"per_task_resources": True} if self.config().get("per_task_resources") else {}))
         excluded = self.excluded_tasks(state)
         if excluded:
-            (pdir / "compiled" / "_excluded").mkdir()
+            (wdir / "compiled" / "_excluded").mkdir()
             for tid in excluded:
-                if (pdir / "compiled" / tid).is_dir():
-                    (pdir / "compiled" / tid).rename(pdir / "compiled" / "_excluded" / tid)
+                if (wdir / "compiled" / tid).is_dir():
+                    (wdir / "compiled" / tid).rename(wdir / "compiled" / "_excluded" / tid)
             tasks = [t for t in tasks if t.get("task_id") not in excluded]
-        write_json(pdir / "compiled" / "compiled_tasks.json", tasks)
+        write_json(wdir / "compiled" / "compiled_tasks.json", tasks)
         self._record(state, "compile", DONE, {"compiled_tasks": "compiled/compiled_tasks.json"},
                      notes=["%d tasks" % len(tasks)] + (["excluded by adjudication: " + ", ".join(excluded)] if excluded else []))
 
     def excluded_tasks(self, state):
         """Task ids excluded by the latest effective pass_partial adjudication."""
-        pdir = self.paper_dir(state["project_id"])
-        for stage in ("repair_adjudication", "review_adjudication"):
+        wdir = self.wdir(state)
+        for stage in ("repair2_adjudication", "repair_adjudication", "review_adjudication"):
             if state["stages"].get(stage, {}).get("status") == DONE:
-                out = read_json(pdir / stage / "review_adjudication.json")
+                out = read_json(wdir / stage / "review_adjudication.json")
                 return out.get("excluded_task_ids") or [] if out["action"] == "pass_partial" else []
         return []
 
     def stage_pilot(self, state):
         if self.pilot is None:
             raise ProtocolError("Pilot runner not configured: needs executor/judge budget (official API pending)")
-        pdir = self.paper_dir(state["project_id"])
-        record = self.pilot(state, pdir, self.budget)
-        write_json(pdir / "pilot" / "pilot_record.json", record)
+        wdir = self.wdir(state)
+        record = self.pilot(state, wdir, self.budget)
+        write_json(wdir / "pilot" / "pilot_record.json", record)
         if record.get("flags"):
             state["flags"].extend(record["flags"])
         self._record(state, "pilot", DONE, {"pilot_record": "pilot/pilot_record.json"}, record.get("calls", []))
 
     def stage_dossier(self, state):
-        path = self.runtime.build_dossier(self.paper_dir(state["project_id"]))
-        self._record(state, "dossier", DONE, {"dossier": Path(path).relative_to(self.paper_dir(state["project_id"])).as_posix()})
+        path = self.runtime.build_dossier(self.wdir(state))
+        self._record(state, "dossier", DONE, {"dossier": Path(path).relative_to(self.wdir(state)).as_posix()})
+
+    def _all_states(self):
+        paths = sorted((self.root / "papers").glob("*/state.json")) + sorted((self.root / "papers").glob("*/units/*/state.json"))
+        return [read_json(p) for p in paths]
 
     # ----------------------------------------------------------- final review
     def review_queue(self):
         cfg = self.config()["final_review"]
         dossiers = []
-        for state_path in sorted((self.root / "papers").glob("*/state.json")):
-            st = read_json(state_path)
+        for st in self._all_states():
             if st["stages"].get("dossier", {}).get("status") == DONE:
-                dossiers.append({"project_id": st["project_id"], "flags": st["flags"],
-                                 "finished_at": st["stages"]["dossier"]["finished_at"]})
+                dossiers.append({"project_id": st["project_id"] + ("/" + st["unit"] if st.get("unit") else ""),
+                                 "flags": st["flags"], "finished_at": st["stages"]["dossier"]["finished_at"]})
         dossiers.sort(key=lambda d: d["finished_at"])
         return self.runtime.select_for_final_review(dossiers, seed=self.config()["seed"], first_n=cfg["first_n"],
                                                     sample_rate=cfg["sample_rate"])
 
     def status(self):
         rows = []
-        for state_path in sorted((self.root / "papers").glob("*/state.json")):
-            st = read_json(state_path)
-            rows.append({"project_id": st["project_id"], "flags": st["flags"],
+        for st in self._all_states():
+            rows.append({"project_id": st["project_id"], **({"unit": st["unit"]} if st.get("unit") else {}), "flags": st["flags"],
                          "stages": {k: v["status"] for k, v in st["stages"].items()}})
         return rows

@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "factory-review-adjudication-1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project_id",
+    "round",
+    "finding_decisions",
+    "action",
+    "repair_notes",
+    "drop_reason",
+    "excluded_task_ids"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "factory-review-adjudication-1"
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "round": {
+      "enum": [
+        1,
+        2,
+        3
+      ]
+    },
+    "finding_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "finding_index",
+          "decision",
+          "severity",
+          "rationale",
+          "policy_rules",
+          "repair_note"
+        ],
+        "properties": {
+          "finding_index": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "decision": {
+            "enum": [
+              "accept",
+              "partial",
+              "reject"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "blocking",
+              "major",
+              "minor"
+            ]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "policy_rules": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-I][0-9]+$"
+            },
+            "minItems": 1
+          },
+          "repair_note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "action": {
+      "enum": [
+        "pass",
+        "pass_partial",
+        "repair",
+        "drop"
+      ]
+    },
+    "repair_notes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "drop_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "excluded_task_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  }
+}

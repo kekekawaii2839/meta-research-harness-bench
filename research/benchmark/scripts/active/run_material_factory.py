@@ -15,7 +15,7 @@ import sys as _sys, pathlib as _pl; _sys.path.insert(0, str(_pl.Path(__file__).r
 from mrhbench import factory_sources
 from mrhbench.claude_transport import ClaudeNativeRunner
 from mrhbench.costs import CallLedger
-from mrhbench.factory import PAPER_STAGES, CallBudget, Factory
+from mrhbench.factory import ALL_STAGES, CallBudget, Factory
 from mrhbench.io import ProtocolError, file_hash, read_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -93,11 +93,12 @@ def main():
     r = sub.add_parser("run")
     r.add_argument("--max-calls", type=int, required=True)
     r.add_argument("--papers", default="all", help="'all' or comma-separated project ids from the approved selection")
-    r.add_argument("--stages", default=",".join(PAPER_STAGES))
+    r.add_argument("--stages", default=",".join(ALL_STAGES))
     r.add_argument("--workers", type=int, default=2)
     r.add_argument("--harness", type=Path, help="Frozen H0 harness.py for the pilot stage")
     r.add_argument("--harness-sha256")
     r.add_argument("--retry-platform", action="store_true", help="Re-run stages that hit a provider rate limit (failed attempt kept)")
+    r.add_argument("--units", help="v4: comma-separated task types to construct in this invocation (others stay pending)")
     sub.add_parser("status")
     sub.add_parser("review-queue")
     a = p.parse_args()
@@ -121,9 +122,10 @@ def main():
     elif a.cmd == "run":
         papers = f.approved_papers() if a.papers == "all" else a.papers.split(",")
         stages = tuple(s for s in a.stages.split(",") if s)
-        if set(stages) - set(PAPER_STAGES):
+        if set(stages) - set(ALL_STAGES):
             raise ProtocolError("Unknown stage")
-        out = f.run_papers(papers, stages=stages, workers=a.workers, retry_platform=a.retry_platform)
+        out = f.run_papers(papers, stages=stages, workers=a.workers, retry_platform=a.retry_platform,
+                           units=a.units.split(",") if a.units else None)
     elif a.cmd == "status":
         out = f.status()
     else:
