@@ -1,0 +1,286 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "factory-adjudication-1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project_id",
+    "decision",
+    "drop_reason",
+    "ambiguity_decisions",
+    "requested_task_types",
+    "unrequested_reasons",
+    "scope_request",
+    "environment_candidate",
+    "background_requests",
+    "rights_review",
+    "withheld_from_solver",
+    "checked_against_sources",
+    "repo_file_requests"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "factory-adjudication-1"
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision": {
+      "enum": [
+        "construct",
+        "drop"
+      ]
+    },
+    "drop_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ambiguity_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ambiguity_id",
+          "decision",
+          "resolution_id",
+          "statement",
+          "rationale",
+          "policy_rules",
+          "locations"
+        ],
+        "properties": {
+          "ambiguity_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decision": {
+            "enum": [
+              "adopt_resolution",
+              "maintainer_choice",
+              "exclude_branch",
+              "drop_module"
+            ]
+          },
+          "resolution_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "policy_rules": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-H][0-9]+$"
+            },
+            "minItems": 1
+          },
+          "locations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "source_id",
+                "locator"
+              ],
+              "properties": {
+                "source_id": {
+                  "type": "string"
+                },
+                "locator": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "requested_task_types": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "LIT",
+          "IDEA",
+          "EXP",
+          "WRITE_CONTENT",
+          "WRITE_EVIDENCE"
+        ]
+      }
+    },
+    "unrequested_reasons": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "LIT": {
+          "type": "string"
+        },
+        "IDEA": {
+          "type": "string"
+        },
+        "EXP": {
+          "type": "string"
+        },
+        "WRITE_CONTENT": {
+          "type": "string"
+        },
+        "WRITE_EVIDENCE": {
+          "type": "string"
+        }
+      }
+    },
+    "scope_request": {
+      "type": "string"
+    },
+    "environment_candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "docker_base",
+        "dependencies",
+        "cpus",
+        "memory_mb",
+        "disk_mb",
+        "pids_limit",
+        "wall_seconds",
+        "gpu",
+        "network",
+        "scientific_rationale"
+      ],
+      "properties": {
+        "docker_base": {
+          "const": "python:3.12-slim"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.\\-\\[\\]]+==[A-Za-z0-9_.+\\-]+$"
+          }
+        },
+        "cpus": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 8
+        },
+        "memory_mb": {
+          "type": "integer",
+          "minimum": 256,
+          "maximum": 16384
+        },
+        "disk_mb": {
+          "type": "integer",
+          "minimum": 64,
+          "maximum": 8192
+        },
+        "pids_limit": {
+          "type": "integer",
+          "minimum": 16,
+          "maximum": 1024
+        },
+        "wall_seconds": {
+          "type": "integer",
+          "minimum": 60,
+          "maximum": 3600
+        },
+        "gpu": {
+          "const": false
+        },
+        "network": {
+          "const": "none"
+        },
+        "scientific_rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "background_requests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "arxiv_id",
+          "role_guess",
+          "why"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "arxiv_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "role_guess": {
+            "enum": [
+              "core",
+              "background",
+              "confusable"
+            ]
+          },
+          "why": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "rights_review": {
+      "type": "string",
+      "minLength": 1
+    },
+    "withheld_from_solver": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "checked_against_sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repo_file_requests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "why"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "why": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

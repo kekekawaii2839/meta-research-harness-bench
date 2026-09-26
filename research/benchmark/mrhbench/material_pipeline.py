@@ -88,12 +88,24 @@ def prepare_material_job(job: dict, workspace: Path, destination: Path, template
         if row["role"] == "paper_html":
             write_json(destination / ("source_navigation/%03d.json" % i),
                 build_evidence_index(target.read_text(encoding="utf8"), row["source_id"], row["sha256"]), exclusive=True)
+    prepopulated = []
+    for row in job.get("prepopulated_output_files", []):
+        # Controller-fetched binary/data files the file-tool-only constructor cannot copy itself (factory v3).
+        src = contained(workspace, row["from"], must_exist=True)
+        if not src.is_file() or file_hash(src) != row["sha256"]:
+            raise ProtocolError("Prepopulated file missing or changed: " + row["from"])
+        target = contained(destination, "output/" + row["to"])
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(src, target)
+        prepopulated.append({"path": row["to"], "sha256": row["sha256"], "bytes": target.stat().st_size,
+                             "provenance": row.get("provenance")})
     request = {"schema_version": "construction-request-1", "job_id": job["job_id"],
                "paper_id": job["paper_id"], "requested_task_types": job["requested_task_types"],
                "scope_request": job["scope_request"], "sources": published,
                "first_disclosure": job["first_disclosure"],
                "environment_candidate": job["environment_candidate"],
                "acceptance_status": "candidate_only_no_self_acceptance",
+               **({"prepopulated_output_files": prepopulated} if prepopulated else {}),
                "output_path": "output/package.json"}
     write_json(destination / "request.json", request, exclusive=True)
     for name in ("material_constructor.txt", "material_package.schema.json"):

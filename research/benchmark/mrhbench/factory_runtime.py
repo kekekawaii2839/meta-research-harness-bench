@@ -44,7 +44,7 @@ SMOKE_CONTAINER_PATH = "/smoke/smoke.py"
 PUBLIC_ROOT = "/inputs/public"
 MIB = 1024 * 1024
 # Same order as mrhbench.factory.PAPER_STAGES (construct/repair each include their review).
-STAGE_ORDER = ("fetch", "source_audit", "adjudication", "background", "construct", "review_adjudication",
+STAGE_ORDER = ("fetch", "source_audit", "adjudication", "background", "repo_files", "construct", "review_adjudication",
                "repair", "repair_adjudication", "runtime", "compile", "pilot", "dossier")
 # Artifact name recorded by the factory -> extraction kind.
 ARTIFACT_KIND = {"source_audit": "source_audit", "adjudication": "adjudication", "review": "review",
@@ -568,7 +568,7 @@ def _drop_fact_statements(prompt: str) -> str:
 def compile_tasks(output_dir, package, runtime_record, dest_dir, *, package_slug,
                   source_manifest=None, execution_budgets=None, artifact_collections=None,
                   compose_fact_statements=True, material_origin="factory_constructor",
-                  review_path=None, require_visual_png_preview=True) -> list:
+                  review_path=None, require_visual_png_preview=True, per_task_resources=False) -> list:
     """Compile a runtime-passed package into development TaskViews; every gate stays pending.
 
     source_manifest defaults to <output_dir>/../request.json["sources"]. compose_fact_statements=False
@@ -600,13 +600,15 @@ def compile_tasks(output_dir, package, runtime_record, dest_dir, *, package_slug
     container = {k: package["environment"]["resources"][k]
                  for k in ("cpus", "memory_mb", "disk_mb", "pids_limit", "wall_seconds")}
     tasks = package["tasks"]
+    from .material_adapter import task_container
+    task_containers = {t["task_id"]: (task_container(t, container) if per_task_resources else container) for t in tasks}
     budgets, collections = {}, {}
     for t in tasks:
         default = DEFAULT_BUDGETS[t["task_type"]]
         b = (execution_budgets or {}).get(t["task_id"]) or {"model_calls": default["model_calls"],
                                                            "tool_calls": default["tool_calls"]}
         budgets[t["task_id"]] = {"model_calls": b["model_calls"], "tool_calls": b["tool_calls"],
-                                 "wall_seconds": container["wall_seconds"]}
+                                 "wall_seconds": task_containers[t["task_id"]]["wall_seconds"]}
         collections[t["task_id"]] = ((artifact_collections or {}).get(t["task_id"])
                                      or make_collection_policy(max_total_bytes=default["collection"][0],
                                                                max_entries=default["collection"][1]))
@@ -620,7 +622,8 @@ def compile_tasks(output_dir, package, runtime_record, dest_dir, *, package_slug
     result = compile_package(output_dir, {"sources": source_manifest}, staging, execution_budgets=budgets,
                              image_id=image_id, public_rubrics={k: rubric(k) for k in types},
                              artifact_collections=collections,
-                             require_visual_png_preview=require_visual_png_preview)
+                             require_visual_png_preview=require_visual_png_preview,
+                             per_task_resources=per_task_resources)
     review = None
     if review_path is not None:
         review = {"path": Path(review_path).as_posix(), "sha256": file_hash(Path(review_path)),

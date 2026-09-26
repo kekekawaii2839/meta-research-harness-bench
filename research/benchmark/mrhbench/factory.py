@@ -28,7 +28,7 @@ from .material_batch import MATERIAL_PROMPT_SUFFIX, _check_inputs, _input_snapsh
 from .source_evidence_index import build_evidence_index
 
 TASK_TYPES = ("LIT", "IDEA", "EXP", "WRITE_CONTENT", "WRITE_EVIDENCE")
-PAPER_STAGES = ("fetch", "source_audit", "adjudication", "background", "construct", "review_adjudication",
+PAPER_STAGES = ("fetch", "source_audit", "adjudication", "background", "repo_files", "construct", "review_adjudication",
                 "repair", "repair_adjudication", "runtime", "compile", "pilot", "dossier")
 DONE = "completed"
 # Terminal outcomes after which later stages must not run.
@@ -40,7 +40,7 @@ RETRYABLE = {RATE_LIMITED, FETCH_FAILED}
 # arXiv statuses that are genuine findings about the paper (terminal blocked_source); anything else is transient.
 ARXIV_FINAL = {"arxiv_not_found", "arxiv_ambiguous", "no_version_before_conference_end"}
 STAGE_PATHS = {"fetch": ["sources"], "source_audit": ["source_audit"], "adjudication": ["adjudication"],
-               "background": ["background", "background_decision.json"], "construct": ["construct", "job.json"],
+               "background": ["background", "background_decision.json"], "repo_files": ["repo_files"], "construct": ["construct", "job.json"],
                "review_adjudication": ["review_adjudication"], "repair": ["repair", "job_repair.json"],
                "repair_adjudication": ["repair_adjudication"], "runtime": ["runtime"], "compile": ["compiled"],
                "pilot": ["pilot"], "dossier": ["dossier"]}
@@ -498,6 +498,27 @@ class Factory:
         artifacts["decision"] = "background_decision.json"
         self._record(state, "background", DONE if requested else "dropped", artifacts, notes=notes)
 
+    def stage_repo_files(self, state):
+        """Controller fetch of adjudicator-requested repository files at the pinned commit (factory v3)."""
+        pdir = self.paper_dir(state["project_id"])
+        reqs = read_json(pdir / "adjudication" / "adjudication.json").get("repo_file_requests") or []
+        if not reqs:
+            self._record(state, "repo_files", "skipped", notes=["no repository files requested"])
+            return
+        repo = read_json(pdir / "sources" / "manifest.json").get("repo") or {}
+        if repo.get("status") != "fetched" or not repo.get("commit"):
+            state["flags"].append("repo_files_requested_without_pinned_commit")
+            self._record(state, "repo_files", DONE, notes=["requests not fetched: repository status %s" % repo.get("status")])
+            return
+        manifest = self.sources.fetch_repo_files(repo["url"], repo["commit"], reqs, pdir / "repo_files", base_dir=pdir)
+        counts = {}
+        for r in manifest["requests"]:
+            counts[r["status"]] = counts.get(r["status"], 0) + 1
+        if counts.get("fetched", 0) < len(reqs):
+            state["flags"].append("repo_files_partially_fetched")
+        self._record(state, "repo_files", DONE, {"repo_files_manifest": "repo_files/manifest.json"},
+                     notes=["%s; %d bytes" % (counts, manifest["total_bytes"])])
+
     def build_job(self, state):
         pdir = self.paper_dir(state["project_id"])
         adj = read_json(pdir / "adjudication" / "adjudication.json")
@@ -513,6 +534,22 @@ class Factory:
                  "labelled as such in public specifications):\n" + (decisions or "- none") +
                  "\n\nWithhold from solver inputs: " + ("; ".join(adj["withheld_from_solver"]) or "nothing listed"))
         env = {**adj["environment_candidate"], "resource_status": "adjudicator_proposal_unmeasured_not_frozen", "runtime_verified": False}
+        extra = {}
+        repo_manifest = pdir / "repo_files" / "manifest.json"
+        if repo_manifest.exists():
+            rm = read_json(repo_manifest)
+            fetched = [r for r in rm["requests"] if r["status"] == "fetched"]
+            if fetched:
+                by_sid = {s["source_id"]: s for s in rm["sources"]}
+                extra["prepopulated_output_files"] = [
+                    {"from": by_sid[r["source_id"]]["local_path"], "to": "assets/repo_data/" + r["path"], "sha256": r["sha256"],
+                     "provenance": {"url": by_sid[r["source_id"]]["url"], "version": by_sid[r["source_id"]]["version"]}}
+                    for r in fetched]
+            status_lines = "\n".join("- %s: %s" % (r["path"], r["status"]) for r in rm["requests"])
+            scope += ("\n\nController-fetched repository files (pinned commit %s): every fetched file is already present in "
+                      "output/assets/repo_data/<repository path>. Use them as task assets where the construction order needs "
+                      "them (list them in package.json with sha256 CONTROLLER_FILL); unused ones may stay unlisted. Request "
+                      "statuses:\n%s" % (rm["commit"], status_lines))
         arxiv = manifest.get("arxiv") or {}
         return {"schema_version": "material-job-1", "job_id": slug(state["project_id"]), "paper_id": state["project_id"],
                 "requested_task_types": requested, "scope_request": scope, "sources": sources,
@@ -520,7 +557,7 @@ class Factory:
                                      "reason": "earliest known arXiv version from controller fetch; not proof of earliest disclosure"},
                 "environment_candidate": env, "rights_review": adj["rights_review"], "selection_confirmed": True,
                 "status": "approved_by_factory_adjudication", "formal_accepted": False,
-                "constructor_model_decision": "User 2026-09-24: Claude native constructor/reviewer via the standard factory"}
+                "constructor_model_decision": "User 2026-09-24: Claude native constructor/reviewer via the standard factory", **extra}
 
     def _batch(self, state, batch_root, repair_from=None, repair_notes=None):
         pdir = self.paper_dir(state["project_id"])
@@ -708,7 +745,8 @@ class Factory:
         out = self.final_output(state)
         pdir = self.paper_dir(state["project_id"])
         tasks = self.runtime.compile_tasks(out, read_json(out / "package.json"), read_json(pdir / "runtime" / "runtime_record.json"),
-                                           pdir / "compiled", package_slug=docker_slug(state["project_id"]))
+                                           pdir / "compiled", package_slug=docker_slug(state["project_id"]),
+                                           **({"per_task_resources": True} if self.config().get("per_task_resources") else {}))
         excluded = self.excluded_tasks(state)
         if excluded:
             (pdir / "compiled" / "_excluded").mkdir()

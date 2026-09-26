@@ -74,7 +74,9 @@ class Script:
                 "environment_candidate": {"docker_base": "python:3.12-slim", "dependencies": ["numpy==2.3.3"], "gpu": False,
                                           "network": "none", "scientific_rationale": "small", **RESOURCES},
                 "background_requests": [], "rights_review": "MIT code", "withheld_from_solver": ["author code"],
-                "checked_against_sources": ["Eq. 5"]})
+                "checked_against_sources": ["Eq. 5"],
+                **({"repo_file_requests": [{"path": "data/x.bin", "why": "dataset"}]}
+                   if "repo_file_requests" in (ws / "adjudication.schema.json").read_text(encoding="utf8") else {})})
             return
         rnd = read_json(ws / "round.json")["round"]
         pid = read_json(ws / "request.json")["paper_id"]
@@ -92,6 +94,7 @@ class Script:
 
     def constructor(self, ws):
         request = read_json(ws / "request.json")
+        self.seen_prepopulated = [(p["path"], (ws / "output" / p["path"]).read_bytes()) for p in request.get("prepopulated_output_files", [])]
         bad = self.flags.pop("bad_coverage_once", False)
         n_tasks = 2 if self.flags.get("two_tasks") else 1
         out = ws / "output"
@@ -124,12 +127,25 @@ class FakeSources:
         (files / "paper.html").write_text("<html><body><p>Eq. 1 x = y</p></body></html>", encoding="utf8")
         manifest = {"schema_version": "factory-sources-1", "project_id": candidate["project_id"],
                     "arxiv": {"status": "fetched", "earliest_known_public_version": {"version": "v1", "date": "2024-10-01"}},
-                    "repo": {"status": "no_repo"},
+                    "repo": {"status": "fetched", "url": "https://github.com/o/r", "commit": "a" * 40},
                     "sources": [{"source_id": "paper_html", "url": "https://arxiv.org/html/0000.0000v1", "version": "arXiv:0000.0000v1",
                                  "sha256": file_hash(files / "paper.html"), "bytes": 10, "role": "paper_html",
                                  "local_path": "sources/files/paper.html"}]}
         write_json(pdir / "sources" / "manifest.json", manifest)
         return manifest
+
+
+    def fetch_repo_files(self, repo_url, commit, reqs, dest, *, base_dir):
+        (dest / "files" / "data").mkdir(parents=True)
+        (dest / "files" / "data" / "x.bin").write_bytes(b"\x00\x01data")
+        m = {"schema_version": "factory-repo-files-1", "repo": repo_url, "commit": commit, "total_bytes": 6,
+             "requests": [{"path": "data/x.bin", "status": "fetched", "sha256": file_hash(dest / "files" / "data" / "x.bin"),
+                           "bytes": 6, "source_id": "repofile_001"}],
+             "sources": [{"source_id": "repofile_001", "url": repo_url + "/blob/x", "version": "git:" + commit,
+                          "sha256": file_hash(dest / "files" / "data" / "x.bin"), "role": "repo_data_file",
+                          "local_path": "repo_files/files/data/x.bin"}]}
+        write_json(dest / "manifest.json", m)
+        return m
 
 
 class FakeRuntime:
@@ -319,6 +335,26 @@ class FactoryTests(unittest.TestCase):
         f.approve_selection("user")
         pid = read_json(self.root / "selection.json")["papers"][0]["project_id"]
         self.assertEqual(f.run_papers([pid])[0]["stages"]["construct"], "failed_needs_attribution")
+
+    def test_v3_repo_files_prepopulate_constructor_output(self):
+        script = Script(round1="pass")
+        f = self.factory(script)
+        f.init({"triage_pool_size": 6, "triage_batch_size": 3, "fulltext_papers": 3, "factory_prompts": "factory_v3",
+                "structural_gate_to_repair": True})
+        f.run_triage(); f.select(); f.approve_selection("user")
+        pid = read_json(self.root / "selection.json")["papers"][0]["project_id"]
+        stages = f.run_papers([pid])[0]["stages"]
+        self.assertEqual((stages["repo_files"], stages["dossier"]), ("completed", "completed"))
+        self.assertEqual(script.seen_prepopulated, [("assets/repo_data/data/x.bin", b"\x00\x01data")])
+        self.assertIn("data/x.bin: fetched", read_json(f.paper_dir(pid) / "job.json")["scope_request"])
+
+    def test_v2_has_no_repo_file_stage_effect(self):
+        f = self.prepared(Script(round1="pass"), v2=True)
+        f.approve_selection("user")
+        pid = read_json(self.root / "selection.json")["papers"][0]["project_id"]
+        stages = f.run_papers([pid])[0]["stages"]
+        self.assertEqual(stages["repo_files"], "skipped")
+        self.assertNotIn("prepopulated_output_files", read_json(f.paper_dir(pid) / "job.json"))
 
     def test_call_budget_and_prompt_freeze(self):
         f = self.prepared(Script(), budget=3)  # two scout calls used

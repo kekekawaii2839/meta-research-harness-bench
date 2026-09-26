@@ -45,7 +45,8 @@ CODE_MAX_FILES = 300
 CODE_TOTAL_CAP = 10 * 1024 * 1024
 CODE_EXTS = (".py", ".ipynb", ".md", ".yaml", ".yml", ".toml", ".cfg", ".json", ".sh", ".txt")
 ARXIV_INTERVAL = 3.0
-GIT_TIMEOUT = 600
+GIT_TIMEOUT = 1800  # raised from 600 s (factory v3, user 2026-09-26): large repos timed out on blobless clone
+REPO_FILES_TOTAL_CAP = 200 * 1024 * 1024  # per paper, user-approved cap for requested repository files
 _ARXIV_LAST = [float("-inf")]
 _SAFE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$")
 _GH_PART = re.compile(r"^[A-Za-z0-9_.-]{1,100}$")
@@ -374,6 +375,70 @@ def _fetch_code(repo, conference_end, git, clone_url, store: _Store) -> dict:
             info["status"] = "git_timeout"; return info
     finally:
         _rmtree(tmp)
+
+
+def fetch_repo_files(repo_url, commit, requests, dest_dir: Path, *, base_dir: Path | None = None, git=None,
+                     max_total_bytes=REPO_FILES_TOTAL_CAP, clone_source=None):
+    """Controller fetch of adjudicator-requested repository files at the paper's pinned commit (factory v3).
+
+    Blobs only (git show), nothing checked out or executed. Every request gets a status: fetched,
+    not_in_tree, lfs_pointer_not_fetched, unsafe_path, total_cap, show_failed or git_timeout.
+    Writes dest_dir/manifest.json; local_path rows are relative to base_dir (default dest_dir.parent).
+    """
+    git = git or subprocess_git
+    dest_dir = Path(dest_dir)
+    base_dir = Path(base_dir) if base_dir is not None else dest_dir.parent
+    if dest_dir.exists():
+        raise ProtocolError("Repo file destination must be new")
+    if not re.fullmatch(r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo_url or "") or not re.fullmatch(r"[0-9a-f]{40}", commit or ""):
+        raise ProtocolError("Repo file fetch needs a GitHub URL and a pinned 40-hex commit")
+    dest_dir.mkdir(parents=True)
+    files = dest_dir / "files"
+    rows, sources, total = [], [], 0
+    tmp = Path(tempfile.mkdtemp(prefix="mrh-repofiles-"))
+    try:
+        rc, _o, err = git(["clone", "--filter=blob:none", "--no-checkout", "--quiet", clone_source or repo_url + ".git", str(tmp / "repo")], None, GIT_TIMEOUT)
+        if rc != 0:
+            rows = [{"path": r["path"], "status": "clone_failed"} for r in requests]
+        else:
+            rc, tree_z, _ = git(["-C", str(tmp / "repo"), "ls-tree", "-r", "--long", "-z", commit], None, GIT_TIMEOUT)
+            tree = {e["path"]: e for e in parse_ls_tree_z(tree_z)} if rc == 0 else {}
+            for i, req in enumerate(requests):
+                path = req["path"].strip().lstrip("/")
+                row = {"path": path, "why": req.get("why")}
+                try:
+                    relative_path(path)
+                except ProtocolError:
+                    row["status"] = "unsafe_path"; rows.append(row); continue
+                e = tree.get(path)
+                if e is None or e["type"] != "blob" or e["mode"] == "120000":
+                    row["status"] = "not_in_tree"; rows.append(row); continue
+                if e["size"] is None or total + e["size"] > max_total_bytes:
+                    row.update(status="total_cap", bytes=e["size"]); rows.append(row); continue
+                rc, data, _ = git(["-C", str(tmp / "repo"), "show", f"{commit}:{path}"], None, GIT_TIMEOUT)
+                if rc != 0:
+                    row["status"] = "show_failed"; rows.append(row); continue
+                if data.startswith(b"version https://git-lfs.github.com/spec/"):
+                    row["status"] = "lfs_pointer_not_fetched"; rows.append(row); continue
+                target = files / path
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(data)
+                total += len(data)
+                sid = "repofile_%03d" % (i + 1)
+                row.update(status="fetched", bytes=len(data), sha256=file_hash(target), source_id=sid)
+                sources.append({"source_id": sid, "url": f"{repo_url}/blob/{commit}/{urllib.parse.quote(path)}",
+                                "version": f"git:{commit}", "sha256": row["sha256"], "bytes": len(data), "role": "repo_data_file",
+                                "local_path": target.relative_to(base_dir).as_posix()})
+                rows.append(row)
+    except subprocess.TimeoutExpired:
+        rows += [{"path": r["path"], "status": "git_timeout"} for r in requests[len(rows):]]
+    finally:
+        _rmtree(tmp)
+    manifest = {"schema_version": "factory-repo-files-1", "fetched_at": utc_now(), "repo": repo_url, "commit": commit,
+                "max_total_bytes": max_total_bytes, "total_bytes": total, "requests": rows, "sources": sources,
+                "note": "Repository files at the pinned commit; licence of each file follows the repository licence recorded at fetch."}
+    write_json(dest_dir / "manifest.json", manifest)
+    return manifest
 
 
 # ----------------------------------------------------------------------------- public API

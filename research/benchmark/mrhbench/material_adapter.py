@@ -42,10 +42,26 @@ def content_schema(task_type, semantic_contract):
             "properties": properties, "required": required, "additionalProperties": False}
 
 
+def task_container(task: dict, container: dict) -> dict:
+    """Per-task limits (user decision 2026-09-26): a task may restate smaller limits than the package
+    environment; each restated value must be a positive number no larger than the package's."""
+    restated = {}
+    for field in ("resource_requirements", "resources"):
+        for k, v in (task["input_contract"].get(field) or {}).items():
+            if k in container:
+                if k in restated and restated[k] != v:
+                    raise ProtocolError("Task restates one resource with two different values: " + k)
+                restated[k] = v
+    for k, v in restated.items():
+        if isinstance(v, bool) or not isinstance(v, (int, float)) or v <= 0 or v > container[k]:
+            raise ProtocolError("Task resource %s=%r must be positive and not exceed the package limit %r" % (k, v, container[k]))
+    return {**container, **restated}
+
+
 def compile_package(output_root: Path, request: dict, destination: Path, *,
                     execution_budgets: dict, image_id: str, public_rubrics: dict,
                     artifact_collections: dict,
-                    require_visual_png_preview: bool = False) -> dict:
+                    require_visual_png_preview: bool = False, per_task_resources: bool = False) -> dict:
     """Emit manifest + assets per task; caller explicitly chooses each dev budget.
 
     Existing candidates/sources are never edited. No fallback model/tool caps.
@@ -67,16 +83,19 @@ def compile_package(output_root: Path, request: dict, destination: Path, *,
         raise ProtocolError('Explicit artifact collection contract required for every task, no extras')
     resources = package["environment"]["resources"]
     container = {k: resources[k] for k in ("cpus", "memory_mb", "disk_mb", "pids_limit", "wall_seconds")}
+    containers = {}
     for t in tasks:
-        collection_policy({'container': container, 'artifact_collection': artifact_collections[t['task_id']]})
+        containers[t["task_id"]] = task_container(t, container) if per_task_resources else container
+        tc = containers[t["task_id"]]
+        collection_policy({'container': tc, 'artifact_collection': artifact_collections[t['task_id']]})
         budget = execution_budgets[t["task_id"]]
         Budget.from_task({"resources": {"execution_budget": budget}})
-        if budget["wall_seconds"] != container["wall_seconds"]:
+        if budget["wall_seconds"] != tc["wall_seconds"]:
             raise ProtocolError("Task execution/container wall limits conflict")
         # If a constructor restates task resources, they cannot silently differ.
         for field in ("resource_requirements", "resources"):
             task_resources = t["input_contract"].get(field, {})
-            if any(k in task_resources and task_resources[k] != v for k, v in container.items()):
+            if any(k in task_resources and task_resources[k] != v for k, v in tc.items()):
                 raise ProtocolError("Candidate task/package resources conflict")
         if t["task_type"] not in public_rubrics:
             raise ProtocolError("Missing approved public rubric")
@@ -129,7 +148,7 @@ def compile_package(output_root: Path, request: dict, destination: Path, *,
         view = {"task_id": task["task_id"], "task_type": task["task_type"], "prompt": prompt,
                 "inputs": [a["asset_id"] for a in assets if a["visibility"] == "public"],
                 "output_contract": output_schema,
-                "resources": {"container": copy.deepcopy(container),
+                "resources": {"container": copy.deepcopy(containers[task["task_id"]]),
                     "artifact_collection": copy.deepcopy(artifact_collections[task['task_id']]),
                     "execution_budget": copy.deepcopy(execution_budgets[task["task_id"]]),
                     "image_id": image_id, "device": "CPU", "gpu_allowed": False, "network": "none",

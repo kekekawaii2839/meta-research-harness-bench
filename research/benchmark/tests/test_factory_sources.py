@@ -282,3 +282,35 @@ class PoolTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RepoFilesTests(unittest.TestCase):
+    def test_fetch_requested_files_at_pinned_commit(self):
+        import subprocess
+        from mrhbench import factory_sources as fs
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp) / "src"
+            repo.mkdir()
+            run = lambda *a: subprocess.run(["git", *a], cwd=repo, check=True, capture_output=True)
+            run("init", "-q")
+            run("config", "user.email", "t@t"); run("config", "user.name", "t")
+            (repo / "data").mkdir()
+            (repo / "data" / "x.bin").write_bytes(bytes(range(256)) * 10)
+            (repo / "data" / "big.pt").write_bytes(b"version https://git-lfs.github.com/spec/v1\noid sha256:abc\nsize 9\n")
+            run("add", "-A"); run("commit", "-q", "-m", "c1")
+            commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=repo, capture_output=True, text=True).stdout.strip()
+            (repo / "data" / "x.bin").write_bytes(b"later version")
+            run("commit", "-qam", "c2")
+            dest = Path(tmp) / "paper" / "repo_files"
+            m = fs.fetch_repo_files("https://github.com/o/r", commit,
+                                    [{"path": "data/x.bin", "why": "d"}, {"path": "data/big.pt", "why": "w"},
+                                     {"path": "nope.txt", "why": "n"}, {"path": "../etc", "why": "u"}],
+                                    dest, clone_source=str(repo))
+            status = {r["path"]: r["status"] for r in m["requests"]}
+            self.assertEqual(status, {"data/x.bin": "fetched", "data/big.pt": "lfs_pointer_not_fetched",
+                                      "nope.txt": "not_in_tree", "../etc": "unsafe_path"})
+            self.assertEqual((dest / "files" / "data" / "x.bin").read_bytes(), bytes(range(256)) * 10)  # pinned, not later
+            self.assertEqual(m["sources"][0]["local_path"], "repo_files/files/data/x.bin")
+            m2 = fs.fetch_repo_files("https://github.com/o/r", commit, [{"path": "data/x.bin", "why": "d"}],
+                                     Path(tmp) / "paper" / "rf2", clone_source=str(repo), max_total_bytes=10)
+            self.assertEqual(m2["requests"][0]["status"], "total_cap")

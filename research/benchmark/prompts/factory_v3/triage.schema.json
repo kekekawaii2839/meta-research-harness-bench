@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "factory-triage-1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "papers"],
+  "properties": {
+    "schema_version": {"const": "factory-triage-1"},
+    "papers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["project_id", "modules", "cpu_feasibility", "research_type", "rights_flags", "priority", "notes"],
+        "properties": {
+          "project_id": {"type": "string", "minLength": 1},
+          "modules": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["LIT", "IDEA", "EXP", "WRITE_CONTENT", "WRITE_EVIDENCE"],
+            "properties": {
+              "LIT": {"$ref": "#/$defs/module"},
+              "IDEA": {"$ref": "#/$defs/module"},
+              "EXP": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["plausible", "reason", "cpu_branch"],
+                "properties": {
+                  "plausible": {"type": "boolean"},
+                  "reason": {"type": "string", "minLength": 1},
+                  "cpu_branch": {"type": ["string", "null"]}
+                }
+              },
+              "WRITE_CONTENT": {"$ref": "#/$defs/module"},
+              "WRITE_EVIDENCE": {"$ref": "#/$defs/module"}
+            }
+          },
+          "cpu_feasibility": {"enum": ["high", "medium", "low", "none"]},
+          "research_type": {"enum": ["method", "analysis", "dataset", "theory", "system", "other"]},
+          "rights_flags": {"type": "array", "items": {"type": "string"}},
+          "priority": {"type": "integer", "minimum": 0, "maximum": 3},
+          "notes": {"type": "string"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "module": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["plausible", "reason"],
+      "properties": {
+        "plausible": {"type": "boolean"},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "factory-source-audit-1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "project_id", "research_type", "methods", "ambiguities", "modules", "cpu_branches",
+               "excluded_gpu_claims", "results_for_write", "background_candidates", "first_disclosure", "rights", "unverified"],
+  "properties": {
+    "schema_version": {"const": "factory-source-audit-1"},
+    "project_id": {"type": "string", "minLength": 1},
+    "research_type": {"enum": ["method", "analysis", "dataset", "theory", "system", "other"]},
+    "methods": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["method_id", "name", "definition", "fixed_conditions", "locations"],
+        "properties": {
+          "method_id": {"type": "string", "minLength": 1},
+          "name": {"type": "string"},
+          "definition": {"type": "string", "minLength": 1},
+          "fixed_conditions": {"type": "array", "items": {"type": "string"}},
+          "locations": {"$ref": "#/$defs/locations"}
+        }
+      }
+    },
+    "ambiguities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ambiguity_id", "kind", "description", "locations", "candidate_resolutions",
+                     "recommended_resolution_id", "affects", "blocking"],
+        "properties": {
+          "ambiguity_id": {"type": "string", "minLength": 1},
+          "kind": {"enum": ["paper_internal", "paper_vs_code", "underspecified", "numerical", "scope", "other"]},
+          "description": {"type": "string", "minLength": 1},
+          "locations": {"$ref": "#/$defs/locations"},
+          "candidate_resolutions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["resolution_id", "description", "basis", "faithfulness_risk"],
+              "properties": {
+                "resolution_id": {"type": "string", "minLength": 1},
+                "description": {"type": "string", "minLength": 1},
+                "basis": {"type": "string"},
+                "faithfulness_risk": {"enum": ["low", "medium", "high"]}
+              }
+            }
+          },
+          "recommended_resolution_id": {"type": ["string", "null"]},
+          "affects": {"type": "array", "items": {"$ref": "#/$defs/task_type"}},
+          "blocking": {"type": "boolean"}
+        }
+      }
+    },
+    "modules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["LIT", "IDEA", "EXP", "WRITE_CONTENT", "WRITE_EVIDENCE"],
+      "properties": {
+        "LIT": {"$ref": "#/$defs/module"},
+        "IDEA": {"$ref": "#/$defs/module"},
+        "EXP": {"$ref": "#/$defs/module"},
+        "WRITE_CONTENT": {"$ref": "#/$defs/module"},
+        "WRITE_EVIDENCE": {"$ref": "#/$defs/module"}
+      }
+    },
+    "cpu_branches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["branch_id", "description", "cpu_feasible", "cost_estimate", "reasons", "locations"],
+        "properties": {
+          "branch_id": {"type": "string", "minLength": 1},
+          "description": {"type": "string"},
+          "cpu_feasible": {"type": "boolean"},
+          "cost_estimate": {"type": "string"},
+          "reasons": {"type": "string"},
+          "locations": {"$ref": "#/$defs/locations"}
+        }
+      }
+    },
+    "excluded_gpu_claims": {"type": "array", "items": {"type": "string"}},
+    "results_for_write": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["result_id", "kind", "aggregation", "description", "locations"],
+        "properties": {
+          "result_id": {"type": "string", "minLength": 1},
+          "kind": {"enum": ["table", "figure", "text"]},
+          "aggregation": {"enum": ["raw_runs", "aggregate", "unknown"]},
+          "description": {"type": "string"},
+          "locations": {"$ref": "#/$defs/locations"}
+        }
+      }
+    },
+    "background_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "arxiv_id", "year", "role_guess", "why", "cited_at"],
+        "properties": {
+          "title": {"type": "string", "minLength": 1},
+          "arxiv_id": {"type": ["string", "null"]},
+          "year": {"type": ["integer", "null"]},
+          "role_guess": {"enum": ["core", "background", "confusable"]},
+          "why": {"type": "string"},
+          "cited_at": {"type": "string"}
+        }
+      }
+    },
+    "first_disclosure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["earliest_known_version_date", "evidence", "verified"],
+      "properties": {
+        "earliest_known_version_date": {"type": ["string", "null"]},
+        "evidence": {"type": "string"},
+        "verified": {"const": false}
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["paper_license", "code_license", "notes"],
+      "properties": {
+        "paper_license": {"type": "string"},
+        "code_license": {"type": "string"},
+        "notes": {"type": "string"}
+      }
+    },
+    "unverified": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "task_type": {"enum": ["LIT", "IDEA", "EXP", "WRITE_CONTENT", "WRITE_EVIDENCE"]},
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_id", "locator"],
+        "properties": {
+          "source_id": {"type": "string", "minLength": 1},
+          "locator": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "module": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["feasible", "scope_proposal", "reason", "locations"],
+      "properties": {
+        "feasible": {"enum": ["yes", "no", "conditional"]},
+        "scope_proposal": {"type": "string"},
+        "reason": {"type": "string", "minLength": 1},
+        "locations": {"$ref": "#/$defs/locations"}
+      }
+    }
+  }
+}
