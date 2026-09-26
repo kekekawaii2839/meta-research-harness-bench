@@ -65,8 +65,31 @@ class _CheckedRedirect(urllib.request.HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
+def requests_http(url: str, max_bytes: int, max_redirects=5):
+    """Default transport: allowlisted HTTPS GET via requests, every redirect hop checked, read bound max_bytes+1.
+
+    export.arxiv.org answers Python urllib with HTTP 406 for uncached queries while requests/curl
+    get 200 for the same URL (observed 2026-09-25), so urllib is no longer the default.
+    """
+    import requests
+    for _ in range(max_redirects + 1):
+        check_url(url)
+        with requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=60, allow_redirects=False, stream=True) as r:
+            if r.is_redirect or r.status_code in (301, 302, 303, 307, 308):
+                url = urllib.parse.urljoin(url, r.headers.get("Location", ""))
+                continue
+            body = b""
+            if r.status_code == 200:
+                for chunk in r.iter_content(65536):
+                    body += chunk
+                    if len(body) > max_bytes:
+                        break
+            return r.status_code, url, dict(r.headers.items()), body
+    raise ProtocolError("Too many redirects")
+
+
 def urllib_http(url: str, max_bytes: int):
-    """Default transport: allowlisted HTTPS GET, redirect-checked, read bound max_bytes+1."""
+    """Legacy transport kept for reference: allowlisted HTTPS GET, redirect-checked, read bound max_bytes+1."""
     check_url(url)
     opener = urllib.request.build_opener(_CheckedRedirect())
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
@@ -397,7 +420,7 @@ def _reusable(out_dir: Path, rec) -> bool:
 
 def build_pool(candidate_index: Path, iclr_json: Path, out_dir: Path, *, fetch_readmes=True, http=None,
                sleep=time.sleep, polite_interval=0.2, checkpoint_every=25) -> dict:
-    http = http or urllib_http
+    http = http or requests_http
     out_dir.mkdir(parents=True, exist_ok=True)
     events = read_json(iclr_json)["results"]
     abstracts = {int(e["id"]): e.get("abstract") for e in events if str(e.get("id", "")).isdigit()}
@@ -470,7 +493,7 @@ def build_pool(candidate_index: Path, iclr_json: Path, out_dir: Path, *, fetch_r
 
 def fetch_paper_sources(candidate_row: dict, paper_dir: Path, *, conference_end="2025-04-30", http=None, git=None,
                         clone_url=github_clone_url, sleep=time.sleep, clock=time.monotonic) -> dict:
-    http, git = http or urllib_http, git or subprocess_git
+    http, git = http or requests_http, git or subprocess_git
     if not _DATE.match(conference_end):
         raise ProtocolError("conference_end must be YYYY-MM-DD")
     src = paper_dir / "sources"
@@ -523,7 +546,7 @@ def _arxiv_title_by_id(http, aid, sleep, clock):
 
 def fetch_background(requests: list[dict], dest_dir: Path, *, base_dir: Path | None = None, http=None,
                      sleep=time.sleep, clock=time.monotonic) -> dict:
-    http = http or urllib_http
+    http = http or requests_http
     base_dir = base_dir or dest_dir.parent
     if dest_dir.exists():
         raise ProtocolError("Background destination must be new")

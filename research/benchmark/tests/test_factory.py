@@ -80,7 +80,10 @@ class Script:
         pid = read_json(ws / "request.json")["paper_id"]
         action = self.flags.get("round%d" % rnd, "pass")
         findings = read_json(ws / "review.json").get("findings", [])
-        write_json(ws / "review_adjudication.json", {
+        extra = {}
+        if "excluded_task_ids" in (ws / "review_adjudication.schema.json").read_text(encoding="utf8"):
+            extra["excluded_task_ids"] = self.flags.get("exclude", []) if action == "pass_partial" else []
+        write_json(ws / "review_adjudication.json", {**extra,
             "schema_version": "factory-review-adjudication-1", "project_id": pid, "round": rnd,
             "finding_decisions": [{"finding_index": i, "decision": "accept", "severity": "major", "rationale": "real",
                                    "policy_rules": ["C1"], "repair_note": "fix it"} for i in range(len(findings))],
@@ -89,6 +92,8 @@ class Script:
 
     def constructor(self, ws):
         request = read_json(ws / "request.json")
+        bad = self.flags.pop("bad_coverage_once", False)
+        n_tasks = 2 if self.flags.get("two_tasks") else 1
         out = ws / "output"
         (out / "environment/image").mkdir(parents=True)
         (out / "environment/image/Dockerfile").write_text("FROM python:3.12-slim\n")
@@ -96,14 +101,17 @@ class Script:
         write_json(out / "package.json", dict(
             schema_version="material-package-1", status="candidate", paper_id=request["paper_id"],
             facts=[dict(fact_id="f", kind="maintainer_scope", statement="Fixture", allowed_stages=["EXP"])],
-            coverage=[dict(task_type=t, status="candidate" if t == "EXP" else "deferred", reason="Fixture") for t in TASK_TYPES],
-            tasks=[dict(task_id="t", paper_id=request["paper_id"], split="development", task_type="EXP", input_fact_ids=["f"],
-                        input_contract={"description": "Fixture"}, output_contract={"description": "Fixture"},
-                        verification_plan={"pending": True})],
+            coverage=[dict(task_type=t, status="candidate" if t == "EXP" else "deferred", reason="Fixture") for t in TASK_TYPES][: 4 if bad else 5],
+            tasks=[dict(task_id="t" if i == 0 else "t%d" % (i + 1), paper_id=request["paper_id"], split="development", task_type="EXP",
+                        input_fact_ids=["f"], input_contract={"description": "Fixture"}, output_contract={"description": "Fixture"},
+                        verification_plan={"pending": True}) for i in range(n_tasks)],
             environment=dict(gpu=False, network="none", runtime_verified=False, dependencies=[], scientific_rationale="Fixture",
                              resources=RESOURCES, dockerfile="environment/image/Dockerfile", smoke_test="environment/smoke.py")))
 
     def material_reviewer(self, ws):
+        if self.flags.pop("reviewer_rate_limit_once", False):
+            from mrhbench.io import ProviderRateLimit
+            raise ProviderRateLimit("Provider rate/session limit (HTTP 429)")
         pid = read_json(ws / "request.json")["paper_id"]
         write_json(ws / "review.json", {"schema_version": "material-review-1", "paper_id": pid, "decision": "revise",
                                         "findings": [{"severity": "major", "issue": "H3 trivially true"}]})
@@ -173,9 +181,10 @@ class FactoryTests(unittest.TestCase):
         return Factory(self.root, templates=self.templates, runner_factory=lambda role: FakeRunner(script, role),
                        sources=FakeSources(), runtime=FakeRuntime(), budget=CallBudget(budget), pilot=pilot)
 
-    def prepared(self, script, budget=100):
+    def prepared(self, script, budget=100, v2=False):
         f = self.factory(script, budget)
-        f.init({"triage_pool_size": 6, "triage_batch_size": 3, "fulltext_papers": 3})
+        extra = {"factory_prompts": "factory_v2", "structural_gate_to_repair": True} if v2 else {}
+        f.init({"triage_pool_size": 6, "triage_batch_size": 3, "fulltext_papers": 3, **extra})
         f.run_triage()
         f.select()
         return f
@@ -257,6 +266,59 @@ class FactoryTests(unittest.TestCase):
                 stages = f.run_papers([pid])[0]["stages"]
                 self.assertEqual(stages[stage], "failed_needs_attribution")
                 self.assertEqual(list(stages)[-1], stage)
+
+    def test_rate_limited_reviewer_resumes_without_reconstructing(self):
+        script = Script(round1="pass", reviewer_rate_limit_once=True)
+        f = self.prepared(script)
+        f.approve_selection("user")
+        pid = read_json(self.root / "selection.json")["papers"][0]["project_id"]
+        stages = f.run_papers([pid])[0]["stages"]
+        self.assertEqual(stages["construct"], "platform_rate_limited")
+        self.assertNotIn("review_adjudication", stages)
+        before = script.calls.count("constructor")
+        f.halted = None  # limit has reset
+        stages = f.run_papers([pid], retry_platform=True)[0]["stages"]
+        self.assertEqual(stages["construct"], "completed")
+        self.assertEqual(stages["dossier"], "completed")
+        self.assertEqual(script.calls.count("constructor"), before)  # constructor not re-run
+        receipt = read_json(f.paper_dir(pid) / "construct" / pid / "receipt.json")
+        self.assertTrue(receipt["constructor_reused"])
+        self.assertTrue((f.paper_dir(pid) / "construct.failed-1").is_dir())
+
+    def test_v2_pass_partial_excludes_tasks_at_compile(self):
+        f = self.prepared(Script(round1="pass_partial", exclude=["t2"], two_tasks=True), v2=True)
+        f.approve_selection("user")
+        pid = read_json(self.root / "selection.json")["papers"][0]["project_id"]
+        stages = f.run_papers([pid])[0]["stages"]
+        self.assertEqual((stages["review_adjudication"], stages["repair"], stages["dossier"]), ("completed", "skipped", "completed"))
+        self.assertEqual([t["task_id"] for t in read_json(f.paper_dir(pid) / "compiled" / "compiled_tasks.json")], ["t"])
+        self.assertIn("excluded by adjudication: t2", f.state(pid)["stages"]["compile"]["notes"])
+
+    def test_v2_pass_partial_cannot_exclude_everything(self):
+        f = self.prepared(Script(round1="pass_partial", exclude=["t"]), v2=True)
+        f.approve_selection("user")
+        pid = read_json(self.root / "selection.json")["papers"][0]["project_id"]
+        self.assertEqual(f.run_papers([pid])[0]["stages"]["review_adjudication"], "failed_needs_attribution")
+
+    def test_v2_structural_gate_failure_routes_to_repair(self):
+        script = Script(bad_coverage_once=True, round2="pass")
+        f = self.prepared(script, v2=True)
+        f.approve_selection("user")
+        pid = read_json(self.root / "selection.json")["papers"][0]["project_id"]
+        stages = f.run_papers([pid])[0]["stages"]
+        self.assertEqual((stages["construct"], stages["review_adjudication"], stages["repair"], stages["dossier"]),
+                         ("completed", "completed", "completed", "completed"))
+        adj = read_json(f.paper_dir(pid) / "review_adjudication" / "review_adjudication.json")
+        self.assertEqual((adj["author"], adj["action"]), ("controller_structural_gate", "repair"))
+        self.assertIn("coverage matrix", adj["repair_notes"][0])
+        # first material_reviewer never ran (gate failed before review); adjudicator ran only for round 2
+        self.assertEqual(script.calls.count("adjudicator"), 2)
+
+    def test_v1_structural_gate_failure_stays_terminal(self):
+        f = self.prepared(Script(bad_coverage_once=True))
+        f.approve_selection("user")
+        pid = read_json(self.root / "selection.json")["papers"][0]["project_id"]
+        self.assertEqual(f.run_papers([pid])[0]["stages"]["construct"], "failed_needs_attribution")
 
     def test_call_budget_and_prompt_freeze(self):
         f = self.prepared(Script(), budget=3)  # two scout calls used

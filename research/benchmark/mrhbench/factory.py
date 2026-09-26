@@ -35,6 +35,10 @@ DONE = "completed"
 TERMINAL = {"dropped", "blocked_source", "failed_needs_attribution"}
 # Provider 429: not terminal; rerun only with an explicit retry (failed attempt kept on disk).
 RATE_LIMITED = "platform_rate_limited"
+FETCH_FAILED = "platform_fetch_failed"  # transient network/HTTP failure while fetching sources; retryable like RATE_LIMITED
+RETRYABLE = {RATE_LIMITED, FETCH_FAILED}
+# arXiv statuses that are genuine findings about the paper (terminal blocked_source); anything else is transient.
+ARXIV_FINAL = {"arxiv_not_found", "arxiv_ambiguous", "no_version_before_conference_end"}
 STAGE_PATHS = {"fetch": ["sources"], "source_audit": ["source_audit"], "adjudication": ["adjudication"],
                "background": ["background", "background_decision.json"], "construct": ["construct", "job.json"],
                "review_adjudication": ["review_adjudication"], "repair": ["repair", "job_repair.json"],
@@ -84,7 +88,7 @@ class Factory:
         """runner_factory(role) -> object with .run(workspace=, prompt=, role=) (ClaudeNativeRunner in production)."""
         self.root = Path(root)
         self.templates = Path(templates)
-        self.factory_templates = self.templates / "factory"
+        self._factory_prompts = None  # prompt subdirectory; from factory.json once initialised
         self.runner_factory = runner_factory
         self.sources, self.runtime, self.pilot = sources, runtime, pilot
         self.budget = budget or CallBudget(0)
@@ -118,9 +122,17 @@ class Factory:
         return target.name
 
     # ------------------------------------------------------------------ config
+    @property
+    def factory_templates(self):
+        if self._factory_prompts is None:
+            cfg_path = self.root / "factory.json"
+            self._factory_prompts = read_json(cfg_path).get("factory_prompts", "factory") if cfg_path.exists() else "factory"
+        return self.templates / self._factory_prompts
+
     def init(self, overrides=None):
         if (self.root / "factory.json").exists():
             raise ProtocolError("Factory already initialised")
+        self._factory_prompts = (overrides or {}).get("factory_prompts", "factory")
         config = {**DEFAULT_CONFIG, **(overrides or {}), "created_at": utc_now(),
                   "policy_sha256": file_hash(self.factory_templates / "policy.md"),
                   "prompt_hashes": self.prompt_hashes()}
@@ -131,7 +143,7 @@ class Factory:
         return read_json(self.root / "factory.json")
 
     def prompt_hashes(self):
-        names = ["factory/" + p.name for p in sorted(self.factory_templates.iterdir()) if p.is_file()]
+        names = [self.factory_templates.name + "/" + p.name for p in sorted(self.factory_templates.iterdir()) if p.is_file()]
         names += ["material_constructor.txt", "material_reviewer.txt", "material_package.schema.json"]
         return {n: file_hash(self.templates / n) for n in names}
 
@@ -341,12 +353,12 @@ class Factory:
         pdir.mkdir(parents=True, exist_ok=True)
         for stage in PAPER_STAGES:
             done = state["stages"].get(stage, {}).get("status")
-            if done == RATE_LIMITED and retry_platform:
+            if done in RETRYABLE and retry_platform:
                 moved = [self.set_aside(pdir / p) for p in STAGE_PATHS[stage]]
                 state.setdefault("history", []).append({"stage": stage, **state["stages"].pop(stage), "set_aside": moved})
                 self._save(state)
                 done = None
-            if done == RATE_LIMITED:
+            if done in RETRYABLE:
                 break
             if done in TERMINAL:
                 break
@@ -360,7 +372,8 @@ class Factory:
                 self._record(state, stage, RATE_LIMITED if isinstance(exc, ProviderRateLimit) else "failed_needs_attribution",
                              notes=["%s: %s" % (type(exc).__name__, exc)])
                 break
-            if state["stages"][stage]["status"] in TERMINAL:
+            if state["stages"][stage]["status"] in TERMINAL or state["stages"][stage]["status"] in RETRYABLE:
+                # A rate-limited or transient-fetch stage must stop the paper too, never let later stages run.
                 break
         return {"project_id": project_id, "stages": {k: v["status"] for k, v in state["stages"].items()}}
 
@@ -373,7 +386,8 @@ class Factory:
         manifest = self.sources.fetch_paper_sources(self._candidate(state["project_id"]), pdir,
                                                     conference_end=self.config()["conference_end"])
         roles = {s["role"] for s in manifest["sources"]}
-        status = DONE if roles & {"paper_html", "paper_pdf"} else "blocked_source"
+        arxiv_status = manifest["arxiv"]["status"]
+        status = DONE if roles & {"paper_html", "paper_pdf"} else ("blocked_source" if arxiv_status in ARXIV_FINAL else FETCH_FAILED)
         self._record(state, "fetch", status, {"source_manifest": "sources/manifest.json"},
                      notes=[] if status == DONE else ["no paper full text fetched: arxiv status %s" % manifest["arxiv"]["status"]])
 
@@ -513,6 +527,9 @@ class Factory:
         job = self.build_job(state)
         write_json(pdir / ("job.json" if repair_from is None else "job_repair.json"), job)
         self.check_prompts()
+        resumed = self._resume_reviewer_only(job, batch_root)
+        if resumed is not None:
+            return job, resumed
         self.budget.take(2)
         result = run_batch([job], workspace=pdir, batch_root=batch_root, templates=self.templates,
                            constructor=self.runner("constructor"), reviewer=self.runner("material_reviewer"),
@@ -521,12 +538,83 @@ class Factory:
                            repair_from=repair_from, repair_notes=repair_notes)
         return job, result["jobs"][0]
 
+    def _resume_reviewer_only(self, job, batch_root):
+        """After a provider rate limit hit only the reviewer, reuse the completed construction.
+
+        The latest set-aside attempt (<batch>.failed-N) is reused when its receipt shows the same job,
+        a completed constructor and a ProviderRateLimit error. The constructor tree is copied (the old
+        attempt stays untouched), the deterministic gate is re-run and only a fresh reviewer is called.
+        """
+        from .material_pipeline import prepare_review, validate_package
+        from .material_batch import fill_sentinel_hashes
+        priors = sorted(batch_root.parent.glob(batch_root.name + ".failed-*"), key=lambda p: int(p.name.rsplit("-", 1)[1]))
+        if not priors or batch_root.exists():
+            return None
+        prior = priors[-1] / job["job_id"]
+        receipt_path = prior / "receipt.json"
+        if not receipt_path.is_file():
+            return None
+        old = read_json(receipt_path)
+        if (old.get("job_hash") != digest(job) or (old.get("constructor") or {}).get("status") != "completed"
+                or (old.get("error") or {}).get("type") != "ProviderRateLimit"
+                or not (prior / "constructor" / "output" / "package.json").is_file()):
+            return None
+        root = batch_root / job["job_id"]
+        staged = root / "constructor"
+        root.mkdir(parents=True)
+        shutil.copytree(prior / "constructor", staged)
+        row = {"job_id": job["job_id"], "job_hash": digest(job), "formal_accepted": False,
+               "resumed_from": str(prior.resolve()), "constructor": old["constructor"],
+               "constructor_reused": True, "repair_source": old.get("repair_source"),
+               "repair_notes_hash": old.get("repair_notes_hash")}
+        try:
+            row["controller_hash_fill"] = fill_sentinel_hashes(staged / "output")
+            request = read_json(staged / "request.json")
+            row["structural_check"] = validate_package(read_json(staged / "output/package.json"), staged / "output", request["sources"])
+            review_dir = root / "reviewer"
+            prepare_review(staged, review_dir, self.templates)
+            inputs = ("sources", "output", "source_navigation", "request.json", "material_reviewer.txt", "structural_check.json")
+            snap = _input_snapshot(review_dir, inputs)
+            self.budget.take(1)
+            row["reviewer"] = self.runner("material_reviewer").run(
+                workspace=review_dir, prompt=(self.templates / "material_reviewer.txt").read_text(encoding="utf8"), role="material_reviewer")
+            _check_inputs(review_dir, inputs, snap, "Reviewer")
+            review = read_json(review_dir / "review.json")
+            if review.get("schema_version") != "material-review-1" or review.get("paper_id") != job["paper_id"]:
+                raise ProtocolError("Invalid independent review identity")
+            if review.get("decision") not in {"pass_with_pending_runtime", "revise", "reject"}:
+                raise ProtocolError("Reviewer cannot grant formal acceptance")
+            row["status"] = review["decision"]
+        except Exception as exc:
+            row["status"] = "failed_needs_attribution"
+            row["error"] = {"type": type(exc).__name__, "message": str(exc)}
+        write_json(root / "receipt.json", row, exclusive=True)
+        return row
+
     def stage_construct(self, state):
         pdir = self.paper_dir(state["project_id"])
         job, row = self._batch(state, pdir / "construct")
         calls = [(row.get(k) or {}).get("call_id") for k in ("constructor", "reviewer")]
         status = DONE if row["status"] in {"pass_with_pending_runtime", "revise", "reject"} else (
             RATE_LIMITED if (row.get("error") or {}).get("type") == "ProviderRateLimit" else "failed_needs_attribution")
+        error = row.get("error") or {}
+        gate_failure = (status == "failed_needs_attribution" and self.config().get("structural_gate_to_repair")
+                        and (row.get("constructor") or {}).get("status") == "completed" and "structural_check" not in row
+                        and error.get("type") == "ProtocolError" and "altered" not in error.get("message", ""))
+        if gate_failure:
+            # Deterministic gate rejected a completed construction: the gate error becomes the single repair round's note.
+            self._record(state, "construct", DONE, {"receipt": "construct/%s/receipt.json" % job["job_id"]}, calls,
+                         ["structural gate failed, routed to repair: " + error.get("message", "")])
+            note = ("The controller's deterministic structural gate rejected the previous package: " + error.get("message", "")
+                    + ". Produce a complete package that satisfies material_package.schema.json and every deterministic check,"
+                    " keeping the scientific content faithful to the original sources.")
+            write_json(pdir / "review_adjudication" / "review_adjudication.json", {
+                "schema_version": "factory-review-adjudication-1", "project_id": state["project_id"], "round": 1,
+                "finding_decisions": [], "action": "repair", "repair_notes": [note], "drop_reason": None,
+                "excluded_task_ids": [], "author": "controller_structural_gate"}, exclusive=True)
+            self._record(state, "review_adjudication", DONE, {"review_adjudication": "review_adjudication/review_adjudication.json"},
+                         notes=["controller: structural gate failure routed to the single repair round (no model call)"])
+            return
         self._record(state, "construct", status, {"receipt": "construct/%s/receipt.json" % job["job_id"],
                      "review": "construct/%s/reviewer/review.json" % job["job_id"]}, calls,
                      ["reviewer decision " + row["status"]] + ([row["error"]["message"]] if row.get("error") else []))
@@ -549,6 +637,9 @@ class Factory:
         for name in ("review.json", "structural_check.json", "request.json"):
             shutil.copyfile(review_dir / name, ws / name)
         allowed = ["pass", "repair", "drop"] if round_no == 1 else ["pass", "drop"]
+        schema_actions = set(read_json(self.factory_templates / "review_adjudication.schema.json")["properties"]["action"]["enum"])
+        if "pass_partial" in schema_actions:  # factory prompts v2+
+            allowed.insert(1, "pass_partial")
         write_json(ws / "round.json", {"round": round_no, "allowed_actions": allowed})
         self.publish_common(ws, ["policy.md", "review_adjudication.schema.json"])
         out, call = self.agent_stage(ws, prompt_name="adjudicator_review.txt", role="adjudicator", output_name="review_adjudication.json",
@@ -563,7 +654,14 @@ class Factory:
             raise ProtocolError("Every reviewer finding needs exactly one decision")
         if out["action"] == "repair" and not out["repair_notes"]:
             raise ProtocolError("Repair action needs repair notes")
-        status = {"pass": DONE, "repair": DONE, "drop": "dropped"}[out["action"]]
+        excluded = out.get("excluded_task_ids") or []
+        if out["action"] == "pass_partial":
+            task_ids = {t["task_id"] for t in read_json(ws / "output" / "package.json")["tasks"]}
+            if not excluded or set(excluded) - task_ids or set(excluded) >= task_ids:
+                raise ProtocolError("pass_partial must exclude a nonempty proper subset of the package's task ids")
+        elif excluded:
+            raise ProtocolError("excluded_task_ids only with pass_partial")
+        status = {"pass": DONE, "pass_partial": DONE, "repair": DONE, "drop": "dropped"}[out["action"]]
         self._record(state, stage, status, {"review_adjudication": stage + "/review_adjudication.json"}, [call["call_id"]],
                      ["action " + out["action"]] + ([out["drop_reason"]] if out["drop_reason"] else []))
         return out
@@ -611,8 +709,25 @@ class Factory:
         pdir = self.paper_dir(state["project_id"])
         tasks = self.runtime.compile_tasks(out, read_json(out / "package.json"), read_json(pdir / "runtime" / "runtime_record.json"),
                                            pdir / "compiled", package_slug=docker_slug(state["project_id"]))
+        excluded = self.excluded_tasks(state)
+        if excluded:
+            (pdir / "compiled" / "_excluded").mkdir()
+            for tid in excluded:
+                if (pdir / "compiled" / tid).is_dir():
+                    (pdir / "compiled" / tid).rename(pdir / "compiled" / "_excluded" / tid)
+            tasks = [t for t in tasks if t.get("task_id") not in excluded]
         write_json(pdir / "compiled" / "compiled_tasks.json", tasks)
-        self._record(state, "compile", DONE, {"compiled_tasks": "compiled/compiled_tasks.json"}, notes=["%d tasks" % len(tasks)])
+        self._record(state, "compile", DONE, {"compiled_tasks": "compiled/compiled_tasks.json"},
+                     notes=["%d tasks" % len(tasks)] + (["excluded by adjudication: " + ", ".join(excluded)] if excluded else []))
+
+    def excluded_tasks(self, state):
+        """Task ids excluded by the latest effective pass_partial adjudication."""
+        pdir = self.paper_dir(state["project_id"])
+        for stage in ("repair_adjudication", "review_adjudication"):
+            if state["stages"].get(stage, {}).get("status") == DONE:
+                out = read_json(pdir / stage / "review_adjudication.json")
+                return out.get("excluded_task_ids") or [] if out["action"] == "pass_partial" else []
+        return []
 
     def stage_pilot(self, state):
         if self.pilot is None:
