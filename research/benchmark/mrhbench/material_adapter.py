@@ -154,7 +154,10 @@ def compile_package(output_root: Path, request: dict, destination: Path, *,
                     "image_id": image_id, "device": "CPU", "gpu_allowed": False, "network": "none",
                     "budget_status": "explicit_development_candidate_pending_task_feasibility",
                     "disk_semantics": WRITABLE_STORAGE_SEMANTICS},
-                "tools": ["model_client", "artifact_read_write", "cpu_python_execution", "artifact_image_view"],
+                # interface v4: capability GROUP names only (model_client is a role service, not a tool group);
+                # LIT needs the shared-library tools, otherwise the harness cannot do the literature review.
+                "tools": ["artifact_read_write", "cpu_python_execution", "artifact_image_view"]
+                         + (["literature.search", "literature.read", "literature.read_page"] if task["task_type"] == "LIT" else []),
                 "public_rubric": copy.deepcopy(public_rubrics[task["task_type"]])}
         manifest = {"schema_version": "0.1", "task_id": task["task_id"], "task_type": task["task_type"],
             "paper_id": package["paper_id"], "split": "development", "public": view,

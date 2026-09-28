@@ -204,7 +204,14 @@ def run_stage(package,harness,output,binary,skip_judge=False,context_policy=None
     export_task(task,package,output/'public',audience='development_executor')
     view=read_json(output/'public/task.json');literature=None
     corpus=task['private'].get('corpus_configuration')
-    if corpus:
+    if corpus and corpus.get('schema_version')=='lit-corpus-configuration-4':
+        # Shared library v4 (factory backgrounds merged; version-dated strict cutoff; HTML/PDF pages).
+        from mrhbench.shared_library_v4 import SharedLibraryService
+        library=Path(corpus['library_root'])
+        if file_hash(library/'corpus.json')!=corpus['corpus_sha256']:raise ProtocolError('Frozen R2 v4 corpus changed')
+        literature=SharedLibraryService(library,corpus['cutoff'],corpus['excluded_papers'],
+                                        excluded_aliases=corpus.get('excluded_aliases',()))
+    elif corpus:
         manifest=root.parents[1]/corpus['corpus_manifest']
         if file_hash(manifest)!=corpus['corpus_sha256']:raise ProtocolError('Frozen R2 corpus manifest changed')
         docs=read_json(manifest)['documents']
