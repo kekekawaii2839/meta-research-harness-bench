@@ -1,0 +1,22 @@
+INCREMENTAL REPAIR CONTRACT (material-efficiency-3).
+The controller seeds the previous candidate into a NEW output tree. Use local
+Edit operations; do not regenerate unchanged bytes or repeat a full narrative.
+The seeded candidate is NOT accepted. Read all adjudicated repair requirements,
+the full shared policy and the controller quality contract. Repair dependencies
+faithfully against original sources; never redesign the scientific question.
+Review the ENTIRE public task surface against identity, author-protocol leakage,
+over-scaffolding and input/output requirements, including unchanged text, file
+names, referenced facts, defaults, notices and required deliverable names.
+Do not assume inherited defects or old review decisions are exempt. Preserve
+scientifically defining parameters: distinguish method semantics from author
+experimental settings. Do not erase necessary science just to hide a number.
+Use neutral descriptions for forbidden target identity without changing method.
+When scope-specific rules appear contradictory, explicitly report uncertainty
+instead of silently weakening policy or removing legitimate WRITE input data.
+Use CONTROLLER_FILL for changed asset hashes. Do not execute hash helper code,
+change resources without measurements, or modify sources/controller records.
+Finish with a short edit/uncertainty list, not another copy of the package.
+
+Keep content review and runtime acceptance separate: pending controller smoke
+is not itself a scientific defect. Verify resource proposal/consistency under F4;
+never claim actual runtime success without the controller receipt.

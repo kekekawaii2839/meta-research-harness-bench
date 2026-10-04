@@ -1,0 +1,16 @@
+INCREMENTAL REPAIR CONTRACT (material-efficiency-1).
+The controller has copied previous_candidate into output, preserving unchanged
+bytes and prepopulated data. The output is already complete, but NOT accepted.
+Use Edit for local corrections; write a new file only when necessary. Do not
+retype unchanged files, duplicate evidence, or produce a long final narrative.
+Read repair_request.json and fix every adjudicated issue faithfully against the
+original sources. Do not edit previous_candidate, sources or controller records.
+Do not treat copying as proof of correctness. Expand changes where a genuine
+scientific dependency requires it, and preserve the task's scientific meaning.
+For changed asset hashes in package.json use CONTROLLER_FILL, including every
+corresponding input_contract entry. Unchanged hashes may stay unchanged. The
+controller validates all asset hashes; do not write a hash helper program.
+Do not change resource limits without measured evidence. Do not create extra
+tasks, redesign the scope or improve the solver answer. A complete deliverable
+means the resulting output tree, NOT generating all its bytes again.
+End with a short list of edits and unresolved issues, not a second package.

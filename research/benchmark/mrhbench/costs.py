@@ -44,6 +44,10 @@ class CallLedger:
             raise ProtocolError("Call ledger inconsistent")
         return state
 
+    def _check_reservation(self, state, artifact_directory):
+        """Additional controller constraints, evaluated inside the ledger lock."""
+        pass
+
     def reserve(self, *, role: str, model: str, effort: str, request_hash: str, artifact_directory: str) -> int:
         if role not in {"probe", "builder", "executor", "judge", "feedback", "constructor", "material_reviewer", "scout", "source_auditor", "adjudicator"}:
             raise ProtocolError("Unknown model-call role")
@@ -51,6 +55,7 @@ class CallLedger:
             state = self._read()
             if state["used_attempts"] >= state["authorized_maximum"]:
                 raise ProtocolError("Authorized development runs exhausted")
+            self._check_reservation(state, artifact_directory)
             id = state["used_attempts"] + 1
             state["attempts"].append({"id": id, "status": "reserved", "role": role, "model": model,
                                       "reasoning_effort": effort, "request_hash": request_hash,

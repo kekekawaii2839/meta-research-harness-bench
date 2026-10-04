@@ -86,12 +86,18 @@ def digest_bytes(data):
 
 def run_batch(jobs, *, workspace, batch_root, templates, constructor, reviewer,
               max_workers=1, max_jobs=2, repair_from=None, repair_notes=None,
-              controller_hash_fill=False, prompt_suffix=""):
+              controller_hash_fill=False, prompt_suffix="", incremental_repair=False):
     """constructor/reviewer expose native runner .run(...); injected for testing."""
     if not 1 <= max_workers <= 4 or not 1 <= max_jobs <= 20 or len(jobs) > max_jobs:
         raise ProtocolError("Batch exceeds explicit bounded pilot settings")
     if len({j["job_id"] for j in jobs}) != len(jobs):
         raise ProtocolError("Duplicate batch job")
+    efficiency = Path(templates) / "material_efficiency_v1"
+    efficiency_bytes = ({n: (efficiency / n).read_bytes() for n in ("repair.txt", "review.txt")}
+                        if incremental_repair else {})
+    efficiency_hashes = {n: digest_bytes(data) for n, data in efficiency_bytes.items()}
+    if incremental_repair and repair_from is None:
+        raise ProtocolError("Incremental repair requires an explicit prior candidate")
     # Preparation accepts draft proposals; execution must not mistake an
     # explicitly unselected draft for permission to spend model calls. Check the
     # whole batch before launching any worker, including otherwise ready jobs.
@@ -135,11 +141,14 @@ def run_batch(jobs, *, workspace, batch_root, templates, constructor, reviewer,
                     raise ProtocolError("Resume repair source changed; use a new batch version")
                 if old.get("repair_notes_hash") != (digest(repair_notes.get(job["job_id"], [])) if repair_notes else None):
                     raise ProtocolError("Resume repair notes changed; use a new batch version")
+                if old.get("incremental_repair", False) != incremental_repair or old.get("efficiency_prompt_hashes", {}) != efficiency_hashes:
+                    raise ProtocolError("Resume repair mode/prompt changed; use a new batch version")
                 return old
             if root.exists():
                 return {"job_id": job["job_id"], "status": "interrupted_needs_review", "formal_accepted": False}
             root.mkdir()
             row = {"job_id": job["job_id"], "job_hash": digest(job), "formal_accepted": False,
+                   "incremental_repair": incremental_repair, "efficiency_prompt_hashes": efficiency_hashes,
                    "repair_notes_hash": digest(repair_notes.get(job["job_id"], [])) if repair_notes else None,
                    "repair_source": str(Path(repair_from).resolve()) if repair_from is not None else None}
             try:
@@ -150,6 +159,10 @@ def run_batch(jobs, *, workspace, batch_root, templates, constructor, reviewer,
                     row["repair_publication"] = stage_repair_candidate(Path(repair_from) / job["job_id"], staged,
                         adjudicated_notes=(repair_notes or {}).get(job["job_id"]))
                     prompt += "\nThis is ONE explicit repair attempt. Read repair_request.json and previous_candidate/; follow the NEW schema and prompt. Write a complete new output/, never overwrite historical files.\n"
+                    if incremental_repair:
+                        from .incremental_repair import seed_output
+                        row["incremental_seed"] = seed_output(staged / "previous_candidate", staged / "output")
+                        prompt += "\n" + efficiency_bytes["repair.txt"].decode("utf8")
                 constructor_inputs = ("sources", "source_navigation", "request.json", "publication.json",
                                       "material_constructor.txt", "material_package.schema.json",
                                       "repair_request.json", "previous_candidate")
@@ -171,11 +184,20 @@ def run_batch(jobs, *, workspace, batch_root, templates, constructor, reviewer,
                 row["structural_check"] = validate_package(package, staged / "output", request["sources"])
                 review_dir = root / "reviewer"
                 prepare_review(staged, review_dir, templates)
+                review_prompt = (templates / "material_reviewer.txt").read_text(encoding="utf8")
+                if incremental_repair:
+                    from .incremental_repair import prepare_incremental_review
+                    row["incremental_review"] = prepare_incremental_review(
+                        staged / "previous_candidate", Path(repair_from) / job["job_id"] / "reviewer/review.json",
+                        staged / "output", review_dir / "repair_context")
+                    import shutil
+                    shutil.copyfile(staged / "repair_request.json", review_dir / "repair_context/repair_request.json")
+                    review_prompt += "\n" + efficiency_bytes["review.txt"].decode("utf8")
                 reviewer_inputs = ("sources", "output", "source_navigation", "request.json",
-                                   "material_reviewer.txt", "structural_check.json")
+                                   "material_reviewer.txt", "structural_check.json", "repair_context")
                 row["reviewer_input_snapshot"] = _input_snapshot(review_dir, reviewer_inputs)
                 row["reviewer"] = reviewer.run(workspace=review_dir,
-                    prompt=(templates / "material_reviewer.txt").read_text(encoding="utf8"), role="material_reviewer")
+                    prompt=review_prompt, role="material_reviewer")
                 _check_inputs(review_dir, reviewer_inputs, row["reviewer_input_snapshot"], "Reviewer")
                 review = read_json(review_dir / "review.json")
                 if review.get("schema_version") != "material-review-1" or review.get("paper_id") != job["paper_id"]:

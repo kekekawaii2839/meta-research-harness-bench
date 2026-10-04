@@ -1,0 +1,21 @@
+INDEPENDENT INCREMENTAL REVIEW CONTRACT (material-efficiency-1).
+You retain the full scientific review standards in material_reviewer.txt and
+can read all current output and original sources. The controller additionally
+publishes repair_context with prior candidate/review and byte-derived changes.
+This navigation is not constructor reasoning and is NOT scientific acceptance.
+First inspect the change inventory, original adjudicated repair requirements
+and prior independent findings. Directly verify every required fix, every changed
+scientific claim and all new/changed source locators against original evidence.
+Inspect related unchanged code/specifications whenever a change can affect them.
+For method, data, hypothesis, code, visibility or environment changes, expand the
+review to the affected dependency scope. If impact or previous verification is
+unclear, do the full necessary review and record this fallback. Do not accept an
+unchanged file solely because its hash matches, or inherit a previous pass when
+the previous reviewer did not verify the relevant claim. Check unresolved prior
+findings and inspect unchanged core method/hypothesis anchors against originals.
+Avoid rereading unrelated already-verified files solely to fill a checklist;
+do not restate full package content. In verified_claims/unverified_claims clearly
+distinguish this session's direct checks from prior review records relied on.
+Return the same review.json schema and decisions as the ordinary independent
+review. Include affected scope, checks and remaining uncertainty in the existing
+fields. A diff does not certify quality, rights, runtime or absence of leakage.

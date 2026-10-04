@@ -705,6 +705,12 @@ class Factory:
                       "output/assets/repo_data/<repository path>. Use them as task assets where the construction order needs "
                       "them (list them in package.json with sha256 CONTROLLER_FILL); unused ones may stay unlisted. Request "
                       "statuses:\n%s" % (rm["commit"], status_lines))
+        if "data" in allowed:
+            from .factory_data import apply_conversions
+            populated, conversion_note = apply_conversions(pdir, extra.get("prepopulated_output_files", []))
+            if populated:
+                extra["prepopulated_output_files"] = populated
+            scope += conversion_note
         arxiv = manifest.get("arxiv") or {}
         return {"schema_version": "material-job-1", "job_id": self.job_id(state), "paper_id": state["project_id"],
                 "requested_task_types": requested, "scope_request": scope, "sources": sources,

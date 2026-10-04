@@ -1,0 +1,22 @@
+INDEPENDENT INCREMENTAL REVIEW CONTRACT (material-efficiency-2).
+Use complete original sources and output; the diff is navigation, not acceptance.
+Read the full shared policy and quality contract before reviewing. Independently
+verify each repair, changed scientific claim and its dependency scope. Inspect
+core method/hypothesis anchors against source evidence in this session.
+Regardless of diff or previous review, check the ENTIRE public task surface for
+forbidden target identity, author experimental scale/recipe/results, and target
+implementation/over-scaffolding. Include task text, code/docstrings/defaults,
+filenames, required solver filenames, input facts and notices. Unchanged does not
+mean verified. Distinguish defining scientific parameters from solver choices.
+Apply task-type-specific input rules: do not blindly delete legitimate supplied
+WRITE results or essential method constants as if all numbers were leakage.
+Also check input/output consistency and resource changes. If impact or prior
+coverage is unclear, expand to necessary full scientific review and record it.
+Prior findings are evidence, not the current policy's complete checklist. State
+what you directly verified versus inherited coverage, plus remaining uncertainty.
+Use compact evidence references rather than copying full source/output contents;
+never save tokens by omitting mandatory checks. Preserve the normal independent
+review decision schema; write the separately requested quality coverage receipt.
+A structurally valid receipt is NOT evidence of scientific truth; unsupported
+checks must be unknown/fail, not pass. Constructor assertions are not independent
+verification. No formal acceptance, rights clearance or runtime claim by review.
