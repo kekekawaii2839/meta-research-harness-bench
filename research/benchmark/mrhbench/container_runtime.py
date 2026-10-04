@@ -381,12 +381,13 @@ class ContainerSession:
         release=release.resolve()
         if any(c in str(release) for c in ',\n\r'):raise ProtocolError('Invalid mount path')
         threads = str(max(1,math.floor(self.resources['cpus'])))
-        args=['create','--name',self.name,'--label',OWNER_LABEL+'='+self.owner,
+        args=['create','--init','--name',self.name,'--label',OWNER_LABEL+'='+self.owner,
               '--platform','linux/amd64','--pull','never','--network','none','--read-only',
               '--user','10001:10001','--cap-drop','ALL','--security-opt','no-new-privileges=true',
               '--ipc','none','--log-driver','local','--log-opt','max-size=1m','--log-opt','max-file=2',
               *resource_args(self.resources),'--mount',f'type=bind,src={release},dst=/inputs,readonly',
               '--workdir','/work','--env','HOME=/work','--env','TMPDIR=/tmp','--env','MPLBACKEND=Agg',
+              '--env','MRH_PUBLIC_ROOT=/inputs/public',
               '--env','MPLCONFIGDIR=/tmp/matplotlib','--env','PYTHONDONTWRITEBYTECODE=1',
               '--env','OMP_NUM_THREADS='+threads,'--env','OPENBLAS_NUM_THREADS='+threads,
               '--entrypoint','python',self.image_id,'-I','-S','-c','import time; time.sleep(2147483647)']
@@ -430,9 +431,14 @@ class ContainerSession:
             raise ProtocolError('Invalid command timeout')
         with self._io_lock:
             self._live()
-            allowance=min(self.remaining_seconds,timeout if timeout is not None else self.remaining_seconds)
+            per_call=timeout is not None and timeout+15<self.remaining_seconds
+            if per_call:
+                argv=['timeout','-s','TERM','-k','5','%.3f'%timeout,*argv]
+            allowance=min(self.remaining_seconds,timeout+12 if per_call else (timeout if timeout is not None else self.remaining_seconds))
             result=self._command(['docker','exec',*(['-i'] if _stdin is not None else []),self.cid,*argv],
                                  timeout=allowance,stdin=_stdin,kill_session_on_limit=True)
+            if per_call and not result['timed_out'] and result['returncode'] in (124,137) and result['wall_seconds']>=timeout-0.5:
+                result['timed_out']=True;result['tool_timeout']=True;result['session_kept']=True
             if self.expired.is_set():result['session_expired']=True
             self._record('exec',result)
             return result

@@ -19,6 +19,8 @@ from .container_runtime import ArtifactHashError
 
 
 def worker_path(value, *, root="/work"):
+    if isinstance(value, str) and value.startswith(root + "/"):
+        value = value[len(root) + 1:]  # tasks name deliverables as /work/<p>; accept the absolute form under the tool root
     if not isinstance(value, str) or not value or "\\" in value or "\x00" in value:
         raise ProtocolError("Invalid worker-relative path")
     p = PurePosixPath(value)

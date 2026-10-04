@@ -1,0 +1,34 @@
+{
+ "schema_version": "role-transport-1",
+ "transport": "claude",
+ "decided": "User 2026-09-30: executor calibration claude-sonnet-4-6 effort=low (medium scored 3.35 on 3 writing/idea tasks, judged too strong); same faithful wrapper, frozen H0 v3, judge opus-5-5/medium v3.5, release-v4; 4 tasks in parallel processes. | User 2026-09-30: executor FIXED to claude-sonnet-4-6/low for P11 re-test (4 calibration tasks count as re-test results; remaining 6 run in parallel).",
+ "claude_binary_default": "D:/programming/cluade-code/claude.exe",
+ "builder": {
+  "model": "claude-opus-5-5",
+  "effort": "medium"
+ },
+ "executor": {
+  "model": "claude-sonnet-4-6",
+  "effort": "low",
+  "transport": "openai_wrapper",
+  "base_url": "http://127.0.0.1:8765",
+  "api_key_file": "D:/mrhbench-local-pilot/proxy/local_api_key.txt",
+  "wrapper": {
+   "repository": "https://github.com/RichardAtCT/claude-code-openai-wrapper",
+   "commit": "aaad0b96a4cd63833003ac340bbcc37f89418acc",
+   "patch": "research/benchmark/runtime/wrapper/faithful_mode.patch",
+   "mode_env": "WRAPPER_FAITHFUL_API=1"
+  }
+ },
+ "judge": {
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "timeout_seconds": 600
+ },
+ "constructor": {
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "profile": "material_workspace",
+  "decided": "User 2026-09-24"
+ }
+}

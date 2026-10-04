@@ -1,0 +1,17 @@
+CONTROLLER PLATFORM STATEMENT (authoritative; the reviewer's earlier platform checklist was incomplete and omitted parts of it, which caused the tool finding below to be raised). The controller grants exactly these tools; task texts that name them as stated here are sourced and correct:
+Tools the controller grants to every solver (use these exact names when a task text names a tool):
+- artifact_read_write: read and write files by path RELATIVE to the working directory /work
+  (write "results/x.json", never "/work/results/x.json" as a tool path).
+- cpu_python_execution: run a Python script located under /work (relative path). A script shipped under the
+  read-only public input root cannot be run directly; if the task wants the solver to use a supplied checker, say that
+  the solver must first write a copy of it into /work (e.g. tools/check.py) and run the copy.
+- artifact_image_view: view an image file the solver produced under /work (e.g. to inspect its own rendered PNG).
+  Granted to every task type; a task may rely on it (e.g. WRITE_EVIDENCE figure checks) or ignore it.
+LIT tasks additionally get the literature tools: literature.search(query, limit) -> document_id values of the form
+  doc-<arXiv id>v<version>, title, version date, snippet; literature.read(document_id) -> record and abstract;
+  literature.read_page(document_id, page_number) -> one-based controller pages of the pinned arXiv HTML text (not PDF
+  pages); page text carries bracketed anchor markers that begin with the section sign. A citation locator must be a
+  marker copied exactly from a page the solver read, or "abstract"; never print a concrete example anchor.
+No other tools exist (no shell, no network, no model client for the solver to call directly).
+
+Repair: the literature tool signatures, document-id format, one-based controller page numbering and anchor-marker rule in task.md / input_contract are sourced by this controller statement; state them exactly as above (use the exact tool names literature.search, literature.read, literature.read_page). Do not invent anything beyond it.

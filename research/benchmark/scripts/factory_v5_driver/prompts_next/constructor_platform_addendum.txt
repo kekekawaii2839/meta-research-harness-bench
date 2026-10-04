@@ -1,0 +1,25 @@
+PLATFORM CONTRACT (appended to the constructor addendum; draft for the next factory version, 2026-09-30)
+
+The solver of your task runs inside a fixed benchmark platform. Task texts must describe THIS platform, not an
+imagined one. Do not invent tool names, call signatures, locator syntaxes or helper commands.
+
+Tools a solver may have (the controller grants them per task type; name them exactly as below when the task needs them):
+- artifact read/write: files are read and written by path RELATIVE to the working directory /work
+  (write "results/x.json", never "/work/results/x.json" as a tool path).
+- CPU Python execution: runs a Python script that is located under /work (relative path). A script shipped under the
+  read-only public input root cannot be run directly; if the task wants the solver to use a supplied checker, say that
+  the solver must first write a copy of it into /work (e.g. tools/check.py) and run the copy.
+- image view (WRITE_EVIDENCE / EXP): the solver may render and view its own PNG figures.
+- literature tools (LIT, and IDEA only if granted): literature.search(query, limit) -> document_id values of the form
+  doc-<arXiv id>v<version>, title, version date, snippet; literature.read(document_id) -> record and abstract;
+  literature.read_page(document_id, page_number) -> one-based controller pages of the pinned arXiv HTML text (not PDF
+  pages); page text carries bracketed anchor markers that begin with the section sign. A citation locator must be a
+  marker copied exactly from a page the solver read, or "abstract"; never print a concrete example anchor.
+- Released inputs are listed in the asset manifest and mounted read-only at /inputs/public/<asset path>
+  (environment variable MRH_PUBLIC_ROOT) for code the solver runs.
+
+Consistency rules (the reviewer checks them; the controller lints them deterministically):
+- The output contract (package task output_contract) and task.md must name the same deliverable files and the same
+  JSON field names/structure. When a JSON deliverable has a fixed structure, ship a JSON Schema asset for it and name
+  it in both places.
+- Every quantity or relation stated in more than one public file (formulas, scaling, units) must be stated identically.

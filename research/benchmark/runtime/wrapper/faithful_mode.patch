@@ -1,9 +1,9 @@
 diff --git a/src/faithful_api.py b/src/faithful_api.py
 new file mode 100644
-index 0000000..f96ca7f
+index 0000000..5d18555
 --- /dev/null
 +++ b/src/faithful_api.py
-@@ -0,0 +1,256 @@
+@@ -0,0 +1,260 @@
 +"""Faithful OpenAI-chat-completions mode (mrhbench patch; enabled with WRAPPER_FAITHFUL_API=1).
 +
 +Upstream behaviour (kept when the flag is unset) runs a Claude Code agent: the client's
@@ -183,7 +183,11 @@ index 0000000..f96ca7f
 +    effort = body.get("reasoning_effort")
 +    if effort is not None and effort not in EFFORTS:
 +        return _error(400, "reasoning_effort must be one of " + ", ".join(sorted(EFFORTS)), "unsupported_parameter")
-+    workdir = tempfile.mkdtemp(prefix="wrapper-faithful-")
++    # Neutral per-request working directory: the CLI reports its cwd to the model in its environment block,
++    # so keep it short and free of host user names or wrapper/benchmark wording.
++    neutral_root = Path(os.environ.get("WRAPPER_FAITHFUL_WORKROOT", "C:/cw"))
++    neutral_root.mkdir(parents=True, exist_ok=True)
++    workdir = tempfile.mkdtemp(prefix="s", dir=str(neutral_root))
 +    session_id = str(uuid.uuid4())
 +    transcript = _write_history(history, workdir, session_id, body.get("model")) if history else None
 +    options = ClaudeAgentOptions(

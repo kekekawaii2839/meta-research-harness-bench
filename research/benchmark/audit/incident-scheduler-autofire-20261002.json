@@ -1,0 +1,10 @@
+{
+ "incident": "Windows Task Scheduler auto-fired maintainer launch tasks",
+ "cause": "Every launch task was created with schtasks /SC ONCE /ST 23:59 as a placeholder trigger and started manually with /Run. The one-time triggers fired at 23:59 local on the creation day, re-running old launch scripts without authorization.",
+ "firings": {
+  "2026-09-30 23:59 CDT": {"tasks_fired": 29, "model_calls": [1491], "effect": "1491 judge (rejudge of p11-v5-batch2-opus-003 KST WRITE_CONTENT under the then-current judge v3.6) created a new rejudge-v36 dir and failed with HTTP 429; no existing result overwritten; dir renamed rejudge-v36.autofired-20260930. P11 pilot tasks exited without calls (existing output dirs); maintenance/supervisor tasks: no ledger calls in the window."},
+  "2026-10-01 23:59 CDT": {"tasks_fired": 19, "model_calls": [1752], "effect": "run_factory_v6_batch1g.cmd (run 007 script) started a second factory process on the same 7 papers as run 008. It recorded 3 zero-call failures at 04:59:04Z (Gyrogroup WRITE_CONTENT/WRITE_EVIDENCE construct lock; Leave-One-Out WRITE_CONTENT review_adjudication workspace not fresh) and started constructor call 1752 (Gyrogroup WRITE_CONTENT). Its run-batch1-007.log overwrote the original run 007 log (states and ledger keep the record). Process tree killed; 1752 finalized as failed with usage null."}
+ },
+ "remediation": ["killed rogue process tree (pids 49772, 24064, 35688, 41392)", "deleted 46 mrh-* scheduled tasks (kept mrh-console and the running mrh-factory-v6-batch1h)", "future launches: create tasks without a time trigger or delete them after /Run"],
+ "pending": "after run 008 ends: reconcile the unit states written by the rogue process (Gyrogroup WRITE_CONTENT construct, any overwritten records)"
+}

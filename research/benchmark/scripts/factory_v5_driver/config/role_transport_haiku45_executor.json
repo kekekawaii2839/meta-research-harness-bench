@@ -1,0 +1,34 @@
+{
+ "schema_version": "role-transport-1",
+ "transport": "claude",
+ "decided": "User 2026-09-28: executor comparison run with claude-haiku-4-5 via the same faithful wrapper; builder (frozen H0) and judge (claude-opus-5-5/medium) unchanged. Wrapper conformance D:/mrhbench-local-pilot/proxy/conformance-haiku45-83a3a7e2: C1-C4 pass, C5 model-behaviour difference (declines identity-override system prompt; served model, no tools, real usage all verified).",
+ "claude_binary_default": "D:/programming/cluade-code/claude.exe",
+ "builder": {
+  "model": "claude-opus-5-5",
+  "effort": "medium"
+ },
+ "executor": {
+  "model": "claude-haiku-4-5-20251001",
+  "effort": "medium",
+  "transport": "openai_wrapper",
+  "base_url": "http://127.0.0.1:8765",
+  "api_key_file": "D:/mrhbench-local-pilot/proxy/local_api_key.txt",
+  "wrapper": {
+   "repository": "https://github.com/RichardAtCT/claude-code-openai-wrapper",
+   "commit": "aaad0b96a4cd63833003ac340bbcc37f89418acc",
+   "patch": "research/benchmark/runtime/wrapper/faithful_mode.patch",
+   "mode_env": "WRAPPER_FAITHFUL_API=1"
+  }
+ },
+ "judge": {
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "timeout_seconds": 600
+ },
+ "constructor": {
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "profile": "material_workspace",
+  "decided": "User 2026-09-24"
+ }
+}

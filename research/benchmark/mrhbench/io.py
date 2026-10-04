@@ -5,6 +5,7 @@ import hashlib
 import json
 import math
 import os
+import time
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 from typing import Any
@@ -63,7 +64,14 @@ def write_json(path: Path, value: Any, *, exclusive: bool = False) -> None:
         temp = path.with_name(path.name + ".tmp-" + os.urandom(8).hex())
         try:
             temp.write_bytes(data)
-            os.replace(temp, path)
+            for attempt in range(50):  # Windows: replace fails while another process has the target open for reading
+                try:
+                    os.replace(temp, path)
+                    break
+                except PermissionError:
+                    if attempt == 49:
+                        raise
+                    time.sleep(0.1)
         finally:
             if temp.exists():
                 temp.unlink()

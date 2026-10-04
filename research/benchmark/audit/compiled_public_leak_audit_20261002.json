@@ -1,0 +1,598 @@
+{
+ "summary": {
+  "audited_tasks": 38,
+  "counts": {
+   "clear": 18,
+   "uncertain": 15,
+   "leak": 5
+  },
+  "method": "All units with compile completed and not withdrawn were audited in factory-v5 (highest existing release) and factory-v6 (the identity_release named in state). For each, the task.json public section and the public asset text were read, excluding private/. The root auditor read the IDEA and LIT tasks in full; two read-only sub-auditors read the EXP and WRITE tasks, and the EXP leak excerpts were re-verified with grep. A mechanical scan found none of the following in any public text: the target title, author surnames, target arXiv ids, repository or user names, or coined method names (ActNet, GETS, SYMPOL, VSD, LOO-StabCP, MILE, GyroBN, SensPB, IDI, IPA).",
+  "leaks": [
+   "factory-v5 iclr2025-qgsXsqahMq LIT",
+   "factory-v5 iclr2025-qpXctF2aLZ LIT",
+   "factory-v6 iclr2025-1vrpdV9U3i IDEA",
+   "factory-v6 iclr2025-Bt1vnCnAVS EXP",
+   "factory-v6 iclr2025-l11DZY5Nxu LIT"
+  ],
+  "uncertain": [
+   "factory-v5 iclr2025-SyVPiehSbg IDEA",
+   "factory-v5 iclr2025-SyVPiehSbg LIT",
+   "factory-v5 iclr2025-qgsXsqahMq IDEA",
+   "factory-v5 iclr2025-qpXctF2aLZ EXP",
+   "factory-v5 iclr2025-qpXctF2aLZ IDEA",
+   "factory-v5 iclr2025-qpXctF2aLZ WRITE_CONTENT",
+   "factory-v5 iclr2025-qpXctF2aLZ WRITE_EVIDENCE",
+   "factory-v6 iclr2025-1vrpdV9U3i LIT",
+   "factory-v6 iclr2025-1vrpdV9U3i WRITE_CONTENT",
+   "factory-v6 iclr2025-QMtrW8Ej98 EXP",
+   "factory-v6 iclr2025-QMtrW8Ej98 LIT",
+   "factory-v6 iclr2025-QMtrW8Ej98 WRITE_CONTENT",
+   "factory-v6 iclr2025-d1NWq4PjJW WRITE_EVIDENCE",
+   "factory-v6 iclr2025-l11DZY5Nxu IDEA",
+   "factory-v6 iclr2025-z21DkDDdgq EXP"
+  ],
+  "note": "Low-level title-word overlaps in clear WRITE tasks come from describing the method and are omitted. Many cutoffs equal the target's v1 date; these are flagged only where the text explicitly says the date is the target's."
+ },
+ "tasks": [
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-SyVPiehSbg",
+   "unit": "EXP",
+   "release": "release-v4",
+   "task_id": "task-1e1ab46f21efed59d3f890d86f184c1e",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-SyVPiehSbg",
+   "unit": "IDEA",
+   "release": "release-v4",
+   "task_id": "task-6d6340372c23dbedbf5f94e907c1e2a3",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "assets/background_report.md",
+     "field_or_line": "Section 4, Open questions, item 1",
+     "excerpt": "The network architectures specified and evaluated in the reviewed machine-learning works (§2) build on Eq. (K). Counted from the formulas **(maintainer)**, that is the only form in §1.2 with O(d^2) distinct inner functions. The library does not include an evaluated network design built on the other forms.",
+     "why": "This maintainer-derived gap points directly at the target's contribution, a network built on the Laczkovich single-outer-function form (ActNet). It is worded as neutral, but it steers strongly."
+    },
+    {
+     "file": "assets/background_report.md",
+     "field_or_line": "Section 1.2, Structural comparison (maintainer)",
+     "excerpt": "Forms (L), (S), (Z1) and (Z2) tie the inner terms together through a shared inner function or a shared outer function and scalar weights. Their numbers of distinct univariate functions grow linearly in `d` (or are constant).",
+     "why": "This maintainer analysis reinforces the same steering."
+    }
+   ]
+  },
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-SyVPiehSbg",
+   "unit": "LIT",
+   "release": "release-v6",
+   "task_id": "task-6b925958b2e332eda9054c9d35d7aab4",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "fact MS-LIT-CUTOFF",
+     "field_or_line": "MS-LIT-CUTOFF",
+     "excerpt": "literature cutoff is exclusive 2024-10-02 ... Basis: earliest known public version of the withheld target work",
+     "why": "It discloses the target's first public date (minor). The topic itself is area-level and acceptable."
+    }
+   ]
+  },
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-SyVPiehSbg",
+   "unit": "WRITE_CONTENT",
+   "release": "release-v5",
+   "task_id": "task-47f58c041ba340e6eecd139e41c7ae0f",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-SyVPiehSbg",
+   "unit": "WRITE_EVIDENCE",
+   "release": "release-v5",
+   "task_id": "task-986610af435c8fd6cd705f21c0c02a30",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-qgsXsqahMq",
+   "unit": "IDEA",
+   "release": "release-v5",
+   "task_id": "task-f14193a903883379ce1d02c236fbc999",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "assets/idea/background_report.md and fact F-BG-08",
+     "field_or_line": "R06 entry",
+     "excerpt": "It evaluates graph-, node- and link-level OGB tasks and does not address calibration.",
+     "why": "This negative statement points at the gap 'graph MoE applied to calibration', which is the target's contribution (GETS)."
+    },
+    {
+     "file": "fact F-BG-11 and report Section 4",
+     "field_or_line": "R17/R18",
+     "excerpt": "Neither measures calibration error by degree.",
+     "why": "This negative statement points at the target's use of node degree as a calibration input. Together with the MoE material (R05, R06, R09) and ETS (R02), the report assembles the target's ingredients."
+    }
+   ]
+  },
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-qgsXsqahMq",
+   "unit": "LIT",
+   "release": "release-v5",
+   "task_id": "task-6b928ea26009c2c13ee7f9b2b1649552",
+   "verdict": "leak",
+   "findings": [
+    {
+     "file": "task.json public.prompt (fact MS-LIT-01) and assets/lit/task.md",
+     "field_or_line": "Research question",
+     "excerpt": "how could ensemble / mixture-of-experts ideas and graph-structural information inform node-wise post-hoc calibration of a frozen, already-trained GNN node classifier?",
+     "why": "The research question states the target's contribution direction: an MoE ensemble of temperature-scaling calibrators driven by graph-structural inputs (GETS)."
+    },
+    {
+     "file": "fact MS-LIT-02",
+     "field_or_line": "MS-LIT-02",
+     "excerpt": "Basis: earliest known public (arXiv v1) version of the source paper",
+     "why": "It identifies 2024-10-12 as the target's v1 date (minor)."
+    }
+   ]
+  },
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-qgsXsqahMq",
+   "unit": "WRITE_CONTENT",
+   "release": "release-v5",
+   "task_id": "task-81b7d169d17888d9983098a305fe8257",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-qgsXsqahMq",
+   "unit": "WRITE_EVIDENCE",
+   "release": "release-v5",
+   "task_id": "task-c8a42aaf7a45749248ed21ffecd78231",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-qpXctF2aLZ",
+   "unit": "EXP",
+   "release": "release-v4",
+   "task_id": "task-e2f0cb6419bed407b5c7e12b078c69e7",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "task.json public.prompt (fact F11)",
+     "field_or_line": "F11",
+     "excerpt": "Because the tree is optimised directly, the optimised and interpreted policy coincide (the source's 'no information loss' claim)",
+     "why": "It paraphrases the key title phrases 'information loss' and 'direct optimization'."
+    },
+    {
+     "file": "task.json public.prompt (fact M06)",
+     "field_or_line": "M06",
+     "excerpt": "Excluded from EXP: soft/discretised soft tree baselines, shared-architecture, batch-size and weight-decay ablations, continuous actions, LunarLander, MiniGrid and case study, A2C, VIPER, runtime claims, and weight averaging",
+     "why": "It fingerprints the target paper's experimental scope (low)."
+    }
+   ]
+  },
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-qpXctF2aLZ",
+   "unit": "IDEA",
+   "release": "release-v4",
+   "task_id": "task-347cb593063c3b5932906c0f9109268e",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "assets/background_report.md",
+     "field_or_line": "Section 5 (GradTree) and Section 8 (Open problem)",
+     "excerpt": "This report does not say how to obtain a small, hard, axis-aligned tree policy whose deployed behaviour is exactly the behaviour that was optimised. It leaves that question open.",
+     "why": "The report gives a very detailed account of GradTree, the target authors' own supervised predecessor (SYMPOL is GradTree trained directly with on-policy RL), plus PPO, AdamW and SWA entries. Combined with this open problem, it steers toward the target method. The target itself is not stated."
+    },
+    {
+     "file": "assets/task.md",
+     "field_or_line": "Constraints",
+     "excerpt": "Also state any components you add for training stability and any optimiser or regularisation choices you consider essential.",
+     "why": "A mild hint that the target relies on stability components and specific optimiser choices."
+    }
+   ]
+  },
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-qpXctF2aLZ",
+   "unit": "LIT",
+   "release": "release-v5",
+   "task_id": "task-d99416f530094885ff236cf93e4c542d",
+   "verdict": "leak",
+   "findings": [
+    {
+     "file": "task.json public.prompt (fact F01) and assets/task.md",
+     "field_or_line": "Research question",
+     "excerpt": "Then identify the open gap: where performance or behaviour can be lost between the model that training optimises and the interpretable tree that is finally deployed",
+     "why": "The LIT task hands the solver the target's gap conclusion: information loss between the optimised and the deployed tree (title: 'Mitigating Information Loss ... via Direct Optimization'). F01 also says: 'Identify the open gap between what is optimised and what is deployed.'"
+    },
+    {
+     "file": "fact F02",
+     "field_or_line": "F02",
+     "excerpt": "The cutoff equals the earliest known arXiv version date of the source (v1 submitted Fri, 16 Aug 2024).",
+     "why": "It gives the exact target submission date, which is identity-adjacent."
+    }
+   ]
+  },
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-qpXctF2aLZ",
+   "unit": "WRITE_CONTENT",
+   "release": "release-v4",
+   "task_id": "task-ff2e681b8e3c008ba8ac911a6305cb08",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "assets/fact_index.json",
+     "field_or_line": "facts[WC-F03].title",
+     "excerpt": "\"title\": \"Information loss and direct optimisation\"",
+     "why": "These are near-verbatim key phrases of the title."
+    },
+    {
+     "file": "assets/fact_sheet.md",
+     "field_or_line": "heading",
+     "excerpt": "# Verified fact sheet: direct optimisation of hard decision-tree policies in on-policy RL",
+     "why": "Together with WC-F03, this heading nearly rebuilds the title."
+    }
+   ]
+  },
+  {
+   "root": "factory-v5",
+   "paper": "iclr2025-qpXctF2aLZ",
+   "unit": "WRITE_EVIDENCE",
+   "release": "release-v5",
+   "task_id": "task-63dcaac9ac1911856fd0f81849617618",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "assets/task.md",
+     "field_or_line": "title heading",
+     "excerpt": "# Evidence-presentation task: information loss of tree-based RL policies",
+     "why": "This is a near-verbatim title phrase. The data files are also named info_loss_*.csv."
+    }
+   ]
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-1vrpdV9U3i",
+   "unit": "EXP",
+   "release": "release",
+   "task_id": "task-4128b4272b53bcee7ad1f9f9b4cf9b62",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-1vrpdV9U3i",
+   "unit": "IDEA",
+   "release": "release",
+   "task_id": "task-4324304585d8b333b66d957b0b4eae1c",
+   "verdict": "leak",
+   "findings": [
+    {
+     "file": "task.json public.prompt (input contract)",
+     "field_or_line": "input_fact_visibility_justification[\"M-PROB-01\"]",
+     "excerpt": "IDEA: the neutral problem statement fixed by the unit scope. It states goals and constraints only, with no objective, divergence, classifier role or gradient estimator of the target.",
+     "why": "Same negative-disclosure pattern as the withdrawn QMtrW8Ej98 IDEA. It tells the solver that the target method has a specific objective, a divergence, a classifier role and a gradient estimator. That is the core of VSD: a KL-based variational search distribution with a class-probability classifier and a score-function gradient."
+    },
+    {
+     "file": "task.json public.prompt (input contract)",
+     "field_or_line": "input_fact_visibility_justification[\"B-W01..B-W27\"]",
+     "excerpt": "The scope explicitly permits describing classifier-based BO, adaptive-sampling design, score-function gradients and probabilistic reparameterisation as background. None is described as adapted by the source paper, and no source results are included.",
+     "why": "It names the background families the scope singled out and implies that the source paper adapts them. This hints at which ingredients the target combines."
+    },
+    {
+     "file": "task.json public.prompt (fact M-CUTOFF-01)",
+     "field_or_line": "M-CUTOFF-01",
+     "excerpt": "dated before 2024-09-10, the earliest known public version of the source paper",
+     "why": "It discloses the target's first public date (minor)."
+    }
+   ]
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-1vrpdV9U3i",
+   "unit": "LIT",
+   "release": "release",
+   "task_id": "task-40947a33915c581233aba2b26360881c",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "fact LIT-F001 and assets/task.md",
+     "field_or_line": "topic",
+     "excerpt": "estimating or sampling from the set of designs whose value exceeds a threshold, and generative/search-distribution approaches to batch black-box optimisation over combinatorial spaces",
+     "why": "This echoes the target's formulation and title (search distributions that sample the super-level set). It is topic-level, but close to the contribution."
+    }
+   ]
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-1vrpdV9U3i",
+   "unit": "WRITE_CONTENT",
+   "release": "release",
+   "task_id": "task-8261afe743bd4c57ae95cfcd8899099b",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "assets/task.md",
+     "field_or_line": "Goal",
+     "excerpt": "variational approach to batch sequential search over discrete designs ... It learns a search distribution",
+     "why": "This nearly spells out the title and coined name 'Variational Search Distributions' (VSD)."
+    }
+   ]
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-Bt1vnCnAVS",
+   "unit": "EXP",
+   "release": "release",
+   "task_id": "task-3f979b0badedb24f233335a7a813fb7c",
+   "verdict": "leak",
+   "findings": [
+    {
+     "file": "task.json public.prompt (input contract)",
+     "field_or_line": "fact_visibility_justification.private",
+     "excerpt": "F06 (theorem guaranteeing H2/H3) and F16-F19 (author claims/results) would pre-answer the hypotheses.",
+     "why": "Negative disclosure: it tells the solver that a withheld theorem guarantees H2 and H3, which pre-answers them."
+    },
+    {
+     "file": "task.json public.prompt (input contract)",
+     "field_or_line": "fact_visibility_justification",
+     "excerpt": "These facts disclose the target contribution, which is legitimate for EXP but not for LIT/IDEA.",
+     "why": "The internal visibility rationale is exposed to the solver (low)."
+    }
+   ]
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-Bt1vnCnAVS",
+   "unit": "WRITE_CONTENT",
+   "release": "release",
+   "task_id": "task-a9e3d39c5b8a89dcd99f7a854e1ad7bd",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-Bt1vnCnAVS",
+   "unit": "WRITE_EVIDENCE",
+   "release": "release",
+   "task_id": "task-3644df2ad31a8feaf17e6ab10e4ae468",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-QMtrW8Ej98",
+   "unit": "EXP",
+   "release": "release",
+   "task_id": "task-44fdc90c20a77a26633ad91d67c91d0b",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "assets/method_spec.md and fact F-EEVPD-SCHEDULE",
+     "field_or_line": "after Section 3.3",
+     "excerpt": "The source reports exponentially decaying EEVPD schedules only as an explored, empirically inferior alternative; they are not part of the method.",
+     "why": "It discloses an author's empirical comparison result."
+    },
+    {
+     "file": "assets/task.md",
+     "field_or_line": "## Compute",
+     "excerpt": "NUTS chains can cost much more and vary.",
+     "why": "It prefigures the outcome of the H3 cost comparison, though this is arguably general knowledge."
+    }
+   ]
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-QMtrW8Ej98",
+   "unit": "LIT",
+   "release": "release-maint2",
+   "task_id": "task-e5d3693e79c2f701fa720cf926eb55c5",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "fact LIT-SCOPE-RQ and assets/task.md",
+     "field_or_line": "facets 2-4",
+     "excerpt": "(2) initialisation and multimodality; (3) ensemble-based approaches (ensembles of networks, ensembles of chains, ensemble-based adaptive tuning); (4) recent energy-conserving/microcanonical samplers and their step-size control",
+     "why": "Each facet is a prior-work family, but together they map onto the target recipe: deep-ensemble initialisation, MCLMC chains and step-size tuning. Low severity."
+    }
+   ]
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-QMtrW8Ej98",
+   "unit": "WRITE_CONTENT",
+   "release": "release",
+   "task_id": "task-04a5b8d94ff328695faf4c4ccf11ae3b",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "assets/task.md",
+     "field_or_line": "Goal",
+     "excerpt": "an optimisation-initialised ensemble of tuned unadjusted microcanonical Langevin Monte Carlo (MCLMC) chains",
+     "why": "This nearly rebuilds the title 'Microcanonical Langevin Ensembles' (MILE)."
+    }
+   ]
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-QMtrW8Ej98",
+   "unit": "WRITE_EVIDENCE",
+   "release": "release",
+   "task_id": "task-53e14c8ee9e401875ba855686248454d",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-d1NWq4PjJW",
+   "unit": "EXP",
+   "release": "release",
+   "task_id": "task-8017f53b2f5d00ab14df0d59ae6e6bf1",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-d1NWq4PjJW",
+   "unit": "WRITE_EVIDENCE",
+   "release": "release",
+   "task_id": "task-a199331ea592c1413e5b54cfc8d54adf",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "assets/data/*.csv method_label; fact WE-F13",
+     "field_or_line": "method_label",
+     "excerpt": "Proposed gyro-structured BN",
+     "why": "The required 'neutral' label is close to the coined acronym GyroBN and the title 'Gyrogroup Batch Normalization'."
+    }
+   ]
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-h0vC0fm1q7",
+   "unit": "EXP",
+   "release": "release",
+   "task_id": "task-519d88beb54598ae6c361d3ebfdd60fa",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-h0vC0fm1q7",
+   "unit": "WRITE_CONTENT",
+   "release": "release",
+   "task_id": "task-fb61c2d0daaa21db5846f8831690fb54",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-h0vC0fm1q7",
+   "unit": "WRITE_EVIDENCE",
+   "release": "release",
+   "task_id": "task-8a45f74fa26b4bf5a30c84909ce5251f",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-l11DZY5Nxu",
+   "unit": "EXP",
+   "release": "release",
+   "task_id": "task-6c135ee756fd856565f4950e5d003b0a",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-l11DZY5Nxu",
+   "unit": "IDEA",
+   "release": "release",
+   "task_id": "task-bf2b8311a22024699dcd571dc7ee062d",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "assets/background_report.md",
+     "field_or_line": "R8 Synthesis, bullets 2-3",
+     "excerpt": "The counterfactual route needs the noise values of the observed anomalous sample. When the mechanisms are fitted from normal-period data, these values come from the fitted mechanisms (R4, R5). ... One work argues that analysing outliers probes fitted regression models in low-density regions (R6).",
+     "why": "This maintainer synthesis lines up the target's key insight: counterfactual abduction at out-of-distribution anomalous points is unreliable, so the fix should be assessed with in-distribution interventions. It is derived from background works, but it steers."
+    },
+    {
+     "file": "assets/task.md",
+     "field_or_line": "Research setting",
+     "excerpt": "how to *assess*, with an SCM fitted only on normal-period data, whether restoring a candidate to a normal value would have removed the target anomaly.",
+     "why": "The task narrows exactly to the target's fix-condition problem. That is legitimate framing on its own, but together with R8 it narrows strongly."
+    }
+   ]
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-l11DZY5Nxu",
+   "unit": "LIT",
+   "release": "release-maint2",
+   "task_id": "task-30f61c6b0c9cd04948c6335edd69552f",
+   "verdict": "leak",
+   "findings": [
+    {
+     "file": "assets/task.md and fact LIT-F01",
+     "field_or_line": "Research question items 1-2; required sections \"## Anomaly condition\" and \"## Fix condition\"",
+     "excerpt": "2. **Fix condition.** How do existing methods decide whether resetting a candidate node to usual behaviour would have prevented the target anomaly? Distinguish approaches based on counterfactuals (with abduction or reconstruction of noise/exogenous variables), approaches based on interventions ... Also identify methods that do not assess this condition at all.",
+     "why": "'Anomaly condition' and 'Fix condition' are the target paper's own coined root-cause definition. Its introduction reads: 'We define root cause as nodes that satisfy two key conditions: (1) Anomaly condition ... Fix condition ... the fix condition is often overlooked'. Its key contribution is the counterfactual-versus-intervention contrast. The review is organised around the target's framework and gap."
+    }
+   ]
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-l11DZY5Nxu",
+   "unit": "WRITE_CONTENT",
+   "release": "release",
+   "task_id": "task-6f4747768d744896ec025489cef3b240",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-l11DZY5Nxu",
+   "unit": "WRITE_EVIDENCE",
+   "release": "release",
+   "task_id": "task-784f82c5d869e60ac95f7373b9a6662d",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-z21DkDDdgq",
+   "unit": "EXP",
+   "release": "release",
+   "task_id": "task-29a1445526d4f05566b054fa80dd4269",
+   "verdict": "uncertain",
+   "findings": [
+    {
+     "file": "task.json public.prompt (fact F20)",
+     "field_or_line": "F20",
+     "excerpt": "A finite-amplitude bias is expected because the update uses g(x) while the linearisation uses B = [0;3].",
+     "why": "It states an expected outcome that bears on the H2/H4 residuals. The expectation is maintainer-derived."
+    },
+    {
+     "file": "assets/task.md",
+     "field_or_line": "H1",
+     "excerpt": "Then the iterates settle within at most five policy updates",
+     "why": "The number 'five' may encode a convergence count the authors observed."
+    }
+   ]
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-z21DkDDdgq",
+   "unit": "WRITE_CONTENT",
+   "release": "release",
+   "task_id": "task-2947adb66969cfcc4e6ab22aad2159ca",
+   "verdict": "clear",
+   "findings": []
+  },
+  {
+   "root": "factory-v6",
+   "paper": "iclr2025-z21DkDDdgq",
+   "unit": "WRITE_EVIDENCE",
+   "release": "release",
+   "task_id": "task-8b7378f2786816829955006f2a178375",
+   "verdict": "clear",
+   "findings": []
+  }
+ ]
+}

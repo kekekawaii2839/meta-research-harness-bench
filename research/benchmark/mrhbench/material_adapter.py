@@ -17,6 +17,8 @@ from .materials import check_task
 from .sdk import Budget
 from .artifact_policy import collection_policy, WRITABLE_STORAGE_SEMANTICS
 
+PLATFORM_LIT_NOTE = '\nPlatform literature tools: literature.search(query, limit) returns document_id values (doc-<arXiv id>v<version>), titles, version dates and snippets; literature.read(document_id) returns the item record and abstract; literature.read_page(document_id, page_number) returns full-text pages whose text carries bracketed arXiv section/paragraph anchor markers beginning with \xa7. If the task text describes a different interface, it maps onto these tools: match each manifest item to its document by arXiv id. To cite a passage, copy the nearest anchor marker that precedes it on the page you read, exactly as printed; never construct an anchor that does not appear in the text.'
+
 
 def content_schema(task_type, semantic_contract):
     """Minimal evidence navigation, not a scientific experiment recipe."""
@@ -133,7 +135,7 @@ def compile_package(output_root: Path, request: dict, destination: Path, *,
                   + "\nScientific output requirements:\n" + json.dumps(task["output_contract"], ensure_ascii=False, indent=2)
                   + "\nThe JSON content is only an evidence/navigation interface; deliver the actual files listed in deliverables. "
                     "Missing work must be marked partial/failed with omissions, never fabricated. "
-                    "Experiment design choices remain yours within fixed method/assumptions and published resources.")
+                    "Experiment design choices remain yours within fixed method/assumptions and published resources." + (PLATFORM_LIT_NOTE if task["task_type"] == "LIT" else ""))
         preview_rule = None
         if require_visual_png_preview and task["task_type"] == "WRITE_EVIDENCE":
             preview_rule = ("Platform visual-delivery rule: supply a PNG rendering of every required scientific visual "

@@ -1,0 +1,14 @@
+{
+ "accepted_review_findings": [
+  "[reviewer finding 0, minor] MS-01 is a public input fact: it is listed in tasks[0].input_fact_ids and in the quality_public_surface inventory with allowed_stages ['IDEA']. Its new wording names the target paper's review platform (OpenReview) and gives the exact date the target became public there. Together these pinpoint the target's conference submission cycle, which is a venue disclosure under E1. It also asserts metadata about the target that is not needed for the solver's task: the solver needs only the cutoff. The background report, task.md and schema do not contain this information, so the leak is confined to this fact. The date itself cannot be verified from supplied sources: sources/000-abs_page.html carries no venue/comments line and request.json first_disclosure is 2025-02-10 with verified=false. It is a maintainer-adjudicated value.\nRequired repair: Rephrase MS-01 neutrally, e.g. '... built from 14 background works whose cited version dates are all strictly before the background knowledge cutoff 2024-10-04 (latest cited version 2024-05-28) ...'. Drop 'the target's OpenReview public date' and 'which precedes its earliest arXiv version'. If the provenance of the cutoff must be kept, record it only in a private fact or a private note (allowed_stages []). Leave the background report, task.md, schema, gold and the 14-work library unchanged. Update the package and public-surface hashes."
+ ],
+ "controller_notes": [
+  "CONTROLLER SOURCE CHANGE (background cutoff fix, 2026-10-02): the background library was re-fetched with the corrected knowledge cutoff 2024-10-04. arXiv:2412.03312 (only version dated 2024-12-04) is AFTER the cutoff and is no longer in the background set. Remove every use of it (library manifest entries, facts, coverage/gap records, rubric or judge references, task text); keep every other part of the package unchanged unless the removal forces a consistent update. Re-check that every remaining background version predates 2024-10-04.",
+  "IDENTITY RULE: do NOT write why the cutoff is 2024-10-04 or where that date comes from into any public text or public fact (no review platform, venue, submission or publication date of the target paper). Public text may state the cutoff date itself only where the task needs it.",
+  "IDENTITY RULE (controller, 2026-10-02): the previous round's controller note explained where the cutoff date comes from, and that explanation was copied into public fact MS-01, which leaked the target's venue. That was a controller-note error. Remove from every public text and public fact any mention of the review platform, venue, submission or publication date of the target paper, or why the cutoff is what it is; state only the cutoff date itself where the task needs it."
+ ],
+ "created_at": "2026-10-02T15:39:03.967948+00:00",
+ "source_adjudication": "maint1_adjudication",
+ "source_batch": "maint1",
+ "target": "iclr2025-QMtrW8Ej98:IDEA"
+}

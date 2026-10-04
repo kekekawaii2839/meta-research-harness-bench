@@ -539,10 +539,11 @@ def verify_runtime(output_dir, package, dest_dir, *, package_slug, docker=None,
 def controller_notes(container, collection, budget) -> str:
     total_mib = collection["max_total_bytes"] // MIB
     return ("\nController publication notes (development candidate; limits not formally frozen):\n"
-            "1. Released paths: a document path written in the task files, such as assets/<...>, refers to the material "
-            "package; its released copy is listed in asset_manifest with the extra prefix \"assets/\" (for example "
-            "assets/assets/<...>) under the read-only public input root. Relative paths for your deliverables "
-            "(for example submission/..., results/...) are inside your writable work directory.\n"
+            "1. Released paths: a document path written in the task files, such as assets/<...>, is also its path in "
+            "asset_manifest; the file is mounted read-only at /inputs/public/<that path> (environment variable "
+            "MRH_PUBLIC_ROOT=/inputs/public) for code you run, and is read through tools by asset id. Your working "
+            "directory is /work and every artifact/CPU tool path is relative to it: wherever the task names /work/<path>, "
+            "pass <path> to tools (for example results/x.json, not /work/results/x.json).\n"
             f"2. Container: {container['cpus']} CPU, {container['memory_mb']} MB memory, {container['disk_mb']} MB total "
             "writable tmpfs (80% work directory, 20% /tmp; counted against memory), "
             f"{container['pids_limit']} processes, {container['wall_seconds']} s total task wall time; no network, no GPU.\n"

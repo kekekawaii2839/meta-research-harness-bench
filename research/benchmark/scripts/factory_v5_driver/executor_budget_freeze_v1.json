@@ -1,0 +1,20 @@
+{
+ "schema_version": "executor-budget-freeze-1",
+ "decided": "2026-10-01, user-approved principle (2026-09-28): budgets proposed at construction, measured once by P11, adjusted once, then frozen",
+ "executor": "claude-sonnet-4-6 / effort low via faithful wrapper; harness: frozen H0 v3",
+ "frozen_model_calls": {"EXP": 16, "WRITE_EVIDENCE": 12, "WRITE_CONTENT": 10, "IDEA": 10, "LIT": 30},
+ "frozen_tool_calls_and_wall": "unchanged per task (tool 60 for WRITE/IDEA, 120 for EXP/LIT; wall from each package's per-task container)",
+ "measurement": {
+  "source": "19 scored P11 runs (p11-v5-sonnet46*), model calls used / budget",
+  "EXP": "9, 15 of 16 (15: frozen-H0 4-observation window caused 3 crashes; reserve stop)",
+  "WRITE_EVIDENCE": "5, 6, 6, 7, 11 of 12",
+  "WRITE_CONTENT": "4, 5, 5, 5 of 10",
+  "IDEA": "4, 4, 5 of 10",
+  "LIT": "14, 15, 21, 22, 29 of 30 (29: frozen-H0 loop rewriting one file 18 times)",
+  "tools": "max 27 of 120 (EXP/LIT), 16 of 60 (WRITE/IDEA)",
+  "wall": "max 1640 s of 3600 s"
+ },
+ "adjustment": "none. The two near-cap runs are explained by known frozen-H0 defects (wasted calls), not by insufficient budget; every other run finished voluntarily with >= 8% headroom, most with ~50%. Lowering WRITE_CONTENT/IDEA would cut headroom that improved harnesses may legitimately use (e.g. re-reading their own outputs) without saving executor cost, since runs stop when done. Budgets are therefore frozen at the measured values.",
+ "scope": "applies to these P11 development tasks and is the default for newly constructed units of the same task type; a new task with a clearly different workload is measured once by its own P11 run before freezing",
+ "model_calls_made": 0
+}

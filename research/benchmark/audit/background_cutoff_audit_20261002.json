@@ -1,0 +1,115 @@
+[
+ {
+  "root": "factory-v5",
+  "paper": "iclr2025-SyVPiehSbg",
+  "cutoff_used": [
+   "2024-10-02"
+  ],
+  "corrected_cutoff": "2024-10-02",
+  "arxiv_v1": "2024-10-02",
+  "openreview_public": "2024-10-04",
+  "late_background": [],
+  "compiled_LIT_IDEA": [
+   "IDEA",
+   "LIT"
+  ]
+ },
+ {
+  "root": "factory-v5",
+  "paper": "iclr2025-qgsXsqahMq",
+  "cutoff_used": [
+   "2024-10-12"
+  ],
+  "corrected_cutoff": "2024-10-04",
+  "arxiv_v1": "2024-10-12",
+  "openreview_public": "2024-10-04",
+  "late_background": [],
+  "compiled_LIT_IDEA": [
+   "IDEA",
+   "LIT"
+  ]
+ },
+ {
+  "root": "factory-v5",
+  "paper": "iclr2025-qpXctF2aLZ",
+  "cutoff_used": [
+   "2024-08-16"
+  ],
+  "corrected_cutoff": "2024-08-16",
+  "arxiv_v1": "2024-08-16",
+  "openreview_public": "2024-10-04",
+  "late_background": [],
+  "compiled_LIT_IDEA": [
+   "IDEA",
+   "LIT"
+  ]
+ },
+ {
+  "root": "factory-v6",
+  "paper": "iclr2025-1vrpdV9U3i",
+  "cutoff_used": [
+   "2024-09-10"
+  ],
+  "corrected_cutoff": "2024-09-10",
+  "arxiv_v1": "2024-09-10",
+  "openreview_public": "2024-10-04",
+  "late_background": [],
+  "compiled_LIT_IDEA": [
+   "IDEA",
+   "LIT"
+  ]
+ },
+ {
+  "root": "factory-v6",
+  "paper": "iclr2025-Bt1vnCnAVS",
+  "cutoff_used": [
+   "2025-04-16"
+  ],
+  "corrected_cutoff": "2024-10-04",
+  "arxiv_v1": "2025-04-16",
+  "openreview_public": "2024-10-04",
+  "late_background": [],
+  "compiled_LIT_IDEA": []
+ },
+ {
+  "root": "factory-v6",
+  "paper": "iclr2025-QMtrW8Ej98",
+  "cutoff_used": [
+   "2025-02-10"
+  ],
+  "corrected_cutoff": "2024-10-04",
+  "arxiv_v1": "2025-02-10",
+  "openreview_public": "2024-10-04",
+  "late_background": [
+   {
+    "arxiv": "2412.03312",
+    "chosen": "v1 2024-12-04",
+    "pre_cutoff_version_exists": false
+   }
+  ],
+  "compiled_LIT_IDEA": [
+   "IDEA",
+   "LIT"
+  ]
+ },
+ {
+  "root": "factory-v6",
+  "paper": "iclr2025-l11DZY5Nxu",
+  "cutoff_used": [
+   "2025-05-02"
+  ],
+  "corrected_cutoff": "2024-10-04",
+  "arxiv_v1": "2025-05-02",
+  "openreview_public": "2024-10-04",
+  "late_background": [
+   {
+    "arxiv": "2406.05014",
+    "chosen": "v2 2024-11-06",
+    "pre_cutoff_version_exists": true
+   }
+  ],
+  "compiled_LIT_IDEA": [
+   "LIT"
+  ]
+ }
+]

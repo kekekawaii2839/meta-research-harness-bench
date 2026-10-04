@@ -1,0 +1,12 @@
+PLATFORM CHECK (factory v6, 2026-10-01)
+
+In addition to the policy, check every public task text against the platform the solver actually runs on:
+- tools are named exactly as granted (artifact read/write and CPU Python execution use paths relative to /work;
+  LIT uses literature.search / literature.read / literature.read_page); no invented tool names, call signatures,
+  locator syntaxes or helper commands;
+- no instruction to execute a script directly from the read-only public input root (/inputs/public or
+  $MRH_PUBLIC_ROOT); a supplied checker must first be copied into /work;
+- LIT citation locators are anchor markers copied from read pages, or "abstract"; no concrete example anchor printed;
+- the output contract and task.md name the same deliverable files and JSON fields; fixed JSON structures ship a schema;
+- any quantity or relation stated in more than one public file is stated identically.
+Report a violation as an issue under the most specific applicable policy rule; it is a repairable contract defect.
