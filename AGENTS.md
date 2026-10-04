@@ -1,6 +1,45 @@
 # Meta Research Harness Benchmark：唯一研究方案与工作记忆
 
-更新：2026-09-23。本文是唯一研究协议、待办与工作记忆；代码、结构化材料、原始快照、trace和测试报告是证据，不另立PLAN/STATUS/TODO文档。
+更新：2026-09-26。本文是唯一研究协议、待办与工作记忆；代码、结构化材料、原始快照、trace和测试报告是证据，不另立PLAN/STATUS/TODO文档。
+
+## 交接入口：2026-09-27，Codex → Claude Code（请接手先读）
+
+**用户因Codex额度即将用完要求交接。Codex已停止新增调用，goal工具已返回`paused`（不是完成）。下面是当前断点；旧§0.2历史次数/状态不能覆盖本段。Claude Code按用户交接继续同一目标，不需要重跑已完成步骤。**
+
+### 当前断点与预算
+
+- 工作区：`C:/Users/li_ha/Documents/ChatGPT/meta-research-harness-bench`；`master`，HEAD `fbe302f9afaa29a1b6032fcf47cfce2ed0415f05`。交接时134项git状态条目，包含此前工作，**未替用户commit/push/reset/clean**。大量不可替代证据在D盘，不在git内，勿清理。
+- 权威ledger：`research/benchmark/audit/development_call_ledger.json`，**621已用、0reserved**。用户本goal累计上限**700**，余79（失败也计数）；全局1668不是本goal可用上限。当前v5小阶段**baseline618、最多6次、硬止624**，余3，正好旧臂。第一429即停、不自动重试/买额度，不用完额度为目标。调用数不包括本对话/协作agent全部系统消耗；订阅美元未知。
+- 当前试验根：`D:/mrhbench-local-pilot/factory-efficiency-v5-20260927-001`（下称V5）。`execution/manifest.json`冻结156代码/prompt/config文件，交接再次verify通过；**不改任何绑定文件**。新工程修改必须另存版本/另freeze，不修改历史候选、失败、源缓存或旧审计。
+- 首臂`write_content_repair/incremental`调用619–621已经全部terminal，session41267已exit0；没有本阶段在途模型调用。3个协作agent均completed。烟雾容器已实际核无残留。**旧臂目录尚不存在，尚未启动call622。** 不因旧lock/started文件猜测活进程；以后观察超时先核同handle，不重启。
+
+### 已完成、可接续的证据
+
+- 全离线622项：610过、12依赖跳过，219.069秒，`research/benchmark/audit/factory_efficiency_v5_full_tests_pre_freeze.log`。v5 driver5整链/负测、batching4及输入预检已独立复核。原146/150历史冻结也核未变。
+- V5案例仍是原预选未用于efficiency比较的`iclr2025-6ouZaBzeNO`、单WRITE_CONTENT、round2，顺序**incremental→old**。40输入文件逐字节复制、24来源hash匹配；fresh指本次对照未跑，不是从未构造/审核。两臂相同full policy/identity/paging/decision consistency；增量多seed/navigation及可选批量Read提示，测流程组合，不称纯constructor因果。
+- `arms/write_content_repair/incremental/result.json`：completed，620 reviewer pass_with_pending_runtime，621 adjudication pass。三call总输入**6,471,033（含cache write/read）**、输出**60,166**、模型**688.017秒**、pipeline**696.063秒**。未跑旧臂，**不能报告新降幅**。
+- 619候选实际runtime：`runtime/write_content_repair/incremental/runtime_record.json` passed，fresh1CPU/1GiB/64PIDs/512MiB/600秒环境，非root/无网络/只读3公开文件，smoke3.14秒。不是完整solver预算充分性或正式隔离验证。
+- actual release在 **`release_staging/write_content_repair/incremental-002`**，task+3资产，known identity0、binary0。初次`incremental` staging因root错误把source_manifest传成字符串而失败；`audits/incremental_compile_invocation_error.json`保留归因。第二次使用constructor/request.json的sources数组，没改candidate、没重新调模型。不要误用第一次不完整staging。
+- 科学/最终发布独立报告：`audits/write_content_incremental_independent_science.json`、`write_content_incremental_independent_release.json`，local-development pass，无blocking。共享审阅260.050521秒，不能将两报告字段相加。24来源为全库存身份绑定，不称所有全文已读。盲审在未读620前完成，后另补native意见及最终面。
+- 全轨迹：`audits/call619_constructor_independent_audit.json`、`call620_reviewer_independent_audit.json`、`incremental_native_full_trace_audit.json`，务必同时读`incremental_native_trace_delivery_clarification.json`：原字段名误写35，实际32 mathcells，数组正确，旧审计未覆盖。620/621各一次密集HTML bulk Read超25k-token工具上限，之后补取必要公式/条件；620全部Eq1–12、621Eq4–12与引理/B2关键条件送达，不称全论文/完整证明读完。不存在已观察的阻塞轨迹/结构完整性缺陷。
+- root已另存 **`audits/write_content_repair.incremental_gate.json`**，绑定science/runtime/actualrelease/trace及计数澄清；已实际执行v5`check_order(..., 'old')`通过，**没有启动旧臂**。交接预检`audits/claude_handoff_preflight.json`记录621/0reserved、156freeze与gate。此gate只允许开发对照下一臂，不是公开发布/正式benchmark准入。
+
+### Claude接手的下一步（不要从头来）
+
+1. 读本段、`research/benchmark/audit/factory_efficiency_v5_cases_v1.json`、`factory_efficiency_v5_phase_authorization_v1.json`和上述gate/reports；核实时ledger仍621/无reserved、old不存在、156冻结未变。Python为`D:/mrhbench-local-pilot/controller-venv/Scripts/python.exe -X utf8`，PowerShell设置`$env:PYTHONPATH='research/benchmark'`。角色保持claude-opus-5-5/medium，不因交接改变比较配置。
+2. 仅在确认上述状态后启动原计划旧臂（最多3次、止624），不再跑incremental：
+   `& D:/mrhbench-local-pilot/controller-venv/Scripts/python.exe -X utf8 research/benchmark/scripts/active/run_factory_efficiency_v5.py run --root D:/mrhbench-local-pilot/factory-efficiency-v5-20260927-001 --case write_content_repair --arm old`
+   将输出另存V5新log并记录session。首次429/失败停，不绕开gate追调。所有旧模型输出保留。
+3. 旧臂完毕后同样独立审核完整轨迹/必要原文/全公开面；先读生成Dockerfile、requirements、smoke再执行新容器runtime。release使用新目录，`source_manifest`必须传该constructor/request.json的`sources`数组，不传路径字符串。两臂release settings已在`audits/write_content_release_settings.json`固定4模型/60工具/600秒、16MiB/500entries，只是开发候选值；旧臂不得另调低科学要求/资源。
+4. 两臂都达到同等质量后，按完整三角色input（含cache）/output/model time/pipeline time算每例降幅，失败与人工审阅另外透明报告，不虚构美元或声称覆盖全订阅系统消耗。保持原冻结targets（aggregate input/time≥45%降低、output≥50%，希望接近既有约50%/60%），不得看结果再改门槛。**V5仅第一组新鲜对照**；goal还需第二组新鲜案例、质量/成本通过后的未调试单元prospective。后续阶段另存有界授权/冻结，总帽仍700，不把单WRITE通过改写为全部目标完成。
+
+### 不要丢失的失败与后续诊断
+
+- 613–615 EXP drop（作者趋势泄漏），616–617矛盾pass+core_science issue被拒；618另存显式adjud诊断drop（绝对下降量误判比例弱化）。这些永久保留，旧EXP未配对，不能计成功降幅。root未手修候选冒充模型通过。
+- `D:/mrhbench-local-pilot/factory-scope-preflight-20260927-001/`有H2新操作化、9个逻辑边界例及独立审核/root_scope_decision：仅批准未来独立development_regression输入，不追认历史通过、不称新鲜。H2固定选择性去共享，solver选择合理归一化/相对/匹配对照，H1不暗中加严；方法/资源不变。尚未应用/调模型，先完成当前V5比较。
+- 新小模块`material_decision_guidance.py`只提醒既有issue/unknown不能pass；`evidence_read_batching.py`只给可选读取调度，不能减少科学证据/独立review/adjud或改输出。已冻结于V5，不再编辑。
+- `audit/source_navigation_oversize_diagnostic_v1.json`（research/benchmark下）显示此paper三个unit因text+巨量child_ids超16KB，整个分页fallback；并非只有17KB长text，数学已经用alttext。未来可另存精确可重建text+child_ids分片，**尚未实现、未证降本**。不删嵌套locator骗取压缩；先看本对照结果再决定改造，勿改变正在比较的156冻结版本。
+- 版权公开再分发/完整solver/正式judge与benchmark准入仍未通过；本goal不启动正式评测、批量扩产或服务器迁移。AGENTS仍是唯一工作记忆，不另立HANDOFF/PLAN/STATUS文档。
 
 ## 0. 当前决定、授权与协作规则
 
@@ -15,6 +54,8 @@
 - **工程优先级：** 可信调用/包级Docker执行与原生judge优先；小批材料/评分验收后扩展。TTS等归因分析及连续use case不阻塞主benchmark建设。
 
 ### 0.2 授权与当前真实状态
+
+**阅读顺序：下表含历史快照，最新接手实数与降本计划见§0.2.16–18及实际账本/state；不要将旧368额度、旧测试数或两篇材料状态当作当前值。**
 
 | 项目 | 当前状态 |
 |---|---|
@@ -238,6 +279,173 @@
   - **仍待用户：** 配额违规计分规则、T14正式配置、OS级隔离环境、P11试跑的executor走wrapper还是官方API。
   - **协作约定：** 提交由用户所在的git管理会话负责（AGENTS.md提交需用户同意）；给用户的页面写本地HTML（用户在两个账号间切换）；启动任何模型运行前先说清要跑什么、多少次调用；每次模型调用的token与轨迹须完整留存（常设规则）。
 - **镜像不得跨包共用（用户确认）：** Gaussian不再复用IV镜像，已建独立镜像`mrhbench-pilot/gaussian-exp-v2:2a0e5db72726`（ID `2947d2db…`，仅numpy==2.3.3，定义在包内`environment/`），声明资源下starter验证通过，`audit/gaussian_exp_image_v1.json`；0模型调用。
+
+### 0.2.17 Codex重新接手：controller数据转换与v4恢复（2026-09-26）
+
+- **接手核对（非重新验收历史科学结果）：** 已阅读协议、Claude时期主要变更、factory v1–v4状态与wrapper运行汇总。当前候选池3705（1369有直接仓库链接），scout已筛400、325符合初筛规则、用户批准140篇；最终70篇仅暂定目标。去掉失败目录备份并按论文/任务ID去重，实际启动10篇，130篇尚未启动。5篇已有18道编译开发题：LIT5/IDEA4/EXP0/WRITE_CONTENT5/WRITE_EVIDENCE4；其他为2篇全文未取到、3篇模型阶段因限额中断。v4仍无编译题，不能声称EXP或新pipeline验收完成。结构快照`audit/factory_progress_snapshot_20260926_v1.json`（记录时间点，运行可能随后推进）。
+- **零模型实现及真实转换：** 新增`mrhbench/tensor_conversion.py`、`factory_data.py`、`scripts/active/convert_factory_data.py`。显式转换计划绑定原始来源及原模型裁定hash，使用独立受信controller镜像（不是solver镜像），Torch2.6.0+cpu/numpy1.26.4，严格weights_only CPU加载、拒自定义/嵌套/不支持dtype或旧Torch，无不安全回退。每文件全新无网络/非root/只读根/1CPU/1GiB/64PID/120秒容器，只挂单一输入、受信脚本及独立输出目录；不执行作者或constructor代码。原始文件不修改。
+- **扑翼实际数据结果：** forces/kinematics各153个float64数组，事件顺序与对应长度保留，无非有限值；306数组从npz按allow_pickle=False重新读取，dtype/shape/内容hash全部匹配转换回执。分别14,072,242B及10,563,826B。新job仅预置npz与neutral metadata，原.pt不预置；历史candidate保持原样，由constructor按原裁定返修loader与公开契约。`data_conversion/publication.json`与原裁定/计划/来源/输出绑定；后续job发现变化或不完整即拒绝。新能力不自动猜测所有二进制转换需求；其他论文仍需显式受信计划。证据`audit/controller_tensor_conversion_acceptance_v1.json`，真实工作目录在`D:/mrhbench-local-pilot/factory-v4/papers/iclr2025-254NJe9JEw/data_conversion`。
+- **独立复核与测试：** 协作者新增转换与接线测试，指出重复目标/改名绕过/执行中plan变更三处缺口，root修复后15项factory_data测试通过；23项factory测试通过；全量427项（415通过、12因controller venv缺numpy跳过），跳过相关转换测试另在bundled NumPy环境完整14项通过。日志`D:/mrhbench-local-pilot/tests-codex-handoff-20260926-002.log`、`tests-converter-20260926-001.log`。旧397项日志与提交说明398项不能混作同一次测试。
+- **本次明确告知后启动的模型范围：** 仅扑翼EXP的repair/reviewer/adjudication、必要时第二轮repair及runtime/compile；最多6次新Claude调用、单worker、不P11、不其他论文、不正式评测。2026-09-26 15:03 CDT快照：call588 constructor运行中（reserved，不能当成功）；旧call587失败保存为repair.failed-1，新日志`D:/mrhbench-local-pilot/factory-v4/resume-codex-20260926-001.log`。账本588/1668包含该在途预留；最终以ledger/state为准。遇429立即停，不自动重试。
+- **未改决定与待办：** 模型仍Claude opus-5-5/medium，不因Codex回来而自动换回；wrapper仅初步实验、正式executor待官方API；1100次授权是材料构造，P11另需授权。OpenReview优先取源、R2并库、v4总成本/质量验收及T14仍未完成。未提交Git；提交仍由用户git管理会话负责。历史源/失败/分数不覆盖。
+
+- **上述有界恢复已结束，用户随后要求优先降本（2026-09-26）：** call588–593六次均结束，账本593/1668、reserved0；扑翼EXP经过两次返修，最后独立reviewer pass_with_pending_runtime、裁定pass、Docker smoke/runtime passed、编译1题。合计现19道开发编译题（LIT5/IDEA4/EXP1/WC5/WE4），仍未P11/正式验收。此前0.2.17中的588在途及18题为当时快照，保留不覆盖。
+- **降本诊断（零新增模型）：** `audit/factory_cost_bottleneck_20260926_v1.json`核call583–593：11次、累计输入23,768,416/输出342,875 token、模型会话时长总和约60.5分钟（不含继承源审计/早期版本，也不是含暂停的端到端时长）。末轮裁定仅要求身份文字/定位修复；call591仍Write整套12文件，最终10文件字节与上轮相同，591–593合计约15分钟。主要可证开销是整包重写和重复全审，不应把所有成本归为必要科学质量。新论文/新模型调用暂不启动；优先讨论增量返修、基于hash/diff的修复核验、确定性门前移与controller模板，保留独立科学审阅；尚未启用新prompt/新流水线或改定模型。总输入含缓存重复上下文，不等于独立文本量或订阅配额线性换算。
+
+### 0.2.18 材料构造降本goal与真实模型验证计划（2026-09-26）
+
+- **用户要求：** 先规划并设置goal；零调用回放后必须实际调模型，测量是否真的降低耗时和成本，不能把工程测试作为降本结论。当前重心由扩大材料量转为有界降本验证；本节取代上节暂不启动模型的临时安排，仅放行下述验证，不放行批量扩产/P11/正式评测。
+- **目标与完成条件：** 实现可审计的增量返修、差异导航/风险驱动独立复核和确定性检查前移；通过真实新旧流程对照以及未参与调试的构造单元试产，给出成本/耗时/质量的证据与采用、修改或否决结论。收益未出现也如实报告，不以追调样例制造通过。仅代码/单测/回放成功不算goal完成；小样本成功不等于70篇规模效果或正式材料准入。
+- **边界：** 保持claude-opus-5-5/medium及原生constructor/reviewer/adjudicator；不同时换模型或取消独立科学审阅。新配置/prompt另存新版本并在新运行根冻结，不修改v1–v4冻结prompt或历史材料/失败/成绩。controller复制与应用增量不替模型改科学内容。每次真实调用保留完整轨迹/token缓存分拆/墙钟/失败；维护者复核另记工作量，不冒充全系统零成本。
+- **阶段A：基线与工程（0开发模型调用）。** 冻结历史成本证据；选两类真实开发返修案例：一类局部文字/定位问题，一类涉及科学语义或代码的较复杂修改（尽可能来自不同论文）。冻结原候选、原始来源、裁定意见、检查点与输入hash；预先选择第三个未参与调prompt的真实构造单元。实现在新output复制原候选后只改必要文件、before/after hash与完整diff、结构/路径/资源/身份检查。科学变更扩展复核范围，无法可靠判影响时退回完整审核，回退成本照记。独立reviewer可查完整来源和产物，不仅看constructor自述。机械模拟历史diff只验机制，不计模型能力/质量/降本成功。
+- **阶段B：两案例真实配对对照（最多12次）。** 每案例原流程与新流程各一次，分别constructor→独立reviewer→adjudicator，共2×2×3次；第一对完成并审核后才放行第二对。两臂使用相同起始材料、修订要求、模型/effort及运行限额，全新会话和工作区；不传另一臂产物或分数。提前固定执行次序并记录时间/cache/provider状态，承认单次配对无法估计总体方差。历史数据只作辅助基线，不代替此次旧流程对照。工作流差异作为整体改造评估，不声称单个组件的因果贡献。某臂未修好保留失败，不凭便宜判胜、不临场加修直至过关。发现重大漏检或明显回归即止损，不机械用满12次。
+- **阶段C：未参与调试单元试产（最多8次，B有可接受结果才放行）。** 按预选范围跑新流程到运行门/编译；如需源审计与范围裁定最多2次，初构/审阅/裁定3次，最多一轮返修/审阅/裁定3次。第二轮EXP返修不在本次成本上限内；到限未完成如实记不足，不加额度、不拿无输出样例替换成更容易的。不是P11，不调用benchmark executor/judge，不宣称正式验收。C若暴露需改prompt/机制，则该案例转为开发证据，不能改后仍称留出验证。
+- **总调用预算与停止规则：** 当前ledger593/1668，本goal开发transport新增最多20次（B12+C8，失败/429计入），全局1668不变；本阶段不得因此超过ledger613。这是工作上限，不要求用尽。每次启动先告知具体范围及当批上限；不另做收费/耗配额探针。首个429立即停，不忙重试，不因goal自动续调；待恢复后才显式续跑。根会话/协作agent消耗不在该transport账本内，不声称20次覆盖全部订阅用量。
+- **观测与采用标准（工程目标，不改benchmark主分）：** 同时报告总输入token（含缓存重复）、未缓存/缓存写/缓存读、输出token、模型会话秒数、端到端活跃/等待墙钟、工具轮次、重写字节、返修/回退次数；费用仅有冻结可信价格快照时另作估算，订阅不虚构逐次美元。每案例及两例汇总都报告，不能只挑constructor或获胜例。预算阶段目标为配对流程总输出token和模型会话耗时相对旧流程均减少至少30%，总输入不增加；这是待测目标不是承诺。质量门为既有真实缺陷修复、无新增重大科学/泄漏/契约错误、变更影响得到独立复核且运行门适用时通过。开放科学质量不声称以两例证明非劣；审计不确定性照报。未达目标或质量退化则不扩量，先报告收益/缺口与是否值得继续；不静默追加实验。
+- **交付与顺序：** 所有进度写本文，数据/对照方案及结果写结构化audit，代码与测试保留；不另建PLAN/STATUS。先A→首对B→审核→第二对B→审核→C→质量成本综合结论。只有达到上述证据型完成条件才关闭goal；当前仅已规划，真实新旧对照尚未开始。
+
+- **阶段A实际进度（零开发模型调用）：** 新增`mrhbench/incremental_repair.py`和显式`run_batch(... incremental_repair=True)`接线，默认旧行为不变；controller按原字节seed新output、保留预填数据并记录冲突，完整hash/diff与紧凑JSON Pointer导航分开保存；独立reviewer可读完整来源/当前与旧候选/旧审阅、原裁定，缺旧审阅或影响不明时要求完整复核，不据unchanged自动通过。新增prompt在`prompts/material_efficiency_v1/`，旧冻结prompt未改。新模式和prompt hash进入receipt，恢复不允许静默换模式；review_context也受输入完整性门保护。仍待真实试跑，当前不宣称降本或科学非劣。
+- **预冻结案例（在付费对照前选定）：** `audit/factory_efficiency_cases_v1.json`绑定两例共83个输入文件hash：扑翼文字/来源定位返修（old→incremental）；Diffusion科学/代码契约返修（incremental→old）。C预选GETS，在范围裁定后按冻结EXP/WE/WC/LIT/IDEA次序选首个支持单元，不根据成绩换论文。工作根`D:/mrhbench-local-pilot/factory-efficiency-20260926-001`，代码/prompt最终执行hash和真实对照driver尚待冻结，不能直接启动无记录调用。
+- **回放结果：** 两真实历史返修候选均可由seed+实际变化重建最终产物（排除旧controller生成package.constructor_original副本），结构检查通过；`audit/factory_efficiency_replay_v1.json`明确model_calls=0、未测试模型质量/成本。历史最终内容只用于机械回放，不得传入真实对照构造会话。19项incremental单测/接线测试及23项材料回归通过；全量446项无失败（434通过、12因controller venv缺NumPy跳过，转换模块此前bundled NumPy下14项通过且本轮未改），日志`D:/mrhbench-local-pilot/efficiency-full-tests-20260926-001.log`。账本仍593/1668，goal保持active。
+
+- **预算防线增补（仍零开发模型调用）：** 新增`BoundedCallLedger`，在共享账本同一锁事务内校验实验绝对上限、单臂次数、audit目录边界、未结束调用及首次provider_rate_limit；失败计数且控制器重启不重置。7项针对性测试通过，含并发争抢只能启动一次、429后其他臂拒启及旧CallLedger行为保持。该限制只作用于采用新类的运行器，不声称控制其他独立进程；真实对照driver接线/执行hash冻结仍待完成，全量453项回归无失败（441通过、12 NumPy跳过），日志`D:/mrhbench-local-pilot/efficiency-budget-tests-20260926-001.log`。账本593/1668未变。
+
+- **首次真实对照已启动（旧臂，2026-09-27 UTC / 本地09-26）：** 运行器`factory_efficiency.py`完成并经7项fake调用/冻结/裁定/顺序测试；另3项成本解析测试通过，历史591–593复算为输入4,397,758、输出91,460、900.36秒，只是计量校准。执行冻结`D:/mrhbench-local-pilot/factory-efficiency-20260926-001/execution/manifest.json`绑定103个代码/prompt/config及binary和实际输入目录成员；旧v4 prompt hash再次匹配。两臂使用相同v4 base+addendum，Diffusion对照是新受控比较而非复现其历史旧prompt。已告知首组最多6次，先启动wing old臂（单臂最多3，B账本止于605）；调用594 constructor已reserved，宿主执行session69462，日志`wing-old.log`，尚未获得质量或降本结果。完整单臂计时从publication开始，不含先前预检/hash；人工/等待另记。首次定向测试曾因测试入口缺sys.path失败（无模型调用），仅修test后独立7项通过，不改已冻结引擎。不得因观察超时重启该运行。
+
+- **首对B进度：** wing旧臂594–596三次实际结束，裁定pass，输出87,443 tokens，总输入5,391,490（含cache）、模型会话902.921秒、从publication起完整臂908.75秒；这是本次受控旧臂，不代用历史基线。新增minor cutoff/gate/split来源定位缺口被记录为非阻塞，尚待维护者独立核查。原始变更机械核查为3文件变化/14未变，科学代码/环境未变；公开文字身份扫描零命中，不当全面科学验收。已再次告知后启动incremental臂（最多3次，session25341，wing-incremental.log）；勿重复启动。独立维护审核正在审旧臂完整证据，尚未通过首对放行门。运行器加入后的全量463项无失败（451通过、12 NumPy跳过），日志`D:/mrhbench-local-pilot/efficiency-driver-full-tests-20260926-001.log`。
+
+- **首对B已审核并放行第二对：** 增量597–599三次结束且原生裁定pass；总输入1,435,858（较旧臂-73.37%）、输出24,636（-71.83%）、模型会话334.797秒（-62.92%）、完整臂342.141秒。两臂另实跑全新CPU smoke均passed，同image ID e9c8eb2e…、torch2.4.1+cpu，153事件/438552样本检查ok、容器已清理；加runtime墙钟旧918.375/新350.047秒。维护独立审阅两臂的修复/完整动作路径与相关原文后均通过有界质量门，未声称逐字语义阅读所有原始工具回包；增量没有重新发现旧fresh review发现的既有minor cutoff/gate/rounding定位缺口，保留为覆盖差异，不称总体质量非劣。独立维护审核墙钟217.833+208.633秒，维护token/根探索时间未独立计量，不记0、不混作开发transport成本。权威门`audit/factory_efficiency_wing_pair_v1.json`及D盘`audits/wing_text_repair.json`绑定results/审阅/runtime哈希。已告知第二对最多6次，按预定incremental→old启动Diffusion增量臂（session84222，diffusion-incremental.log）；当前不扩量、不启动C、未关闭goal。
+
+- **第二对B真实接口失败与显式调度修订：** Diffusion增量600–602三个transport会话结束（总输入2,634,498、输出48,446、模型535.329秒），但602裁定project_id错误拼接paper_id/job_id；controller记`failed_needs_attribution`，不改原文件、不计完整成功、不重试。裁定文本pass与运行门成功必须分开。为仍执行已计划旧臂，新独立脚本`continue_efficiency_terminal_pair.py`仅对这一次已结束的已知identity失败放行调度，原103文件执行冻结/prompt/候选不变；3负测/保真测试通过，脚本及失败result哈希保存在D盘`execution_amendments/terminal_pair_v1.py`和`audits/diffusion_terminal_continuation_v1.json`。已告知用户并启动原计划old臂（最多3，session80288，diffusion-old.log），不是新增/重试增量。独立科学审核进行中：原有EXP fact已公开sigma_m=.1信息，F4新增非可比性警告确在私有侧；不能夸称所有协议数值已私有化，但原要求并未明确删除该既有fact，暂未定为新增重大泄漏。C新独立控制器已离线实现且6项测试含2+6 fake会话/单次修复/runtime-compile，但尚未freeze/调用，等待第二对完整成本与科学/接口失败归因裁定。
+
+- **本goal终局（2026-09-27 UTC / 本地09-26）：** 两组真实配对594–605已结束，共12/20次；账本605/1668，全部transport completed、无重试/429，剩余条件额度8次未用。Diffusion旧臂也因project_id拼接错误而pipeline失败，原始裁定drop；增量原始pass但同样pipeline失败，均保留，不回填修正。两臂CPU runtime另行通过并清理，不替代科学/泄漏验收。全量474测试462过/12 NumPy跳过、0失败。
+- **成本实测但不能宣布质量保持：** 两例合计旧/新总输入8,390,208/4,070,356（-51.49%），输出180,695/73,082（-59.56%），模型会话1,804.905/870.126秒（-51.79%）。两例各自数值目标也达到，但Diffusion不属于等价成功流程。维护独立审核合计863.910秒（含纠错复核），根工程/复核时间及maintenance tokens未完整计量；订阅美元未知，不把上述下降称为整个系统净成本下降。
+- **重大漏检触发止损，C不启动：** 公开题面/方法说明/必交文件名保留源论文特有“Diffusion Evolution”方法名，违反两裁定器实际读到的同一v4 E1规则；旧605识别并drop，增量602漏检并pass，两reviewer亦漏检。既有缺陷不豁免当前门，另保留作者80×80网格及sigma信息公开的审计风险。一对不能证明增量机制导致漏检，但已足以否决当前组合方案推广。早期独立审核只覆盖F1–F7而漏掉这项全包规则，旧报告原样保留；新增diffusion_pair_quality_v1.json明确纠正，不冒称旧审核已完整。此前与当前reviewer base prompt逐字相同，不能断言已证实协议版本错配。
+- **结论与完成边界：** 权威audit/factory_efficiency_final_v1.json和D盘audits/diffusion_science_code_repair.json明确modify_before_adopt / allow_prospective=false，C门只读拒启已验证。保持生产incremental默认关闭，不扩大材料、不跑P11、不追加调用；方向是保留原字节增量编辑，但每轮强制完整当前政策关键检查、跨角色覆盖与精确identity契约，再用新案例验证，尚未获真实模型质量背书。C控制器仅离线8项测试，未freeze/执行。按预声明重大漏检停止规则完成此次有界验证并交付否定/修改结论，**不是优化验收通过或全benchmark完成**。103执行文件、83初始输入及关联冻结重新核对通过；历史输出/失败/裁定未改。
+
+### 0.2.19 质量修复与降本验证第二轮（2026-09-26用户续授权）
+
+- 用户要求继续修复pipeline并保持接近上一轮降幅；新goal active。上一轮结论与失败原样保留，不能改称通过。目标为可靠的有界材料构造/返修流程，不承诺数学意义的“完美”或用无限重试制造成功。
+- 先零开发模型调用修复三项：所有角色绑定同一完整当前政策；每轮都审全部公开面的身份/作者实验规模/目标实现泄漏及核心科学与IO契约，不因文件未改或旧review通过而豁免；裁定精确project_id/round输出约束，非法结果拒绝而非事后normalize。完整diff仅为导航，保留独立科学reviewer。旧Diffusion仅回归，不再当留出。
+- 预算预设：当前605/1668，本轮最多20次新开发transport调用、绝对止于625；不与上一goal剩余8次叠加，不改全局1668。两组新冻结返修配对最多12次，质量/成本通过后预选未调试单元最多8次；每组启动前报告，首次429即停止、不自动重试。若重大漏检或质量门失败则停止后续调用，先改工程并记清版本，不追调同例凑达标。进一步真实迭代另设明确批次上限，不能把“直到完善”解释为无限耗额度。
+- 降幅目标：全流程新/旧总输入与模型会话耗时各减少至少45%、输出至少50%，接近上轮51.5%/51.8%/59.6%；同时逐例报告，不藏负例或只计constructor。两臂同源/同任务/同资源/同模型effort，并都落实必要质量规则；差异为整包重写与增量编辑导航，不以旧流程弱检查博取优势。模型tokens不是订阅美元；维护审核及工程成本另列，未知不记0。
+- 准入条件：明确修复全部既有必要问题、无阻塞科学/泄漏/契约缺陷、独立审核与适用CPU runtime/编译通过；控制器只核覆盖凭证与证据身份，不把填写清单当科学正确证明。新例在任何真实生成前冻结选择、输入、顺序、prompt/代码及检查范围；不根据结果换简单例。未达目标/新缺陷如实报告并保持goal active，不启动正式benchmark/P11或批量扩产。
+- 当前开始实现，尚无本轮新模型调用；默认生产增量仍关闭。根维护AGENTS/集成，独立协作者仅新增质量合同模块与离线测试，旧103文件执行冻结不覆盖。
+
+- **本轮零调用修复进度：** 新增material_public_surface.py（公共事实只投影fact_id/statement/kind，不把私有source locator错当公开）、material_quality_contract.py和opt-in material_quality_runner.py；构造/独立review/裁定同政策字节，review/裁定sidecar绑定当前包与全公共面；identity/author_scale/target implementation每项全表检查，缺失/unknown/issue不得pass；精确paper_id/project_id/round本地schema拒绝，不改模型结果。新policy/prompts位于prompts/material_efficiency_v2，按已定WRITE协议明确合法作者结果输入例外，旧v4不改。构造器自身不写科学验收凭证。27新增定向测试通过，全量501项489过/12 NumPy跳过、0失败（efficiency-v2-engineering-tests-20260926-001.log）；尚未接入新的真实对照driver，覆盖凭证不是语义证明。
+- **新例候选而非已冻结：** audit/factory_efficiency_v2_case_candidates.json预选D10yarGQNk的IDEA文字/来源返修、6ouZaBzeNO的WRITE_CONTENT可见性与per-task smoke返修；源自未读后续修好结果的v1多任务原候选，必须显式单任务投影后同样供两臂，不冒称现成v4单元。第二例不覆盖EXP数值算法，C及最终准入仍需考虑该覆盖缺口。原Diffusion两臂仅作公共面库存离线回归，旧103文件冻结重新核对通过；本轮ledger仍605/1668、0新调用，goal active。独立代码审阅与新单任务投影准备进行中，下一步先完成接线/预算/输入冻结，再告知启动真实配对；不得跳过质量门。
+
+- **独立复核纠错（仍0调用）：** 新覆盖validator曾让review附加action=drop覆盖真实decision=pass_with_pending_runtime，从而放过unknown；独立fake复现后已修为角色唯一决定字段（paper_id→decision，project_id→action），caller不能弱化，新增负测；quality系列25项通过，public_surface另6项。此前501测试快照不能替代这项安全语义修复。正在把三类全公共面检查的重复长ID列表压缩为绑定contract hash的明确全表scope，保留具体证据引用与检查要求；仅减少冗余JSON，未测真实token收益，完成后须重跑测试。尚未执行真实v2模型调用，不能声称完善pipeline已达成。
+
+- **续轮工程与选例实证（0新调用）：** 压缩后的coverage用绑定contract的全表scope常量，三项关键审查范围不减；32项质量/公共面测试通过。单任务投影脚本原先绝对source路径与validate_job不兼容，已修为新workspace内原字节副本+相对路径，8项测试实际走prepare_material_job。两真实单元已在D:/mrhbench-local-pilot/factory-efficiency-v2-20260926-001/inputs投影，52/24来源、validate_job/package与真实publication预检通过；smoke未手改，明确两臂都承担投影诱发的跨任务资产适配。audit/factory_efficiency_v2_cases_v1.json预冻结71/45输入身份，C仍预选GETS，不按成绩换题。
+- **新driver离线通过但尚未调用：** factory_efficiency_v2.py/CLI新增12测试，包括真实run_batch+三QualityBoundRunner+adjudicate的old/incremental各3次fake-native整臂、缺sidecar/篡改policy拒绝与null notes；同政策两臂、B上限617、总上限625。新snapshot会明示v2 prompts到兼容目录的overlay，不改原v4/v1。全量回归和独立driver复核正在进行，真正execution freeze与首臂调用须在其后；上轮属于实质进展，不是等待或已完成科学验证。
+
+- **v2首臂已实际启动：** 全量525项无失败（513通过/12 NumPy跳过，efficiency-v2-pretrial-tests-20260926-001.log），最新driver12及budget7独立复核通过；新增incremental整链测试在全量扫描后完成，另有针对性通过证据。execution/manifest.json已冻结132代码/prompt/config及3个明示overlay、binary39be063c…、两例输入/投影/原来源身份，verify_execution通过。已告知首组最多6次，启动idea_background_repair旧臂（session72558，idea-old.log，单臂最多3，B总止617），不得因观察超时重启。尚无质量或降本结果；源/代码执行冻结之后不再修改其绑定文件，新修改须另版本且保留本运行。
+
+- **v2首臂终局与止损：** 606 constructor480.219秒、607 reviewer408.109秒、608 adjudicator145.578秒均原生completed；合计总输入8,576,213、输出94,360、模型1033.906秒，完整臂1040.922秒，账本608/1668。reviewer抓到公开fact MS-NEUTRAL明示目标方法家族、日期/输入合同矛盾；adjud原始drop有据，材料未通过。维护初审漏掉fact语义，另存idea_old_review_correction.json透明纠正，原初审不改；终局独立737事件/161动作与回执匹配、无观察跨角色/跨臂行为，审计116.646秒，补审65.345秒，初审起时缺失记null不记0。CPU runtime另在新容器passed/清理（5.094秒，与review并行，不可直接相加称端到端），不清除语义泄漏。
+- **真实平台缺陷：** 新政策J2/J3被旧adjud schema的A-I正则拒绝，故pipeline为failed_needs_attribution；既非模型未完成调用也不把合法规则引用算科学错误。原失败与raw drop保留，未跑incremental、未重试。audit/factory_efficiency_v2_schema_failure_v1.json及D盘审计绑定归因。新增material_policy_schema.py从完整policy生成精确有效citation枚举，含实际规则、无编号的政策节，6项测试通过；原608只在新schema做零调用诊断，不回填成功。v2的132冻结文件重新核对未变。
+- **v3准备（仍未追加调用）：** 新prompts/material_efficiency_v3另存，F4明确资源review检查proposal/预算一致性，坦诚runtime pending本身不当科学unknown；真实runtime门仍独立必需。首例IDEA已经用于调试，不再冒称新留出。保留未运行的WRITE_CONTENT单元，另找真实EXP返修候选补科学代码覆盖；不读取未来已修好结果挑赢家。保持本goal20次/625上限：已用3，下一批拟608起两新配对最多12到620，条件新单元最多5到625（源2+初构/审阅/裁定3，无额外返修余量；需要返修则如实未完成而非超限）。新driver/schema/方案冻结与独立复核完成前不调用；audit/factory_efficiency_v3_preparation_v1.json为准备记录而非启动许可。goal active，质量与类似降幅尚未被新对照证明。
+
+- **v3入口与回归续进（0新调用）：** 新adjudicator提示明确decision与quality_coverage双产物，policy显式H1/F4，独立复核确认动态规则schema及608→620/625限额；补真实overlay与缺裁定sidecar终止负测，driver16+schema6通过。全量547项535过/12 NumPy跳过、0失败（70.110秒；扫描早于新增负测，后者另测），见audit/factory_efficiency_v3_preflight_v1.json。新WC输入40文件逐字节复制，EXP投影84文件，job/package结构及实际prepare_material_job发布检查通过（来源64/24）；均未冻结/未跑模型/runtime。
+- **EXP科学入口纠正而非手修材料：** 独立复核及root核原文S3.SS2/A4后，不能将作者N5000/D2000/S1–S8以scoped名义强制为solver配方；新job/notes明确保留弱信号均值、单位噪声、方法/公平比较和定性偏移问题，数值规模/网格/实验分配交solver，假设明确为参数族内限定检验、不冒称复现原八点命题。取消旧near-chance自动defer，低分/未复现作者分数不是材料失败；原笔记全保留并标明新入口优先。源码/科学资产仍原字节，由两臂模型实施同样修订；2400秒恢复指令显式优先于投影keep-resources说明。audit/factory_efficiency_v3_exp_autonomy_review.json与新projection绑定；独立入口冲突复核进行中。账本仍608/1668，本goal用3余17，goal active，尚未证实新版本质量与降幅。
+
+- **v3真实冻结与启动：** 独立入口复核确认EXP/WC全部相对来源/库存匹配、科学资产原字节、旧notes完整后缀、新override优先且无task_scopes残留。cases_v1/authorization及execution已冻结139代码/prompt/config与5overlay（含动态schema绑定），verify_execution通过。开始exp_autonomy_repair/old单臂最多3次，exp-old.log；B止620，goal止625，无自动重试。运行尚未验收，不宣称质量或节省。
+
+- **v3 call609真实429终止（新失败保留）：** 首臂仅constructor一调用，27.344秒，累计输入121,013（8普通+58,751 cache-write+62,254 cache-read）、输出2,479；provider明示session limit/00:40 America/Chicago，terminal api_error_status429且is_error=true，不能因subtype=success冒称成功。臂30.265秒后failed_needs_attribution，PTY18419已exit0（controller退出≠材料成功），没有review/adjud调用；账本609/1668、无reserved，本goal用4余16、止625。未产完整候选，质量未评、两臂未配对、无降幅结论。
+- **首次429止损已实证：** 139冻结文件复核未变，直接对真实账本调用只读reservation预检，old/incremental下一调用均被provider-rate-limit门拒绝，账本字节未变。证据D:/mrhbench-local-pilot/factory-efficiency-v3-20260926-001/audits/call609_controller_stop.json；独立完整轨迹审计进行中。已询问额度恢复后是否另开有记录的续跑批次、仍守625总上限；本批不自动重试/换arm绕过，重启构造也须另计调用。上一goal turn属实际修复/冻结/启动的进展，本轮属已确认终局故障取证与止损进展，非第三次阻塞，不标goal完成或blocked。
+
+- **609独立终局审计完成：** call609_independent_rate_limit.json（SHA07a17bfb…）全读46事件、19动作/回执（Glob1/Read18），18份完整读回与发布文件匹配、路径均在constructor范围；无Write/Edit、无output或partial候选，review/adjud未启动。冻结139及constructor输入hash复核通过；审计起始未计时故耗时null，不记0。限流为provider终局而非科学材料失败，未追加模型调用。
+
+- **429阻塞复核第2个连续goal turn：** 权威账本仍609、reserved0、首臂终局未变，尚无用户有界续跑答复；上一turn完成故障取证属进展，本turn仅重核、不冒称新进展或活进程等待。所需真实配对/科学质量/成本与条件新单元验收均缺失，不能完成goal；不能用付费探针或换arm绕过首次429停止。记录continuation_blocker_check_2.json，goal保持active（未达3次阈值）。
+
+- **429阻塞第3次复核：** 当前账本609/无reserved、首臂terminal429未变；上一turn只有状态重核无进展，当前无新有界续跑答复。离线修复/测试/完整失败审计已完成，缺少真实配对质量/runtime/成本及条件新单元证据，不能以离线结果代替。达到连续3次同一阻塞阈值，goal改blocked而非complete；待用户确认恢复后以新有记录批次继续，仍受625总上限约束，不自动重试。记录continuation_blocker_check_3.json。
+
+- **2026-09-27用户告知限额应恢复：** 按继续有界工作的语境准备新批，不以时间推断provider已恢复。原139冻结与ledger609/无reserved重核通过；用户恢复消息及新边界绑定在audit/factory_efficiency_v3_resume_authorization_v1.json。独立新调度adapter开发中，旧engine/prompt/案例/失败不改；新root为factory-efficiency-v3-resume-20260927-001，baseline609、配对最多12止621、总仍止625，再429再停，不额外付费探针。原goal本批已用4，完整配对后只余4不足原C源2+初构审阅裁定3，届时不得超额或冒称完成；新的恢复阻塞计数从零开始。尚未追加真实调用，goal工具当前仍blocked（工具不支持主动置active），不把调度准备称实际恢复成功。
+
+- **显式恢复新批已启动：** 新resume adapter未改139原冻结文件，7离线测试通过，含原engine/run_batch/三QualityBoundRunner/fake-native真实整链610–612（仅临时账本非真实调用）、缺授权/篡改/新429/预算/重复arm拒绝。独立只读预检通过；真实prepare新root后逐相对路径核139新旧snapshot完全一致，证据新root/audits/snapshot_copy_acceptance.json。启动exp_autonomy_repair/old正常调用，不另探针；使用新adapter一次一臂，上限621/625、旧609失败成本保留。实际provider恢复及材料结果须看该运行，不由reset时间或离线测试推定。
+
+- **用户询问状态后的真实复核：** 恢复首臂610–612三个transport均completed（600.843/535.656/274.719秒），没有新429；总输入9,179,170、输出128,330、模型1411.218秒、完整臂1419.297秒。臂质量门failed_needs_attribution：裁定coverage.identity为issue（controller task_id含iclr2025/OpenReview身份），不能同时pass；原结果保留、尚未独立科学/runtime验收，不启动下一臂。账本612，本goal用7余13止625。PTY11982已terminal；应用goal仍blocked并非paused，先前实际手动续跑未恢复自动goal，工具没有active/resume入口，需用户在goal界面恢复；此前未说明这个状态区别是沟通遗漏。
+
+- **Goal现已真实active；身份缺口复现（零新增调用）：** get_goal确认用户恢复成功。独立初审指出reviewer其实已读到task_id的OpenReview标识却按controller责任写identity.clear；adjud写issue仍pass，质量wrapper正确挡下，不能简单称reviewer未看见。root以实际612候选走compile_package→export_task零调用诊断，确认公开task.json.task_id保留源标识；顶层paper_id/private reference并未直接export，不扩大为已发生solver运行泄漏。diagnostics/identity-original-release使用明确虚拟image与诊断预算、未执行solver/runtime，证据audits/identity_export_reproduction.json，原候选未改。
+- **修复方向：** 新opt-in material_public_identity模块开发中，controller持久化随机opaque ID私有映射，必须在canonical候选阶段统一使用，贯穿公共面review、编译outer/public ID、预算/collection及后续builder registry；不能只在最后export遮一个字段。映射不挂solver，同一任务各臂复用ID；原scientific资产不自动替换，公共facts/contracts/路径/bytes残留须拒绝/语义审阅，最终release包括controller新增字段还需审核。改包hash后旧review/runtime不得继承，旧610–612保留不修分；账本仍612、余13/止625，不启动新模型追调。
+
+- **身份foundation实际诊断（0新模型）：** 新material_public_identity.py/9测试通过；持久随机128bit opaque map与私有回执、仅task_id新副本、严格预算/collection remap、candidate/实际release扫描已实现但未接生产driver。root对612原候选另存diagnostics/identity-projection-v1，7公共资产字节不变，经实际compile/export后task_id为opaque、已知源ID无匹配；原package未改，无runtime/solver，旧review/runtime不继承，证据audits/identity_projection_diagnostic_v1.json。独立审计identity_release_attribution.json确认平台ID缺陷及两角色的责任归属豁免错误，质量门正确挡下。
+- **独立负测继续修复：** reviewer在新scanner发现有效JSON资产（不限后缀）Unicode转义能藏已知源ID，原raw UTF8检查漏过；不是语义匿名性保证的问题，而是已知JSON键值应解析检查的工程缺口。新模块正在修并补负测；9测试/实际612诊断仅先前证据，不冒称覆盖此编码。完整离线回归已启动（identity_foundation_full_tests_20260927.log），完成后与修复后定向测试分别记录。goal active，仍612/625，未开下一真实臂。
+
+- **JSON扫描修复与回归：** 新模块现对UTF8有效JSON资产递归检查全部键/值，object_pairs_hook保留重复键全部值，避免覆盖隐藏标识；逐资产明确strict_json_keys_values_scanned，非法/非JSON不冒称解析。11定向测试通过，v2审计保留v1负例；root用新版重扫实际诊断candidate/export，另存identity_projection_scan_v2.json不覆盖旧receipt。全量564项552通过/12 NumPy跳过、0失败（124.652秒）；该扫描开始早于新增2个JSON测试，后者由11定向单独覆盖。仍0新模型、无科学验收转移，下一步独立复核后将ID分配接入构造前控制器及最终发布门，不能凭foundation关闭goal。
+
+- **身份接线继续（0新模型）：** 新material_identity_release.py实际串联factory_runtime.compile_tasks→export_task→最终全view/资产扫描；强制全部opaque预算与收集key/显式wall，无默认预算回退，不压掉facts，不继承review，旧runtime package hash/digest拒绝；全部产物为私有待审staging，不自动solver准入。4新测试及独立额外6负测通过，audit/material_identity_release_offline_v1.json。新IdentityBoundRunner已写但root发现真实顺序问题：constructor原生允许CONTROLLER_FILL，batch在其返回后才填hash；过早scan会误拒真实输出。正在修为ctor只核ID/type、记pending；batch原顺序fill后review开始前严格扫描，known泄漏在第二次付费前拦下，并将fake整链改为真实sentinel。未改139冻结或旧run、未追加调用，ledger612/余13止625；代码接线与真实验证仍分开。
+
+- **IdentityBoundRunner顺序修复完成：** 6定向测试root与独立复核通过；old/incremental实际run_batch+三QualityBoundRunner fake链使用合法CONTROLLER_FILL，package.constructor_original保留sentinel、原batch唯一填hash。ctor receipt明确pending，known public泄漏在review原生调用前拒绝；三角色assignment一致、map只controller读不复制，quality unknown仍不能pass，binary unknown未机械清除。v2审计保留v1假fixture预hash盲区。新runner+release组件尚待新driver显式冻结接线及真实模型/CPU/最终公开面验收；没有把新组件通过追认为610–612成功。ledger612不变，goal active。
+
+- **真实身份runtime→发布整链诊断（0模型）：** root先读完Dockerfile/smoke与5个starter文件，再对另存匿名候选运行verify_runtime；fresh非root无网络容器smoke7.375秒通过、清理verified_absent，真实image sha256:2bd45e9f…，原declared2400秒/2CPU/4GiB/256PIDs/2GiB写配额，smoke900秒上限不等于任务时限或完整科研可行性。随后新compile_identity_release用该新package hash/digest/runtime真实record编译/export7公共资产，最终known-ID无匹配、全部语义门pending；模型/工具1及1MiB收集为明确诊断设置，未跑solver、不当正式配置。audits/identity_runtime_release_integration_v1.json；Epgo只作development_regression不冒称新留出。
+- **用户条件预算更新：** 用户明确“允许条件追加4次，最高629”；baseline612配对最多12止624，只有两组新对照科学/runtime/最终发布质量和冻结降幅通过，才可新单元最多5止629；未通过不动用额外4，全球1668未改。audit/factory_efficiency_v4_conditional_authorization_v1.json记录，当前ledger仍612。v4driver正在独立新增接IdentityBoundRunner与release gate；private prior不强制手工匿名化（它是模型要修的输入），构造前assignment规定opaque输出。
+- **新鲜选例限制透明保留：** audit/factory_efficiency_v4_case_selection.json先报告无现成带旧独立review的新EXP，3n4RY25UWP仅原结构失败/缺review的条件候选，WC仍未跑。工具本已支持missing_prior_review，缺review本身不强迫另花调用；正在独立读3n原科学任务/来源判断真实返修价值，不看返修后结果、不伪造review/缺陷、不把Epgo换名冒充新留出。尚未冻结v4或启动真实调用。
+
+- **runtime发布整链独立复核通过：** identity_runtime_release_independent_recheck.json逐项核candidate rawhash/digest→runtime→compiled/release绑定，7公共资产三处hash一致、export恰8文件无private/map、所有gates pending/reviewer None，重扫controller notes吻合；stdout自报6.2秒、controller记录7.375秒口径分开。root另查同名daemon容器无残留。v4真实runner接线离线实现中，尚未execution freeze；新候选选择需保留missing priorreview事实，但工具原就支持缺失review，不以额外预审模型调用补造历史。核心真实性及两臂新的独立审核要求不减。
+
+- **v4新输入与门禁已冻结（2026-09-27）：** 3n4RY25UWP EXP真实原候选缺review、coverage重复8行，单任务投影保留缺陷供模型修，不伪造旧review；72来源与8科学/环境文件字节未改，4投影测试和独立审计通过。6ouZaBzeNO WRITE_CONTENT未跑输入40文件与v3冻结副本一致；新两例均fresh_validation，Epgo旧修复仅development_regression。audit/factory_efficiency_v4_3n4_entry_addendum.json及projection_independent.json明示绝对/比例下降的科学表述矛盾、strict JSON等静态风险、投影诱发smoke工作，不冒称已观察数值算法失败。
+- **v4工程验收与新调用：** 第二pair准入从任意独立review/空export漏洞修为本arm candidate/runtime/完整compiled public资产/actual export/独立全公开面报告逐项hash绑定；9独立gate测试通过，整体589测试577过/12依赖跳过，语义真值仍须人工独立阅读。D:/mrhbench-local-pilot/factory-efficiency-v4-20260927-001/execution/manifest.json冻结146文件，verify通过；原103/132/139历史snapshot全部hash未变。用户已被告知先EXP旧臂最多3次，call613 constructor已reserved，session96072及exp-old.log为在途证据，尚无质量/降幅结果，不重启未确认终止的进程。当前baseline612、paired硬止624，条件额外4至629仍须两组质量/降幅全部通过；本轮未启动正式评测。
+
+- **v4旧臂613–615已真实结束并止损：** constructor590.281秒、reviewer344.344秒、adjudicator162.469秒，3次调用均transport completed；reviewer revise、adjudicator drop，非schema/调用失败。三角色合计输入6,223,522、输出98,329、模型1097.094秒；pipeline1113.391秒，维护者/独立审阅另计，不推订阅美元。公开F-S-H1末句直接引用作者“all accuracies decrease”观察，root核原paper S3.SS1.p3，独立科学审阅亦阻塞；本轮质量门正确抓到，而非放行。test-selection helper与task优先规则不一致另记需澄清，不把合法待验假设误判为结果泄漏。audits/exp_old_stop_and_cost.json与exp_old_independent_science.json保存全部失败；无增量臂或WC新调用，不能计算等质量降幅。
+- **v4真实runtime及发布审查：** 613候选新依赖镜像构建1.203秒（缓存层）、4CPU/4GiB/256PID/2GiB可写容器smoke8.766秒通过、stdout7.4秒，UID10001/none网络/只读/白名单2公开文件，容器已清理。不是目标vMF sweep或2400秒预算充分性验证。actual release私有审查staging包含task.json+2资产，opaque任务ID/公开资源键及controller notes无known identity匹配，仍完整包含上述作者趋势因此不得发布。显式沿用已冻结factory EXP开发候选16模型/120工具/128MiB/2000项，物理资源不变，不冒称正式预算；无solver调用。当前ledger615/1668、0reserved，原625还剩10，条件追加4未解锁。已询问用户是否调整为625内最多6次明确回归验证；回复前无新模型调用，完整native轨迹独立审阅进行中。当前goal active，既未完整准入也未证明目标降幅。
+
+- **v4轨迹审计已完成：** exp_old_native_trace_review.json完整解析525事件、108工具/108回包及13输出文件重建匹配；三角色同政策、sidecar保留issue，正确revise→drop，未发现阻塞工程缺陷。两role单行source_navigation回包截断，另一次cwd外Grep只读本session工具回包、已原源复算吻合，不声称完整原文呈现或OS隔离。exp_old_root_closeout.json绑定最终审计、146文件冻结重验；root再次核smoke容器无残留。ledger仍615，下一paid步骤待用户对有界回归调整的答复。
+
+- **来源导航截断的零调用改进（待新协议接线）：** 新增独立opt-in paged_source_navigation.py，不改146冻结文件/原导航/source或任何模型材料。对真实单行导航的233个unit保序无损分为13个JSON页+索引，每文件≤16000 bytes，重组与原JSON深度相等、source hash绑定；超大不可拆unit/索引显式拒绝，绝不截断后称完整。5测试通过（首轮fixture不足一页而错误期望多页，已改8KB测试界限），audit/paged_navigation_diagnostic_v1.json。尚未接native runner、未验证模型实际读完或节省token/耗时；页头会增加总字节，不能当压缩或已降本。独立轻量复核进行中，ledger仍615，用户回归计划答复前不再启动paid步骤。
+
+- **分页独立复核完成：** paged_navigation_independent_review_v1.json复核5测试及真实233unit重组、13页最大15876B，另核oversize metadata/index拒绝无部分输出；未发现阻塞。可供后续新freeze显式接线，仍无native读回或降本证据、无新模型调用。
+
+- **v4实测角色成本诊断（零新调用）：** factory_efficiency_v4_role_cost_sensitivity_v1.json按613–615拆分：constructor输入2,111,016、reviewer3,201,955、adjudicator910,551；后两角色占输入66.08%。若保持审核成本不变，即使constructor输入归零，总输入最多降33.92%，达不到冻结45%目标；仅优化写文件不够。时间目标45%要求constructor590.281秒压至≤96.589秒（尾部审核成本假定不变）；输出50%要求constructor57950降至≤8785.5。这是失败旧臂的条件代数诊断，不是成功基线/预测，也不据此削弱独立审核。后续须同时验证增量证据导航是否降低review/adjud成本；无实测不得宣称分页/缓存已实现目标。ledger615、0reserved，下一paid方案仍待用户选择。
+
+- **Goal阻塞审计（待工具返回状态）：** 原旧臂drop后，后续分页与角色成本两轮虽有零调用实质进展，但同一paid验证方案/预算阻塞持续；当前再核615、0reserved、无incremental启动。替换两组完整新对照需12次而原额度余10，条件4次不能提前挪用；已询问625内最多6次回归调整，尚无答复。factory_efficiency_v4_blocked_audit_v1.json明确未完成项与恢复条件，不以回归/离线/正确拒收冒充新鲜等质量降本验收；停止重复轮询和边缘开发，等待用户决定。
+
+- **用户新额度与Goal恢复：** 用户明确“额度可以增加，增加到700”，当前账本615、0reserved，因此本goal余85；全球1668不改，旧冻结625/624/629记录不覆盖。工具已核Goal active。audit/factory_efficiency_goal_authorization_700_v1.json记录新绝对上限700；先最多6次、止621做明确修复回归（非新留出），同全政策/独立review+adjudication、同输入与公共identity；再依据结果冻结新鲜验证对照及有条件prospective。不把85用尽当目标、不自动重试，429仍停。此前预算/方案阻塞已由本授权解除，旧drop不改判，不用回归成功替代goal最终新案例降本验收。
+
+- **700额度下的新回归准备在推进（未调用模型）：** root新增PagedNavigationRunner外层wrapper，两臂三角色共同获相同lossless分页导航，原nav/source不改；仅明确size超限回退原文件，hash/结构不符拒调用，角色结束校验导航不可变。5测试及独立三角色真实输入临时副本检查通过，未宣称实际模型读取/降本。driver协作者正实现新regression module/CLI（baseline615、phase max6/stop621、round3、class development_regression），不改146冻结source或绕v4固定预算；selection协作者新目录复制613候选/614review/615accepted notes，科学字节不手改，正常旧opaque→新opaque map，两臂共用。root尚未freeze或授权启动；整链fake与独立review通过后才调首臂。
+
+- **新regression已冻结并启动（2026-09-27）：** 603项全离线测试591过/12依赖跳过；独立driver四层wrapper整链4测试及source分页复核通过，root逐项核94复制binding原/新字节一致。factory-efficiency-regression-20260927-001/execution/manifest.json冻结150文件并verify通过，case为exp_author_trend_regression、round3、development_regression，旧drop永久不改。已告知先旧臂最多3calls，启动session8949、exp-old.log；以实时ledger为准，尚无本轮科学/成本结论。phase硬止621/goal700，首臂drop/429拒继续；第二臂前root另核完整科学/runtime/actualrelease，不把native pass当全部准入。历史146冻结代码未改。
+
+- **regression616–617新终态与付费证据恢复诊断：** 616constructor488.688秒、617reviewer404.625秒均native completed，模型共893.313秒/pipeline902.734秒，输入5,941,716/输出90,667；尚未调用adjudicator。617 rawdecision pass_with_pending_runtime但coverage.core_science=issue，指出R3-F1零设置headroom/floor效应（自称minor/nonblocking），被严格门以Cannot pass unresolved full-package checks: core_science拒绝；原result=failed_needs_attribution永久保留。独立科学actualrelease审阅未发现本次阻塞（未看617），泄漏真实移除、统计边界一致；真实新runtime passed，公共release另存pending，绝不以此消掉617意见。
+- **不重跑已付费构造/审核：** 正独立核完整616/617证据及异常后未写的外层receipt，准备若可核实则另存显式continuation只调用原定第三adjudication（最多1新call、621phase帽内），带原review+coverage+失败诊断、同冻结policy/identity/paging，adjud可以裁定科学争议；不规范化原decision、不把issue改clear、不把旧failed改completed。只有独立完整性审计后root allow_adjudication_only批准才能启动，当前ledger617/0reserved。该恢复能力与任何后续调度均新文件，不改150冻结代码；不是自动retry或已完成配对。
+
+- **显式单步裁定已冻结启动：** 独立完整性审计233绑定/386events/85tools通过，结论仅eligible_for_explicit_adjudication_only；root另存allow_adjudication_only授权，不是科学准入。新material_adjudication_continuation适配器6项fake/负测全部通过（root25.203秒），冻结SHA282bef1b…，原150文件不改；continuations/exp-old-adjudication-001只允许1新call，phase仍621/goal700。已启动session95825，仅送原617 review+coverage+冲突诊断交原定adjudicator，同完整policy/identity/paging；最终pass仍不得带issue，原failed保留，paid总成本含616–617。尚无新裁定结果，不启动增量臂。
+
+- **call618裁定drop（原失败保留）：** 单步continuation完成，原arm逐文件未变；native拒R3-F1 headroom意见，但把R3-F2“绝对下降量可能将相同比例削弱判支持”升major并drop，最终core_science仍issue。独立科学/完整165events与工具审阅进行中，未启动增量臂；不改round3/drop、不把另存诊断当原pipeline成功。618耗279.765秒、输入1,594,999/输出25,821；616–618模型1173.078秒、输入7,536,715/输出116,488，原pipeline+诊断活动墙钟1186.125秒（不含人工审查暂停）。账本618/0reserved，goal余82；transport failed_calls=0不表示材料通过。终态审计exp_old_adjudication_terminal_attribution.json。
+
+- **618独立审计闭环：** exp_old_adjudication_diagnostic_audit.json确认drop_supported_by_binding_H2_contract_conflict；165events/34tools、24Reads逐行、2writes字节及原arm/各层receipt一致。raw准确率比例及chance-margin比例两种独立反例均可骗过absolute-only判据，故不归schema/identity故障。仅读分页catalog而非pages，不冒称全源。C1允许relative/normalised/comparator，不唯一指定归一化；adjud建议双判据、扩大H1及近chance分母处理需另科学设计，不自动照抄。下一步先零调用限定最小修复范围，停止本候选增量臂；goal保持active，尚无新鲜配对降本验收。
+
+- **本goal续轮零调用进展：** 前轮分类为progress（真实618裁定与独立反例改变下一步）。新factory-scope-preflight-20260927-001提出并独立复核H2选择性去共享的新操作化，9例18数值Decimal核对；root_scope_decision.json仅批准未来独立版本development_regression使用，不将616/618改判或称新鲜验证。保留方法/数据/资源与H1原范围，不强制特定归一化双条件；未来request/public/private必须统一替代旧absolute-only解释，预声明null仍需科学审核。当前无新candidate应用。
+- **决策一致性与成本证据：** 新opt-in material_decision_guidance.py仅提示既有issue/unknown不兼容任何pass，4tests及独立复核通过，原17quality-contract测试通过；不改模型输出/不自动清issue/不重试，未真实调用验证。evidence_repetition_cost_review.json与material_evidence_read_cost_diagnostic_v1.json确认各role通常未重复整读package，主开销包含必需独立证据与多工具回合上下文重播；616–618审核+裁定占75.71%总输入，与613–615的66.08%不是同一批。原生已支持并实际批量Read，617为51tools/29tool-bearing messages、618为34/14，不能把批读建议冒称已节省成本。另存小evidence_read_batching.py只给增量臂可选读取调度提示，完整科学证据与三角色不削减，4fake tests通过。
+- **下一真实对照准备（尚未freeze/调用）：** 为停止同例盲修，先取原v4预选但未跑的6ouZaBzeNO WRITE_CONTENT，顺序仍incremental→old；新v5目录40输入文件与原逐字节一致、新opaque map绑定新private prior。audit/factory_efficiency_v5_cases_v1.json与phase_authorization_v1.json另设baseline618/max6/stop624，累计仍700，不重置已花618、不追认原失败成功。新driver正在离线实现/独立预检，第二臂必须首臂actual科学+runtime+release全门通过；drop/429停。两臂同全policy/identity/paging/decision提示，仅增量启用seed/navigation与批读提示，比较流程组合而非纯constructor因果。WC只是一组新鲜对照，完整goal仍需第二新例及通过后prospective；当前ledger618/0reserved。
+
+- **v5已冻结并真实启动首臂：** 40输入/24来源独立预检通过，无类似3n的显性scope冲突；fresh仅指未用于efficiency比较，非未构造。622全离线测试610过/12依赖跳过（219.069秒），新driver5整链/负测与batching4另经独立复核。execution/manifest.json冻结156文件并verify通过，root_start_preflight绑定输入/代码审计/全测试；原v4的146与regression150仍完整。已启动write_content_repair/incremental，session41267、write-content-incremental.log，第一臂至多3calls；第二臂不会自动启动，须新候选独立science/runtime/actualrelease全通过。本phase止624、goal700；不得因观察超时重启，须同handle核状态。尚无质量或降本结果。
+
+- **v5首臂中途实测（619完成、620仍在途）：** 上一goal turn为progress，本turn复核同session41267确live、不重启。619稳定候选经root先读Dockerfile/requirements/smoke后，真实新CPU容器smoke3.14秒通过（1CPU/1GiB/64PIDs/512MiB/600秒，非root/无网络/只读三资产，清理verified_absent），仅环境验证不是完整solver预算证明。root首次compile误传source_manifest为字符串，TypeError属维护者调用错误，失败staging与invocation_error.json保留；改用constructor request sources后新incremental-002 staging成功，不改模型candidate/不耗调用。最终公开task+3资产known-ID0/binary0，待独立语义门。
+- **619盲审初步结果：** write_content_incremental_preliminary_science.json在未读620前完成（168.315秒），核全部33publicfacts、三资产、私有reference/必要源锚点及actualrelease，未确认阻塞，F1/F2/F5修复成立；WRITE方法数值合法。MF08“scales linearly”可合法理解固定T高频尺度，并未要求所有有限窗精确比例，不能用更强命题反例误判；明确非finalgate。root预固定两臂相同WRITE开发release预算4模型/60工具/600秒、16MiB/500entries，不是正式或solver已测配置。完整620/621轨迹与最终独立门仍未完成，旧臂未启动。
+
+### 0.2.20 P11 batch2复盘修复与executor改定（2026-09-30，Claude Code）
+
+- **修复（均零调用验证；repo未改，D盘进程内补丁+`D:/mrhbench-local-pilot/factory-v5-driver/repo_merge_v3/PATCHES.txt`第5–8项待git会话合并）：** ①单次工具超时只停该命令不再杀容器（容器内`timeout`，结果标`tool_timeout`，Docker实测；遗留僵尸进程占PID）；②`io.write_json`在Windows替换冲突时重试（#1139丢失原因）；③broker接受`/work/<p>`绝对路径（冻结H0自身拒绝绝对路径，故对H0靠④）；④release-v4零调用重编译13单元：改正发布说明第1条（旧文仍称`assets/assets/`双前缀，与补丁后实际单前缀不符）并写明`/work/<p>`→`<p>`路径约定，LIT加工具映射说明；资产/预算/资源/task_id逐项断言不变；⑤共享库页文本保留arXiv锚点`[§S2.p3]`（182篇HTML中179篇有），声明页码为控制器分页；⑥检查：合同字数上限（flag）、提交声称路径须已收集（`claimed_paths`）；⑦judge **v3.5**（`judge_v35.py`，v3.4原文后追加6条：缺失须先搜证、判错须引两侧原文、失败类型以平台记录为准、任务/平台不一致单列不归solver、确定性检查逐条确认、私有参考不入反馈）+公开证据`controller-platform-failure-summary`。v3.5尚待§7.2逐轨迹验收。H0按协议未改。
+- **executor改定（用户2026-09-30）：** opus-5-5过强（旧均分约3.4）、haiku-4-5过弱（约1.2，且退役不早于2026-10-15）会压缩builder区分度。校准：Sonnet 4.6/medium三题3.75/3.5/2.8（偏高）；**Sonnet 4.6/low** WC2.75/WE2.75/IDEA3.0/KST EXP2.0。用户**固定executor=claude-sonnet-4-6 / effort low**（`factory-v5-driver/config/role_transport_sonnet46low_executor.json`，同一faithful wrapper；judge仍opus-5-5/medium v3.5；H0冻结v3）。单次运行波动约±0.5，未作多次重复；LIT尚未在此配置测。旧opus/haiku分数为release-v3/judge v3.4条件，只作参考不混比。
+- **重测结果（10题，Sonnet4.6/low，release-v4，judge v3.5）：** tree-RL WC2.75/WE2.75/IDEA3.0/EXP0.5/LIT1.75；KST WC3.75/WE2.75/IDEA2.6/EXP2.0/LIT0.5；均分2.24。首轮tlit/klit/texp撞429（1347–1349）未评，保留，`-r2`新目录重跑。账本1417/1668。
+- **逐轨迹审阅（3个独立subagent，零调用，`D:/mrhbench-local-pilot/p11-sonnet46low-review-{A,B,C}.json`）：** 审阅者分与judge差≤0.25（10题中9题完全一致或±0.25）；无私有泄漏；v3.5规则1/2/3/5/6基本遵守，规则4（任务/平台不一致单列）最弱。**归因更正：** texp与klit的0.5主要不是收尾预留，而是H0的4条观察窗口致executor遗忘（texp编造starter中不存在的import三次崩溃；klit把bibliography.json重写18次、其余交付物未写），预留仅占1步。新发现H0缺陷（冻结不改，仅记录）：写回执只含路径/hash、模型看不到自己写的内容（IDEA两题hypotheses与proposal不一致、WC覆盖映射错位）；run_python忽略args.text；不向模型展示其历史动作。**root自身引入的bug：** 库页说明与LIT提示中的示例锚点`[§S2.p3]`被模型照抄成不存在的引用；锚点在部分节内稀疏。其他待修：失败摘要把ProtocolError一律描述为代理/schema问题且未含H0 stop_reason；broker工具错误无原因码（改需升接口版本）；检查漏读task.md/`requirements`中的字数范围、复合required-files键未按路径检查、WE manifest无schema检查、LIT引用可解析性检查未实现；材料层面task.json合同与task.md措辞不一致（tree-RL WE manifest字段）。judge另有：未读harness_notes、部分事实表只读一半、个别单缺陷多维重复扣分。
+- **第二轮修复（2026-09-30，用户要求修框架与材料bug；executor确认固定Sonnet4.6/low）：** v3.5重评旧opus KST WC：3.75→4.0（v3.4误判事实错误的traceability扣分消失）。框架（零调用）：release-v5去掉示例锚点（LIT提示与库页说明改为“抄最近的锚点、不得自造”；锚点并不稀疏，S2正文在S2.SS1.*下）；失败摘要中性描述ProtocolError并列出失败工具路径是否存在及H0自报stop_reason；检查新增task.md/requirements中字数/token上限、复合文件键拆分、同名schema（WE manifest）、LIT锚点可解析检查（tree-RL LIT唯一不可解析的就是照抄的S2.p3；KST EXP缺config.json现被检出）；judge **v3.6**（`judge_v36.py`，+规则7–10：任务/平台不一致核对、如何结束、关键输入读完、一缺陷一处扣分），待§7.2验收。broker原因码未做（worker/broker hash绑定在冻结H0 freeze.json且H0读不到新字段，留接口v5）。材料（经标准pipeline的维护返修，`maintenance_repair.py`，controller写返修请求→增量构造→独立审阅→裁定pass/drop→runtime→release-v5）：tree-RL WE（合同写明manifest字段+新增`manifest.schema.json`，数据/起始代码字节不变）与tree-RL LIT（task.md改为实际三个文献工具与锚点规则）均审阅pass、裁定pass、runtime passed；调用1418–1424（LIT裁定撞429一次，`--resume-adjudication`续跑，失败目录保留）。合并说明`repo_merge_v3/PATCHES.txt`第9–13项。下一版factory prompt应加“合同与task.md字段/文件一致、任务文本描述实际工具”规则（改prompt须新factory根）。账本1425/1668。
+- **统一条件下的10题成绩（Sonnet4.6/low，release-v4/v5，judge v3.6，新检查；2026-09-30）：** 重跑3题（新目录`p11-v5-sonnet46low-{twe,tlit,klit}-v36`）+其余7题v3.6重评（`<run>/rejudge-v36/`，原评分保留），调用1426–1478全部completed、无429。tree-RL WC3.0/WE2.5/IDEA2.8/EXP0.75/LIT1.75；KST WC3.75/WE2.75/IDEA2.8/EXP2.0/LIT1.25；均分2.34（模块：WC3.38/WE2.63/IDEA2.8/EXP1.38/LIT1.5）。tree-RL LIT锚点引用全部可解析（示例锚点问题消失），claims.json schema仍失败（executor）；KST LIT交付齐全（0.5→1.25）。控制台已改为读取重评结果并标judge版本与executor effort。账本1478/1668。
+- **judge v3.6逐轨迹验收（3个独立subagent，零调用，`D:/mrhbench-local-pilot/p11-v36-acceptance-{A,B,C}.json`）：三组均“带保留通过”。** 审阅者分与v3.6：10题中7题完全一致，其余差0.25（EXP两题judge各高0.25）；无私有泄漏；规则3/8（失败归因、如何结束）全部到位，规则10消除了v3.5的重复扣分，KST WC事实表本次读全、v3.4误判未复现；7题v3.5→v3.6分数变化均值+0.07、无单向漂移；judge成本约+19%（列表价估算）、墙钟持平。保留意见：规则9对长文件仍只读首尾（均自行声明，结论经核对成立）；规则7漏判数处（KST EXP schema检查缺失、KST WE数据说明“随w增长”与任务事实“w²”不一致被算给solver、KST LIT task.md的工具描述与平台不符）；tree-RL EXP结论分2偏宽（审阅者给1）；个别事实错误（称solver未看图/未读定理段，实际都有）。单次运行，规则效应与噪声未分离，不等于全局可靠性证明。
+- **第三轮修复（零调用，PATCHES第14–16项）：** 第二轮复合键拆分引入的回归——KST EXP的results.json schema检查被丢——已修（按文件自身合同条目绑定schema，兼容`_schema.json`；补跑该提交schema通过，judge当时依赖solver自报结论无误，不重评）；多文件schema（`files`映射）可逐文件检查，KST LIT claims.json的schema失败（confidence用了数值）现可检出；锚点检查对未读摘要的“abstract”与“§1”类伪锚点判不可解析（tree-RL LIT 29处中20处不可解析）；库read说明不再写“PDF page”。
+- **pipeline漏洞与材料第二轮维护返修（2026-09-30/10-01，用户批准）：** 根因确认：factory v4 constructor addendum从未告知平台实际工具（文献三工具、锚点格式、CPU只能跑/work下脚本），两篇LIT都编造了接口。新增零调用确定性检查`task_platform_lint.py`（未授予的工具调用描述、LIT未提literature.*、要求运行公开根目录脚本），回看可抓到全部已知问题并新查出KST WC同类问题；下一版factory constructor“平台契约”草案在`factory-v5-driver/prompts_next/constructor_platform_addendum.txt`（改prompt须新factory根，仅影响以后批次）。维护返修KST LIT（task.md改为实际工具/锚点、check_output.py先复制到/work再跑，release-v6）、KST WE（“随w增长”统一为w²，release-v5）、KST WC（check_output.py运行说明，release-v5），均审阅pass、裁定pass、runtime passed、各只改一个文件、lint清零。重跑首次三题均首请求429（1488–1490，保留），`-m2`重跑：KST LIT 2.0（1.25→）、KST WE 3.25（2.75→）、KST WC 3.0（3.75→，judge扣的是局部缺口，属单次运行差异，非材料问题）。
+- **当前10题成绩（Sonnet4.6/low，judge v3.6，最新材料与检查）：** tree-RL WC3.0/WE2.5/IDEA2.8/EXP0.75/LIT1.75；KST WC3.0/WE3.25/IDEA2.8/EXP2.0/LIT2.0；均分2.39（模块：WC3.0/WE2.88/IDEA2.8/EXP1.38/LIT1.88）。每题单次运行，波动约±0.5。账本1524/1668。
+
+### 0.2.21 factory-v6：平台契约、OpenReview取源、并行与7篇新论文（2026-10-01/02，Claude Code）
+
+- **factory-v6驱动**（`scripts/factory_v5_driver/factory_v6.py`，进程内组合，不改仓库核心文件）：v5基础上①constructor/审阅者提示词追加平台契约（v6.1：精确授予工具名`artifact_read_write`/`cpu_python_execution`/`artifact_image_view`，LIT加`literature.*`；审阅者检查内嵌同一权威描述——v6漏列看图工具与文献签名，造成2处误判，已修）；②编译用冻结executor预算（`executor_budget_freeze_v1.json`：EXP16/WE12/WC10/IDEA10/LIT30）并跑`task_platform_lint`；③**OpenReview优先取全文**：用户账号经官方API（openreview-py）取会议终稿PDF，凭据在仓库外`C:/Users/li_ha/.openreview/credentials.json`，只在控制器取源步骤内读取、token不落盘、不入任何模型会话；CLI Read把正常PDF误报"有密码"，控制器另用pypdf抽取带页码文本作派生来源；④背景文献截止日改为min(arXiv v1, OpenReview公开日odate)——旧规则只用arXiv v1，审计发现Microcanonical(2412.03312仅有截止后版本)与Root Cause(2406.05014取了v2)混入截止后文献，已重取；⑤`--workers N`并行（v5的`self._ctx`改线程本地，修复跨论文上下文串用）；⑥两条用户批准的接受规则：CLI自行拒绝且未执行的工具调用记警告；引用控制器发布的元数据文件(source_manifest/candidate/source_audit.json)合法；⑦泄漏规则A：私有核查计划/评分细则逐字复述公开要求的命中降为审阅标记，其余仍拦截。
+- **7篇新论文**（批准名单第12–18名，factory-v6根）：构造184次（#1585–1768）+三轮维护返修约75次（含429失败）。截至2026-10-04有效编译题：v6七篇25道（Root Cause 5、Variational Search 4、Microcanonical 4、Leave-One-Out/Gyrogroup/Sensitivity/Integral各3）+v5三篇14道，共39道；Microcanonical IDEA撤回未恢复。维护脚本`maintenance_repair_v6.py`/`maintenance_group_v6.py`：返修说明逐字取自上一轮独立审阅/裁定已接受问题+控制器说明，支持多轮、v5根与已编译单元重建；控制器文件复制步骤（`controller_asset_materialization`，哈希核验）。
+- **事故**：计划任务`/SC ONCE /ST 23:59`占位触发在9-30与10-01的23:59自动重跑旧脚本（多2次调用#1491/#1752，第二个factory进程与run008并发），已杀进程、补记账本、删除46个任务、改为过去日期触发；`audit/incident-scheduler-autofire-20261002.json`。
+- **独立公开面泄漏审计**（零账本调用）：38道已编译题中5道确认泄漏（多为公开justification字段以否定句列出目标贡献/缺口结论），已撤回并返修通过（泄漏原文核对已删；tree-RL LIT与GETS LIT旧P11分数因此作废）；15道存疑待用户/导师判定。教训：下一版构造/审阅提示词须明文禁止公开字段以任何形式（含否定句）陈述目标方法/贡献/结论/日期，平台lint补相应检查；私有核查计划不得增加公开合同之外的要求（3个单元因此drop）。
+- 账本上限1668→1818→1868（用户2026-10-01/02授权）。
+- **factory v7（草稿，用户2026-10-04同意方向）**：`prompts_next/constructor_platform_contract_v7.txt`与`reviewer_platform_check_v7.txt`在v6.1上加公开面规则R1–R5（任何公开字段含否定句不得陈述目标方法/贡献/结论/术语/日期/会议；截止日不写来源；私有核查只能检查公开合同所写；LIT/IDEA问题不写目标角度；控制器复制映射）；`task_platform_lint.py`新增`public_field_disclosure`（含题面内嵌JSON），对4个撤回旧版全部标出、返修版0、现有39题标6处（多为WRITE_CONTENT合法披露，作审阅标记）。待新根factory-v7冻结后用1–2篇小规模验证返修率/泄漏率。
+- **下一步**：27道新/返修题P11试跑（Sonnet4.6/low executor+judge v3.6，共享文献库v5纳入v6背景并用修正截止日）；v7驱动与小规模验证；15道存疑题待判定。git：0f3e9fd/8433fb0/e43ca03（核心PATCH 1因Codex冻结门绑定旧双层前缀，保持驱动进程内补丁）。
 
 ### 0.3 协作与文件规则
 
