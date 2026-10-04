@@ -1,0 +1,697 @@
+{
+  "schema_version": "factory-efficiency-v3-case-candidates-1",
+  "created_utc": "2026-09-27T04:23:07.850516+00:00",
+  "status": "read_only_selection_not_frozen_not_authorized_for_execution",
+  "development_model_calls": 0,
+  "selection_constraints": [
+    "Excluded v1 wing/Diffusion and v2 IDEA diagnostic; preserved unrun 6ou WRITE_CONTENT separately.",
+    "Read only pre-repair candidate/review/adjudication, repair-request INPUT notes, and original sources. No repaired final output, final-review decision, runtime outcome or state was inspected.",
+    "Metadata filenames may reveal historical failed run existence; no choice based on repair success.",
+    "Both recommendations require explicit single-task projection and current-policy review; old notes are not full policy attestation."
+  ],
+  "recommended": {
+    "paper_id": "iclr2025-EpgoFFUM2q",
+    "task_id": "iclr2025-EpgoFFUM2q-EXP-01",
+    "task_type": "EXP",
+    "workspace": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q",
+    "job": {
+      "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\job_repair.json",
+      "sha256": "a6a6fc358914502b7df2548e47bd3d4cbcaf33083ef4dab5b30fd395b02c2216",
+      "bytes": 38777
+    },
+    "prior_batch_root": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct",
+    "prior_package": {
+      "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\package.json",
+      "sha256": "4657b903e21445cd7770626ee605263e62b65588c1a77d05569b89a0b29d9381",
+      "bytes": 64777
+    },
+    "prior_review": {
+      "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\reviewer\\review.json",
+      "sha256": "2a3639c66aa5a14c55e6e62ddf7e9a905aceb9d0f6f27c335712c23dc949e408",
+      "bytes": 24637
+    },
+    "prior_adjudication": {
+      "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\review_adjudication\\review_adjudication.json",
+      "sha256": "325343673606233310aae26d72d2652696fb402bd5c32aaa1252d31906aa312b",
+      "bytes": 13432
+    },
+    "prior_candidate_inventory": [
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\exp\\private_reference.md",
+        "sha256": "0d3d5e552e42c0fd555572cc8fa73f2e6c27eca0a32c6ca4c6757d6cce818d76",
+        "bytes": 3415
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\exp\\settings.json",
+        "sha256": "9a8e2c8a428b4f9ee4766000a354e5de665cf04e56344cb719fc75c8338f21a7",
+        "bytes": 1989
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\exp\\starter\\hwta_starter\\__init__.py",
+        "sha256": "abb52389c5ae6c2da97d5bcc45f1b67dcf3d413ca483c8fb42a804fa37c6ee01",
+        "bytes": 819
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\exp\\starter\\hwta_starter\\backbone.py",
+        "sha256": "f3f724a8fb100058b4f975e26d86bb6e200c35155008da714163515d56c5bb9e",
+        "bytes": 2101
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\exp\\starter\\hwta_starter\\csbm.py",
+        "sha256": "b36a1ec3cc732a115af2acd654256203b7736ffc9d7480285f3a786db784588e",
+        "bytes": 8064
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\exp\\starter\\hwta_starter\\graph.py",
+        "sha256": "ef419eb93316258fb208869a0f88ae0b6142cf44a5fa3f5e8856cbdc652a2b63",
+        "bytes": 1321
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\exp\\starter\\hwta_starter\\train_eval.py",
+        "sha256": "ee44c080e2251002976d1b0fa1ef61d5f8ecc5343a6f7a7568f5e761f0b5259b",
+        "bytes": 2772
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\exp\\task.md",
+        "sha256": "b61fd9eec3f396db00cd1c2ab08863f164a7751be88ff1411bc7ed4dc64d22bd",
+        "bytes": 10349
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\idea\\background_report.md",
+        "sha256": "3d478e5a838533d7fb8a50000b97cc90c0e395a14992135a398c5d43eafd8ce6",
+        "bytes": 6697
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\idea\\private_rubric.md",
+        "sha256": "d3ea54330be0e32f5c4012cc6e143b6b99ec6a7f2ae096c89e82aeabe31db098",
+        "bytes": 1775
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\idea\\task.md",
+        "sha256": "b15980056e5afeffe28400d5f7dcc4b271262dadfcab3b51aeebdb4cc19d1667",
+        "bytes": 1765
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\lit\\private_reference_set.json",
+        "sha256": "951176a6ad97068a3f3a8a64573eb8cb2554b79d95181a26a3c929fd5577ea16",
+        "bytes": 6369
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\lit\\task.md",
+        "sha256": "ac67c1c9a08209322ffe008786e0b4c3587a2e78e67b70d8e27265faa17d0e55",
+        "bytes": 2183
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\write_content\\facts_sheet.md",
+        "sha256": "7942709981af0576303414d84cbbe56b8340554ec86d374af0ff6f48ac42ee5a",
+        "bytes": 5944
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\write_content\\private_rubric.md",
+        "sha256": "26b3775c4b801003c9f242e85bf6d7c81e1ae8702f6223ea534d950a9d0b9884",
+        "bytes": 1600
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\write_content\\task.md",
+        "sha256": "bf3337feeebae9efe59d35f909b497e71c4addad92d6033e8fdcc8a001db111e",
+        "bytes": 2060
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\write_evidence\\load_table.py",
+        "sha256": "ba53046a4ca24a056f060574cc3344943bff1847576b585c869bb4fe3008739b",
+        "bytes": 2690
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\write_evidence\\private_rubric.md",
+        "sha256": "53293dee589923411fefbf3705757d7f732b31dddc719ce9248e348ff1f6fede",
+        "bytes": 1774
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\write_evidence\\provenance.json",
+        "sha256": "8f735b40dba3302f331e88ea2c46b920ed4adea6430987650eb13ac91471a0c5",
+        "bytes": 5731
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\write_evidence\\table1_values.csv",
+        "sha256": "3051e7ad2552f81f1ddf2ecd83abb702f4bd3f4e96047dcb62d5771a619bae4b",
+        "bytes": 15579
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\write_evidence\\task.md",
+        "sha256": "496f59845518fd6d6dbedb47159e83576eab3e8e29ab8168e77b619bee10ac61",
+        "bytes": 3330
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\environment\\image\\.dockerignore",
+        "sha256": "ad4ffbb29ec74c37891a0efba1236aa378fdbf9e7a30b0df8532cdcd7baf4698",
+        "bytes": 32
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\environment\\image\\Dockerfile",
+        "sha256": "2dc33f72ec87666d79c951bd56aa5e7f88ff1a5945e1132e4c06c0dc729eef8c",
+        "bytes": 599
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\environment\\image\\requirements.txt",
+        "sha256": "445ccc2aeae49cc634f0aae1193b14790550242d46b58352e44ae8264bf7371a",
+        "bytes": 417
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\environment\\smoke.py",
+        "sha256": "c6c4bfb17c089bb56bd2cb267a2d464adc1b8b306ffd7a8380cb1bd9746f1c30",
+        "bytes": 8315
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\package.constructor_original.json",
+        "sha256": "abfa08c99dace7fee384891af10c231309de001b4b0ee90db5607e4077f1bacd",
+        "bytes": 69823
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\package.json",
+        "sha256": "4657b903e21445cd7770626ee605263e62b65588c1a77d05569b89a0b29d9381",
+        "bytes": 64777
+      }
+    ],
+    "source_inventory": [
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\sources\\files\\abs_page.html",
+        "sha256": "5a54a8ac56aed918385c3e8384f549d7fea88cef6a625ef38e475fe03f82d1a0",
+        "bytes": 43612
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\sources\\files\\paper.html",
+        "sha256": "2ce362a0985738d511e2990b42d4593a1005304f2043707968db4e86e8db3f00",
+        "bytes": 826929
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\sources\\files\\code_tree.txt",
+        "sha256": "e6f27416c90f92b29d4b0e3406b6fb78bbda3a8953b899c6131ff4d7b69aa2b6",
+        "bytes": 247
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\sources\\files\\code\\README.md",
+        "sha256": "59c39036d63fd328d23e7c369d096c2c061ec4472ea72abd17462a38f2230f9c",
+        "bytes": 501
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg000_abs_page.html",
+        "sha256": "fdecf9e7b94f8b4440c5b5b4045dc52e00edb17787a6c3d41b0d80920d9fff6c",
+        "bytes": 42851
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg000_paper.html",
+        "sha256": "1789dd24bc0e323c765e212febe04f21faa4da6084385f12ebc7ac2c7306f26e",
+        "bytes": 193981
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg002_abs_page.html",
+        "sha256": "4852a8a00ab8cdaf0fb9eb7d021a45d2b9e0b9c5052e4dad2d6e5b5f422a16b0",
+        "bytes": 43890
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg002_paper.html",
+        "sha256": "79ea290dbbe7528bf0271762476ac2e55cdc3f8c51294f1548a7cd64011a5337",
+        "bytes": 959635
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg003_abs_page.html",
+        "sha256": "103772bed11baf4f72c8b386407473e89728f5a839551b4f08c46b4bd5246292",
+        "bytes": 43111
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg003_paper.html",
+        "sha256": "73c5f3506e29ab9da8fa232066727164ad3fc7792df5121dd26e3b1467f6b76d",
+        "bytes": 553616
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg005_abs_page.html",
+        "sha256": "3c6366579dae37cf0d34837e49c374440cdb144e1a60cd9c5349a101f98f9aaf",
+        "bytes": 44350
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg005_paper.html",
+        "sha256": "0c3a49d3eb31d5a861797126dc88827470005f4108ad4568dfc461b89128eaed",
+        "bytes": 358790
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg006_abs_page.html",
+        "sha256": "8a1d40a38d8d2f403299db42861fac9c2c793a53754a63bbe50db7a403f163be",
+        "bytes": 41780
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg006_paper.html",
+        "sha256": "3e6309aa66de7a2b3419e558789ebead639bb07e84ec171314a30a0d39aa1a10",
+        "bytes": 291956
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg007_abs_page.html",
+        "sha256": "6f6facebcba7d5cd7761921107136c3aa31cc1ee2c017454add13f265b46cb7d",
+        "bytes": 41141
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg007_paper.html",
+        "sha256": "dd1d041bfaa7983c68abe2f35d59cfecb87646bb2e23724ccf483dd55cf90ce3",
+        "bytes": 318284
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg008_abs_page.html",
+        "sha256": "0ebdd0a13c13dfc2ddaa6ad8025257e7a454973ee4540144eed71138a83f97ee",
+        "bytes": 45031
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg008_paper.html",
+        "sha256": "91f5de184cfd8e9d1bf63edea263be9b6f0f7fbc4a226fc4afb3771f8838813f",
+        "bytes": 567905
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg009_abs_page.html",
+        "sha256": "dfa7910e2a4d0a02ac2da1c2a8e659d71eb8df1a29248347243d0345d2ac9a06",
+        "bytes": 43590
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg009_paper.html",
+        "sha256": "2a257ed9c637ed678d4b95b65889f1c9d46290fb25ad1a5402cadc9460085253",
+        "bytes": 906901
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg010_abs_page.html",
+        "sha256": "44dc928ea032a53e211b14118cfe6d7d439c236c55b3183fdd86d32931c76368",
+        "bytes": 43433
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg010_paper.html",
+        "sha256": "848a30f299475d4682bb7f1505616cb7b47acf338e09c543f88f512a6a86d3fa",
+        "bytes": 20816
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg011_abs_page.html",
+        "sha256": "6d36ee0cdba664f1f7e6b98797f3593426ed8a3f89f78df52304464e011013b9",
+        "bytes": 42233
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg011_paper.html",
+        "sha256": "d6604e4aa73ac544f1fcc65b5694457d15a2efb0ada81ad3a2723a737ddce54e",
+        "bytes": 393814
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg012_abs_page.html",
+        "sha256": "ce56a1956a3280545f7308360ef3e7d5ec21c36bfe4db49f26bb1256595d323c",
+        "bytes": 40666
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg012_paper.html",
+        "sha256": "3d3a3d178c79cb2e4002139f9133d631834ac822372be42e81695d275de9ea2c",
+        "bytes": 840448
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg013_abs_page.html",
+        "sha256": "6821e29ffa1d6da72e2277b743fee64e958eaff4a7dda437df1a4f0210ef0eca",
+        "bytes": 43701
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg013_paper.html",
+        "sha256": "988d1a4f4a85ec198092390da6130b78ac51870f5da395bb22a806f465c20ba5",
+        "bytes": 624126
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg014_abs_page.html",
+        "sha256": "29983ca0ff5446a95283741fc7239148b4b18f39d7b9aac94c15b564ac0c93d8",
+        "bytes": 44382
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg014_paper.html",
+        "sha256": "4c71dd1de1aee9f9c1132bc215981e58b6830d7e76e98a92b400aa72334c4310",
+        "bytes": 1127043
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg015_abs_page.html",
+        "sha256": "896f436b1b1231a3f29348d5487ed8cb81ac9981523448a2a46e1f6cfab797b8",
+        "bytes": 45559
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg015_paper.html",
+        "sha256": "f16230e8f932af26e265d3325d319a464a3eb8c8fb2c2667f4710485f4928e47",
+        "bytes": 1067412
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg016_abs_page.html",
+        "sha256": "0010f749979111bb6ddf2eabb95a60cf70c84e11ae2d5bdd6f49a93f8a212c84",
+        "bytes": 42769
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg016_paper.html",
+        "sha256": "4641018670c08e3acc7a7d546aa0b02c7e00da6c67d1f5ea55bc882fd6141ed5",
+        "bytes": 478181
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg017_abs_page.html",
+        "sha256": "0c5bf81d6f29ee26c97053a0dddeff91f3d208297173fd6ca73ce095685fe42f",
+        "bytes": 42312
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg017_paper.html",
+        "sha256": "3f2e4029754ceae674b816d8ded2c8c9e02425027d7f88d490c0a5762d4dc74d",
+        "bytes": 775032
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg018_abs_page.html",
+        "sha256": "6515263539367db9a7914cd993d322a60bc463376029f54884089fd19e214d60",
+        "bytes": 43024
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg018_paper.html",
+        "sha256": "ec4211562fd5ad2e8c53eb703e11e854a48337d3b7dac85adc0c137ebed047cf",
+        "bytes": 438773
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg019_abs_page.html",
+        "sha256": "cad9435f34904c6ac1167a516cc63b8f7197e1d61b0e6764583034209559f8df",
+        "bytes": 44895
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg019_paper.html",
+        "sha256": "f4c3d7c45c22db94ac2607361792c0425e15fbc728a8c89e8e40561f18809809",
+        "bytes": 430046
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg020_abs_page.html",
+        "sha256": "b1a703fb65c0ace23a9be0d6ff5de0c8888503abeaf6a18ebecad4dab3518fdc",
+        "bytes": 43384
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg020_paper.html",
+        "sha256": "28f252c2314778fda3edc8378671627e54c239bd8291bff0d29d3743886addc0",
+        "bytes": 278385
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg021_abs_page.html",
+        "sha256": "6b872580d9b7b3b95bee10c44a5c05fbfe5f207f549ca41ba27284c50796225f",
+        "bytes": 41894
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg021_paper.html",
+        "sha256": "7b142f42ac041b3a48f524df31c5011ee7bccd0d7e53869ecf20f029865e75c2",
+        "bytes": 748991
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg022_abs_page.html",
+        "sha256": "044e9c89fc743b82efd4dc9ddffc5acb4787ee3447d61b580902995c8848cb1e",
+        "bytes": 42458
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg022_paper.html",
+        "sha256": "5251b0bca463bc014ad646dbafe92c809c70b925fa8c8f52ae8fbd3cfca45b5a",
+        "bytes": 792539
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg023_abs_page.html",
+        "sha256": "79432de8a9ad9c18e3839205c5c9b905f430eab1dc10eca682912aa6b374a3c9",
+        "bytes": 43036
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg023_paper.html",
+        "sha256": "18475f102c44b8c98e76f213ee9c0722cd89fe063b07418a085d1b8f255ab6ba",
+        "bytes": 385502
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg024_abs_page.html",
+        "sha256": "8262bcfc23584e98f3eb8895b32fc9c93c136746e30fd7071fd40cfaba599f95",
+        "bytes": 41370
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg024_paper.pdf",
+        "sha256": "999cf86b295fe0f23041df16c462eeabcd5415ff713ebca2f8066c3ca8e9751f",
+        "bytes": 200698
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg025_abs_page.html",
+        "sha256": "ad8efd15dc0b671c8cd7295a2c99b495e6e8d8c64bbf6c0af7b6d685bd23c5b8",
+        "bytes": 43441
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg025_paper.html",
+        "sha256": "cd3e13c345cfe2c168977866ab52a58c7594a470615aabaecf98786d87ce592e",
+        "bytes": 1004550
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg026_abs_page.html",
+        "sha256": "77ef5d9c4d2ae35399919a9973bd6f57bbb29bb1ed553bec36d66b9ba07d829b",
+        "bytes": 43861
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg026_paper.html",
+        "sha256": "03214627a7622622b5cbf46dd7a9e7c602bcd878776ceeda07d1be836f998f32",
+        "bytes": 211297
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg027_abs_page.html",
+        "sha256": "b026c4f2263cbb6b45c2bba1f09f905924a36c8dec82900d89dfebdc35b5ed93",
+        "bytes": 44303
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg027_paper.html",
+        "sha256": "6908749ed961a9a60c506e1b274170a16503d6ff557f0c78e172826073e7fb09",
+        "bytes": 425159
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg028_abs_page.html",
+        "sha256": "c97d30983276af3bf967f43e942a8dbcf5eb2caddd46ca1cef78906241305df6",
+        "bytes": 43262
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg028_paper.html",
+        "sha256": "25a937d5118722d5cd9636ce20361e5ea9161599432d75ce3e0590b6e12b1f48",
+        "bytes": 193272
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg029_abs_page.html",
+        "sha256": "1253d7c5ea684825b0fd1c5f98f1cc89d98812add439e5b11e49849c47ea53c6",
+        "bytes": 43580
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg029_paper.html",
+        "sha256": "ef2363b4d365f718f70b73a680f1bf83e7b5240b3aa456fcf68c328cb482d97c",
+        "bytes": 289196
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg030_abs_page.html",
+        "sha256": "4a1407745adaa3c82b58ebb152247f2abf1428b70eb3b6d8fabec0f7346b96b7",
+        "bytes": 42618
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg030_paper.html",
+        "sha256": "ee52cde3a6e76aa7947d3ec554825cacaba189d8e0ce7668421a4d0fbcbe7d34",
+        "bytes": 510046
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg032_abs_page.html",
+        "sha256": "ecf122bdfa45dff7b01043bbc6dc9d6da3312c1a73c4befe80e9661de2cfa5fc",
+        "bytes": 43452
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\background\\bg032_paper.html",
+        "sha256": "0a69c0f3b04cbbabe13c45077fe812d9ef82cb4065908c9555d414b7c1285d5a",
+        "bytes": 358175
+      }
+    ],
+    "original_repair_notes": [
+      "F1 (index 0): record the paper-internal tension between the stated CSBM parameters (A4.I1.i1.p1, S3.SS2.p2) and the printed result regime (S5.T1) as an unresolved B2 inconsistency in package metadata. Make EXP coverage conditional on a controller frozen-source pilot, with 'unsupported/deferred' (B5) as the outcome if accuracies are near chance. Do not rescale means or change csbm.py (A06). Add no author numbers or regime hints to public EXP assets (E1).",
+      "Index 1: remove the unsourced 'large for homophily / modest for degree' attribution from task.md §6 H1 and package.json M-H1.",
+      "Index 2: label no-dropout/no-nonlinearity, joint gamma pre-training and test-time BN inference mode as MAINTAINER CHOICE / adjudicated in task.md §3 (B4).",
+      "Index 3: restrict the StruRW description in background_report.md §3 and fact B-STRURW to what the bg016 abstract states. Re-ground the §7 gap bullet.",
+      "Index 4: restate WC-F13 in facts_sheet.md to the source wording from S4.SS1.p4, without the 'non-smooth function' gloss.",
+      "Index 5: remove or relabel the AdaNPC S4 example in write_evidence/private_rubric.md.",
+      "Index 6: split R-H1-CLAIM visibility (text claim private; per-setting values referenced as the WRITE_EVIDENCE-visible R-T1 subset).",
+      "Index 8: revert EXP and package-wide wall_seconds from 3600 to the requested 2400 and update task.md §8 and the rationale. No resource change without pilot measurement (F2).",
+      "Controller gates (not constructor edits): container build and smoke run, the EXP frozen-source pilot, end-to-end timing, generated-file hashes, LIT library filter and disclosure date, and release rights (G1, recorded, not decided here)."
+    ],
+    "retained_exp_repairs": [
+      "F1 literal low-SNR CSBM source-vs-results tension: record unresolved inconsistency privately, preserve fixed means/unit-noise, conditional EXP admission pending controller frozen-source pilot.",
+      "F2 remove unsourced large-homophily/modest-degree result attribution; no author numeric values in public EXP.",
+      "F3 label BN inference mode/no nonlinearity/no dropout/joint gamma pretraining as maintainer/adjudicated choices without changing semantics.",
+      "Revert unmeasured wall-time increase 3600 to original job 2400; preserve all other authorized resource constraints.",
+      "Current-policy complete public surface and isolation checks; filtered other-stage notes preserved as audit context."
+    ],
+    "freshness": "Not run as v1 or v2 efficiency case. Was only inventoried as an alternative during v2 selection; no prompts were tuned to its future repaired results. Historical material reviews obviously exist and are the repair input, so not an unseen-paper study.",
+    "scientific_value": "Strong real numerical/scientific uncertainty, not a typo chosen for easy acceptance. Tests refusal to silently fix data generator, separation of scientific method from experimental recipe, conditional/deferred admission and source-supported negative findings.",
+    "cpu_feasibility": "Original source object: sparse CSBM with N5000,D2000, small linear/BN/K9 graph model; original unmeasured job proposal 2CPU/4096MB/2048disk/256pids/2400s. No GPU task needed. Arithmetic storage plausibility is not measured runtime; source/frozen baseline pilot remains necessary.",
+    "direct_source_checks": [
+      "paper_html A4.I1.i1.p1 explicitly gives means +/-0.03/sqrt(D) and shift .02/sqrt(D).",
+      "paper_html S3.SS2.p2 explicitly specifies Gaussian identity covariance.",
+      "paper_html A4.I2.i1.p1 specifies linear/BN/GPR K9 and32-dimensional representation; does not settle BN test mode.",
+      "paper_html S5.SS1.SSS0.Px3.p1 claims consistent improvement; no blanket large-homophily/modest-degree wording.",
+      "Original starter csbm.py lines26-29,62-65,155 agrees with literal constants and unit Gaussian; inspected statically only."
+    ],
+    "nonnegotiable_boundaries": [
+      "Do not rescale means/noise or substitute toy graph to manufacture a pass. A06 binding prohibits this.",
+      "A near-chance pilot triggers original adjudicated deferred/unsupported outcome; do not describe a negative or low-SNR result by itself as invalid science. Informative detectable differences remain possible; judge against scoped hypotheses, not author accuracy matching.",
+      "The original scope fixes N/D and multiple settings from author experiments. Current policy must distinguish legitimate defined object constants from author-recipe constraints; do not silently resolve that tension or prescribe extra seed/epoch grids to solvers.",
+      "A complete successful material cannot be promised: this candidate may correctly defer even after metadata repair. For a successful-build efficiency objective, prospectively define how scientific drop/defer counts before running.",
+      "This is largely scientific/metadata repair with a frozen source generator, not authorization to rewrite numeric method code."
+    ],
+    "missing_gates": [
+      "New frozen single-EXP job/scoped notes/current policy/binary/role profile/budget",
+      "Controller CPU frozen-source pilot of source and target baseline on prescribed S1-S8, no target adaptation implementation",
+      "Independent audit of full public surface and conditional evidence",
+      "Fresh container resource/smoke validation; no historic runtime outcome imported"
+    ]
+  },
+  "backup": {
+    "paper_id": "iclr2025-1Xg4JPPxJ0",
+    "task_id": "ftct-table1-write-evidence",
+    "task_type": "WRITE_EVIDENCE",
+    "workspace": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench",
+    "job": {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\materials\\next_batch_v2\\jobs\\ftct-write-v2.json",
+      "sha256": "a69bf98c0c0cc170c24bb0e02f633fc6dc98e26c90beb2967b1906822dc9bdbc",
+      "bytes": 3007
+    },
+    "prior_batch_root": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review",
+    "prior_package": {
+      "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\package.json",
+      "sha256": "d75e04ac82da7aec45d372096b7e8e0aa374f4e1926d3810acbb41b668f00d72",
+      "bytes": 39961
+    },
+    "prior_review": {
+      "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\reviewer\\review.json",
+      "sha256": "95bb24f0bb0ddfa8382628ac3340587637b3bf620980bad9afeeca366123b07e",
+      "bytes": 20783
+    },
+    "adjudicated_notes_input": {
+      "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-004-repair\\ftct-write-v2\\constructor\\repair_request.json",
+      "sha256": "6198ba7294a5f51f030a69d278328397160b4d5c77e12e2798b32dee3744a011",
+      "bytes": 6489
+    },
+    "standalone_original_adjudication_file": "Not located in this bounded audit; root-adjudicated notes are recorded in immutable repair_request input. Do not invent an adjudicator report.",
+    "prior_candidate_inventory": [
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\assets\\common\\facts_core.json",
+        "sha256": "8de6578c0b57bdc70fb4eebbc50b6925eb450d37f69819480ce02ee0148facec",
+        "bytes": 13260
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\assets\\common\\ftct_table1_manifest.json",
+        "sha256": "80e726fe7792973fb4435f005ea0fb546fdef8224782e03b03a726106a123354",
+        "bytes": 8829
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\assets\\common\\ftct_table1_values.csv",
+        "sha256": "974528ad2f29dd83422455edd0b0f22c1880933f7a4a0784daca663fa0503981",
+        "bytes": 699
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\assets\\common\\SOURCE_NOTICE.md",
+        "sha256": "9fb1aaac4726279a7cc4718f439f61bda3e14c773e9ad1099c127fe6d145938c",
+        "bytes": 1161
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\assets\\common\\table1_reader.py",
+        "sha256": "26e445f2a6d2f830932ac04d76bf3bdf63fbc5d959c012f91fabac9572ad90c1",
+        "bytes": 3047
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\assets\\write_content\\facts_author_findings.json",
+        "sha256": "8689b6f0b3175659de57f582ee68be53afb818cefdbe2c60d4ee5daa324bcd6a",
+        "bytes": 3370
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\assets\\write_content\\task.md",
+        "sha256": "1483f3ab39d441dbbba57384231cb94e3b3cdfd45070657cf3270cb93dca81a7",
+        "bytes": 5504
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\assets\\write_evidence\\task.md",
+        "sha256": "606ef0bf59805613a7feae12c58b33f12a1a823eca66385a8ecc97e2d61e422c",
+        "bytes": 4836
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\environment\\image\\.dockerignore",
+        "sha256": "ad4ffbb29ec74c37891a0efba1236aa378fdbf9e7a30b0df8532cdcd7baf4698",
+        "bytes": 32
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\environment\\image\\Dockerfile",
+        "sha256": "8d35e7128f4e63987d4b3595a3f16944429ef60525e6a76511c261ffe2c9b407",
+        "bytes": 767
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\environment\\image\\requirements.txt",
+        "sha256": "cc4e9b2b8ffc9060fafc93ea6f257331eb2a7afbaa5afaf4998425371311d888",
+        "bytes": 189
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\environment\\smoke.py",
+        "sha256": "4c178b3ab129a53042386fc7e998149acf11766098717aad3eed6dc42ca0e12d",
+        "bytes": 5330
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\package.constructor_original.json",
+        "sha256": "3083d89abf1b388c13d2f3b263268e9c4046ccd9f6ceb466e2574325dd6e4027",
+        "bytes": 42000
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\package.json",
+        "sha256": "d75e04ac82da7aec45d372096b7e8e0aa374f4e1926d3810acbb41b668f00d72",
+        "bytes": 39961
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\private\\reference_notes.json",
+        "sha256": "d73af46190b44125d1120548c5cd36bb141e12449f27f0377c81f8bfe6bf1952",
+        "bytes": 4781
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\private\\write_content_rubric.md",
+        "sha256": "d95af5bf85c746b9fdef661ddc26dfd2aea344eb35b78391a289aa81a6b3c058",
+        "bytes": 3396
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\private\\write_evidence_rubric.md",
+        "sha256": "ba52b23a50636332b321237a39ad82b1e6b23623b1c25ebef3bece831d530129",
+        "bytes": 3615
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\ftct-write-v2\\constructor\\output\\tools\\fill_asset_hashes.py",
+        "sha256": "69dccc1086c4dd19a53e73cf0abdfa0b16c8ec7c1edf0016f995b4ebf317ad36",
+        "bytes": 1351
+      }
+    ],
+    "source_inventory": [
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\first_snapshot\\fragmented-paper-v1.source",
+        "sha256": "6544464def8909867ddf1475308b8d2c6d9e08be02e85cfcc2633772ab0ffdae",
+        "bytes": 784954
+      }
+    ],
+    "original_repair_notes": [
+      "F1 accepted: the private perturbation check must perturb the CSV and the manifest 'value' fields consistently (locators unchanged); also state in write_evidence/task.md that generation code must work on any consistent CSV/manifest pair. Keep validate() as a public generic helper.",
+      "F2 accepted: make task.md and the private rubric agree that U04 is required plus at least one of U03/U05.",
+      "F3 accepted: rephrase R07/U02: the source does not state the Table 1 shot count or selection rule; Figure 2 covers the same nominal 3L3H N=5 M=3 configuration (identity with the Table 1 model unstated); authors state performance peaks at 1-shot (App. K) and 1-shot suffices (App. G.2). Do not assert the Table 1 shot count.",
+      "F4 accepted: paraphrase R04/R05 further in the public fact sheet so faithful paraphrase cannot trip the 12-word guard; note in the judge plan that n-grams present in public fact sheets are discounted.",
+      "F5 accepted: for every sha256 you write, use the literal CONTROLLER_FILL; the controller fills and records hashes. Remove the stale PENDING note and state that asset hashes are controller-filled.",
+      "F6 accepted: use 'notably/especially through a large drop in vertices accuracy'; note that 'significant' is the authors' word, not a statistical claim.",
+      "F7 adjudicated by root: REJECT the unmeasured wall-time increase. Keep the job's candidate resources (1 CPU, 1024 MB, 512 MB disk, 64 pids, 600 s per task) until a real pilot measures otherwise."
+    ],
+    "retained_repairs": [
+      "F1 align consistent perturbation of CSV and manifest value fields, locators unchanged; keep generic validator helper, require generator to consume consistent changed pairs.",
+      "F3 source shot-count context without claiming Table1 uses1-shot; carry only facts relevant to evidence interpretation.",
+      "F5 placeholder/provenance clarification and recomputed real hashes by controller.",
+      "F7 reject unmeasured resource increase; original1CPU/1024MB/512disk/64pids/600s.",
+      "WRITE_CONTENT-only prose/limitations notes remain preserved, not silently marked repaired in WE."
+    ],
+    "freshness": "Not one of wing/Diffusion/IDEA v2 diagnosis or reserved6ouWC cases. Existing historical original review/notes seen here; no repaired final outcomes consulted.",
+    "why_backup": "Authentic numeric table/manifest interface defect with a programmatic verification interaction, distinct from text repair. CPU-only small seven-row authentic author result visualization; no original model training needed.",
+    "direct_source_checks": [
+      "Original source Appendix K A11.p3 states testing peaks at1-shot.",
+      "Appendix G.2 A7.SS2.p1 states1-shot sufficient for optimal performance. These do not establish Table1 exact shot count/selection rule."
+    ],
+    "coverage_gap": "Not EXP numerical experiment fidelity. It cannot replace EXP coverage without saying the goal has narrowed; no new EXP invented from GPU training.",
+    "missing_gates": [
+      "Explicit one-WE projection/current policy/budget",
+      "Confirm complete selected data/manifest/helper and source closure",
+      "Read-only source numeric re-extraction and real fresh-container helper smoke",
+      "Independent semantic review that legitimate author results remain available and no finished renderer is supplied"
+    ]
+  },
+  "goal_recommendation": "Use Epgo EXP as the next predeclared scientific gate, with drop/defer counted honestly and a measured controller pilot if retained. Keep FTCT WE as a disclosed alternative coverage track, not an outcome-dependent replacement. Root must freeze scope/budget before any transport launch.",
+  "historical_files_modified": false
+}

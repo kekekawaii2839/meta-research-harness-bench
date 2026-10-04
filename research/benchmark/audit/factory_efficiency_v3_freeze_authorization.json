@@ -1,0 +1,10 @@
+{
+  "protocol_version": 3,
+  "ledger_baseline": 608,
+  "ledger_stop_at": 625,
+  "pair_max_calls": 12,
+  "prospective_max_calls": 5,
+  "authorized_to_freeze": true,
+  "basis": "User active goal and existing 20-call cap; root independent preflight accepted; no additional authorization or calls.",
+  "scope": "New paired development validation only; not formal benchmark or batch production."
+}

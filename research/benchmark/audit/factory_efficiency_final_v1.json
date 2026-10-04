@@ -1,0 +1,1181 @@
+{
+  "schema_version": "factory-efficiency-final-1",
+  "at": "2026-09-27T01:48:32.241997+00:00",
+  "decision": "modify_before_adopt_reject_current_combined_shortcut",
+  "goal_outcome": "bounded_real_validation_complete_with_negative_quality_gate",
+  "calls": {
+    "baseline": 593,
+    "used": 12,
+    "limit": 20,
+    "unused_conditional_allowance": 8,
+    "ledger": 605,
+    "global_authorized": 1668,
+    "transport_completed": 12,
+    "pipeline_identity_failures": 2,
+    "retry": 0,
+    "provider_429": 0
+  },
+  "phase_C": {
+    "status": "not_run_quality_stop",
+    "allow": false,
+    "preselected_unit": "GETS iclr2025-qgsXsqahMq",
+    "gate_rejection_verified": "Missing evidence-bound prospective quality/cost permission",
+    "not_a_pass": true
+  },
+  "arms": [
+    {
+      "case": "wing_text_repair",
+      "arm": "old",
+      "result": {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\arms\\wing_text_repair\\old\\result.json",
+        "sha256": "ce4038124452d835a3de2baa3e34c41238b0f658fbc4be329a57965e9f6e2b36"
+      },
+      "status": "completed",
+      "error": null,
+      "started_at": "2026-09-27T00:43:54.271035+00:00",
+      "finished_at": "2026-09-27T00:59:03.018964+00:00",
+      "pipeline_seconds": 908.75,
+      "cost": {
+        "call_count": 3,
+        "calls": [
+          {
+            "call_id": 594,
+            "effort": "medium",
+            "model": "claude-opus-5-5",
+            "role": "constructor",
+            "status": "completed",
+            "trace": {
+              "assistant_messages": 18,
+              "available": true,
+              "edit_new_string_utf8_bytes_requested": 1002,
+              "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+              "sha256": "5578462e5a48c685c217bd561022fb24c49eef276adfc9897a1d58e57f589ac0",
+              "tool_bearing_messages": 17,
+              "tool_calls": 40,
+              "tool_names": {
+                "Edit": 2,
+                "Glob": 1,
+                "Grep": 8,
+                "Read": 17,
+                "Write": 12
+              },
+              "write_content_utf8_bytes_requested": 94666
+            },
+            "usage": {
+              "cache_write_input_tokens": 123294,
+              "cached_input_tokens": 1249595,
+              "input_tokens": 36,
+              "output_tokens": 50658
+            },
+            "usage_complete": true,
+            "wall_seconds": 403.9059999999881
+          },
+          {
+            "call_id": 595,
+            "effort": "medium",
+            "model": "claude-opus-5-5",
+            "role": "material_reviewer",
+            "status": "completed",
+            "trace": {
+              "assistant_messages": 28,
+              "available": true,
+              "edit_new_string_utf8_bytes_requested": 0,
+              "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+              "sha256": "822b24a311b688055f6a2fd7c3b04fe7bac270ec4388367f23403ecc717910a9",
+              "tool_bearing_messages": 27,
+              "tool_calls": 48,
+              "tool_names": {
+                "Glob": 1,
+                "Grep": 17,
+                "Read": 29,
+                "Write": 1
+              },
+              "write_content_utf8_bytes_requested": 23102
+            },
+            "usage": {
+              "cache_write_input_tokens": 205108,
+              "cached_input_tokens": 3319184,
+              "input_tokens": 56,
+              "output_tokens": 29747
+            },
+            "usage_complete": true,
+            "wall_seconds": 392.9219999999914
+          },
+          {
+            "call_id": 596,
+            "effort": "medium",
+            "model": "claude-opus-5-5",
+            "role": "adjudicator",
+            "status": "completed",
+            "trace": {
+              "assistant_messages": 8,
+              "available": true,
+              "edit_new_string_utf8_bytes_requested": 0,
+              "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+              "sha256": "87192629a0888eb0bfd5f841f6d8559cf34289144bafc2fe653d9eac91d17a94",
+              "tool_bearing_messages": 7,
+              "tool_calls": 17,
+              "tool_names": {
+                "Glob": 1,
+                "Grep": 4,
+                "Read": 11,
+                "Write": 1
+              },
+              "write_content_utf8_bytes_requested": 5623
+            },
+            "usage": {
+              "cache_write_input_tokens": 75489,
+              "cached_input_tokens": 418712,
+              "input_tokens": 16,
+              "output_tokens": 7038
+            },
+            "usage_complete": true,
+            "wall_seconds": 106.09299999999348
+          }
+        ],
+        "failure_count": 0,
+        "missing_usage_is_not_zero": true,
+        "model_session_seconds": 902.920999999973,
+        "observed_usage_subtotals": {
+          "cache_write_input_tokens": 403891,
+          "cached_input_tokens": 4987491,
+          "input_tokens": 108,
+          "output_tokens": 87443
+        },
+        "output_tokens": 87443,
+        "subscription_dollar_cost": null,
+        "total_input_tokens": 5391490,
+        "unfinished_count": 0,
+        "usage_complete": true
+      }
+    },
+    {
+      "case": "wing_text_repair",
+      "arm": "incremental",
+      "result": {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\arms\\wing_text_repair\\incremental\\result.json",
+        "sha256": "ba662d212239b203a536919af93ddd36402e28b5cf92dbcf22889e409494ee12"
+      },
+      "status": "completed",
+      "error": null,
+      "started_at": "2026-09-27T00:59:21.759201+00:00",
+      "finished_at": "2026-09-27T01:05:03.901660+00:00",
+      "pipeline_seconds": 342.14100000000326,
+      "cost": {
+        "call_count": 3,
+        "calls": [
+          {
+            "call_id": 597,
+            "effort": "medium",
+            "model": "claude-opus-5-5",
+            "role": "constructor",
+            "status": "completed",
+            "trace": {
+              "assistant_messages": 15,
+              "available": true,
+              "edit_new_string_utf8_bytes_requested": 2215,
+              "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+              "sha256": "59e5baac427a5d44caec43682da0cf869b7ddeab23da47bc16a95dc47c1862f3",
+              "tool_bearing_messages": 14,
+              "tool_calls": 19,
+              "tool_names": {
+                "Edit": 4,
+                "Glob": 1,
+                "Grep": 9,
+                "Read": 5
+              },
+              "write_content_utf8_bytes_requested": 0
+            },
+            "usage": {
+              "cache_write_input_tokens": 38961,
+              "cached_input_tokens": 483283,
+              "input_tokens": 30,
+              "output_tokens": 7321
+            },
+            "usage_complete": true,
+            "wall_seconds": 107.51500000001397
+          },
+          {
+            "call_id": 598,
+            "effort": "medium",
+            "model": "claude-opus-5-5",
+            "role": "material_reviewer",
+            "status": "completed",
+            "trace": {
+              "assistant_messages": 13,
+              "available": true,
+              "edit_new_string_utf8_bytes_requested": 0,
+              "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+              "sha256": "46f1b5d7d6f908e55d7b59cdc937e339d5980ec2356f5479c4578e842c5745f4",
+              "tool_bearing_messages": 12,
+              "tool_calls": 20,
+              "tool_names": {
+                "Glob": 1,
+                "Grep": 12,
+                "Read": 6,
+                "Write": 1
+              },
+              "write_content_utf8_bytes_requested": 14587
+            },
+            "usage": {
+              "cache_write_input_tokens": 63477,
+              "cached_input_tokens": 536711,
+              "input_tokens": 26,
+              "output_tokens": 11786
+            },
+            "usage_complete": true,
+            "wall_seconds": 155.21900000001187
+          },
+          {
+            "call_id": 599,
+            "effort": "medium",
+            "model": "claude-opus-5-5",
+            "role": "adjudicator",
+            "status": "completed",
+            "trace": {
+              "assistant_messages": 6,
+              "available": true,
+              "edit_new_string_utf8_bytes_requested": 0,
+              "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+              "sha256": "3acdf446c521e6ce030bacbc0dd12f64befb00ffdf1a15d49eccfaaff5c0b803",
+              "tool_bearing_messages": 5,
+              "tool_calls": 15,
+              "tool_names": {
+                "Glob": 1,
+                "Grep": 2,
+                "Read": 11,
+                "Write": 1
+              },
+              "write_content_utf8_bytes_requested": 5063
+            },
+            "usage": {
+              "cache_write_input_tokens": 69308,
+              "cached_input_tokens": 244050,
+              "input_tokens": 12,
+              "output_tokens": 5529
+            },
+            "usage_complete": true,
+            "wall_seconds": 72.06299999999464
+          }
+        ],
+        "failure_count": 0,
+        "missing_usage_is_not_zero": true,
+        "model_session_seconds": 334.7970000000205,
+        "observed_usage_subtotals": {
+          "cache_write_input_tokens": 171746,
+          "cached_input_tokens": 1264044,
+          "input_tokens": 68,
+          "output_tokens": 24636
+        },
+        "output_tokens": 24636,
+        "subscription_dollar_cost": null,
+        "total_input_tokens": 1435858,
+        "unfinished_count": 0,
+        "usage_complete": true
+      }
+    },
+    {
+      "case": "diffusion_science_code_repair",
+      "arm": "old",
+      "result": {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\arms\\diffusion_science_code_repair\\old\\result.json",
+        "sha256": "87956105cd28ea84fc6014dfad596d0da7e4f02914c52ac426c31c6d414f6c32"
+      },
+      "status": "failed_needs_attribution",
+      "error": {
+        "message": "Adjudication identity/round/action invalid",
+        "type": "ProtocolError"
+      },
+      "started_at": "2026-09-27T01:22:58.201766+00:00",
+      "finished_at": "2026-09-27T01:38:04.687778+00:00",
+      "pipeline_seconds": 906.484999999986,
+      "cost": {
+        "call_count": 3,
+        "calls": [
+          {
+            "call_id": 603,
+            "effort": "medium",
+            "model": "claude-opus-5-5",
+            "role": "constructor",
+            "status": "completed",
+            "trace": {
+              "assistant_messages": 16,
+              "available": true,
+              "edit_new_string_utf8_bytes_requested": 0,
+              "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+              "sha256": "19a35e6466f9a0dbd23108463e6c1ff7ca0bdf3e2fec32caa57ed52b4963f4ef",
+              "tool_bearing_messages": 15,
+              "tool_calls": 36,
+              "tool_names": {
+                "Glob": 1,
+                "Grep": 6,
+                "Read": 17,
+                "Write": 12
+              },
+              "write_content_utf8_bytes_requested": 94125
+            },
+            "usage": {
+              "cache_write_input_tokens": 122906,
+              "cached_input_tokens": 992319,
+              "input_tokens": 32,
+              "output_tokens": 54372
+            },
+            "usage_complete": true,
+            "wall_seconds": 445.51500000001397
+          },
+          {
+            "call_id": 604,
+            "effort": "medium",
+            "model": "claude-opus-5-5",
+            "role": "material_reviewer",
+            "status": "completed",
+            "trace": {
+              "assistant_messages": 19,
+              "available": true,
+              "edit_new_string_utf8_bytes_requested": 0,
+              "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+              "sha256": "69b5932ccff4d3e7621171a74fafc298bbb76c155085cb238d5c9592ecacc9d4",
+              "tool_bearing_messages": 18,
+              "tool_calls": 30,
+              "tool_names": {
+                "Glob": 1,
+                "Grep": 10,
+                "Read": 18,
+                "Write": 1
+              },
+              "write_content_utf8_bytes_requested": 21710
+            },
+            "usage": {
+              "cache_write_input_tokens": 140217,
+              "cached_input_tokens": 1448775,
+              "input_tokens": 38,
+              "output_tokens": 27974
+            },
+            "usage_complete": true,
+            "wall_seconds": 349.01600000000326
+          },
+          {
+            "call_id": 605,
+            "effort": "medium",
+            "model": "claude-opus-5-5",
+            "role": "adjudicator",
+            "status": "completed",
+            "trace": {
+              "assistant_messages": 7,
+              "available": true,
+              "edit_new_string_utf8_bytes_requested": 0,
+              "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+              "sha256": "c0b08db5e897c4a62d466f6630a15ce8e2195e688fc6b108eb4214c634e69018",
+              "tool_bearing_messages": 6,
+              "tool_calls": 18,
+              "tool_names": {
+                "Glob": 1,
+                "Grep": 3,
+                "Read": 13,
+                "Write": 1
+              },
+              "write_content_utf8_bytes_requested": 9476
+            },
+            "usage": {
+              "cache_write_input_tokens": 66935,
+              "cached_input_tokens": 227482,
+              "input_tokens": 14,
+              "output_tokens": 10906
+            },
+            "usage_complete": true,
+            "wall_seconds": 107.45300000000861
+          }
+        ],
+        "failure_count": 0,
+        "missing_usage_is_not_zero": true,
+        "model_session_seconds": 901.9840000000258,
+        "observed_usage_subtotals": {
+          "cache_write_input_tokens": 330058,
+          "cached_input_tokens": 2668576,
+          "input_tokens": 84,
+          "output_tokens": 93252
+        },
+        "output_tokens": 93252,
+        "subscription_dollar_cost": null,
+        "total_input_tokens": 2998718,
+        "unfinished_count": 0,
+        "usage_complete": true
+      }
+    },
+    {
+      "case": "diffusion_science_code_repair",
+      "arm": "incremental",
+      "result": {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\arms\\diffusion_science_code_repair\\incremental\\result.json",
+        "sha256": "15f635455ab10391b07fb016e3216c7913015a7c21983455f47a9b353406fe7a"
+      },
+      "status": "failed_needs_attribution",
+      "error": {
+        "message": "Adjudication identity/round/action invalid",
+        "type": "ProtocolError"
+      },
+      "started_at": "2026-09-27T01:10:04.533686+00:00",
+      "finished_at": "2026-09-27T01:19:04.463404+00:00",
+      "pipeline_seconds": 539.9210000000021,
+      "cost": {
+        "call_count": 3,
+        "calls": [
+          {
+            "call_id": 600,
+            "effort": "medium",
+            "model": "claude-opus-5-5",
+            "role": "constructor",
+            "status": "completed",
+            "trace": {
+              "assistant_messages": 20,
+              "available": true,
+              "edit_new_string_utf8_bytes_requested": 12454,
+              "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+              "sha256": "4537e0f7b51b117968f4d49d855e7a03941b746accad0c77515dd3c724e0f592",
+              "tool_bearing_messages": 19,
+              "tool_calls": 54,
+              "tool_names": {
+                "Edit": 33,
+                "Glob": 2,
+                "Grep": 6,
+                "Read": 12,
+                "Write": 1
+              },
+              "write_content_utf8_bytes_requested": 4084
+            },
+            "usage": {
+              "cache_write_input_tokens": 74104,
+              "cached_input_tokens": 1076467,
+              "input_tokens": 40,
+              "output_tokens": 22987
+            },
+            "usage_complete": true,
+            "wall_seconds": 202.98499999998603
+          },
+          {
+            "call_id": 601,
+            "effort": "medium",
+            "model": "claude-opus-5-5",
+            "role": "material_reviewer",
+            "status": "completed",
+            "trace": {
+              "assistant_messages": 17,
+              "available": true,
+              "edit_new_string_utf8_bytes_requested": 0,
+              "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+              "sha256": "51544f36a945eabd608ef821f80c48bd2272b469fd7305a353fb5e13c9f06a63",
+              "tool_bearing_messages": 16,
+              "tool_calls": 31,
+              "tool_names": {
+                "Glob": 1,
+                "Grep": 11,
+                "Read": 18,
+                "Write": 1
+              },
+              "write_content_utf8_bytes_requested": 18062
+            },
+            "usage": {
+              "cache_write_input_tokens": 95121,
+              "cached_input_tokens": 995927,
+              "input_tokens": 34,
+              "output_tokens": 18338
+            },
+            "usage_complete": true,
+            "wall_seconds": 231.9220000000205
+          },
+          {
+            "call_id": 602,
+            "effort": "medium",
+            "model": "claude-opus-5-5",
+            "role": "adjudicator",
+            "status": "completed",
+            "trace": {
+              "assistant_messages": 8,
+              "available": true,
+              "edit_new_string_utf8_bytes_requested": 0,
+              "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+              "sha256": "e6b9404eb5c0a5a1ff1622aa5588c07bd4f6accc85a98b088c4e7ac32872b3d0",
+              "tool_bearing_messages": 7,
+              "tool_calls": 20,
+              "tool_names": {
+                "Glob": 1,
+                "Grep": 1,
+                "Read": 17,
+                "Write": 1
+              },
+              "write_content_utf8_bytes_requested": 3064
+            },
+            "usage": {
+              "cache_write_input_tokens": 64753,
+              "cached_input_tokens": 328036,
+              "input_tokens": 16,
+              "output_tokens": 7121
+            },
+            "usage_complete": true,
+            "wall_seconds": 100.42199999999139
+          }
+        ],
+        "failure_count": 0,
+        "missing_usage_is_not_zero": true,
+        "model_session_seconds": 535.3289999999979,
+        "observed_usage_subtotals": {
+          "cache_write_input_tokens": 233978,
+          "cached_input_tokens": 2400430,
+          "input_tokens": 90,
+          "output_tokens": 48446
+        },
+        "output_tokens": 48446,
+        "subscription_dollar_cost": null,
+        "total_input_tokens": 2634498,
+        "unfinished_count": 0,
+        "usage_complete": true
+      }
+    }
+  ],
+  "aggregate": {
+    "comparison_validity": "requires_same_frozen_inputs_and_completed_matching_pipeline",
+    "cost_comparison_not_acceptance": true,
+    "engineering_target_met": true,
+    "incremental": {
+      "call_count": 6,
+      "calls": [
+        {
+          "call_id": 597,
+          "effort": "medium",
+          "model": "claude-opus-5-5",
+          "role": "constructor",
+          "status": "completed",
+          "trace": {
+            "assistant_messages": 15,
+            "available": true,
+            "edit_new_string_utf8_bytes_requested": 2215,
+            "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+            "sha256": "59e5baac427a5d44caec43682da0cf869b7ddeab23da47bc16a95dc47c1862f3",
+            "tool_bearing_messages": 14,
+            "tool_calls": 19,
+            "tool_names": {
+              "Edit": 4,
+              "Glob": 1,
+              "Grep": 9,
+              "Read": 5
+            },
+            "write_content_utf8_bytes_requested": 0
+          },
+          "usage": {
+            "cache_write_input_tokens": 38961,
+            "cached_input_tokens": 483283,
+            "input_tokens": 30,
+            "output_tokens": 7321
+          },
+          "usage_complete": true,
+          "wall_seconds": 107.51500000001397
+        },
+        {
+          "call_id": 598,
+          "effort": "medium",
+          "model": "claude-opus-5-5",
+          "role": "material_reviewer",
+          "status": "completed",
+          "trace": {
+            "assistant_messages": 13,
+            "available": true,
+            "edit_new_string_utf8_bytes_requested": 0,
+            "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+            "sha256": "46f1b5d7d6f908e55d7b59cdc937e339d5980ec2356f5479c4578e842c5745f4",
+            "tool_bearing_messages": 12,
+            "tool_calls": 20,
+            "tool_names": {
+              "Glob": 1,
+              "Grep": 12,
+              "Read": 6,
+              "Write": 1
+            },
+            "write_content_utf8_bytes_requested": 14587
+          },
+          "usage": {
+            "cache_write_input_tokens": 63477,
+            "cached_input_tokens": 536711,
+            "input_tokens": 26,
+            "output_tokens": 11786
+          },
+          "usage_complete": true,
+          "wall_seconds": 155.21900000001187
+        },
+        {
+          "call_id": 599,
+          "effort": "medium",
+          "model": "claude-opus-5-5",
+          "role": "adjudicator",
+          "status": "completed",
+          "trace": {
+            "assistant_messages": 6,
+            "available": true,
+            "edit_new_string_utf8_bytes_requested": 0,
+            "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+            "sha256": "3acdf446c521e6ce030bacbc0dd12f64befb00ffdf1a15d49eccfaaff5c0b803",
+            "tool_bearing_messages": 5,
+            "tool_calls": 15,
+            "tool_names": {
+              "Glob": 1,
+              "Grep": 2,
+              "Read": 11,
+              "Write": 1
+            },
+            "write_content_utf8_bytes_requested": 5063
+          },
+          "usage": {
+            "cache_write_input_tokens": 69308,
+            "cached_input_tokens": 244050,
+            "input_tokens": 12,
+            "output_tokens": 5529
+          },
+          "usage_complete": true,
+          "wall_seconds": 72.06299999999464
+        },
+        {
+          "call_id": 600,
+          "effort": "medium",
+          "model": "claude-opus-5-5",
+          "role": "constructor",
+          "status": "completed",
+          "trace": {
+            "assistant_messages": 20,
+            "available": true,
+            "edit_new_string_utf8_bytes_requested": 12454,
+            "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+            "sha256": "4537e0f7b51b117968f4d49d855e7a03941b746accad0c77515dd3c724e0f592",
+            "tool_bearing_messages": 19,
+            "tool_calls": 54,
+            "tool_names": {
+              "Edit": 33,
+              "Glob": 2,
+              "Grep": 6,
+              "Read": 12,
+              "Write": 1
+            },
+            "write_content_utf8_bytes_requested": 4084
+          },
+          "usage": {
+            "cache_write_input_tokens": 74104,
+            "cached_input_tokens": 1076467,
+            "input_tokens": 40,
+            "output_tokens": 22987
+          },
+          "usage_complete": true,
+          "wall_seconds": 202.98499999998603
+        },
+        {
+          "call_id": 601,
+          "effort": "medium",
+          "model": "claude-opus-5-5",
+          "role": "material_reviewer",
+          "status": "completed",
+          "trace": {
+            "assistant_messages": 17,
+            "available": true,
+            "edit_new_string_utf8_bytes_requested": 0,
+            "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+            "sha256": "51544f36a945eabd608ef821f80c48bd2272b469fd7305a353fb5e13c9f06a63",
+            "tool_bearing_messages": 16,
+            "tool_calls": 31,
+            "tool_names": {
+              "Glob": 1,
+              "Grep": 11,
+              "Read": 18,
+              "Write": 1
+            },
+            "write_content_utf8_bytes_requested": 18062
+          },
+          "usage": {
+            "cache_write_input_tokens": 95121,
+            "cached_input_tokens": 995927,
+            "input_tokens": 34,
+            "output_tokens": 18338
+          },
+          "usage_complete": true,
+          "wall_seconds": 231.9220000000205
+        },
+        {
+          "call_id": 602,
+          "effort": "medium",
+          "model": "claude-opus-5-5",
+          "role": "adjudicator",
+          "status": "completed",
+          "trace": {
+            "assistant_messages": 8,
+            "available": true,
+            "edit_new_string_utf8_bytes_requested": 0,
+            "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+            "sha256": "e6b9404eb5c0a5a1ff1622aa5588c07bd4f6accc85a98b088c4e7ac32872b3d0",
+            "tool_bearing_messages": 7,
+            "tool_calls": 20,
+            "tool_names": {
+              "Glob": 1,
+              "Grep": 1,
+              "Read": 17,
+              "Write": 1
+            },
+            "write_content_utf8_bytes_requested": 3064
+          },
+          "usage": {
+            "cache_write_input_tokens": 64753,
+            "cached_input_tokens": 328036,
+            "input_tokens": 16,
+            "output_tokens": 7121
+          },
+          "usage_complete": true,
+          "wall_seconds": 100.42199999999139
+        }
+      ],
+      "failure_count": 0,
+      "missing_usage_is_not_zero": true,
+      "model_session_seconds": 870.1260000000184,
+      "observed_usage_subtotals": {
+        "cache_write_input_tokens": 405724,
+        "cached_input_tokens": 3664474,
+        "input_tokens": 158,
+        "output_tokens": 73082
+      },
+      "output_tokens": 73082,
+      "subscription_dollar_cost": null,
+      "total_input_tokens": 4070356,
+      "unfinished_count": 0,
+      "usage_complete": true
+    },
+    "metrics": {
+      "model_session_seconds": {
+        "incremental": 870.1260000000184,
+        "old": 1804.9049999999988,
+        "reduction_fraction": 0.5179103609331134
+      },
+      "output_tokens": {
+        "incremental": 73082,
+        "old": 180695,
+        "reduction_fraction": 0.5955505132958854
+      },
+      "total_input_tokens": {
+        "incremental": 4070356,
+        "old": 8390208,
+        "reduction_fraction": 0.5148682845526595
+      }
+    },
+    "note": "A cheaper failed or incomplete arm cannot establish savings at equal quality.",
+    "old": {
+      "call_count": 6,
+      "calls": [
+        {
+          "call_id": 594,
+          "effort": "medium",
+          "model": "claude-opus-5-5",
+          "role": "constructor",
+          "status": "completed",
+          "trace": {
+            "assistant_messages": 18,
+            "available": true,
+            "edit_new_string_utf8_bytes_requested": 1002,
+            "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+            "sha256": "5578462e5a48c685c217bd561022fb24c49eef276adfc9897a1d58e57f589ac0",
+            "tool_bearing_messages": 17,
+            "tool_calls": 40,
+            "tool_names": {
+              "Edit": 2,
+              "Glob": 1,
+              "Grep": 8,
+              "Read": 17,
+              "Write": 12
+            },
+            "write_content_utf8_bytes_requested": 94666
+          },
+          "usage": {
+            "cache_write_input_tokens": 123294,
+            "cached_input_tokens": 1249595,
+            "input_tokens": 36,
+            "output_tokens": 50658
+          },
+          "usage_complete": true,
+          "wall_seconds": 403.9059999999881
+        },
+        {
+          "call_id": 595,
+          "effort": "medium",
+          "model": "claude-opus-5-5",
+          "role": "material_reviewer",
+          "status": "completed",
+          "trace": {
+            "assistant_messages": 28,
+            "available": true,
+            "edit_new_string_utf8_bytes_requested": 0,
+            "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+            "sha256": "822b24a311b688055f6a2fd7c3b04fe7bac270ec4388367f23403ecc717910a9",
+            "tool_bearing_messages": 27,
+            "tool_calls": 48,
+            "tool_names": {
+              "Glob": 1,
+              "Grep": 17,
+              "Read": 29,
+              "Write": 1
+            },
+            "write_content_utf8_bytes_requested": 23102
+          },
+          "usage": {
+            "cache_write_input_tokens": 205108,
+            "cached_input_tokens": 3319184,
+            "input_tokens": 56,
+            "output_tokens": 29747
+          },
+          "usage_complete": true,
+          "wall_seconds": 392.9219999999914
+        },
+        {
+          "call_id": 596,
+          "effort": "medium",
+          "model": "claude-opus-5-5",
+          "role": "adjudicator",
+          "status": "completed",
+          "trace": {
+            "assistant_messages": 8,
+            "available": true,
+            "edit_new_string_utf8_bytes_requested": 0,
+            "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+            "sha256": "87192629a0888eb0bfd5f841f6d8559cf34289144bafc2fe653d9eac91d17a94",
+            "tool_bearing_messages": 7,
+            "tool_calls": 17,
+            "tool_names": {
+              "Glob": 1,
+              "Grep": 4,
+              "Read": 11,
+              "Write": 1
+            },
+            "write_content_utf8_bytes_requested": 5623
+          },
+          "usage": {
+            "cache_write_input_tokens": 75489,
+            "cached_input_tokens": 418712,
+            "input_tokens": 16,
+            "output_tokens": 7038
+          },
+          "usage_complete": true,
+          "wall_seconds": 106.09299999999348
+        },
+        {
+          "call_id": 603,
+          "effort": "medium",
+          "model": "claude-opus-5-5",
+          "role": "constructor",
+          "status": "completed",
+          "trace": {
+            "assistant_messages": 16,
+            "available": true,
+            "edit_new_string_utf8_bytes_requested": 0,
+            "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+            "sha256": "19a35e6466f9a0dbd23108463e6c1ff7ca0bdf3e2fec32caa57ed52b4963f4ef",
+            "tool_bearing_messages": 15,
+            "tool_calls": 36,
+            "tool_names": {
+              "Glob": 1,
+              "Grep": 6,
+              "Read": 17,
+              "Write": 12
+            },
+            "write_content_utf8_bytes_requested": 94125
+          },
+          "usage": {
+            "cache_write_input_tokens": 122906,
+            "cached_input_tokens": 992319,
+            "input_tokens": 32,
+            "output_tokens": 54372
+          },
+          "usage_complete": true,
+          "wall_seconds": 445.51500000001397
+        },
+        {
+          "call_id": 604,
+          "effort": "medium",
+          "model": "claude-opus-5-5",
+          "role": "material_reviewer",
+          "status": "completed",
+          "trace": {
+            "assistant_messages": 19,
+            "available": true,
+            "edit_new_string_utf8_bytes_requested": 0,
+            "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+            "sha256": "69b5932ccff4d3e7621171a74fafc298bbb76c155085cb238d5c9592ecacc9d4",
+            "tool_bearing_messages": 18,
+            "tool_calls": 30,
+            "tool_names": {
+              "Glob": 1,
+              "Grep": 10,
+              "Read": 18,
+              "Write": 1
+            },
+            "write_content_utf8_bytes_requested": 21710
+          },
+          "usage": {
+            "cache_write_input_tokens": 140217,
+            "cached_input_tokens": 1448775,
+            "input_tokens": 38,
+            "output_tokens": 27974
+          },
+          "usage_complete": true,
+          "wall_seconds": 349.01600000000326
+        },
+        {
+          "call_id": 605,
+          "effort": "medium",
+          "model": "claude-opus-5-5",
+          "role": "adjudicator",
+          "status": "completed",
+          "trace": {
+            "assistant_messages": 7,
+            "available": true,
+            "edit_new_string_utf8_bytes_requested": 0,
+            "note": "Requested tool payload, not successful filesystem writes or total disk growth.",
+            "sha256": "c0b08db5e897c4a62d466f6630a15ce8e2195e688fc6b108eb4214c634e69018",
+            "tool_bearing_messages": 6,
+            "tool_calls": 18,
+            "tool_names": {
+              "Glob": 1,
+              "Grep": 3,
+              "Read": 13,
+              "Write": 1
+            },
+            "write_content_utf8_bytes_requested": 9476
+          },
+          "usage": {
+            "cache_write_input_tokens": 66935,
+            "cached_input_tokens": 227482,
+            "input_tokens": 14,
+            "output_tokens": 10906
+          },
+          "usage_complete": true,
+          "wall_seconds": 107.45300000000861
+        }
+      ],
+      "failure_count": 0,
+      "missing_usage_is_not_zero": true,
+      "model_session_seconds": 1804.9049999999988,
+      "observed_usage_subtotals": {
+        "cache_write_input_tokens": 733949,
+        "cached_input_tokens": 7656067,
+        "input_tokens": 192,
+        "output_tokens": 180695
+      },
+      "output_tokens": 180695,
+      "subscription_dollar_cost": null,
+      "total_input_tokens": 8390208,
+      "unfinished_count": 0,
+      "usage_complete": true
+    },
+    "scientific_quality": "requires_independent_audit",
+    "scientific_quality_gate": "failed_on_diffusion_identity_leak_missed_by_incremental"
+  },
+  "quality": {
+    "phase_C": "deny",
+    "further_model_calls": "stop_under_quality_stop_rule",
+    "current_package_gate": {
+      "incremental": "fail_blocking_E1_identity_leak",
+      "old": "fail_blocking_E1_identity_leak"
+    },
+    "operational_gate": "both failed same combined project_id; retain original results and raw pass/drop actions",
+    "reason": "Both packages expose source distinctive method name in direct public files and required solver filename, forbidden by the identical frozen adjudicator policy E1. Inherited is not exempt. Old adjudicator605 detected; incremental602 missed. Both reviewers missed this naming defect. No strong source-based reason to reject the blocking finding."
+  },
+  "prior_audit_correction": {
+    "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\diffusion_incremental_independent.json",
+    "sha256_preserved": "4d37911f5114a1bac1722afa42c8b8dbe441f656c8e3d5a16f353eea5c39a324",
+    "not_modified": true,
+    "acknowledgment": "My earlier bounded seven-repair scientific pass was insufficient for the current complete package gate. I did not apply E1 distinctive-name prohibition to the inherited public title, docstrings and output contract; this was a maintenance audit coverage miss. It must not be used to clear this arm or stage C. This new audit records the correction transparently without rewriting historical report."
+  },
+  "causal_limits": [
+    "Two single paired cases cannot establish quality noninferiority or population savings.",
+    "Cannot isolate diff navigation, seeded editing, cache, order, or stochastic effects.",
+    "Both Diffusion packages already inherited the method-name leak; inheritance does not exempt E1. Both reviewers missed it; old adjudicator caught it, incremental adjudicator missed it.",
+    "Both Diffusion arms failed project_id contract; raw pass/drop are not successful pipeline outcomes.",
+    "No proven policy-version mismatch: published reviewer base prompts identical; both adjudicators read identical policy."
+  ],
+  "time_accounting": {
+    "model_sessions_seconds": 2675.031,
+    "arms_active_pipeline_seconds": 2697.2969999999914,
+    "first_arm_start_to_last_arm_end_seconds": 3250.416743,
+    "inter_arm_gaps_seconds": 553.1197430000088,
+    "gap_semantics": "Unclassified mix of audit, preparation and waiting, not pure idle; audit intervals may overlap these gaps.",
+    "independent_audit_seconds": [
+      217.833225,
+      208.633471,
+      222.612135,
+      214.831652
+    ],
+    "independent_audit_total_seconds": 863.910483,
+    "root_engineering_and_review_seconds": null,
+    "maintenance_tokens": null,
+    "subscription_dollars": null,
+    "unknown_not_zero": true,
+    "pipeline_clock_excludes_prepublication_hash_preflight": true
+  },
+  "runtime": {
+    "wing": {
+      "model_calls": 0,
+      "rows": [
+        {
+          "arm": "old",
+          "finished_at": "2026-09-27T01:06:20.532710+00:00",
+          "reasons": [],
+          "record": "D:/mrhbench-local-pilot/factory-efficiency-20260926-001/runtime/wing_text_repair/old/runtime_record.json",
+          "seconds": 9.625,
+          "started_at": "2026-09-27T01:06:10.905410+00:00",
+          "status": "passed"
+        },
+        {
+          "arm": "incremental",
+          "finished_at": "2026-09-27T01:06:28.435654+00:00",
+          "reasons": [],
+          "record": "D:/mrhbench-local-pilot/factory-efficiency-20260926-001/runtime/wing_text_repair/incremental/runtime_record.json",
+          "seconds": 7.905999999988126,
+          "started_at": "2026-09-27T01:06:20.533720+00:00",
+          "status": "passed"
+        }
+      ]
+    },
+    "diffusion": {
+      "model_calls": 0,
+      "quality_gate_override": false,
+      "rows": [
+        {
+          "arm": "incremental",
+          "finished_at": "2026-09-27T01:39:45.846072+00:00",
+          "reasons": [],
+          "record": "D:/mrhbench-local-pilot/factory-efficiency-20260926-001/runtime/diffusion_science_code_repair/incremental/runtime_record.json",
+          "seconds": 16.73399999999674,
+          "started_at": "2026-09-27T01:39:29.121930+00:00",
+          "status": "passed"
+        },
+        {
+          "arm": "old",
+          "finished_at": "2026-09-27T01:40:01.954681+00:00",
+          "reasons": [],
+          "record": "D:/mrhbench-local-pilot/factory-efficiency-20260926-001/runtime/diffusion_science_code_repair/old/runtime_record.json",
+          "seconds": 16.10899999999674,
+          "started_at": "2026-09-27T01:39:45.846072+00:00",
+          "status": "passed"
+        }
+      ]
+    },
+    "all_four_smokes_passed": true,
+    "does_not_certify_scientific_or_leakage_quality": true
+  },
+  "offline_tests": {
+    "total": 474,
+    "passed": 462,
+    "skipped": 12,
+    "failures": 0,
+    "seconds": 90.069,
+    "skip_reason": "controller venv lacks NumPy; unchanged converter previously tested with bundled NumPy",
+    "log": {
+      "path": "D:\\mrhbench-local-pilot\\efficiency-final-tests-20260926-001.log",
+      "sha256": "fde50ea57248a34d205ebf8d887422b228b9dda69409fd824630e04d57929832"
+    }
+  },
+  "freeze_verification": {
+    "passed": true,
+    "original_input_files": 83,
+    "execution_files": 103,
+    "paired_quality_bindings_verified": true,
+    "old_outputs_not_rewritten": true
+  },
+  "adoption": {
+    "production_incremental_default": false,
+    "current_combined_shortcut_approved": false,
+    "future_direction": [
+      "Keep byte-preserving seed/edit and full diff as engineering candidates, not proven separately.",
+      "Require full current-policy public identity, protocol-scale and scientific checks at every repair; unchanged content is not exempt.",
+      "Align policy coverage across constructor/reviewer/adjudicator and bind prior review coverage.",
+      "Make exact project_id contract explicit; do not normalize failed results after the fact.",
+      "Revalidate revised design on fresh cases before adoption; no further model calls in this goal."
+    ],
+    "prospective_controller": "offline only; unused; exact-identity prompt change not real-model validated"
+  },
+  "completion_matrix": {
+    "A_implementation_replay": "complete_zero_development_calls",
+    "B_two_real_pairs": "complete_12_calls_failures_retained",
+    "C_conditional": "stopped_as_required_by_major_quality_miss",
+    "cost_quality_decision": "modify_before_adopt",
+    "formal_benchmark_or_mass_production": "not_started"
+  },
+  "evidence": [
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\diffusion_incremental_cost.json",
+      "sha256": "03267ce0cc5bd1af5b72ae3a4a651c71b58a046779afb4e8ea346e6e5f3c6498"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\diffusion_incremental_delta.json",
+      "sha256": "c43eca4471b4824659a5706f5301ea7c372e37795073465be21620971a9c1a65"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\diffusion_incremental_independent.json",
+      "sha256": "4d37911f5114a1bac1722afa42c8b8dbe441f656c8e3d5a16f353eea5c39a324"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\diffusion_old_cost.json",
+      "sha256": "c7fa1fced0e54056c07968b208599c7a67d52717715df2c1089c6164105a27c3"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\diffusion_pair_cost.json",
+      "sha256": "d9e70d40e3c4176053e64a4b97473e2daf849461b3a163b2c8156b387b0901f0"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\diffusion_pair_quality_v1.json",
+      "sha256": "b525dc8ccef738a30c836e801f106c64c0eadc50f6b86ec69228d3f6d7749478"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\diffusion_pair_runtime.json",
+      "sha256": "8e740faf0b413b348233430cb4ef9f0955393f791c75a01bd4526388817b0f45"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\diffusion_science_code_repair.json",
+      "sha256": "85ed2ed82be8575f4c06d079ba60c2a3704b702c32fbb1865745c2d6fdb8e10d"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\diffusion_terminal_continuation_v1.json",
+      "sha256": "a8e23507c4222844e55a0381439c21c417298b31ba03d2f3b231ceed79ed3bde"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\two_pair_costs.json",
+      "sha256": "b2393fb177c99271df1fd8e7c759fa7767ec780ea56da337842cefe2bc4901ef"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\wing_incremental_cost.json",
+      "sha256": "5f9bd1cfcbc2cc2a08f07fd9ca2387b2d2fe316e45f31f665da35f9b732098a6"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\wing_incremental_independent.json",
+      "sha256": "46776c89bcb98c3bfa44101a1dda2accbad06d40e1d3cea062defe32c552ed8c"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\wing_old_cost.json",
+      "sha256": "a43249626d98aab04f59ecc6c789991b0df52c77c3b647efe095f8d8062419cb"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\wing_old_delta.json",
+      "sha256": "372e012edb73621e397383d6ac03e0be8ec266cc57c2cd736d37afc00b353861"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\wing_old_independent.json",
+      "sha256": "bacb78d9d1b1a2547eb765703ceebfa8a325deda716142025023a60a469791b7"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\wing_old_preliminary.json",
+      "sha256": "be36cde7622a01dd99ed142ee766fb7a86ea4cfa202c977950a790c036a7af3e"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\wing_pair_cost.json",
+      "sha256": "ee4dd4e3c6ab3e02c7a0ebf9a37ed63aca7a0627d91145c0f2e8ad1d3b2fe85d"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\wing_pair_runtime.json",
+      "sha256": "7b7a91524c211ae4a4f6349f42f678215b2e6cb87aed6a9e99d7add90d2b7c56"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001\\audits\\wing_text_repair.json",
+      "sha256": "45ee04949ad75fc3dcffa330f7ee491d8f181d514904bfae46b284a0e0b2d418"
+    }
+  ]
+}

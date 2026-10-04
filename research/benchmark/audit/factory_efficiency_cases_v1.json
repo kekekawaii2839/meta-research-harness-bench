@@ -1,0 +1,482 @@
+{
+  "schema_version": "factory-efficiency-cases-1",
+  "at": "2026-09-27T00:27:53.125004+00:00",
+  "ledger_baseline": 593,
+  "ledger_stop_at": 613,
+  "experiment_root": "D:\\mrhbench-local-pilot\\factory-efficiency-20260926-001",
+  "cases": [
+    {
+      "case_id": "wing_text_repair",
+      "kind": "local_text_provenance",
+      "workspace": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw",
+      "job_path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\job_repair2.json",
+      "prior_batch": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair",
+      "job_id": "iclr2025-254NJe9JEw__EXP",
+      "notes_path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair_adjudication\\review_adjudication.json",
+      "notes_key": "repair_notes",
+      "order": [
+        "old",
+        "incremental"
+      ],
+      "checks": [
+        "No forbidden layer acronym/name in public eligible fact statements/locators; original scientific scope unchanged.",
+        "Figure 3 caption source locator added accurately, no original issue silently omitted.",
+        "No new method/hypothesis/resource/loader changes."
+      ],
+      "frozen_inputs": [
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\data_conversion\\forces\\array_metadata.json",
+          "sha256": "675c53bc1ef984e7f5fc7d265bf7e0ad36c3fac2f6a8aab83e5eaaf9626625d6",
+          "bytes": 38529
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\data_conversion\\forces\\data.npz",
+          "sha256": "0679044bb36030fd08be7344f951929eabe6d7a3fa6bedfe76515086a3833cb1",
+          "bytes": 14072242
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\data_conversion\\kinematics\\array_metadata.json",
+          "sha256": "d4a211d7cfbf16e50c1c5e6282dfcbc568dc87778a333533fae33934690b914d",
+          "bytes": 38382
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\data_conversion\\kinematics\\data.npz",
+          "sha256": "01081cdfb81177d187f185d5fc3e8f82dc81015ffc2b59c15dd069c4a114d06b",
+          "bytes": 10563826
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\abs_page.html",
+          "sha256": "8d59cc27ac55e577f4f280e1d04f5037e11d293b3aa69417181bb9bde790bab5",
+          "bytes": 43110
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\Camera\\camera_gui.py",
+          "sha256": "fdb2eaaf366f95188f71ec17dd2f4cef6c6602d744d0fb88239647c9e1f10738",
+          "bytes": 3045
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\Camera\\camera_utils.py",
+          "sha256": "7f7b950c1718ded6ddc53233ee16855b7104e278f2dceffbbc6960bccc25926e",
+          "bytes": 15298
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\Camera\\main.py",
+          "sha256": "49a1090d7baa21cdf87109ebbfb5820b89b8dff06037a9bebdb64008cd29b210",
+          "bytes": 3778
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\Camera\\to_3d.py",
+          "sha256": "3b70a37f9f27ecfeb4ecc0a38c9cf961425cf9e4222524429a6f5ebb32fef88d",
+          "bytes": 6157
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\Camera\\tracker.py",
+          "sha256": "7a1212ed468340b2dd489c293f3b67ad30dcd65ecebc431c8018c8e1226a3fbd",
+          "bytes": 10927
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\DataHandler\\data_utils.py",
+          "sha256": "9f5a582f54c244e6f9d27beba16995c80216d92146384f03000a7a5b4bc9aaf1",
+          "bytes": 2093
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\DataHandler\\encoders.py",
+          "sha256": "0631c7fd5f24f2effc6e9dfe1977b3fd8ae56c20bafe052d7ed931dc57486879",
+          "bytes": 5465
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\DataHandler\\preprocess.py",
+          "sha256": "13b1bef67410a6a71d24250b356055a78855bd975ce3bf3406a56072feb74360",
+          "bytes": 2671
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\DataHandler\\trigger.py",
+          "sha256": "872d7657a794a08dd3dedb6ab3464126c3d5e8d4adcae0a43450dadd0a85855b",
+          "bytes": 7324
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\Forces\\main.py",
+          "sha256": "cba3f100b01c1ba64de91b471cfbd4a87cb79ad00ba86c0cc278adbeca9ff106",
+          "bytes": 908
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\Forces\\parse_forces.py",
+          "sha256": "b6d4e3745b6cb61182d424e52457f2bd089e2a37f9779209cf82f98f56227b2b",
+          "bytes": 2246
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\main.py",
+          "sha256": "8f6849de5aa970b642a6bf3d34c0103910167709d2c8d7b4bc7be40309ed5d11",
+          "bytes": 5015
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Core\\custom_loss.py",
+          "sha256": "23a5749d87b079bc892be4b0a39f514930931919650f89f1ccc70f0253fc34e7",
+          "bytes": 2269
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Core\\datasets.py",
+          "sha256": "70335073d7df93ecb4da55f55ecb5146d4bbd2f09739166ed00a80be2e393fb7",
+          "bytes": 4874
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Core\\normalizer.py",
+          "sha256": "47475ef7be726e805724bbe7d3ba27a47a238984fbcbb5d1f3982be71cbd2c61",
+          "bytes": 7638
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Core\\trainer.py",
+          "sha256": "db2f1a3a82e2cbf29d2fb71aa55a92599bb98671eb56187eba13b8bac56372c6",
+          "bytes": 16585
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\main.py",
+          "sha256": "ceb8da92eeeb597634835100c8e2cb1b3b3fcf8a0726abceb7fb0d0aa947bc03",
+          "bytes": 8769
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\ml_utils.py",
+          "sha256": "62237d06f17552f69a62da43ad935706ded7c259892c37bc726cce4db02b1c54",
+          "bytes": 10924
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Zoo\\adaptive_spectrum_Layer.py",
+          "sha256": "24263c75471b6ca947f65deac7b571f41b327dde0c344d299a65351937034c6a",
+          "bytes": 11765
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Zoo\\LTSF\\Autoformer.py",
+          "sha256": "c3dfb54fa84fb69630eb33c0deb524fea0978abf72d1ee560d356631997233be",
+          "bytes": 5355
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Zoo\\LTSF\\FedFormer.py",
+          "sha256": "5706d10ddad1df183e628d2a8b78a56438597fa51cc60b18fc9f8ce11361e26f",
+          "bytes": 7743
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Zoo\\LTSF\\Informer.py",
+          "sha256": "d26e7843f2c9e163b46687334e40210e50f680892dfc20041c4c812afde1ec38",
+          "bytes": 4419
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Zoo\\LTSF\\Linear.py",
+          "sha256": "96d8412a029fc4c87aa3914797c52c4adbc8ee9dcfe58299fcd6b219ad7bc74c",
+          "bytes": 1480
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Zoo\\LTSF\\NLinear.py",
+          "sha256": "dc53aae0fb9f6d337928e9ddbd3b4fffde89fa9d120141f62dcb249d7e2b5bf3",
+          "bytes": 1794
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Zoo\\LTSF\\Transformer.py",
+          "sha256": "98d39b7b46a693d7c503458e163d78568087ae638c6fe4f62b928dbf58fc4a58",
+          "bytes": 4912
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Zoo\\Mlp.py",
+          "sha256": "0b64292e09049cc185ca5db41ebc9b681bc786220694e97fe2ddf89d4cb28b17",
+          "bytes": 1541
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Zoo\\Rnn.py",
+          "sha256": "dbe70057885df4ec848af98f25e403cac7f6491502e44de1e517827854922302",
+          "bytes": 2040
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Zoo\\Seq2seq.py",
+          "sha256": "0a7a869668b004b1a5087d9943e7e0059441a0cdaf9719ccaa8c8f2eacc40e31",
+          "bytes": 13693
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Zoo\\TFT\\feature_embedding.py",
+          "sha256": "ce12f94931be299cdc049a02e07ee01b9fc07c3dc1107ee78905a99de7c67b7b",
+          "bytes": 838
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Zoo\\TFT\\gated_residual_network.py",
+          "sha256": "d7f7afea97c7cc0cb93337e1ff218ec754f83b3b5d115e41c07cb2632fb50463",
+          "bytes": 1656
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\ML\\Zoo\\TFT\\variable_selection_network.py",
+          "sha256": "ea368e4702b780d0204afbfffc6b700a3b275e5e5d0669e6429dc0f1a7c38db7",
+          "bytes": 1502
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\README.md",
+          "sha256": "806eee5832721182a2f7ee75e49ce579cf3d259bb8c889bf3aa860552f2067b1",
+          "bytes": 6571
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\requirements.txt",
+          "sha256": "653af75607c96a2dc1d6005b6d1128584f82614bef4c71ac73203e57bb8d0dbd",
+          "bytes": 4057
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\Utilities\\copy_pics.py",
+          "sha256": "bf872b49758f326d4e34a2b2b249aa52a201702acf68c53d0d80229437709d56",
+          "bytes": 2335
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\Utilities\\naive_data_generator.py",
+          "sha256": "250de222be4956fbb0bad1a56bdc3231be029c76fb48d0da6527973dd7771dba",
+          "bytes": 3573
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code\\Utilities\\utils.py",
+          "sha256": "8c22a0e4ed945aebf519a1a8a17ad0f31f745783ba84f132823b733f17cd9ec5",
+          "bytes": 30976
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\code_tree.txt",
+          "sha256": "c8c2d5451c098fbae2b6144eb7b19068b07e983988a17fbb1a4408f4d8c98a18",
+          "bytes": 3933
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\sources\\files\\paper.html",
+          "sha256": "876b2bbb48098df52cb0256efe36cc007c821a27f07ffcae821963e17fca0101",
+          "bytes": 337538
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\job_repair2.json",
+          "sha256": "39bc7d80876b5239731225596c7743a59bc90a9cc7df3477aec31fa0010b0b34",
+          "bytes": 42050
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\assets\\converted_data\\forces.metadata.json",
+          "sha256": "675c53bc1ef984e7f5fc7d265bf7e0ad36c3fac2f6a8aab83e5eaaf9626625d6",
+          "bytes": 38529
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\assets\\converted_data\\forces.npz",
+          "sha256": "0679044bb36030fd08be7344f951929eabe6d7a3fa6bedfe76515086a3833cb1",
+          "bytes": 14072242
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\assets\\converted_data\\kinematics.metadata.json",
+          "sha256": "d4a211d7cfbf16e50c1c5e6282dfcbc568dc87778a333533fae33934690b914d",
+          "bytes": 38382
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\assets\\converted_data\\kinematics.npz",
+          "sha256": "01081cdfb81177d187f185d5fc3e8f82dc81015ffc2b59c15dd069c4a114d06b",
+          "bytes": 10563826
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\assets\\data_card.md",
+          "sha256": "217e369d76a038b9731b7a6f1ac4931a77ac4d35c58242fd9be2d7f23c2524c2",
+          "bytes": 3859
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\assets\\private\\reviewer_notes.md",
+          "sha256": "22819e3a85fe6b2394d9889f2ceb885991f96dd59f1cffbe368d76834099648e",
+          "bytes": 5288
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\assets\\starter\\srl_exp\\__init__.py",
+          "sha256": "bda67dc3f5315db99512df0db32409f6a8b59d16aad5d17f892a5cab042a56b9",
+          "bytes": 603
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\assets\\starter\\srl_exp\\backbone.py",
+          "sha256": "f018f13d870e35ed21de8d3457bf0348b0a1c4b6ee95e2cf8e291857493d3498",
+          "bytes": 2963
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\assets\\starter\\srl_exp\\data.py",
+          "sha256": "ed6f59ab9efda827d1e2d57557506b07bb7bdcc9a9551c33efdf74b7941ae510",
+          "bytes": 8463
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\assets\\starter\\srl_exp\\metrics.py",
+          "sha256": "1fd9fa6a1c60aad26896ec7bc792cc43cc3076f568c8444cb99c7a43737d82f6",
+          "bytes": 1249
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\assets\\task.md",
+          "sha256": "335553ecc9ef10bab8f453ab423d8928d1758d0e9a712e835e17c7b73b9cc106",
+          "bytes": 13846
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\environment\\image\\.dockerignore",
+          "sha256": "ad4ffbb29ec74c37891a0efba1236aa378fdbf9e7a30b0df8532cdcd7baf4698",
+          "bytes": 32
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\environment\\image\\Dockerfile",
+          "sha256": "d4a2bad4cbfe55dedc465325a7f15dbec8df1fdaa73e89deed9631c208e634bd",
+          "bytes": 616
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\environment\\image\\requirements.txt",
+          "sha256": "d69dbd54ca64bc5dc41ddd96a784ffbca3e18212b064da1744cdf71788383b41",
+          "bytes": 73
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\environment\\smoke.py",
+          "sha256": "25fd7204ff30ab47855c2c16fdea5c98ccddae0338c96d86f8da90440dc2693c",
+          "bytes": 4995
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\package.constructor_original.json",
+          "sha256": "15743e083d7a2ec3febafa47be42fd5c1984704acd97aa31e99c15e231f34cf1",
+          "bytes": 51855
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\constructor\\output\\package.json",
+          "sha256": "f9b7c0d30df868cb64c967ac826789d1a7192d8a8cb29b4e49c63f55310e88a5",
+          "bytes": 47645
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\receipt.json",
+          "sha256": "b7f5aab1f6411c8e580d09b5b223436f0de3ad554a55e72a9712ebf857d0e3b4",
+          "bytes": 32405
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair\\iclr2025-254NJe9JEw__EXP\\reviewer\\review.json",
+          "sha256": "91e2819ade1b1494d14a7707155185ff9760c2de781df98065f928a8e281cd5e",
+          "bytes": 17588
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair_adjudication\\review_adjudication.json",
+          "sha256": "b58da2a4dbe83f7c056e49ad23839425253f69830c2740379cd7a2ed6aa434e5",
+          "bytes": 7304
+        }
+      ]
+    },
+    {
+      "case_id": "diffusion_science_code_repair",
+      "kind": "scientific_and_code_contract",
+      "workspace": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench",
+      "job_path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\materials\\next_batch_v2\\jobs\\diffusion-exp-2d-v1.json",
+      "prior_batch": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review",
+      "job_id": "diffusion-exp-2d-v1",
+      "notes_path": "D:\\mrhbench-local-pilot\\material-claude-20260924-004-repair\\diffusion-exp-2d-v1\\constructor\\repair_request.json",
+      "notes_key": "maintainer_adjudicated_notes",
+      "order": [
+        "incremental",
+        "old"
+      ],
+      "checks": [
+        "Remove private author protocol-shaped public defaults, preserve solver experimental freedom.",
+        "Specify degenerate-row interface consistently without prescribing recovery.",
+        "Correct sigma bound/equality and clamp expression/locator faithfully.",
+        "Keep source two-peak comparison caveat private; no spurious source-comparable claim.",
+        "Keep original resource caps and correct non-root runtime write contract."
+      ],
+      "frozen_inputs": [
+        {
+          "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\materials\\next_batch_v2\\jobs\\diffusion-exp-2d-v1.json",
+          "sha256": "78e572601aa0c7c8737407c5ca163753ebc87d4a7b365f9c13f82b3b9dddad03",
+          "bytes": 4569
+        },
+        {
+          "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\diffusion_prescreen_v1\\diffusion-abstract-v2.source",
+          "sha256": "160d7c8e9b7fc1dae14b6217aa0fbb2af6a4df50b054887399f366b0952f92d2",
+          "bytes": 42236
+        },
+        {
+          "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\diffusion_prescreen_v1\\diffusion-license.source",
+          "sha256": "9e50333d41b4abec0331dfe28ea51cbf49a0b5a95a5d121ca2d428d8e62b2853",
+          "bytes": 13574
+        },
+        {
+          "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\source_cache\\benchmark_materials\\diffusion_prescreen_v1\\diffusion-paper-v2.source",
+          "sha256": "992bd1adfaae19eaadf0019f9be5ae1f0dd614aa4b33d247a73a1deeec261e58",
+          "bytes": 251786
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\constructor\\output\\assets\\exp_2d\\method_spec.md",
+          "sha256": "b2a3534250eba5a957019288bf0dbc1a08ecebc4555aa5e748c3ddd4e712ef77",
+          "bytes": 7923
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\constructor\\output\\assets\\exp_2d\\private\\review_notes.md",
+          "sha256": "f08d78ed8eded73110f79db121be7cc9736fff7800afafec89c2a0f0d65fda22",
+          "bytes": 9281
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\constructor\\output\\assets\\exp_2d\\starter\\baseline_random_search.py",
+          "sha256": "05e6b6432b42f81ceb92d9af6f34e388c441fe6a824134b2e04167e25a4a2935",
+          "bytes": 2731
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\constructor\\output\\assets\\exp_2d\\starter\\metrics.py",
+          "sha256": "d8ff4ca720bbf8beb87106125cc477a48d150662a72019f4596f6c52e607ddaa",
+          "bytes": 4679
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\constructor\\output\\assets\\exp_2d\\starter\\objectives.py",
+          "sha256": "a5ac822237a746e0f57d474f78b7f3d455d111130a06a026de1579cf86366d04",
+          "bytes": 5187
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\constructor\\output\\assets\\exp_2d\\starter\\test_starter.py",
+          "sha256": "17fe18d8b55f20c297a9bf12e8913b90cc2341d7f0a466f528464024a7ddc2a8",
+          "bytes": 3824
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\constructor\\output\\assets\\exp_2d\\task.md",
+          "sha256": "6250e03c9c5a2bb9ed233099261e95999bae62c942043aac204dbf4f3796c41a",
+          "bytes": 7348
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\constructor\\output\\environment\\image\\.dockerignore",
+          "sha256": "ad4ffbb29ec74c37891a0efba1236aa378fdbf9e7a30b0df8532cdcd7baf4698",
+          "bytes": 32
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\constructor\\output\\environment\\image\\Dockerfile",
+          "sha256": "8b6f5c2b9026236d0c77deee9ea2d5f40b4412317359b2910332e1ad4db2fc7a",
+          "bytes": 537
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\constructor\\output\\environment\\image\\requirements.txt",
+          "sha256": "367320ef82f177875c60310b49899b54609e33852958b81683163dc1951536eb",
+          "bytes": 339
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\constructor\\output\\environment\\smoke.py",
+          "sha256": "aecc7243ad096278786021ac24d4f1d8b6504c7fad04b806ca32531837be07e3",
+          "bytes": 2777
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\constructor\\output\\package.constructor_original.json",
+          "sha256": "f031f4f419d9fda67f4d3abf040b4198d424314ebbb464d1506deee2ddc3f475",
+          "bytes": 35569
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\constructor\\output\\package.json",
+          "sha256": "d8992b5d431ba335c4862ec48ce4bf57c3bfa620da758d58bd75aad8e6e54088",
+          "bytes": 32581
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-003-review\\diffusion-exp-2d-v1\\reviewer\\review.json",
+          "sha256": "c6ab48cd33ed59b5965edf43db87f1546887909dc8ff7b7218269a7267b53395",
+          "bytes": 23289
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\material-claude-20260924-004-repair\\diffusion-exp-2d-v1\\constructor\\repair_request.json",
+          "sha256": "26b2af97d432ce2df145e75e91352f45878efd919cf0b0781f915c8a2a71165e",
+          "bytes": 5909
+        }
+      ]
+    }
+  ],
+  "prospective": {
+    "paper": "iclr2025-qgsXsqahMq",
+    "source_dir": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-qgsXsqahMq",
+    "source_manifest_sha256": "316426ce10586afcce1ab62cd50251fff40b6b786f72f7b4a7445e68f330f957",
+    "unit_selection": "First supported unit after source adjudication in frozen priority EXP, WRITE_EVIDENCE, WRITE_CONTENT, LIT, IDEA; do not replace paper based on outcome.",
+    "max_calls": 8,
+    "start_gate": "Both paired cases audited without unacceptable quality regression and cost result worth proceeding."
+  },
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "pair_max_calls": 12,
+  "new_model_calls": 0,
+  "execution_ready": false,
+  "note": "Case inputs frozen before prompt tuning/trials. Engine and prompt hashes to be frozen after zero-call tests, before either paid arm. Old outcomes not copied to trial workspaces."
+}

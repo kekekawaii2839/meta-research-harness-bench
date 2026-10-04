@@ -1,0 +1,137 @@
+{
+  "schema_version": "efficiency-zero-call-replay-1",
+  "at": "2026-09-27T00:29:10.392614+00:00",
+  "model_calls": 0,
+  "models_quality_or_savings_tested": false,
+  "records": [
+    {
+      "case": "wing_text_repair",
+      "seed_copied_bytes": 24802611,
+      "historical_delta_counts": {
+        "added": 0,
+        "deleted": 0,
+        "changed": 3,
+        "unchanged": 14
+      },
+      "reconstructed_final_exact_except_excluded_controller_copy": true,
+      "structural_check": {
+        "structural_gate": "passed",
+        "scientific_gate": "pending_independent_review",
+        "environment": {
+          "runtime_verified": false,
+          "build_context": "environment/image",
+          "dockerfile_sha256": "d4a2bad4cbfe55dedc465325a7f15dbec8df1fdaa73e89deed9631c208e634bd",
+          "smoke_sha256": "25fd7204ff30ab47855c2c16fdea5c98ccddae0338c96d86f8da90440dc2693c",
+          "resource_status": "candidate_pending_actual_cpu_container_smoke",
+          "security_notice": "Structural check is not Dockerfile code security audit"
+        },
+        "fact_count": 35,
+        "task_count": 1,
+        "formal_accepted": false
+      },
+      "review_navigation": {
+        "schema_version": 1,
+        "warning": "Unchanged bytes do not imply scientific acceptance. Independently inspect all unresolved findings in the previous review and their dependencies. Method, formula, scientific semantics or code changes require related source, data, tests and downstream-claim checks. If impact cannot be reliably bounded, perform a full review. This navigation is not a pass decision; full current candidate and original sources remain required.",
+        "previous_review": {
+          "path": "previous_review/review.json",
+          "sha256": "91e2819ade1b1494d14a7707155185ff9760c2de781df98065f928a8e281cd5e",
+          "bytes": 17588
+        },
+        "missing_prior_review": false,
+        "full_review_required": false,
+        "previous_candidate_path": "previous_candidate",
+        "full_current_candidate_required": true,
+        "original_sources_required": true,
+        "scientific_acceptance": "not_assessed",
+        "navigation_json": "diff_navigation.json",
+        "navigation_markdown": "diff_navigation.md",
+        "json_changes": "json_changes.json",
+        "json_changes_identity": {
+          "sha256": "1760b17066e69ed2952153889d39405deeffc25cd9f5622f074fa69ba628b9d0",
+          "bytes": 77298
+        },
+        "counts": {
+          "added": 0,
+          "deleted": 1,
+          "changed": 2,
+          "unchanged": 14
+        },
+        "bytes": {
+          "before_total": 24854466,
+          "after_total": 24803840,
+          "changed_or_deleted_before": 104788,
+          "changed_or_added_after": 54162
+        },
+        "navigation_identity": {
+          "sha256": "67f4740d8a01764958fd7c507f58d0b4e093ca583e3cb7cab4da9551265d9e95",
+          "bytes": 170107
+        }
+      }
+    },
+    {
+      "case": "diffusion_science_code_repair",
+      "seed_copied_bytes": 77239,
+      "historical_delta_counts": {
+        "added": 0,
+        "deleted": 0,
+        "changed": 11,
+        "unchanged": 2
+      },
+      "reconstructed_final_exact_except_excluded_controller_copy": true,
+      "structural_check": {
+        "structural_gate": "passed",
+        "scientific_gate": "pending_independent_review",
+        "environment": {
+          "runtime_verified": false,
+          "build_context": "environment/image",
+          "dockerfile_sha256": "6725eab143ab76af2fab58da983adafa22beef57f7dbae0e23b43cdc81e5fd99",
+          "smoke_sha256": "8513906a38417cc52aa2755de162cec4e738b9a8982cc0bee9d260f77510fbe2",
+          "resource_status": "candidate_pending_actual_cpu_container_smoke",
+          "security_notice": "Structural check is not Dockerfile code security audit"
+        },
+        "fact_count": 38,
+        "task_count": 1,
+        "formal_accepted": false
+      },
+      "review_navigation": {
+        "schema_version": 1,
+        "warning": "Unchanged bytes do not imply scientific acceptance. Independently inspect all unresolved findings in the previous review and their dependencies. Method, formula, scientific semantics or code changes require related source, data, tests and downstream-claim checks. If impact cannot be reliably bounded, perform a full review. This navigation is not a pass decision; full current candidate and original sources remain required.",
+        "previous_review": {
+          "path": "previous_review/review.json",
+          "sha256": "c6ab48cd33ed59b5965edf43db87f1546887909dc8ff7b7218269a7267b53395",
+          "bytes": 23289
+        },
+        "missing_prior_review": false,
+        "full_review_required": false,
+        "previous_candidate_path": "previous_candidate",
+        "full_current_candidate_required": true,
+        "original_sources_required": true,
+        "scientific_acceptance": "not_assessed",
+        "navigation_json": "diff_navigation.json",
+        "navigation_markdown": "diff_navigation.md",
+        "json_changes": "json_changes.json",
+        "json_changes_identity": {
+          "sha256": "bd1d37fd581564a52f4493f2f370cc682d166fb9c6d8d240e58c628905312bd3",
+          "bytes": 132773
+        },
+        "counts": {
+          "added": 0,
+          "deleted": 1,
+          "changed": 10,
+          "unchanged": 2
+        },
+        "bytes": {
+          "before_total": 112808,
+          "after_total": 97091,
+          "changed_or_deleted_before": 112437,
+          "changed_or_added_after": 96720
+        },
+        "navigation_identity": {
+          "sha256": "2133947ae351e8925f928c18cc81dd398c5800a96747137e4ed8a088b091dc9b",
+          "bytes": 187854
+        }
+      }
+    }
+  ],
+  "note": "Historical final bytes used ONLY for mechanical replay, never as constructor inputs in real comparisons."
+}

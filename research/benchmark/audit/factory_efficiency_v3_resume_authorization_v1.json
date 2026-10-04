@@ -1,0 +1,33 @@
+{
+  "status": "user_continuation_authorization_not_provider_availability_proof",
+  "user_message": "额度应该恢复了，是每五小时有一个限额，到时间自动重置",
+  "interpretation": "Resume requested bounded work after prior429; next normal construction call checks availability, no paid probe.",
+  "original_manifest": {
+    "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\execution\\manifest.json",
+    "sha256": "1fd6ed62f8d79f4af2a4f06bee98aad5c2ee8ca3f14095b1bd88bbe785f9a9fb",
+    "bytes": 98453
+  },
+  "failed_result": {
+    "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\result.json",
+    "sha256": "c45a13bcf76d7eac77737403415b731c49f080f2d130bbf53f5dcc6cf0aa06a1",
+    "bytes": 26535
+  },
+  "independent_failure_audit": {
+    "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\audits\\call609_independent_rate_limit.json",
+    "sha256": "07a17bfbf5fea87854bda01b88f6872814588c9251b5dad2b402d8bdd176b6c1",
+    "bytes": 11580
+  },
+  "ledger_baseline": 609,
+  "pair_max_calls": 12,
+  "pair_stop_at": 621,
+  "goal_original_baseline": 605,
+  "goal_stop_at": 625,
+  "remaining_total_calls": 16,
+  "prospective_remaining_after_full_pairs": 4,
+  "prospective_limit_note": "Full planned source2 plus construction/review/adjud3 cannot fit after12 pair calls; do not exceed625. Decide scientifically valid remaining scope or request further bounded batch later; do not claim goal complete without prospective validation.",
+  "original_failed_attempt_retained": true,
+  "new_429_stops_new_batch": true,
+  "automatic_retries": false,
+  "provider_recovery_verified": false,
+  "new_experiment_root": "D:/mrhbench-local-pilot/factory-efficiency-v3-resume-20260927-001"
+}

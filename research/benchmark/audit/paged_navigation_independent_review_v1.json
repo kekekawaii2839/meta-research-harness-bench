@@ -1,0 +1,54 @@
+{
+  "schema_version": "independent-paged-navigation-review-1",
+  "at": "2026-09-27T16:40:10.086371+00:00",
+  "decision": "ready_for_explicit_future_new_freeze_integration",
+  "blocking_findings": [],
+  "files": [
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\paged_source_navigation.py",
+      "sha256": "0f72297f6f30cc48d366874c9c038a62c58d8746e22fb966a950e3ae7205e25c"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_paged_source_navigation.py",
+      "sha256": "d5cd3e915dcb2d83af78988ac88ed4fa3c69bcdf9d7f41eb920c0a55f0572383"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\paged_navigation_diagnostic_v1.json",
+      "sha256": "6edcb981d88291d4079ccdcd45dd9761716dd87b18c7f45094a975d09daa5764"
+    }
+  ],
+  "tests": {
+    "count": 5,
+    "seconds": 0.364,
+    "result": "OK"
+  },
+  "actual_diagnostic": {
+    "root": "D:\\mrhbench-local-pilot\\factory-efficiency-v4-20260927-001\\diagnostics\\paged-navigation-v1",
+    "verification": {
+      "lossless": true,
+      "units": 233,
+      "pages": 13,
+      "model_read_verified": false
+    },
+    "all_14_files_within_bound": true,
+    "largest_file_bytes": 15876,
+    "source_original_index_hashes_match": true,
+    "independent_ordered_reconstruction_equal": true
+  },
+  "additional_negative": {
+    "oversize_index_metadata_rejected_before_output": true
+  },
+  "findings": [
+    "All 233 original unit objects and metadata reconstruct exactly in order from 13 pages; no scientific text summarized or dropped.",
+    "Index and every page are <=16000 UTF8 bytes, including JSON overhead. Both oversized indivisible units and oversized index/metadata reject before destination creation.",
+    "Original navigation raw hash, canonical content digest, source raw hash, page raw hashes/lengths, contiguous unit boundaries and exact directory membership are verified.",
+    "No existing native runner wiring or historical candidate was changed. This helper must be explicitly wired in a new protocol/freeze; a later real read trace must establish model access and any cost/latency benefit."
+  ],
+  "limitations": [
+    "This review verifies structural losslessness, not correctness or completeness of original navigation relative to the source.",
+    "No claim that a model read these pages or that costs improved; no model calls or generated scientific code execution.",
+    "Publication assumes quiescent trusted controller inputs and filesystem; it is not an atomic adversarial snapshot or OS isolation proof."
+  ],
+  "new_model_calls": 0,
+  "old_artifacts_modified": false
+}

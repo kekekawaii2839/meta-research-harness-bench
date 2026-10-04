@@ -1,0 +1,511 @@
+{
+  "schema_version": "factory-progress-snapshot-1",
+  "at": "2026-09-26T20:02:55.763236+00:00",
+  "pool_counts": {
+    "candidates": 3705,
+    "license_file": {
+      "found": 725,
+      "not_found": 644
+    },
+    "readme": {
+      "found": 1340,
+      "not_found": 29
+    },
+    "with_abstract": 3705,
+    "with_repo": 1369
+  },
+  "triaged": 400,
+  "eligible": 325,
+  "selected": 140,
+  "target_papers_not_formal_sample_size": 70,
+  "unique_papers_started": 10,
+  "not_started": 130,
+  "unique_compiled_tasks": 18,
+  "compiled_by_type": {
+    "WRITE_CONTENT": 5,
+    "WRITE_EVIDENCE": 4,
+    "LIT": 5,
+    "IDEA": 4
+  },
+  "formal_accepted_tasks": 0,
+  "rows": [
+    {
+      "root": "factory-v1",
+      "paper": "iclr2025-254NJe9JEw",
+      "title": "A deep inverse-mapping model for a flapping robotic wing",
+      "stages": {
+        "adjudication": "completed",
+        "background": "completed",
+        "compile": "completed",
+        "construct": "completed",
+        "fetch": "completed",
+        "repair": "completed",
+        "repair_adjudication": "completed",
+        "review_adjudication": "completed",
+        "runtime": "completed",
+        "source_audit": "completed"
+      },
+      "compiled_types": [
+        "WRITE_CONTENT",
+        "WRITE_EVIDENCE",
+        "LIT",
+        "IDEA"
+      ],
+      "state_sha256": "4d4504f32f62f6252625d011580e145d3f7c670ae6de0ef845c31205f9fa335c"
+    },
+    {
+      "root": "factory-v1",
+      "paper": "iclr2025-3n4RY25UWP",
+      "title": "An Information Criterion for Controlled Disentanglement of Multimodal Data",
+      "stages": {
+        "adjudication": "completed",
+        "background": "completed",
+        "construct": "failed_needs_attribution",
+        "fetch": "completed",
+        "source_audit": "completed"
+      },
+      "compiled_types": [],
+      "state_sha256": "f8f81b425d7df573d6c4b176cc7f7725120eee5c82014520cc0ac140168b6c9d"
+    },
+    {
+      "root": "factory-v1",
+      "paper": "iclr2025-6ouZaBzeNO",
+      "title": "Physiome-ODE: A Benchmark for Irregularly Sampled Multivariate Time-Series Forecasting Based on Biological ODEs",
+      "stages": {
+        "adjudication": "completed",
+        "background": "completed",
+        "compile": "completed",
+        "construct": "completed",
+        "fetch": "completed",
+        "repair": "completed",
+        "repair_adjudication": "completed",
+        "review_adjudication": "completed",
+        "runtime": "completed",
+        "source_audit": "completed"
+      },
+      "compiled_types": [
+        "LIT",
+        "IDEA",
+        "WRITE_CONTENT",
+        "WRITE_EVIDENCE"
+      ],
+      "state_sha256": "a068933640b544f3bd66eafb2c27c2bc05c0d94af011f008176f0eb22edf76ad"
+    },
+    {
+      "root": "factory-v1",
+      "paper": "iclr2025-D10yarGQNk",
+      "title": "Efficient and Context-Aware Label Propagation for Zero-/Few-Shot Training-Free Adaptation of Vision-Language Model",
+      "stages": {
+        "adjudication": "completed",
+        "background": "completed",
+        "compile": "completed",
+        "construct": "completed",
+        "fetch": "completed",
+        "repair": "completed",
+        "repair_adjudication": "completed",
+        "review_adjudication": "completed",
+        "runtime": "completed",
+        "source_audit": "completed"
+      },
+      "compiled_types": [
+        "LIT",
+        "IDEA",
+        "WRITE_CONTENT",
+        "WRITE_EVIDENCE"
+      ],
+      "state_sha256": "1f118aea3c0752ebc49af7d9211e55f36c54539f2e640c9896c1a90863740369"
+    },
+    {
+      "root": "factory-v1",
+      "paper": "iclr2025-EpgoFFUM2q",
+      "title": "Matcha: Mitigating Graph Structure Shifts with Test-Time Adaptation",
+      "stages": {
+        "adjudication": "completed",
+        "background": "completed",
+        "construct": "completed",
+        "fetch": "completed",
+        "repair": "completed",
+        "repair_adjudication": "dropped",
+        "review_adjudication": "completed",
+        "source_audit": "completed"
+      },
+      "compiled_types": [],
+      "state_sha256": "5d43e2158c19a88be936dbce109826a649f1c2e2a73131ef7232eb0ba1be343f"
+    },
+    {
+      "root": "factory-v1",
+      "paper": "iclr2025-loDppyW7e2",
+      "title": "Multi-Dimensional Conformal Prediction",
+      "stages": {
+        "fetch": "blocked_source"
+      },
+      "compiled_types": [],
+      "state_sha256": "0fae68277d21020e2df27132561abfb10cf9681a88a0fce2c5d415ce6689f112"
+    },
+    {
+      "root": "factory-v1",
+      "paper": "iclr2025-pXN8T5RwNN",
+      "title": "Explanations of GNN on Evolving Graphs via Axiomatic  Layer edges",
+      "stages": {
+        "fetch": "blocked_source"
+      },
+      "compiled_types": [],
+      "state_sha256": "a2772e1407f7fc5b668312804b108caf9b0365056accabcd31b146f84009d981"
+    },
+    {
+      "root": "factory-v1",
+      "paper": "iclr2025-qgsXsqahMq",
+      "title": "GETS: Ensemble Temperature Scaling for Calibration in Graph Neural Networks",
+      "stages": {
+        "fetch": "completed",
+        "source_audit": "platform_rate_limited"
+      },
+      "compiled_types": [],
+      "state_sha256": "5afb6d6629b08ea7a293c76ae5e9250e26e7a885eed54ef83116885bce5c4930"
+    },
+    {
+      "root": "factory-v1",
+      "paper": "iclr2025-qpXctF2aLZ",
+      "title": "Mitigating Information Loss in Tree-Based Reinforcement Learning via Direct Optimization",
+      "stages": {
+        "fetch": "completed",
+        "source_audit": "platform_rate_limited"
+      },
+      "compiled_types": [],
+      "state_sha256": "7eb3170670cb7b8a053b48cd6746bc21ccda22ea734e11134d436fc10c7ee728"
+    },
+    {
+      "root": "factory-v1",
+      "paper": "iclr2025-xVefsBbG2O",
+      "title": "Diffusion Models are Evolutionary Algorithms",
+      "stages": {
+        "adjudication": "completed",
+        "background": "completed",
+        "construct": "platform_rate_limited",
+        "fetch": "completed",
+        "source_audit": "completed"
+      },
+      "compiled_types": [],
+      "state_sha256": "d9264a8509acf7fad0be99e56b9b3976d7b0b39c6c0201f283a9d23f12e41154"
+    },
+    {
+      "root": "factory-v2",
+      "paper": "iclr2025-3n4RY25UWP",
+      "title": "An Information Criterion for Controlled Disentanglement of Multimodal Data",
+      "stages": {
+        "adjudication": "completed",
+        "background": "completed",
+        "compile": "completed",
+        "construct": "completed",
+        "fetch": "completed",
+        "repair": "completed",
+        "repair_adjudication": "completed",
+        "review_adjudication": "completed",
+        "runtime": "completed",
+        "source_audit": "completed"
+      },
+      "compiled_types": [
+        "WRITE_CONTENT",
+        "LIT"
+      ],
+      "state_sha256": "3a893cbdf2dc5f0780d4992f1ecd258962b99e30c615388844f9733b74722c56"
+    },
+    {
+      "root": "factory-v2",
+      "paper": "iclr2025-EpgoFFUM2q",
+      "title": "Matcha: Mitigating Graph Structure Shifts with Test-Time Adaptation",
+      "stages": {
+        "adjudication": "completed",
+        "background": "completed",
+        "compile": "completed",
+        "construct": "completed",
+        "fetch": "completed",
+        "repair": "completed",
+        "repair_adjudication": "completed",
+        "review_adjudication": "completed",
+        "runtime": "completed",
+        "source_audit": "completed"
+      },
+      "compiled_types": [
+        "LIT",
+        "IDEA",
+        "WRITE_CONTENT",
+        "WRITE_EVIDENCE"
+      ],
+      "state_sha256": "894e30e7437f37142d73176c8fe64fcd6b41c17882271db7eb0c7576efb76ace"
+    },
+    {
+      "root": "factory-v3",
+      "paper": "iclr2025-254NJe9JEw",
+      "title": "A deep inverse-mapping model for a flapping robotic wing",
+      "stages": {
+        "adjudication": "completed",
+        "fetch": "completed",
+        "source_audit": "completed"
+      },
+      "compiled_types": [],
+      "state_sha256": "9c2bda811cd7c337d790cb3050f015ef85e953804d477b3555e1d5cfd4b62288"
+    },
+    {
+      "root": "factory-v4",
+      "paper": "iclr2025-254NJe9JEw",
+      "title": "A deep inverse-mapping model for a flapping robotic wing",
+      "stages": {
+        "adjudication": "completed",
+        "background": "completed",
+        "external_data": "skipped",
+        "fetch": "completed",
+        "repo_files": "completed",
+        "source_audit": "completed"
+      },
+      "compiled_types": [],
+      "state_sha256": "9910bc9a7472bbea4a9e2d3dd1e14e8b8b3854575ff76ae5b3868d036ef8bb3e"
+    },
+    {
+      "root": "factory-v4",
+      "paper": "iclr2025-qgsXsqahMq",
+      "title": "GETS: Ensemble Temperature Scaling for Calibration in Graph Neural Networks",
+      "stages": {
+        "fetch": "completed"
+      },
+      "compiled_types": [],
+      "state_sha256": "b00c256ae3c982e42cfda5d0e9dc5c7a199690d684c61c8e8d7689b70f7b779e"
+    },
+    {
+      "root": "factory-v4",
+      "paper": "iclr2025-qpXctF2aLZ",
+      "title": "Mitigating Information Loss in Tree-Based Reinforcement Learning via Direct Optimization",
+      "stages": {
+        "fetch": "completed"
+      },
+      "compiled_types": [],
+      "state_sha256": "f6b40398bb77f859b0714ebfc7573cce4db64759ae6d47a50b09c9cc91816ec0"
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "iclr2025-254NJe9JEw-WRITE_CONTENT-01",
+      "task_type": "WRITE_CONTENT",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v1/papers/iclr2025-254NJe9JEw/compiled/iclr2025-254NJe9JEw-WRITE_CONTENT-01"
+    },
+    {
+      "task_id": "iclr2025-254NJe9JEw-WRITE_EVIDENCE-01",
+      "task_type": "WRITE_EVIDENCE",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v1/papers/iclr2025-254NJe9JEw/compiled/iclr2025-254NJe9JEw-WRITE_EVIDENCE-01"
+    },
+    {
+      "task_id": "iclr2025-254NJe9JEw-LIT-01",
+      "task_type": "LIT",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v1/papers/iclr2025-254NJe9JEw/compiled/iclr2025-254NJe9JEw-LIT-01"
+    },
+    {
+      "task_id": "iclr2025-254NJe9JEw-IDEA-01",
+      "task_type": "IDEA",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v1/papers/iclr2025-254NJe9JEw/compiled/iclr2025-254NJe9JEw-IDEA-01"
+    },
+    {
+      "task_id": "iclr2025-6ouZaBzeNO-LIT-01",
+      "task_type": "LIT",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v1/papers/iclr2025-6ouZaBzeNO/compiled/iclr2025-6ouZaBzeNO-LIT-01"
+    },
+    {
+      "task_id": "iclr2025-6ouZaBzeNO-IDEA-01",
+      "task_type": "IDEA",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v1/papers/iclr2025-6ouZaBzeNO/compiled/iclr2025-6ouZaBzeNO-IDEA-01"
+    },
+    {
+      "task_id": "iclr2025-6ouZaBzeNO-WRITE_CONTENT-01",
+      "task_type": "WRITE_CONTENT",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v1/papers/iclr2025-6ouZaBzeNO/compiled/iclr2025-6ouZaBzeNO-WRITE_CONTENT-01"
+    },
+    {
+      "task_id": "iclr2025-6ouZaBzeNO-WRITE_EVIDENCE-01",
+      "task_type": "WRITE_EVIDENCE",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v1/papers/iclr2025-6ouZaBzeNO/compiled/iclr2025-6ouZaBzeNO-WRITE_EVIDENCE-01"
+    },
+    {
+      "task_id": "iclr2025-D10yarGQNk-LIT-01",
+      "task_type": "LIT",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v1/papers/iclr2025-D10yarGQNk/compiled/iclr2025-D10yarGQNk-LIT-01"
+    },
+    {
+      "task_id": "iclr2025-D10yarGQNk-IDEA-01",
+      "task_type": "IDEA",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v1/papers/iclr2025-D10yarGQNk/compiled/iclr2025-D10yarGQNk-IDEA-01"
+    },
+    {
+      "task_id": "iclr2025-D10yarGQNk-WRITE_CONTENT-01",
+      "task_type": "WRITE_CONTENT",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v1/papers/iclr2025-D10yarGQNk/compiled/iclr2025-D10yarGQNk-WRITE_CONTENT-01"
+    },
+    {
+      "task_id": "iclr2025-D10yarGQNk-WRITE_EVIDENCE-01",
+      "task_type": "WRITE_EVIDENCE",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v1/papers/iclr2025-D10yarGQNk/compiled/iclr2025-D10yarGQNk-WRITE_EVIDENCE-01"
+    },
+    {
+      "task_id": "iclr2025-3n4RY25UWP-WRITE_CONTENT-01",
+      "task_type": "WRITE_CONTENT",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v2/papers/iclr2025-3n4RY25UWP/compiled/iclr2025-3n4RY25UWP-WRITE_CONTENT-01"
+    },
+    {
+      "task_id": "iclr2025-3n4RY25UWP-LIT-01",
+      "task_type": "LIT",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v2/papers/iclr2025-3n4RY25UWP/compiled/iclr2025-3n4RY25UWP-LIT-01"
+    },
+    {
+      "task_id": "iclr2025-EpgoFFUM2q-LIT-01",
+      "task_type": "LIT",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v2/papers/iclr2025-EpgoFFUM2q/compiled/iclr2025-EpgoFFUM2q-LIT-01"
+    },
+    {
+      "task_id": "iclr2025-EpgoFFUM2q-IDEA-01",
+      "task_type": "IDEA",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v2/papers/iclr2025-EpgoFFUM2q/compiled/iclr2025-EpgoFFUM2q-IDEA-01"
+    },
+    {
+      "task_id": "iclr2025-EpgoFFUM2q-WRITE_CONTENT-01",
+      "task_type": "WRITE_CONTENT",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v2/papers/iclr2025-EpgoFFUM2q/compiled/iclr2025-EpgoFFUM2q-WRITE_CONTENT-01"
+    },
+    {
+      "task_id": "iclr2025-EpgoFFUM2q-WRITE_EVIDENCE-01",
+      "task_type": "WRITE_EVIDENCE",
+      "gates": {
+        "input_leakage": "pending",
+        "judge_behavior": "pending",
+        "rights": "pending",
+        "runtime": "pending",
+        "source_semantics": "pending"
+      },
+      "dir": "D:/mrhbench-local-pilot/factory-v2/papers/iclr2025-EpgoFFUM2q/compiled/iclr2025-EpgoFFUM2q-WRITE_EVIDENCE-01"
+    }
+  ],
+  "ledger": {
+    "used_attempts": 588,
+    "authorized_maximum": 1668
+  },
+  "reserved": [
+    588
+  ],
+  "note": "Compiled is not accepted. Older same-paper versions are not independent papers. Failed attempt backups excluded. Live run may advance after this snapshot."
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "factory-efficiency-v3-exp-autonomy-entry-1",
+  "created_utc": "2026-09-27T04:31:29.709766+00:00",
+  "decision": "revise_new_entry_before_freeze; original_public_recipe_conflicts_with_D2_E1",
+  "development_model_calls": 0,
+  "code_executed": false,
+  "historical_files_modified": false,
+  "supersedes_prior_advice": "Prior entry review said not to silently relax inherited fixed N/D/settings. That preservation warning must NOT be interpreted as endorsing those experimental choices as legitimate fixed method constants. A new explicitly versioned scope is required, not a silently unchanged old repair job.",
+  "source_basis": [
+    {
+      "locator": "S3.SS2.p2",
+      "observation": "CSBM defined parametrically by N,D, class means, degree d and homophily h; unit covariance and balanced two-class structure. Source does not define the general method only at N5000/D2000."
+    },
+    {
+      "locator": "A4.I1.i1.p1 and following nested list",
+      "observation": "Authors say they use N5000/D2000, d5 h.8↔.2 and d2↔10 h.8 plus common mean translation. These are their experimental settings, not a theorem that those exact numbers are necessary."
+    },
+    {
+      "locator": "A4.I2.i1.p1",
+      "observation": "K9 and width32 are reported backbone configuration. Neither source nor this audit establishes those numerical choices as defining hop-weight adaptation."
+    },
+    {
+      "locator": "S4.SS1.p1-p4 / S4.SS2.p1-p2",
+      "observation": "Research question concerns gamma adaptation with soft-prediction clustering ratio versus frozen/entropy/difference comparators under structural/attribute shift, not exact author score replication."
+    }
+  ],
+  "fixed_scientific_core": [
+    "Balanced two-class CSBM with independent Gaussian features and identity noise; retain the weak-signal mean family mu±=±0.03/sqrt(D)·1 and optional common target translation0.02/sqrt(D)·1 as an explicitly scoped scientific regime, not a hidden knob to raise accuracy. Its norm is fixed when D varies, but finite-sample learnability is not invariant.",
+    "Independent source/target graph draws; Bernoulli within/cross-class edge model. p,q must be valid probabilities; no silent probability clipping. Existing undirected/no-self-loop and normalization conventions remain labelled maintainer choices.",
+    "Pretrained graph model, frozen encoder/classifier and source BN statistics during adaptation; adapt only hop weights. Soft pseudo-predictions, centroids/variance ratio, update order and stop-gradient semantics remain unchanged.",
+    "Same source model, graph realization and frozen state across compared adaptation arms; matched adaptation budget and hyperparameter-selection effort for H2. Target labels only for evaluation, no supervised target tuning.",
+    "Preserve the qualitative scientific shift families: homophily↔heterophily and degree increase/decrease with nuisance factors controlled, and assess whether adding the stated common attribute translation changes conclusions. These define questions, not an eight-row mandatory numeric recipe."
+  ],
+  "solver_choices": [
+    "N and D within CPU/resource limits, balanced even N and valid generator shapes. Solver justifies adequacy for the weak-signal regime and reports finite-sample/estimation uncertainty; choosing tiny N/D only for speed is not automatically a sound study.",
+    "Numerical d/h values, spacing, number of settings and grid design. Homophily crossing uses h on opposite sides of1/2 for two balanced classes; degree comparisons vary d at fixed h and feature law. Avoid degenerate/inadmissible graph probabilities.",
+    "How to allocate settings across both directions and added attribute translation so claims are supported; no forced exact S1–S8 Cartesian grid. If a requested shift family cannot be examined, explicitly report missing coverage, not substitute a different claim.",
+    "Backbone numerical capacity such as K and hidden width are source experiment choices unless independently justified as a fixed research object. Keep the same linear/BN/hop-aggregation architecture class and nontrivial trainable hop contribution, consistent within each comparison. Do not substitute the source single-layer theoretical model then claim validation of full empirical method.",
+    "Seeds, repeats, training/adaptation optimizer/epochs/learning rates, selection rules, statistical intervals and tolerances as existing D2 freedoms; private controller baseline does not prescribe them."
+  ],
+  "hypothesis_reframing": [
+    "H1: For the solver-designed, predeclared structural-shift regimes in the preserved weak-signal CSBM family, test whether hop-weight SCR adaptation improves target accuracy over the identical frozen source model; report effects separately by shift family/direction and distinguish added attribute translation. Findings may be negative or inconclusive.",
+    "H2: In the selected structure-only regimes, test whether SCR yields better target accuracy than entropy-gamma and difference-form-gamma under matched adaptation budget and selection effort. No outcome or universal superiority is guaranteed.",
+    "These are explicitly task-scoped tests of the paper-motivated scientific question. They do NOT establish the original Table1 eight-setting result, all parameter values, or a theorem from a finite chosen grid. Do not say exact original hypothesis preserved while replacing its numeric quantifier."
+  ],
+  "public_private_boundary": [
+    "Remove mandatory author N/D/d/h grid and S1–S8 recipe from public task, settings.json, code defaults, facts, docstrings and required output rows. Retain original source recipe privately for provenance only.",
+    "A generic parameterized generator and ordinary baseline/helper code remain legitimate. Require explicit solver settings instead of defaults copied from source. Do not include target SCR/adaptation implementation.",
+    "Public mean/noise regime constants are disclosed defining conditions for this explicitly selected research question, not suggestions to copy author experiment scale; keep private provenance explaining that distinction.",
+    "No target author scores, expected low-SNR outcome or preferred pilot setting in public inputs."
+  ],
+  "baseline_and_stop_rule": [
+    "Cancel automatic near-chance=>defer in new prospective instructions while retaining old notes as historical evidence. Near-chance, uniform predictions or non-reproduced author accuracy alone are diagnostic and potentially substantive negative results.",
+    "Private source-only baseline chooses a bounded diagnostic configuration independently of success and records every result. It may expose broken generator/resource/interface or essential method-definition gaps; it must not select a favorable new signal regime or dictate solver grid.",
+    "Exclude only for unresolved defining scientific ambiguity, missing essential materials, measured infeasible declared environment, structural undefinedness, or rigorous lack of an informative allowed experiment. Do not infer any of these merely from one poor baseline."
+  ],
+  "paired_trial_implications": [
+    "Both old and incremental arms must receive the same newly frozen source-grounded autonomy clarification and unmodified historical candidate plus notes. This increases real repair workload: parameterized helper/API changes and consistency across task/facts/code/smoke, not just prose relabeling.",
+    "Do not pre-repair numeric code in controller or weaken the scientific task to meet cost targets. Audit chosen method invariants and allow solver design independently of construction efficiency.",
+    "If paired trial is intended only to compare package construction, controller baseline remains a separate admission diagnostic; total cost must include it rather than hiding it."
+  ],
+  "bindings": [
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\exp\\task.md",
+      "sha256": "b61fd9eec3f396db00cd1c2ab08863f164a7751be88ff1411bc7ed4dc64d22bd"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\sources\\files\\paper.html",
+      "sha256": "2ce362a0985738d511e2990b42d4593a1005304f2043707968db4e86e8db3f00"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\job_repair.json",
+      "sha256": "a6a6fc358914502b7df2548e47bd3d4cbcaf33083ef4dab5b30fd395b02c2216"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\review_adjudication\\review_adjudication.json",
+      "sha256": "325343673606233310aae26d72d2652696fb402bd5c32aaa1252d31906aa312b"
+    }
+  ],
+  "limitations": [
+    "Recommendation only; no new job/material/code written, no source-wide proof or runtime validation.",
+    "Requires explicit root acceptance/freeze; historical adjudication remains unchanged."
+  ]
+}

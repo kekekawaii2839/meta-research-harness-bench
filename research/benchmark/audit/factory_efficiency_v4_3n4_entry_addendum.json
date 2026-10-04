@@ -1,0 +1,175 @@
+{
+  "audit_kind": "independent_read_only_entry_addendum",
+  "created_utc": "2026-09-27T15:58:49.393082+00:00",
+  "timing_limit": "This addendum continues an earlier read-only selection inspection across context compaction; no reliable exact inspection start was captured. Do not interpret creation time as full review duration.",
+  "candidate": "iclr2025-3n4RY25UWP",
+  "task_type": "EXP",
+  "model_calls": 0,
+  "generated_code_executed": false,
+  "historical_selection_preserved": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\factory_efficiency_v4_case_selection.json",
+  "correction": {
+    "previous_extra_requirement": "Prior independent review was treated as mandatory for recommendation.",
+    "corrected_requirement": "Root clarified existing pipeline allows missing_prior_review. No extra model pre-review is necessary. Preserve absent historical review explicitly; both trial arms still require their own independent scientific review and adjudication. This is a new maintenance audit, not a fabricated historical review."
+  },
+  "recommendation": "Conditionally usable authentic EXP repair candidate paired with the reserved WC case; stronger eligibility than previous null selection. Not quality-approved and not a demonstrated numerical algorithm bug. Freeze honest repair scope before either arm.",
+  "freshness": {
+    "not_used_in_efficiency_model_trials": "Per parent supplied trial inventory; no future repaired output or trial outcomes consulted.",
+    "excluded": [
+      "254NJe9JEw",
+      "xVefsBbG2O",
+      "D10yarGQNk",
+      "EpgoFFUM2q"
+    ],
+    "reserved_other_case": "6ouZaBzeNO WRITE_CONTENT"
+  },
+  "science": {
+    "question": "Whether two-step shared/specific representation controls selectively reduce irrelevant label information rather than indiscriminately degrading all predictive information.",
+    "source_basis": [
+      "paper S3.SS1.p1 defines independent shared/specific latent blocks, linear mixing, latent labels and probing",
+      "A8.SS1.p1 specifies Gaussian variance 0.5, uniform mixing, training corruption and split",
+      "S3.SS1.p3 reports all accuracies declining; that alone does not establish selective retention",
+      "original dataset.py supports label generator/corruption details absent from paper"
+    ],
+    "cpu_plausibility": "Synthetic dense arrays, modest solver-selected MLPs and CPU torch can support the question without reproducing real-data GPU experiments. vMF sampling, two-stage losses and controlled probes remain substantial solver work. No complete research run or feasibility timing was performed; 4 CPU/4096 MB/2048 MB disk/256 PIDs/2400 seconds is an unvalidated task envelope, not promised sufficient.",
+    "difficulty_preservation": "Do not replace vMF or two-stage objective by an easier baseline, alter covariance/noise to obtain positive results, expose author algorithm code as starter, or require author accuracy replication. H1/H2 are explicitly scoped strengthened operational hypotheses, not verbatim author conclusions. Valid negative/inconclusive outcomes remain legitimate.",
+    "autonomy": "Current task already leaves sample size, model architecture, representation dimensions, optimizer/epochs/batch, tau/kappa, grids, seeds/repeats and probe settings to solver. Appendix author 90000 samples, width512 and full beta/lambda grids must not become required recipes. Fixed latent/observation dimensions and label generator describe this released synthetic test object; independent review should check whether they are overprescriptive, not silently shrink them for CPU."
+  },
+  "findings": [
+    {
+      "id": "STRUCT-01",
+      "confidence": "confirmed original failure",
+      "evidence": "receipt.json ProtocolError Explicit five-type coverage matrix required; package coverage contains repeated EXP/WRITE_EVIDENCE entries",
+      "meaning": "Genuine structural repair need, despite absent reviewer.",
+      "projection_caveat": "Existing generic single-task projection normalizes coverage and therefore removes this failure before the model. If used unchanged, count this as controller projection work, NOT model repair success. Do not deliberately recreate an artificial defect."
+    },
+    {
+      "id": "IO-01",
+      "confidence": "confirmed static cross-stage dependency",
+      "evidence": "environment/smoke.py expected asset list covers multiple stages and section3 imports WRITE_EVIDENCE csv_helper and per_representation_accuracy.csv",
+      "meaning": "Cannot execute with only EXP whitelist under current per-task isolation. Was valid only as old whole-package smoke.",
+      "required_scope": "Controller-induced single-task adaptation must be explicit and identical in both arms; keep EXP scientific checks, no hand-edited smoke before repair. This is not evidence of a failed scientific algorithm."
+    },
+    {
+      "id": "SCI-CONTRACT-01",
+      "confidence": "confirmed wording inconsistency; semantic adjudication needed",
+      "evidence": "task.md section2 H2 defines greater absolute drops relative to lambda0 but then says proportional drops falsify H2",
+      "meaning": "Proportional relative declines can have unequal absolute declines when initial accuracies differ. These clauses can disagree while both post-intervention accuracies remain above chance. Solver-selectable tolerance does not define what proportional means.",
+      "repair_boundary": "Clarify one consistent selective-information comparison from the existing hypothesis; retain both modalities, noncollapse condition, zero-setting comparison and freedom of statistical design. Do not rewrite hypothesis to guarantee support."
+    },
+    {
+      "id": "IO-02",
+      "confidence": "static robustness gap, not observed runtime failure",
+      "evidence": "simdata.py write_result uses json.dumps with default allow_nan and read_results uses permissive json.loads; task requires JSON records and real measured numbers",
+      "meaning": "Nonfinite numerical diagnostics can serialize NaN/Infinity, invalid strict JSON. Finite successful runs unaffected.",
+      "repair_boundary": "Explicitly represent failed/nonfinite runs without inventing numbers or dropping them. No helper executed in this inspection."
+    },
+    {
+      "id": "SCOPE-01",
+      "confidence": "public contract ambiguity, not proven algorithm defect",
+      "evidence": "package F-D02 public EXP fact states source label seeds (0,1,2) and says EXP fixes construction; task grants solver seed control and simdata uses SeedSequence-derived label seeds",
+      "meaning": "Distinguish private author provenance from public defining generator contract; author exact seeds are unnecessary experimental recipe. The generated distributions remain supported.",
+      "repair_boundary": "Independent review should resolve consistency without forcing author seeds or changing generator noise/latent distribution."
+    },
+    {
+      "id": "BOUNDARY-01",
+      "confidence": "clarification risk only",
+      "evidence": "simdata returns true latents for diagnostics; task describes unsupervised representation objectives and probe train/test split",
+      "meaning": "Make clear true latents/labels cannot replace unsupervised representation learning, and held-out labels cannot select settings. This audit has NOT observed misuse and does not claim the existing implicit boundary proves a scientific defect."
+    }
+  ],
+  "source_ambiguity_already_resolved": {
+    "fact": "F-ADJ01",
+    "details": "Original package explicitly records author-code sequential double corruption versus paper independent same-clean-input views. Existing task chooses paper interpretation; do not present this already-documented resolution as a newly discovered bug or silently revert to author code."
+  },
+  "paired_trial_requirements": [
+    "Both arms share the same untouched scientific bytes, original missing-review condition and full historical repair input, plus clearly labeled maintenance findings.",
+    "Record controller projection edits separately, especially coverage normalization and induced stage-only smoke burden.",
+    "Independent scientific review/adjudication in each arm remain mandatory.",
+    "No author-score matching gate; no CPU feasibility claim without runtime evidence.",
+    "New identity/public-policy requirements apply symmetrically; this inspection is not complete release leakage audit."
+  ],
+  "not_read": [
+    "Any repair constructor output",
+    "Any repair reviewer/adjudicator outcome",
+    "Later runtime/state/compiled scores"
+  ],
+  "evidence": [
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v2\\papers\\iclr2025-3n4RY25UWP\\job_repair.json",
+      "sha256": "eba099b68dc1475deaff40fd2c2d254502d4aec6a46bec4738807715a42c920e",
+      "bytes": 49311,
+      "reading_scope": "Original construction or historical repair INPUT only"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v2\\papers\\iclr2025-3n4RY25UWP\\construct\\iclr2025-3n4RY25UWP\\receipt.json",
+      "sha256": "2caae36c9861678fc34fd18c899503a42d232c09f5ad10f751dfd24701adfa93",
+      "bytes": 19103,
+      "reading_scope": "Original construction or historical repair INPUT only"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v2\\papers\\iclr2025-3n4RY25UWP\\repair\\iclr2025-3n4RY25UWP\\constructor\\repair_request.json",
+      "sha256": "2e047b817451dfcbe41c52ac837f61414754ec33e355a09aba4a696f7c9c0bce",
+      "bytes": 6164,
+      "reading_scope": "Original construction or historical repair INPUT only"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v2\\papers\\iclr2025-3n4RY25UWP\\construct\\iclr2025-3n4RY25UWP\\constructor\\output\\package.json",
+      "sha256": "38b77c3cc09a18ab087a095f1b6f75c9cef195fcff592bfedb6b85b3c03b6fd0",
+      "bytes": 78504,
+      "reading_scope": "Original construction or historical repair INPUT only"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v2\\papers\\iclr2025-3n4RY25UWP\\construct\\iclr2025-3n4RY25UWP\\constructor\\output\\assets\\exp\\task.md",
+      "sha256": "3de4c15e020ed0fadb35483c0751193b391ce5a46ecb19e6b1392f2cc42d49a4",
+      "bytes": 13760,
+      "reading_scope": "Original construction or historical repair INPUT only"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v2\\papers\\iclr2025-3n4RY25UWP\\construct\\iclr2025-3n4RY25UWP\\constructor\\output\\assets\\exp\\starter\\simdata.py",
+      "sha256": "986944ca1b8ab338d5fd9f47cce897f43e822942af54d4bf1531580603f044fa",
+      "bytes": 10645,
+      "reading_scope": "Original construction or historical repair INPUT only"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v2\\papers\\iclr2025-3n4RY25UWP\\construct\\iclr2025-3n4RY25UWP\\constructor\\output\\environment\\smoke.py",
+      "sha256": "bd187b0e0049403b4d1c10950d0a9993155ae09101e6dc6921f9f8a22566a061",
+      "bytes": 8791,
+      "reading_scope": "Original construction or historical repair INPUT only"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v2\\papers\\iclr2025-3n4RY25UWP\\sources\\files\\paper.html",
+      "sha256": "003fe60799c5d50c058e99af26700d09cc83f8290eef3278ee2a940897b8762a",
+      "bytes": 691680,
+      "reading_scope": "Relevant scientific sections; not whole-document review"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v2\\papers\\iclr2025-3n4RY25UWP\\sources\\files\\code\\synthetic_task\\dataset.py",
+      "sha256": "ed5bdc916d1d1181017b714738c8615e88709e4b443faca99e60c14f2366601c",
+      "bytes": 4196,
+      "reading_scope": "Relevant scientific sections; not whole-document review"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v2\\papers\\iclr2025-3n4RY25UWP\\sources\\files\\code\\synthetic_task\\algorithms.py",
+      "sha256": "30ad17da394b2ae4e01fc4f8262e6ed997480e58021282d1800a963c24e3498f",
+      "bytes": 44354,
+      "reading_scope": "Relevant scientific sections; not whole-document review"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v2\\papers\\iclr2025-3n4RY25UWP\\sources\\files\\code\\synthetic_task\\models.py",
+      "sha256": "32c6f9e8e10fd8424ab97c9d4fa70d40bc3ef926233a36d905a100ca114b0ccd",
+      "bytes": 6925,
+      "reading_scope": "Relevant scientific sections; not whole-document review"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v2\\papers\\iclr2025-3n4RY25UWP\\sources\\files\\code\\synthetic_task\\utils.py",
+      "sha256": "b9a6ae200241a7fc4b3c06f0154fd413b83b24bb2e2bd3c710aa5525c41c021e",
+      "bytes": 3249,
+      "reading_scope": "Relevant scientific sections; not whole-document review"
+    }
+  ],
+  "limitations": [
+    "No execution of generated code, no Docker or model calls.",
+    "Static source-backed scientific/IO audit, not numerical verification or full algorithm equivalence proof.",
+    "No proven target numerical implementation error: starter deliberately leaves encoders/vMF/objectives/training to solver. Do not advertise this as a repair of a pre-existing target training implementation."
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": "factory-efficiency-v3-exp-entry-review-1",
+  "created_utc": "2026-09-27T04:26:39.330723+00:00",
+  "development_model_calls": 0,
+  "code_executed": false,
+  "repaired_outputs_read": false,
+  "decision": "reasonable_paired_repair_candidate_only_after_prospective_entry_rule_clarification",
+  "recommendation": "Keep this real EXP candidate. Its literal CSBM, frozen-backbone hop-weight adaptation, SCR/entropy/difference comparators and per-setting H1/H2 can form a CPU scientific task. A near-chance baseline or failure to reproduce author accuracy is not, by itself, a materials rejection. Do not carry the old automatic near-chance=>defer instruction into a new frozen job without explicit correction under C3. Preserve that historical instruction unchanged as evidence.",
+  "distinctions": [
+    {
+      "kind": "source_method_ambiguity_B2_B5",
+      "criterion": "An essential definition admits incompatible readings that change the research object or update rule, and source text/pinned code cannot resolve it. Affected branch may be deferred with exact missing information.",
+      "observed_here": "Source A4.I1.i1.p1 explicitly specifies +/-0.03/sqrt(D), shift0.02/sqrt(D); S3.SS2.p2 explicitly specifies identity covariance. Low signal plus high reported accuracy is a source/results tension, NOT yet evidence that these definitions are ambiguous. Approximate reviewer SNR bounds are diagnostics, not a proof of impossible informative comparisons."
+    },
+    {
+      "kind": "negative_or_low_power_experiment_C3",
+      "criterion": "A fully specified, faithfully implemented method may fail to improve accuracy, have weak gradients, or yield uncertainty under a solver design. These are reportable scientific outcomes; author scores are not pass criteria.",
+      "observed_here": "Original EXP task explicitly permits negative/inconclusive H1/H2. Both compare actual target accuracy rather than asserting absolute author-score reproduction; near-chance arms may falsify or leave improvements inconclusive, which is not a material defect."
+    },
+    {
+      "kind": "resource_or_interface_failure",
+      "criterion": "Missing prerequisites, broken starter API, unsatisfied declared CPU budget, or inability to execute method as specified is a separate engineering/material gate.",
+      "observed_here": "No runtime measured in this review. Literal graph feature arrays and small frozen hop representation are CPU-plausible, but that does not validate the original2400s allocation or a full chosen experimental design."
+    }
+  ],
+  "paired_repair_assessment": {
+    "appropriate": true,
+    "conditions": [
+      "Freeze identical clarified job and notes for old/new arms before calls. Explicitly state this new entry clarification supersedes the old near-chance threshold only prospectively; no historical rewrite.",
+      "Retain original means/noise/update semantics and source-derived counterevidence. Do not make a toy high-SNR substitute or force a pass.",
+      "Keep source-backed hypothesis corrections and maintainer-choice labels from original review.",
+      "Record fixed N5000/D2000 and eight settings as inherited scoped benchmark choices, not universal method-defining requirements merely because authors used them. Do not silently relax them in this repair trial. Any change would be a separately justified scientific scope revision, shared across arms.",
+      "Seeds, epochs, optimizer, grids, statistical tolerances remain solver choices; baseline pilot choices are private controller diagnostics, not mandatory solver recipe.",
+      "H2 matched-budget/gamma-only comparison is an explicitly scoped test. Verify its precise author-ablation support before attributing universal superiority to the source; no private gold ranking."
+    ]
+  },
+  "private_controller_baseline": {
+    "purpose": "Check faithful generator/starter/CPU execution and characterize a weak-signal regime, not reproduce author scores or supply solution/results to solver.",
+    "design": [
+      "Use untouched generator and published backbone/ERM utilities only. No target adaptation loop or target-answer implementation.",
+      "Declare a small bounded pilot schedule/seeds before seeing outcomes; use source-only split for optimization/early stopping. Evaluate held-out source and frozen-source target accuracy for the retained settings and record uncertainty plus all failures.",
+      "Inspect raw feature mean/noise scaling, graph degrees/homophily, finite logits, class balance, prediction entropy/confidence, representation variance, model state freezing/BN mode, and runtime/memory.",
+      "Keep target labels exclusively in diagnostic reporting, never tune training/selection by target labels. Respect distribution overlap across S1/S2 source/target; no covert target-distribution supervision.",
+      "Log all pilot configurations and results privately; do not leak numbers, preferred settings or low-SNR expected outcomes into public EXP solver inputs.",
+      "A pilot with inadequate source optimization is inconclusive about inherent regime feasibility; do not label the method impossible from one training choice."
+    ]
+  },
+  "outcome_routing": {
+    "diagnostic_only": [
+      "Near50-60% accuracy, nearly uniform predictions, small source/target gains, disagreement with authorTable1 scores.",
+      "Negative result or broad confidence interval from a few pilot seeds.",
+      "Small gradients under a particular source model/optimizer.",
+      "All of these warrant an honest private caveat or more bounded diagnostic evidence, not automatic defer."
+    ],
+    "genuine_exclusion_or_revision": [
+      "Essential loss/update/label-use definition remains contradictory after direct source resolution attempts.",
+      "Required source artifact or defining model component absent and no faithful permitted construction exists.",
+      "Validated implementation is structurally undefined on allowed inputs (e.g. unavoidable zero denominator with no scientifically legitimate documented safeguard), not just numerically weak under one choice.",
+      "Measured execution cannot satisfy declared resources without changing the scoped scientific question; classify platform/budget limitation separately, never author-result mismatch.",
+      "Rigorous evidence that the scoped hypothesis is vacuous/tautological or no allowed experiment can inform it under declared constraints; near-chance baseline alone does not establish this."
+    ]
+  },
+  "direct_read_evidence": [
+    {
+      "file": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\exp\\task.md",
+      "locations": [
+        "§2 fixed CSBM",
+        "§3 backbone/pretraining/BN",
+        "§4 SCR soft predictions+stop-gradient",
+        "§5 comparators/matchedbudget",
+        "§6 per-setting H1/H2 negative/inconclusive",
+        "§7 solver choices/label isolation"
+      ],
+      "observation": "Complete task read; scientifically meaningful relative comparisons, but inherited fixed author-sized object and low-SNR caveat require careful prospective framing."
+    },
+    {
+      "file": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\sources\\files\\paper.html",
+      "locations": [
+        "A4.I1.i1.p1",
+        "S3.SS2.p2",
+        "A4.I2.i1.p1",
+        "S4.SS1.p1-p4",
+        "S4.SS2.p1-p2",
+        "S5.SS1.SSS0.Px3.p1"
+      ],
+      "observation": "Direct source passages reviewed. Soft predictions, representation rather than logit scale motivation, hop-weight adaptation and noisy-initial-prediction example support examining weak regimes rather than rejecting them automatically."
+    }
+  ],
+  "bindings": [
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\job_repair.json",
+      "sha256": "a6a6fc358914502b7df2548e47bd3d4cbcaf33083ef4dab5b30fd395b02c2216"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\review_adjudication\\review_adjudication.json",
+      "sha256": "325343673606233310aae26d72d2652696fb402bd5c32aaa1252d31906aa312b"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\exp\\task.md",
+      "sha256": "b61fd9eec3f396db00cd1c2ab08863f164a7751be88ff1411bc7ed4dc64d22bd"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\construct\\iclr2025-EpgoFFUM2q\\constructor\\output\\assets\\exp\\starter\\hwta_starter\\csbm.py",
+      "sha256": "b36a1ec3cc732a115af2acd654256203b7736ffc9d7480285f3a786db784588e"
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-EpgoFFUM2q\\sources\\files\\paper.html",
+      "sha256": "2ce362a0985738d511e2990b42d4593a1005304f2043707968db4e86e8db3f00"
+    }
+  ],
+  "limits": [
+    "No exact-source equation-by-equation full method audit or numerical execution performed in this entry review.",
+    "No global scientific reliability claim or production acceptance.",
+    "No source/historical notes/code/material changes.",
+    "Root must freeze amended prospective scope/budget before any model or baseline execution."
+  ]
+}

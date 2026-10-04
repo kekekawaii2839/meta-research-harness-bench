@@ -1,0 +1,82 @@
+{
+  "schema_version": "independent-factory-efficiency-v4-gate-review-1",
+  "at": "2026-09-27T16:10:12.150411+00:00",
+  "reviewer": "root/efficiency_v2_contract",
+  "decision": "code_path_ready_to_freeze_subject_to_final_selection_preflight",
+  "blocking_findings": [],
+  "scope": "Read-only production code and tests; offline fake-native integration and negative tests. No actual selection freeze, native model call, Docker runtime execution, or scientific acceptance performed in this review.",
+  "files": [
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\factory_efficiency_v4.py",
+      "sha256": "1cf8d4375b3c4ad6972a79e4d2e73dcffdfd7a5e3c0dc324541d7e4275296723"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\scripts\\active\\run_factory_efficiency_v4.py",
+      "sha256": "be82be6607c798cea27fba16f42514f250cc2aab7035bad6c5b579885c04ca98"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_factory_efficiency_v4.py",
+      "sha256": "9e896c868797eb59655f788d0df2b048985c89589d4716d0733f492c22e0e763"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\material_identity_runner.py",
+      "sha256": "74ac6114c514ce7cedb8580974e758b9d0f80f5276c0787e33b8cdbaeff36c61"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\material_quality_runner.py",
+      "sha256": "059e9b0dc6e3c85ec0e40bfd37bf767e5be709dd82feedc6880be9add16c0ee5"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\material_public_identity.py",
+      "sha256": "0fc9b24074ed2e0a5aaf575b3dc2370782c37b0a230f8c8225d98dadc75978e8"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\material_identity_release.py",
+      "sha256": "5d336855f4a8175b80fd71ac238457db653496982d29ccd3a12a711619a7f7db"
+    }
+  ],
+  "tests": {
+    "command": "controller-venv python -X utf8 -m unittest discover -s research/benchmark/tests -p test_factory_efficiency_v4.py -v",
+    "tests_run": 9,
+    "elapsed_seconds": 51.235,
+    "exit_code": 0,
+    "result": "OK",
+    "fixture_runtime_records": "synthetic; positive exports use real compile_package and export_task"
+  },
+  "findings": [
+    "Initial gate gap fixed: an arbitrary unrelated review blob or empty export no longer replaces a bound independent full-release semantic declaration.",
+    "Runtime binds this arm candidate output directory, exact package raw SHA256 and canonical digest. Release record binds candidate hash and runtime digest.",
+    "Compiled manifest fixed staging path, task/paper identity and candidate hash are checked. Every candidate public asset actual byte hash is rechecked; compiled public path/hash set must equal complete candidate public set.",
+    "Actual published task.json equals full compiled public projection plus exact public asset manifest and development release mode. Actual export directory and fresh scan are checked, including controller-added text, asset inventory and bytes.",
+    "Independent release report requires pass/full_actual_published_surface, explicit reviewer/findings/finite time/independence and arm result, candidate, runtime, release record, every compiled/public task identity, asset inventory digest and binary reviewed-path obligations. Changed controller text cannot inherit old report approval.",
+    "Second pair requires both first-pair arms completed and independent quality/runtime/release gate. Failed or rate-limited prior arm cannot automatically continue. Existing arm retry is refused.",
+    "All three native roles are wrapped by IdentityBoundRunner(QualityBoundRunner(native)); both arms share full policy and original private-prior identity mapping. Sentinel historical original and controller hash-fill flow are exercised by offline tests.",
+    "Missing prior review is honestly represented as missing and full-review-required, not fabricated or treated as incremental scientific review evidence.",
+    "Freeze captures all mrhbench Python modules including identity gates, prompts and active scripts; source and snapshot hashes, explicit overlays, policy/schema binding, source map and transitive case inputs are rechecked.",
+    "Run-arm ledger hard stop is baseline612+pair12=624 with maximum3 per arm. Conditional629 authorization is bound as evidence but is not a spendable run-arm cap. This driver has no prospective-run command."
+  ],
+  "negative_tests_observed": [
+    "pending/fail/unrelated-scope release reviews",
+    "empty reviewer/findings and boolean review time",
+    "nonfinite time rejected by strict JSON writer",
+    "empty/stale report task inventory",
+    "cross-arm review/runtime/export",
+    "omitted public asset",
+    "private asset promoted public",
+    "controller prompt changed without renewed semantic report",
+    "wrong runtime candidate digest",
+    "candidate public bytes changed after runtime",
+    "map source/tamper mismatch",
+    "identity assignment mutation",
+    "new provider429 terminal stop",
+    "attempt625 rejected at paired624 cap"
+  ],
+  "limitations": [
+    "Hashes bind evidence, not truthfulness of a semantic reviewer or OS isolation. The validator explicitly returns semantic_truth_established_by_validator=false.",
+    "Final actual selection, authorization and input inventory must still pass freeze/preflight; no claim that pending draft is frozen or fresh.",
+    "Actual CPU runtime and independent complete public-surface semantic inspection remain required before second-pair gate; fixture records are not runtime acceptance.",
+    "No new model usage or real cost reduction measured. Conditional prospective allowance still requires its separately authorized quality/cost conditions and an appropriately bounded controller."
+  ],
+  "model_calls": 0,
+  "historical_artifacts_modified": false
+}

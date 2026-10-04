@@ -1,0 +1,34 @@
+{
+  "status": "offline_opt_in_integration_not_real_admitted",
+  "new_model_calls": 0,
+  "tests": {
+    "new_release_tests": 4,
+    "independent_extra_negative_checks": 6
+  },
+  "flow": [
+    "opaque canonical candidate",
+    "explicit all-task opaque budget and collection keys",
+    "factory_runtime.compile_tasks with new matching runtime package identity",
+    "compose all public facts and controller notes",
+    "materials.export_task",
+    "scan actual final view and all listed asset bytes",
+    "private pending-release-review record, not solver admission"
+  ],
+  "still_required": [
+    "identity assignment integrated in real paired driver",
+    "constructor CONTROLLER_FILL order fix and truthful fake chain",
+    "trusted fresh CPU runtime evidence",
+    "independent final public release semantic review",
+    "fresh paired quality and cost measurement"
+  ],
+  "files": [
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\material_identity_release.py",
+      "sha256": "5d336855f4a8175b80fd71ac238457db653496982d29ccd3a12a711619a7f7db"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_material_identity_release.py",
+      "sha256": "05c3dc312086145df97602b0410e391df95c80ca908718352c4bf06579583bdf"
+    }
+  ]
+}

@@ -1,0 +1,809 @@
+{
+  "schema_version": "factory-efficiency-v2-case-candidates-1",
+  "created_utc": "2026-09-27T03:47:05.147014+00:00",
+  "status": "candidate_selection_not_frozen_not_launched",
+  "development_model_calls": 0,
+  "historical_outputs_modified": false,
+  "selection_method": "Read inventory, pre-repair job, original construction review and pre-repair adjudication/notes. Enumerated repair-request inputs, never read repaired output, final review, compiled task, runtime result or factory state. Excluded wing and Diffusion from new candidates. Discovery inspected job/notes for other candidates, not future results.",
+  "recommended_cases": [
+    {
+      "paper_id": "iclr2025-D10yarGQNk",
+      "proposed_case_kind": "local_text_and_provenance",
+      "recommended_single_task_type": "IDEA",
+      "recommended_task_id": "iclr2025-D10yarGQNk-IDEA-01",
+      "historical_multitask_warning": "Original job is a multi-task factory-v1 package. It is not a frozen v4 single-unit comparison job. Create a new explicit one-task job and publish the same extraction/projection plus repair notes to both arms; do not silently reuse old job as v4-equivalent. Preserve the historical full package privately for audit; do not expose other-stage assets to solver runtime.",
+      "workspace": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk",
+      "job": {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\job_repair.json",
+        "sha256": "914f8651d5d8d632167c1dd62ece5218f44d50e0ceba19778cbe270dc73d81ec",
+        "bytes": 43436
+      },
+      "prior_batch_root": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct",
+      "prior_package": {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\package.json",
+        "sha256": "e734cb67b641b661a09c465b469420142072c8b506cd893871f7b5eaa38dcf96",
+        "bytes": 58534
+      },
+      "prior_review": {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\reviewer\\review.json",
+        "sha256": "804cd0a11da753e3ea109a57c7472e0b1c704e68ea303bb7c064d0bcb7626ab8",
+        "bytes": 22750
+      },
+      "prior_adjudication_and_notes": {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\review_adjudication\\review_adjudication.json",
+        "sha256": "c854db8cdf2089cca086a1529656533d716a7521ff8e315edc30d85ae675b6a3",
+        "bytes": 11304
+      },
+      "historical_repair_request_input_only": {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\repair\\iclr2025-D10yarGQNk\\constructor\\repair_request.json",
+        "sha256": "7a413adf8ce570b33d92f5193cd109217a761faade52315df244304b0afbc53a",
+        "bytes": 6561
+      },
+      "all_original_repair_notes": [
+        "R-01 (blocking for pass): edit background_report.md Sec. 5 item 6 down to the bg008 abstract fact; remove the growing-manifold / text+few-shot graph open question; re-check limitations 1-2 and Sec. 4 against bg000; update the IDEA coverage reason; re-run the E2 check against request.json section 6.",
+        "R-02: restate background_report.md Sec. 5 item 3 in bg004 abstract/title terms only; remove 'feature channels' and 'motivates adapting the similarity to the task'.",
+        "R-03: remove or label the unlabelled 16-shot statement in fact_sheet.md WC-01.",
+        "R-04: in ablation_provenance.json, add the C6/C7 label_propagation reading to maintainer_interpretations and move 'ablation rows change only the marked components' out of the as-reported field.",
+        "R-05..R-08: metadata fixes (stale CONTROLLER_FILL note, deferral-record fact references, SF-11 locator, BG allowed_stages vs LIT private list).",
+        "Out of scope for this repair: no resource changes (F2), no EXP construction, no rights decision (G1), no fixing of solver design choices (D2)."
+      ],
+      "proposed_retained_notes_scope": [
+        "R-01",
+        "R-02",
+        "R-05..R-08 only if relevant to retained IDEA assets"
+      ],
+      "why_selected": [
+        "Known solution-shaped background gap discloses target contribution (E2), not just literal identity.",
+        "Source attribution and maintainer interpretation must be corrected without removing legitimate background or prescribing solver design."
+      ],
+      "source_inventory": [
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\sources\\files\\abs_page.html",
+          "sha256": "2c5ef50bdf11c375b2aa95a1e3f4607be44277ac5aa7e92abfa26473ab62a76c",
+          "bytes": 42062
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\sources\\files\\paper.html",
+          "sha256": "e22db915ef56aadc2610a1d5cf5969c62789272da5facf851fd8847c679f6e9e",
+          "bytes": 351172
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\sources\\files\\code_tree.txt",
+          "sha256": "96e6eb97d871117eab22917f4474d000bfd7b2320750bdb849bfc758b36e374c",
+          "bytes": 543
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\sources\\files\\code\\README.md",
+          "sha256": "c1d260354766771307308428559be61c6c7afd3d5c206063a072389db3f7a598",
+          "bytes": 5515
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\sources\\files\\code\\LICENSE",
+          "sha256": "84c4f37d1e29933e842c739d5060898fb9da3d2fbcc185a1ef2f9034d3de0c13",
+          "bytes": 1065
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\sources\\files\\code\\main.py",
+          "sha256": "823416f2eeb0de7a31b183f8706ab02ceaef8a7ccee959c4ae5bb43032719197",
+          "bytes": 5967
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\sources\\files\\code\\utils\\iterative_label_propagation.py",
+          "sha256": "ee40d1288c5f2df94c4e3ff0f744dfd0d2ffe245473fa6e04d42cea34010846c",
+          "bytes": 18323
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\sources\\files\\code\\utils\\misc.py",
+          "sha256": "b80f24c9e46fac1cd4e97ed4036fedb0a4d2bdb55137f0437971286f8db2519f",
+          "bytes": 4622
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg000_abs_page.html",
+          "sha256": "c214eef3fbd39064d86c66f79d28891874570a94dd691e0391facab957edeabe",
+          "bytes": 40283
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg000_paper.html",
+          "sha256": "351b0508a153aa6df59e2b3a3ede4857a7a6f5f97d7a562d97cb75fd46f8a4f4",
+          "bytes": 1131611
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg001_abs_page.html",
+          "sha256": "ff00a1a5e2b79a78fcbd1365869e80ee346c40c1bbc8fa8727c5ad5fb91c4714",
+          "bytes": 43893
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg001_paper.html",
+          "sha256": "b794129ba343d77cf4c9dc7bb81a5d210e670e9f04e145dcdcdc76c1017a1f7b",
+          "bytes": 322931
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg002_abs_page.html",
+          "sha256": "73ec713adc390f287079a29a59b487bc7977b84d824c275768c13952e0775760",
+          "bytes": 41755
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg002_paper.html",
+          "sha256": "8986d1b72a93e3f3bb6f336faf09452ccddf5c927c2e7a589750ab588ff12ec3",
+          "bytes": 251729
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg003_abs_page.html",
+          "sha256": "d142e852cbdef2d32a7721e0acec229ca170838b38dc9c9fe62db52ebb9bc5e0",
+          "bytes": 42817
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg003_paper.html",
+          "sha256": "e4be673f1e6695db9066cd79b22fdc398492a61cc5da51b91b6fad12fb917106",
+          "bytes": 216122
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg004_abs_page.html",
+          "sha256": "674f3c1eaef8f1d438bd19922668fe1de0990b6d5b3fdd8ccf82486c9917cd14",
+          "bytes": 42115
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg004_paper.html",
+          "sha256": "fc463f93e17a9b87d0d7eb61b990c221e4a3583d7a0a9719995a897d047b507e",
+          "bytes": 345046
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg007_abs_page.html",
+          "sha256": "38e8913171bd56ad94049addce31ac40799184c481d662b84d2caf31851a33ac",
+          "bytes": 41843
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg007_paper.html",
+          "sha256": "0312e36b0f30d4d988c73a052a04a3fdee64038db0ce0819b97f7d8bc208fddd",
+          "bytes": 365603
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg008_abs_page.html",
+          "sha256": "9147342c925d8ec156b3986bbf2018b5eb8b670dacadcaa38afab2ccfe933eff",
+          "bytes": 42647
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg008_paper.html",
+          "sha256": "dfc43b127ef80dee38240f6ca7e7fd0311962d6abd8f085db4db71d14ba1673f",
+          "bytes": 303615
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg009_abs_page.html",
+          "sha256": "bffe77f237ec61687c85042a6f434f67889a19dfd4b09b66df07a8a70413756a",
+          "bytes": 43048
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg009_paper.html",
+          "sha256": "c23de8cd3bb2cf817066d23f58b685065d5db20ee13975e3e900db1e0db26f5e",
+          "bytes": 423414
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg010_abs_page.html",
+          "sha256": "5bfdf901056d0c0f7d34f8eb8f36beba3207b421246a18b4af2123e86390b751",
+          "bytes": 40953
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg010_paper.html",
+          "sha256": "620280a65a030c8b65fa8b85691bcb0dc7a6a23cfc74dbbef1c4e0fd3ec36989",
+          "bytes": 423757
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg014_abs_page.html",
+          "sha256": "3ea568f0aa804fdfac56ee1cba989bfe7bf4e4165ee6dd81affc92f632743f91",
+          "bytes": 44851
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg014_paper.html",
+          "sha256": "e04ba5c2867be356775030da47a975397d961351e5e678274db2fa5803c52561",
+          "bytes": 873955
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg015_abs_page.html",
+          "sha256": "d976298c4bd6b46b71239bf9393360d1da5622b13a3f2ad1735aa40c13580ae3",
+          "bytes": 46760
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg015_paper.html",
+          "sha256": "e60d49750c366f25c376a376238c40004f4c40cb9f2b6c18540df0e1f51a0d25",
+          "bytes": 238838
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg016_abs_page.html",
+          "sha256": "56974e6fc40ff223e0dc4550bdaed04fe7e53145755295b4b36b8b53cd0c6f49",
+          "bytes": 42468
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg016_paper.html",
+          "sha256": "3451e5c773634c22578aa2297487bd6d1aec8f0903272b7fd06ef87e40fbaeba",
+          "bytes": 270158
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg017_abs_page.html",
+          "sha256": "1b4c23e9b204d4262c78f98a68bd8bb9d34b33cab42bb6c83702927c525245e1",
+          "bytes": 41779
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg017_paper.html",
+          "sha256": "183729dbc25b1970b43a1c4e81ca72cd52f33c80f4b1902fc91167c853283e21",
+          "bytes": 329599
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg018_abs_page.html",
+          "sha256": "574168cbcc04ebd5687f949a6555632312b20c14d65ca9285b766cb11b0f9e41",
+          "bytes": 42749
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg018_paper.html",
+          "sha256": "076ba5d4211637fee81145aa5cbdf32547c7debd15d2652e67ea68f65cb6d07c",
+          "bytes": 659997
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg019_abs_page.html",
+          "sha256": "aecf3faff1180c2f4f07ba320a88ff01cef7c134be4c0c72d89a9571eb5c73a6",
+          "bytes": 43683
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg019_paper.html",
+          "sha256": "e8aca1102314ca84422fa0dbb4483ae86370448f2be35fbb26ef96dfa5750b1a",
+          "bytes": 157015
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg020_abs_page.html",
+          "sha256": "586991f30bd77b00faab0328571d5d126d1f34bde79ab6c38176a9e646e298f0",
+          "bytes": 42189
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg020_paper.html",
+          "sha256": "a2a9b0d194125987e0f1c95f3fa1fc03cd67cdab663420b135695d50dffed40d",
+          "bytes": 735472
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg021_abs_page.html",
+          "sha256": "6cd6853d1aa2065aaedbe3073d7c2db005d629281cce7fd1f7d14c30a4170b4c",
+          "bytes": 42716
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg021_paper.html",
+          "sha256": "a039b7a0fc3bf04a931613d62b1aa7839084cc969d88fdbb9b3f17de5eea9ee1",
+          "bytes": 394229
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg022_abs_page.html",
+          "sha256": "6bd0bfc2b09b8643858e16c7b07e0e384bff7a3e0d01b2efb4e02871731b0a01",
+          "bytes": 43697
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg022_paper.html",
+          "sha256": "2044f0c177047357158ecc3d7e182f8e39025a2c8785e01636e7dbe52c38e842",
+          "bytes": 261458
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg023_abs_page.html",
+          "sha256": "173be7667f9e3cd3f6fdf5a240ceaf59748f90fac3419d9a1652b827f01f5b7e",
+          "bytes": 42045
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg023_paper.html",
+          "sha256": "ca1f4ec741980d79991727a665c9f9b55d47e0e9c96ddf0c2f5d9d621e97c435",
+          "bytes": 181752
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg024_abs_page.html",
+          "sha256": "64d5156dad2e0f96b95cfa9a1dc66cd63ae58b5d8bad5b4a68e6d4a4c6e2ab35",
+          "bytes": 42549
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg024_paper.html",
+          "sha256": "925d3ed91bf84697aa5d657a52d30193fe9999514c66e206955824f265395b8a",
+          "bytes": 384076
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg026_abs_page.html",
+          "sha256": "4283431d8b28bafc7dd7f73ac67e35bde190596c44422858e3d538f5aff34be1",
+          "bytes": 42580
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg026_paper.html",
+          "sha256": "167e2e025a1cb5d47cc102e6d1f20c9f373013d427829715c8f7e8aa3403147f",
+          "bytes": 749728
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg028_abs_page.html",
+          "sha256": "6b39719ce416133cc20886b499e65f9ea0fd4274a527e05de473999ea8f8ac48",
+          "bytes": 43452
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\background\\bg028_paper.html",
+          "sha256": "450a115d1579f26115e441a131f83e4ed49a33ab069d8bcbe481765326cf873c",
+          "bytes": 964810
+        }
+      ],
+      "source_missing": [],
+      "prior_candidate_inventory": [
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\exp\\private\\deferral_record.md",
+          "sha256": "917aa76ff8234393bf9a1bc46cff345eb33869f362fece12b8fac8f3574cb651",
+          "bytes": 1236
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\idea\\background_report.md",
+          "sha256": "23eeefea210c230832a593948acfea997983fd02ab7b1412f3286c716c95bea1",
+          "bytes": 7032
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\idea\\private\\reference_claims.md",
+          "sha256": "72b7382fa07ec26ae244bf22c86fd79998c9ca6ced57696aca903f74c93a75eb",
+          "bytes": 1974
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\idea\\task.md",
+          "sha256": "2245eba0b3775382c291006448a30311b357719fa6afcacf60a61b8a96502f25",
+          "bytes": 1935
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\lit\\library_catalog.json",
+          "sha256": "0081a8306231150547968c3d090b598687fa5af654906a50768a8dd284778ba4",
+          "bytes": 4394
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\lit\\task.md",
+          "sha256": "e89ade4c0ea4d6271ead5a1e9af72e6de7d7e6beb324a1b2afdef48d0b2e3bef",
+          "bytes": 2607
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\write_content\\fact_sheet.md",
+          "sha256": "bb469e011caeb05cc8aedd32c5984fe650425dd4373bc39eb00540184bf8d99d",
+          "bytes": 10512
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\write_content\\private\\rubric_and_source_notes.md",
+          "sha256": "65e6293ade95c5ae7933ef34f3f61ed3dac2dd744777886d080618b75c95db2a",
+          "bytes": 2961
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\write_content\\task.md",
+          "sha256": "8bb621ba4bf4897e249db8f8516b1ed2a6e3d0f15f0dd16108c32e1dc748126b",
+          "bytes": 2692
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\write_evidence\\ablation_provenance.json",
+          "sha256": "0197e8755d85e3489a532eb5ab43e29ea19a316d99daea183f5af3c02b7283c7",
+          "bytes": 8012
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\write_evidence\\ablation_values.csv",
+          "sha256": "4b0c2aaf1f847bed81c0743a5a92f4803577692e12a6c264dc742961f7988b72",
+          "bytes": 2877
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\write_evidence\\csv_helper.py",
+          "sha256": "0646ba1286d13a39727da56811da927fc2da04bdd898a90f683da59886aea426",
+          "bytes": 1390
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\write_evidence\\private\\judge_reference.md",
+          "sha256": "4676a18c9b35ea6086c5b1f001d9775c911f2c6018003b542e7514c5d7897117",
+          "bytes": 2453
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\write_evidence\\reference_zero_shot_baseline.csv",
+          "sha256": "6d6f5a555257e55c7c679e64d78cfac30d5cfd63b3cad8374d96b2b14f32bc6d",
+          "bytes": 664
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\assets\\write_evidence\\task.md",
+          "sha256": "1b15e06b949efbb47049042a39cd56a9966baf60e5ef93a14a2088056d53da93",
+          "bytes": 4678
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\environment\\image\\.dockerignore",
+          "sha256": "ad4ffbb29ec74c37891a0efba1236aa378fdbf9e7a30b0df8532cdcd7baf4698",
+          "bytes": 32
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\environment\\image\\Dockerfile",
+          "sha256": "f124dfeca19789976f862b7c399b5d27f0ce1544fd5d39756f0fe1b2c388384b",
+          "bytes": 428
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\environment\\image\\requirements.txt",
+          "sha256": "6fa37be41e35411e8b3ead606f227d2abf5ff8e8867cd08ba3a74a2eac345a5e",
+          "bytes": 244
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\environment\\smoke.py",
+          "sha256": "f0f236164f928db6432924a27aaffa82f4660e0e0a20f274f30f273030f4b6b0",
+          "bytes": 7004
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\package.constructor_original.json",
+          "sha256": "1c2e1984dc968940b75d23bac40d31bd787cd31bc16ea293d985f0ee3da9e874",
+          "bytes": 60726
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-D10yarGQNk\\construct\\iclr2025-D10yarGQNk\\constructor\\output\\package.json",
+          "sha256": "e734cb67b641b661a09c465b469420142072c8b506cd893871f7b5eaa38dcf96",
+          "bytes": 58534
+        }
+      ],
+      "coverage_limits": [
+        "Selection based on pre-repair defects, not outcome. No future repair output/review/runtime/state inspected.",
+        "Prior reviewer and notes are defect leads, not current-policy coverage certificates.",
+        "Original source scientific claims not independently re-verified in this selection audit.",
+        "Second case smoke code is runtime/isolation code, not EXP algorithm or numeric kernel repair.",
+        "Single-task projection needs deterministic manifests and explicit provenance; creation has not happened in this audit."
+      ],
+      "freeze_additions_needed": [
+        "New explicit single-task job and precisely scoped repair notes",
+        "Whole current policy + prompt versions shared across both arms",
+        "Selected prior assets/facts/private reference closure; source identities and transitive source receipts",
+        "Prior review identity plus statement it lacks current-policy attestation",
+        "Binary/controller/transport profile, resource candidate, exact role identifiers",
+        "Predeclared read-only quality evaluation rubric and runtime mount matrix"
+      ]
+    },
+    {
+      "paper_id": "iclr2025-6ouZaBzeNO",
+      "proposed_case_kind": "scientific_visibility_and_runtime_code",
+      "recommended_single_task_type": "WRITE_CONTENT",
+      "recommended_task_id": "iclr2025-6ouZaBzeNO-WRITE_CONTENT-01",
+      "historical_multitask_warning": "Original job is a multi-task factory-v1 package. It is not a frozen v4 single-unit comparison job. Create a new explicit one-task job and publish the same extraction/projection plus repair notes to both arms; do not silently reuse old job as v4-equivalent. Preserve the historical full package privately for audit; do not expose other-stage assets to solver runtime.",
+      "workspace": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO",
+      "job": {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\job_repair.json",
+        "sha256": "82ed2af96ea91f32454b5365cf9d24df8f794418590e6d81cc35f9f67d137e64",
+        "bytes": 31579
+      },
+      "prior_batch_root": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct",
+      "prior_package": {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\package.json",
+        "sha256": "27d69fa6063bb44fdb1984d3bf979a01f14142d7773f0c0676248520acf5c768",
+        "bytes": 52932
+      },
+      "prior_review": {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\reviewer\\review.json",
+        "sha256": "052bb5b8c5446a53f838c9bedb2b952667da0e7bf8adfdced67fcb4da9d0c2ba",
+        "bytes": 17849
+      },
+      "prior_adjudication_and_notes": {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\review_adjudication\\review_adjudication.json",
+        "sha256": "488b0db5f3c4ff64fa14315b0a37e3b9141557d16edcb710bb808af6c490e3b3",
+        "bytes": 11882
+      },
+      "historical_repair_request_input_only": {
+        "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\repair\\iclr2025-6ouZaBzeNO\\constructor\\repair_request.json",
+        "sha256": "b1d42416e23d2206274c6d27b81577911de32cb742c07785af52ab1d6693203b",
+        "bytes": 7235
+      },
+      "all_original_repair_notes": [
+        "F1 (index 0): make environment/smoke.py per task. Check only the files in the selected task's input_contract.files, and run the loader check only for WRITE_EVIDENCE-01. Update the package.json environment rationale and recompute smoke_sha256. Controller mount isolation stays a pending gate. Do not change resource values.",
+        "F2 (index 1): remove T-01 from WRITE_CONTENT private_fact_ids and note in its visibility_justification that MF-04..MF-26 disclose the target by design. Keep T-01 private for LIT and IDEA. Verify that no task lists a fact as both an input and private.",
+        "F3 (index 2): in background_report.md lines 30-32, delete 'so it cannot be varied systematically', relabel the bullet as a maintainer statement, and adjust the header definitions. In private provenance, record that the BG-14..BG-16 wording comes from the target's motivation text (S1.p2-p3, S3.SS0.SSS0.Px1.p1/p3/p4).",
+        "F4 (index 3): add bg007_paper_html S3.SSx1.p6 and the conclusion as evidence for BG-05, and state the finding precisely (best model's forecast error correlates with the largest Lyapunov exponent) in package.json and background_report.md.",
+        "F5 (index 4): in private/checklist.md line 3, change 'M-01…M-25' to 'MF-01…MF-30'.",
+        "New: remove the author-year citations of target co-authors (Scholz et al., 2022; Yalavarthi et al., 2024) from the public IDEA background and from the BG-12/BG-13 statements. Then scan public assets for all six target author surnames.",
+        "Unchanged pending gates (not repair items): Docker build and fresh-container smoke, resource measurement (F1/F2), controller library coverage and date filter (MS-07), programmatic Table 2 diff, earliest-disclosure date (U-01), and public redistribution/attribution (G1)."
+      ],
+      "proposed_retained_notes_scope": [
+        "F1 per-task smoke",
+        "F2 WRITE_CONTENT visibility",
+        "F5 checklist cross-reference",
+        "All current-policy mandatory checks; other stage notes not part of retained task repair"
+      ],
+      "why_selected": [
+        "Real smoke code requires all stages mounted; repair must instead exercise only selected task inputs.",
+        "Facts private for LIT/IDEA may legitimately be public for writing: tests stage-aware rather than blanket identity/answer logic.",
+        "Method facts include equations, experimental configuration and source ambiguity decisions; retained scientific coverage cannot be inferred from unchanged hashes."
+      ],
+      "source_inventory": [
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\sources\\files\\abs_page.html",
+          "sha256": "eed81dd8fb00fc4809ea7198d2cf839c6a77f6184f7a9392d29b827410ee467f",
+          "bytes": 43983
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\sources\\files\\paper.html",
+          "sha256": "d285c1fd131e75077920ea72e2f77c7bfce1f34f813317cbaef8a3b2ddee9951",
+          "bytes": 708013
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg000_abs_page.html",
+          "sha256": "bc45a70791ae8357a421a3949639d844d4a93cc86f8d76aa53d63d417bdf9d28",
+          "bytes": 43000
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg000_paper.html",
+          "sha256": "df0de0f5636d64edda5da04a91f850096aecdcf1eb557cae1b45c2e26819ec53",
+          "bytes": 443896
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg001_abs_page.html",
+          "sha256": "a9e3da4ba8d3946cb375b80c682762482a57a94ba148883ad60346566c8a11d7",
+          "bytes": 43078
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg001_paper.html",
+          "sha256": "16897e836ac7af6aa2fc848baddc5c9b4f424840f34e30131bba3cf51aeb23d6",
+          "bytes": 346588
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg002_abs_page.html",
+          "sha256": "e228a0643d314b7eb6c498c2d3edb6cc3fb1ab0de00c55306e11b33378e0f573",
+          "bytes": 42084
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg002_paper.html",
+          "sha256": "2488ff268dee7892b789c6ce63f00d6865ff334f93b005a216e1c4e906e4f940",
+          "bytes": 1206319
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg003_abs_page.html",
+          "sha256": "a26101b0c7c50d6f3dbc95afc83c82c3152a3831ad7828d5ba60f25696aa90d4",
+          "bytes": 43133
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg003_paper.html",
+          "sha256": "b19e1a3bcdc83d838bac2c543417562843218cee112eebae4a0c7472594ca064",
+          "bytes": 427987
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg007_abs_page.html",
+          "sha256": "fde3a5a0defb56868d2b8d4518adaf0e97e343e50ec31c34285d2a98c105d12d",
+          "bytes": 43881
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg007_paper.html",
+          "sha256": "879cbaef76c5413e5304d30b2bc79c9170668de87cdf8fdd428f13330d0a9da4",
+          "bytes": 344557
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg008_abs_page.html",
+          "sha256": "1e8aa9d2c9e2fe20f3ca11f0552b6014587c1eedb1dac28d8a0ef06ec4f0ba00",
+          "bytes": 45734
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg008_paper.html",
+          "sha256": "adfc50baeac2e75423cdf44cea865a3a355da06c6ec772da8d1e72b8b8e4114f",
+          "bytes": 1005691
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg009_abs_page.html",
+          "sha256": "5c688e16422c45d703517be875a9c702eeee173e56e8e4ce1a5d5a521d2d0ea8",
+          "bytes": 43303
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg009_paper.html",
+          "sha256": "23d76034b1a89c886d73887a0b15412a1df3288ab022df7b9ef4285b3d37c7e5",
+          "bytes": 508347
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg012_abs_page.html",
+          "sha256": "f2e91e6beb2a4e058242ae7a5295fda168d4c0e4377df57966de3ce9172088cf",
+          "bytes": 42931
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg012_paper.html",
+          "sha256": "54b454b26bde6d280e7e6192b58aee0a9777f5f380543ec7563c4787dd22c759",
+          "bytes": 676689
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg013_abs_page.html",
+          "sha256": "5ee611d73a9e68cb8c39b08e5b5b268a40aaf6137642497cd31ce1cba1c03eb5",
+          "bytes": 43271
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg013_paper.html",
+          "sha256": "db7992a115fd7ac083de4f0a1ed4d787dd2e1bc573492073b86a6ec33489ac0d",
+          "bytes": 308723
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg014_abs_page.html",
+          "sha256": "c2628f6bc341be1f21ef6740ae06bb220f9bc42f6c5d3f984885a2977643958b",
+          "bytes": 44081
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg014_paper.html",
+          "sha256": "04cf722d3217dc3a841195fadb834962c5eaf3d6e796b2394070aa7236fc2f00",
+          "bytes": 438821
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg015_abs_page.html",
+          "sha256": "207c6bfa992443babc9b7df1b19a6799198ea14711b3a277af79d051c4626c3f",
+          "bytes": 45557
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\background\\bg015_paper.html",
+          "sha256": "ef449c1bb971a94087a8e344b9173f599664b656ff7a3db3962cf111f9f15f66",
+          "bytes": 413201
+        }
+      ],
+      "source_missing": [],
+      "prior_candidate_inventory": [
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\common\\NOTICE.md",
+          "sha256": "4a03f1b70a91eda379caec4c651dba9f58d32444ad086a9c6fda7caf853186cc",
+          "bytes": 1101
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\idea\\background_report.md",
+          "sha256": "fdef72e6e7da02677b359b01a4e3e0394151e132f6c083e483e7450ec41eed90",
+          "bytes": 5284
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\idea\\private\\reference_and_rubric.md",
+          "sha256": "58cb57357a440a926612b6f3719a7d959ccc98ab4c1701f994cfbe96c6065d74",
+          "bytes": 3844
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\idea\\task.md",
+          "sha256": "de7a909c7e811cebb3b794ea514cdd0982351bd3617ca9ffa1618b249d17d891",
+          "bytes": 2341
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\lit\\private\\judge_rubric.md",
+          "sha256": "a908833f3e522fed50535120205c48afcdfc8672a69c30a0f3fc94e2703d62ca",
+          "bytes": 2580
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\lit\\private\\library_manifest.json",
+          "sha256": "dc862223116bc4666ec50b2e5507435cba4305f4f6894cc25cb04f84a63fec89",
+          "bytes": 3965
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\lit\\task.md",
+          "sha256": "56890013ed3260ca357fef06b36cf2b440eaa8c2d7627fa929eb8399e7ea72af",
+          "bytes": 2798
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\private\\provenance.md",
+          "sha256": "2b249983db1eadb143955298a9788540193a998b6442c5f0be760a886fe2725d",
+          "bytes": 5241
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\write_content\\method_facts.md",
+          "sha256": "018780c2943f8595838994e348dcbfd53703c37c2f5d7c69eb90fa0bbda50da8",
+          "bytes": 14286
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\write_content\\private\\checklist.md",
+          "sha256": "8be6043a984dd4c3ea530ae0c6653bc9ce6b76831df97d12bac2f468eee5d48a",
+          "bytes": 1891
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\write_content\\task.md",
+          "sha256": "d77c75dd7af64b77bd424dc28810e8f4c5846821c34d0d002549b427c7eb7922",
+          "bytes": 3405
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\write_evidence\\csv_loader.py",
+          "sha256": "6acc1a09047402f7ff60f871ccdec4f2f1cb6055692c84b3aeed1d2213e8defc",
+          "bytes": 2213
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\write_evidence\\private\\verification_reference.md",
+          "sha256": "85764117c67c907a55bdb77ec3e3e714b59adb2bdbf8a01705ad5a07185fc3b4",
+          "bytes": 2767
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\write_evidence\\results_table.csv",
+          "sha256": "f9d26ba1b32cd7c6decdd688426d949634af4930927c736da615ca995c15d23a",
+          "bytes": 4302
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\assets\\write_evidence\\task.md",
+          "sha256": "90531d1290754f30c936bafbf777559e8f110ee73a9bb18f43c04ec4a1fa4f09",
+          "bytes": 7527
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\environment\\image\\.dockerignore",
+          "sha256": "ad4ffbb29ec74c37891a0efba1236aa378fdbf9e7a30b0df8532cdcd7baf4698",
+          "bytes": 32
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\environment\\image\\Dockerfile",
+          "sha256": "a25a7400df5fcbc5354b6e1bea3a5a584961f1594040e6d6c378c86367579d88",
+          "bytes": 507
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\environment\\image\\requirements.txt",
+          "sha256": "65ecf92f1e248316deb209630259b13eb06fa5b69983733bcf66867cf161ff41",
+          "bytes": 59
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\environment\\smoke.py",
+          "sha256": "ec52f71e65f130d6a90a71e2050e5ac778b4abad04ecb912cf256eb6f74daec8",
+          "bytes": 4621
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\package.constructor_original.json",
+          "sha256": "84dc71b980361a787fc4e7a06e852d8cc04acf6193286d5706420cbb66976408",
+          "bytes": 54803
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-v1\\papers\\iclr2025-6ouZaBzeNO\\construct\\iclr2025-6ouZaBzeNO\\constructor\\output\\package.json",
+          "sha256": "27d69fa6063bb44fdb1984d3bf979a01f14142d7773f0c0676248520acf5c768",
+          "bytes": 52932
+        }
+      ],
+      "coverage_limits": [
+        "Selection based on pre-repair defects, not outcome. No future repair output/review/runtime/state inspected.",
+        "Prior reviewer and notes are defect leads, not current-policy coverage certificates.",
+        "Original source scientific claims not independently re-verified in this selection audit.",
+        "Second case smoke code is runtime/isolation code, not EXP algorithm or numeric kernel repair.",
+        "Single-task projection needs deterministic manifests and explicit provenance; creation has not happened in this audit."
+      ],
+      "freeze_additions_needed": [
+        "New explicit single-task job and precisely scoped repair notes",
+        "Whole current policy + prompt versions shared across both arms",
+        "Selected prior assets/facts/private reference closure; source identities and transitive source receipts",
+        "Prior review identity plus statement it lacks current-policy attestation",
+        "Binary/controller/transport profile, resource candidate, exact role identifiers",
+        "Predeclared read-only quality evaluation rubric and runtime mount matrix"
+      ]
+    }
+  ],
+  "alternatives_not_selected": [
+    {
+      "paper_id": "iclr2025-EpgoFFUM2q",
+      "reason": "Strong EXP scientific/source contradiction and attribution repairs but notes prohibit changing csbm.py and bind admission to a frozen-source pilot. Not a convenient pure code repair and not a replacement chosen by successful final result.",
+      "notes_input_path": "D:/mrhbench-local-pilot/factory-v2/papers/iclr2025-EpgoFFUM2q/repair/iclr2025-EpgoFFUM2q/constructor/repair_request.json"
+    },
+    {
+      "paper_id": "iclr2025-3n4RY25UWP",
+      "reason": "Observed repair is structural five-type coverage matrix failure, not suitable scientific-review matched case; do not invent missing review."
+    }
+  ],
+  "policy_conflict": {
+    "protocol_file": {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\AGENTS.md",
+      "sha256": "d3e5373a3effd1661c357abf0eb589efe8496b0cd1679d11113d71155e4434e1",
+      "bytes": 198136
+    },
+    "factory_policy_file": {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\prompts\\factory_v4\\policy.md",
+      "sha256": "d52a7add8d9581f5208a3e693733f571dcb1c7e7fcca37f651523352d4bea336",
+      "bytes": 8022
+    },
+    "sources": [
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\AGENTS.md",
+        "lines": [
+          10,
+          10
+        ],
+        "rule": "WRITE may use author-reported results."
+      },
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\AGENTS.md",
+        "lines": [
+          422,
+          444
+        ],
+        "rule": "WRITE is expression of established research; task-scoped facts/method/config/evidence, and source method code may legitimately be given for technical writing. Visibility is task-specific."
+      },
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\prompts\\factory_v4\\policy.md",
+        "lines": [
+          69,
+          73
+        ],
+        "rule": "E1 currently globally forbids author results, figure values and experiment scale hints in all public assets."
+      },
+      {
+        "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\prompts\\factory_v4\\policy.md",
+        "lines": [
+          77,
+          79
+        ],
+        "rule": "E3 requires WRITE_EVIDENCE data and provenance, conflicting with unqualified E1 numeric ban."
+      }
+    ],
+    "conclusion": "Unqualified result/scale ban conflicts with higher protocol for WRITE. Identity concealment can remain distinct; task-authorized author data/method information must not be labelled leakage merely for being source-derived. A source result authorized for WRITE still must not flow into LIT/IDEA/EXP unless their separate task rules permit it.",
+    "recommended_change_not_applied": "Keep cross-stage isolation and target identity safeguards; scope author-result/figure/experiment-recipe withholding by stage and task purpose, with explicit WRITE allowance for source-grounded facts/data/config needed by the writing task. Do not permit finished target prose/renderer/answers or source-identity leakage under this allowance. Both trial arms must receive identical corrected current policy. Do not use author surname matching alone to ban legitimate pre-cutoff background literature; semantics and attribution still require review.",
+    "requires_frozen_policy_before_launch": true
+  },
+  "evidence_limits": [
+    "No claims of new-case scientific or runtime acceptance.",
+    "No new model transports, no goal or AGENTS edits, no source or historical evidence modifications."
+  ]
+}

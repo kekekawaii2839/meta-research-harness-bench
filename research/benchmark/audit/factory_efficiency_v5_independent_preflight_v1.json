@@ -1,0 +1,65 @@
+{
+  "schema_version": "independent-v5-code-preflight-1",
+  "at": "2026-09-27T17:39:19.513413+00:00",
+  "decision": "no_blocking_code_findings_subject_to_final_frozen_selection",
+  "files": [
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\factory_efficiency_v5.py",
+      "sha256": "8fc15e67cb39923ea401e3f77449b93092c79353fa31740338614975cc6d754a"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\scripts\\active\\run_factory_efficiency_v5.py",
+      "sha256": "8f9f4800daf1106da6ebff224eb6817654ed3314e0eca34f8c7870c36d4c3dd5"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_factory_efficiency_v5.py",
+      "sha256": "395252e9015b33c9d0d57cfcd4c46cd2ecd778c9c29159ecd2dba6aa5d22ed70"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\evidence_read_batching.py",
+      "sha256": "971bf2002ef3089992b8990d777113fbd5699a83ead851c2f9eca911f9235955"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_evidence_read_batching.py",
+      "sha256": "b72547318385d55b3da35c375f41c8e259c862921b0937546709c11f3988547c"
+    }
+  ],
+  "tests": [
+    {
+      "suite": "test_evidence_read_batching.py",
+      "count": 4,
+      "elapsed_seconds": 0.01,
+      "result": "OK"
+    },
+    {
+      "suite": "test_factory_efficiency_v5.py initial four full-chain cases",
+      "count": 4,
+      "elapsed_seconds": 14.28,
+      "result": "OK"
+    },
+    {
+      "suite": "test_factory_efficiency_v5.V5Tests.test_non_wc_selection_or_incorrect_declared_source_rejected final addition",
+      "count": 1,
+      "elapsed_seconds": 0.187,
+      "result": "OK"
+    }
+  ],
+  "blocking_findings": [],
+  "findings": [
+    "Exact baseline618 maximum6 stop624 within separate700 goal is validated at selection and used by bounded ledger; no retry, only explicit single-arm CLI runs.",
+    "Selection requires one original WRITE_CONTENT task and requested type, fresh-validation label, round2, orderincremental→old, exact source declared hashes and source/map/prior identities. Actual empirical freshness still requires independent selection provenance.",
+    "Both arms use same full policy and frozen original source/map, Quality/Identity/Paged plus DecisionGuidance. Only incremental reviewer/adjudicator receives read-batching advice; constructor unchanged by batching. Comparison is explicitly a process bundle, not isolated constructor causality.",
+    "Batching guidance never rewrites output, retries or removes original evidence. Complete policy, current candidate/package/public surface/actual public assets/private scientific references/source verification remain required, with sequential fallback and truncation recovery.",
+    "Second arm requires firstnative completed pass/pass_partial, independently bound full-candidate/source scientific pass and the exact v4 runtime→candidate→complete compiled actual public export→independent full-release semantic report chain. Pending/unbound science, missing release inventory, runtime digest mismatch and stale report are rejected.",
+    "Real run_batch/adjudicate with fake native covers both arms all roles, original sentinel preservation/hash filling, input immutability, missinggate stop, incremental-only batching assertions, drop/provider429/assignment tamper stop, final ledger624 and no retry.",
+    "Source, phase authorization and snapshot tamper negative tests reject before calling; non-WC and declaredsourceSHA mismatch separately reject."
+  ],
+  "limitations": [
+    "No model called, no actual case freeze/preflight performed by auditor.",
+    "Fake runtime records and actual compiler/export fixture test structure, not CPU runtime or science acceptance.",
+    "Actual model may ignore optional read batching or need sequential reads; new traces and paired costs are required for benefit claims.",
+    "Independent semantic report binding does not prove truthfulness of report content, and full source inventory presence is not proof every source was read."
+  ],
+  "new_model_calls": 0,
+  "historical_files_modified": false
+}

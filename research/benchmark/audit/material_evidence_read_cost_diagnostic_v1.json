@@ -1,0 +1,355 @@
+{
+  "schema_version": "material-evidence-read-cost-diagnostic-1",
+  "evidence_calls": [
+    616,
+    617,
+    618
+  ],
+  "ledger_snapshot_identity": {
+    "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\development_call_ledger.json",
+    "sha256": "04dfc16436cc3f0630dce8d52369903b48d06d3f384efa9479e032c3b2c08472",
+    "bytes": 1719760
+  },
+  "records": [
+    {
+      "call_id": 616,
+      "role": "constructor",
+      "usage": {
+        "cache_write_input_tokens": 155627,
+        "cached_input_tokens": 1674881,
+        "input_tokens": 36,
+        "output_tokens": 56298
+      },
+      "wall_seconds": 488.68800000002375,
+      "trace": {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\native_calls\\constructor\\native-620b1519399646e2be25bad3e7d658c1\\events.jsonl",
+        "sha256": "ab8c58233b9a45ff5ba1ec2d1461d139b586a6f7b040114f57522e418cef3810",
+        "bytes": 913684
+      },
+      "native_num_turns": 35,
+      "deduplicated_tool_calls": 34,
+      "tool_counts": {
+        "Glob": 1,
+        "Read": 19,
+        "Grep": 5,
+        "Write": 9
+      },
+      "tool_bearing_assistant_messages": 17,
+      "tool_batch_sizes": [
+        4,
+        3,
+        3,
+        6,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        4,
+        2,
+        1,
+        1
+      ],
+      "top_read_grep_paths": [
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\constructor\\request.json",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 49562
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\constructor\\previous_candidate\\package.json",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 44983
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\constructor\\sources\\001-001-paper.html",
+          "read_calls": 2,
+          "grep_calls": 4,
+          "returned_utf8_bytes": 27305
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\constructor\\previous_candidate\\assets\\exp\\task.md",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 17361
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\constructor\\previous_candidate\\assets\\exp\\starter\\simdata.py",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 13395
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\constructor\\quality_policy.md",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 11518
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\constructor\\previous_candidate\\environment\\smoke.py",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 9590
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\constructor\\material_constructor.txt",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 8586
+        }
+      ]
+    },
+    {
+      "call_id": 617,
+      "role": "material_reviewer",
+      "usage": {
+        "cache_write_input_tokens": 208712,
+        "cached_input_tokens": 3902400,
+        "input_tokens": 60,
+        "output_tokens": 34369
+      },
+      "wall_seconds": 404.625,
+      "trace": {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\native_calls\\material_reviewer\\native-f824a1663f854399959299f4b3e91048\\events.jsonl",
+        "sha256": "4dbc5171185f93903d5dd67a0063e2bebedca2acfaa8cc43a2599e3441179379",
+        "bytes": 1107364
+      },
+      "native_num_turns": 52,
+      "deduplicated_tool_calls": 51,
+      "tool_counts": {
+        "Glob": 5,
+        "Read": 32,
+        "Grep": 12,
+        "Write": 2
+      },
+      "tool_bearing_assistant_messages": 29,
+      "tool_batch_sizes": [
+        2,
+        3,
+        2,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        2,
+        2,
+        1,
+        4,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "top_read_grep_paths": [
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\reviewer\\request.json",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 49562
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\reviewer\\sources\\004-004-algorithms.py",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 47742
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\reviewer\\output\\package.json",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 47525
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\reviewer\\quality_public_surface.json",
+          "read_calls": 1,
+          "grep_calls": 3,
+          "returned_utf8_bytes": 26651
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\reviewer\\quality_coverage.schema.json",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 19888
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\reviewer\\output\\assets\\exp\\task.md",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 18776
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\reviewer\\paged_source_navigation\\source-0000\\page-0009.json",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 16973
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\arms\\exp_author_trend_regression\\old\\batch\\iclr2025-3n4RY25UWP\\reviewer\\paged_source_navigation\\source-0000\\page-0001.json",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 16490
+        }
+      ]
+    },
+    {
+      "call_id": 618,
+      "role": "adjudicator",
+      "usage": {
+        "cache_write_input_tokens": 185866,
+        "cached_input_tokens": 1409103,
+        "input_tokens": 30,
+        "output_tokens": 25821
+      },
+      "wall_seconds": 279.76500000001397,
+      "trace": {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\continuations\\exp-old-adjudication-001\\native_calls\\native-b79efa79ac514f17bc7531ca50078286\\events.jsonl",
+        "sha256": "0d537d8d9f3b2c871288d1e879c1fbc6a9b486c9b2a982a127ad7ad685dacb99",
+        "bytes": 937096
+      },
+      "native_num_turns": 35,
+      "deduplicated_tool_calls": 34,
+      "tool_counts": {
+        "Glob": 4,
+        "Read": 24,
+        "Grep": 4,
+        "Write": 2
+      },
+      "tool_bearing_assistant_messages": 14,
+      "tool_batch_sizes": [
+        1,
+        3,
+        6,
+        5,
+        3,
+        1,
+        3,
+        2,
+        2,
+        2,
+        1,
+        3,
+        1,
+        1
+      ],
+      "top_read_grep_paths": [
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\continuations\\exp-old-adjudication-001\\adjudicator\\sources\\001-001-paper.html",
+          "read_calls": 2,
+          "grep_calls": 1,
+          "returned_utf8_bytes": 54428
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\continuations\\exp-old-adjudication-001\\adjudicator\\request.json",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 49562
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\continuations\\exp-old-adjudication-001\\adjudicator\\output\\package.json",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 47525
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\continuations\\exp-old-adjudication-001\\adjudicator\\quality_public_surface.json",
+          "read_calls": 1,
+          "grep_calls": 1,
+          "returned_utf8_bytes": 26389
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\continuations\\exp-old-adjudication-001\\adjudicator\\quality_coverage.schema.json",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 19888
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\continuations\\exp-old-adjudication-001\\adjudicator\\output\\assets\\exp\\task.md",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 18776
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\continuations\\exp-old-adjudication-001\\adjudicator\\original_reviewer_quality_coverage.json",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 18149
+        },
+        {
+          "path": "D:\\mrhbench-local-pilot\\factory-efficiency-regression-20260927-001\\continuations\\exp-old-adjudication-001\\adjudicator\\review.json",
+          "read_calls": 1,
+          "grep_calls": 0,
+          "returned_utf8_bytes": 17678
+        }
+      ]
+    }
+  ],
+  "input_accounting": {
+    "definition": "input_tokens + cache_write_input_tokens + cached_input_tokens (separate native usage fields, no dollar pricing inferred)",
+    "per_call_total": [
+      1830544,
+      4111172,
+      1594999
+    ],
+    "tail_share": 0.7571164625436945
+  },
+  "findings": [
+    "No repeated full package Read was observed within these reviewer/adjudicator calls. Package, public-surface and public task assets contain overlapping but distinct required evidence.",
+    "Original native already batches tool requests: grouping is supported in these observed traces, not a novel implementation. Additional scheduling advice may have little benefit.",
+    "Tool response UTF8 bytes include tool rendering/line numbers, are not file bytes or token counts, and cannot estimate cache replay savings.",
+    "Cached input dominates aggregate input usage; repeated growing conversation context is a plausible contributor, not a proven removable causal cost.",
+    "Full policy, schema, contract, package/private references, original review, source-dependent checks and actual public files must remain available and reviewed as required. No evidence suppression or duplicated compact data copies added."
+  ],
+  "proposed_opt_in": {
+    "module": {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\evidence_read_batching.py",
+      "sha256": "971bf2002ef3089992b8990d777113fbd5699a83ead851c2f9eca911f9235955",
+      "bytes": 3072
+    },
+    "test": {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_evidence_read_batching.py",
+      "sha256": "b72547318385d55b3da35c375f41c8e259c862921b0937546709c11f3988547c",
+      "bytes": 3215
+    },
+    "wrapper": "EvidenceReadBatchingRunner(inner), inside QualityBoundRunner around native",
+    "roles": [
+      "material_reviewer",
+      "adjudicator"
+    ],
+    "constructor_changed": false,
+    "arm_policy": "Root explicitly assigns incremental only in a new frozen protocol; compare a process bundle, not isolated constructor causality.",
+    "behavior": "Append scheduling advice; one original native call; no IO, summaries, response normalization, retries, or quality relaxation.",
+    "native_calls_for_development": 0,
+    "offline_tests": {
+      "command": "python -X utf8 -m unittest discover -s tests -p test_evidence_read_batching.py -v",
+      "tests": 4,
+      "passed": true,
+      "seconds": 0.014
+    }
+  },
+  "limits": [
+    "No new model trial performed; cost reduction, quality and full read compliance unverified.",
+    "No universal recommendation to batch every read: tool limits, dependencies, truncation and context loss require smaller batches or rereading.",
+    "Existing material/identity/scientific/runtime/final release independent gates remain mandatory.",
+    "A navigation/read scheduling prompt is not proof that the model read evidence or adjudicated correctly."
+  ]
+}

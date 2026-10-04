@@ -1,0 +1,48 @@
+{
+  "at": "2026-09-27T03:51:05.085377+00:00",
+  "status": "offline_implementation_not_real_validated",
+  "new_model_calls": 0,
+  "ledger": 605,
+  "tests": {
+    "total": 501,
+    "passed": 489,
+    "skipped": 12,
+    "failures": 0,
+    "seconds": 61.801
+  },
+  "files": [
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\prompts\\material_efficiency_v2\\policy.md",
+      "sha256": "ef605b10f88374528b269688b3cec83e93e0898601f90b532efe7d178cd3b60c"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\prompts\\material_efficiency_v2\\repair.txt",
+      "sha256": "e8b7d990a3aacf38965b1b479b094f2d8db76dedcfee12a7bd448ae8a9befbb9"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\prompts\\material_efficiency_v2\\review.txt",
+      "sha256": "e1172ba20d1de9c542cc3c5ec5339f8bb9958ce40218197441a8c3bda1b092d3"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\material_public_surface.py",
+      "sha256": "20d9b01c532f5a4e7c1980c5808b3639d577bf198bcf7e21fffd6f309374818a"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\material_quality_contract.py",
+      "sha256": "1883d461838eb8816407f7a45db5fb176fd7e87d5eccab8847fd6c76f207b5c5"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\material_quality_runner.py",
+      "sha256": "059e9b0dc6e3c85ec0e40bfd37bf767e5be709dd82feedc6880be9add16c0ee5"
+    }
+  ],
+  "remaining": [
+    "independent code audit",
+    "compact coverage encoding assessment",
+    "single-unit source-preserving projection",
+    "new driver and immutable execution freeze",
+    "real paired cost/quality validation",
+    "conditional fresh unit pilot"
+  ],
+  "default_production_unchanged": true
+}

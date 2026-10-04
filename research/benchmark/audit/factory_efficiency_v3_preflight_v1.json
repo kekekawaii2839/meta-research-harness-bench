@@ -1,0 +1,56 @@
+{
+  "status": "offline_preparation_not_frozen_not_real_validated",
+  "ledger_used": 608,
+  "goal_stop_at": 625,
+  "new_calls": 0,
+  "full_regression": {
+    "tests": 547,
+    "passed": 535,
+    "skipped_numpy": 12,
+    "failures": 0,
+    "seconds": 70.11,
+    "log": "factory_efficiency_v3_full_tests_pre_freeze.log"
+  },
+  "independent_latest_driver_and_schema_tests": 22,
+  "preflight": {
+    "EXP": {
+      "sources": 64,
+      "validate_job": "passed",
+      "validate_package": "structural_pass_scientific_pending",
+      "prepare_material_job": "passed"
+    },
+    "WRITE_CONTENT": {
+      "sources": 24,
+      "validate_job": "passed",
+      "validate_package": "structural_pass_scientific_pending",
+      "prepare_material_job": "passed"
+    }
+  },
+  "limitations": [
+    "Missing PYTHONPATH first preflight failed before imports; corrected explicit environment passed; zero model calls.",
+    "No real v3 call or CPU runtime; no new cost reduction claim.",
+    "Full-suite collection preceded latest independent extra missing-adjudication-sidecar test; latest 22 targeted tests separately passed."
+  ],
+  "bindings": [
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\factory_efficiency_v3.py",
+      "sha256": "66dfb5f20cacfe2c1e855fb4602a52e41b3c1c0e7ba60289e1ff327463b1e5ed"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\material_policy_schema.py",
+      "sha256": "63115e7b9a00d74d712023106326a3cd09589ee8604ff28fd7ca6c30190807e1"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\prompts\\material_efficiency_v3\\adjudicator_review.txt",
+      "sha256": "7711f9e6e0afb4e70774034990a86877d9c496290c071c5e00e00f4ef42b65e6"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\prompts\\material_efficiency_v3\\policy.md",
+      "sha256": "73ba729279c0f74807fbd8964d55ee3438cde3e60fba24560a6a3d243c26265c"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\factory_efficiency_v3_exp_autonomy_review.json",
+      "sha256": "e526e120788cf667ceaac11faaf572a90a3bffeccb5bd1deca8e1da5e01df6bc"
+    }
+  ]
+}

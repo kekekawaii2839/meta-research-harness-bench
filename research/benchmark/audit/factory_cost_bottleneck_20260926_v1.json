@@ -1,0 +1,189 @@
+{
+  "schema_version": "factory-cost-bottleneck-1",
+  "at": "2026-09-27T00:18:39.038611+00:00",
+  "calls": [
+    {
+      "call_id": 583,
+      "role": "adjudicator",
+      "status": "completed",
+      "wall_seconds": 496.10899999999674,
+      "input_tokens_total": 3057526,
+      "output_tokens": 49583,
+      "artifact_directory": "D:\\mrhbench-local-pilot\\factory-v4\\native_calls\\adjudicator\\native-6954908537d84f2c92a71562f202be41"
+    },
+    {
+      "call_id": 584,
+      "role": "constructor",
+      "status": "completed",
+      "wall_seconds": 677.3440000000119,
+      "input_tokens_total": 2837742,
+      "output_tokens": 57426,
+      "artifact_directory": "D:\\mrhbench-local-pilot\\factory-v4\\native_calls\\constructor\\native-bb8379c00f52473d9827aee707542f77"
+    },
+    {
+      "call_id": 585,
+      "role": "material_reviewer",
+      "status": "completed",
+      "wall_seconds": 366.5,
+      "input_tokens_total": 4984259,
+      "output_tokens": 34582,
+      "artifact_directory": "D:\\mrhbench-local-pilot\\factory-v4\\native_calls\\material_reviewer\\native-e2c3ea9635b845468bc9de1143f1fe7a"
+    },
+    {
+      "call_id": 586,
+      "role": "adjudicator",
+      "status": "completed",
+      "wall_seconds": 122.53099999998813,
+      "input_tokens_total": 410965,
+      "output_tokens": 10277,
+      "artifact_directory": "D:\\mrhbench-local-pilot\\factory-v4\\native_calls\\adjudicator\\native-dac8936039444e55a9ae685cc067a692"
+    },
+    {
+      "call_id": 587,
+      "role": "constructor",
+      "status": "failed",
+      "wall_seconds": 18.53200000000652,
+      "input_tokens_total": 100203,
+      "output_tokens": 1108,
+      "artifact_directory": "D:\\mrhbench-local-pilot\\factory-v4\\native_calls\\constructor\\native-73d08f9a74444142a46f2ef3a837e02d"
+    },
+    {
+      "call_id": 588,
+      "role": "constructor",
+      "status": "completed",
+      "wall_seconds": 617.3120000000054,
+      "input_tokens_total": 3326332,
+      "output_tokens": 58872,
+      "artifact_directory": "D:\\mrhbench-local-pilot\\factory-v4\\native_calls\\constructor\\native-3bb108da3c7f4b0ab595586936aa4540"
+    },
+    {
+      "call_id": 589,
+      "role": "material_reviewer",
+      "status": "completed",
+      "wall_seconds": 311.2820000000065,
+      "input_tokens_total": 4236648,
+      "output_tokens": 28691,
+      "artifact_directory": "D:\\mrhbench-local-pilot\\factory-v4\\native_calls\\material_reviewer\\native-f94bfa8e8ae749168e29d6506dea224e"
+    },
+    {
+      "call_id": 590,
+      "role": "adjudicator",
+      "status": "completed",
+      "wall_seconds": 121.46899999998277,
+      "input_tokens_total": 416983,
+      "output_tokens": 10876,
+      "artifact_directory": "D:\\mrhbench-local-pilot\\factory-v4\\native_calls\\adjudicator\\native-743b5084b8934f7ba150d80f5fe5a177"
+    },
+    {
+      "call_id": 591,
+      "role": "constructor",
+      "status": "completed",
+      "wall_seconds": 462.43799999999464,
+      "input_tokens_total": 1260750,
+      "output_tokens": 48689,
+      "artifact_directory": "D:\\mrhbench-local-pilot\\factory-v4\\native_calls\\constructor\\native-1b9693e002df4a42a9cdf8080125cf79"
+    },
+    {
+      "call_id": 592,
+      "role": "material_reviewer",
+      "status": "completed",
+      "wall_seconds": 320.8440000000119,
+      "input_tokens_total": 2442127,
+      "output_tokens": 31403,
+      "artifact_directory": "D:\\mrhbench-local-pilot\\factory-v4\\native_calls\\material_reviewer\\native-a0faf88918184782b1e16e8e9caa8793"
+    },
+    {
+      "call_id": 593,
+      "role": "adjudicator",
+      "status": "completed",
+      "wall_seconds": 117.07799999997951,
+      "input_tokens_total": 694881,
+      "output_tokens": 11368,
+      "artifact_directory": "D:\\mrhbench-local-pilot\\factory-v4\\native_calls\\adjudicator\\native-6289bd0244e14d798e25bcd620672619"
+    }
+  ],
+  "v4_observed_total": {
+    "calls": 11,
+    "input_tokens_total": 23768416,
+    "output_tokens": 342875,
+    "model_session_seconds_sum": 3631.438999999984
+  },
+  "repair2_only": {
+    "calls": 3,
+    "input_tokens_total": 4397758,
+    "output_tokens": 91460,
+    "model_session_seconds_sum": 900.359999999986
+  },
+  "artifact_comparison": [
+    {
+      "path": "assets/data_card.md",
+      "unchanged_bytes": true,
+      "bytes": 3859
+    },
+    {
+      "path": "assets/private/reviewer_notes.md",
+      "unchanged_bytes": false,
+      "bytes": 5561
+    },
+    {
+      "path": "assets/starter/srl_exp/__init__.py",
+      "unchanged_bytes": true,
+      "bytes": 603
+    },
+    {
+      "path": "assets/starter/srl_exp/backbone.py",
+      "unchanged_bytes": true,
+      "bytes": 2963
+    },
+    {
+      "path": "assets/starter/srl_exp/data.py",
+      "unchanged_bytes": true,
+      "bytes": 8463
+    },
+    {
+      "path": "assets/starter/srl_exp/metrics.py",
+      "unchanged_bytes": true,
+      "bytes": 1249
+    },
+    {
+      "path": "assets/task.md",
+      "unchanged_bytes": true,
+      "bytes": 13846
+    },
+    {
+      "path": "environment/image/.dockerignore",
+      "unchanged_bytes": true,
+      "bytes": 32
+    },
+    {
+      "path": "environment/image/Dockerfile",
+      "unchanged_bytes": true,
+      "bytes": 616
+    },
+    {
+      "path": "environment/image/requirements.txt",
+      "unchanged_bytes": true,
+      "bytes": 73
+    },
+    {
+      "path": "environment/smoke.py",
+      "unchanged_bytes": true,
+      "bytes": 4995
+    },
+    {
+      "path": "package.json",
+      "unchanged_bytes": false,
+      "bytes": 48601
+    }
+  ],
+  "repair2_scope_evidence": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\units\\EXP\\repair_adjudication\\review_adjudication.json",
+  "runtime_status": "passed",
+  "compiled_tasks": 1,
+  "limits": [
+    "Total input includes repeated cached contexts; not unique corpus tokens or a dollar bill.",
+    "Session duration sum is not end-to-end elapsed time including manual pauses.",
+    "Totals cover calls583-593, exclude inherited fetch/source audit and all earlier versions.",
+    "Compiled task is not formally accepted; no P11 run."
+  ],
+  "new_calls_this_analysis": 0
+}

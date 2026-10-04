@@ -1,0 +1,48 @@
+{
+  "schema_version": "controller-conversion-acceptance-1",
+  "at": "2026-09-26T20:02:55.710028+00:00",
+  "new_model_calls_for_conversion": 0,
+  "publication": "D:\\mrhbench-local-pilot\\factory-v4\\papers\\iclr2025-254NJe9JEw\\data_conversion\\publication.json",
+  "publication_sha256": "c3c70b82d003088ffbaa83734a09bc65722da6e6d5e4f7ccac8fb14235ba8350",
+  "plan_sha256": "e33e95e018fb94084fb181c0aeab0fc276cecc1679efa95c531e6c162c3e902a",
+  "data": [
+    {
+      "name": "forces",
+      "arrays": 153,
+      "dtype": [
+        "<f8"
+      ],
+      "source_sha256": "8cdc9892a85435b7fb4f23f1d982e008a4e724f04aa4e7a837e19884e8c32f63",
+      "output_sha256": "0679044bb36030fd08be7344f951929eabe6d7a3fa6bedfe76515086a3833cb1",
+      "output_bytes": 14072242,
+      "nonfinite": 0,
+      "all_array_content_hashes_verified": true
+    },
+    {
+      "name": "kinematics",
+      "arrays": 153,
+      "dtype": [
+        "<f8"
+      ],
+      "source_sha256": "528f04eca95b727c8c69db5219ef2e42a223a73a00905725976ec3e116d08605",
+      "output_sha256": "01081cdfb81177d187f185d5fc3e8f82dc81015ffc2b59c15dd069c4a114d06b",
+      "output_bytes": 10563826,
+      "nonfinite": 0,
+      "all_array_content_hashes_verified": true
+    }
+  ],
+  "pair_event_lengths_match": true,
+  "preflight": "D:/mrhbench-local-pilot/conversion-preflight-20260926-001",
+  "author_or_constructor_code_executed": false,
+  "scientific_acceptance": false,
+  "limitations": [
+    "Representation check only; semantics and scientific suitability remain reviewer/acceptance work.",
+    "Controller image is not a solver dependency image.",
+    "No claim of arbitrary pickle safety; weights-only decoding additionally bounded in a restricted container."
+  ],
+  "code_hashes": {
+    "tensor_conversion.py": "e596b268f1b3dd2de21b12598b1061c415e14f2d0d3d41b41961e1c691d45920",
+    "factory_data.py": "773988af15f2ba8b2cce05d541a2d9129d2f00dbde2d6323a50d7b420ded171d",
+    "factory.py": "3a2c99c05e4423fbffd5c881e25c0844fb35e1b65a90374b85db5a05a3bfb061"
+  }
+}

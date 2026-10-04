@@ -1,0 +1,23 @@
+{
+  "model_calls": 0,
+  "original_freeze_verified": true,
+  "regression_only": true,
+  "cases": [
+    {
+      "arm": "old",
+      "package_sha256": "0e44940344360dd2da516b69a4483aaec028a199533b928c6663033524ba60c1",
+      "surface_count": 34,
+      "output_contract_included": true,
+      "public_fact_count": 23,
+      "semantic_acceptance": false
+    },
+    {
+      "arm": "incremental",
+      "package_sha256": "b3c2a60c9a69c16d406c2b7379354a2ed719418704ef71a18ed347d97230a02c",
+      "surface_count": 33,
+      "output_contract_included": true,
+      "public_fact_count": 22,
+      "semantic_acceptance": false
+    }
+  ]
+}

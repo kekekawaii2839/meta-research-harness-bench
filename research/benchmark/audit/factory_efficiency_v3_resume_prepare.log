@@ -1,0 +1,1328 @@
+{
+  "schema_version": "factory-efficiency-v3-resume-execution-1",
+  "at": "2026-09-27T12:18:44.885213+00:00",
+  "original_root": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001",
+  "new_root": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001",
+  "approval": {
+    "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\audit\\factory_efficiency_v3_resume_authorization_v1.json",
+    "sha256": "de6d949744cc2edfd953a38be38ae0b0ef16e3d26f204b8e79c5b9482e2b5baa",
+    "bytes": 1814
+  },
+  "script": {
+    "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\scripts\\active\\resume_efficiency_v3_after_rate_limit.py",
+    "sha256": "92a1f7180595daa322e41ca42be1364ea12d0a1eedff36c336d39f43c2737200",
+    "bytes": 10969
+  },
+  "adapter_snapshot": {
+    "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\resume_adapter.py",
+    "sha256": "92a1f7180595daa322e41ca42be1364ea12d0a1eedff36c336d39f43c2737200",
+    "bytes": 10969
+  },
+  "original_manifest": {
+    "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\execution\\manifest.json",
+    "sha256": "1fd6ed62f8d79f4af2a4f06bee98aad5c2ee8ca3f14095b1bd88bbe785f9a9fb",
+    "bytes": 98453
+  },
+  "adapted_manifest": {
+    "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\manifest.json",
+    "sha256": "fc3e832ed7cebf61198a16e7f27d82c8b8351e3bb93529cc151f785ab8e3f08c",
+    "bytes": 98600
+  },
+  "adapted_cases": {
+    "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\cases.json",
+    "sha256": "6f88911c0306f0dd00751692dbec0257671981d69317635a27c915cb3c2fb81d",
+    "bytes": 32916
+  },
+  "snapshot_files": [
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\config\\role_transport_claude_v2.json",
+      "sha256": "c728e2f6651c3cab9020988cd887b31a3ea78fb5493c118416964fa091576946",
+      "bytes": 1185
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\__init__.py",
+      "sha256": "a2220b9cec90cf8c161fd0f94157560dc85fb7eddf9bb4c338856c36f9aeffa2",
+      "bytes": 110
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\artifact_policy.py",
+      "sha256": "bfe5118add46e486d5daad0aeb32be06106719037ceae17e0db327f2bb7fc4af",
+      "bytes": 2063
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\baseline.py",
+      "sha256": "1858a408c1332b5ffa2527cf1e7c04b28526868f09a12902adfaf05b17d59517",
+      "bytes": 3986
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\bounded_ledger.py",
+      "sha256": "402273a66ce6e9de3401eb7000d374d512190fff4c38f8cf1b3392f17e4e8b24",
+      "bytes": 2512
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\bounded_mcp.py",
+      "sha256": "a789c0a57c0f6ddc549aca6a7f724752c72ba8e58ca3fdbecdfd22558b107078",
+      "bytes": 9812
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\claude_transport.py",
+      "sha256": "9d1aae6716e8efd462ccc7703c650a36448ca55ed2e564413810e41f5994d021",
+      "bytes": 35306
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\container_executor.py",
+      "sha256": "c1ddd28cf243b0ffd0b72cc3537a85ea792e74d78d3af493001a7aa29e1a4e88",
+      "bytes": 10046
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\container_runtime.py",
+      "sha256": "a4831794ad2bb66a2db39892fa70fae67c5303a7f6e45af2199cc22b30d55638",
+      "bytes": 35076
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\context_policy.py",
+      "sha256": "317360c2f16ab2ec005ab00b483d6227b896a1db806b434c52d4297958631570",
+      "bytes": 10099
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\costs.py",
+      "sha256": "32897319479fe7112ddb05a7af2a129a0fd064c935b9bb8d9926531304d741a4",
+      "bytes": 4770
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\cpu_runner.py",
+      "sha256": "30475c95c3db8d23d9225509b2b22be97dc84c43657046157b3835ccd987b27d",
+      "bytes": 8975
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\disk_audit.py",
+      "sha256": "94c6ed5e26f70248b21d37dd6f75fe6504c792351b0d4e21ac0c5bb0f1499347",
+      "bytes": 6914
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\docker_pilot.py",
+      "sha256": "25b64cc135387ace6a4dce331fcdef351e6d6947edf529d27335e3ca9a2985b3",
+      "bytes": 10512
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\efficiency_metrics.py",
+      "sha256": "a29a5af1411c07339e98abc99b97f3a870352c48c850543f5a3df68b3f246cd3",
+      "bytes": 5133
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\efficiency_prospective.py",
+      "sha256": "f63138499bdb9292465e1a732eb1d87001e4073b373f43af0a70d414849a4718",
+      "bytes": 17323
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\evolution.py",
+      "sha256": "0bb88e7cb9a33e7590aa0282ab14a8778a72b3d67ba1b1590a5b189b7152e0bf",
+      "bytes": 10770
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\evolution_driver.py",
+      "sha256": "45c753b7bcde455dbe93bf497a7b5d44b2e670fba7be927db18eb7e3002df2dd",
+      "bytes": 18052
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\evolution_evaluator.py",
+      "sha256": "4c083b970e9a8d84b3a783caaec5661a4f5eb9b1456e8202f61a81fa59523e4a",
+      "bytes": 19682
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\evolution_native.py",
+      "sha256": "7e74ba3293f435a88039223ce531d7adba35427e97d55c56d3b8650cae97d3d7",
+      "bytes": 16207
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\execution_identity.py",
+      "sha256": "5f9d56d7e41310db1a4f13dbc10dcd127ed4fb0535909ffe99e6433979675258",
+      "bytes": 5369
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\executor_broker.py",
+      "sha256": "6aa82a2731a6915c1a71fc23789a1fdeb7f0d95b7c2a70551c0fab3b6f96f9a1",
+      "bytes": 12489
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\factory.py",
+      "sha256": "3a2c99c05e4423fbffd5c881e25c0844fb35e1b65a90374b85db5a05a3bfb061",
+      "bytes": 62090
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\factory_costs.py",
+      "sha256": "cad59e83ca7eac79ea3391cd525577fb116f5d716072119fc9f6b2fcd59ad499",
+      "bytes": 12055
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\factory_data.py",
+      "sha256": "773988af15f2ba8b2cce05d541a2d9129d2f00dbde2d6323a50d7b420ded171d",
+      "bytes": 10098
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\factory_efficiency.py",
+      "sha256": "af1b25b157340512a748bd2f6f37c5c5f5a91e74b184a037296a71b1e01bb011",
+      "bytes": 15235
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\factory_efficiency_v2.py",
+      "sha256": "5c73615684960fa4736f3e442b598793513b7ca86b9c6369bd8711f883ac913a",
+      "bytes": 13498
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\factory_efficiency_v3.py",
+      "sha256": "66dfb5f20cacfe2c1e855fb4602a52e41b3c1c0e7ba60289e1ff327463b1e5ed",
+      "bytes": 17649
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\factory_runtime.py",
+      "sha256": "f4e23daea9f69b7ae37b11e2ee0e934a17724347c4e351d4a4bf469e7aeb4d64",
+      "bytes": 51313
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\factory_sources.py",
+      "sha256": "cd3e45ad060501b2d12df939c65dccb47d560a08aec32a37489a5a54e6a4593f",
+      "bytes": 47345
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\image_views.py",
+      "sha256": "6d7522fccfbe094a3e966ccdbad95d0d9318ed4a4fab285e61d0fb0287f8aa2d",
+      "bytes": 2615
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\incremental_repair.py",
+      "sha256": "3d9f6d2649aa5f427d4e0a117e82ded8c8bc0b3fe0ed141d90864faa7c7ed02c",
+      "bytes": 13742
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\io.py",
+      "sha256": "0bdca4f15bfc18bb73ac9691ce14238ac0db71a0a76e281b4b375901324cf9cb",
+      "bytes": 5724
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\judge_calibration.py",
+      "sha256": "b30b2e8c0640c12a52390e82188d871f84ae7241cd66a89f1672249d35aa454d",
+      "bytes": 6206
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\judge_runner.py",
+      "sha256": "f562f4fba6b72a56ca49fb4e786d0e2bda132d53f86d03bfca7e905a2dfe565f",
+      "bytes": 6590
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\judging.py",
+      "sha256": "2fe0cb008a34d7a062728b7db95d5f283200f1a0ec5b9922cb366a264d55750b",
+      "bytes": 20176
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\literature.py",
+      "sha256": "0edaab438f65f20a1c16fa14219ec817e9702c92c26dc5e75a4e4b10a8ff039b",
+      "bytes": 10596
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\literature_judge_evidence.py",
+      "sha256": "c8a1e0af63a3a0a33dd1769ed7d91272a20fe5ffb4b4a23f1f808fb0010d2f8c",
+      "bytes": 7244
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\material_adapter.py",
+      "sha256": "d857f4f136a1035cc949512fe449d8d8735b16f50860bc187770682ec8df9eaf",
+      "bytes": 11418
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\material_batch.py",
+      "sha256": "935612bf690a410e3cd9f23600b99254073e930778b5e0d5560c45d452956ce4",
+      "bytes": 13725
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\material_pipeline.py",
+      "sha256": "93a9a127cbde68837b515be2a761307a672f31828afaec9ff4fa5e9eff360129",
+      "bytes": 18571
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\material_policy_schema.py",
+      "sha256": "63115e7b9a00d74d712023106326a3cd09589ee8604ff28fd7ca6c30190807e1",
+      "bytes": 3228
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\material_public_surface.py",
+      "sha256": "20d9b01c532f5a4e7c1980c5808b3639d577bf198bcf7e21fffd6f309374818a",
+      "bytes": 3340
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\material_quality_contract.py",
+      "sha256": "89887e4ec7fd6312510013f0fab2ba0d6ef50c8feccc7d2945f99d242cb946da",
+      "bytes": 13854
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\material_quality_runner.py",
+      "sha256": "059e9b0dc6e3c85ec0e40bfd37bf767e5be709dd82feedc6880be9add16c0ee5",
+      "bytes": 5212
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\materials.py",
+      "sha256": "6d459d307f0b58afffed4ed12e496fe90f43de58eaba2cd20d77a285ed21cc1c",
+      "bytes": 7737
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\native_admissibility.py",
+      "sha256": "032810656e83d76255b0cc43c034951eb2f618c677c093afcfb199e6cc4fe910",
+      "bytes": 15904
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\native_codex.py",
+      "sha256": "e1239bbea1bf3d4453c85501f5f1af80c00e67ec30359acd90c770a093ee291e",
+      "bytes": 16158
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\native_judge.py",
+      "sha256": "69d32362eed02336bd5117c38a31fb43d3299f4f60c4eb07e0df72847764ffeb",
+      "bytes": 39529
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\native_tool_guard.py",
+      "sha256": "a5d890f54d5398b1c30ca5b645c997674e6738ec9206f24263660d159d7b4fa0",
+      "bytes": 5343
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\numeric_checks.py",
+      "sha256": "0eb1383e7a0491081271f7c9f78d6b011edeb34abafb7c1e6aa4273f4eddc759",
+      "bytes": 3363
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\openai_compat_transport.py",
+      "sha256": "1caedc9f285655349c6abc0d2d735572c1570b554af4bf01e2b0ca9a1f78d1d8",
+      "bytes": 10615
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\providers.py",
+      "sha256": "eb8c7d07f42378ce4659fb802b2c2b11d8fc548024da89c69423f5c3363a36eb",
+      "bytes": 15221
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\reporting.py",
+      "sha256": "f474cc75c3bef75d315e35d945a3b74ce2bb2d119cf74fc50f2e196f00340d61",
+      "bytes": 3868
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\retrieval_observations.py",
+      "sha256": "02d0ed8fb8f371e04f88b5a07919fc33691e497af557c6656eeb984a70c5a842",
+      "bytes": 7962
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\rubrics.py",
+      "sha256": "1e3ccca36130dc785735c42c113359b45dd076e4332f25fd9cdb841f8b65d600",
+      "bytes": 11859
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\runtime_contracts.py",
+      "sha256": "6e27946ed6b959848d3c67348b14c4624ffa17a09e8f357ec7fa17350ca40993",
+      "bytes": 6050
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\scoring.py",
+      "sha256": "4f4f5b5b378d5b6940aff894b09046fb2a417859ae75846d2ab695a971f8694c",
+      "bytes": 4830
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\sdk.py",
+      "sha256": "6cfed36642f627f466b427009cd389271fcd26f7c84d1a8f0b7b74d378bbcf54",
+      "bytes": 12528
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\source_evidence_index.py",
+      "sha256": "bf35bb1a987c1d3a3938dc6a2d63e56150c3b251721cec75ce01f5e43b7fa8ca",
+      "bytes": 2771
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\stage_controller.py",
+      "sha256": "d985271b8a30f0eaceadf40c3fdd1ff345e29716d32e5ca10395301c4475b99e",
+      "bytes": 17129
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\mrhbench\\tensor_conversion.py",
+      "sha256": "e596b268f1b3dd2de21b12598b1061c415e14f2d0d3d41b41961e1c691d45920",
+      "bytes": 6594
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\builder_h0.txt",
+      "sha256": "269a82a318420acfff0a07de5a5c956ca1637716496f68aa723dd93fbf9a4f0c",
+      "bytes": 14059
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\evolver.txt",
+      "sha256": "766261a8892ced7cb9fc0bf7e184673f877a03c5f7f639047ac943d29e776433",
+      "bytes": 2453
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory\\adjudication.schema.json",
+      "sha256": "6f4b2245013869b844144327ce0a6267815037b1d0eeb5f6a185cd29a2a78612",
+      "bytes": 3971
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory\\adjudicator_review.txt",
+      "sha256": "fe39e2f2c951a4b7049a09c93fe56fc6bf14e9ea05e4a1208d7f94ef40cf4278",
+      "bytes": 2166
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory\\adjudicator_source.txt",
+      "sha256": "d727b42ea2045e381271fe5a5a8cb75151f8b930caad3e24d9a1c09b664a31dd",
+      "bytes": 3172
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory\\constructor_addendum.txt",
+      "sha256": "652cf8650e135a416fa90b79d10afeee9fa921426b81e3a1b9a7dcf9470a2a76",
+      "bytes": 1384
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory\\policy.md",
+      "sha256": "ceade1609b198f2337c9247f423535db6f7863f05c66c85ac2b3bd69dc1d8d63",
+      "bytes": 6348
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory\\review_adjudication.schema.json",
+      "sha256": "f6cc613fd68133ccc70b9ab1f19dfdd731202cf03d798ff97033dce777a7c53f",
+      "bytes": 1357
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory\\scout.txt",
+      "sha256": "f5c2c054c713d858c4ac34346a2a64b2a5647ca6ca11db6c7a9da4f38e8fb0ea",
+      "bytes": 1901
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory\\source_audit.schema.json",
+      "sha256": "2cdf273d153facb528c6ab6a12fb4fc9dee3f10ad9537f6a9f47138767ccfc05",
+      "bytes": 6345
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory\\source_auditor.txt",
+      "sha256": "3342afa4f6fef1832e3ee7e78389d9f67bbde57179759fd727c8915836dfe3b3",
+      "bytes": 3304
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory\\triage.schema.json",
+      "sha256": "27198493d0829ea0b64aac48e16446d3c62b250f533f325f5f4ba517eea1f461",
+      "bytes": 2110
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v2\\adjudication.schema.json",
+      "sha256": "6f4b2245013869b844144327ce0a6267815037b1d0eeb5f6a185cd29a2a78612",
+      "bytes": 3971
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v2\\adjudicator_review.txt",
+      "sha256": "a5c7acee332f52db10f035c0a26f5a9269895bab5c2518e49b146044cd310cb0",
+      "bytes": 2616
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v2\\adjudicator_source.txt",
+      "sha256": "d727b42ea2045e381271fe5a5a8cb75151f8b930caad3e24d9a1c09b664a31dd",
+      "bytes": 3172
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v2\\constructor_addendum.txt",
+      "sha256": "652cf8650e135a416fa90b79d10afeee9fa921426b81e3a1b9a7dcf9470a2a76",
+      "bytes": 1384
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v2\\policy.md",
+      "sha256": "98e1e2217c905c1d2450eadd80762814d746edfe66390fe56dc361da05acb36b",
+      "bytes": 6708
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v2\\review_adjudication.schema.json",
+      "sha256": "98805ad5cf54ffae12c755a13aea9d0f53b894c29a4e3e4db748a190b707d6a2",
+      "bytes": 2284
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v2\\scout.txt",
+      "sha256": "f5c2c054c713d858c4ac34346a2a64b2a5647ca6ca11db6c7a9da4f38e8fb0ea",
+      "bytes": 1901
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v2\\source_audit.schema.json",
+      "sha256": "2cdf273d153facb528c6ab6a12fb4fc9dee3f10ad9537f6a9f47138767ccfc05",
+      "bytes": 6345
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v2\\source_auditor.txt",
+      "sha256": "3342afa4f6fef1832e3ee7e78389d9f67bbde57179759fd727c8915836dfe3b3",
+      "bytes": 3304
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v2\\triage.schema.json",
+      "sha256": "27198493d0829ea0b64aac48e16446d3c62b250f533f325f5f4ba517eea1f461",
+      "bytes": 2110
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v3\\adjudication.schema.json",
+      "sha256": "f62c9d756cf9436214606a7370b082a9ff0676ccfc4a1dc8d3630da4441d3c03",
+      "bytes": 6137
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v3\\adjudicator_review.txt",
+      "sha256": "a5c7acee332f52db10f035c0a26f5a9269895bab5c2518e49b146044cd310cb0",
+      "bytes": 2616
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v3\\adjudicator_source.txt",
+      "sha256": "815038622cad03f08d3e6a267df5efd4884d96e33003227fce3b38130bd2cc6d",
+      "bytes": 3857
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v3\\constructor_addendum.txt",
+      "sha256": "b82199dfe6424a69874c2bbef32941c8e26769d7e9cc6facd00473e351da9081",
+      "bytes": 1811
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v3\\policy.md",
+      "sha256": "0554f37efa0a6f1b4bee9ecaada37a89dd8b1f1d42b48c4e941eff73c15e1576",
+      "bytes": 6961
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v3\\review_adjudication.schema.json",
+      "sha256": "98805ad5cf54ffae12c755a13aea9d0f53b894c29a4e3e4db748a190b707d6a2",
+      "bytes": 2284
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v3\\scout.txt",
+      "sha256": "f5c2c054c713d858c4ac34346a2a64b2a5647ca6ca11db6c7a9da4f38e8fb0ea",
+      "bytes": 1901
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v3\\source_audit.schema.json",
+      "sha256": "2cdf273d153facb528c6ab6a12fb4fc9dee3f10ad9537f6a9f47138767ccfc05",
+      "bytes": 6345
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v3\\source_auditor.txt",
+      "sha256": "3342afa4f6fef1832e3ee7e78389d9f67bbde57179759fd727c8915836dfe3b3",
+      "bytes": 3304
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v3\\triage.schema.json",
+      "sha256": "27198493d0829ea0b64aac48e16446d3c62b250f533f325f5f4ba517eea1f461",
+      "bytes": 2110
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v4\\adjudication.schema.json",
+      "sha256": "504a5a654e7049b0834966e61cec8024147ebc090102b5bbf399706e6fb95ac2",
+      "bytes": 7420
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v4\\adjudicator_review.txt",
+      "sha256": "7711f9e6e0afb4e70774034990a86877d9c496290c071c5e00e00f4ef42b65e6",
+      "bytes": 3106
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v4\\adjudicator_source.txt",
+      "sha256": "73d094c46dea790b8c66290dff50f4a4f51b7e228856bdea78c268ebf9633cd9",
+      "bytes": 5160
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v4\\constructor_addendum.txt",
+      "sha256": "90c744b2891f4872a15d27d0cfcf326d66a264e810f6d8d21b8e10fa1d8f8d93",
+      "bytes": 2471
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v4\\policy.md",
+      "sha256": "73ba729279c0f74807fbd8964d55ee3438cde3e60fba24560a6a3d243c26265c",
+      "bytes": 11106
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v4\\review_adjudication.schema.json",
+      "sha256": "edf14ae3f96630a0abeff8f00b8bde47fae95e9c6a880bce50aeaa9a87ec5fc9",
+      "bytes": 1352
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v4\\scout.txt",
+      "sha256": "a0c5db0307e4cce59778bb89f5567f283cbfc08a15c5c4a39bc4c8a9988324d5",
+      "bytes": 2315
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v4\\source_audit.schema.json",
+      "sha256": "2cdf273d153facb528c6ab6a12fb4fc9dee3f10ad9537f6a9f47138767ccfc05",
+      "bytes": 6345
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v4\\source_auditor.txt",
+      "sha256": "3342afa4f6fef1832e3ee7e78389d9f67bbde57179759fd727c8915836dfe3b3",
+      "bytes": 3304
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\factory_v4\\triage.schema.json",
+      "sha256": "4f384d25ef4d4cbac70c15aa0e9a2c1ff2a4e4de2dc47e209ed55d3dd533e377",
+      "bytes": 3451
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\material_constructor.txt",
+      "sha256": "42351b08833eafdddba04c2c02797a9dfe0dd5f76c84871112405c77ce442fd6",
+      "bytes": 8246
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\material_efficiency_v1\\repair.txt",
+      "sha256": "131dd205de6d0919bd8d5dcc6f9dbdf0ea522ccf13cf1f564433502346daaaff",
+      "bytes": 1631
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\material_efficiency_v1\\review.txt",
+      "sha256": "4e2274f986db932dcc0d263b777ce2f7cfd4ef8ed0639dc435daf7c86f314ee5",
+      "bytes": 1989
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\material_efficiency_v2\\policy.md",
+      "sha256": "6d409aaa488499046b36f8e36bb9985e8e3be79f97ce5c017bbcfb30e3cc88e5",
+      "bytes": 10448
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\material_efficiency_v2\\repair.txt",
+      "sha256": "e8b7d990a3aacf38965b1b479b094f2d8db76dedcfee12a7bd448ae8a9befbb9",
+      "bytes": 1399
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\material_efficiency_v2\\review.txt",
+      "sha256": "e1172ba20d1de9c542cc3c5ec5339f8bb9958ce40218197441a8c3bda1b092d3",
+      "bytes": 1757
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\material_efficiency_v3\\adjudicator_review.txt",
+      "sha256": "7711f9e6e0afb4e70774034990a86877d9c496290c071c5e00e00f4ef42b65e6",
+      "bytes": 3106
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\material_efficiency_v3\\policy.md",
+      "sha256": "73ba729279c0f74807fbd8964d55ee3438cde3e60fba24560a6a3d243c26265c",
+      "bytes": 11106
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\material_efficiency_v3\\repair.txt",
+      "sha256": "131dd205de6d0919bd8d5dcc6f9dbdf0ea522ccf13cf1f564433502346daaaff",
+      "bytes": 1631
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\material_efficiency_v3\\review.txt",
+      "sha256": "4e2274f986db932dcc0d263b777ce2f7cfd4ef8ed0639dc435daf7c86f314ee5",
+      "bytes": 1989
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\material_package.schema.json",
+      "sha256": "d1cfec9a17c9ae3b1e648edcebf5de9c3a65cb6b0e2244b4f088e722630e84eb",
+      "bytes": 6174
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\prompts\\material_reviewer.txt",
+      "sha256": "425dca73948d235ac0f6f9ec5d6b7491a60b80765e0cdad7321904c062b4e98c",
+      "bytes": 5667
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\build_h0_claude_development.py",
+      "sha256": "3f9828035b7430f27ccabb7d02de2b3968e100be1ecc703702c3b9dc0ae15174",
+      "bytes": 6421
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\build_material_catalog.py",
+      "sha256": "957f25cd85b4d3927b42c787ec0b0673cb71fc18ba371c3ec6781d7d60984878",
+      "bytes": 6477
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\continue_efficiency_terminal_pair.py",
+      "sha256": "7bdca7aefd514c60a39cff7ead4b2d267a149609d1fc9420f13af93b0d064738",
+      "bytes": 4568
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\convert_factory_data.py",
+      "sha256": "1a0acbff4a217f98c0b4cd14a84d0125f40bf03ac24c0345a6b2836985729d25",
+      "bytes": 758
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\factory_cost_audit.py",
+      "sha256": "d45ce4cd377a03dca3abe284a22732d695e61e444c32d2140be2abed8e935853",
+      "bytes": 1415
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\fetch_sources.py",
+      "sha256": "d2fc477b544c9cc2f7e3e344901bc67605ce9fc29eaba77f7d2ac6cde0c4cd57",
+      "bytes": 2957
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\measure_local_storage.py",
+      "sha256": "c83f51ef8d32237cde18a850b1cd6a75d31b02f11b8117633615b91e279eddd5",
+      "bytes": 1182
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\prepare_efficiency_v2_cases.py",
+      "sha256": "4ba1df3992c9d03b67aa6d1b8c19761b406d8219d9447dc43bc57f4ac70927c6",
+      "bytes": 10693
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\rejudge_claude_stage.py",
+      "sha256": "44d3f01ad9eb491533588fbd9638177d1f49e00dc86aea07f91829d10d3f7dae",
+      "bytes": 3645
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\report_run_costs.py",
+      "sha256": "23b69a3edde3de9fde3374814d1c408b16f0196ded6d10729fc9f99ae68b754a",
+      "bytes": 5099
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\resume_material_review.py",
+      "sha256": "436bb64f1be32f6d36d8f6816c460c484ea8947e850bd8725c9ee04e92bb009c",
+      "bytes": 4761
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\run_claude_integration.py",
+      "sha256": "8940b73e1f90711168eb950a1dad0544cecf3e3743c7d100d29e835af37a8788",
+      "bytes": 4504
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\run_container_stage_development.py",
+      "sha256": "e3a1a88578ad4f5f0c5a63cd90753648b0c301006a97a49ce8e2714e0887dcaa",
+      "bytes": 995
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\run_efficiency_prospective.py",
+      "sha256": "934341a41bad0ec78f6e929db30ea0f6ca68ae39cb5dc08a836b18dcbccceab6",
+      "bytes": 727
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\run_evolution_development.py",
+      "sha256": "6e417c5a9f70e7aea97ca4b484fbecf8640d438a215ea678529a8fde23adcb68",
+      "bytes": 9624
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\run_factory_efficiency.py",
+      "sha256": "6572a2660b213686339cb5dc93ebbb60fd7d71d29b85c8b1b8f6fe5a473fb18c",
+      "bytes": 1218
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\run_factory_efficiency_v2.py",
+      "sha256": "50c99bdffdc197c5fdfd69f2c09211ec7b7ba63b6f50aec4a24918bf87af541c",
+      "bytes": 1254
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\run_factory_efficiency_v3.py",
+      "sha256": "657fa45d6d427dddd31453129bcc3c743ef768c0c350d7a5b9a02e953fd4d288",
+      "bytes": 1254
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\run_judge_claude_revalidation.py",
+      "sha256": "9b162bbd303aa078fa80dde0157f6e5351bde85ae9a3a909f5a5fcf50b023251",
+      "bytes": 5376
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\run_material_claude.py",
+      "sha256": "115b8241e198567a624ef9c1e67bf4d4e9b430a0e66cb5dd60eea803b34859d8",
+      "bytes": 2929
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\run_material_factory.py",
+      "sha256": "ad2fe902b06d35c71932d0d17c710649a26ed3f14939ca5874651e92ce8e2c4c",
+      "bytes": 7645
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\run_wrapper_conformance.py",
+      "sha256": "934e7b57f812346b3074af1059937e42cb8f235ad1d954b9470a2695b5e9cee3",
+      "bytes": 8746
+    },
+    {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-resume-20260927-001\\execution\\snapshot\\scripts\\active\\start_executor_wrapper.py",
+      "sha256": "f533c119bc29180748e2f670bcfc0245744f902c1c40d2a12660d251f87ee23b",
+      "bytes": 3832
+    }
+  ],
+  "failure": {
+    "call": {
+      "artifact_directory": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\native_calls\\constructor\\native-3579d7706a234bc8ad2c24776a0e54ab",
+      "cost_basis": "subscription_price_not_metered_per_call",
+      "dollar_cost": null,
+      "finished_at": "2026-09-27T04:35:21.282901+00:00",
+      "id": 609,
+      "metadata": {
+        "allowed_tools": [
+          "Read",
+          "Write",
+          "Edit",
+          "Glob",
+          "Grep"
+        ],
+        "args": [
+          "D:\\programming\\cluade-code\\claude.exe",
+          "-p",
+          "--model",
+          "claude-opus-5-5",
+          "--effort",
+          "medium",
+          "--output-format",
+          "stream-json",
+          "--verbose",
+          "--input-format",
+          "stream-json",
+          "--no-session-persistence",
+          "--setting-sources",
+          "",
+          "--strict-mcp-config",
+          "--disable-slash-commands",
+          "--permission-prompts",
+          "none",
+          "--restricted",
+          "--tools",
+          "Read,Write,Edit,Glob,Grep",
+          "--allowedTools",
+          "Read,Write,Edit,Glob,Grep",
+          "--permission-mode",
+          "acceptEdits"
+        ],
+        "automatic_outer_retry": false,
+        "bare_model_equivalence": false,
+        "binary_sha256": "39be063c2512b43347fe7b0ab18c46f1596141701c9c5fc895ddfca9a051067c",
+        "caveat": "Built-in tools outside the profile are removed at launch; this is not OS read isolation.",
+        "config_hash": "b0544e1fc79a0b35a424fb1d39c275697b075868838891addba19ef07ad271b2",
+        "context_inventory": {
+          "agents": [
+            "claude",
+            "Explore",
+            "general-purpose",
+            "Plan",
+            "statusline-setup"
+          ],
+          "apiKeySource": "none",
+          "claude_code_version": "2.1.281",
+          "mcp_servers": [],
+          "model": "claude-opus-5-5",
+          "output_style": "default",
+          "permissionMode": "acceptEdits",
+          "plugins": [
+            {
+              "name": "agents-md",
+              "path": "builtin",
+              "source": "agents-md@builtin"
+            },
+            {
+              "name": "telemetry",
+              "path": "builtin",
+              "source": "telemetry@builtin"
+            }
+          ],
+          "skills": [],
+          "slash_commands": [],
+          "tools": [
+            "Edit",
+            "Glob",
+            "Grep",
+            "Read",
+            "Write"
+          ]
+        },
+        "environment_keys_removed": [],
+        "error": "Provider rate/session limit (HTTP 429); platform outcome, no automatic retry",
+        "error_type": "ProviderRateLimit",
+        "exit_code": 1,
+        "failure_class": "provider_rate_limit",
+        "formal_isolation_verified": false,
+        "mcp_servers_configured": [],
+        "num_turns": 20,
+        "observed_tool_calls": 19,
+        "provider_message": "You've hit your session limit · resets 12:40am (America/Chicago)",
+        "session_ids": [
+          "1aabfac6-6e0b-4a10-a884-f4d17cfd01fe"
+        ],
+        "session_policy": "fresh_no_session_persistence_stream_is_exact_trajectory",
+        "stream_audit_status": "development_admissible",
+        "tool_profile": "material_workspace",
+        "transport": "claude_code_native_agent",
+        "workspace_is_security_boundary": false
+      },
+      "model": "claude-opus-5-5",
+      "reasoning_effort": "medium",
+      "request_hash": "b4df17f0363704179348a4e15e0fd09fb032eb727310fa8aa3fab75b7b320dc9",
+      "reserved_at": "2026-09-27T04:34:53.900770+00:00",
+      "role": "constructor",
+      "status": "failed",
+      "usage": {
+        "cache_write_input_tokens": 58751,
+        "cached_input_tokens": 62254,
+        "input_tokens": 8,
+        "output_tokens": 2479
+      },
+      "wall_seconds": 27.34399999998277
+    },
+    "failed_result": {
+      "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\result.json",
+      "sha256": "c45a13bcf76d7eac77737403415b731c49f080f2d130bbf53f5dcc6cf0aa06a1",
+      "bytes": 26535
+    },
+    "arm_tree": [
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\material_constructor.txt",
+        "sha256": "42351b08833eafdddba04c2c02797a9dfe0dd5f76c84871112405c77ce442fd6",
+        "bytes": 8246
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\material_package.schema.json",
+        "sha256": "d1cfec9a17c9ae3b1e648edcebf5de9c3a65cb6b0e2244b4f088e722630e84eb",
+        "bytes": 6174
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\previous_candidate\\assets\\exp\\private_reference.md",
+        "sha256": "0d3d5e552e42c0fd555572cc8fa73f2e6c27eca0a32c6ca4c6757d6cce818d76",
+        "bytes": 3415
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\previous_candidate\\assets\\exp\\settings.json",
+        "sha256": "9a8e2c8a428b4f9ee4766000a354e5de665cf04e56344cb719fc75c8338f21a7",
+        "bytes": 1989
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\previous_candidate\\assets\\exp\\starter\\hwta_starter\\__init__.py",
+        "sha256": "abb52389c5ae6c2da97d5bcc45f1b67dcf3d413ca483c8fb42a804fa37c6ee01",
+        "bytes": 819
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\previous_candidate\\assets\\exp\\starter\\hwta_starter\\backbone.py",
+        "sha256": "f3f724a8fb100058b4f975e26d86bb6e200c35155008da714163515d56c5bb9e",
+        "bytes": 2101
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\previous_candidate\\assets\\exp\\starter\\hwta_starter\\csbm.py",
+        "sha256": "b36a1ec3cc732a115af2acd654256203b7736ffc9d7480285f3a786db784588e",
+        "bytes": 8064
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\previous_candidate\\assets\\exp\\starter\\hwta_starter\\graph.py",
+        "sha256": "ef419eb93316258fb208869a0f88ae0b6142cf44a5fa3f5e8856cbdc652a2b63",
+        "bytes": 1321
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\previous_candidate\\assets\\exp\\starter\\hwta_starter\\train_eval.py",
+        "sha256": "ee44c080e2251002976d1b0fa1ef61d5f8ecc5343a6f7a7568f5e761f0b5259b",
+        "bytes": 2772
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\previous_candidate\\assets\\exp\\task.md",
+        "sha256": "b61fd9eec3f396db00cd1c2ab08863f164a7751be88ff1411bc7ed4dc64d22bd",
+        "bytes": 10349
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\previous_candidate\\environment\\image\\.dockerignore",
+        "sha256": "ad4ffbb29ec74c37891a0efba1236aa378fdbf9e7a30b0df8532cdcd7baf4698",
+        "bytes": 32
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\previous_candidate\\environment\\image\\Dockerfile",
+        "sha256": "2dc33f72ec87666d79c951bd56aa5e7f88ff1a5945e1132e4c06c0dc729eef8c",
+        "bytes": 599
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\previous_candidate\\environment\\image\\requirements.txt",
+        "sha256": "445ccc2aeae49cc634f0aae1193b14790550242d46b58352e44ae8264bf7371a",
+        "bytes": 417
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\previous_candidate\\environment\\smoke.py",
+        "sha256": "c6c4bfb17c089bb56bd2cb267a2d464adc1b8b306ffd7a8380cb1bd9746f1c30",
+        "bytes": 8315
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\previous_candidate\\package.json",
+        "sha256": "ee1773d26686e61db5bb3b8975095509d0dea8548a10188af606a1807738d893",
+        "bytes": 37007
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\publication.json",
+        "sha256": "c80bde4378d19b8ba636268b59f85e20de1c3df8110a2d3d2a512ac27fd1057a",
+        "bytes": 9404
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\quality_policy.md",
+        "sha256": "73ba729279c0f74807fbd8964d55ee3438cde3e60fba24560a6a3d243c26265c",
+        "bytes": 11106
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\repair_request.json",
+        "sha256": "1ec398fa0602bd191cfaf8a05a914494bece7c3641deea3534c2686224a99a2f",
+        "bytes": 13580
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\request.json",
+        "sha256": "094a947f4ff875f2b6a6fadfb42bbc221dc45f42ad530b5f25c1639dc06e572d",
+        "bytes": 44657
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\source_navigation\\001.json",
+        "sha256": "e3607e0e7937efe8c77150ff39b347223a7c08dcafe569ebec99f3fd0702e0f0",
+        "bytes": 236097
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\000-000-abs_page.html",
+        "sha256": "5a54a8ac56aed918385c3e8384f549d7fea88cef6a625ef38e475fe03f82d1a0",
+        "bytes": 43612
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\001-001-paper.html",
+        "sha256": "2ce362a0985738d511e2990b42d4593a1005304f2043707968db4e86e8db3f00",
+        "bytes": 826929
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\002-002-code_tree.txt",
+        "sha256": "e6f27416c90f92b29d4b0e3406b6fb78bbda3a8953b899c6131ff4d7b69aa2b6",
+        "bytes": 247
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\003-003-README.md",
+        "sha256": "59c39036d63fd328d23e7c369d096c2c061ec4472ea72abd17462a38f2230f9c",
+        "bytes": 501
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\004-004-bg000_abs_page.html",
+        "sha256": "fdecf9e7b94f8b4440c5b5b4045dc52e00edb17787a6c3d41b0d80920d9fff6c",
+        "bytes": 42851
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\005-005-bg000_paper.html",
+        "sha256": "1789dd24bc0e323c765e212febe04f21faa4da6084385f12ebc7ac2c7306f26e",
+        "bytes": 193981
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\006-006-bg002_abs_page.html",
+        "sha256": "4852a8a00ab8cdaf0fb9eb7d021a45d2b9e0b9c5052e4dad2d6e5b5f422a16b0",
+        "bytes": 43890
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\007-007-bg002_paper.html",
+        "sha256": "79ea290dbbe7528bf0271762476ac2e55cdc3f8c51294f1548a7cd64011a5337",
+        "bytes": 959635
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\008-008-bg003_abs_page.html",
+        "sha256": "103772bed11baf4f72c8b386407473e89728f5a839551b4f08c46b4bd5246292",
+        "bytes": 43111
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\009-009-bg003_paper.html",
+        "sha256": "73c5f3506e29ab9da8fa232066727164ad3fc7792df5121dd26e3b1467f6b76d",
+        "bytes": 553616
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\010-010-bg005_abs_page.html",
+        "sha256": "3c6366579dae37cf0d34837e49c374440cdb144e1a60cd9c5349a101f98f9aaf",
+        "bytes": 44350
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\011-011-bg005_paper.html",
+        "sha256": "0c3a49d3eb31d5a861797126dc88827470005f4108ad4568dfc461b89128eaed",
+        "bytes": 358790
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\012-012-bg006_abs_page.html",
+        "sha256": "8a1d40a38d8d2f403299db42861fac9c2c793a53754a63bbe50db7a403f163be",
+        "bytes": 41780
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\013-013-bg006_paper.html",
+        "sha256": "3e6309aa66de7a2b3419e558789ebead639bb07e84ec171314a30a0d39aa1a10",
+        "bytes": 291956
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\014-014-bg007_abs_page.html",
+        "sha256": "6f6facebcba7d5cd7761921107136c3aa31cc1ee2c017454add13f265b46cb7d",
+        "bytes": 41141
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\015-015-bg007_paper.html",
+        "sha256": "dd1d041bfaa7983c68abe2f35d59cfecb87646bb2e23724ccf483dd55cf90ce3",
+        "bytes": 318284
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\016-016-bg008_abs_page.html",
+        "sha256": "0ebdd0a13c13dfc2ddaa6ad8025257e7a454973ee4540144eed71138a83f97ee",
+        "bytes": 45031
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\017-017-bg008_paper.html",
+        "sha256": "91f5de184cfd8e9d1bf63edea263be9b6f0f7fbc4a226fc4afb3771f8838813f",
+        "bytes": 567905
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\018-018-bg009_abs_page.html",
+        "sha256": "dfa7910e2a4d0a02ac2da1c2a8e659d71eb8df1a29248347243d0345d2ac9a06",
+        "bytes": 43590
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\019-019-bg009_paper.html",
+        "sha256": "2a257ed9c637ed678d4b95b65889f1c9d46290fb25ad1a5402cadc9460085253",
+        "bytes": 906901
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\020-020-bg010_abs_page.html",
+        "sha256": "44dc928ea032a53e211b14118cfe6d7d439c236c55b3183fdd86d32931c76368",
+        "bytes": 43433
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\021-021-bg010_paper.html",
+        "sha256": "848a30f299475d4682bb7f1505616cb7b47acf338e09c543f88f512a6a86d3fa",
+        "bytes": 20816
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\022-022-bg011_abs_page.html",
+        "sha256": "6d36ee0cdba664f1f7e6b98797f3593426ed8a3f89f78df52304464e011013b9",
+        "bytes": 42233
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\023-023-bg011_paper.html",
+        "sha256": "d6604e4aa73ac544f1fcc65b5694457d15a2efb0ada81ad3a2723a737ddce54e",
+        "bytes": 393814
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\024-024-bg012_abs_page.html",
+        "sha256": "ce56a1956a3280545f7308360ef3e7d5ec21c36bfe4db49f26bb1256595d323c",
+        "bytes": 40666
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\025-025-bg012_paper.html",
+        "sha256": "3d3a3d178c79cb2e4002139f9133d631834ac822372be42e81695d275de9ea2c",
+        "bytes": 840448
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\026-026-bg013_abs_page.html",
+        "sha256": "6821e29ffa1d6da72e2277b743fee64e958eaff4a7dda437df1a4f0210ef0eca",
+        "bytes": 43701
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\027-027-bg013_paper.html",
+        "sha256": "988d1a4f4a85ec198092390da6130b78ac51870f5da395bb22a806f465c20ba5",
+        "bytes": 624126
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\028-028-bg014_abs_page.html",
+        "sha256": "29983ca0ff5446a95283741fc7239148b4b18f39d7b9aac94c15b564ac0c93d8",
+        "bytes": 44382
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\029-029-bg014_paper.html",
+        "sha256": "4c71dd1de1aee9f9c1132bc215981e58b6830d7e76e98a92b400aa72334c4310",
+        "bytes": 1127043
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\030-030-bg015_abs_page.html",
+        "sha256": "896f436b1b1231a3f29348d5487ed8cb81ac9981523448a2a46e1f6cfab797b8",
+        "bytes": 45559
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\031-031-bg015_paper.html",
+        "sha256": "f16230e8f932af26e265d3325d319a464a3eb8c8fb2c2667f4710485f4928e47",
+        "bytes": 1067412
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\032-032-bg016_abs_page.html",
+        "sha256": "0010f749979111bb6ddf2eabb95a60cf70c84e11ae2d5bdd6f49a93f8a212c84",
+        "bytes": 42769
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\033-033-bg016_paper.html",
+        "sha256": "4641018670c08e3acc7a7d546aa0b02c7e00da6c67d1f5ea55bc882fd6141ed5",
+        "bytes": 478181
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\034-034-bg017_abs_page.html",
+        "sha256": "0c5bf81d6f29ee26c97053a0dddeff91f3d208297173fd6ca73ce095685fe42f",
+        "bytes": 42312
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\035-035-bg017_paper.html",
+        "sha256": "3f2e4029754ceae674b816d8ded2c8c9e02425027d7f88d490c0a5762d4dc74d",
+        "bytes": 775032
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\036-036-bg018_abs_page.html",
+        "sha256": "6515263539367db9a7914cd993d322a60bc463376029f54884089fd19e214d60",
+        "bytes": 43024
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\037-037-bg018_paper.html",
+        "sha256": "ec4211562fd5ad2e8c53eb703e11e854a48337d3b7dac85adc0c137ebed047cf",
+        "bytes": 438773
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\038-038-bg019_abs_page.html",
+        "sha256": "cad9435f34904c6ac1167a516cc63b8f7197e1d61b0e6764583034209559f8df",
+        "bytes": 44895
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\039-039-bg019_paper.html",
+        "sha256": "f4c3d7c45c22db94ac2607361792c0425e15fbc728a8c89e8e40561f18809809",
+        "bytes": 430046
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\040-040-bg020_abs_page.html",
+        "sha256": "b1a703fb65c0ace23a9be0d6ff5de0c8888503abeaf6a18ebecad4dab3518fdc",
+        "bytes": 43384
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\041-041-bg020_paper.html",
+        "sha256": "28f252c2314778fda3edc8378671627e54c239bd8291bff0d29d3743886addc0",
+        "bytes": 278385
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\042-042-bg021_abs_page.html",
+        "sha256": "6b872580d9b7b3b95bee10c44a5c05fbfe5f207f549ca41ba27284c50796225f",
+        "bytes": 41894
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\043-043-bg021_paper.html",
+        "sha256": "7b142f42ac041b3a48f524df31c5011ee7bccd0d7e53869ecf20f029865e75c2",
+        "bytes": 748991
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\044-044-bg022_abs_page.html",
+        "sha256": "044e9c89fc743b82efd4dc9ddffc5acb4787ee3447d61b580902995c8848cb1e",
+        "bytes": 42458
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\045-045-bg022_paper.html",
+        "sha256": "5251b0bca463bc014ad646dbafe92c809c70b925fa8c8f52ae8fbd3cfca45b5a",
+        "bytes": 792539
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\046-046-bg023_abs_page.html",
+        "sha256": "79432de8a9ad9c18e3839205c5c9b905f430eab1dc10eca682912aa6b374a3c9",
+        "bytes": 43036
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\047-047-bg023_paper.html",
+        "sha256": "18475f102c44b8c98e76f213ee9c0722cd89fe063b07418a085d1b8f255ab6ba",
+        "bytes": 385502
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\048-048-bg024_abs_page.html",
+        "sha256": "8262bcfc23584e98f3eb8895b32fc9c93c136746e30fd7071fd40cfaba599f95",
+        "bytes": 41370
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\049-049-bg024_paper.pdf",
+        "sha256": "999cf86b295fe0f23041df16c462eeabcd5415ff713ebca2f8066c3ca8e9751f",
+        "bytes": 200698
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\050-050-bg025_abs_page.html",
+        "sha256": "ad8efd15dc0b671c8cd7295a2c99b495e6e8d8c64bbf6c0af7b6d685bd23c5b8",
+        "bytes": 43441
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\051-051-bg025_paper.html",
+        "sha256": "cd3e13c345cfe2c168977866ab52a58c7594a470615aabaecf98786d87ce592e",
+        "bytes": 1004550
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\052-052-bg026_abs_page.html",
+        "sha256": "77ef5d9c4d2ae35399919a9973bd6f57bbb29bb1ed553bec36d66b9ba07d829b",
+        "bytes": 43861
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\053-053-bg026_paper.html",
+        "sha256": "03214627a7622622b5cbf46dd7a9e7c602bcd878776ceeda07d1be836f998f32",
+        "bytes": 211297
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\054-054-bg027_abs_page.html",
+        "sha256": "b026c4f2263cbb6b45c2bba1f09f905924a36c8dec82900d89dfebdc35b5ed93",
+        "bytes": 44303
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\055-055-bg027_paper.html",
+        "sha256": "6908749ed961a9a60c506e1b274170a16503d6ff557f0c78e172826073e7fb09",
+        "bytes": 425159
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\056-056-bg028_abs_page.html",
+        "sha256": "c97d30983276af3bf967f43e942a8dbcf5eb2caddd46ca1cef78906241305df6",
+        "bytes": 43262
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\057-057-bg028_paper.html",
+        "sha256": "25a937d5118722d5cd9636ce20361e5ea9161599432d75ce3e0590b6e12b1f48",
+        "bytes": 193272
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\058-058-bg029_abs_page.html",
+        "sha256": "1253d7c5ea684825b0fd1c5f98f1cc89d98812add439e5b11e49849c47ea53c6",
+        "bytes": 43580
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\059-059-bg029_paper.html",
+        "sha256": "ef2363b4d365f718f70b73a680f1bf83e7b5240b3aa456fcf68c328cb482d97c",
+        "bytes": 289196
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\060-060-bg030_abs_page.html",
+        "sha256": "4a1407745adaa3c82b58ebb152247f2abf1428b70eb3b6d8fabec0f7346b96b7",
+        "bytes": 42618
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\061-061-bg030_paper.html",
+        "sha256": "ee52cde3a6e76aa7947d3ec554825cacaba189d8e0ce7668421a4d0fbcbe7d34",
+        "bytes": 510046
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\062-062-bg032_abs_page.html",
+        "sha256": "ecf122bdfa45dff7b01043bbc6dc9d6da3312c1a73c4befe80e9661de2cfa5fc",
+        "bytes": 43452
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\constructor\\sources\\063-063-bg032_paper.html",
+        "sha256": "0a69c0f3b04cbbabe13c45077fe812d9ef82cb4065908c9555d414b7c1285d5a",
+        "bytes": 358175
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\batch\\iclr2025-EpgoFFUM2q\\receipt.json",
+        "sha256": "4c3f7729a28e2254fc3c006d13e159511531a3e5a5211652541d1e00b297bc2a",
+        "bytes": 22918
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\native_calls\\constructor\\native-3579d7706a234bc8ad2c24776a0e54ab\\events.jsonl",
+        "sha256": "ff4b2fd32d22180fcdae5901c5cbe09ad506fd4af2da8e82cb7144b6677ca90a",
+        "bytes": 395651
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\native_calls\\constructor\\native-3579d7706a234bc8ad2c24776a0e54ab\\invocation.json",
+        "sha256": "62c123315eef54a5ec5461f3453f2a619ed5d5d771024d2b876170e75f24bdb0",
+        "bytes": 1004
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\native_calls\\constructor\\native-3579d7706a234bc8ad2c24776a0e54ab\\request.json",
+        "sha256": "d8a39c4442fb950a690e7c839bc6a7748cbda9048a0a8d8bf5b4b75c4913dfbc",
+        "bytes": 11799
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\native_calls\\constructor\\native-3579d7706a234bc8ad2c24776a0e54ab\\result.json",
+        "sha256": "2f3b5a1b9d3aabdc758e7fa5c7f70f42450b5e19b2b439012e347423525cf723",
+        "bytes": 2151
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\native_calls\\constructor\\native-3579d7706a234bc8ad2c24776a0e54ab\\stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\native_calls\\constructor\\native-3579d7706a234bc8ad2c24776a0e54ab\\stream_audit.json",
+        "sha256": "b781a2bee087545349bb34630eaaaeb384fe7b9ac40ae9ca245c426ba64f19df",
+        "bytes": 430
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\result.json",
+        "sha256": "c45a13bcf76d7eac77737403415b731c49f080f2d130bbf53f5dcc6cf0aa06a1",
+        "bytes": 26535
+      },
+      {
+        "path": "D:\\mrhbench-local-pilot\\factory-efficiency-v3-20260926-001\\arms\\exp_autonomy_repair\\old\\started.json",
+        "sha256": "4921964cebd5f0c1c6e2756d2a18bd85ef6684c2fa0d2716678a9015ba487ab4",
+        "bytes": 375
+      }
+    ]
+  },
+  "prior_ledger_digest": "2c31422019cd0140524c09356ebdd777e0025fd657dc1334805059eb2907409d",
+  "retained_failure": true,
+  "automatic_retry": false,
+  "pair_stop_at": 621,
+  "goal_stop_at": 625,
+  "comparison_limit": "Fresh batch after explicit user resume; call609 cost retained separately and in cumulative goal cost; not a zero-cost restart."
+}

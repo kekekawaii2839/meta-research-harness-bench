@@ -1,0 +1,84 @@
+{
+  "schema_version": "independent-regression-driver-and-paged-wrapper-review-1",
+  "at": "2026-09-27T16:50:12.980986+00:00",
+  "decision": "code_ready_for_new_regression_freeze_subject_to_actual_selection_preflight",
+  "blocking_findings": [],
+  "files": [
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\factory_efficiency_regression.py",
+      "sha256": "c1e382519d09667df5448f6dea8896b80cdcaa251ef4a51c1539c3fdb2f08345"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\scripts\\active\\run_factory_efficiency_regression.py",
+      "sha256": "dd79f5198cf5e05f723b163b4c157ec3d8708635407e597970098917e59ab3df"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_factory_efficiency_regression.py",
+      "sha256": "716a90d8c4e4cf3fb092feb4d4388b7e5f05ce8e64cd34b4ccb574bd4d2fad71"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\mrhbench\\paged_navigation_runner.py",
+      "sha256": "a0d8b6c0859b034a79b64c0bfd71f94ba9d38b2bafe36d808adb4c26c33bdb53"
+    },
+    {
+      "path": "C:\\Users\\li_ha\\Documents\\ChatGPT\\meta-research-harness-bench\\research\\benchmark\\tests\\test_paged_navigation_runner.py",
+      "sha256": "890d6ef44e8c74dd4e4c2f41cf2231302ea461399dacdec8cb00afad6f234686"
+    }
+  ],
+  "tests": [
+    {
+      "suite": "test_paged_navigation_runner.py",
+      "count": 5,
+      "seconds": 0.167,
+      "result": "OK"
+    },
+    {
+      "suite": "test_factory_efficiency_regression.py",
+      "count": 4,
+      "seconds": 7.694,
+      "result": "OK"
+    }
+  ],
+  "real_input_copy_diagnostic": {
+    "source_root": "D:/mrhbench-local-pilot/factory-efficiency-v4-20260927-001/arms/exp_information_repair/old",
+    "method": "Copied each role request.json, source_navigation and referenced source into separate temporary workspace; ran PagedNavigationRunner with offline fake inner, then removed temporary workspaces. Originals unchanged; no copied scientific files stored in this audit.",
+    "roles": [
+      {
+        "role": "constructor",
+        "status": "paged_losslessly",
+        "units": 233,
+        "pages": 13
+      },
+      {
+        "role": "material_reviewer",
+        "status": "paged_losslessly",
+        "units": 233,
+        "pages": 13
+      },
+      {
+        "role": "adjudicator",
+        "status": "paged_losslessly",
+        "units": 233,
+        "pages": 13
+      }
+    ]
+  },
+  "findings": [
+    "Paged wrapper binds navigation source_id and SHA to published request and actual source bytes before entering native role. Only explicit indivisible-unit/index size errors use original fallback; other failures stop.",
+    "Paged directory and original navigation membership/bytes are checked after role; result is passed through unchanged. Broader request/source/candidate protection remains provided by outer run_batch/adjudicate, not standalone wrapper.",
+    "Real run_batch/adjudicate fake-native chain exercises Paged(Identity(Quality(native))) for constructor, reviewer and adjudicator in both arms, controller sentinel hash filling and receipts. No generated code is executed.",
+    "Both arms bind same policy/map and paged navigation. Constructor CONTROLLER_FILL original is preserved, old prior source files and original round2 drop are unchanged. Incremental prior review bytes are explicitly constrained to original call614 review.",
+    "Old arm must complete and adjudicate pass/pass_partial before incremental starts. Old drop, provider429 or navigation tamper blocks continuation without another fake call. Existing arms cannot retry.",
+    "Protocol enforces baseline615 phase_max6 stop621 with goal700 only as larger authorization; run_arm uses phase_stop621 and per-arm3. CLI exposes freeze or single-arm run only.",
+    "Frozen selection must label development_regression, round3, fixed old→incremental; original review614/adjud615/result613-615 are evidence-bound. It does not rewrite original drop into a pass or label this fresh.",
+    "New snapshots include all mrhbench modules including paging wrapper, prompts and active scripts, with exact sources/snapshots and policy/schema binding verified before execution."
+  ],
+  "scope_limits": [
+    "Actual new selection, source projection, source map and authorization bytes are separately being checked by root; this code review does not declare that pending selection frozen.",
+    "Five wrapper tests plus three temporary real-input publication checks and four full-chain regression tests are offline, not native model-read or scientific/runtime acceptance.",
+    "Published navigation integrity is not an OS read sandbox and does not demonstrate complete model evidence consumption or cost improvement.",
+    "Six calls is an upper bound, not an instruction to spend all; goal700 is not passed as the phase ledger stop."
+  ],
+  "new_model_calls": 0,
+  "historical_or_candidate_files_modified": false
+}
