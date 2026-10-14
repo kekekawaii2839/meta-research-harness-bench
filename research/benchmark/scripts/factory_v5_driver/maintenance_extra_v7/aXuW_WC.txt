@@ -1,0 +1,1 @@
+[controller note] The previous repair round failed before review because the constructor's package.json was not valid JSON ("Expecting ',' delimiter", line 1 column 55948). Write package.json and every JSON asset as strict JSON (double-quoted keys and strings, no trailing commas, every element separated by a comma) and re-read each JSON file after writing it to confirm it parses.

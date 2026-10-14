@@ -17,6 +17,9 @@ import re
 import sys
 
 CALL = re.compile(r"`?\b(search|read|read_page|fetch|open|lookup|query|get_page|get_text)\s*\(([^)]{0,60})\)`?")
+DISCLOSURE = re.compile(r"(target(?:'s| paper| work| method)|source paper(?:'s)?|withheld target|earliest known public version|"
+                        r"openreview|review platform|(?:does|do) not contain (?:the )?(?:target|source)|would pre-answer)", re.I)
+META_KEY = re.compile(r"(justification|rationale|visibility|scope|note|provenance_note)", re.I)
 PUBLIC_RUN = re.compile(r"python[^\n`]{0,40}(\$MRH_PUBLIC_ROOT|/inputs/public)[^\s`\"']*\.py", re.I)
 FIELD = re.compile(r"`([a-z][a-z0-9_]{2,40})`")
 
@@ -48,6 +51,40 @@ def lint(tdir):
         for m in PUBLIC_RUN.finditer(text):
             out.append({"kind": "public_script_run", "where": name, "text": m.group(0)[:100],
                         "note": "the CPU tool executes scripts under /work only; a public-root script must be copied first"})
+    # v7: disclosure-prone public metadata fields (justification/rationale/visibility/scope/note) - review flags
+    def walk(node, path):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                walk(v, path + [k])
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                walk(v, path + [str(i)])
+        elif isinstance(node, str) and any(META_KEY.search(k) for k in path):
+            for m in DISCLOSURE.finditer(node):
+                out.append({"kind": "public_field_disclosure", "where": "task.json:public." + ".".join(path)[:120],
+                            "text": node[max(0, m.start() - 60):m.end() + 80],
+                            "note": "public metadata field mentions the target/source or its provenance; must be neutral (factory v7 R1/R2)"})
+                break
+    pub = dict(t["public"])
+    for key in ("input_contract", "output_contract"):
+        v = pub.get(key)
+        if isinstance(v, dict) and isinstance(v.get("description"), str):
+            try:
+                pub[key] = json.JSONDecoder().raw_decode(v["description"].strip())[0]
+            except Exception:
+                pass
+    walk({k: v for k, v in pub.items() if k != "prompt"}, [])
+    # the compiled prompt embeds the package's input contract as JSON text: scan its metadata-keyed blocks too
+    prompt = t["public"].get("prompt", "")
+    for m in re.finditer(r'"([A-Za-z_]*(?:justification|rationale|visibility|scope|note)[A-Za-z_]*)"\s*:', prompt, re.I):
+        seg = prompt[m.end():m.end() + 4000]
+        cut = re.search(r'\n\s{0,2}"[A-Za-z_]+"\s*:', seg)
+        seg = seg[:cut.start()] if cut else seg
+        d = DISCLOSURE.search(seg)
+        if d:
+            out.append({"kind": "public_field_disclosure", "where": "task.json:prompt[" + m.group(1) + "]",
+                        "text": seg[max(0, d.start() - 60):d.end() + 80],
+                        "note": "public metadata field mentions the target/source or its provenance; must be neutral (factory v7 R1/R2)"})
     if t["task_type"] == "LIT":
         material = " ".join(v for k, v in texts.items() if k != "task.json:prompt")
         if "literature.read_page" not in material and "literature.search" not in material:

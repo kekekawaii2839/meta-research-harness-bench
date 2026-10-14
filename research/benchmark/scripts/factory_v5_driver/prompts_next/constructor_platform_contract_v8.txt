@@ -1,0 +1,52 @@
+PLATFORM CONTRACT (factory v8, 2026-10-06: v7 + exact cpu.run signature)
+
+The solver of your task runs inside a fixed benchmark platform. Task texts must describe THIS platform, not an
+imagined one. Do not invent tool names, call signatures, locator syntaxes or helper commands.
+
+Tools the controller grants to every solver (use these exact names when a task text names a tool):
+- artifact_read_write: read and write files by path RELATIVE to the working directory /work
+  (write "results/x.json", never "/work/results/x.json" as a tool path).
+- cpu_python_execution: cpu.run(script, arguments, timeout_seconds) - script is a relative .py path under /work;
+  arguments is an optional list of command-line strings passed to the script; timeout_seconds is an optional positive
+  number (clipped to the remaining package wall time). Returns returncode, stdout, stderr, timed_out, output_limited.
+  (Exact signature from the runtime interface v4.) A script shipped under the
+  read-only public input root cannot be run directly; if the task wants the solver to use a supplied checker, say that
+  the solver must first write a copy of it into /work (e.g. tools/check.py) and run the copy.
+- artifact_image_view: view an image file the solver produced under /work (e.g. to inspect its own rendered PNG).
+  Granted to every task type; a task may rely on it (e.g. WRITE_EVIDENCE figure checks) or ignore it.
+LIT tasks additionally get the literature tools: literature.search(query, limit) -> document_id values of the form
+  doc-<arXiv id>v<version>, title, version date, snippet; literature.read(document_id) -> record and abstract;
+  literature.read_page(document_id, page_number) -> one-based controller pages of the pinned arXiv HTML text (not PDF
+  pages); page text carries bracketed anchor markers that begin with the section sign. A citation locator must be a
+  marker copied exactly from a page the solver read, or "abstract"; never print a concrete example anchor.
+No other tools exist (no shell, no network, no model client for the solver to call directly).
+- Released inputs are listed in the asset manifest and mounted read-only at /inputs/public/<asset path>
+  (environment variable MRH_PUBLIC_ROOT) for code the solver runs.
+
+Consistency rules (the reviewer checks them; the controller lints them deterministically):
+- The output contract (package task output_contract) and task.md must name the same deliverable files and the same
+  JSON field names/structure. When a JSON deliverable has a fixed structure, ship a JSON Schema asset for it and name
+  it in both places.
+- Every quantity or relation stated in more than one public file (formulas, scaling, units) must be stated identically.
+
+
+PUBLIC-SURFACE RULES (factory v7, 2026-10-04; each was violated in factory v6 and cost repairs or withdrawn tasks)
+
+R1. Nothing solver-visible may identify or pre-empt the target paper. Solver-visible means task.md, every public asset,
+    every public fact, and EVERY public package field, including rationale/justification/visibility/scope/note fields.
+    Do not state, list, paraphrase or hint at the target's method, its components, its contributions, its gap
+    conclusion, its findings or results, its coined terminology or named definitions, or the target's own title-like
+    phrases, dates, versions, review platform or venue. This includes NEGATIVE statements: "the facts do not contain the
+    target's combination of X and Y" discloses X and Y. Write such fields neutrally ("withheld: material that would
+    pre-answer the task") and keep specifics in private files only.
+R2. The knowledge cutoff may be stated as a date where the task needs it. Never say where the date comes from or that it
+    is the target's earliest version.
+R3. Private checks may only test what the public contract asks for. Every private verification step, rubric criterion or
+    deterministic check must trace to a requirement stated in task.md or the public output contract (same file names,
+    fields, formats, limits). If a criterion matters, state it publicly; otherwise drop it. No hidden size/format
+    auto-fails, no private-only content requirements, no private check that a correct public-contract answer could fail.
+R4. LIT and IDEA questions must leave the gap/idea for the solver to find: phrase the research question as a survey or
+    problem area, not as the target's specific angle.
+R5. Files you cannot create yourself (copies/renames of prepopulated binaries) go in
+    tasks[i].controller_asset_materialization {mappings: [{prepopulated_path, public_path, sha256}]}; the controller
+    copies them before review. Do not describe them as already present unless listed there.

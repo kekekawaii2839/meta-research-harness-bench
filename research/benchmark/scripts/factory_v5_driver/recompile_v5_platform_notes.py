@@ -38,18 +38,24 @@ LIT_NOTE = ("\nPlatform literature tools: literature.search(query, limit) return
 ANCHOR = '"Experiment design choices remain yours within fixed method/assumptions and published resources.")'
 NEW = (ANCHOR[:-1] + ' + (PLATFORM_LIT_NOTE if task["task_type"] == "LIT" else ""))')
 src = Path(ma.__file__).read_text(encoding="utf8")
-if src.count(ANCHOR) != 1:
-    raise SystemExit("material_adapter prompt tail changed unexpectedly; review")
-if r2.PATCH_MODE == "in_process_patch_applied":
-    src = src.replace(r2.OLD, r2.NEW)
-ma.PLATFORM_LIT_NOTE = LIT_NOTE
-exec(compile(src.replace(ANCHOR, NEW), ma.__file__, "exec"), ma.__dict__)
+if getattr(ma, "PLATFORM_LIT_NOTE", None) == LIT_NOTE and src.count(NEW) == 1:
+    LIT_NOTE_MODE = "repo_fixed_e43ca03_no_patch"  # core PATCH 7 committed the same LIT note
+else:
+    if src.count(ANCHOR) != 1:
+        raise SystemExit("material_adapter prompt tail changed unexpectedly; review")
+    if r2.PATCH_MODE == "in_process_patch_applied":
+        src = src.replace(r2.OLD, r2.NEW)
+    ma.PLATFORM_LIT_NOTE = LIT_NOTE
+    exec(compile(src.replace(ANCHOR, NEW), ma.__file__, "exec"), ma.__dict__)
+    LIT_NOTE_MODE = "in_process_patch_applied"
 import mrhbench.factory_runtime as fr  # noqa: E402
 _orig_notes = fr.controller_notes
 
 
 def controller_notes(*a, **k):
     text = _orig_notes(*a, **k)
+    if text.count(NEW_ITEM1) == 1 and OLD_ITEM1 not in text:
+        return text  # core PATCH 7 (e43ca03) already emits the corrected item 1
     if text.count(OLD_ITEM1) != 1:
         raise SystemExit("controller_notes item 1 changed unexpectedly; review")
     return text.replace(OLD_ITEM1, NEW_ITEM1)

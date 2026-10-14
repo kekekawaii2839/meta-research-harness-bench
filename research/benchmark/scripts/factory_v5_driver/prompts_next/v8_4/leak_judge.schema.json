@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "project_id", "verdict", "criteria_hit", "prediction_match", "target_contribution_summary",
+               "evidence", "public_fixes", "reason"],
+  "properties": {
+    "schema_version": {"const": "v8-leak-verdict-1"},
+    "project_id": {"type": "string"},
+    "verdict": {"enum": ["leak", "acceptable", "uncertain"]},
+    "criteria_hit": {"type": "array", "items": {"enum": ["L1", "L2", "L3", "L4"]}},
+    "prediction_match": {"enum": ["none", "topic", "partial", "specific"]},
+    "target_contribution_summary": {"type": "string"},
+    "evidence": {
+      "type": "array",
+      "items": {"type": "object", "additionalProperties": false,
+                "required": ["public_quote", "public_location", "criterion", "paper_basis"],
+                "properties": {"public_quote": {"type": "string", "minLength": 3, "maxLength": 300},
+                               "public_location": {"type": "string"},
+                               "criterion": {"enum": ["L1", "L2", "L3", "L4"]},
+                               "paper_basis": {"type": "string"}}}
+    },
+    "public_fixes": {
+      "type": "array",
+      "items": {"type": "object", "additionalProperties": false, "required": ["public_location", "rewrite_guidance"],
+                "properties": {"public_location": {"type": "string"}, "rewrite_guidance": {"type": "string"}}}
+    },
+    "reason": {"type": "string"}
+  }
+}

@@ -1,0 +1,21 @@
+FACTORY v8 LOCKED PUBLIC FRAME (binding for this LIT/IDEA unit)
+
+The solver-visible task text of this unit was written by a separate framing session that never saw the target paper.
+Its files are already present in output/ (prepopulated by the controller) and are LOCKED:
+{locked_files}
+Rules:
+1. List every locked file in the task's assets with visibility "public" and sha256 CONTROLLER_FILL. Do not edit,
+   rename, move or delete any locked file. The controller compares their bytes after you finish; any change sends the
+   unit back.
+2. Do not add any other public asset. Everything you add is private (assets/private/...): reference/gold material,
+   coverage points, judge rubric, verification plan.
+3. The task's public facts (input_fact_ids) must be exactly the framing facts below, with the same fact_id and the
+   same statement text:
+{public_facts}
+   Any further fact you need for grading is private (allowed_stages [] or referenced only from private plans).
+4. input_contract and output_contract must reference only the locked files and the deliverables named in task.md, and
+   their description/justification/note fields may only describe file roles and formats - no scientific content, no
+   statement about what is withheld or why.
+5. Private grading may only test what task.md and the output contract ask for (rule R3). Coverage expectations for a
+   LIT review belong in the private rubric as guidance for the judge, not as hidden auto-fail checks.
+6. The knowledge cutoff of this task is {cutoff_date}; do not state any other cutoff anywhere.

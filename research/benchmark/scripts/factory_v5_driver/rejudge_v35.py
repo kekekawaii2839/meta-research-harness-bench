@@ -14,16 +14,23 @@ import pilot_v5  # noqa: E402  (platform_patches + judge_v35 applied)
 from mrhbench.io import read_json, write_json  # noqa: E402
 import mrhbench.native_judge as nj  # noqa: E402
 
-PAPERS = Path("D:/mrhbench-local-pilot/factory-v5/papers")
+PAPER_ROOTS = [Path("D:/mrhbench-local-pilot/%s/papers" % r) for r in ("factory-v5", "factory-v6", "factory-v7")]
 
 
 def locate(task_dir):
+    """The unit + release whose compiled task id matches the run (searches factory-v5/v6/v7, any release-*)."""
     pid, unit = task_dir.name.split("__")
-    udir = PAPERS / pid / "units" / unit
     tid = read_json(task_dir / "public/task.json")["task_id"]
-    for rel in ("release-v5", "release-v4", "release-v3", "release-v2", "release"):
-        if (udir / rel / "compiled" / tid).is_dir():
-            return udir, rel
+    for papers in PAPER_ROOTS:
+        udir = papers / pid / "units" / unit
+        if not udir.is_dir():
+            continue
+        # prefer the release the unit state records as current (maintenance repairs keep the opaque task id)
+        cur = (((read_json(udir / "state.json")["stages"].get("compile") or {}).get("artifacts") or {}).get("identity_release") or "").split("/")[0]
+        cands = ([udir / cur] if cur else []) + sorted(udir.glob("release*"), key=lambda r: r.stat().st_mtime, reverse=True)
+        for rdir in cands:
+            if (rdir / "compiled" / tid).is_dir():
+                return udir, rdir.name
     raise SystemExit("no release with task id %s for %s" % (tid, task_dir))
 
 

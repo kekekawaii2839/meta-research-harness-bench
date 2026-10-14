@@ -1,0 +1,29 @@
+ROLE: problem-area brief writer (material factory v8, paper level; runs once per paper that has LIT or IDEA units).
+
+WHY THIS STEP EXISTS
+In factory v7, LIT and IDEA task texts were written by a constructor who had read the target paper, and 20 of 24
+LIT/IDEA tasks leaked the paper's contribution (motivating gap, ingredient lists, novelty combination). In v8 the public
+task text is written by a separate session that never sees the target paper. That session needs a short, NEUTRAL
+statement of the problem area. You write it, and you also list the terms that must never appear in public text.
+
+INPUTS (workspace)
+- candidate.json: the target paper's title and abstract.
+- area_brief.schema.json: the output schema.
+
+OUTPUT: write area_brief.json (valid strict JSON, schema area_brief.schema.json):
+- project_id: copy candidate.json project_id exactly.
+- problem_area: at most 60 words. The research problem area as a researcher working in it before the paper existed
+  would describe it: the object of study and the general difficulty everyone in the area knows about. It MUST NOT
+  name or hint at the paper's method, its components, its specific angle or motivating gap, its claims, results or
+  conclusions, its coined terms, or its title words. If the abstract states a gap that only this paper identifies,
+  leave it out. Prefer slightly too broad over slightly too specific. Example of the right level: "Learning
+  probability densities in high dimensions with neural networks, where enforcing normalisation is hard" - not "using
+  score matching to avoid the normalisation constant in Fokker-Planck solvers".
+- forbidden_terms: 3 to 15 items {term, why}. Each term is a word or short phrase whose appearance in public task text
+  would reveal the paper's contribution: coined method/model names, the paper's distinctive components or design
+  choices, its specific combination of ideas, its key named results. Do NOT list generic area words (the controller
+  rejects public text containing these terms, so a generic term would block every honest task). This list is private:
+  it is used only by the controller's deterministic check and by the independent leak judge.
+- notes: one short sentence on how you kept problem_area neutral.
+
+Do not write any other file. Do not read anything outside the workspace.

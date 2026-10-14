@@ -49,7 +49,7 @@ def word_limits(d, base, task_md=""):
     format/requirements) or a task.md line naming the file states a word/token range or upper limit."""
     out = {}
     entries = []
-    for k in ("files", "required_files"):
+    for k in ("files", "required_files", "deliverables", "deliverable_files"):
         v = d.get(k)
         if isinstance(v, dict):
             entries += [(n, json.dumps(x) if not isinstance(x, str) else x) for n, x in v.items()]
@@ -80,13 +80,23 @@ def entry_texts(desc):
     except Exception:
         return {}
     out = {}
-    for k in ("files", "required_files"):
+    for k in ("files", "required_files", "deliverables", "deliverable_files"):
         v = d.get(k)
         if isinstance(v, dict):
             out.update({n: (x if isinstance(x, str) else json.dumps(x)) for n, x in v.items()})
         elif isinstance(v, list):
             out.update({x["path"]: json.dumps(x) for x in v if isinstance(x, dict) and isinstance(x.get("path"), str)})
     return out
+
+
+def _optional(entry):
+    """v6 deliverables that need not exist: optional/required:false/conditional, or described as 'Only if'/'Optional'."""
+    if not isinstance(entry, dict):
+        return False
+    if entry.get("optional") is True or entry.get("required") is False or entry.get("conditional"):
+        return True
+    desc = str(entry.get("description") or "").strip().lower()
+    return desc.startswith(("only if", "only when", "optional"))
 
 
 def contract_files(desc, task_md=""):
@@ -100,12 +110,12 @@ def contract_files(desc, task_md=""):
         if isinstance(v, str) and v.startswith("/work/"):
             base = v[len("/work/"):].rstrip("/") + "/"
     names = []
-    for k in ("files", "required_files"):
+    for k in ("files", "required_files", "deliverables", "deliverable_files"):
         v = d.get(k)
         if isinstance(v, dict):
             names += list(v)
         elif isinstance(v, list):
-            names += [x.get("path") if isinstance(x, dict) else x for x in v]
+            names += [x.get("path") if isinstance(x, dict) else x for x in v if not _optional(x)]
     files, any_of = [], []
     for n in names:
         if not isinstance(n, str) or not n or n.endswith("/"):
@@ -131,9 +141,12 @@ def contract_files(desc, task_md=""):
 
 def main(units):
     for udir in units:
+        forced = None
+        if "@" in str(udir):  # explicit release: <unit dir>@<release dir name> (maintenance releases release-maintN)
+            udir, forced = str(udir).split("@", 1)
         udir = Path(udir)
         pid = udir.parents[1].name
-        rel_dir = next(r for r in ("release-v7", "release-v6", "release-v5", "release-v4", "release-v3", "release") if (udir / r).exists())
+        rel_dir = forced or next(r for r in ("release-v7", "release-v6", "release-v5", "release-v4", "release-v3", "release") if (udir / r).exists())
         tdir = next((udir / rel_dir / "compiled").glob("task-*/task.json")).parent
         task = json.loads((tdir / "task.json").read_text(encoding="utf8"))
         task_md = "\n".join(p.read_text(encoding="utf8", errors="replace") for p in sorted(tdir.rglob("task.md")))
@@ -166,6 +179,19 @@ def main(units):
         for f, (lo, hi, txt, strip) in words.items():
             spec.append({"id": "words-" + Path(f).stem, "type": "word_count", "severity": "flag", "file": f, "min": lo, "max": hi,
                          "strip_math": strip, "requirement": "task states: " + txt})
+        # v6 contracts: a deliverable entry may name its own schema asset (deliverables[].schema)
+        try:
+            _d = json.JSONDecoder().raw_decode(task["public"]["output_contract"].get("description", "").strip())[0]
+        except Exception:
+            _d = {}
+        _base = next((v[len("/work/"):].rstrip("/") + "/" for k, v in _d.items() if k in ("directory", "location") and isinstance(v, str) and v.startswith("/work/")), "")
+        for e in (_d.get("deliverables") or []) if isinstance(_d.get("deliverables"), list) else []:
+            if isinstance(e, dict) and isinstance(e.get("path"), str) and isinstance(e.get("schema"), str) and e["path"].endswith(".json"):
+                fpath = rel(e["path"], _base)
+                sch = e["schema"] if e["schema"] in public else ("assets/" + e["schema"] if ("assets/" + e["schema"]) in public else None)
+                if sch and fpath not in {c.get("file") for c in spec if c["type"] == "json_schema"}:
+                    spec.append({"id": "schema-" + Path(fpath).stem, "type": "json_schema", "severity": "hard",
+                                 "requirement": "JSON deliverable validates against " + sch, "file": fpath, "schema_asset": sch})
         # a JSON deliverable with a same-stem public schema asset (e.g. manifest.json + manifest.schema.json)
         bound = {c.get("file") for c in spec if c["type"] == "json_schema"}
         for f in jsons:
@@ -206,7 +232,7 @@ def main(units):
                      "pointers": ["content.deliverables.*.path", "content.hypothesis_evidence_map.*.evidence_paths.*",
                                   "content.artifacts.*.path"]})
         out = {"schema_version": "task-checks-1", "unit": udir.name, "author": "auto-generated from the public output_contract (gen_generic_checks.py)",
-               "limits": "generic only: existence (composite keys split), contract/same-stem schemas, identity strings, stated word/token limits (contract or task.md), claimed paths, LIT locator resolvability; no task-specific numeric/content checks",
+               "limits": "generic only: existence (composite keys split; v6 deliverables[]), contract/same-stem schemas, identity strings, stated word/token limits (contract or task.md), claimed paths, LIT locator resolvability; no task-specific numeric/content checks",
                "release": rel_dir, "checks": spec}
         (udir / "checks.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf8")
         print(pid[-10:], udir.name, len(spec), "checks", files[:6])

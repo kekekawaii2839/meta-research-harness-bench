@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "project_id", "problem_area", "forbidden_terms", "notes"],
+  "properties": {
+    "schema_version": {"const": "v8-area-brief-1"},
+    "project_id": {"type": "string", "minLength": 1},
+    "problem_area": {"type": "string", "minLength": 20, "maxLength": 600},
+    "forbidden_terms": {
+      "type": "array", "minItems": 3, "maxItems": 15,
+      "items": {"type": "object", "additionalProperties": false, "required": ["term", "why"],
+                "properties": {"term": {"type": "string", "minLength": 2, "maxLength": 80},
+                               "why": {"type": "string", "minLength": 1}}}
+    },
+    "notes": {"type": "string"}
+  }
+}

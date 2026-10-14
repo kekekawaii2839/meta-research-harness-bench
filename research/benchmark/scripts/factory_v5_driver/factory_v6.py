@@ -95,6 +95,22 @@ class FactoryV6(factory_v5.FactoryV5):
         dates = [d[:10] for d in (arxiv, orv) if d]
         return (min(dates) if dates else None), {"arxiv_v1": arxiv[:10] if arxiv else None, "openreview_public": orv}
 
+    def build_job(self, state):
+        """Fix 2026-10-06: the base job's first_disclosure date came from arXiv v1 only, so a paper without an arXiv
+        match (v1B4aet9ct) got date null although the background stage had fixed the cutoff from the OpenReview public
+        date; its LIT unit was dropped for a PENDING cutoff placeholder. The job now carries the same controller cutoff
+        (earlier of arXiv v1 and OpenReview public date) that the background stage used."""
+        job = super().build_job(state)
+        pdir = self.paper_dir(state["project_id"])
+        fd = job.get("first_disclosure") or {}
+        if (pdir / "sources" / "manifest.json").exists():
+            cutoff, basis = self.background_cutoff(pdir)
+            if cutoff and (not fd.get("date") or cutoff < str(fd["date"])[:10]):
+                job["first_disclosure"] = {"date": cutoff, "verified": False, "basis": basis,
+                                           "reason": "controller cutoff: earlier of arXiv v1 and OpenReview public date "
+                                                     "(same date the background stage used); not proof of earliest disclosure"}
+        return job
+
     def stage_background(self, state):
         """v4 background stage with the corrected cutoff (see background_cutoff)."""
         pdir = self.paper_dir(state["project_id"])

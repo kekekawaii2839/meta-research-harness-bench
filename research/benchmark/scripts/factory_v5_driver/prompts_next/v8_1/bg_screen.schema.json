@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "project_id", "decisions", "notes"],
+  "properties": {
+    "schema_version": {"const": "v8-bg-screen-1"},
+    "project_id": {"type": "string"},
+    "decisions": {
+      "type": "array", "minItems": 1,
+      "items": {"type": "object", "additionalProperties": false, "required": ["group", "keep", "reason"],
+                "properties": {"group": {"type": "string", "pattern": "^bg[0-9]{3}$"},
+                               "keep": {"type": "boolean"},
+                               "reason": {"type": "string", "minLength": 3}}}
+    },
+    "notes": {"type": "string"}
+  }
+}

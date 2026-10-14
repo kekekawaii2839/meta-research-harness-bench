@@ -24,6 +24,10 @@ from mrhbench.factory import DONE  # noqa: E402
 
 import os
 ROOT = Path(os.environ.get("MRH_FACTORY_ROOT", r"D:/mrhbench-local-pilot/factory-v6"))  # factory-v5 units: set MRH_FACTORY_ROOT
+if ROOT.name == "factory-v7":  # v7 units: controller asset materialization before review (prompts come from the v7 root's frozen snapshot)
+    import factory_v7  # noqa: E402,F401
+elif ROOT.name.startswith("factory-v8"):  # v8.x roots (2026-10-13): EXP/WC/WE units use the v7 flow via factory_v8_4 (imports v7)
+    import factory_v8_4  # noqa: E402,F401
 # Sensitivity Verification EXP: the repair round failed only on the structural check because the renamed model files
 # did not exist (constructors cannot copy files); its output holds the mapping, so it is the maintenance seed.
 _OVERRIDE = {"iclr2025-h0vC0fm1q7:EXP": "repair"}
@@ -178,6 +182,38 @@ def cmd_run(target, rebuild=False):
     _compile(f, state, final, record, BATCH)
 
 
+def cmd_resume_adjudication(target):
+    """The latest maintenance batch completed (constructor + reviewer) but its adjudication hit a provider limit: run only
+    that adjudication (1 call), then runtime/compile. The rate-limited adjudication workspace is set aside, not deleted."""
+    pid, unit = target.split(":")
+    f = factory_v6.open_factory(ROOT, max_calls=1)
+    state = f.unit_state(pid, unit)
+    wdir = f.wdir(state)
+    n = max(int(k[5:]) for k in state["stages"] if k.startswith("maint") and k[5:].isdigit())
+    batch, adj = "maint%d" % n, "maint%d_adjudication" % n
+    if state["stages"].get(batch, {}).get("status") != DONE:
+        raise ProtocolError("latest maintenance batch %s is not completed" % batch)
+    if state["stages"].get(adj, {}).get("status") in (DONE, "dropped"):
+        raise ProtocolError("adjudication %s already finished" % adj)
+    if (wdir / adj).exists():
+        f.set_aside(wdir / adj)
+    state["stages"].pop(adj, None)
+    factory_v5.ROUND_OF_BATCH[batch] = 3
+    out = f._review_adjudication(state, adj, batch, 3)
+    print("adjudication:", out["action"], (out.get("drop_reason") or "")[:300])
+    if out["action"] not in ("pass", "pass_partial"):
+        return
+    final = wdir / batch / f.job_id(state) / "constructor" / "output"
+    record = f.runtime.verify_runtime(final, read_json(final / "package.json"), wdir / ("runtime-" + batch), package_slug=f.package_slug(state))
+    print("runtime:", record["status"], record.get("reasons"))
+    if record["status"] != "passed":
+        return
+    _compile(f, state, final, record, batch)
+
+
 if __name__ == "__main__":
+    if sys.argv[1] == "resume-adjudication":
+        cmd_resume_adjudication(sys.argv[2])
+        sys.exit(0)
     {"notes": lambda: cmd_notes(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None),
      "run": lambda: cmd_run(sys.argv[2]), "rebuild": lambda: cmd_run(sys.argv[2], rebuild=True), "materialize": lambda: cmd_materialize(sys.argv[2])}[sys.argv[1]]()

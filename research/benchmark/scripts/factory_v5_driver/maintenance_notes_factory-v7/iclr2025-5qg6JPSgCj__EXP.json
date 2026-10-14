@@ -1,0 +1,11 @@
+{
+ "target": "iclr2025-5qg6JPSgCj:EXP",
+ "source_batch": "repair",
+ "source_adjudication": "repair_adjudication",
+ "accepted_review_findings": [],
+ "controller_notes": [
+  "[controller note, independent re-review 2026-10-06, rule L3] assets/task.md contains the sentence 'Out of scope (do not claim): speed-up or wall-clock superiority, stability of the loss magnitude across dimensions, effects of Monte Carlo set size as a finding'. It names specific findings of the source work. Replace that enumeration with a generic statement, e.g. 'Claims beyond H1-H3 are out of scope; do not report findings about other questions.' Do not list or hint at any other specific finding anywhere in public text (task.md, public facts, contracts and their note/justification fields). Change nothing else; keep H1-H3, data, starter code and resources unchanged."
+ ],
+ "created_at": "2026-10-09T22:28:47.755156+00:00",
+ "note": "written by root: only the controller note applies; the last round's accepted findings were already fixed"
+}

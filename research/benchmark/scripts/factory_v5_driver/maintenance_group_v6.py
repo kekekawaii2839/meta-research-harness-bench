@@ -14,7 +14,9 @@ for t in sys.argv[1:]:
         print("ERROR", t, type(e).__name__, e, flush=True)
     pid, unit = t.split("@")[0].split(":")
     st = factory_v6.open_factory(m.ROOT).unit_state(pid, unit)["stages"]
-    statuses = {k: v["status"] for k, v in st.items() if k.startswith("maint")}
+    rounds = sorted({int(k[5:].split("_")[0]) for k in st if k.startswith("maint") and k[5:].split("_")[0].isdigit()})
+    latest = "maint%d" % rounds[-1] if rounds else None  # only the newest maintenance round decides whether to halt
+    statuses = {k: v["status"] for k, v in st.items() if latest and (k == latest or k.startswith(latest + "_"))}
     print("STATE", t, statuses, "compile:", st.get("compile", {}).get("status"), flush=True)
     if any(v == "platform_rate_limited" for v in statuses.values()):
         print("HALT group: provider rate limit", flush=True)
