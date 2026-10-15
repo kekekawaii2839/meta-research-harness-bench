@@ -26,6 +26,8 @@ from output_checks import run_checks  # noqa: E402
 import factory_library as fl  # noqa: E402
 
 LEDGER = BENCH / "audit/development_call_ledger.json"
+# Judge literature preload cap: every document of the task view, nothing truncated (2026-10-12: dev library v7 has ~50M chars).
+JUDGE_LIT_MAX_CHARS = 80_000_000
 
 
 def _executor(roles, ledger, output, view, binary):
@@ -78,7 +80,7 @@ def run_task(unit_dir, harness, output, roles_path, dry_run=False, release="rele
                                       max_artifact_bytes=collection["max_total_bytes"], max_artifact_files=collection["max_entries"])
     records = sc.evidence_for_run(task, package, output / "public", output / "execution")
     if literature is not None:
-        records.extend(sc.build_literature_judge_evidence(literature, allow_incomplete=True))
+        records.extend(sc.build_literature_judge_evidence(literature, allow_incomplete=True, max_total_chars=JUDGE_LIT_MAX_CHARS))
     import output_checks as _oc
     _oc.LIBRARY_ROOT = read_json(unit_dir / "lit_corpus_configuration.json")["library_root"] if (unit_dir / "lit_corpus_configuration.json").is_file() else None
     checks = run_checks(read_json(unit_dir / "checks.json")["checks"], output / "execution/artifacts", output / "public", image_id=view["resources"]["image_id"])
@@ -128,7 +130,7 @@ def judge_only(unit_dir, output, roles_path, release):
         literature = fl.SharedLibraryService(Path(cfg["library_root"]), cfg["cutoff"], cfg["excluded_papers"], excluded_aliases=cfg["excluded_aliases"])
     records = sc.evidence_for_run(task, package, output / "public", output / "execution")
     if literature is not None:
-        records.extend(sc.build_literature_judge_evidence(literature, allow_incomplete=True))
+        records.extend(sc.build_literature_judge_evidence(literature, allow_incomplete=True, max_total_chars=JUDGE_LIT_MAX_CHARS))
     import output_checks as _oc
     _oc.LIBRARY_ROOT = read_json(unit_dir / "lit_corpus_configuration.json")["library_root"] if (unit_dir / "lit_corpus_configuration.json").is_file() else None
     checks = run_checks(read_json(unit_dir / "checks.json")["checks"], output / "execution/artifacts", output / "public", image_id=view["resources"]["image_id"])

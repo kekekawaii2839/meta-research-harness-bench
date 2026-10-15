@@ -139,6 +139,26 @@ def _fetch_pdf(arx, ver, out):
     return rel, file_hash(dst), url
 
 
+def _pdf_unreadable(path: Path):
+    """Return a reason when the inherited PDF page reader would refuse some page (same limits:
+    1-200 pages, every page non-empty extracted text of at most 50000 characters), else None.
+    A document the judge evidence builder cannot preload completely is skipped at build time,
+    never truncated (zero model calls)."""
+    from pypdf import PdfReader
+    try:
+        reader = PdfReader(path)
+        n = len(reader.pages)
+        if not 1 <= n <= 200:
+            return "PDF page count %d outside reader limits" % n
+        for i, page in enumerate(reader.pages, 1):
+            text = page.extract_text()
+            if not text or len(text) > 50000:
+                return "PDF page %d text extraction empty or over 50000 characters" % i
+    except Exception as exc:  # malformed PDF
+        return "PDF unreadable: %s" % type(exc).__name__
+    return None
+
+
 def _copy_addressed(src: Path, root: Path, suffix: str):
     sha = file_hash(src)
     rel = "files/%s%s" % (sha, suffix)
@@ -221,6 +241,12 @@ def build(factory_roots, out: Path):
                     if pdf is None:
                         if key not in skipped_keys:
                             skipped.append({"from": where, "arxiv": arx, "version": ver, "reason": "no HTML full text and PDF fetch failed"})
+                            skipped_keys.add(key)
+                        continue
+                    bad = _pdf_unreadable(out / pdf[0])
+                    if bad:
+                        if key not in skipped_keys:
+                            skipped.append({"from": where, "arxiv": arx, "version": ver, "reason": "no HTML full text; " + bad})
                             skipped_keys.add(key)
                         continue
                 arel, asha = _copy_addressed(apath, out, ".abs.html")

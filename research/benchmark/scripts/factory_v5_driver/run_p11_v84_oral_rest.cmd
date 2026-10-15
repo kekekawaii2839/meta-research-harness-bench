@@ -1,0 +1,4 @@
+@echo off
+cd /d D:\mrhbench-local-pilot\factory-v5-driver
+D:\mrhbench-local-pilot\controller-venv\Scripts\python.exe -X utf8 -u pilot_v5.py --paper-prefix --units "D:/mrhbench-local-pilot/factory-v8_4/papers/iclr2025-Xo0Q1N7CGk/units/IDEA@release,D:/mrhbench-local-pilot/factory-v8_2/papers/iclr2025-Xo0Q1N7CGk/units/LIT@release,D:/mrhbench-local-pilot/factory-v8_2/papers/iclr2025-GMwRl2e9Y1/units/LIT@release" --harness D:/mrhbench-local-pilot/h0-claude-frozen-v3/harness.py --harness-sha256 619dc7240d7d0437e6f449319adcf710e2c13ffa2220bb45e5f06e343309b181 --roles D:/mrhbench-local-pilot/factory-v5-driver/config/role_transport_sonnet46low_executor.json --out D:/mrhbench-local-pilot/p11-v84-oral-rest-s46low > D:/mrhbench-local-pilot/p11-v84-oral-rest-s46low.log 2>&1
+echo done > D:/mrhbench-local-pilot/p11-v84-oral-rest-s46low.done
